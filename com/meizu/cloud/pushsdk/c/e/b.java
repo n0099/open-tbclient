@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk.c.e;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
-import com.baidu.tbadk.browser.SearchJsBridge;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kuaishou.weapon.p0.u;
@@ -64,7 +63,7 @@ public class b {
     }
 
     private void e() {
-        a(SearchJsBridge.COOKIE_OV, Build.DISPLAY);
+        a("ov", Build.DISPLAY);
     }
 
     private void f() {

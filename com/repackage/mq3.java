@@ -1,16 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
-import com.baidu.swan.game.guide.view.GameGuideViewContainer;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,46 +11,124 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-@Singleton
-@Service
+import java.util.concurrent.Executor;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes6.dex */
-public class mq3 implements rx3 {
+public final class mq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d a;
+    public static final dv9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements GamenowRecommendPopView.e {
+    public static class a implements dv9<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameCloseGuidePopView.e a;
 
-        public a(mq3 mq3Var, GameCloseGuidePopView.e eVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq3Var, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.dv9
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                try {
+                    ((Runnable) pair.first).run();
+                } catch (Throwable unused) {
+                }
+                Thread.currentThread().setName(name);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements hv9<Pair<Runnable, String>, pu9<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.hv9
+        public pu9<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? tu9.g(pair).h(Schedulers.io()).f(mq3.b).l() : (pu9) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends gz9<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(hz9 hz9Var) {
+            super(hz9Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((hz9) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = eVar;
         }
 
-        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
-        public void a() {
-            GameCloseGuidePopView.e eVar;
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.a) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
             }
-            eVar.a();
+        }
+
+        @Override // com.repackage.mq3.c
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, mq3.c(str)));
+            }
         }
     }
 
@@ -74,7 +145,7 @@ public class mq3 implements rx3 {
                 return;
             }
         }
-        boolean z = sg1.a;
+        b = new a();
     }
 
     public mq3() {
@@ -91,64 +162,44 @@ public class mq3 implements rx3 {
         }
     }
 
-    @Override // com.repackage.rx3
-    public View a(Context context, GameCloseGuidePopView.e eVar) {
-        InterceptResult invokeLL;
-        gq3 gq3Var;
-        GameGuideConfigInfo z;
-        GameGuideConfigInfo.CloseInfo closeInfo;
+    public static c b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
-            if (context == null || (gq3Var = gq3.o) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (mq3.class) {
+                    if (a == null) {
+                        a = new d(PublishSubject.D());
+                        a.n().d(new b()).s().t();
+                    }
+                }
             }
-            String I = gq3Var.I();
-            if ((!TextUtils.equals(I, lq3.a) && ce3.F(context, I)) || (z = gq3.o.z()) == null || (closeInfo = z.closeInfo) == null) {
-                return null;
-            }
-            int i = closeInfo.type;
-            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList = closeInfo.gameList;
-            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
-                return null;
-            }
-            if (i == 0 || i == 1) {
-                dr3.n().c("gbBDialogShow");
-            } else if (i == 2) {
-                dr3.n().c("gbADialogShow");
-            }
-            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
-            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
-            return gamenowRecommendPopView;
+            return a;
         }
-        return (View) invokeLL.objValue;
+        return (c) invokeV.objValue;
     }
 
-    @Override // com.repackage.rx3
-    public void b(int i) {
-        gq3 gq3Var;
-        GameGuideViewContainer B;
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (gq3Var = gq3.o) == null || (B = gq3Var.B()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str == null) {
+                str = null;
+            } else if (!str.startsWith("SwanAppExecutorUtils_")) {
+                str = "SwanAppExecutorUtils_" + str;
+            }
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            return str.length() > 256 ? str.substring(0, 255) : str;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
-        layoutParams.rightMargin = i;
-        B.setLayoutParams(layoutParams);
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.rx3
-    public void c() {
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rq3.n().t();
-        }
-    }
-
-    @Override // com.repackage.rx3
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            rq3.n().u();
+        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
+            b().execute(runnable, str);
         }
     }
 }

@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.te;
-import com.repackage.wp4;
+import com.repackage.nq4;
+import com.repackage.tr4;
+import com.repackage.ue;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp4 data;
+    public nq4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -56,17 +56,17 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                wp4 wp4Var = new wp4();
-                this.data = wp4Var;
-                wp4Var.c(jSONObject);
+                nq4 nq4Var = new nq4();
+                this.data = nq4Var;
+                nq4Var.c(jSONObject);
             }
         }
     }
 
-    public wp4 getData() {
+    public nq4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (wp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (nq4) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -97,12 +97,12 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (personListModel = this.mModel) != null) {
                 boolean z = true;
-                if (personListModel.I() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+                if (personListModel.H() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
                     BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);
-                    cr4.f();
-                    te<String> g = cr4.g("tb.my_pages");
+                    tr4.f();
+                    ue<String> g = tr4.g("tb.my_pages");
                     if (g != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
                         g.e(str2 + "_" + this.mModel.getId(), str, 604800000L);

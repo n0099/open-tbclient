@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i17;
-import com.repackage.nn;
+import com.repackage.c37;
+import com.repackage.on;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<nn> mDataList;
+    public List<on> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicThreadMessage() {
@@ -63,9 +63,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
                 this.mDataList = new ArrayList();
                 for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                     if (topicThread != null) {
-                        i17 i17Var = new i17();
-                        i17Var.d(topicThread);
-                        this.mDataList.add(i17Var);
+                        c37 c37Var = new c37();
+                        c37Var.f(topicThread);
+                        this.mDataList.add(c37Var);
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         return invokeIL.objValue;
     }
 
-    public List<nn> getDataList() {
+    public List<on> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataList : (List) invokeV.objValue;

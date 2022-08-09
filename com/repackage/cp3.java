@@ -1,33 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import android.widget.FrameLayout;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.repackage.to3;
+/* loaded from: classes6.dex */
 public interface cp3 {
-    void a(FrameLayout frameLayout);
+    void a(DownloadInfo downloadInfo);
 
-    void d(boolean z);
+    void b(DownloadInfo downloadInfo);
 
-    cp3 e(Context context, @NonNull yn3 yn3Var);
+    void c(DownloadInfo downloadInfo);
 
-    void g(wo3 wo3Var);
+    void d(DownloadInfo downloadInfo);
 
-    int getCurrentPosition();
+    void destroy();
 
-    int getDuration();
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull to3.d<Boolean> dVar);
 
-    void h(yn3 yn3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    DownloadInfo g(String str);
 }

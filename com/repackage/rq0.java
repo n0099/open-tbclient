@@ -1,13 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rq0 extends vq0 {
+public class rq0 extends xq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,14 +25,40 @@ public class rq0 extends vq0 {
         }
     }
 
-    @Override // com.repackage.vq0, com.repackage.tq0, com.repackage.uq0, com.repackage.qq0
-    public void k(@NonNull vr0 vr0Var) {
+    @Override // com.repackage.xq0
+    public boolean C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vr0Var) == null) {
-            super.k(vr0Var);
-            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(vr0Var.c())) {
-                J(q().n1().g() ? 0 : 8);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q().V() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.xq0
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean C = C();
+            if (C && gx0.c(getContext()) == 0) {
+                gx0.d(getContext(), (int) (gx0.b(getContext()) * 0.35d));
             }
+            K(C);
+            boolean z = !C;
+            L(z);
+            O(z);
+        }
+    }
+
+    @Override // com.repackage.xq0
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            L(q().V());
+        }
+    }
+
+    public void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
     }
 }

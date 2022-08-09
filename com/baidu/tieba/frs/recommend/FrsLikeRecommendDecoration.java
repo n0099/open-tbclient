@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FrsLikeRecommendDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class FrsLikeRecommendDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        this.a = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

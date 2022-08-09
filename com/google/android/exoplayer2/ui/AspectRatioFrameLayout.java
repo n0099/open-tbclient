@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AspectRatioFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_ASPECT_RATIO_DEFORMATION_FRACTION = 0.01f;
@@ -28,7 +28,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
     public float videoAspectRatio;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface ResizeMode {
     }
 
@@ -144,7 +144,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
         }
         this.resizeMode = 0;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04053b}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405ba}, 0, 0);
             try {
                 this.resizeMode = obtainStyledAttributes.getInt(0, 0);
             } finally {

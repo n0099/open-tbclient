@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u00;
 import com.repackage.v00;
 import com.repackage.w;
+import com.repackage.w00;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class RTCLoadManager {
     public Context mContext;
     public ExecutorService mLoadServer;
     public LoadStatus mLoadStatus;
-    public v00 mSoCallback;
+    public w00 mSoCallback;
 
     /* loaded from: classes2.dex */
     public interface LoadListener {
@@ -127,7 +127,7 @@ public class RTCLoadManager {
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mLoadStatus = LoadStatus.IDLE;
         this.mCallbackList = new ArrayList();
-        this.mSoCallback = new v00.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new w00.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -150,7 +150,7 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.v00
+            @Override // com.repackage.w00
             public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
@@ -161,7 +161,7 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.repackage.v00.a, com.repackage.v00
+            @Override // com.repackage.w00.a, com.repackage.w00
             public void onDownloadProgress(float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
@@ -169,13 +169,13 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.repackage.v00
+            @Override // com.repackage.w00
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    String str3 = u00.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str3 = v00.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
-                    w.k(this.this$0.mContext).n(u00.k(this.this$0.mContext));
+                    w.k(this.this$0.mContext).n(v00.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
@@ -313,7 +313,7 @@ public class RTCLoadManager {
             Log.d(TAG, "setup so later loading feature cpu type: " + str2);
             w.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
-                w.k(this.mContext).j(u00.j(), true, this.mSoCallback);
+                w.k(this.mContext).j(v00.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);

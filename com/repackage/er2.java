@@ -1,20 +1,117 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class er2 extends cr2 {
+public class er2 extends br2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final er2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-405234706, "Lcom/repackage/er2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-405234706, "Lcom/repackage/er2$b;");
+                    return;
+                }
+            }
+            a = new er2(null);
+        }
+    }
+
+    public /* synthetic */ er2(a aVar) {
+        this();
+    }
+
+    public static er2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (er2) invokeV.objValue;
+    }
+
+    public boolean h(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            JSONObject d = d(pMSAppInfo);
+            if (d == null || d.length() <= 0) {
+                return false;
+            }
+            boolean optBoolean = d.optBoolean("is_opti");
+            if (br2.c) {
+                Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
+            }
+            return optBoolean;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean i(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
+                z = b2.optBoolean(PrefetchEvent.MODULE);
+            } else {
+                JSONObject a2 = a(pMSAppInfo);
+                z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
+            }
+            if (br2.c) {
+                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) ? TextUtils.equals(c(pMSAppInfo), "1") : invokeL.booleanValue;
+    }
+
+    public JSONObject k(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 == null || b2.length() <= 0) {
+                return null;
+            }
+            return b2.optJSONObject("topPages");
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 
     public er2() {
         Interceptable interceptable = $ic;
@@ -28,64 +125,5 @@ public class er2 extends cr2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.repackage.cr2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Set<Integer> set;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (cr2.c) {
-                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            try {
-                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
-                boolean z = pixel == -1 || pixel == -657931;
-                if (!z && (set = this.b) != null) {
-                    Iterator<Integer> it = set.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().intValue() == pixel) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-                if (z) {
-                    for (int i = rect.left + 1; i < rect.right - 1; i++) {
-                        for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
-                            if (pixel != bitmap.getPixel(i, i2)) {
-                                if (sg1.a) {
-                                    Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
-                                }
-                                return false;
-                            }
-                        }
-                    }
-                    if (cr2.c) {
-                        Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
-                    }
-                    return true;
-                }
-                return false;
-            } catch (IllegalArgumentException e) {
-                if (cr2.c) {
-                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

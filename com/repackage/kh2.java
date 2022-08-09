@@ -1,25 +1,79 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class kh2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kh2 extends lh2 {
 
-    public static String a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.startsWith(ImageSource.FILE_SCHEME)) {
-                str = str.substring(8);
-            }
-            i03 M = i03.M();
-            return (!q73.E(str) || M == null) ? str : q73.H(str, M);
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
     }
+
+    void D(int i);
+
+    void E();
+
+    void F(long j);
+
+    void I(int i);
+
+    void J(int i);
+
+    void K(int i);
+
+    void M(boolean z);
+
+    void S();
+
+    void V(int i);
+
+    void Y(int i);
+
+    void Z(@NonNull a aVar);
+
+    void a0();
+
+    void d();
+
+    void d0(boolean z);
+
+    void e(int i);
+
+    void e0(long j, boolean z);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<oh2> h();
+
+    void i(boolean z);
+
+    void i0(String str);
+
+    void j(long j);
+
+    void l0(long j);
+
+    void m0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(nh2 nh2Var);
+
+    ArrayList<mh2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

@@ -83,7 +83,7 @@ public class ji {
                 }
             case 13:
                 je m547a = jfVar.m547a();
-                while (i2 < m547a.f811a) {
+                while (i2 < m547a.f812a) {
                     int i3 = i - 1;
                     a(jfVar, m547a.a, i3);
                     a(jfVar, m547a.b, i3);
@@ -93,7 +93,7 @@ public class ji {
                 return;
             case 14:
                 jj m548a = jfVar.m548a();
-                while (i2 < m548a.f812a) {
+                while (i2 < m548a.f813a) {
                     a(jfVar, m548a.a, i - 1);
                     i2++;
                 }
@@ -101,7 +101,7 @@ public class ji {
                 return;
             case 15:
                 jd m546a = jfVar.m546a();
-                while (i2 < m546a.f810a) {
+                while (i2 < m546a.f811a) {
                     a(jfVar, m546a.a, i - 1);
                     i2++;
                 }

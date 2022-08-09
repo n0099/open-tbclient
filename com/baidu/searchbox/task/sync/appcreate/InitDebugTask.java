@@ -7,17 +7,16 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fs4;
-import com.repackage.gs4;
-import com.repackage.q9;
-import com.repackage.v70;
-import com.repackage.yt4;
+import com.repackage.r9;
+import com.repackage.ru4;
+import com.repackage.ws4;
+import com.repackage.x70;
+import com.repackage.xs4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitDebugTask extends LaunchTask {
@@ -42,16 +41,16 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(gs4.class.getName());
-            arrayList.add(fs4.class.getName());
+            arrayList.add(xs4.class.getName());
+            arrayList.add(ws4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
-            q9.a().c(arrayList);
+            r9.a().c(arrayList);
         }
     }
 
     private void initLeakCanary() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && PermissionUtil.isAgreePrivacyPolicy()) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             String cuid = TbadkCoreApplication.getInst().getCuid();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             String branchNameFromFile = BuildPackageInfo.getBranchNameFromFile(TbadkCoreApplication.getInst());
@@ -59,13 +58,13 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            v70.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            x70.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && yt4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && ru4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.we7;
+import com.repackage.rg7;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes3.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public we7 mLocationData;
+    public rg7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -38,16 +38,16 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public we7 getLocationData() {
+    public rg7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (we7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (rg7) invokeV.objValue;
     }
 
-    public void setLocationData(we7 we7Var) {
+    public void setLocationData(rg7 rg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, we7Var) == null) {
-            this.mLocationData = we7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rg7Var) == null) {
+            this.mLocationData = rg7Var;
         }
     }
 
@@ -62,9 +62,9 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            we7 we7Var = new we7();
-            this.mLocationData = we7Var;
-            we7Var.b(getSuggestionByAddrNameResIdl.data);
+            rg7 rg7Var = new rg7();
+            this.mLocationData = rg7Var;
+            rg7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }

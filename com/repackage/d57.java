@@ -1,305 +1,94 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.data.SystemMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.FilterUEGPersonMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public abstract class d57 {
+import tbclient.Hottopic.RelateForum;
+/* loaded from: classes6.dex */
+public class d57 extends e06 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<on> a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str, List<CommonMsgPojo> list);
-
-        void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        boolean a(String str);
-    }
-
-    public static boolean a(ChatMessage chatMessage, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, chatMessage, i)) == null) {
-            if (chatMessage.getMsgType() == 11) {
-                SystemMsgData n = a97.n(chatMessage);
-                return (n == null || n.getIsSelf()) ? false : true;
-            } else if (i == 4) {
-                return a97.s(chatMessage);
-            } else {
-                return (chatMessage.getUserInfo() == null || chatMessage.getUserInfo().getUserId() == null || !chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755816341, "Lcom/repackage/d57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755816341, "Lcom/repackage/d57;");
+                return;
             }
         }
-        return invokeLI.booleanValue;
+        b = BdUniqueId.gen();
     }
 
-    public static CommonMsgPojo b(List<CommonMsgPojo> list, long j) {
-        InterceptResult invokeLJ;
+    public d57() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j)) == null) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo.getMid() == j) {
-                    return commonMsgPojo;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (CommonMsgPojo) invokeLJ.objValue;
+        this.a = null;
     }
 
-    public static void c(String str) {
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<on> list = this.a;
+            if (list == null || list.size() == 0) {
+                return 0;
+            }
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void parserProtobuf(List<RelateForum> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int optInt = jSONObject.optInt("agree");
-            int optInt2 = jSONObject.optInt("replyme");
-            jSONObject.optInt(FeedData.TYPE_ZAN);
-            int optInt3 = jSONObject.optInt("fans");
-            int optInt4 = jSONObject.optInt("gift");
-            int optInt5 = jSONObject.optInt("godfeed");
-            int optInt6 = jSONObject.optInt("atme");
-            if (jSONObject.optInt(ExternalTransferSpeedStats.FEED_PAGE) > 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2012118));
+        this.showTopDivider = true;
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fae);
+        this.a = new ArrayList();
+        for (RelateForum relateForum : list) {
+            if (!StringUtils.isNull(relateForum.forum_name)) {
+                RelateForumItemData relateForumItemData = new RelateForumItemData();
+                relateForumItemData.parserProtobuf(relateForum);
+                this.a.add(relateForumItemData);
             }
-            if (optInt5 > 0) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016324, Integer.valueOf(optInt5)));
-            }
-            if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                int i = qy4.d().f() > 0 ? optInt4 : 0;
-                if (currentAccount == null || currentAccount.length() <= 0) {
-                    return;
-                }
-                int w = oy4.f0().w();
-                int v = oy4.f0().v();
-                oy4.f0().i0(jSONObject);
-                oy4.f0().T(optInt, optInt2, optInt6, w, optInt3, v, i);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z)}) == null) {
-            e(groupMsgData, imMessageCenterPojo, bVar, cVar, z, null);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:100:0x021b  */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x0216  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void e(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, a aVar) {
-        ImMessageCenterPojo imMessageCenterPojo2;
-        boolean z2;
-        String str;
-        boolean z3;
-        Iterator<ChatMessage> it;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z), aVar}) == null) {
-            a aVar2 = aVar;
-            String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
-            int customType = groupMsgData.getGroupInfo().getCustomType();
-            int userType = groupMsgData.getGroupInfo().getUserType();
-            LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
-            if (listMessage == null || listMessage.size() <= 0) {
-                return;
-            }
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            if (imMessageCenterPojo == null) {
-                imMessageCenterPojo2 = new ImMessageCenterPojo();
-                imMessageCenterPojo2.setCustomGroupType(customType);
-                imMessageCenterPojo2.setGid(valueOf);
-            } else {
-                imMessageCenterPojo2 = imMessageCenterPojo;
-            }
-            imMessageCenterPojo2.setUserType(userType);
-            int unread_count = imMessageCenterPojo2.getUnread_count();
-            long pulled_msgId = imMessageCenterPojo2.getPulled_msgId();
-            long last_rid = imMessageCenterPojo2.getLast_rid();
-            Iterator<ChatMessage> it2 = listMessage.iterator();
-            CommonMsgPojo commonMsgPojo = null;
-            while (it2.hasNext()) {
-                ChatMessage next = it2.next();
-                if (pulled_msgId < next.getMsgId()) {
-                    pulled_msgId = next.getMsgId();
-                }
-                if (aVar2 == null || !aVar2.a(next, imMessageCenterPojo2)) {
-                    next.setLocalData(new MsgLocalData());
-                    it = it2;
-                    next.getLocalData().setStatus((short) 3);
-                    CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(next);
-                    commonMsgPojo2.setCustomGroupType(customType);
-                    j = pulled_msgId;
-                    if (next.getMsgType() == 31) {
-                        CommonMsgPojo b2 = b(linkedList, commonMsgPojo2.getIllegalMsgId());
-                        if (b2 != null) {
-                            linkedList.remove(b2);
-                            if (b2.getRid() > last_rid) {
-                                unread_count--;
-                            }
-                            if (commonMsgPojo != null && commonMsgPojo.getMid() == b2.getMid()) {
-                                if (linkedList.isEmpty()) {
-                                    commonMsgPojo = null;
-                                } else {
-                                    commonMsgPojo2 = (CommonMsgPojo) linkedList.getLast();
-                                    commonMsgPojo = commonMsgPojo2;
-                                }
-                            }
-                        } else {
-                            linkedList2.add(commonMsgPojo2);
-                        }
-                    } else {
-                        if (a(next, customType)) {
-                            commonMsgPojo2.setRead_flag(0);
-                        } else {
-                            if (commonMsgPojo2.getRid() > last_rid) {
-                                unread_count++;
-                            }
-                            commonMsgPojo2.setRead_flag(1);
-                        }
-                        linkedList.add(commonMsgPojo2);
-                        if (commonMsgPojo != null && commonMsgPojo.getRid() >= commonMsgPojo2.getRid()) {
-                        }
-                        commonMsgPojo = commonMsgPojo2;
-                    }
-                } else {
-                    it = it2;
-                    j = pulled_msgId;
-                }
-                aVar2 = aVar;
-                it2 = it;
-                pulled_msgId = j;
-            }
-            if (commonMsgPojo != null) {
-                commonMsgPojo.checkRidAndSelf();
-            }
-            if (cVar != null && cVar.a(valueOf)) {
-                unread_count = 0;
-            }
-            imMessageCenterPojo2.setUnread_count(unread_count);
-            imMessageCenterPojo2.setPulled_msgId(pulled_msgId);
-            if ((customType == 2 || customType == 4) && commonMsgPojo != null && commonMsgPojo.getPrivateOtherUser_infoObj() != null) {
-                String portrait = commonMsgPojo.getPrivateOtherUser_infoObj().getPortrait();
-                String userName = commonMsgPojo.getPrivateOtherUser_infoObj().getUserName();
-                if (!TextUtils.isEmpty(portrait)) {
-                    imMessageCenterPojo2.setGroup_head(portrait);
-                }
-                if (!TextUtils.isEmpty(userName)) {
-                    imMessageCenterPojo2.setGroup_name(userName);
-                }
-                imMessageCenterPojo2.setNameShow(commonMsgPojo.getPrivateOtherUser_infoObj().getName_show());
-                imMessageCenterPojo2.setBjhAvatar(commonMsgPojo.getPrivateOtherUser_infoObj().getImBjhAvatar());
-            }
-            if (commonMsgPojo == null || commonMsgPojo.getRid() < last_rid) {
-                z2 = false;
-            } else {
-                z2 = commonMsgPojo.getRid() > last_rid;
-                UserData user_infoObj = commonMsgPojo.getUser_infoObj();
-                if (user_infoObj != null) {
-                    str = user_infoObj.getName_show();
-                    if (TbadkCoreApplication.isLogin()) {
-                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        if (!TextUtils.isEmpty(currentAccount) && currentAccount.equals(String.valueOf(user_infoObj.getUserId()))) {
-                            z3 = true;
-                            String y = a97.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
-                            imMessageCenterPojo2.setLastContentRawData(commonMsgPojo.getContent());
-                            imMessageCenterPojo2.setLast_rid(commonMsgPojo.getRid());
-                            imMessageCenterPojo2.setSid(commonMsgPojo.getSid());
-                            imMessageCenterPojo2.setLastTaskId(commonMsgPojo.getTaskId());
-                            MessageUtils.makeNewTaskId(imMessageCenterPojo2, linkedList);
-                            imMessageCenterPojo2.setLastServiceId(commonMsgPojo.getServiceId());
-                            MessageUtils.makeNewServiceId(imMessageCenterPojo2, linkedList);
-                            imMessageCenterPojo2.setLast_content(y);
-                            imMessageCenterPojo2.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                            imMessageCenterPojo2.setLast_user_name(str);
-                            imMessageCenterPojo2.setPushIds(commonMsgPojo.getPushIds());
-                            if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                                imMessageCenterPojo2.setIs_hidden(0);
-                            }
-                            imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                            imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                            imMessageCenterPojo2.setSend_status(3);
-                            BdLog.i("send message status 3");
-                        }
-                    }
-                } else {
-                    str = "";
-                }
-                z3 = false;
-                String y2 = a97.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
-                imMessageCenterPojo2.setLastContentRawData(commonMsgPojo.getContent());
-                imMessageCenterPojo2.setLast_rid(commonMsgPojo.getRid());
-                imMessageCenterPojo2.setSid(commonMsgPojo.getSid());
-                imMessageCenterPojo2.setLastTaskId(commonMsgPojo.getTaskId());
-                MessageUtils.makeNewTaskId(imMessageCenterPojo2, linkedList);
-                imMessageCenterPojo2.setLastServiceId(commonMsgPojo.getServiceId());
-                MessageUtils.makeNewServiceId(imMessageCenterPojo2, linkedList);
-                imMessageCenterPojo2.setLast_content(y2);
-                imMessageCenterPojo2.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                imMessageCenterPojo2.setLast_user_name(str);
-                imMessageCenterPojo2.setPushIds(commonMsgPojo.getPushIds());
-                if (imMessageCenterPojo2.getUnread_count() > 0) {
-                    if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                    }
-                    imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                    imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                    imMessageCenterPojo2.setSend_status(3);
-                    BdLog.i("send message status 3");
-                }
-                if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                }
-                imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                imMessageCenterPojo2.setSend_status(3);
-                BdLog.i("send message status 3");
-            }
-            int i = z ? 0 : unread_count > 0 ? 1 : 2;
-            if (bVar != null) {
-                bVar.a(valueOf, linkedList);
-                bVar.b(imMessageCenterPojo2, i, z2);
-            }
-            if (linkedList2.isEmpty()) {
-                return;
-            }
-            MessageManager.getInstance().sendMessageFromBackground(new FilterUEGPersonMessage(linkedList2));
         }
     }
 }

@@ -12,12 +12,12 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: com.ss.android.downloadlib.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0652a implements InvocationHandler {
+    /* loaded from: classes8.dex */
+    public static class C0657a implements InvocationHandler {
         public Object a;
 
         @Override // java.lang.reflect.InvocationHandler
@@ -31,7 +31,7 @@ public class a {
             return method.invoke(this.a, objArr);
         }
 
-        public C0652a(Object obj) {
+        public C0657a(Object obj) {
             this.a = obj;
         }
     }
@@ -60,7 +60,7 @@ public class a {
             if (obj2 == null || (cls = Class.forName("android.app.IActivityManager")) == null) {
                 return;
             }
-            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0652a(obj2)));
+            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0657a(obj2)));
         } catch (Throwable unused) {
         }
     }

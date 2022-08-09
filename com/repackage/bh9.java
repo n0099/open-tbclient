@@ -1,106 +1,77 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeInfo;
-import com.win.opensdk.PBMediaView;
-import com.win.opensdk.PBNative;
-import java.util.ArrayList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bh9 implements FunNativeInfo {
+public class bh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PBNative a;
-    public final Context b;
-    public PBMediaView c;
 
-    public bh9(Context context, PBNative pBNative) {
+    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, pBNative};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
+            int imageMode = tTNativeAd.getImageMode();
+            if (imageMode == 15) {
+                i = R.layout.obfuscated_res_0x7f0d0361;
+            } else if (imageMode != 16) {
+                if (imageMode != 166) {
+                    if (imageMode == 2) {
+                        i = R.layout.obfuscated_res_0x7f0d035f;
+                    } else if (imageMode == 3) {
+                        i = R.layout.obfuscated_res_0x7f0d035d;
+                    } else if (imageMode == 4) {
+                        i = R.layout.obfuscated_res_0x7f0d035c;
+                    } else if (imageMode != 5) {
+                        return null;
+                    }
+                }
+                i = R.layout.obfuscated_res_0x7f0d035e;
+            } else {
+                i = R.layout.obfuscated_res_0x7f0d0360;
+            }
+            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
+            g0Var.a(tTNativeAd);
+            return g0Var;
+        }
+        return (com.fun.module.csj.g0) invokeL.objValue;
+    }
+
+    public static String b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("personal_ads_type", z ? "1" : "0");
+            if (hashMap.isEmpty()) {
+                return "";
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("name", entry.getKey());
+                    jSONObject.put("value", entry.getValue());
+                    jSONArray.put(jSONObject);
+                }
+                return jSONArray.toString();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return "";
             }
         }
-        this.b = context;
-        this.a = pBNative;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this.a.getIM());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String adType = this.a.getAdType();
-            adType.hashCode();
-            if ((adType.equals("h5") || adType.equals("video")) && this.c == null) {
-                this.c = new PBMediaView(this.b.getApplicationContext());
-            }
-            return this.c;
-        }
-        return (View) invokeV.objValue;
+        return (String) invokeZ.objValue;
     }
 }

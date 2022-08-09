@@ -1,148 +1,228 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.dm4;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class cm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static dm4 a;
+    public static cm4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public final ThreadAchievementShareInfo.ParamBean c;
-    public TbRichTextView d;
-    public ng5 e;
-    public TbImageView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
 
-    public cm4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755792409, "Lcom/repackage/cm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755792409, "Lcom/repackage/cm4;");
+                return;
+            }
+        }
+        new ArrayList(5);
+    }
+
+    public cm4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d062c, (ViewGroup) null);
-        this.c = threadAchievementShareInfo.getParams();
-        c();
-        b();
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public static cm4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        dm4 dm4Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            if (b == null) {
+                synchronized (cm4.class) {
+                    if (b == null) {
+                        b = new cm4();
+                        a = dm4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                dm4 dm4Var2 = a;
+                if (dm4Var2 != null) {
+                    dm4Var2.j(baseFragmentActivity.getPageContext());
+                }
+            }
+            if (c && (dm4Var = a) != null) {
+                dm4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
+        }
+        return (cm4) invokeL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.getContent() == null || this.c.getContent().size() == 0) {
-            return;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
         }
-        JSONArray jSONArray = new JSONArray();
-        ThreadAchievementShareInfo.ContentBean contentBean = null;
-        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.c.getContent()) {
-            if (contentBean2.getType() == 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", "0");
-                    jSONObject.put("text", contentBean2.getText());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                jSONArray.put(jSONObject);
-            } else if (contentBean2.getType() == 3) {
-                contentBean = contentBean2;
-            }
-        }
-        if (!TextUtils.isEmpty(this.c.getThread_title())) {
-            this.g.setText(this.c.getThread_title());
-            this.g.setVisibility(0);
-            this.d.setMaxLines(6);
-        } else {
-            ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = pi.f(this.a, R.dimen.tbds20);
-            this.d.setMaxLines(8);
-        }
-        this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.d.setMinimumHeight(pi.f(this.a, R.dimen.tbds516));
-        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains("pic")) {
-            this.f.setVisibility(0);
-            this.f.setDefaultBgResource(R.color.transparent);
-            this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f.setPlaceHolder(2);
-            this.f.J(contentBean.getSrc(), 10, false);
-            if (!TextUtils.isEmpty(this.c.getThread_title())) {
-                this.d.setVisibility(8);
-            } else {
-                this.d.setMaxLines(2);
-                this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-                this.d.setLayoutStrategy(this.e);
-                this.d.setMinimumHeight(pi.f(this.a, R.dimen.tbds0));
-            }
-        }
-        this.d.setText(TbRichTextView.U(jSONArray, false));
-        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-        this.h.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
     }
 
-    public final void c() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.d();
+                c = false;
+            }
+        }
+    }
+
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090658);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09064e);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09194b);
-            this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09194c);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092064);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913b8);
-            this.d = (TbRichTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091af4);
-            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            ng5 ng5Var = new ng5();
-            this.e = ng5Var;
-            ng5Var.s(pi.f(this.a, R.dimen.tbds38));
-            this.e.v(pi.f(this.a, R.dimen.tbds42));
-            this.e.j(pi.f(this.a, R.dimen.tbds23));
-            this.e.o(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-            this.e.i(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-            this.d.setLayoutStrategy(this.e);
-            this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.c();
+                c = false;
+            }
+        }
+    }
+
+    public void e(boolean z, boolean z2, boolean z3, dm4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
+
+    public void f(dm4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                if (dm4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
+
+    public void g(int i, dm4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                if (dm4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void k(dm4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.l(z);
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            dm4 dm4Var = a;
+            if (dm4Var != null) {
+                dm4Var.m();
+                c = true;
+            }
         }
     }
 }

@@ -1,75 +1,90 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class do5 implements lk2 {
+/* loaded from: classes6.dex */
+public class do5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static boolean c;
+    public static long d;
+    public static String e;
+    public static long f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public do5() {
+    public static void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", "a064");
+            if (eo5.b.equals(str)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
             }
-        }
-    }
-
-    @Override // com.repackage.lk2
-    public boolean a(Context context, String str, bc3 bc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bc3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            statisticItem.param("uid", sm5.l().p() == null ? "" : sm5.l().p());
-            statisticItem.param("obj_param1", bc3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, bc3Var.e());
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param(TiebaStatic.Params.SPLASH_UNI, j);
             TiebaStatic.log(statisticItem);
-            if (bc3Var.j() == 10 && bc3Var.h() == 1013) {
-                b(context, bc3Var);
-                return true;
-            }
-            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final void b(Context context, bc3 bc3Var) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bc3Var) == null) {
-            i03 b0 = i03.b0();
-            if (context == null || b0 == null) {
-                return;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
+            if (eo5.b.equals(g)) {
+                a(eo5.c, null, d);
+            } else {
+                a(eo5.b, e, f);
             }
-            String i = n93.i(vl2.U().M(), b0.Y().G());
-            long h = bc3Var.h();
-            String r = bc3Var.r();
-            if (!(1020 == h && !TextUtils.isEmpty(r))) {
-                r = ec4.b().a(h);
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            b = false;
+            a = false;
+            c = false;
+            d = 0L;
+            e = null;
+            f = 0L;
+            g = null;
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            c = true;
+            g = str;
+            b();
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            a = true;
+            d = j;
+            b();
+        }
+    }
+
+    public static void f(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i != 3 || ud5.v()) {
+                b = true;
+                e = ud5.m(i);
+                f = j;
+                b();
             }
-            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + ce3.D() + "/" + i + "/" + bc3Var.a());
-            forbiddenInfo.enableSlidingFlag = -1;
-            cl2.l(context, "type_need_update_sdk", bc3Var, forbiddenInfo, b0.Y().D());
         }
     }
 }

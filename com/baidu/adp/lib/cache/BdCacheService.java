@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie;
+import com.repackage.af;
 import com.repackage.j9;
 import com.repackage.je;
 import com.repackage.ke;
-import com.repackage.me;
+import com.repackage.le;
 import com.repackage.ne;
-import com.repackage.pe;
+import com.repackage.oe;
 import com.repackage.qe;
 import com.repackage.re;
 import com.repackage.se;
 import com.repackage.te;
 import com.repackage.ue;
 import com.repackage.ve;
-import com.repackage.xe;
+import com.repackage.we;
 import com.repackage.ye;
 import com.repackage.ze;
 import java.util.HashMap;
@@ -37,12 +37,12 @@ public class BdCacheService extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public static volatile BdCacheService h;
     public transient /* synthetic */ FieldHolder $fh;
-    public xe a;
+    public ye a;
     public Context b;
     public j9 c;
     public final String d;
-    public HashMap<String, te<String>> e;
-    public HashMap<String, te<byte[]>> f;
+    public HashMap<String, ue<String>> e;
+    public HashMap<String, ue<byte[]>> f;
     public boolean g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -216,120 +216,120 @@ public class BdCacheService extends CustomMessageListener {
         return (BdCacheService) invokeV.objValue;
     }
 
-    public synchronized te<byte[]> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+    public synchronized ue<byte[]> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         InterceptResult invokeLLLI;
-        me b;
-        ke<?> ieVar;
+        ne b;
+        le<?> jeVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
             synchronized (this) {
-                te<byte[]> teVar = this.f.get(str);
-                if (teVar != null) {
-                    return teVar;
+                ue<byte[]> ueVar = this.f.get(str);
+                if (ueVar != null) {
+                    return ueVar;
                 }
                 boolean z = true;
                 if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                    b = ne.a(i, false);
+                    b = oe.a(i, false);
                 } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                    b = ne.a(i, true);
+                    b = oe.a(i, true);
                 } else {
-                    b = ne.b();
+                    b = oe.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    ieVar = new je(e());
+                    jeVar = new ke(e());
                     z = false;
                 } else {
-                    ieVar = new ie(e(), "cache_kv_bshare");
+                    jeVar = new je(e(), "cache_kv_bshare");
                 }
-                ieVar.r(b, g(ieVar, str, "blob", i));
-                return b(str, new re(ieVar, b, z));
+                jeVar.r(b, g(jeVar, str, "blob", i));
+                return b(str, new se(jeVar, b, z));
             }
         }
-        return (te) invokeLLLI.objValue;
+        return (ue) invokeLLLI.objValue;
     }
 
-    public synchronized te<byte[]> b(String str, se<byte[]> seVar) {
+    public synchronized ue<byte[]> b(String str, te<byte[]> teVar) {
         InterceptResult invokeLL;
-        ue veVar;
+        ve weVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, seVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, teVar)) == null) {
             synchronized (this) {
-                te<byte[]> teVar = this.f.get(str);
-                if (teVar != null) {
-                    if (seVar != null && (teVar instanceof te.c) && ((te.c) teVar).c() != seVar) {
-                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + seVar + "]. Make sure to return the old cache before re-use the same namespace.");
+                ue<byte[]> ueVar = this.f.get(str);
+                if (ueVar != null) {
+                    if (teVar != null && (ueVar instanceof ue.c) && ((ue.c) ueVar).c() != teVar) {
+                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + teVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
-                    return teVar;
+                    return ueVar;
                 }
                 if (h()) {
-                    veVar = new ue(str, seVar);
+                    weVar = new ve(str, teVar);
                 } else {
-                    veVar = new ve(str, seVar);
+                    weVar = new we(str, teVar);
                 }
-                this.f.put(str, veVar);
-                veVar.k();
-                return veVar;
+                this.f.put(str, weVar);
+                weVar.k();
+                return weVar;
             }
         }
-        return (te) invokeLL.objValue;
+        return (ue) invokeLL.objValue;
     }
 
-    public synchronized te<String> c(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+    public synchronized ue<String> c(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         InterceptResult invokeLLLI;
-        me b;
-        ke<?> yeVar;
+        ne b;
+        le<?> zeVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
             synchronized (this) {
-                te<String> teVar = this.e.get(str);
-                if (teVar != null) {
-                    return teVar;
+                ue<String> ueVar = this.e.get(str);
+                if (ueVar != null) {
+                    return ueVar;
                 }
                 boolean z = true;
                 if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                    b = ne.a(i, false);
+                    b = oe.a(i, false);
                 } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                    b = ne.a(i, true);
+                    b = oe.a(i, true);
                 } else {
-                    b = ne.b();
+                    b = oe.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    yeVar = new ze(e());
+                    zeVar = new af(e());
                     z = false;
                 } else {
-                    yeVar = new ye(e(), "cache_kv_tshare");
+                    zeVar = new ze(e(), "cache_kv_tshare");
                 }
-                yeVar.r(b, g(yeVar, str, "text", i));
-                return d(str, new re(yeVar, b, z));
+                zeVar.r(b, g(zeVar, str, "text", i));
+                return d(str, new se(zeVar, b, z));
             }
         }
-        return (te) invokeLLLI.objValue;
+        return (ue) invokeLLLI.objValue;
     }
 
-    public synchronized te<String> d(String str, se<String> seVar) {
+    public synchronized ue<String> d(String str, te<String> teVar) {
         InterceptResult invokeLL;
-        ue veVar;
+        ve weVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, seVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, teVar)) == null) {
             synchronized (this) {
-                te<String> teVar = this.e.get(str);
-                if (teVar != null) {
-                    if (seVar != null && (teVar instanceof te.c) && ((te.c) teVar).c() != seVar) {
-                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + seVar + "]. Make sure to return the old cache before re-use the same namespace.");
+                ue<String> ueVar = this.e.get(str);
+                if (ueVar != null) {
+                    if (teVar != null && (ueVar instanceof ue.c) && ((ue.c) ueVar).c() != teVar) {
+                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + teVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
-                    return teVar;
+                    return ueVar;
                 }
                 if (h()) {
-                    veVar = new ue(str, seVar);
+                    weVar = new ve(str, teVar);
                 } else {
-                    veVar = new ve(str, seVar);
+                    weVar = new we(str, teVar);
                 }
-                this.e.put(str, veVar);
-                veVar.k();
-                return veVar;
+                this.e.put(str, weVar);
+                weVar.k();
+                return weVar;
             }
         }
-        return (te) invokeLL.objValue;
+        return (ue) invokeLL.objValue;
     }
 
     public j9 e() {
@@ -337,48 +337,48 @@ public class BdCacheService extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.c == null) {
-                this.c = new j9(new qe(getContext(), this.d));
+                this.c = new j9(new re(getContext(), this.d));
             }
             return this.c;
         }
         return (j9) invokeV.objValue;
     }
 
-    public xe f() {
+    public ye f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.a == null) {
-                this.a = new xe(getContext(), e());
+                this.a = new ye(getContext(), e());
             }
             return this.a;
         }
-        return (xe) invokeV.objValue;
+        return (ye) invokeV.objValue;
     }
 
-    public synchronized String g(ke<?> keVar, String str, String str2, int i) {
+    public synchronized String g(le<?> leVar, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048582, this, keVar, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048582, this, leVar, str, str2, i)) == null) {
             synchronized (this) {
-                int g = keVar.g();
-                xe f = f();
-                pe b = f.b(str);
+                int g = leVar.g();
+                ye f = f();
+                qe b = f.b(str);
                 if (b == null) {
-                    b = new pe();
+                    b = new qe();
                     b.a = str;
                     b.e = g;
                     b.d = str2;
                     b.c = i;
                     b.f = System.currentTimeMillis();
-                    b.b = keVar.l(str);
+                    b.b = leVar.l(str);
                     f.a(b);
                 } else if (str2.equalsIgnoreCase(b.d)) {
                     b.c = i;
                     b.f = System.currentTimeMillis();
                     if (g != b.e) {
-                        keVar.k(str, b.b, g, b.e);
+                        leVar.k(str, b.b, g, b.e);
                     }
                     f.a(b);
                 } else {
@@ -407,10 +407,10 @@ public class BdCacheService extends CustomMessageListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
-    public void j(te<?> teVar) {
+    public void j(ue<?> ueVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, teVar) == null) && (teVar instanceof te.c)) {
-            te.c cVar = (te.c) teVar;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, ueVar) == null) && (ueVar instanceof ue.c)) {
+            ue.c cVar = (ue.c) ueVar;
             synchronized (cVar) {
                 String j = cVar.j();
                 cVar.b();

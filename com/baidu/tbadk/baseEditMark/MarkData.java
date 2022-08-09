@@ -18,13 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.services.vod.VodClient;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -111,7 +110,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!oi.isEmpty(this.mAuthorName)) {
+            if (!pi.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -343,7 +342,7 @@ public class MarkData implements Serializable {
                 this.threadType = optInt;
                 this.mIsPhotoLiveThread = "33".equals(String.valueOf(optInt));
                 int optInt2 = jSONObject.optInt("mark_status");
-                JSONArray optJSONArray = jSONObject.optJSONArray(VodClient.PATH_MEDIA);
+                JSONArray optJSONArray = jSONObject.optJSONArray("media");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     String optString = optJSONArray.getJSONObject(0).optString("type");
                     if (StringHelper.equals(optString, "pic")) {
@@ -367,7 +366,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (oi.isEmpty(this.portrait)) {
+                if (pi.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

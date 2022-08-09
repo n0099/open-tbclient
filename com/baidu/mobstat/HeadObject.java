@@ -228,14 +228,14 @@ public class HeadObject {
                     jSONObject.put("h", this.k);
                     jSONObject.put(Config.DEVICE_NAME, this.v == null ? "" : this.v);
                     jSONObject.put("c", this.l == null ? "" : this.l);
-                    jSONObject.put(Config.OPERATOR, this.m == null ? "" : this.m);
+                    jSONObject.put("op", this.m == null ? "" : this.m);
                     jSONObject.put("m", this.n == null ? "" : this.n);
-                    jSONObject.put(Config.MANUFACTURER, this.o == null ? "" : this.o);
+                    jSONObject.put("ma", this.o == null ? "" : this.o);
                     jSONObject.put(Config.CELL_LOCATION, this.p);
                     jSONObject.put(Config.GPS_LOCATION, this.q == null ? "" : this.q);
                     jSONObject.put("l", this.r == null ? "" : this.r);
                     jSONObject.put("t", System.currentTimeMillis());
-                    jSONObject.put(Config.PACKAGE_NAME, bw.h(1, context));
+                    jSONObject.put("pn", bw.h(1, context));
                     jSONObject.put(Config.ROM, this.w == null ? "" : this.w);
                     jSONObject.put(Config.DEVICE_BOARD, this.x == null ? "" : this.x);
                     jSONObject.put(Config.DEVICE_BRAND, this.y == null ? "" : this.y);

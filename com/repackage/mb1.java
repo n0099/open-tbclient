@@ -1,200 +1,81 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Pattern;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.hd1;
 /* loaded from: classes6.dex */
-public final class mb1 {
+public class mb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i) {
+    @NonNull
+    public static hd1 a(@NonNull qb1 qb1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, qb1Var)) == null) {
+            hd1.b bVar = new hd1.b(qb1Var.e(), qb1Var.g);
+            bVar.t("rsplash");
+            bVar.i(qb1Var.f == 1);
+            bVar.f(b());
+            bVar.m(c());
+            bVar.o(qb1Var.f == 1);
+            bVar.n(d(qb1Var.m));
+            bVar.B(qb1Var.n * 1000);
+            bVar.z(1);
+            bVar.E(SplashStyleRecorder.a());
+            bVar.g(5);
+            bVar.x(false);
+            bVar.c(qb1Var.l);
+            bVar.e(25);
+            bVar.d(13);
+            bVar.A(72);
+            bVar.y(30);
+            bVar.D(68);
+            bVar.C(30);
+            bVar.h(17);
+            bVar.q(qb1Var.z);
+            bVar.w(qb1Var.A == 1);
+            bVar.b(qb1Var.B);
+            bVar.p(qb1Var.d());
+            bVar.r("跳转详情页或第三方应用");
+            bVar.s(qb1Var.g() ? 47 : b() + 39);
+            bVar.j(qb1Var.H);
+            bVar.l(qb1Var.G);
+            bVar.k(qb1Var.I);
+            bVar.v(qb1Var.M);
+            bVar.u(qb1Var.N);
+            return bVar.a();
+        }
+        return (hd1) invokeL.objValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? cb1.a().b() : invokeV.intValue;
+    }
+
+    @IdRes
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? cb1.a().c() : invokeV.intValue;
+    }
+
+    @IdRes
+    public static int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef7);
-                                        case 402:
-                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef4);
-                                        case 403:
-                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef5);
-                                        default:
-                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0efc);
-                                    }
-                                }
-                                return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef6);
-                            }
-                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef8);
-                        }
-                        return fb1.a().getString(R.string.obfuscated_res_0x7f0f0efb);
-                    }
-                    return fb1.a().getString(R.string.obfuscated_res_0x7f0f0efc);
-                }
-                return fb1.a().getString(R.string.obfuscated_res_0x7f0f0ef9);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1) {
+                return cb1.a().h();
             }
-            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0efa);
+            return cb1.a().g();
         }
-        return (String) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> b(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 < 0) {
-                substring = str.substring(indexOf + 1);
-            } else {
-                substring = str.substring(indexOf + 1, indexOf2);
-            }
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (IllegalArgumentException unused) {
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static String[] c(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(uri.getPathSegments());
-            if (!d(uri)) {
-                arrayList.add(0, uri.getHost());
-            }
-            if (arrayList.size() <= 0) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[0]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            String host = uri.getHost();
-            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return TextUtils.equals(ib1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return f(Uri.parse(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static JSONObject h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject i(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeIL.objValue;
-    }
-
-    public static JSONObject j(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject k(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
-            JSONObject i2 = i(i, str);
-            if (jSONObject != null) {
-                try {
-                    i2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return i2;
-        }
-        return (JSONObject) invokeLIL.objValue;
+        return invokeI.intValue;
     }
 }

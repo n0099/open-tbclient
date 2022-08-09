@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cq4;
 import com.repackage.h9;
-import com.repackage.hj5;
-import com.repackage.lp4;
-import com.repackage.pi;
+import com.repackage.qi;
+import com.repackage.uk5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends AppCompatImageView {
@@ -36,7 +36,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public hj5 h;
+    public uk5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -72,7 +72,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             this.a.o();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.a.b > 500) {
-                this.a.s(view2);
+                this.a.r(view2);
             }
             this.a.b = currentTimeMillis;
         }
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var);
+        void a(ArrayList<Integer> arrayList, String str, cq4 cq4Var);
 
-        void b(lp4 lp4Var, CompoundButton compoundButton, boolean z);
+        void b(cq4 cq4Var, CompoundButton compoundButton, boolean z);
 
-        void c(lp4 lp4Var);
+        void c(cq4 cq4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f0808f9;
+        this.f = R.drawable.obfuscated_res_0x7f080915;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -133,7 +133,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void n(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, i2) == null) {
-            int f = pi.f(this.a, R.dimen.tbds24);
+            int f = qi.f(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
@@ -168,7 +168,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new hj5(tbPageContext, this);
+            this.h = new uk5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -182,77 +182,84 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public final void s(View view2) {
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             this.h.B(view2);
         }
     }
 
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h.C(z);
+        }
+    }
+
     public void setACRotateAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     public void setAutoProcess(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.h.u(z);
         }
     }
 
     public void setCWRotateAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
-    public void setData(lp4 lp4Var) {
+    public void setData(cq4 cq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) {
-            this.h.v(lp4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, cq4Var) == null) {
+            this.h.v(cq4Var);
         }
     }
 
     public void setDefaultLayout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             q();
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, strArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, strArr) == null) {
             this.h.w(strArr);
         }
     }
 
     public void setEventCallback(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
             this.h.x(bVar);
         }
     }
 
     public void setFirstRowSingleColumn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.h.y(z);
         }
     }
 
     public void setHeadText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.h.z(str);
         }
     }
 
     public void setLeftPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.c = i;
             setPadding(i, this.e, this.d, 0);
         }
@@ -260,7 +267,7 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public void setRightPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.d = i;
             setPadding(this.c, this.e, i, 0);
         }
@@ -268,7 +275,7 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public void setTopPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.e = i;
             setPadding(this.c, i, this.d, 0);
         }
@@ -276,24 +283,17 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bdUniqueId) == null) {
             this.h.A(bdUniqueId);
         }
     }
 
     public void setWebPResId(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
             this.f = i;
             this.g = i2;
             setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.h.C(z);
         }
     }
 }

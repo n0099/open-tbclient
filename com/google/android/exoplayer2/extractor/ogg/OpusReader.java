@@ -2,7 +2,6 @@ package com.google.android.exoplayer2.extractor.ogg;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ public final class OpusReader extends StreamReader {
             }
         }
         OPUS_CODE = Util.getIntegerCodeForString("Opus");
-        OPUS_SIGNATURE = new byte[]{79, 112, ContentUtil.GZIP_HEAD_1, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
+        OPUS_SIGNATURE = new byte[]{79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
     }
 
     public OpusReader() {

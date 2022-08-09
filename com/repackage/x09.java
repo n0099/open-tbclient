@@ -1,231 +1,205 @@
 package com.repackage;
 
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.net.HttpRetryException;
-import java.net.ProtocolException;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class x09 extends a19 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int i = 16384;
+public class x09 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b19 d;
-    public final long e;
-    public final ByteBuffer f;
-    public final UploadDataProvider g;
-    public long h;
+    public ArrayList<String> a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends UploadDataProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x09 a;
-
-        public b(x09 x09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x09Var;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.e : invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f);
-                    this.a.f.clear();
-                    uploadDataSink.c(false);
-                    this.a.d.quit();
-                    return;
-                }
-                int limit = this.a.f.limit();
-                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
-                byteBuffer.put(this.a.f);
-                this.a.f.limit(limit);
-                uploadDataSink.c(false);
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
-            }
-        }
-
-        public /* synthetic */ b(x09 x09Var, a aVar) {
-            this(x09Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755225264, "Lcom/repackage/x09;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755225264, "Lcom/repackage/x09;");
-        }
-    }
-
-    public x09(y09 y09Var, long j, b19 b19Var) {
+    public x09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y09Var, Long.valueOf(j), b19Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.g = new b(this, null);
-        if (y09Var == null) {
-            throw null;
-        }
-        if (j >= 0) {
-            this.e = j;
-            this.f = ByteBuffer.allocate((int) Math.min(j, i));
-            this.d = b19Var;
-            this.h = 0L;
-            return;
-        }
-        throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
     }
 
-    @Override // com.repackage.a19
-    public void e() throws IOException {
+    public boolean a(EditText editText) {
+        InterceptResult invokeL;
+        Editable text;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h < this.e) {
-            throw new ProtocolException("Content received is less than Content-Length.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
+            if (editText == null || (text = editText.getText()) == null) {
+                return false;
+            }
+            int d = d(text);
+            if (d > 0) {
+                editText.requestFocus();
+                editText.setSelection(d);
+                return true;
+            }
+            editText.setSelection(editText.getSelectionEnd());
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.a19
-    public UploadDataProvider f() {
+    public boolean b(EditText editText, EditText editText2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
+            if (ListUtils.isEmpty(c())) {
+                return false;
+            }
+            return a(editText) || a(editText2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.repackage.a19
-    public void g() throws IOException {
+    public int d(Spanned spanned) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public final void l(int i2) throws ProtocolException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.h + i2 <= this.e) {
-            return;
-        }
-        throw new ProtocolException("expected " + (this.e - this.h) + " bytes but received " + i2);
-    }
-
-    public final void m() throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f.hasRemaining()) {
-            return;
-        }
-        n();
-    }
-
-    public final void n() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c();
-            this.f.flip();
-            this.d.a();
-            a();
-        }
-    }
-
-    public final void o() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == this.e) {
-            n();
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            c();
-            l(1);
-            m();
-            this.f.put((byte) i2);
-            this.h++;
-            o();
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            c();
-            if (bArr.length - i2 >= i3 && i2 >= 0 && i3 >= 0) {
-                l(i3);
-                int i4 = i3;
-                while (i4 > 0) {
-                    m();
-                    int min = Math.min(i4, this.f.remaining());
-                    this.f.put(bArr, (i2 + i3) - i4, min);
-                    i4 -= min;
-                }
-                this.h += i3;
-                o();
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
+            if (spanned == null) {
+                return 0;
             }
-            throw new IndexOutOfBoundsException();
+            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
+            int length = spanned.length();
+            return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? length : spanned.getSpanEnd(backgroundColorSpanArr[0]);
+        }
+        return invokeL.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void f(EditText editText, boolean z) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        ie5.j(text);
+        j(text);
+    }
+
+    public void g(SpanGroupEditText spanGroupEditText) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, spanGroupEditText) == null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        ie5.k(spanGroupEditText);
+    }
+
+    public void h(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
+            i(editText, true);
+            i(editText2, false);
+            b(editText, editText2);
+        }
+    }
+
+    public void i(EditText editText, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) == null) || editText == null) {
+            return;
+        }
+        f(editText, z);
+    }
+
+    public final void j(Spannable spannable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (TextUtils.isEmpty(obj)) {
+            return;
+        }
+        Iterator<String> it = this.a.iterator();
+        while (it.hasNext()) {
+            k(spannable, obj, it.next());
+        }
+    }
+
+    public final void k(Spannable spannable, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        int indexOf = str.indexOf(str2);
+        int length = str2.length();
+        while (indexOf >= 0) {
+            int i = indexOf + length;
+            int color = SkinManager.getColor(R.color.CAM_X0101);
+            int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
+            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
+            spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
+            spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
+            indexOf = str.indexOf(str2, i);
+        }
+    }
+
+    public void l(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
+            h(editText, editText2);
+        }
+    }
+
+    public void m(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -20,21 +20,21 @@ public final class R$dimen {
     public static final int item_touch_helper_max_drag_scroll_per_frame = 2131166037;
     public static final int item_touch_helper_swipe_escape_max_velocity = 2131166038;
     public static final int item_touch_helper_swipe_escape_velocity = 2131166039;
-    public static final int notification_action_icon_size = 2131166683;
-    public static final int notification_action_text_size = 2131166684;
-    public static final int notification_big_circle_margin = 2131166685;
-    public static final int notification_content_margin_start = 2131166686;
-    public static final int notification_large_icon_height = 2131166687;
-    public static final int notification_large_icon_width = 2131166688;
-    public static final int notification_main_column_padding_top = 2131166689;
-    public static final int notification_media_narrow_margin = 2131166690;
-    public static final int notification_right_icon_size = 2131166691;
-    public static final int notification_right_side_padding_top = 2131166692;
-    public static final int notification_small_icon_background_padding = 2131166694;
-    public static final int notification_small_icon_size_as_large = 2131166695;
-    public static final int notification_subtext_size = 2131166696;
-    public static final int notification_top_pad = 2131166697;
-    public static final int notification_top_pad_large_text = 2131166698;
+    public static final int notification_action_icon_size = 2131166684;
+    public static final int notification_action_text_size = 2131166685;
+    public static final int notification_big_circle_margin = 2131166686;
+    public static final int notification_content_margin_start = 2131166687;
+    public static final int notification_large_icon_height = 2131166688;
+    public static final int notification_large_icon_width = 2131166689;
+    public static final int notification_main_column_padding_top = 2131166690;
+    public static final int notification_media_narrow_margin = 2131166691;
+    public static final int notification_right_icon_size = 2131166692;
+    public static final int notification_right_side_padding_top = 2131166694;
+    public static final int notification_small_icon_background_padding = 2131166695;
+    public static final int notification_small_icon_size_as_large = 2131166696;
+    public static final int notification_subtext_size = 2131166697;
+    public static final int notification_top_pad = 2131166698;
+    public static final int notification_top_pad_large_text = 2131166699;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$dimen() {

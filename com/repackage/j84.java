@@ -1,79 +1,35 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class j84 extends g84<d94> {
+public class j84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j84() {
+    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
+        String remove;
+        int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, obj, map) == null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
+            return;
         }
-    }
-
-    @Override // com.repackage.g84
-    public List<d94> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
-            }
-            do {
-                d94 d94Var = new d94();
-                if (b(cursor, d94Var)) {
-                    arrayList.add(d94Var);
-                }
-            } while (cursor.moveToNext());
-            return arrayList;
+        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
+            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
+            postStringRequestBuilder.readTimeout(parseInt);
+            postStringRequestBuilder.writeTimeout(parseInt);
+            postStringRequestBuilder.connectionTimeout(parseInt);
+        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
+            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
+            postByteRequestBuilder.readTimeout(parseInt);
+            postByteRequestBuilder.writeTimeout(parseInt);
+            postByteRequestBuilder.connectionTimeout(parseInt);
         }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g84
-    /* renamed from: f */
-    public ContentValues c(d94 d94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d94Var)) == null) ? a(d94Var) : (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g84
-    /* renamed from: g */
-    public d94 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
-            }
-            d94 d94Var = new d94();
-            if (b(cursor, d94Var)) {
-                return d94Var;
-            }
-            return null;
-        }
-        return (d94) invokeL.objValue;
     }
 }

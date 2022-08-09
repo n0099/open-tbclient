@@ -13,7 +13,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements a {
     public long A;
     public long B;

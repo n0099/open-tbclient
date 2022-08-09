@@ -1,105 +1,136 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v73 extends f23 {
+public class v73 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v73(f13 f13Var) {
-        super(f13Var, "/swanAPI/file/getInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final z73 a;
+        public JSONObject b;
+        public final long c;
+        public final String d;
+
+        public a(@NonNull z73 z73Var, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z73Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z73Var;
+            this.d = str;
+            this.c = z73Var.l();
+            synchronized (v73.c) {
+                if (v73.b) {
+                    v73.c.add(this);
+                }
             }
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
-        String L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755278305, "Lcom/repackage/v73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755278305, "Lcom/repackage/v73;");
+                return;
+            }
+        }
+        a = jh1.a;
+        b = false;
+        c = new ArrayList();
+    }
+
+    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (context != null && callbackHandler != null && i03Var != null && i03Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    ix1.c("fileInfo", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+        if ((interceptable == null || interceptable.invokeL(65539, null, hybridUbcFlow) == null) && "670".equals(hybridUbcFlow.l())) {
+            hybridUbcFlow.D("networkStatus", String.valueOf(ms2.c()));
+            if (xu2.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+                return;
+            }
+            long g2 = g.g();
+            synchronized (c) {
+                if (a) {
+                    Log.d("SwanReqStatisticManager", "size=" + c.size());
                 }
-                String optString = optParamsAsJo.optString("filePath");
-                if (q73.s(optString) == PathType.BD_FILE) {
-                    L = q73.M(optString, i03.g0());
-                } else {
-                    L = q73.s(optString) == PathType.RELATIVE ? q73.L(optString, i03Var, i03Var.k0()) : "";
-                }
-                if (f23.b) {
-                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
-                    Log.d("GetFileInfoAction", "——> handle: filePath " + L);
-                }
-                if (TextUtils.isEmpty(L)) {
-                    ix1.c("fileInfo", "absolute filePath is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                File file = new File(L);
-                String b = ad3.b(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5) ? "MD5" : "SHA-1", file, false);
-                if (TextUtils.isEmpty(b)) {
-                    ix1.c("fileInfo", "hash is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, c13.a(2001)));
-                    if (f23.b) {
-                        Log.d("GetFileInfoAction", "——> handle: file not exist");
+                b = false;
+                JSONArray jSONArray = new JSONArray();
+                for (a aVar : c) {
+                    if (aVar.c <= g2) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", aVar.d);
+                            if (aVar.a != null) {
+                                aVar.a.p(jSONObject);
+                            }
+                            if (aVar.b != null) {
+                                Iterator<String> keys = aVar.b.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject.put(next, aVar.b.get(next));
+                                }
+                            }
+                            jSONArray.put(jSONObject);
+                        } catch (JSONException e) {
+                            if (a) {
+                                Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
+                            }
+                        }
                     }
-                    return false;
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("digest", b);
-                    jSONObject.put("size", file.length());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, c13.a(2003)));
-                    if (f23.b) {
-                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
-                    }
-                    return false;
+                if (jSONArray.length() > 0) {
+                    hybridUbcFlow.D("requests", jSONArray.toString());
                 }
             }
-            ix1.c("fileInfo", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c) {
+                b = true;
+                c.clear();
+            }
+        }
     }
 }

@@ -1,158 +1,574 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.setting.more.MsgRemindActivity;
+import com.baidu.tieba.setting.more.MsgSettingItemView;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class ve8 implements re8 {
+public class ve8 extends b9<MsgRemindActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BaseFragmentActivity a;
-    @NonNull
-    public final ViewGroup b;
-    public int c;
-    public boolean d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public long h;
+    public MsgSettingItemView a;
+    public MsgSettingItemView b;
+    public MsgSettingItemView c;
+    public MsgSettingItemView d;
+    public MsgSettingItemView e;
+    public LinearLayout f;
+    public TextView g;
+    public TextView h;
+    public MsgSettingItemView i;
+    public View j;
+    public NavigationBar k;
+    public View l;
+    public boolean m;
+    public final MsgRemindActivity n;
+    public MsgSettingItemView o;
+    public MsgSettingItemView p;
+    public MsgSettingItemView q;
+    public MsgSettingItemView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public final HttpMessageListener v;
 
-    public ve8(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ve8 ve8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
+                return;
+            }
+            if ((!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) && this.a.n != null) {
+                if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
+                    this.a.n.showToast(httpResponsedMessage.getErrorString());
+                } else {
+                    this.a.n.showToast(R.string.obfuscated_res_0x7f0f1119);
+                }
+            }
+            this.a.O();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements OfficialAccountPushModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve8 a;
+
+        public b(ve8 ve8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve8Var;
+        }
+
+        @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
+        public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i, str) == null) {
+                Iterator<OfficialAccountPushInfo> it = arrayList.iterator();
+                while (true) {
+                    z = false;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    OfficialAccountPushInfo next = it.next();
+                    if (next.uid == 1501754229) {
+                        if (next.is_on == 1) {
+                            z = true;
+                        }
+                    }
+                }
+                if (lz4.d().m() != z) {
+                    this.a.p.setSwitchStateNoCallback(z);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ve8(MsgRemindActivity msgRemindActivity) {
+        super(msgRemindActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, viewGroup, Integer.valueOf(i)};
+            Object[] objArr = {msgRemindActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -1;
-        this.d = true;
-        this.e = 0;
-        this.f = false;
-        this.g = false;
-        this.b = viewGroup;
-        this.c = i;
-        this.h = System.currentTimeMillis();
-        this.a = baseFragmentActivity;
+        this.j = null;
+        this.k = null;
+        this.m = true;
+        this.v = new a(this, CmdConfigHttp.CMD_UPDATE_SIGN_DATA);
+        this.n = msgRemindActivity;
+        msgRemindActivity.setContentView(R.layout.obfuscated_res_0x7f0d058b);
     }
 
-    @Override // com.repackage.re8
-    public boolean a() {
+    public BdSwitchView A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
-    @Override // com.repackage.re8
-    public void b(boolean z) {
+    public void B(MsgRemindActivity msgRemindActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msgRemindActivity) == null) {
+            J(msgRemindActivity);
+            F();
+            H();
+            G();
+            E(msgRemindActivity);
+            m();
         }
     }
 
-    @Override // com.repackage.re8
-    public void c(int i) {
+    public final void C() {
+        MsgSettingItemView msgSettingItemView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.e = i;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (msgSettingItemView = this.o) == null) {
+            return;
+        }
+        msgSettingItemView.setSwitchStateNoCallback(lz4.d().n());
+    }
+
+    public final void D() {
+        MsgSettingItemView msgSettingItemView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (msgSettingItemView = this.r) == null) {
+            return;
+        }
+        msgSettingItemView.setSwitchStateNoCallback(lz4.d().o());
+    }
+
+    public final void E(MsgRemindActivity msgRemindActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, msgRemindActivity) == null) {
+            this.a.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.c.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.q.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.b.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.d.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.e.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f.setOnClickListener(msgRemindActivity);
+            this.i.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.k.getCenterText().setOnClickListener(msgRemindActivity);
+            msgRemindActivity.registerListener(this.v);
         }
     }
 
-    @Override // com.repackage.re8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = true;
-        }
-    }
-
-    @Override // com.repackage.re8
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.re8
-    public void f() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f = true;
+            this.a.setSwitchStateNoCallback(lz4.d().y());
+            this.b.setSwitchStateNoCallback(lz4.d().B());
+            this.c.setSwitchStateNoCallback(lz4.d().t());
+            this.d.setSwitchStateNoCallback(lz4.d().w());
+            this.q.setSwitchStateNoCallback(lz4.d().q());
         }
     }
 
-    @Override // com.repackage.re8
-    public boolean g() {
-        InterceptResult invokeV;
+    public final void G() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (lz4.d().C()) {
+                this.i.g();
+            } else {
+                this.i.e();
+            }
+        }
     }
 
-    @Override // com.repackage.re8
-    @NonNull
-    public BaseFragmentActivity getActivity() {
-        InterceptResult invokeV;
+    public final void H() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (BaseFragmentActivity) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (lz4.d().D()) {
+                this.e.f();
+                this.f.setVisibility(0);
+                O();
+                return;
+            }
+            this.e.d();
+            this.f.setVisibility(8);
+        }
     }
 
-    @Override // com.repackage.re8
-    public int getAdSource() {
-        InterceptResult invokeV;
+    public void J(MsgRemindActivity msgRemindActivity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, msgRemindActivity) == null) {
+            this.j = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09175b);
+            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.k = navigationBar;
+            navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f4d));
+            this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.l = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f090ac3);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ba1);
+            this.a = msgSettingItemView;
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0fdd);
+            MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092689);
+            this.b = msgSettingItemView2;
+            msgSettingItemView2.setVisibility(0);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0089);
+            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0902c5);
+            this.c = msgSettingItemView3;
+            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f0ac5);
+            MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091651);
+            this.d = msgSettingItemView4;
+            msgSettingItemView4.setText(R.string.obfuscated_res_0x7f0f0c40);
+            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091e83);
+            this.e = msgSettingItemView5;
+            msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f1182);
+            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091e81);
+            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091e84);
+            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091e86);
+            MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09169a);
+            this.i = msgSettingItemView6;
+            msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0c58);
+            this.i.setTipText(R.string.obfuscated_res_0x7f0f0c59);
+            this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09234d);
+            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09239e);
+            this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092323);
+            MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09159d);
+            this.q = msgSettingItemView7;
+            msgSettingItemView7.setText(R.string.obfuscated_res_0x7f0f0b44);
+            this.q.setTipText(R.string.obfuscated_res_0x7f0f0b45);
+            MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fca);
+            this.r = msgSettingItemView8;
+            msgSettingItemView8.setText(R.string.obfuscated_res_0x7f0f0f84);
+            this.r.setOnSwitchStateChangeListener(this.n);
+            this.r.setLineVisibility(false);
+            D();
+            MsgSettingItemView msgSettingItemView9 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fc9);
+            this.o = msgSettingItemView9;
+            msgSettingItemView9.setText(R.string.obfuscated_res_0x7f0f0f83);
+            this.o.setOnSwitchStateChangeListener(this.n);
+            this.o.setLineVisibility(false);
+            C();
+            MsgSettingItemView msgSettingItemView10 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fcd);
+            this.p = msgSettingItemView10;
+            msgSettingItemView10.setText(R.string.obfuscated_res_0x7f0f0cd2);
+            this.p.setOnSwitchStateChangeListener(this.n);
+            this.p.setLineVisibility(false);
+            K();
+        }
     }
 
-    @Override // com.repackage.re8
-    @NonNull
-    public ViewGroup getRootView() {
-        InterceptResult invokeV;
+    public final void K() {
+        MsgSettingItemView msgSettingItemView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (msgSettingItemView = this.p) == null) {
+            return;
+        }
+        msgSettingItemView.setSwitchStateNoCallback(lz4.d().m());
+        new OfficialAccountPushModel(new b(this)).A();
     }
 
-    @Override // com.repackage.re8
-    public BdUniqueId getUniqueId() {
-        InterceptResult invokeV;
+    public void L(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.getUniqueId() : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                this.f.setVisibility(0);
+                SkinManager.setBackgroundResource(this.f, R.drawable.more_all);
+                return;
+            }
+            this.f.setVisibility(8);
+        }
     }
 
-    @Override // com.repackage.re8
-    public int h() {
-        InterceptResult invokeV;
+    public void M(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l.setVisibility((this.m && z) ? 0 : 8);
+        }
     }
 
-    @Override // com.repackage.re8
-    public boolean i() {
-        InterceptResult invokeV;
+    public void N() {
+        MsgRemindActivity msgRemindActivity;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? te8.a(this.a.getIntent()) : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (msgRemindActivity = this.n) == null) {
+            return;
+        }
+        oz4.c().j(this.n.getActivity(), (ViewGroup) msgRemindActivity.findViewById(16908290));
     }
 
-    @Override // com.repackage.re8
-    public long j() {
+    public void O() {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (lz4.d().D()) {
+                int j = lz4.d().j();
+                int k = lz4.d().k();
+                if (j > 9) {
+                    str = String.valueOf(j);
+                } else {
+                    str = "0" + j;
+                }
+                if (k > 9) {
+                    str2 = String.valueOf(k);
+                } else {
+                    str2 = "0" + k;
+                }
+                this.g.setText(this.n.getString(R.string.obfuscated_res_0x7f0f1183, new Object[]{str, str2}));
+                this.f.setVisibility(0);
+                if (this.e.b()) {
+                    return;
+                }
+                this.e.g();
+                return;
+            }
+            this.g.setText(R.string.obfuscated_res_0x7f0f03f3);
+            this.f.setVisibility(8);
+            if (this.e.b()) {
+                this.e.e();
+            }
+        }
+    }
+
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.c.setOnSwitchStateChangeListener(null);
+            this.c.setSwitchStateNoCallback(lz4.d().t());
+            this.c.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.d.setOnSwitchStateChangeListener(null);
+            this.d.setSwitchStateNoCallback(lz4.d().w());
+            this.d.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.i.setOnSwitchStateChangeListener(null);
+            this.i.setSwitchStateNoCallback(lz4.d().C());
+            this.i.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.setOnSwitchStateChangeListener(null);
+            this.a.setSwitchStateNoCallback(lz4.d().y());
+            this.a.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.b.setOnSwitchStateChangeListener(null);
+            this.b.setSwitchStateNoCallback(lz4.d().B());
+            this.b.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.q.setOnSwitchStateChangeListener(null);
+            this.q.setSwitchStateNoCallback(lz4.d().q());
+            this.q.setOnSwitchStateChangeListener(this.n);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null || currentAccount.length() <= 0) {
+                this.i.setVisibility(8);
+                this.e.setVisibility(8);
+                this.f.setVisibility(8);
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            l();
+        }
+    }
+
+    public BdSwitchView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.c.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public BdSwitchView o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.o.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+            this.k.onChangeSkinType(this.n.getPageContext(), i);
+            ms4.d(this.s).v(R.color.CAM_X0109);
+            ms4.d(this.t).v(R.color.CAM_X0109);
+            ms4.d(this.u).v(R.color.CAM_X0109);
+            this.a.c(this.n.getPageContext(), i);
+            this.b.c(this.n.getPageContext(), i);
+            this.c.c(this.n.getPageContext(), i);
+            this.d.c(this.n.getPageContext(), i);
+            this.e.c(this.n.getPageContext(), i);
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
+            this.o.c(this.n.getPageContext(), i);
+            this.r.c(this.n.getPageContext(), i);
+            this.p.c(this.n.getPageContext(), i);
+            this.q.c(this.n.getPageContext(), i);
+            this.i.c(this.n.getPageContext(), i);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(null, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091e82), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
+    public BdSwitchView p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.r.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public BdSwitchView q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.q.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public TextView r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.k.getCenterText() : (TextView) invokeV.objValue;
+    }
+
+    public BdSwitchView s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.d.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public BdSwitchView t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.i.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public BdSwitchView u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.p.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public BdSwitchView v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.a.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public View w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    public BdSwitchView x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.e.getSwitchView() : (BdSwitchView) invokeV.objValue;
+    }
+
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? (this.g == null || TextUtils.equals(this.n.getString(R.string.obfuscated_res_0x7f0f03f3), this.g.getText().toString())) ? "" : this.g.getText().toString() : (String) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.j : (View) invokeV.objValue;
     }
 }

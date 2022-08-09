@@ -1,13 +1,16 @@
 package com.repackage;
 
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.network.http.BdHttpCancelException;
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,44 +18,179 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.ConnectException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import javax.net.ssl.SSLException;
-/* loaded from: classes6.dex */
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+/* loaded from: classes7.dex */
 public class of {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean e = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rf a;
-    public nf b;
-    public int c;
+    public sf a;
+    public HttpURLConnection b;
+    public long c;
     public long d;
+    public long e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public int j;
+    public TimerTask k;
+    public TimerTask l;
+    public Timer m;
+
+    /* loaded from: classes7.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ of a;
+
+        public a(of ofVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ofVar;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.b();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ of a;
+
+        public b(of ofVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ofVar;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ng.f(this.a.b);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HttpsURLConnection a;
+
+        public c(of ofVar, HttpsURLConnection httpsURLConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ofVar, httpsURLConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = httpsURLConnection;
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                String requestProperty = this.a.getRequestProperty("Host");
+                if (requestProperty == null) {
+                    requestProperty = this.a.getURL().getHost();
+                }
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify(requestProperty, sSLSession);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964031730, "Lcom/repackage/of;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964031730, "Lcom/repackage/of;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964031730, "Lcom/repackage/of;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964031730, "Lcom/repackage/of;");
-        }
+        System.setProperty("http.keepAlive", "false");
     }
 
-    public of(rf rfVar) {
+    public of(sf sfVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rfVar};
+            Object[] objArr = {sfVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,1377 +200,728 @@ public class of {
                 return;
             }
         }
-        this.c = 0;
+        this.c = 0L;
         this.d = 0L;
-        this.a = rfVar;
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            try {
-                if (this.a == null || i <= 0) {
-                    return;
-                }
-                this.a.b().a("Retry-Count", String.valueOf(i));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-            }
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = false;
+        this.i = true;
+        this.j = 0;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new Timer();
+        if (sfVar != null) {
+            this.a = sfVar;
+            return;
         }
+        throw new NullPointerException("init HttpImpl's args context is null");
     }
 
     public void b() {
-        nf nfVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (nfVar = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c().a = true;
+            ng.f(this.b);
         }
-        nfVar.b();
     }
 
-    public boolean c(String str, vf vfVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        qf qfVar;
-        int i5;
-        int i6;
-        String str2;
-        int i7;
-        qf qfVar2;
-        String str3;
-        StringBuilder sb;
-        StringBuilder sb2;
-        qf qfVar3;
+    public final byte[] c(String str, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, vfVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            String str4 = "responseCode:";
-            int b = i3 <= 0 ? ib.d().b().b() : i3;
-            int b2 = i4 <= 0 ? ib.d().c().b() : i4;
-            nf nfVar = new nf(this.a);
-            this.b = nfVar;
-            nfVar.r(e);
-            int i8 = 0;
-            boolean z3 = false;
-            for (int a = i <= 0 ? ib.d().a() : i; i8 < a; a = i6) {
-                qf qfVar4 = new qf();
-                this.a.c().c = -1;
-                this.b.q(i8);
-                int i9 = i8 + 1;
-                try {
-                    try {
-                        qfVar4.e = i9;
-                        try {
-                            this.c = i8;
-                            a(i8);
-                            str2 = str4;
-                            i7 = i9;
-                            i5 = i8;
-                            i6 = a;
-                        } catch (IllegalStateException e2) {
-                            e = e2;
-                            str2 = str4;
-                            i7 = i9;
-                            qfVar2 = qfVar4;
-                            i5 = i8;
-                            i6 = a;
-                        } catch (ConnectException e3) {
-                            e = e3;
-                            str2 = str4;
-                            i7 = i9;
-                            qfVar2 = qfVar4;
-                            i5 = i8;
-                            i6 = a;
-                        } catch (SocketException e4) {
-                            e = e4;
-                            str2 = str4;
-                            i7 = i9;
-                            qfVar2 = qfVar4;
-                            i5 = i8;
-                            i6 = a;
-                        } catch (SocketTimeoutException e5) {
-                            e = e5;
-                            str2 = str4;
-                            i7 = i9;
-                            qfVar2 = qfVar4;
-                            i5 = i8;
-                            i6 = a;
-                        }
-                    } catch (IllegalStateException e6) {
-                        e = e6;
-                        str3 = str4;
-                        i7 = i9;
-                        qfVar2 = qfVar4;
-                        i5 = i8;
-                        i6 = a;
-                    } catch (ConnectException e7) {
-                        e = e7;
-                        str3 = str4;
-                        i7 = i9;
-                        qfVar2 = qfVar4;
-                        i5 = i8;
-                        i6 = a;
-                    } catch (SocketException e8) {
-                        e = e8;
-                        str3 = str4;
-                        i7 = i9;
-                        qfVar2 = qfVar4;
-                        i5 = i8;
-                        i6 = a;
-                    } catch (SocketTimeoutException e9) {
-                        e = e9;
-                        str3 = str4;
-                        i7 = i9;
-                        qfVar2 = qfVar4;
-                        i5 = i8;
-                        i6 = a;
-                    }
-                } catch (FileNotFoundException e10) {
-                    e = e10;
-                    str2 = str4;
-                    i7 = i9;
-                    qfVar2 = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                } catch (UnknownHostException e11) {
-                    e = e11;
-                    str2 = str4;
-                    i7 = i9;
-                    qfVar = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                } catch (SSLException e12) {
-                    e = e12;
-                    str2 = str4;
-                    i7 = i9;
-                    qfVar = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                } catch (IOException e13) {
-                    e = e13;
-                    str2 = str4;
-                    i7 = i9;
-                    qfVar = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                } catch (Exception e14) {
-                    e = e14;
-                    str2 = str4;
-                    i7 = i9;
-                    qfVar = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                } catch (Throwable th) {
-                    th = th;
-                    qfVar = qfVar4;
-                    i5 = i8;
-                    i6 = a;
-                }
-                try {
-                    z3 = this.b.d(str, vfVar, b, b2, z, qfVar4, z2);
-                    if (!z3 && this.a.c().a) {
-                        this.a.c().c = -14;
-                    }
-                    if (z3 || i5 != i6 - 1) {
-                        qfVar3 = qfVar4;
-                    } else {
-                        StringBuilder sb3 = new StringBuilder();
-                        qfVar3 = qfVar4;
-                        sb3.append(qfVar3.h);
-                        sb3.append("|netAvailable:");
-                        sb3.append(ni.A());
-                        qfVar3.h = sb3.toString();
-                    }
-                    this.a.e(qfVar3);
-                    return z3;
-                } catch (FileNotFoundException e15) {
-                    e = e15;
-                    qfVar2 = qfVar4;
-                    StringBuilder sb4 = new StringBuilder();
-                    str3 = str2;
-                    sb4.append(str3);
-                    sb4.append(String.valueOf(this.a.c().b));
-                    sb4.append("|retryCount:");
-                    sb4.append(i5);
-                    sb4.append("|");
-                    sb4.append(e.getClass().getName());
-                    sb4.append("|");
-                    sb4.append(e.getMessage());
-                    qfVar2.h = sb4.toString();
-                    this.a.c().c = -100;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(qfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(ni.A());
-                        qfVar2.h = sb2.toString();
-                    }
-                    this.a.e(qfVar2);
-                    str4 = str3;
-                    i8 = i7;
-                } catch (IllegalStateException e16) {
-                    e = e16;
-                    qfVar2 = qfVar4;
-                    str3 = str2;
-                    qfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                    this.a.c().c = -19;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(qfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(ni.A());
-                        qfVar2.h = sb2.toString();
-                    }
-                    this.a.e(qfVar2);
-                    str4 = str3;
-                    i8 = i7;
-                } catch (ConnectException e17) {
-                    e = e17;
-                    qfVar2 = qfVar4;
-                    str3 = str2;
-                    qfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -22;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(qfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(ni.A());
-                        qfVar2.h = sb2.toString();
-                    }
-                    this.a.e(qfVar2);
-                    str4 = str3;
-                    i8 = i7;
-                } catch (SocketException e18) {
-                    e = e18;
-                    qfVar2 = qfVar4;
-                    str3 = str2;
-                    qfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -12;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(qfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(ni.A());
-                        qfVar2.h = sb2.toString();
-                    }
-                    this.a.e(qfVar2);
-                    str4 = str3;
-                    i8 = i7;
-                } catch (SocketTimeoutException e19) {
-                    e = e19;
-                    qfVar2 = qfVar4;
-                    str3 = str2;
-                    qfVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -13;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb2 = new StringBuilder();
-                        sb2.append(qfVar2.h);
-                        sb2.append("|netAvailable:");
-                        sb2.append(ni.A());
-                        qfVar2.h = sb2.toString();
-                    }
-                    this.a.e(qfVar2);
-                    str4 = str3;
-                    i8 = i7;
-                } catch (UnknownHostException e20) {
-                    e = e20;
-                    qfVar = qfVar4;
-                    qfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -21;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(qfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(ni.A());
-                        qfVar.h = sb.toString();
-                    }
-                    this.a.e(qfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i8 = i7;
-                } catch (SSLException e21) {
-                    e = e21;
-                    qfVar = qfVar4;
-                    if (this.a.b().e() && i5 < i6 - 1) {
-                        BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
-                    } else {
-                        qfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().c = -20;
-                    }
-                    if (!z3 && i5 == i6 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(qfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(ni.A());
-                        qfVar.h = sb.toString();
-                    }
-                    this.a.e(qfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i8 = i7;
-                } catch (IOException e22) {
-                    e = e22;
-                    qfVar = qfVar4;
-                    qfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().c = -19;
-                    if (!z3 && i5 == i6 - 1) {
-                        sb = new StringBuilder();
-                        sb.append(qfVar.h);
-                        sb.append("|netAvailable:");
-                        sb.append(ni.A());
-                        qfVar.h = sb.toString();
-                    }
-                    this.a.e(qfVar);
-                    str3 = str2;
-                    str4 = str3;
-                    i8 = i7;
-                } catch (Exception e23) {
-                    e = e23;
-                    qfVar = qfVar4;
-                    try {
-                        qfVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().c = -10;
-                        BdLog.e(e.getMessage());
-                        if (!z3 && i5 == i6 - 1) {
-                            sb = new StringBuilder();
-                            sb.append(qfVar.h);
-                            sb.append("|netAvailable:");
-                            sb.append(ni.A());
-                            qfVar.h = sb.toString();
-                        }
-                        this.a.e(qfVar);
-                        str3 = str2;
-                        str4 = str3;
-                        i8 = i7;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (!z3 && i5 == i6 - 1) {
-                            qfVar.h += "|netAvailable:" + ni.A();
-                        }
-                        this.a.e(qfVar);
-                        throw th;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                    qfVar = qfVar4;
-                    if (!z3) {
-                        qfVar.h += "|netAvailable:" + ni.A();
-                    }
-                    this.a.e(qfVar);
-                    throw th;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr)) == null) {
+            if (str != null && str.toLowerCase().contains("gzip")) {
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                li.c(byteArrayInputStream, byteArrayOutputStream);
+                this.g = System.currentTimeMillis();
+                return byteArrayOutputStream.toByteArray();
             }
-            return z3;
+            if (this.g == 0) {
+                this.g = System.currentTimeMillis();
+            }
+            return bArr;
         }
-        return invokeCommon.booleanValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0224, code lost:
-        if (r0 != null) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:130:0x02e8, code lost:
-        if (r0 != null) goto L81;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x0340, code lost:
-        if (r0 != null) goto L81;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x0342, code lost:
-        r22.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x0176, code lost:
-        if (r0 != null) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0178, code lost:
-        r22.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x033e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void d(int i, int i2, int i3) {
-        yf yfVar;
-        qf qfVar;
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r15v1 */
+    public boolean d(String str, wf wfVar, int i, int i2, boolean z, rf rfVar, boolean z2) throws Exception {
+        InterceptResult invokeCommon;
+        FileOutputStream fileOutputStream;
+        String k;
+        URL m;
+        File i3;
+        InputStream inputStream;
+        InputStream inputStream2;
+        boolean z3;
+        URL url;
+        String str2;
+        String headerField;
+        int indexOf;
         int i4;
-        nf nfVar;
-        nf nfVar2;
-        nf nfVar3;
-        nf nfVar4;
-        nf nfVar5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
-            int b = i2 <= 0 ? ib.d().b().b() : i2;
-            int a = i <= 0 ? ib.d().a() : i;
-            int b2 = i3 <= 0 ? ib.d().c().b() : i3;
-            int i5 = ((mf) ServiceManager.getService(mf.a)).qaHttpsTest() ? 0 : ((lf) ServiceManager.getService(lf.a)).isSwitchOn() ? 2 : 0;
-            long currentTimeMillis = System.currentTimeMillis();
-            int i6 = 1;
-            int i7 = 0;
-            boolean z = true;
-            while (!this.a.c().a && z && i7 < a + i5) {
-                qf qfVar2 = new qf();
-                this.a.e(qfVar2);
-                yf yfVar2 = new yf();
-                yfVar2.a = this.a.b().k(i7 < i5);
-                yfVar2.d = i7 < i5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, wfVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), rfVar, Boolean.valueOf(z2)})) == null) {
+            rf rfVar2 = rfVar == null ? new rf() : rfVar;
+            InputStream inputStream3 = null;
+            try {
+                k = this.a.b().k(true);
+                rfVar2.s = k;
+                m = m(k, false, rfVar2, null);
+                this.b = g(m, i2, i);
+            } catch (Throwable th) {
+                th = th;
+            }
+            if (this.a.c().a) {
+                this.f = System.currentTimeMillis();
+                ng.c(null);
+                ng.f(this.b);
+                ng.d(null);
+                return false;
+            }
+            if (z2) {
                 try {
-                    this.c = i7;
-                    qfVar2.e = i7 + 1;
-                    qfVar2.v = i6;
-                    a(i7);
-                    nf nfVar6 = new nf(this.a);
-                    this.b = nfVar6;
-                    nfVar6.q(i7);
-                    this.b.r(e);
-                    i4 = i7;
-                    try {
-                        this.b.k(i7 < i5, i7 < i6, b, b2, qfVar2, yfVar2);
-                    } catch (SocketException e2) {
-                        e = e2;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                    } catch (SocketTimeoutException e3) {
-                        e = e3;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                    } catch (IOException e4) {
-                        e = e4;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                    } catch (Exception e5) {
-                        e = e5;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                    } catch (Throwable th) {
-                        th = th;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                    }
-                } catch (SocketException e6) {
-                    e = e6;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i4 = i7;
-                } catch (SocketTimeoutException e7) {
-                    e = e7;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i4 = i7;
-                } catch (IOException e8) {
-                    e = e8;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i4 = i7;
-                } catch (Exception e9) {
-                    e = e9;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i4 = i7;
+                    ki.k(str);
                 } catch (Throwable th2) {
                     th = th2;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
                 }
-                if (this.a.c().b != 200) {
-                    qfVar = qfVar2;
+            }
+            if (z) {
+                i3 = new File(str);
+            } else {
+                i3 = ki.i(str);
+            }
+            if (i3 != null) {
+                try {
+                    long length = i3.length();
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(i3, true);
                     try {
-                        qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4;
-                        z = l(this.a.c().b);
-                        yfVar = yfVar2;
-                        try {
+                        this.a.b().t(this.b);
+                        this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.b.connect();
+                        if (this.c <= 0) {
                             try {
-                                try {
-                                    yfVar.b = this.a.c().b;
-                                    yfVar.c = "faild";
-                                    if (this.d <= 0 && (nfVar5 = this.b) != null) {
-                                        this.d = nfVar5.i();
-                                    }
-                                    qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.f(qfVar);
-                                    yfVar.a();
-                                } catch (Exception e10) {
-                                    e = e10;
-                                }
+                                this.c = System.currentTimeMillis();
                             } catch (Throwable th3) {
                                 th = th3;
-                                if (this.d <= 0 && (nfVar3 = this.b) != null) {
-                                    this.d = nfVar3.i();
+                                inputStream3 = null;
+                                fileOutputStream = fileOutputStream2;
+                            }
+                        }
+                        this.d = System.currentTimeMillis();
+                        int responseCode = this.b.getResponseCode();
+                        this.e = System.currentTimeMillis();
+                        if (responseCode == 302) {
+                            url = this.b.getURL();
+                            if (url != null) {
+                                rfVar2.r = url.toString();
+                            }
+                            if (url != null) {
+                                i4 = responseCode;
+                                if (!TextUtils.equals(url.getProtocol(), m.getProtocol())) {
+                                    ng.f(this.b);
+                                    this.b = g(new URL(url.toString()), i2, i);
+                                    this.a.b().t(this.b);
+                                    this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.b.connect();
+                                    responseCode = this.b.getResponseCode();
+                                    z3 = true;
                                 }
-                                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.f(qfVar);
-                                yfVar.a();
+                            } else {
+                                i4 = responseCode;
+                            }
+                            responseCode = i4;
+                            z3 = false;
+                        } else {
+                            z3 = false;
+                            url = null;
+                        }
+                        this.a.c().b = responseCode;
+                        String headerField2 = this.b.getHeaderField("Content-Range");
+                        int e = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : og.e(headerField2.substring(indexOf + 1), 0);
+                        if (e == 0 && this.a.c().b == 200 && (headerField = this.b.getHeaderField("Content-Length")) != null) {
+                            e = og.e(headerField, 0);
+                        }
+                        this.a.c().f = String.valueOf(e);
+                        if (!n()) {
+                            str2 = "";
+                            if (responseCode == 302) {
+                                str2 = (z3 ? "isReConn " : "") + "url=" + m + "-newUrl=" + url;
+                            } else if (responseCode == 416) {
+                                if (e > 0 && e == length) {
+                                    this.f = System.currentTimeMillis();
+                                    ng.c(null);
+                                    ng.f(this.b);
+                                    ng.d(fileOutputStream2);
+                                    return false;
+                                }
+                                str2 = "fileLen=" + length + "-contentLen=" + e;
+                            }
+                            throw new UnsupportedOperationException(str2);
+                        } else if (this.b.getContentType() != null && this.b.getContentType().contains("text/vnd.wap.wml")) {
+                            this.b.disconnect();
+                            this.a.c().b = 0;
+                            boolean d = d(str, wfVar, i, i2, z, rfVar2, z2);
+                            this.f = System.currentTimeMillis();
+                            ng.c(null);
+                            ng.f(this.b);
+                            ng.d(fileOutputStream2);
+                            return d;
+                        } else {
+                            rfVar2.a = k.getBytes().length;
+                            long length2 = this.b.getHeaderFields().toString().getBytes().length;
+                            rfVar2.b = length2;
+                            long j = e;
+                            rfVar2.b = length2 + j;
+                            if (e != 0 && length >= j) {
+                                this.f = System.currentTimeMillis();
+                                this.f = System.currentTimeMillis();
+                                ng.c(null);
+                                ng.f(this.b);
+                                ng.d(fileOutputStream2);
+                                return true;
+                            }
+                            inputStream2 = null;
+                            try {
+                                inputStream2 = this.b.getInputStream();
+                                byte[] bArr = new byte[1024];
+                                int i5 = e > 0 ? e / 50 : 0;
+                                if (wfVar != null && length > 0) {
+                                    wfVar.onProgress((int) length, e);
+                                }
+                                int i6 = 0;
+                                loop0: while (true) {
+                                    int i7 = 0;
+                                    while (!this.a.c().a) {
+                                        int read = inputStream2.read(bArr);
+                                        if (read == -1) {
+                                            break loop0;
+                                        }
+                                        try {
+                                            fileOutputStream2.write(bArr, 0, read);
+                                            i6 += read;
+                                            int i8 = i7 + read;
+                                            if (wfVar == null || (i8 <= i5 && i6 != e)) {
+                                                i7 = i8;
+                                                j = j;
+                                            } else {
+                                                long j2 = j;
+                                                wfVar.onProgress((int) (i6 + length), e);
+                                                j = j2;
+                                            }
+                                        } catch (Exception unused) {
+                                            throw new FileNotFoundException();
+                                        }
+                                    }
+                                    break loop0;
+                                }
+                                long j3 = j;
+                                try {
+                                    fileOutputStream2.flush();
+                                    long j4 = i6;
+                                    rfVar2.w = j4;
+                                    rfVar2.x = length;
+                                    rfVar2.y = j3;
+                                    boolean z4 = j4 + length >= j3;
+                                    this.f = System.currentTimeMillis();
+                                    ng.c(inputStream2);
+                                    ng.f(this.b);
+                                    ng.d(fileOutputStream2);
+                                    return z4;
+                                } catch (Exception unused2) {
+                                    throw new FileNotFoundException();
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                inputStream3 = inputStream2;
+                                fileOutputStream = fileOutputStream2;
+                                this.f = System.currentTimeMillis();
+                                ng.c(inputStream3);
+                                ng.f(this.b);
+                                ng.d(fileOutputStream);
                                 throw th;
                             }
-                        } catch (SocketException e11) {
-                            e = e11;
-                            qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                            this.a.c().c = -12;
-                            yfVar.b = -12;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(qfVar);
-                            yfVar.a();
-                            z = true;
-                            i7 = i4 + 1;
-                            i6 = 1;
-                        } catch (SocketTimeoutException e12) {
-                            e = e12;
-                            qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                            this.a.c().c = -13;
-                            yfVar.b = -13;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(qfVar);
-                            yfVar.a();
-                            z = true;
-                            i7 = i4 + 1;
-                            i6 = 1;
-                        } catch (IOException e13) {
-                            e = e13;
-                            this.a.c().c = -19;
-                            qfVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                            yfVar.b = -19;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                this.d = nfVar.i();
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.f(qfVar);
-                            yfVar.a();
-                            i7 = i4 + 1;
-                            i6 = 1;
                         }
-                    } catch (SocketException e14) {
-                        e = e14;
-                        yfVar = yfVar2;
-                    } catch (SocketTimeoutException e15) {
-                        e = e15;
-                        yfVar = yfVar2;
-                    } catch (IOException e16) {
-                        e = e16;
-                        yfVar = yfVar2;
-                    } catch (Exception e17) {
-                        e = e17;
-                        yfVar = yfVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        yfVar = yfVar2;
-                        if (this.d <= 0) {
-                            this.d = nfVar3.i();
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(qfVar);
-                        yfVar.a();
-                        throw th;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        inputStream2 = null;
                     }
-                    i7 = i4 + 1;
-                    i6 = 1;
-                } else {
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    this.a.f(qfVar);
-                    try {
-                        yfVar.b = 0;
-                        yfVar.c = "ok";
-                        if (this.d <= 0) {
-                            nfVar4 = this.b;
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(qfVar);
-                        yfVar.a();
-                        return;
-                    } catch (SocketException e18) {
-                        e = e18;
-                        qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.a.c().c = -12;
-                        yfVar.b = -12;
-                        yfVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                            nfVar2 = this.b;
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(qfVar);
-                        yfVar.a();
-                        z = true;
-                        i7 = i4 + 1;
-                        i6 = 1;
-                    } catch (SocketTimeoutException e19) {
-                        e = e19;
-                        qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.a.c().c = -13;
-                        yfVar.b = -13;
-                        yfVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                            nfVar2 = this.b;
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(qfVar);
-                        yfVar.a();
-                        z = true;
-                        i7 = i4 + 1;
-                        i6 = 1;
-                    } catch (IOException e20) {
-                        e = e20;
-                        this.a.c().c = -19;
-                        qfVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                        yfVar.b = -19;
-                        yfVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0 && (nfVar = this.b) != null) {
-                            this.d = nfVar.i();
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(qfVar);
-                        yfVar.a();
-                        i7 = i4 + 1;
-                        i6 = 1;
-                    }
+                } catch (Throwable th6) {
+                    th = th6;
+                    inputStream = null;
                 }
-                e = e10;
-                qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                this.a.c().c = -10;
-                BdLog.e(e.getMessage());
-                yfVar.b = -10;
-                yfVar.c = Log.getStackTraceString(e);
-                if (this.d <= 0) {
-                    nfVar4 = this.b;
+            } else {
+                inputStream = null;
+                try {
+                    throw new FileNotFoundException();
+                } catch (Throwable th7) {
+                    th = th7;
                 }
-                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                this.a.f(qfVar);
-                yfVar.a();
-                return;
             }
+            inputStream3 = inputStream;
+            fileOutputStream = inputStream3;
+            this.f = System.currentTimeMillis();
+            ng.c(inputStream3);
+            ng.f(this.b);
+            ng.d(fileOutputStream);
+            throw th;
         }
+        return invokeCommon.booleanValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            nf nfVar = this.b;
-            if (nfVar == null) {
-                return -1L;
-            }
-            return nfVar.e();
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.longValue;
     }
 
-    public long f() {
-        InterceptResult invokeV;
+    public final HttpURLConnection f(URL url) {
+        InterceptResult invokeL;
+        String c2;
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            nf nfVar = this.b;
-            if (nfVar == null) {
-                return -1L;
-            }
-            return nfVar.h();
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, url)) != null) {
+            return (HttpURLConnection) invokeL.objValue;
         }
-        return invokeV.longValue;
+        HttpsURLConnection httpsURLConnection = null;
+        try {
+            if (oi.z()) {
+                if (oi.x() && (c2 = oi.c()) != null && c2.length() > 0) {
+                    if (oi.F(c2) && oi.D()) {
+                        StringBuilder sb = new StringBuilder(80);
+                        sb.append("http://");
+                        sb.append(c2);
+                        String file = url.getFile();
+                        if (file != null && file.startsWith("?")) {
+                            sb.append("/");
+                        }
+                        sb.append(file);
+                        httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                        try {
+                            this.a.b().a("X-Online-Host", url.getHost());
+                        } catch (Exception e) {
+                            e = e;
+                            httpsURLConnection = httpURLConnection;
+                            e.printStackTrace();
+                            return httpsURLConnection;
+                        }
+                    } else {
+                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, oi.d())));
+                    }
+                    httpsURLConnection = httpURLConnection;
+                }
+                if (httpsURLConnection == null) {
+                    httpsURLConnection = (HttpURLConnection) url.openConnection();
+                }
+                if (this.h && url.getProtocol().equals("https")) {
+                    HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
+                    httpsURLConnection2.setSSLSocketFactory(new xf(httpsURLConnection2));
+                    httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
+                    return httpsURLConnection2;
+                }
+                return httpsURLConnection;
+            }
+            return null;
+        } catch (Exception e2) {
+            e = e2;
+        }
     }
 
-    public long g() {
-        InterceptResult invokeV;
+    public final HttpURLConnection g(URL url, int i, int i2) throws SocketException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = this.d;
-            if (j > 0) {
-                return j;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, url, i, i2)) == null) {
+            HttpURLConnection f = f(url);
+            if (f != null) {
+                f.setConnectTimeout(i);
+                f.setReadTimeout(i2);
+                return f;
             }
-            nf nfVar = this.b;
-            if (nfVar == null) {
-                return -1L;
-            }
-            return nfVar.i();
+            throw new SocketException();
         }
-        return invokeV.longValue;
+        return (HttpURLConnection) invokeLII.objValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            nf nfVar = this.b;
-            if (nfVar == null) {
-                return -1L;
-            }
-            return nfVar.l();
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.longValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            nf nfVar = this.b;
-            if (nfVar == null) {
-                return -1L;
-            }
-            return nfVar.j();
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.longValue;
     }
 
-    public int j() {
+    public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.longValue;
     }
 
-    public boolean k() {
+    public void k(boolean z, boolean z2, int i, int i2, rf rfVar, zf zfVar) throws Exception {
+        IHttpNet yfVar;
+        URL d;
+        Map<String, List<String>> map;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), rfVar, zfVar}) == null) {
+            rfVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                if (!this.a.c().a) {
+                    String f = this.a.b().f(z, rfVar);
+                    rfVar.s = f;
+                    URL m = m(f, z2, rfVar, zfVar);
+                    if (!this.a.c().a) {
+                        rfVar.j = -2;
+                        if (((nf) ServiceManager.getService(nf.a)).netABTest()) {
+                            yfVar = new qf(this.a, IHttpNet.HttpNetType.GET);
+                        } else {
+                            yfVar = new yf(this.a, IHttpNet.HttpNetType.GET);
+                        }
+                        IHttpNet iHttpNet2 = yfVar;
+                        iHttpNet2.e(m);
+                        iHttpNet2.g(m, this.h);
+                        rfVar.j = -3;
+                        long currentTimeMillis = System.currentTimeMillis();
+                        iHttpNet2.a(m, i2, i);
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            rfVar.g = new Date().getTime() - currentTimeMillis;
+                            rfVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
+                            }
+                            this.d = System.currentTimeMillis();
+                            rfVar.j = -5;
+                            rfVar.c = (new Date().getTime() - currentTimeMillis) - rfVar.g;
+                            if (!this.a.c().a) {
+                                byte[] execute = iHttpNet2.execute();
+                                this.a.c().a(iHttpNet2);
+                                if (this.a.b().m() && this.m != null && this.j >= 0 && this.j < 3) {
+                                    this.m.schedule(this.l, (this.j + 1) * 3000);
+                                }
+                                this.e = System.currentTimeMillis();
+                                iHttpNet2.h();
+                                rfVar.j = -8;
+                                if (f.contains("tiebac.baidu.com") && (map = this.a.c().h) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                    rfVar.t = list.get(0);
+                                    rfVar.u = list.get(1);
+                                }
+                                if (this.a.c().b == 302 && (d = iHttpNet2.d()) != null) {
+                                    rfVar.r = d.toString();
+                                }
+                                rfVar.i = this.a.c().b;
+                                rfVar.b = iHttpNet2.b().toString().getBytes().length;
+                                if (this.m != null) {
+                                    this.m.cancel();
+                                }
+                                if (execute != null) {
+                                    rfVar.b += execute.length;
+                                    this.a.c().i = c(this.a.c().d, execute);
+                                }
+                                rfVar.j = -9;
+                                rfVar.d = new Date().getTime() - currentTimeMillis;
+                                Timer timer = this.m;
+                                if (timer != null) {
+                                    timer.cancel();
+                                }
+                                iHttpNet2.disconnect();
+                                return;
+                            }
+                            throw new BdHttpCancelException();
+                        }
+                        throw new BdHttpCancelException();
+                    }
+                    throw new BdHttpCancelException();
+                }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                Timer timer2 = this.m;
+                if (timer2 != null) {
+                    timer2.cancel();
+                }
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
+            }
+        }
+    }
+
+    public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            rf rfVar = this.a;
-            if (rfVar == null) {
-                return false;
-            }
-            return rfVar.c().a;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : invokeV.longValue;
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? (i == 502 || i == 503 || i == 504 || i == 404) ? false : true : invokeI.booleanValue;
-    }
-
-    public void m(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
-            if (this.a.b().l()) {
-                o(i, i2, i3);
-            } else {
-                n(i, i2, i3);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void n(int i, int i2, int i3) {
-        int i4;
-        yf yfVar;
-        qf qfVar;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        nf nfVar;
-        nf nfVar2;
-        boolean z;
-        nf nfVar3;
-        nf nfVar4;
+    public final URL m(String str, boolean z, rf rfVar, zf zfVar) throws Exception {
+        InterceptResult invokeCommon;
+        boolean z2;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
-            int b = i2 <= 0 ? ib.d().b().b() : i2;
-            int a = i <= 0 ? ib.d().a() : i;
-            int b2 = i3 <= 0 ? ib.d().c().b() : i3;
-            int i9 = ((mf) ServiceManager.getService(mf.a)).qaHttpsTest() ? 0 : ((lf) ServiceManager.getService(lf.a)).isSwitchOn() ? 2 : 0;
-            long currentTimeMillis = System.currentTimeMillis();
-            int i10 = 1;
-            boolean z2 = true;
-            int i11 = 0;
-            while (!this.a.c().a && z2 && i11 < a + i9) {
-                qf qfVar2 = new qf();
-                yf yfVar2 = new yf();
-                yfVar2.a = this.a.b().k(i11 < i9);
-                yfVar2.d = i11 < i9;
-                this.c = i11;
-                int i12 = i11 + 1;
-                qfVar2.e = i12;
-                a(i11);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), rfVar, zfVar})) == null) {
+            String str3 = "hiphotos.baidu.com";
+            boolean netABTest = ((nf) ServiceManager.getService(nf.a)).netABTest();
+            URL url = new URL(str);
+            if (netABTest && url.getProtocol().equals("https")) {
+                return url;
+            }
+            if (!TextUtils.isEmpty(str) && this.i) {
                 try {
-                    try {
-                        try {
-                            nf nfVar5 = new nf(this.a);
-                            this.b = nfVar5;
-                            nfVar5.q(i11);
-                            this.b.r(e);
-                            i4 = i12;
-                            i7 = i11;
-                            try {
-                                this.b.p(i11 < i9, i11 < i10, b, b2, qfVar2, yfVar2);
-                            } catch (UnsupportedOperationException e2) {
-                                e = e2;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (SocketException e3) {
-                                e = e3;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (SocketTimeoutException e4) {
-                                e = e4;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (Throwable th) {
-                                th = th;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            }
-                        } catch (UnsupportedOperationException e5) {
-                            e = e5;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
-                            i7 = i11;
-                        } catch (SocketException e6) {
-                            e = e6;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
-                        } catch (SocketTimeoutException e7) {
-                            e = e7;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
+                    String host = url.getHost();
+                    if (!TextUtils.isEmpty(host)) {
+                        if (!host.contains("hiphotos.baidu.com")) {
+                            str3 = host;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        i4 = i12;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                        i7 = i11;
-                    }
-                } catch (UnsupportedOperationException e8) {
-                    e = e8;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i7 = i11;
-                    i8 = R.string.obfuscated_res_0x7f0f0c17;
-                } catch (SocketException e9) {
-                    e = e9;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i6 = R.string.obfuscated_res_0x7f0f0c17;
-                } catch (SocketTimeoutException e10) {
-                    e = e10;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i5 = R.string.obfuscated_res_0x7f0f0c17;
-                }
-                if (this.a.c().b != 200) {
-                    qfVar = qfVar2;
-                    try {
-                        qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i7;
-                        z2 = l(this.a.c().b);
-                        this.a.e(qfVar);
-                        yfVar = yfVar2;
-                        try {
-                            try {
-                                yfVar.b = this.a.c().b;
-                                yfVar.c = "faild";
-                                if (this.d <= 0 && (nfVar4 = this.b) != null) {
-                                    this.d = nfVar4.i();
-                                }
-                                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(qfVar);
-                                yfVar.a();
-                            } catch (UnsupportedOperationException e11) {
-                                e = e11;
-                                i8 = R.string.obfuscated_res_0x7f0f0c17;
-                                z = i7 >= i9;
-                                this.a.c().c = -14;
-                                tf c = this.a.c();
-                                c.g = e.getMessage() + Log.getStackTraceString(e);
-                                qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i8);
-                                this.a.e(qfVar);
-                                yfVar.b = -14;
-                                yfVar.c = Log.getStackTraceString(e);
-                                if (this.d <= 0) {
-                                    nfVar3 = this.b;
-                                }
-                                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(qfVar);
-                                yfVar.a();
-                                z2 = z;
-                                i11 = i4;
-                                i10 = 1;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                try {
-                                    this.a.c().c = -10;
-                                    tf c2 = this.a.c();
-                                    c2.g = th.getMessage() + Log.getStackTraceString(th);
-                                    z = i7 >= i9;
-                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
-                                    BdLog.e(th.getMessage());
-                                    this.a.e(qfVar);
-                                    yfVar.b = -10;
-                                    yfVar.c = Log.getStackTraceString(th);
-                                    if (this.d <= 0) {
-                                        nfVar3 = this.b;
+                        BDHttpDnsResult r = BDHttpDns.h(BdBaseApplication.getInst().getApplicationContext()).r(str3, true);
+                        if (r != null) {
+                            rfVar.m = r.d();
+                            rfVar.o = r.c();
+                            ArrayList<String> b2 = r.b();
+                            if (((mf) ServiceManager.getService(mf.a)).isIpv6() && z && b2 != null && b2.size() != 0) {
+                                z2 = true;
+                                if (b2 != null && b2.size() > 0) {
+                                    rfVar.p = b2.toString();
+                                    int size = this.j % b2.size();
+                                    str2 = b2.get(size);
+                                    if (!TextUtils.isEmpty(str2)) {
+                                        if (z2) {
+                                            str2 = PreferencesUtil.LEFT_MOUNT + str2 + PreferencesUtil.RIGHT_MOUNT;
+                                            if (zfVar != null) {
+                                                zfVar.e = true;
+                                            }
+                                        }
+                                        if (!str2.startsWith("10.") || !url.getProtocol().equals("https")) {
+                                            this.a.b().a("Host", str3);
+                                            URL url2 = new URL(str.replaceFirst("://(.*)" + str3, "://" + str2));
+                                            try {
+                                                this.h = true;
+                                                rfVar.q = size;
+                                                rfVar.l = str2;
+                                                rfVar.n = true;
+                                                return url2;
+                                            } catch (Exception e) {
+                                                e = e;
+                                                url = url2;
+                                                BdLog.e(e);
+                                                return url;
+                                            }
+                                        }
                                     }
-                                    qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(qfVar);
-                                    yfVar.a();
-                                    z2 = z;
-                                    i11 = i4;
-                                    i10 = 1;
-                                } finally {
-                                    if (this.d <= 0 && (nfVar2 = this.b) != null) {
-                                        this.d = nfVar2.i();
-                                    }
-                                    qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(qfVar);
-                                    yfVar.a();
                                 }
                             }
-                        } catch (SocketException e12) {
-                            e = e12;
-                            i6 = R.string.obfuscated_res_0x7f0f0c17;
-                            this.a.c().c = -12;
-                            tf c3 = this.a.c();
-                            c3.g = e.getMessage() + Log.getStackTraceString(e);
-                            qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i6);
-                            BdLog.e(e.getMessage());
-                            this.a.e(qfVar);
-                            yfVar.b = -12;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                nfVar = this.b;
+                            z2 = false;
+                            b2 = r.a();
+                            if (b2 != null) {
+                                rfVar.p = b2.toString();
+                                int size2 = this.j % b2.size();
+                                str2 = b2.get(size2);
+                                if (!TextUtils.isEmpty(str2)) {
+                                }
                             }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(qfVar);
-                            yfVar.a();
-                            z2 = true;
-                            i11 = i4;
-                            i10 = 1;
-                        } catch (SocketTimeoutException e13) {
-                            e = e13;
-                            i5 = R.string.obfuscated_res_0x7f0f0c17;
-                            this.a.c().c = -13;
-                            tf c4 = this.a.c();
-                            c4.g = e.getMessage() + Log.getStackTraceString(e);
-                            qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i5);
-                            BdLog.e(e.getMessage());
-                            this.a.e(qfVar);
-                            yfVar.b = -13;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                nfVar = this.b;
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(qfVar);
-                            yfVar.a();
-                            z2 = true;
-                            i11 = i4;
-                            i10 = 1;
                         }
-                    } catch (UnsupportedOperationException e14) {
-                        e = e14;
-                        yfVar = yfVar2;
-                    } catch (SocketException e15) {
-                        e = e15;
-                        yfVar = yfVar2;
-                    } catch (SocketTimeoutException e16) {
-                        e = e16;
-                        yfVar = yfVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        yfVar = yfVar2;
                     }
-                    i11 = i4;
-                    i10 = 1;
-                } else {
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    try {
-                        yfVar.b = 0;
-                        yfVar.c = "ok";
-                        return;
-                    } catch (UnsupportedOperationException e17) {
-                        e = e17;
-                        i8 = R.string.obfuscated_res_0x7f0f0c17;
-                        if (i7 >= i9) {
-                        }
-                        this.a.c().c = -14;
-                        tf c5 = this.a.c();
-                        c5.g = e.getMessage() + Log.getStackTraceString(e);
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i8);
-                        this.a.e(qfVar);
-                        yfVar.b = -14;
-                        yfVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(qfVar);
-                        yfVar.a();
-                        z2 = z;
-                        i11 = i4;
-                        i10 = 1;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        this.a.c().c = -10;
-                        tf c22 = this.a.c();
-                        c22.g = th.getMessage() + Log.getStackTraceString(th);
-                        if (i7 >= i9) {
-                        }
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
-                        BdLog.e(th.getMessage());
-                        this.a.e(qfVar);
-                        yfVar.b = -10;
-                        yfVar.c = Log.getStackTraceString(th);
-                        if (this.d <= 0) {
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(qfVar);
-                        yfVar.a();
-                        z2 = z;
-                        i11 = i4;
-                        i10 = 1;
-                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
+            }
+            return url;
+        }
+        return (URL) invokeCommon.objValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.c().b == 200 || this.a.c().b == 206 : invokeV.booleanValue;
+    }
+
+    public void o(boolean z, boolean z2, int i, int i2, rf rfVar, zf zfVar) throws Exception {
+        IHttpNet yfVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), rfVar, zfVar}) == null) {
+            rfVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                String k = this.a.b().k(z);
+                rfVar.s = k;
+                URL m = m(k, z2, rfVar, zfVar);
+                if (!this.a.c().a) {
+                    rfVar.j = -2;
+                    if (((nf) ServiceManager.getService(nf.a)).netABTest()) {
+                        yfVar = new qf(this.a, IHttpNet.HttpNetType.POST_BYTE);
+                    } else {
+                        yfVar = new yf(this.a, IHttpNet.HttpNetType.POST_BYTE);
+                    }
+                    IHttpNet iHttpNet2 = yfVar;
+                    iHttpNet2.e(m);
+                    iHttpNet2.g(m, this.h);
+                    rfVar.j = -3;
+                    System.currentTimeMillis();
+                    iHttpNet2.a(m, i2, i);
+                    if (!this.a.c().a) {
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            long time = new Date().getTime();
+                            rfVar.g = new Date().getTime() - time;
+                            rfVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
+                            }
+                            this.d = System.currentTimeMillis();
+                            rfVar.j = -5;
+                            rfVar.c = (new Date().getTime() - time) - rfVar.g;
+                            if (!this.a.c().a) {
+                                if (this.m != null) {
+                                    this.m.schedule(this.k, 45000L);
+                                }
+                                rfVar.j = -6;
+                                iHttpNet2.c();
+                                rfVar.j = -7;
+                                byte[] execute = iHttpNet2.execute();
+                                this.a.c().a(iHttpNet2);
+                                iHttpNet2.h();
+                                this.e = System.currentTimeMillis();
+                                if (!this.a.c().a) {
+                                    rfVar.j = -8;
+                                    rfVar.i = this.a.c().b;
+                                    long length = iHttpNet2.b().toString().getBytes().length;
+                                    rfVar.b = length;
+                                    if (execute != null) {
+                                        rfVar.b = length + execute.length;
+                                        this.a.c().j = execute.length;
+                                        this.a.c().i = c(this.a.c().d, execute);
+                                    }
+                                    rfVar.d = new Date().getTime() - time;
+                                    rfVar.j = -9;
+                                    Timer timer = this.m;
+                                    if (timer != null) {
+                                        timer.cancel();
+                                    }
+                                    iHttpNet2.disconnect();
+                                    return;
+                                }
+                                throw new BdHttpCancelException();
+                            }
+                            throw new BdHttpCancelException();
+                        }
+                        throw new BdHttpCancelException();
+                    }
+                    throw new BdHttpCancelException();
+                }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                Timer timer2 = this.m;
+                if (timer2 != null) {
+                    timer2.cancel();
+                }
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
-        if (r0 != null) goto L68;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
-        if (r0 != null) goto L101;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
-        r20.d = r0.i();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void o(int i, int i2, int i3) {
-        int i4;
-        yf yfVar;
-        qf qfVar;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        nf nfVar;
-        nf nfVar2;
-        boolean z;
-        nf nfVar3;
-        nf nfVar4;
+    public void p(boolean z, boolean z2, int i, int i2, rf rfVar, zf zfVar) throws Exception {
+        IHttpNet yfVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048590, this, i, i2, i3) == null) {
-            int b = i2 <= 0 ? ib.d().b().b() : i2;
-            int a = i <= 0 ? ib.d().a() : i;
-            int b2 = i3 <= 0 ? ib.d().c().b() : i3;
-            int i9 = ((mf) ServiceManager.getService(mf.a)).qaHttpsTest() ? 0 : ((lf) ServiceManager.getService(lf.a)).isSwitchOn() ? 2 : 0;
-            long currentTimeMillis = System.currentTimeMillis();
-            int i10 = 1;
-            boolean z2 = true;
-            int i11 = 0;
-            while (!this.a.c().a && z2 && i11 < a + i9) {
-                qf qfVar2 = new qf();
-                yf yfVar2 = new yf();
-                yfVar2.a = this.a.b().k(i11 < i9);
-                yfVar2.d = i11 < i9;
-                int i12 = i11 + 1;
-                qfVar2.e = i12;
-                this.c = i11;
-                a(i11);
-                try {
-                    try {
-                        try {
-                            nf nfVar5 = new nf(this.a);
-                            this.b = nfVar5;
-                            nfVar5.q(i11);
-                            this.b.r(e);
-                            i4 = i12;
-                            i7 = i11;
-                            try {
-                                this.b.o(i11 < i9, i11 < i10, b, b2, qfVar2, yfVar2);
-                            } catch (UnsupportedOperationException e2) {
-                                e = e2;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (SocketException e3) {
-                                e = e3;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (SocketTimeoutException e4) {
-                                e = e4;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            } catch (Throwable th) {
-                                th = th;
-                                yfVar = yfVar2;
-                                qfVar = qfVar2;
-                            }
-                        } catch (UnsupportedOperationException e5) {
-                            e = e5;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
-                            i7 = i11;
-                        } catch (SocketException e6) {
-                            e = e6;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
-                        } catch (SocketTimeoutException e7) {
-                            e = e7;
-                            i4 = i12;
-                            yfVar = yfVar2;
-                            qfVar = qfVar2;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        i4 = i12;
-                        yfVar = yfVar2;
-                        qfVar = qfVar2;
-                        i7 = i11;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), rfVar, zfVar}) == null) {
+            rfVar.j = -1;
+            IHttpNet iHttpNet = null;
+            try {
+                String k = this.a.b().k(z);
+                rfVar.s = k;
+                URL m = m(k, z2, rfVar, zfVar);
+                if (!this.a.c().a) {
+                    rfVar.j = -2;
+                    if (((nf) ServiceManager.getService(nf.a)).netABTest()) {
+                        yfVar = new qf(this.a, IHttpNet.HttpNetType.POST_FORM);
+                    } else {
+                        yfVar = new yf(this.a, IHttpNet.HttpNetType.POST_FORM);
                     }
-                } catch (UnsupportedOperationException e8) {
-                    e = e8;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i7 = i11;
-                    i8 = R.string.obfuscated_res_0x7f0f0c17;
-                } catch (SocketException e9) {
-                    e = e9;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i6 = R.string.obfuscated_res_0x7f0f0c17;
-                } catch (SocketTimeoutException e10) {
-                    e = e10;
-                    i4 = i12;
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    i5 = R.string.obfuscated_res_0x7f0f0c17;
-                }
-                if (this.a.c().b != 200) {
-                    qfVar = qfVar2;
-                    try {
-                        qfVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i7;
-                        z2 = l(this.a.c().b);
-                        this.a.e(qfVar);
-                        yfVar = yfVar2;
-                        try {
-                            try {
-                                yfVar.b = this.a.c().b;
-                                yfVar.c = "faild";
-                                if (this.d <= 0 && (nfVar4 = this.b) != null) {
-                                    this.d = nfVar4.i();
-                                }
-                                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(qfVar);
-                                yfVar.a();
-                            } catch (UnsupportedOperationException e11) {
-                                e = e11;
-                                i8 = R.string.obfuscated_res_0x7f0f0c17;
-                                z = i7 >= i9;
-                                this.a.c().c = -14;
-                                tf c = this.a.c();
-                                c.g = e.getMessage() + Log.getStackTraceString(e);
-                                qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i8);
-                                this.a.e(qfVar);
-                                yfVar.b = -14;
-                                yfVar.c = Log.getStackTraceString(e);
-                                if (this.d <= 0) {
-                                    nfVar3 = this.b;
-                                }
-                                qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.e(qfVar);
-                                yfVar.a();
-                                z2 = z;
-                                i11 = i4;
-                                i10 = 1;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                try {
-                                    this.a.c().c = -10;
-                                    tf c2 = this.a.c();
-                                    c2.g = th.getMessage() + Log.getStackTraceString(th);
-                                    z = i7 >= i9;
-                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
-                                    BdLog.e(th.getMessage());
-                                    this.a.e(qfVar);
-                                    yfVar.b = -10;
-                                    yfVar.c = Log.getStackTraceString(th);
-                                    if (this.d <= 0) {
-                                        nfVar3 = this.b;
+                    IHttpNet iHttpNet2 = yfVar;
+                    iHttpNet2.e(m);
+                    iHttpNet2.g(m, this.h);
+                    iHttpNet2.a(m, i2, i);
+                    rfVar.j = -3;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (!this.a.c().a) {
+                        iHttpNet2.f();
+                        if (!this.a.c().a) {
+                            rfVar.g = System.currentTimeMillis() - currentTimeMillis;
+                            rfVar.j = -4;
+                            iHttpNet2.connect();
+                            if (this.c <= 0) {
+                                this.c = System.currentTimeMillis();
+                            }
+                            this.d = System.currentTimeMillis();
+                            rfVar.j = -5;
+                            rfVar.c = (System.currentTimeMillis() - currentTimeMillis) - rfVar.g;
+                            if (!this.a.c().a) {
+                                rfVar.j = -6;
+                                rfVar.a = iHttpNet2.c();
+                                rfVar.j = -7;
+                                if (!this.a.c().a) {
+                                    iHttpNet2.h();
+                                    this.e = System.currentTimeMillis();
+                                    rfVar.j = -8;
+                                    byte[] execute = iHttpNet2.execute();
+                                    this.f = System.currentTimeMillis();
+                                    this.a.c().a(iHttpNet2);
+                                    rfVar.i = this.a.c().b;
+                                    long length = this.a.c().h.toString().getBytes().length;
+                                    rfVar.b = length;
+                                    if (execute != null) {
+                                        rfVar.b = length + execute.length;
+                                        this.a.c().j = execute.length;
+                                        this.a.c().i = c(this.a.c().d, execute);
                                     }
-                                    qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(qfVar);
-                                    yfVar.a();
-                                    z2 = z;
-                                    i11 = i4;
-                                    i10 = 1;
-                                } finally {
-                                    if (this.d <= 0 && (nfVar2 = this.b) != null) {
-                                        this.d = nfVar2.i();
-                                    }
-                                    qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                    this.a.e(qfVar);
-                                    yfVar.a();
+                                    rfVar.d = new Date().getTime() - currentTimeMillis;
+                                    rfVar.j = -9;
+                                    iHttpNet2.disconnect();
+                                    return;
                                 }
+                                throw new BdHttpCancelException();
                             }
-                        } catch (SocketException e12) {
-                            e = e12;
-                            i6 = R.string.obfuscated_res_0x7f0f0c17;
-                            this.a.c().c = -12;
-                            tf c3 = this.a.c();
-                            c3.g = e.getMessage() + Log.getStackTraceString(e);
-                            qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i6);
-                            BdLog.e(e.getMessage());
-                            this.a.e(qfVar);
-                            yfVar.b = -12;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                nfVar = this.b;
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(qfVar);
-                            yfVar.a();
-                            z2 = true;
-                            i11 = i4;
-                            i10 = 1;
-                        } catch (SocketTimeoutException e13) {
-                            e = e13;
-                            i5 = R.string.obfuscated_res_0x7f0f0c17;
-                            this.a.c().c = -13;
-                            tf c4 = this.a.c();
-                            c4.g = e.getMessage() + Log.getStackTraceString(e);
-                            qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i5);
-                            BdLog.e(e.getMessage());
-                            this.a.e(qfVar);
-                            yfVar.b = -13;
-                            yfVar.c = Log.getStackTraceString(e);
-                            if (this.d <= 0) {
-                                nfVar = this.b;
-                            }
-                            qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                            this.a.e(qfVar);
-                            yfVar.a();
-                            z2 = true;
-                            i11 = i4;
-                            i10 = 1;
+                            throw new BdHttpCancelException();
                         }
-                    } catch (UnsupportedOperationException e14) {
-                        e = e14;
-                        yfVar = yfVar2;
-                    } catch (SocketException e15) {
-                        e = e15;
-                        yfVar = yfVar2;
-                    } catch (SocketTimeoutException e16) {
-                        e = e16;
-                        yfVar = yfVar2;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        yfVar = yfVar2;
+                        throw new BdHttpCancelException();
                     }
-                    i11 = i4;
-                    i10 = 1;
-                } else {
-                    yfVar = yfVar2;
-                    qfVar = qfVar2;
-                    try {
-                        yfVar.b = 0;
-                        yfVar.c = "ok";
-                        return;
-                    } catch (UnsupportedOperationException e17) {
-                        e = e17;
-                        i8 = R.string.obfuscated_res_0x7f0f0c17;
-                        if (i7 >= i9) {
-                        }
-                        this.a.c().c = -14;
-                        tf c5 = this.a.c();
-                        c5.g = e.getMessage() + Log.getStackTraceString(e);
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i8);
-                        this.a.e(qfVar);
-                        yfVar.b = -14;
-                        yfVar.c = Log.getStackTraceString(e);
-                        if (this.d <= 0) {
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(qfVar);
-                        yfVar.a();
-                        z2 = z;
-                        i11 = i4;
-                        i10 = 1;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        this.a.c().c = -10;
-                        tf c22 = this.a.c();
-                        c22.g = th.getMessage() + Log.getStackTraceString(th);
-                        if (i7 >= i9) {
-                        }
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
-                        BdLog.e(th.getMessage());
-                        this.a.e(qfVar);
-                        yfVar.b = -10;
-                        yfVar.c = Log.getStackTraceString(th);
-                        if (this.d <= 0) {
-                        }
-                        qfVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.e(qfVar);
-                        yfVar.a();
-                        z2 = z;
-                        i11 = i4;
-                        i10 = 1;
-                    }
+                    throw new BdHttpCancelException();
                 }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    iHttpNet.disconnect();
+                }
+                throw th;
             }
         }
     }
 
-    public void p() {
-        rf rfVar;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (rfVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j = i;
         }
-        rfVar.c().a = true;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.i = z;
+        }
     }
 }

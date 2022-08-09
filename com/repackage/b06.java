@@ -1,53 +1,51 @@
 package com.repackage;
 
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface b06 {
+public class b06<T extends BaseCardInfo> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
+    public b06() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    boolean a(QmFilterItem qmFilterItem);
+    public void a(View view2, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, t) == null) {
+        }
+    }
 
-    void b(a aVar);
+    public void b(View view2, T t, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t, obj) == null) {
+        }
+    }
 
-    void c(TbMultiMediaData tbMultiMediaData);
-
-    long d();
-
-    void e();
-
-    void f(float f);
-
-    boolean g();
-
-    long getCurrentPlayTime();
-
-    long getFrom();
-
-    TbMediaTrackConfig getMediaTrackConfig();
-
-    float getRatio();
-
-    void h(boolean z);
-
-    boolean isPlaying();
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void start();
+    public boolean c(View view2, T t, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, t, str)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
 }

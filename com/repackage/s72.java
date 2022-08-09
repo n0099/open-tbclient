@@ -1,42 +1,126 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface s72 extends JSRuntime, gz1, TypedCallbackHandler {
-    JsSerializeValue C(byte[] bArr, boolean z);
+public final class s72 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static LruCache<String, Object> b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    byte[] K(JsSerializeValue jsSerializeValue, boolean z);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    void Z(String str, String str2);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final s72 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean dispatchEvent(JSEvent jSEvent);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-58914331, "Lcom/repackage/s72$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-58914331, "Lcom/repackage/s72$b;");
+                    return;
+                }
+            }
+            a = new s72(null);
+        }
+    }
 
-    f82 f0();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755367709, "Lcom/repackage/s72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755367709, "Lcom/repackage/s72;");
+                return;
+            }
+        }
+        a = jh1.a;
+    }
 
-    String getInitBasePath();
+    public /* synthetic */ s72(a aVar) {
+        this();
+    }
 
-    int getInvokeSourceType();
+    public static s72 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (s72) invokeV.objValue;
+    }
 
-    EventTarget o();
+    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return config;
+                }
+                CONFIG config2 = (CONFIG) b.get(str);
+                if (config2 == null) {
+                    return config;
+                }
+                if (a) {
+                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
+                }
+                return config2;
+            }
+        }
+        return (CONFIG) invokeLL.objValue;
+    }
 
-    boolean post(Runnable runnable);
+    public synchronized <CONFIG> void c(String str, CONFIG config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && config != null) {
+                    if (a) {
+                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+                    }
+                    b.put(str, config);
+                }
+            }
+        }
+    }
 
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void postOnJSThread(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
-
-    EventTarget y();
-
-    b82 z();
+    public s72() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b = new LruCache<>(10);
+    }
 }

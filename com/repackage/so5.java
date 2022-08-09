@@ -1,102 +1,167 @@
 package com.repackage;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.ala.square.IAlaSquareTabController;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class so5 {
+public class so5 implements wl1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public BdTypeListView b;
-    public final List<an> c;
-    public ro5 d;
-    public as5 e;
-    public bs5 f;
+    public long a;
 
-    public so5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755313800, "Lcom/repackage/so5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755313800, "Lcom/repackage/so5;");
+                return;
+            }
+        }
+        b = jh1.a;
+    }
+
+    public so5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
     }
 
-    public final void a() {
+    @Override // com.repackage.wl1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bs5 bs5Var = new bs5((TbPageContext) this.a);
-            this.f = bs5Var;
-            bs5Var.c0(1);
-            as5 as5Var = new as5((TbPageContext) this.a);
-            this.e = as5Var;
-            as5Var.c0(1);
-            this.d = new ro5((TbPageContext) this.a, uo5.f);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.b.a(this.c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
+            }
+            long m = ru4.k().m("smart_app_tid", 0L);
+            String q = ru4.k().q("smart_app_id", "");
+            String q2 = ru4.k().q("smart_app_name", "");
+            if (this.a == 0 || m == 0) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            x95 x95Var = new x95();
+            x95Var.y(currentTimeMillis);
+            x95Var.s(g());
+            x95Var.C(m);
+            x95Var.i = q;
+            x95Var.j = q2;
+            x95Var.x(h());
+            y95.b().j(true);
+            y95.b().k(TbadkApplication.getInst().getApplicationContext(), x95Var, i());
+            ru4.k().x("smart_app_tid", 0L);
         }
     }
 
+    @Override // com.repackage.wl1
     public void b() {
-        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public void c(ls5 ls5Var) {
+    @Override // com.repackage.wl1
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ls5Var) == null) {
-            this.f.e0(ls5Var);
-            this.e.e0(ls5Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + z03.M().b);
+            }
+            File file = new File(fm.b("libBaiduMapSDK_map_v5_4_4.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && hm.a(BdBaseApplication.getInst().getContext(), fm.a("libBaiduMapSDK_map_v5_4_4.so"))) {
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", fm.a("libBaiduMapSDK_map_v5_4_4.so"));
+            }
+            this.a = System.currentTimeMillis();
         }
     }
 
-    public void d(List<nn> list) {
-        BdTypeListView bdTypeListView;
+    @Override // com.repackage.wl1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable wl2 wl2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.b) == null) {
-            return;
-        }
-        bdTypeListView.setData(list);
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f.d0(i);
-            this.e.d0(i);
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, wl2Var) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+            }
+            if (ru4.k().h("key_ai_app_guide_display", true)) {
+                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+                intent.putExtra(DealIntentService.KEY_CLASS, 38);
+                swanAppActivity.startService(intent);
+            }
         }
     }
 
-    public void f(IAlaSquareTabController iAlaSquareTabController) {
+    @Override // com.repackage.wl1
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
-            this.d.e0(iAlaSquareTabController);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
+    }
+
+    @Override // com.repackage.wl1
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("a001");
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public v95 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (v95) invokeV.objValue;
     }
 }

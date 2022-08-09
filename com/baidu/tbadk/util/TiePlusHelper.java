@@ -63,15 +63,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.h;
-import com.repackage.d15;
-import com.repackage.hg5;
-import com.repackage.hp8;
-import com.repackage.j36;
-import com.repackage.ne5;
-import com.repackage.pi;
-import com.repackage.sl4;
-import com.repackage.w05;
-import com.repackage.zg5;
+import com.repackage.a25;
+import com.repackage.b56;
+import com.repackage.jm4;
+import com.repackage.mf5;
+import com.repackage.ni5;
+import com.repackage.qi;
+import com.repackage.r15;
+import com.repackage.vh5;
+import com.repackage.yr8;
 import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -84,7 +84,7 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public class TiePlusHelper extends CustomMessageListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static List<w05> t;
+    public static List<r15> t;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final TbPageContext<?> b;
@@ -96,7 +96,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String h;
     public ItemData i;
     public AlertDialog j;
-    public zg5 k;
+    public ni5 k;
     public final List<ProgressButton> l;
     public final PermissionJudgePolicy m;
     public final SharedPreferences n;
@@ -160,7 +160,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.a.h) || StringUtils.isNull(this.a.c) || StringUtils.isNull(this.a.d)) {
                 return;
             }
-            d15.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
+            a25.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
         }
     }
 
@@ -302,7 +302,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbRichTextTiebaPlusInfo)) == null) {
             if (tbRichTextTiebaPlusInfo != null) {
-                return j(tbRichTextTiebaPlusInfo.C());
+                return j(tbRichTextTiebaPlusInfo.B());
             }
             return false;
         }
@@ -389,9 +389,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
         if (UtilHelper.isCurrentAccount(String.valueOf(pluginUser.user_id))) {
             BdTopToast bdTopToast = new BdTopToast(activity, 2000);
-            bdTopToast.i(false);
-            bdTopToast.h(activity.getString(R.string.obfuscated_res_0x7f0f139c));
-            bdTopToast.j((ViewGroup) activity.findViewById(16908290));
+            bdTopToast.h(false);
+            bdTopToast.g(activity.getString(R.string.obfuscated_res_0x7f0f13d9));
+            bdTopToast.i((ViewGroup) activity.findViewById(16908290));
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(activity, pluginUser.user_id.longValue(), pluginUser.user_name_show, pluginUser.user_photo, pluginUser.user_type.intValue())));
@@ -481,14 +481,14 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public void I(zg5 zg5Var) {
+    public void J(ni5 ni5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zg5Var) == null) {
-            this.k = zg5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ni5Var) == null) {
+            this.k = ni5Var;
         }
     }
 
-    public TiePlusHelper J(String str) {
+    public TiePlusHelper K(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -560,7 +560,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, activity) == null) {
             if (s(activity)) {
-                d15.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
+                a25.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
             } else {
                 W(activity);
             }
@@ -580,20 +580,20 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             downloadData.setExtra(Integer.valueOf(i));
             downloadData.setName(this.d);
             downloadData.setStatus(5);
-            d15.q().w(downloadData);
+            a25.q().w(downloadData);
         }
     }
 
     public final void T(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, activity) == null) && activity != null && s(activity)) {
-            zg5 zg5Var = this.k;
-            if (zg5Var != null) {
-                zg5Var.dismiss();
+            ni5 ni5Var = this.k;
+            if (ni5Var != null) {
+                ni5Var.dismiss();
             }
             ScreenTopToast screenTopToast = new ScreenTopToast(activity);
-            screenTopToast.m(activity.getResources().getString(R.string.obfuscated_res_0x7f0f139b));
-            screenTopToast.k(activity.getResources().getString(R.string.obfuscated_res_0x7f0f04de));
+            screenTopToast.m(activity.getResources().getString(R.string.obfuscated_res_0x7f0f13d8));
+            screenTopToast.k(activity.getResources().getString(R.string.obfuscated_res_0x7f0f04eb));
             screenTopToast.j(new b(this, activity));
             screenTopToast.n((ViewGroup) activity.findViewById(16908290));
         }
@@ -608,18 +608,18 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             String str2 = tiebaPlusInfo.h5_jump_number;
             UtilHelper.copyToClipBoard(str2);
             if (intValue == 7) {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f1398);
-                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f139f, str2);
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f13d5);
+                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f13dc, str2);
             } else {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f1399);
-                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f139e, str2);
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f13d6);
+                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f13db, str2);
             }
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
             tBAlertBuilder.u(string);
-            tBAlertBuilder.p(string2);
-            tBAlertBuilder.n(true);
-            tBAlertBuilder.i(false);
-            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0eff), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.sc5
+            tBAlertBuilder.o(string2);
+            tBAlertBuilder.m(true);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f2d), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.qd5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -630,7 +630,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                         TiePlusHelper.this.v(view2);
                     }
                 }
-            }), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0dcf), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.rc5
+            }), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0dfc), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.pd5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -652,25 +652,25 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         if (interceptable == null || interceptable.invokeLLL(1048596, this, tiebaPlusInfo, richTextType, str) == null) {
             LinearLayout linearLayout = new LinearLayout(this.a);
             TbImageView tbImageView = new TbImageView(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(pi.f(this.a, R.dimen.tbds562), pi.f(this.a, R.dimen.tbds562));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(qi.f(this.a, R.dimen.tbds562), qi.f(this.a, R.dimen.tbds562));
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 1) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f19);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f7c);
             } else if (skinType == 4) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f17);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f7a);
             } else {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f1a);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080f7d);
             }
             tbImageView.setLayoutParams(layoutParams);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            linearLayout.setPadding(pi.f(this.a, R.dimen.M_W_X017), 0, pi.f(this.a, R.dimen.M_W_X017), pi.f(this.a, R.dimen.M_W_X007));
+            linearLayout.setPadding(qi.f(this.a, R.dimen.M_W_X017), 0, qi.f(this.a, R.dimen.M_W_X017), qi.f(this.a, R.dimen.M_W_X007));
             linearLayout.setGravity(17);
             linearLayout.addView(tbImageView);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
-            tBAlertBuilder.u(this.a.getString(R.string.obfuscated_res_0x7f0f139a));
-            tBAlertBuilder.j(linearLayout);
-            tBAlertBuilder.i(false);
-            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0eff), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.uc5
+            tBAlertBuilder.u(this.a.getString(R.string.obfuscated_res_0x7f0f13d7));
+            tBAlertBuilder.i(linearLayout);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f2d), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.sd5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -681,7 +681,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                         TiePlusHelper.this.x(view2);
                     }
                 }
-            }), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f1397), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.tc5
+            }), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f13d4), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.rd5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -727,7 +727,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public void Y(@NonNull String str, @NonNull Context context, @NonNull TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048599, this, str, context, textView) == null) {
-            if (!t(context, str) && !d15.q().s(str)) {
+            if (!t(context, str) && !a25.q().s(str)) {
                 textView.setVisibility(0);
             } else {
                 textView.setVisibility(8);
@@ -741,18 +741,18 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             boolean h = progressButton.h();
             if (t(context, str)) {
                 progressButton.setTag((byte) 4);
-                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08cc : R.string.obfuscated_res_0x7f0f0dcf));
-            } else if (d15.q().s(str)) {
+                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08e0 : R.string.obfuscated_res_0x7f0f0dfc));
+            } else if (a25.q().s(str)) {
                 progressButton.setTag((byte) 2);
-                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08cb : R.string.obfuscated_res_0x7f0f08e8));
-            } else if (!d15.q().t(str) && !d15.q().r(str)) {
-                File m = d15.q().m(str, str2);
+                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08df : R.string.obfuscated_res_0x7f0f08fe));
+            } else if (!a25.q().t(str) && !a25.q().r(str)) {
+                File m = a25.q().m(str, str2);
                 if (m != null && m.exists()) {
                     SharedPreferences sharedPreferences = this.n;
                     int i = sharedPreferences.getInt(str + str2, -1);
                     progressButton.setTag((byte) 3);
                     progressButton.setCurProgress(i);
-                    progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f07bd : R.string.obfuscated_res_0x7f0f07bc));
+                    progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f07cf : R.string.obfuscated_res_0x7f0f07ce));
                     if (this.o) {
                         e();
                         return;
@@ -762,11 +762,11 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 progressButton.setCurProgress(-1);
                 progressButton.setTag((byte) 0);
                 if (h) {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f08ea));
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0900));
                 } else if (!StringUtils.isNull(this.s)) {
                     progressButton.setText(this.s);
                 } else {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f04ef));
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f04fc));
                 }
             } else {
                 SharedPreferences sharedPreferences2 = this.n;
@@ -795,7 +795,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            hg5.c().a(this.c, this.f);
+            vh5.c().a(this.c, this.f);
         }
     }
 
@@ -811,19 +811,19 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void g(w05 w05Var) {
+    public void g(r15 r15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, w05Var) == null) || w05Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, r15Var) == null) || r15Var == null) {
             return;
         }
-        for (w05 w05Var2 : t) {
-            if (TextUtils.isEmpty(w05Var.f) || w05Var.f.equals(w05Var2.f)) {
+        for (r15 r15Var2 : t) {
+            if (TextUtils.isEmpty(r15Var.f) || r15Var.f.equals(r15Var2.f)) {
                 return;
             }
             while (r0.hasNext()) {
             }
         }
-        t.add(w05Var);
+        t.add(r15Var);
     }
 
     public final TbHttpMessageTask h() {
@@ -863,15 +863,15 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             if (i2 == 0 || i2 == 1) {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                hp8.b(this.b, str, bundle);
+                yr8.b(this.b, str, bundle);
             } else if (i2 != 2) {
             } else {
-                sl4.m(this.a, str, false);
+                jm4.m(this.a, str, false);
             }
         } else if (i != 4) {
         } else {
             if (!t(this.a, "com.tencent.mm")) {
-                BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13a1)).h();
+                BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13de)).h();
             } else if (TextUtils.isEmpty(str)) {
             } else {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID);
@@ -925,24 +925,24 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     return;
                 case 18:
                     if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.h)) {
-                        d15.q().h(this.h, this.c, true);
-                        File j = d15.q().j(this.c);
+                        a25.q().h(this.h, this.c, true);
+                        File j = a25.q().j(this.c);
                         if (j != null && j.exists()) {
                             j.delete();
                         }
-                        if (!StringUtils.isNull(this.d) && (m = d15.q().m(this.c, this.d)) != null && m.exists()) {
+                        if (!StringUtils.isNull(this.d) && (m = a25.q().m(this.c, this.d)) != null && m.exists()) {
                             m.delete();
                         }
                         k();
                         DownloadData downloadData = new DownloadData(this.c);
                         downloadData.setStatus(4);
-                        d15.q().w(downloadData);
+                        a25.q().w(downloadData);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921626, this.c));
                     }
-                    hg5.c().h(this.c);
-                    zg5 zg5Var = this.k;
-                    if (zg5Var != null) {
-                        zg5Var.dismiss();
+                    vh5.c().h(this.c);
+                    ni5 ni5Var = this.k;
+                    if (ni5Var != null) {
+                        ni5Var.dismiss();
                         return;
                     }
                     return;
@@ -966,14 +966,14 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         byte byteValue = ((Byte) progressButton.getTag()).byteValue();
         if (byteValue == 0) {
             if (this.i != null) {
-                j36 j36Var = new j36();
-                j36Var.a = this.i;
-                j36Var.b = 2;
+                b56 b56Var = new b56();
+                b56Var.a = this.i;
+                b56Var.b = 2;
                 Context context = this.a;
                 if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
-                    j36Var.c = 1;
+                    b56Var.c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, j36Var));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, b56Var));
             }
             S();
             R(activity);
@@ -992,13 +992,13 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 z(this.a, this.c);
             }
         } else if (s(activity)) {
-            if (!d15.q().r(this.c) && !d15.q().t(this.c)) {
+            if (!a25.q().r(this.c) && !a25.q().t(this.c)) {
                 DownloadData downloadData = new DownloadData(this.c);
                 downloadData.setStatus(4);
-                d15.q().w(downloadData);
+                a25.q().w(downloadData);
                 return;
             }
-            d15.q().g(this.h, this.c);
+            a25.q().g(this.h, this.c);
         } else {
             W(activity);
         }
@@ -1049,10 +1049,10 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             alertDialog.dismiss();
         }
         if (!t(this.a, "com.tencent.mm")) {
-            BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13a1)).h();
+            BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13de)).h();
             return;
         }
-        ne5.c(this.a);
+        mf5.c(this.a);
         TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, richTextType, TiePlusStat.WechatDialogType.COPY, str);
     }
 
@@ -1069,10 +1069,10 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             alertDialog.dismiss();
         }
         if (!t(this.a, "com.tencent.mm")) {
-            BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13a1)).h();
+            BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f13de)).h();
             return;
         }
-        ne5.d(tiebaPlusInfo, this.a.getString(R.string.obfuscated_res_0x7f0f13a0));
+        mf5.d(tiebaPlusInfo, this.a.getString(R.string.obfuscated_res_0x7f0f13dd));
         TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, richTextType, TiePlusStat.WechatDialogType.DIRECT, str);
     }
 
@@ -1132,7 +1132,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                             k();
                             return;
                         } else if (status == 1) {
-                            int k = (int) (d15.q().k(this.c) * 100.0f);
+                            int k = (int) (a25.q().k(this.c) * 100.0f);
                             a0(k);
                             for (ProgressButton progressButton3 : this.l) {
                                 progressButton3.setTag((byte) 1);
@@ -1142,7 +1142,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                         } else if (status == 2) {
                             TbPageContext<?> tbPageContext = this.b;
                             if (tbPageContext != null) {
-                                tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f04f4);
+                                tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f0501);
                             }
                             Q();
                             return;

@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.fk9;
-import com.repackage.fl9;
-import com.repackage.gl9;
+import com.repackage.an9;
+import com.repackage.ao9;
+import com.repackage.bo9;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzq> CREATOR;
@@ -38,7 +38,7 @@ public final class zzq extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new gl9();
+        CREATOR = new bo9();
     }
 
     public zzq(boolean z, String str, int i) {
@@ -58,18 +58,18 @@ public final class zzq extends AbstractSafeParcelable {
         }
         this.zza = z;
         this.zzb = str;
-        this.zzc = fl9.a(i) - 1;
+        this.zzc = ao9.a(i) - 1;
     }
 
     @Override // android.os.Parcelable
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.c(parcel, 1, this.zza);
-            fk9.k(parcel, 2, this.zzb, false);
-            fk9.g(parcel, 3, this.zzc);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.c(parcel, 1, this.zza);
+            an9.k(parcel, 2, this.zzb, false);
+            an9.g(parcel, 3, this.zzc);
+            an9.b(parcel, a);
         }
     }
 
@@ -89,6 +89,6 @@ public final class zzq extends AbstractSafeParcelable {
     public final int zzc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? fl9.a(this.zzc) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ao9.a(this.zzc) : invokeV.intValue;
     }
 }

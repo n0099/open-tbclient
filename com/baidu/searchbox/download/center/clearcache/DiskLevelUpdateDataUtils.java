@@ -3,6 +3,7 @@ package com.baidu.searchbox.download.center.clearcache;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +91,7 @@ public final class DiskLevelUpdateDataUtils {
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_CLEANUP_TIMEOUT, data.optLong("cleanupTimeout"));
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_NOTIFY_DELAYAFTERSTART, data.optLong("notifyDelayAfterStart"));
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_DISK_CHECK_DURATION, data.optLong("diskCheckDuration"));
-            JSONObject optJSONObject = data.optJSONObject("level");
+            JSONObject optJSONObject = data.optJSONObject(PollingModel.LEVEL);
             if (optJSONObject != null) {
                 DiskManagerSharedPrefsUtils.INSTANCE.putString(DiskManagerSharedPrefsUtils.SP_KEY_APP_LIMIT_SWITCH, optJSONObject.optString("appLimitSwitch", "0"));
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(getCurrentDiskLevel());

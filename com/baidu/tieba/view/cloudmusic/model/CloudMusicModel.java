@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av8;
 import com.repackage.d9;
+import com.repackage.qx8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public av8<CloudMusicData> a;
+    public qx8<CloudMusicData> a;
     public final HttpMessageListener b;
 
     /* loaded from: classes4.dex */
@@ -122,22 +122,22 @@ public class CloudMusicModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS);
-        C();
+        B();
         this.b.setTag(getUniqueId());
         this.b.setSelfListener(true);
         registerListener(this.b);
     }
 
-    public void B(av8<CloudMusicData> av8Var) {
+    public void A(qx8<CloudMusicData> qx8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, av8Var) == null) || av8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, qx8Var) == null) || qx8Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = av8Var;
+        this.a = qx8Var;
     }
 
-    public final void C() {
+    public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicList");

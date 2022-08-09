@@ -104,9 +104,9 @@ public class o {
             ii iiVar = new ii();
             iiVar.b(b.m131a(context).m132a());
             iiVar.d(context.getPackageName());
-            iiVar.c(ht.I.f505a);
+            iiVar.c(ht.I.f506a);
             iiVar.a(bd.a());
-            iiVar.f644a = hashMap;
+            iiVar.f645a = hashMap;
             a(context, iiVar);
         }
     }

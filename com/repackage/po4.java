@@ -4,12 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import tbclient.AwardInfo;
+/* loaded from: classes7.dex */
 public class po4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
     public po4() {
         Interceptable interceptable = $ic;
@@ -23,5 +22,16 @@ public class po4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(AwardInfo awardInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, awardInfo) == null) || awardInfo == null) {
+            return;
+        }
+        awardInfo.award_id.longValue();
+        awardInfo.award_act_id.longValue();
+        String str = awardInfo.award_name;
+        String str2 = awardInfo.award_imgsrc;
     }
 }

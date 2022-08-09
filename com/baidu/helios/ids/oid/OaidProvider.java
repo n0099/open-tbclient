@@ -19,10 +19,10 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-import com.repackage.a40;
-import com.repackage.d40;
-import com.repackage.g40;
-import com.repackage.x30;
+import com.repackage.c40;
+import com.repackage.f40;
+import com.repackage.i40;
+import com.repackage.z30;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,13 +32,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class OaidProvider extends g40 {
+public class OaidProvider extends i40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d40.a d;
+    public f40.a d;
     public g e;
     public f f;
-    public List<g40.c<String>> g;
+    public List<i40.c<String>> g;
     public boolean h;
     public boolean i;
 
@@ -292,7 +292,7 @@ public class OaidProvider extends g40 {
                 this.d.e.o(this.b);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, "00000000-0000-0000-0000-000000000000")) {
                     try {
-                        String b = g40.b("A10", new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
+                        String b = i40.b("A10", new z30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
                         this.d.e.h(b);
                         this.d.e.e(b);
                         this.d.e.d(32L, 124L);
@@ -364,10 +364,10 @@ public class OaidProvider extends g40 {
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g40.c a;
+        public final /* synthetic */ i40.c a;
         public final /* synthetic */ OaidProvider b;
 
-        public e(OaidProvider oaidProvider, g40.c cVar) {
+        public e(OaidProvider oaidProvider, i40.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -432,7 +432,7 @@ public class OaidProvider extends g40 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public a40 c;
+        public c40 c;
         public String d;
         public int e;
         public ArrayList<String> f;
@@ -459,7 +459,7 @@ public class OaidProvider extends g40 {
             }
             this.k = oaidProvider;
             this.b = true;
-            this.c = new a40();
+            this.c = new c40();
             this.f = new ArrayList<>();
         }
 
@@ -713,15 +713,15 @@ public class OaidProvider extends g40 {
         this.i = false;
     }
 
-    @Override // com.repackage.g40
+    @Override // com.repackage.i40
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.f() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.g40
-    public void f(g40.b bVar) {
+    @Override // com.repackage.i40
+    public void f(i40.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = this.a.f(e());
@@ -743,8 +743,8 @@ public class OaidProvider extends g40 {
         }
     }
 
-    @Override // com.repackage.g40
-    public void g(g40.c<String> cVar) {
+    @Override // com.repackage.i40
+    public void g(i40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.b.d.submit(new e(this, cVar));
@@ -776,14 +776,14 @@ public class OaidProvider extends g40 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (g40.c<String> cVar : this.g) {
+            for (i40.c<String> cVar : this.g) {
                 l(cVar);
             }
             this.g.clear();
         }
     }
 
-    public final void l(g40.c<String> cVar) {
+    public final void l(i40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             Bundle bundle = new Bundle();

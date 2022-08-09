@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aq4;
+import com.repackage.rq4;
 /* loaded from: classes3.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -286,8 +286,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().J())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().J());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().K())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().K());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -768,13 +768,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(aq4 aq4Var) {
+    public void setRecomData(rq4 rq4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, aq4Var) == null) || (intent = getIntent()) == null || aq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, rq4Var) == null) || (intent = getIntent()) == null || rq4Var == null) {
             return;
         }
-        aq4Var.c(intent);
+        rq4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

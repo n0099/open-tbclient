@@ -27,49 +27,49 @@ public abstract class fw {
     public static final AtomicInteger a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f403a;
+    public static boolean f404a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f404a;
+    public int f405a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f405a;
+    public long f406a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fx f406a;
+    public fx f407a;
 
     /* renamed from: a  reason: collision with other field name */
-    public gi f407a;
+    public gi f408a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f408a;
+    public XMPushService f409a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f409a;
+    public String f410a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Collection<fz> f410a;
+    public final Collection<fz> f411a;
 
     /* renamed from: a  reason: collision with other field name */
-    public LinkedList<Pair<Integer, Long>> f411a;
+    public LinkedList<Pair<Integer, Long>> f412a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<gb, a> f412a;
+    public final Map<gb, a> f413a;
     public final int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public volatile long f413b;
+    public volatile long f414b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f414b;
+    public String f415b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final Map<gb, a> f415b;
+    public final Map<gb, a> f416b;
     public int c;
 
     /* renamed from: c  reason: collision with other field name */
-    public volatile long f416c;
+    public volatile long f417c;
     public long d;
     public long e;
 
@@ -80,7 +80,7 @@ public abstract class fw {
         public gb a;
 
         /* renamed from: a  reason: collision with other field name */
-        public gj f417a;
+        public gj f418a;
 
         public a(gb gbVar, gj gjVar) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public abstract class fw {
                 }
             }
             this.a = gbVar;
-            this.f417a = gjVar;
+            this.f418a = gjVar;
         }
 
         public void a(fl flVar) {
@@ -111,7 +111,7 @@ public abstract class fw {
         public void a(gn gnVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar) == null) {
-                gj gjVar = this.f417a;
+                gj gjVar = this.f418a;
                 if (gjVar == null || gjVar.a(gnVar)) {
                     this.a.a(gnVar);
                 }
@@ -133,9 +133,9 @@ public abstract class fw {
             }
         }
         a = new AtomicInteger(0);
-        f403a = false;
+        f404a = false;
         try {
-            f403a = Boolean.getBoolean("smack.debugEnabled");
+            f404a = Boolean.getBoolean("smack.debugEnabled");
         } catch (Exception unused) {
         }
         gc.m364a();
@@ -156,23 +156,23 @@ public abstract class fw {
                 return;
             }
         }
-        this.f404a = 0;
-        this.f405a = -1L;
-        this.f413b = 0L;
-        this.f416c = 0L;
-        this.f411a = new LinkedList<>();
-        this.f410a = new CopyOnWriteArrayList();
-        this.f412a = new ConcurrentHashMap();
-        this.f415b = new ConcurrentHashMap();
-        this.f407a = null;
-        this.f409a = "";
-        this.f414b = "";
+        this.f405a = 0;
+        this.f406a = -1L;
+        this.f414b = 0L;
+        this.f417c = 0L;
+        this.f412a = new LinkedList<>();
+        this.f411a = new CopyOnWriteArrayList();
+        this.f413a = new ConcurrentHashMap();
+        this.f416b = new ConcurrentHashMap();
+        this.f408a = null;
+        this.f410a = "";
+        this.f415b = "";
         this.c = 2;
         this.b = a.getAndIncrement();
         this.e = 0L;
         this.d = 0L;
-        this.f406a = fxVar;
-        this.f408a = xMPushService;
+        this.f407a = fxVar;
+        this.f409a = xMPushService;
         m358b();
     }
 
@@ -186,13 +186,13 @@ public abstract class fw {
     private void m351a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
-            synchronized (this.f411a) {
+            synchronized (this.f412a) {
                 if (i == 1) {
-                    this.f411a.clear();
+                    this.f412a.clear();
                 } else {
-                    this.f411a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
-                    if (this.f411a.size() > 6) {
-                        this.f411a.remove(0);
+                    this.f412a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
+                    if (this.f412a.size() > 6) {
+                        this.f412a.remove(0);
                     }
                 }
             }
@@ -202,35 +202,35 @@ public abstract class fw {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f404a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f405a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public long m352a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f416c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f417c : invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public fx m353a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f406a : (fx) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f407a : (fx) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m354a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f406a.c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f407a.c() : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public Map<gb, a> m355a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f412a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f413a : (Map) invokeV.objValue;
     }
 
     public void a(int i, int i2, Exception exc) {
@@ -240,16 +240,16 @@ public abstract class fw {
             if (i != i3) {
                 com.xiaomi.channel.commonutils.logger.b.m89a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(i3), a(i), com.xiaomi.push.service.bk.a(i2)));
             }
-            if (bj.b(this.f408a)) {
+            if (bj.b(this.f409a)) {
                 m351a(i);
             }
             if (i == 1) {
-                this.f408a.a(10);
+                this.f409a.a(10);
                 if (this.c != 0) {
                     com.xiaomi.channel.commonutils.logger.b.m89a("try set connected while not connecting.");
                 }
                 this.c = i;
-                for (fz fzVar : this.f410a) {
+                for (fz fzVar : this.f411a) {
                     fzVar.b(this);
                 }
             } else if (i == 0) {
@@ -257,18 +257,18 @@ public abstract class fw {
                     com.xiaomi.channel.commonutils.logger.b.m89a("try set connecting while not disconnected.");
                 }
                 this.c = i;
-                for (fz fzVar2 : this.f410a) {
+                for (fz fzVar2 : this.f411a) {
                     fzVar2.a(this);
                 }
             } else if (i == 2) {
-                this.f408a.a(10);
+                this.f409a.a(10);
                 int i4 = this.c;
                 if (i4 == 0) {
-                    for (fz fzVar3 : this.f410a) {
+                    for (fz fzVar3 : this.f411a) {
                         fzVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
                     }
                 } else if (i4 == 1) {
-                    for (fz fzVar4 : this.f410a) {
+                    for (fz fzVar4 : this.f411a) {
                         fzVar4.a(this, i2, exc);
                     }
                 }
@@ -279,10 +279,10 @@ public abstract class fw {
 
     public void a(fz fzVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, fzVar) == null) || fzVar == null || this.f410a.contains(fzVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, fzVar) == null) || fzVar == null || this.f411a.contains(fzVar)) {
             return;
         }
-        this.f410a.add(fzVar);
+        this.f411a.add(fzVar);
     }
 
     public void a(gb gbVar, gj gjVar) {
@@ -291,7 +291,7 @@ public abstract class fw {
             if (gbVar == null) {
                 throw new NullPointerException("Packet listener is null.");
             }
-            this.f412a.put(gbVar, new a(gbVar, gjVar));
+            this.f413a.put(gbVar, new a(gbVar, gjVar));
         }
     }
 
@@ -305,7 +305,7 @@ public abstract class fw {
             synchronized (this) {
                 if (this.c == 0) {
                     com.xiaomi.channel.commonutils.logger.b.m89a("setChallenge hash = " + bo.a(str).substring(0, 8));
-                    this.f409a = str;
+                    this.f410a = str;
                     a(1, 0, null);
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.m89a("ignore setChallenge because connection was disconnected");
@@ -351,14 +351,14 @@ public abstract class fw {
     public String m357b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f406a.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f407a.b() : (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
     public void m358b() {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.f406a.m362a() && this.f407a == null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.f407a.m362a() && this.f408a == null) {
             Class<?> cls = null;
             try {
                 str = System.getProperty("smack.debuggerClass");
@@ -373,11 +373,11 @@ public abstract class fw {
                 }
             }
             if (cls == null) {
-                this.f407a = new fu(this);
+                this.f408a = new fu(this);
                 return;
             }
             try {
-                this.f407a = (gi) cls.getConstructor(fw.class, Writer.class, Reader.class).newInstance(this);
+                this.f408a = (gi) cls.getConstructor(fw.class, Writer.class, Reader.class).newInstance(this);
             } catch (Exception e2) {
                 throw new IllegalArgumentException("Can't initialize the configured debugger!", e2);
             }
@@ -391,7 +391,7 @@ public abstract class fw {
     public void b(fz fzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, fzVar) == null) {
-            this.f410a.remove(fzVar);
+            this.f411a.remove(fzVar);
         }
     }
 
@@ -401,7 +401,7 @@ public abstract class fw {
             if (gbVar == null) {
                 throw new NullPointerException("Packet listener is null.");
             }
-            this.f415b.put(gbVar, new a(gbVar, gjVar));
+            this.f416b.put(gbVar, new a(gbVar, gjVar));
         }
     }
 
@@ -433,8 +433,8 @@ public abstract class fw {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            synchronized (this.f411a) {
-                this.f411a.clear();
+            synchronized (this.f412a) {
+                this.f412a.clear();
             }
         }
     }

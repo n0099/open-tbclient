@@ -24,20 +24,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj0;
-import com.repackage.ii0;
-import com.repackage.iy0;
-import com.repackage.kj0;
-import com.repackage.no0;
-import com.repackage.qn0;
+import com.repackage.aj0;
+import com.repackage.ei0;
+import com.repackage.hj0;
+import com.repackage.hy0;
+import com.repackage.lo0;
+import com.repackage.nn0;
+import com.repackage.oi0;
 import com.repackage.si0;
-import com.repackage.wi0;
-import com.repackage.yi0;
-import com.repackage.yj0;
+import com.repackage.ui0;
+import com.repackage.vi0;
+import com.repackage.vj0;
+import com.repackage.xx0;
+import com.repackage.xz0;
 import com.repackage.yx0;
-import com.repackage.yz0;
-import com.repackage.zi0;
-import com.repackage.zx0;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -46,42 +46,44 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LPDownloadManager {
     public static /* synthetic */ Interceptable $ic;
-    public static LruCache<String, dj0> a;
+    public static LruCache<String, aj0> a;
     public static Map<String, Integer> b;
     public static final List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a extends no0<zi0> {
+    public static class a extends lo0<vi0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RelativeLayout a;
-        public final /* synthetic */ si0 b;
+        public final /* synthetic */ oi0 b;
         public final /* synthetic */ String c;
         public final /* synthetic */ Context d;
+        public final /* synthetic */ int e;
 
-        public a(RelativeLayout relativeLayout, si0 si0Var, String str, Context context) {
+        public a(RelativeLayout relativeLayout, oi0 oi0Var, String str, Context context, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {relativeLayout, si0Var, str, context};
+                Object[] objArr = {relativeLayout, oi0Var, str, context, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = relativeLayout;
-            this.b = si0Var;
+            this.b = oi0Var;
             this.c = str;
             this.d = context;
+            this.e = i;
         }
 
-        @Override // com.repackage.lo0
+        @Override // com.repackage.jo0
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
@@ -89,41 +91,41 @@ public class LPDownloadManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mo0
+        @Override // com.repackage.ko0
         /* renamed from: e */
-        public void b(Headers headers, zi0 zi0Var, int i) {
-            qn0 qn0Var;
+        public void b(Headers headers, vi0 vi0Var, int i) {
+            nn0 nn0Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048579, this, headers, zi0Var, i) == null) || zi0Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048579, this, headers, vi0Var, i) == null) || vi0Var == null) {
                 return;
             }
-            int i2 = zi0Var.a;
+            int i2 = vi0Var.a;
             if (i2 == 1) {
-                dj0 d = LPDownloadManager.d(this.a, this.b, this.c);
-                d.y(zi0Var);
+                aj0 d = LPDownloadManager.d(this.a, this.b, this.c);
+                d.y(vi0Var);
                 d.z(true);
                 d.m();
             } else if (i2 != 2 && i2 != 3) {
-                yz0.a().b(this.d, R.string.obfuscated_res_0x7f0f0b74);
-            } else if ((this.d instanceof Activity) && (qn0Var = zi0Var.b) != null) {
-                LPDownloadManager.g(this.b, qn0Var);
-                dj0 d2 = LPDownloadManager.d(this.a, this.b, this.c);
-                d2.y(zi0Var);
+                xz0.a().a(this.d, R.string.obfuscated_res_0x7f0f0b99);
+            } else if ((this.d instanceof Activity) && (nn0Var = vi0Var.b) != null) {
+                LPDownloadManager.g(this.b, nn0Var);
+                aj0 d2 = LPDownloadManager.d(this.a, this.b, this.c);
+                d2.y(vi0Var);
                 d2.z(false);
-                d2.A(zi0Var, (Activity) this.d);
+                d2.A(this.a, vi0Var, (Activity) this.d, this.e);
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).p(this.b.p.a).u(ClogBuilder.Page.DOWNLOAD_RECTIFY).k(String.valueOf(zi0Var.a)).l(this.c);
-            iy0.b(clogBuilder);
+            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).p(this.b.p.a).u(ClogBuilder.Page.DOWNLOAD_RECTIFY).k(String.valueOf(vi0Var.a)).l(this.c);
+            hy0.b(clogBuilder);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mo0
+        @Override // com.repackage.ko0
         /* renamed from: f */
-        public zi0 d(Headers headers, String str, int i) {
+        public vi0 d(Headers headers, String str, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? zi0.a(yx0.c(str).optJSONObject("data")) : (zi0) invokeLLI.objValue;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? vi0.a(xx0.c(str).optJSONObject("data")) : (vi0) invokeLLI.objValue;
         }
     }
 
@@ -163,67 +165,67 @@ public class LPDownloadManager {
         };
     }
 
-    public static si0 c(@NonNull String str) {
+    public static oi0 c(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject c2 = yx0.c(str);
+            JSONObject c2 = xx0.c(str);
             String optString = c2.optString("key", "");
             if (TextUtils.isEmpty(optString)) {
                 optString = c2.optString("lp_url", "");
             }
-            si0 query = ii0.a().query(optString);
+            oi0 query = ei0.a().query(optString);
             if (query != null) {
                 return query;
             }
-            si0 si0Var = new si0();
-            si0Var.g = c2.optString("url", "");
-            si0Var.g(optString);
-            si0Var.q.a = c2.optString(BdVideoAd.AD_VIDEO_DAPAGE, "");
-            si0Var.q.j = c2.optString("da_area", "");
-            si0Var.q.b = c2.optString(Constant.KEY_BUSINESS);
-            si0Var.q.d = c2.optString("content_type");
-            si0Var.q.e = c2.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
-            si0Var.q.g = c2.optInt("close_v_dl");
-            si0Var.p.a = c2.optString("log_ext");
-            si0Var.p.j = c2.optString(LegoListActivityConfig.AD_ID);
-            si0Var.p.g = c2.optString("app_icon");
-            si0Var.p.h = c2.optString("app_name");
-            return si0Var;
+            oi0 oi0Var = new oi0();
+            oi0Var.g = c2.optString("url", "");
+            oi0Var.h(optString);
+            oi0Var.q.a = c2.optString(BdVideoAd.AD_VIDEO_DAPAGE, "");
+            oi0Var.q.j = c2.optString("da_area", "");
+            oi0Var.q.b = c2.optString(Constant.KEY_BUSINESS);
+            oi0Var.q.d = c2.optString("content_type");
+            oi0Var.q.e = c2.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            oi0Var.q.g = c2.optInt("close_v_dl");
+            oi0Var.p.a = c2.optString("log_ext");
+            oi0Var.p.j = c2.optString(LegoListActivityConfig.AD_ID);
+            oi0Var.p.g = c2.optString("app_icon");
+            oi0Var.p.h = c2.optString("app_name");
+            return oi0Var;
         }
-        return (si0) invokeL.objValue;
+        return (oi0) invokeL.objValue;
     }
 
-    public static dj0 d(RelativeLayout relativeLayout, si0 si0Var, String str) {
+    public static aj0 d(RelativeLayout relativeLayout, oi0 oi0Var, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, relativeLayout, si0Var, str)) == null) {
-            kj0<?> a2 = yj0.a(relativeLayout, IDownloadViewCreator.ViewType.LP_DOWNLOAD_VIEW);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, relativeLayout, oi0Var, str)) == null) {
+            hj0<?> a2 = vj0.a(relativeLayout, IDownloadViewCreator.ViewType.LP_DOWNLOAD_VIEW);
             Map<String, Integer> map = b;
             if (map != null && (a2 instanceof DefaultDownloadViewLP)) {
                 Integer num = map.get(str);
                 ((DefaultDownloadViewLP) a2).setAbsorbColor(num != null ? num.intValue() : -1);
             }
-            dj0 dj0Var = new dj0(si0Var, a2);
+            aj0 aj0Var = new aj0(oi0Var, a2);
             if (a == null) {
                 a = new LruCache<>(32);
             }
-            zx0.e(a, si0Var.d(), dj0Var);
-            return dj0Var;
+            yx0.e(a, oi0Var.e(), aj0Var);
+            return aj0Var;
         }
-        return (dj0) invokeLLL.objValue;
+        return (aj0) invokeLLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:7:0x0010  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void e(@NonNull Context context, @NonNull RelativeLayout relativeLayout, String str, @NonNull si0 si0Var) {
+    public static void e(@NonNull Context context, @NonNull RelativeLayout relativeLayout, String str, @NonNull oi0 oi0Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, context, relativeLayout, str, si0Var) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, relativeLayout, str, oi0Var, Integer.valueOf(i)}) == null) {
             for (String str2 : c) {
-                if (si0Var.g.startsWith(str2) || str.startsWith(str2)) {
-                    dj0 d = d(relativeLayout, si0Var, str);
+                if (oi0Var.g.startsWith(str2) || str.startsWith(str2)) {
+                    aj0 d = d(relativeLayout, oi0Var, str);
                     d.z(true);
                     d.m();
                     return;
@@ -232,10 +234,10 @@ public class LPDownloadManager {
                 }
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("ext", si0Var.p.a);
+            linkedHashMap.put("ext", oi0Var.p.a);
             linkedHashMap.put("charge_url", str);
-            linkedHashMap.put("apk_url", si0Var.g);
-            new yi0().b(linkedHashMap, new a(relativeLayout, si0Var, str, context));
+            linkedHashMap.put("apk_url", oi0Var.g);
+            new ui0().b(linkedHashMap, new a(relativeLayout, oi0Var, str, context, i));
         }
     }
 
@@ -246,43 +248,45 @@ public class LPDownloadManager {
             if (context == null || relativeLayout == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            si0 c2 = c(str);
-            if (c2.e()) {
+            oi0 c2 = c(str);
+            if (c2.f()) {
                 return false;
             }
-            String optString = yx0.c(str).optString("lp_url", "");
-            dj0 dj0Var = (dj0) zx0.b(a, c2.d());
-            if (dj0Var != null) {
-                if (z && c2.c != AdDownloadStatus.DOWNLOADING && dj0Var.w()) {
-                    dj0Var.m();
+            JSONObject c3 = xx0.c(str);
+            String optString = c3.optString("lp_url", "");
+            int optInt = c3.optInt("lp_check_mode", 0);
+            aj0 aj0Var = (aj0) yx0.b(a, c2.e());
+            if (aj0Var != null) {
+                if (z && c2.c != AdDownloadStatus.DOWNLOADING && aj0Var.w()) {
+                    aj0Var.m();
                 }
-                if (dj0Var.x()) {
-                    kj0<?> a2 = yj0.a(relativeLayout, IDownloadViewCreator.ViewType.LP_DOWNLOAD_VIEW);
+                if (aj0Var.x()) {
+                    hj0<?> a2 = vj0.a(relativeLayout, IDownloadViewCreator.ViewType.LP_DOWNLOAD_VIEW);
                     Map<String, Integer> map = b;
                     if (map != null && (a2 instanceof DefaultDownloadViewLP)) {
                         Integer num = map.get(optString);
                         ((DefaultDownloadViewLP) a2).setAbsorbColor(num != null ? num.intValue() : -1);
                     }
-                    dj0Var.t(a2);
-                    if (!dj0Var.w() && (context instanceof Activity)) {
-                        dj0Var.A(dj0Var.v(), (Activity) context);
+                    aj0Var.t(a2);
+                    if (!aj0Var.w() && (context instanceof Activity)) {
+                        aj0Var.A(relativeLayout, aj0Var.v(), (Activity) context, optInt);
                     }
                 }
                 return true;
             }
-            e(context, relativeLayout, optString, c2);
+            e(context, relativeLayout, optString, c2, optInt);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static void g(@NonNull si0 si0Var, @NonNull qn0 qn0Var) {
+    public static void g(@NonNull oi0 oi0Var, @NonNull nn0 nn0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, si0Var, qn0Var) == null) {
-            si0Var.g = qn0Var.j;
-            wi0 wi0Var = si0Var.p;
-            wi0Var.g = qn0Var.b;
-            wi0Var.h = qn0Var.c;
+        if (interceptable == null || interceptable.invokeLL(65543, null, oi0Var, nn0Var) == null) {
+            oi0Var.g = nn0Var.j;
+            si0 si0Var = oi0Var.p;
+            si0Var.g = nn0Var.b;
+            si0Var.h = nn0Var.c;
         }
     }
 }

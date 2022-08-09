@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
+import com.repackage.ms4;
 /* loaded from: classes3.dex */
 public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -43,40 +43,40 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09224f);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e84);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092359);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed0);
     }
 
-    public void b() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vr4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a0b, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            ms4.d(this.b).v(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a30, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0f49);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0f7d);
                 this.c.setVisibility(0);
             } else if (i == 1) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a1d);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a41);
                 this.c.setVisibility(8);
             } else if (i != 2) {
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a1b);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a3f);
                 this.c.setVisibility(8);
             }
         }
     }
 
-    public void d(boolean z) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                c(0);
+                b(0);
             } else {
                 this.a.setVisibility(8);
             }

@@ -1,30 +1,10 @@
 package com.repackage;
 
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 /* loaded from: classes6.dex */
-public class im {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
-
+public interface im {
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964037279, "Lcom/repackage/im;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964037279, "Lcom/repackage/im;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
+        new ServiceReference(AppBeforeCreateSpeedStats.TITAN_DETAILS, "TitanInfo");
     }
 }

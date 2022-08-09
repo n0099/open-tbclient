@@ -21,17 +21,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.repackage.og;
-import com.repackage.yt4;
+import com.repackage.pg;
+import com.repackage.ru4;
 import java.util.Calendar;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public og resourcesWrapper;
+    public pg resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -112,7 +112,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new og(super.getResources());
+                    this.resourcesWrapper = new pg(super.getResources());
                 }
                 return this.resourcesWrapper;
             }
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            yt4.k().D("account_share");
+            ru4.k().D("account_share");
         }
     }
 

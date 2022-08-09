@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w89;
+import com.repackage.rb9;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes4.dex */
@@ -301,7 +302,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            w89.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            rb9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -465,7 +466,7 @@ public class Texture2dProgram {
     public void onDrawArraysPre() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "alpha"), this.mAlpha);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
             if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);
@@ -489,7 +490,7 @@ public class Texture2dProgram {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            w89.c("Grafika", "deleting program " + this.mProgramHandle);
+            rb9.c("Grafika", "deleting program " + this.mProgramHandle);
             GLES20.glDeleteProgram(this.mProgramHandle);
             this.mProgramHandle = -1;
         }

@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v11;
+import com.repackage.b21;
 /* loaded from: classes2.dex */
 public class LockImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v11 a;
+    public b21 a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -93,7 +93,7 @@ public class LockImageView extends ImageView {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new v11(c(getResources(), R.drawable.obfuscated_res_0x7f080daf), c(getResources(), R.drawable.obfuscated_res_0x7f080dae));
+            this.a = new b21(c(getResources(), R.drawable.obfuscated_res_0x7f080e0d), c(getResources(), R.drawable.obfuscated_res_0x7f080e0c));
         }
     }
 

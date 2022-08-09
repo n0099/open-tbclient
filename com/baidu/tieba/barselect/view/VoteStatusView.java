@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xw5;
+import com.repackage.py5;
 /* loaded from: classes3.dex */
 public class VoteStatusView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -32,6 +32,8 @@ public class VoteStatusView extends View {
     public Path j;
     public Path k;
     public Path l;
+    public Path m;
+    public Path n;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VoteStatusView(Context context) {
@@ -70,6 +72,8 @@ public class VoteStatusView extends View {
             this.j = new Path();
             this.k = new Path();
             this.l = new Path();
+            this.m = new Path();
+            this.n = new Path();
         }
     }
 
@@ -88,39 +92,46 @@ public class VoteStatusView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
-            int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
-            if (height * 6 >= width) {
-                height = width / 6;
+            super.onDraw(canvas);
+            int measuredHeight = (getMeasuredHeight() - getPaddingBottom()) - getPaddingTop();
+            int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
+            if (measuredHeight * 6 >= measuredWidth) {
+                measuredHeight = measuredWidth / 6;
             }
-            int i = height / 2;
+            int i = measuredHeight / 2;
             float f = i;
             this.h.addCircle(f, f, f, Path.Direction.CW);
-            float f2 = width / 2;
+            int i2 = measuredHeight / 6;
+            float f2 = (measuredWidth / 3) + i2;
             this.i.addCircle(f2, f, f, Path.Direction.CW);
-            float f3 = width - i;
+            float f3 = ((measuredWidth * 2) / 3) - i2;
             this.j.addCircle(f3, f, f, Path.Direction.CW);
-            float f4 = (height * 9) / 26;
-            float f5 = (height * 17) / 26;
-            this.k.addRect(f, f4, f2, f5, Path.Direction.CW);
-            this.l.addRect(f2, f4, f3, f5, Path.Direction.CW);
+            float f4 = measuredWidth - i;
+            this.k.addCircle(f4, f, f, Path.Direction.CW);
+            float f5 = (measuredHeight * 9) / 26;
+            float f6 = (measuredHeight * 17) / 26;
+            this.l.addRect(f, f5, f2, f6, Path.Direction.CW);
+            this.m.addRect(f2, f5, f3, f6, Path.Direction.CW);
+            this.n.addRect(f3, f5, f4, f6, Path.Direction.CW);
             this.c.setColor(this.g);
             this.c.setShader(null);
             if (this.d == null || this.b) {
-                this.d = new LinearGradient(f, 0.0f, f3, 0.0f, this.e, this.f, Shader.TileMode.CLAMP);
+                this.d = new LinearGradient(f, 0.0f, f4, 0.0f, this.e, this.f, Shader.TileMode.CLAMP);
                 this.b = false;
             }
-            if (this.a == xw5.c) {
+            if (this.a == py5.c) {
                 this.c.setShader(this.d);
             }
-            canvas.drawPath(this.l, this.c);
-            canvas.drawPath(this.j, this.c);
-            if (this.a == xw5.b) {
-                this.c.setShader(this.d);
-            }
+            canvas.drawPath(this.n, this.c);
             canvas.drawPath(this.k, this.c);
+            if (this.a == py5.b) {
+                this.c.setShader(this.d);
+            }
+            canvas.drawPath(this.m, this.c);
+            canvas.drawPath(this.j, this.c);
+            canvas.drawPath(this.l, this.c);
             canvas.drawPath(this.i, this.c);
-            if (this.a == xw5.a) {
+            if (this.a == py5.a) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.h, this.c);

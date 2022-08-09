@@ -1,157 +1,129 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.repackage.wx5;
 /* loaded from: classes7.dex */
-public class yx5 implements View.OnClickListener {
+public final class yx5 extends wx5<yx5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public View c;
-    public ImageView d;
-    public View e;
-    public EMTextView f;
-    public ImageView g;
-    public int h;
-    public String i;
+    public zx5 t;
+    public float u;
+    public boolean v;
 
-    public yx5(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public <K> yx5(K k, xx5<K> xx5Var) {
+        super(k, xx5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {k, xx5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(objArr2[0], (xx5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = 3;
-        this.a = context;
-        c(context);
+        this.t = null;
+        this.u = Float.MAX_VALUE;
+        this.v = false;
     }
 
-    public ImageView a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wx5
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (ImageView) invokeV.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null);
-            this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091b4c);
-            this.c = findViewById;
-            findViewById.setOnClickListener(this);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ea4);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092440);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cf);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090627);
-            this.g = imageView;
-            imageView.setClickable(true);
-            e(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l();
+            this.t.g(e());
+            super.h();
         }
     }
 
-    public void d() {
+    @Override // com.repackage.wx5
+    public boolean j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || StringUtils.isNull(TbSingleton.getInstance().getBannerText())) {
-            return;
-        }
-        this.f.setText(TbSingleton.getInstance().getBannerText());
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.h != i) {
-                vr4 d = vr4.d(this.c);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0201);
-                vr4 d2 = vr4.d(this.e);
-                d2.n(R.string.J_X03);
-                d2.f(R.color.CAM_X0110);
-                vr4.d(this.f).v(R.color.CAM_X0108);
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-                if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f05, WebPManager.ResourceStateType.NORMAL);
-                } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f04, WebPManager.ResourceStateType.NORMAL);
-                } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f03, WebPManager.ResourceStateType.NORMAL);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (this.v) {
+                float f = this.u;
+                if (f != Float.MAX_VALUE) {
+                    this.t.e(f);
+                    this.u = Float.MAX_VALUE;
                 }
+                this.b = this.t.a();
+                this.a = 0.0f;
+                this.v = false;
+                return true;
             }
-            this.h = i;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if ("2".equals(str)) {
-                vw6.a("c14079", "0", str);
-            }
-            if ("1".equals(str)) {
-                vw6.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            HashMap hashMap = new HashMap();
-            if ("from_personaize".equals(this.i)) {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
-                hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
-                vw6.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
+            if (this.u != Float.MAX_VALUE) {
+                this.t.a();
+                long j2 = j / 2;
+                wx5.i h = this.t.h(this.b, this.a, j2);
+                this.t.e(this.u);
+                this.u = Float.MAX_VALUE;
+                wx5.i h2 = this.t.h(h.a, h.b, j2);
+                this.b = h2.a;
+                this.a = h2.b;
             } else {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                vw6.a("c14080", "0", "2");
+                wx5.i h3 = this.t.h(this.b, this.a, j);
+                this.b = h3.a;
+                this.a = h3.b;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
+            float max = Math.max(this.b, this.h);
+            this.b = max;
+            float min = Math.min(max, this.g);
+            this.b = min;
+            if (k(min, this.a)) {
+                this.b = this.t.a();
+                this.a = 0.0f;
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public boolean k(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.t.c(f, f2) : invokeCommon.booleanValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            zx5 zx5Var = this.t;
+            if (zx5Var != null) {
+                double a = zx5Var.a();
+                if (a <= this.g) {
+                    if (a < this.h) {
+                        throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+                    }
+                    return;
+                }
+                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
+            }
+            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
     }
 
-    public void setFrom(String str) {
+    public yx5 m(zx5 zx5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, zx5Var)) == null) {
+            this.t = zx5Var;
+            return this;
         }
+        return (yx5) invokeL.objValue;
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq7;
+import com.repackage.wr7;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -213,13 +213,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                bq7.f().b(z, str);
+                wr7.f().b(z, str);
             } else if (i == 1) {
-                bq7.f().e(z);
+                wr7.f().e(z);
             } else if (i == 2) {
-                bq7.f().c(z);
+                wr7.f().c(z);
             } else {
-                bq7.f().a(null);
+                wr7.f().a(null);
             }
             finish();
         }
@@ -350,7 +350,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
+                setContentView(R.layout.obfuscated_res_0x7f0d04f4);
                 PassManagerStatic.A();
                 init();
                 setupViews();
@@ -388,7 +388,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(j());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f0abd);
+                setTitleText(R.string.obfuscated_res_0x7f0f0ae1);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.w);
                 this.sapiWebView.loadUrl(m(), k());
                 this.sapiWebView.setChangePwdCallback(new d(this));

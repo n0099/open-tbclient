@@ -2,6 +2,7 @@ package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class HotTopicStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +56,8 @@ public final class HotTopicStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             arrayList.add("HotTopicActivityConfig");
             arrayList.add("RelateTopicForumActivityConfig");
             arrayList.add("HotRanklistActivityConfig");
-            arrayList.add("https://tieba.baidu.com/mo/q/hotmessage?topic_id=");
-            arrayList.add("https://tieba.baidu.com/mo/q/newhotmessage?");
-            arrayList.add("https://tieba.baidu.com/mo/q/hotmessage?topic_id=");
-            arrayList.add("https://tieba.baidu.com/mo/q/newhotmessage?");
+            arrayList.add(UrlSchemaHelper.JUMP_TO_HOT_TOPIC);
+            arrayList.add(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW);
             hashMap.put("com.baidu.tieba.hottopic.controller.HotTopicStatic", arrayList);
             return hashMap;
         }

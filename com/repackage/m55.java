@@ -1,15 +1,23 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m55 implements h55 {
+public class m55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public m55() {
         Interceptable interceptable = $ic;
@@ -25,21 +33,23 @@ public class m55 implements h55 {
         }
     }
 
-    @Override // com.repackage.h55
-    public void a(View view2, View view3, boolean z) {
+    public static m55 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2;
-            if (z) {
-                relativeLayout.addView(view3, 0);
-            } else {
-                relativeLayout.addView(view3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                m55 m55Var = new m55();
+                m55Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                m55Var.b = jSONObject.optInt("width");
+                m55Var.c = jSONObject.optInt("height");
+                m55Var.d = jSONObject.optString("pic_url");
+                m55Var.e = jSONObject.optString("thumbnail");
+                m55Var.g = jSONObject.optString("origin_url");
+                return m55Var;
+            } catch (Exception unused) {
+                return null;
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.addRule(14);
-            view3.setLayoutParams(layoutParams);
         }
+        return (m55) invokeL.objValue;
     }
 }

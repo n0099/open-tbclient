@@ -1,228 +1,74 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bu4 {
+public class bu4 extends tt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public Activity b;
-    public AlertDialog c;
-    public String d;
-    public TextView e;
-    public DialogInterface.OnCancelListener f;
-    public boolean g;
+    public rt4 c;
 
-    public bu4(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu4(rt4 rt4Var) {
+        super(rt4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.a = tbPageContext;
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
-            return;
-        }
-        this.b = this.a.getPageActivity();
-    }
-
-    public final bu4 a(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            sg.i(create, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0203, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09071b);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setCancelable(true);
-                    this.c.setCanceledOnTouchOutside(true);
-                    this.c.setOnCancelListener(onCancelListener);
-                } else {
-                    this.c.setCanceledOnTouchOutside(false);
-                    this.c.setCancelable(false);
-                }
-            }
-            return this;
-        }
-        return (bu4) invokeL.objValue;
-    }
-
-    public final bu4 b(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            sg.i(create, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0203, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09071b);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setOnCancelListener(onCancelListener);
-                }
-            }
-            return this;
-        }
-        return (bu4) invokeL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlertDialog alertDialog = this.c;
-            return alertDialog != null && alertDialog.isShowing();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void e(DialogInterface.OnCancelListener onCancelListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
-            this.f = onCancelListener;
-        }
-    }
-
-    public void f(boolean z) {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.c) == null) {
-            return;
-        }
-        alertDialog.setCancelable(z);
-    }
-
-    public void g(boolean z) {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.c) == null) {
-            return;
-        }
-        alertDialog.setCanceledOnTouchOutside(z);
-    }
-
-    @Nullable
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Activity) invokeV.objValue;
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (z) {
-                if (this.g) {
-                    a(this.f);
-                    return;
-                } else {
-                    b(this.f);
-                    return;
-                }
-            }
-            sg.a(this.c, this.b);
-        }
-    }
-
-    public void i(int i) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (activity = this.b) == null) {
-            return;
-        }
-        this.d = activity.getString(i);
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-            TextView textView = this.e;
-            if (textView != null) {
-                textView.setText(str);
-            }
-        }
-    }
-
-    public bu4(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {rt4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rt4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.b = activity;
+        this.c = rt4Var;
+    }
+
+    @Override // com.repackage.tt4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+    }
+
+    @ut4(isAsync = false, value = "showShareDialog")
+    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("title");
+        String optString2 = jSONObject.optString("content");
+        String optString3 = jSONObject.optString("imgUrl");
+        String optString4 = jSONObject.optString("shareUrl");
+        ShareItem shareItem = new ShareItem();
+        shareItem.u = optString;
+        shareItem.v = optString2;
+        if (optString3 == null) {
+            shareItem.y = null;
+        } else {
+            shareItem.y = Uri.parse(optString3);
+        }
+        shareItem.w = optString4;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

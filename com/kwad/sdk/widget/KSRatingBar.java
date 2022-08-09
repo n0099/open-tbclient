@@ -35,9 +35,9 @@ public class KSRatingBar extends LinearLayout {
         this.y = 1;
         this.aqW = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c13));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c39));
         setShowDividers(2);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f040367, R.attr.obfuscated_res_0x7f04037e, R.attr.obfuscated_res_0x7f04037f, R.attr.obfuscated_res_0x7f040380, R.attr.obfuscated_res_0x7f040381, R.attr.obfuscated_res_0x7f040382, R.attr.obfuscated_res_0x7f040383, R.attr.obfuscated_res_0x7f040384, R.attr.obfuscated_res_0x7f04039e});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040394, R.attr.obfuscated_res_0x7f0403a4, R.attr.obfuscated_res_0x7f0403bb, R.attr.obfuscated_res_0x7f0403bc, R.attr.obfuscated_res_0x7f0403bd, R.attr.obfuscated_res_0x7f0403be, R.attr.obfuscated_res_0x7f0403bf, R.attr.obfuscated_res_0x7f0403c0, R.attr.obfuscated_res_0x7f0403c1, R.attr.obfuscated_res_0x7f0403db});
         this.aqV = obtainStyledAttributes.getDrawable(5);
         this.aqT = obtainStyledAttributes.getDrawable(3);
         this.aqU = obtainStyledAttributes.getDrawable(4);

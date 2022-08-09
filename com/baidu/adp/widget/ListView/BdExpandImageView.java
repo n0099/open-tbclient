@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdExpandImageView extends ImageView {
+public class BdExpandImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
@@ -54,7 +55,7 @@ public class BdExpandImageView extends ImageView {
         this.d = new Rect();
         this.e = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c7, R.attr.obfuscated_res_0x7f04025f});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040291});
         this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0) / 2.0f;
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         obtainStyledAttributes.recycle();
@@ -64,7 +65,7 @@ public class BdExpandImageView extends ImageView {
         getResources().getDisplayMetrics();
     }
 
-    public final void a() {
+    public final void f() {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (drawable = getDrawable()) == null) {
@@ -113,7 +114,7 @@ public class BdExpandImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            a();
+            f();
         }
     }
 
@@ -128,24 +129,24 @@ public class BdExpandImageView extends ImageView {
         return invokeIIII.booleanValue;
     }
 
-    @Override // android.widget.ImageView
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
             super.setImageBitmap(bitmap);
             if (this.g) {
-                a();
+                f();
             }
         }
     }
 
-    @Override // android.widget.ImageView
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             super.setImageDrawable(drawable);
             if (this.g) {
-                a();
+                f();
             }
         }
     }

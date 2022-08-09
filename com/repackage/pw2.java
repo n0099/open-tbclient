@@ -1,71 +1,267 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i02;
+import com.repackage.vj2;
+import com.tencent.open.miniapp.MiniApp;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class pw2 implements nw2<lw2> {
+public class pw2 extends nw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755395578, "Lcom/repackage/pw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ jw2 b;
+        public final /* synthetic */ i02 c;
+
+        public a(pw2 pw2Var, String str, jw2 jw2Var, i02 i02Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var, str, jw2Var, i02Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755395578, "Lcom/repackage/pw2;");
-                return;
+            this.a = str;
+            this.b = jw2Var;
+            this.c = i02Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zq2 zq2Var = new zq2();
+                zq2Var.c = this.a;
+                zq2Var.b = kw2.a(this.b);
+                i02.b i = this.c.i("navigateTo");
+                i.n(i02.g, i02.i);
+                i.k("pluginFunPage", zq2Var).a();
             }
         }
-        b = sg1.a;
     }
 
     public pw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
     @Override // com.repackage.nw2
-    @SuppressLint({"BDThrowableCheck"})
-    public String b() {
+    public zs1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new zs1(201, "args params is null");
+            }
+            if (jSONObject.optLong("fee") < 0) {
+                return new zs1(201, "fee can't smaller than 0");
+            }
+            if (jSONObject.optJSONObject("paymentArgs") == null) {
+                return new zs1(201, "paymentArgs can't be null");
+            }
+            return null;
+        }
+        return (zs1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public iw2 f(jw2 jw2Var) {
+        InterceptResult invokeL;
+        String[] list;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jw2Var)) == null) {
+            File file = null;
+            if (jw2Var == null) {
+                return null;
+            }
+            String str = jw2Var.a;
+            String str2 = jw2Var.c;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            iw2 iw2Var = new iw2();
+            iw2Var.a = str;
+            iw2Var.b = str2;
+            if (qy1.d()) {
+                file = vj2.f.e();
+            } else if (yw2.H()) {
+                file = vj2.b.e();
+            } else if (yw2.D()) {
+                file = gy1.d();
+            } else {
+                if (TextUtils.equals(jw2Var.d, MiniApp.MINIAPP_VERSION_DEVELOP)) {
+                    String a2 = bt1.a(str);
+                    File g = vj2.g();
+                    String[] list2 = g.list();
+                    if (list2 == null || g.length() == 0) {
+                        return iw2Var;
+                    }
+                    String str3 = a2 + "_dev";
+                    int i2 = -1;
+                    for (String str4 : list2) {
+                        if (!TextUtils.isEmpty(str4) && str4.startsWith(str3)) {
+                            try {
+                                int parseInt = Integer.parseInt(str4.substring(str3.length()));
+                                if (parseInt > i2) {
+                                    i2 = parseInt;
+                                }
+                            } catch (NumberFormatException e) {
+                                rw2.b(Log.getStackTraceString(e));
+                            }
+                        }
+                    }
+                    if (i2 > -1) {
+                        iw2Var.a = str3 + i2;
+                        iw2Var.e = true;
+                        File file2 = new File(g, iw2Var.a + File.separator + i2);
+                        iw2Var.c = file2.getAbsolutePath();
+                        iw2Var.d = i2;
+                        file = file2;
+                    } else {
+                        iw2Var.e = false;
+                        iw2Var.c = null;
+                    }
+                } else {
+                    File file3 = new File(vj2.g(), str);
+                    if (file3.exists() && (list = file3.list()) != null && list.length != 0) {
+                        String str5 = null;
+                        int i3 = -1;
+                        for (String str6 : list) {
+                            if (!TextUtils.isEmpty(str6)) {
+                                try {
+                                    i = Integer.parseInt(str6);
+                                } catch (NumberFormatException e2) {
+                                    rw2.b(Log.getStackTraceString(e2));
+                                    i = -1;
+                                }
+                                if (i > i3) {
+                                    str5 = str6;
+                                    i3 = i;
+                                }
+                            }
+                        }
+                        if (i3 != -1) {
+                            iw2Var.d = i3;
+                            iw2Var.e = true;
+                            file = new File(file3, str5);
+                            iw2Var.c = file.getAbsolutePath();
+                        }
+                    }
+                    return iw2Var;
+                }
+            }
+            if (file == null) {
+                return iw2Var;
+            }
+            File file4 = new File(file, str2);
+            if (n(file4)) {
+                iw2Var.f = true;
+                iw2Var.c = file4.getAbsolutePath();
+                return iw2Var;
+            }
+            return iw2Var;
+        }
+        return (iw2) invokeL.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                return this.a;
-            }
-            String str = System.currentTimeMillis() + "" + hashCode();
-            this.a = str;
-            if (b && qw2.a(str)) {
-                throw new RuntimeException("illegal observer id");
-            }
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.repackage.nw2
-    public abstract /* synthetic */ void onEvent(@NonNull T t);
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public zs1 j(String str, jw2 jw2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, jw2Var)) == null) {
+            if (jw2Var == null) {
+                return new zs1(201, "pay args is null");
+            }
+            SwanAppActivity w = y03.K().w();
+            if (w == null) {
+                return new zs1(1001, "runtime exception, try reopen this app");
+            }
+            i02 X = w.X();
+            if (X == null) {
+                return new zs1(1001, "runtime exception, page manager breakdown");
+            }
+            rw2.b("jump to fun page");
+            y03.M().post(new a(this, str, jw2Var, X));
+            return new zs1(0);
+        }
+        return (zs1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.nw2
+    public zs1 m(jw2 jw2Var, l22<kw2> l22Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jw2Var, l22Var)) == null) {
+            return null;
+        }
+        return (zs1) invokeLL.objValue;
+    }
+
+    public final boolean n(File file) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) ? file != null && file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0 : invokeL.booleanValue;
+    }
 }

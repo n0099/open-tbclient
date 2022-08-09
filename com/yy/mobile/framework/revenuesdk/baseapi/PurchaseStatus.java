@@ -25,9 +25,6 @@ public final class PurchaseStatus {
     public static final PurchaseStatus PAY_FAIL;
     public static final PurchaseStatus PAY_START;
     public static final PurchaseStatus PAY_SUCCESS;
-    public static final PurchaseStatus REPORT_FAIL;
-    public static final PurchaseStatus REPORT_START;
-    public static final PurchaseStatus REPORT_SUCCESS;
     public static final PurchaseStatus UNKNOWN;
     public transient /* synthetic */ FieldHolder $fh;
     public final int code;
@@ -53,12 +50,9 @@ public final class PurchaseStatus {
         PAY_START = new PurchaseStatus("PAY_START", 4, 110, "开始支付，支付页面拉起");
         PAY_CANCEL = new PurchaseStatus("PAY_CANCEL", 5, 111, "支付取消");
         PAY_SUCCESS = new PurchaseStatus("PAY_SUCCESS", 6, 112, EventAlias.PayEventAlias.PAY_SUCCESS);
-        PAY_FAIL = new PurchaseStatus("PAY_FAIL", 7, 113, EventAlias.PayEventAlias.PAY_FAIL);
-        REPORT_START = new PurchaseStatus("REPORT_START", 8, 120, "上报开始");
-        REPORT_SUCCESS = new PurchaseStatus("REPORT_SUCCESS", 9, 121, "上报成功");
-        PurchaseStatus purchaseStatus = new PurchaseStatus("REPORT_FAIL", 10, 122, "上报失败");
-        REPORT_FAIL = purchaseStatus;
-        $VALUES = new PurchaseStatus[]{UNKNOWN, ORDER_START, ORDER_SUCCESS, ORDER_FAIL, PAY_START, PAY_CANCEL, PAY_SUCCESS, PAY_FAIL, REPORT_START, REPORT_SUCCESS, purchaseStatus};
+        PurchaseStatus purchaseStatus = new PurchaseStatus("PAY_FAIL", 7, 113, EventAlias.PayEventAlias.PAY_FAIL);
+        PAY_FAIL = purchaseStatus;
+        $VALUES = new PurchaseStatus[]{UNKNOWN, ORDER_START, ORDER_SUCCESS, ORDER_FAIL, PAY_START, PAY_CANCEL, PAY_SUCCESS, purchaseStatus};
     }
 
     public PurchaseStatus(String str, int i, int i2, String str2) {
@@ -111,33 +105,27 @@ public final class PurchaseStatus {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 120) {
-                if (i != 121) {
+            switch (i) {
+                case 100:
+                    return ORDER_START;
+                case 101:
+                    return ORDER_SUCCESS;
+                case 102:
+                    return ORDER_FAIL;
+                default:
                     switch (i) {
-                        case 100:
-                            return ORDER_START;
-                        case 101:
-                            return ORDER_SUCCESS;
-                        case 102:
-                            return ORDER_FAIL;
+                        case 110:
+                            return PAY_START;
+                        case 111:
+                            return PAY_CANCEL;
+                        case 112:
+                            return PAY_SUCCESS;
+                        case 113:
+                            return PAY_FAIL;
                         default:
-                            switch (i) {
-                                case 110:
-                                    return PAY_START;
-                                case 111:
-                                    return PAY_CANCEL;
-                                case 112:
-                                    return PAY_SUCCESS;
-                                case 113:
-                                    return PAY_FAIL;
-                                default:
-                                    return UNKNOWN;
-                            }
+                            return UNKNOWN;
                     }
-                }
-                return REPORT_FAIL;
             }
-            return REPORT_SUCCESS;
         }
         return (PurchaseStatus) invokeI.objValue;
     }

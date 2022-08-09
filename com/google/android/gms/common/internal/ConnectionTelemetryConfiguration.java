@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.fk9;
-import com.repackage.qk9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.ln9;
+/* loaded from: classes5.dex */
 public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -43,7 +43,7 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new qk9();
+        CREATOR = new ln9();
     }
 
     public ConnectionTelemetryConfiguration(@NonNull RootTelemetryConfiguration rootTelemetryConfiguration, boolean z, boolean z2, @Nullable int[] iArr, int i, @Nullable int[] iArr2) {
@@ -105,14 +105,14 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.j(parcel, 1, this.zza, i, false);
-            fk9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            fk9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            fk9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
-            fk9.g(parcel, 5, getMaxMethodInvocationsLogged());
-            fk9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.j(parcel, 1, this.zza, i, false);
+            an9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            an9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            an9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
+            an9.g(parcel, 5, getMaxMethodInvocationsLogged());
+            an9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
+            an9.b(parcel, a);
         }
     }
 

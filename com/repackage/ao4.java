@@ -1,18 +1,25 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes5.dex */
 public class ao4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
 
     public ao4() {
         Interceptable interceptable = $ic;
@@ -28,27 +35,53 @@ public class ao4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNULL(this.a) || this.d <= 0) {
+                return false;
+            }
+            int i = this.e;
+            if (i == 1 || i == 3) {
+                long j = this.f;
+                if (j > 0) {
+                    long j2 = this.g;
+                    return j2 > 0 && j2 > j;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(BigdayInfo bigdayInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) || bigdayInfo == null || StringUtils.isNULL(bigdayInfo.img_url) || bigdayInfo.id.longValue() <= 0) {
             return;
         }
-        try {
-            jSONObject.optInt("badge_id", 0);
-            jSONObject.optString("badge_url", "");
-            jSONObject.optString(AlbumActivityConfig.FROM_WEB_VIEW);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
+            this.a = bigdayInfo.img_url;
+            this.b = bigdayInfo.jump_url;
+            this.c = bigdayInfo.img_colour.intValue();
+            this.d = bigdayInfo.id.longValue();
+            this.e = bigdayInfo.position.intValue();
+            this.f = bigdayInfo.start_time.longValue();
+            this.g = bigdayInfo.end_time.longValue();
         }
     }
 
-    public void b(Badges badges) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, badges) == null) || badges == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj instanceof ao4) {
+                ao4 ao4Var = (ao4) obj;
+                return ao4Var.a() && a() && this.d == ao4Var.d && StringHelper.equals(this.a, ao4Var.a) && ((this.b == null && ao4Var.b == null) || StringHelper.equals(this.b, ao4Var.b)) && this.c == ao4Var.c && this.e == ao4Var.e && this.f == ao4Var.f && this.g == ao4Var.g;
+            }
+            return false;
         }
-        badges.badge_id.intValue();
-        String str = badges.badge_url;
-        String str2 = badges.webview;
+        return invokeL.booleanValue;
     }
 }

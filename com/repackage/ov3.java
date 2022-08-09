@@ -1,119 +1,93 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public class ov3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ov3 extends ab2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426299, "Lcom/repackage/ov3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755426299, "Lcom/repackage/ov3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ov3(@NonNull String str, String str2, String str3, String str4) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = sg1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
     }
 
-    public static void a(JsObject jsObject) {
-        pv3 pv3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            i03 M = i03.M();
-            ps1 ps1Var = null;
-            if (jsObject == null || M == null || !b(M)) {
-                pv3Var = null;
-            } else {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
-                }
-                ps1 F = ps1.F(jsObject);
-                String B = F.B("swanGameId");
-                if (TextUtils.isEmpty(B)) {
-                    pv3Var = null;
-                } else {
-                    q83 a2 = w83.a();
-                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(B + "_Duration", 0L);
-                    }
-                    pv3Var = new pv3();
-                    pv3Var.duration = a2.getLong(B + "_Duration", 0L);
-                }
-                ps1Var = F;
-            }
-            t24.call(ps1Var, true, pv3Var);
-        }
-    }
-
-    public static boolean b(i03 i03Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, i03Var)) == null) {
-            String string = w83.a().getString(c, "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (i03.g0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Long l, Long l2) {
+    public static ab2 t(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? new ov3("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2) : (ab2) invokeLL.objValue;
     }
 
-    public static void d(long j, long j2) {
+    public static ab2 u(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j2 <= j || i03.M() == null || TextUtils.isEmpty(i03.g0())) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            return new ov3("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
         }
-        String g0 = i03.g0();
-        q83 a2 = w83.a();
-        long j3 = a2.getLong(g0 + "_LastPause", 0L);
-        long j4 = a2.getLong(g0 + "_Duration", 0L);
-        if (c(Long.valueOf(j), Long.valueOf(j2))) {
-            if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                a2.putLong(g0 + "_Duration", (j4 + j2) - j);
+        return (ab2) invokeZ.objValue;
+    }
+
+    public static ab2 v(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? new ov3("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2) : (ab2) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.za2
+    public String o(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.d;
+            int hashCode = str2.hashCode();
+            if (hashCode == -2011830027) {
+                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != -774049378) {
+                if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
+                    c = 1;
+                }
+                c = 65535;
             } else {
-                a2.putLong(g0 + "_Duration", j2 - j);
+                if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
+                    c = 0;
+                }
+                c = 65535;
             }
-        } else {
-            a2.putLong(g0 + "_Duration", j2 % b);
+            if (c != 0) {
+                return c != 1 ? c != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            }
+            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(nd3.b(nd3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
         }
-        a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
+        return (String) invokeL.objValue;
     }
 }

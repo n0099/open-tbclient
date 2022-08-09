@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f44;
-import com.repackage.sg1;
+import com.repackage.jh1;
+import com.repackage.w44;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GameWebViewJavascriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -35,7 +35,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = sg1.a;
+        DEBUG = jh1.a;
     }
 
     public GameWebViewJavascriptInterface() {
@@ -59,9 +59,9 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "closeGameWebView");
             }
-            f44 F = f44.F();
-            if (F != null) {
-                F.close();
+            w44 E = w44.E();
+            if (E != null) {
+                E.close();
             }
         }
     }
@@ -73,9 +73,9 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "onGameLoadingFinish");
             }
-            f44 F = f44.F();
-            if (F != null) {
-                F.I();
+            w44 E = w44.E();
+            if (E != null) {
+                E.H();
             }
         }
     }

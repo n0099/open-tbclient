@@ -34,7 +34,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static a d;
     public Intent a = null;
@@ -236,22 +236,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         b.a a = new b.a(this).a("已安装完成");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(d2.N()) ? "刚刚下载的应用" : d2.N();
-        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC0642b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC0647b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
             public void c(DialogInterface dialogInterface) {
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }

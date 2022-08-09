@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
@@ -148,9 +149,9 @@ public final class Marker extends Overlay {
             bundle.putInt("isflat", this.j ? 1 : 0);
             bundle.putInt("istop", this.k ? 1 : 0);
             bundle.putInt("period", this.p);
-            bundle.putFloat("alpha", this.l);
-            bundle.putFloat("scaleX", this.r);
-            bundle.putFloat("scaleY", this.s);
+            bundle.putFloat(Key.ALPHA, this.l);
+            bundle.putFloat(Key.SCALE_X, this.r);
+            bundle.putFloat(Key.SCALE_Y, this.s);
             Point point = this.u;
             if (point != null) {
                 bundle.putInt("fix_x", point.x);

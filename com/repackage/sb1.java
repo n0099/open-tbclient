@@ -1,224 +1,169 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
-    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755326417, "Lcom/repackage/sb1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755326417, "Lcom/repackage/sb1;");
-        }
-    }
-
-    public sb1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context a2 = wb1.a();
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) a2.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String b = b();
+            if (TextUtils.isEmpty(b)) {
+                return 0;
             }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.importance;
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray(b);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    long optLong = jSONArray2.optLong(i);
+                    if (o01.d(optLong, currentTimeMillis)) {
+                        jSONArray.put(optLong);
+                    }
                 }
+                g(jSONArray.toString());
+                return jSONArray.length();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
             }
-            return 0;
         }
         return invokeV.intValue;
     }
 
+    @NonNull
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ey0.a().b("splash_sp_name").getString("today_cpc_show_list", "") : (String) invokeV.objValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ey0.a().b("splash_sp_name").getLong("last_show_time", 0L) : invokeV.longValue;
+    }
+
+    public static JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = a;
-            if (str == null) {
-                synchronized (sb1.class) {
-                    str = a;
-                    if (str == null) {
-                        Context a2 = wb1.a();
-                        String d = d();
-                        if (d == null && (d = c(a2)) == null) {
-                            d = a2.getPackageName();
+            String string = ey0.a().b("splash_sp_name").getString("today_show_list", "");
+            JSONArray jSONArray = new JSONArray();
+            if (TextUtils.isEmpty(string)) {
+                return jSONArray;
+            }
+            try {
+                JSONArray jSONArray2 = new JSONArray(string);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
+                    try {
+                        if (o01.d(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
+                            jSONArray.put(optJSONObject);
                         }
-                        a = d;
-                        str = d;
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
                 }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return str;
+            ey0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+            return jSONArray;
         }
-        return (String) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
+    public static void e(qb1 qb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qb1Var) == null) {
+            ey0.a().b("splash_sp_name").h("last_show_time", System.currentTimeMillis() / 1000);
+            h(qb1Var);
+            nb1.m().g();
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    public static String d() {
-        InterceptResult invokeV;
-        ?? r2;
-        BufferedReader bufferedReader;
+    public static void f() {
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            BufferedReader bufferedReader2 = 0;
-            BufferedReader bufferedReader3 = null;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            String b = b();
             try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
-                } catch (Throwable th) {
-                    th = th;
+                if (TextUtils.isEmpty(b)) {
+                    jSONArray = new JSONArray();
+                } else {
+                    jSONArray = new JSONArray(b);
                 }
+                jSONArray.put(System.currentTimeMillis());
+                g(jSONArray.toString());
             } catch (Exception e) {
-                e = e;
-                r2 = null;
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                    return readLine;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return readLine;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                r2 = null;
-                bufferedReader3 = bufferedReader;
-                h("MultiProcess", e);
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                bufferedReader2 = r2;
-                return bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+                e.printStackTrace();
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static int e() {
-        InterceptResult invokeV;
+    public static void g(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = b;
-            if (i == 0) {
-                String b2 = b();
-                String packageName = wb1.a().getPackageName();
-                i = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i | 1 | 2 : i | 4;
-                b = i;
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            ey0.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
         }
-        return invokeV.intValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public static void h(qb1 qb1Var) {
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (e() & 1) != 0 : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (e() & 2) != 0 : invokeV.booleanValue;
-    }
-
-    public static void h(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, exc) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, qb1Var) == null) || qb1Var == null) {
+            return;
+        }
+        if (qb1Var.f()) {
+            f();
+            return;
+        }
+        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+        String string = ey0.a().b("splash_sp_name").getString("today_show_list", "");
+        try {
+            if (TextUtils.isEmpty(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            boolean z = true;
+            if (jSONArray.length() > 0) {
+                int i = 0;
+                while (true) {
+                    if (i >= jSONArray.length()) {
+                        break;
+                    }
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (TextUtils.equals(optJSONObject.optString("k"), qb1Var.c)) {
+                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
+                        jSONArray.put(i, optJSONObject);
+                        z = false;
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (z) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("k", qb1Var.c);
+                jSONObject.put("t", valueOf);
+                jSONArray.put(jSONObject);
+            }
+            ey0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

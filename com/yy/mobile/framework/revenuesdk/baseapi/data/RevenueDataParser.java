@@ -10,9 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageBroadcast;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
-import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageUnicast;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,56 +129,9 @@ public final class RevenueDataParser implements IRevenueDataParser {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
-    public void parserRevenueBroadcastData(RevenueBroadcastData revenueBroadcastData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, revenueBroadcastData) == null) {
-            ThreadPool.getDefault().networkIO().execute(new Runnable(this, revenueBroadcastData) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RevenueDataParser this$0;
-                public final /* synthetic */ RevenueBroadcastData val$broadcastData;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, revenueBroadcastData};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$broadcastData = revenueBroadcastData;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        PSCIMessageBroadcast pSCIMessageBroadcast = new PSCIMessageBroadcast(this.val$broadcastData.jsonData);
-                        RLog.info(RevenueDataParser.TAG, "RevenueBroadcastData = %s", pSCIMessageBroadcast.toString());
-                        RLog.info(RevenueDataParser.TAG, "RevenueBroadcastData: jsonData = %s", pSCIMessageBroadcast.getJsonData());
-                        pSCIMessageBroadcast.setUri(this.val$broadcastData.cmd);
-                        int optInt = pSCIMessageBroadcast.getData().optInt("app_id", 0);
-                        for (IRevenueDataReceiver iRevenueDataReceiver : this.this$0.revenueDataReceivers) {
-                            iRevenueDataReceiver.onBroadcastData(optInt, pSCIMessageBroadcast);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
     public void parserRevenueResponseData(int i, int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, bArr) == null) {
             ThreadPool.getDefault().networkIO().execute(new Runnable(this, bArr, i, i2) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -225,55 +176,9 @@ public final class RevenueDataParser implements IRevenueDataParser {
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
-    public void parserRevenueUnicastData(RevenueUnicastData revenueUnicastData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, revenueUnicastData) == null) {
-            ThreadPool.getDefault().networkIO().execute(new Runnable(this, revenueUnicastData) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RevenueDataParser this$0;
-                public final /* synthetic */ RevenueUnicastData val$unicastData;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, revenueUnicastData};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$unicastData = revenueUnicastData;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        PSCIMessageUnicast pSCIMessageUnicast = new PSCIMessageUnicast(this.val$unicastData.jsonData);
-                        RLog.debug(RevenueDataParser.TAG, "RevenueUnicastData = %s", pSCIMessageUnicast.toString());
-                        RLog.debug(RevenueDataParser.TAG, "RevenueUnicastData: jsonData = %s", pSCIMessageUnicast.getJsonData());
-                        pSCIMessageUnicast.setUri(this.val$unicastData.cmd);
-                        for (IRevenueDataReceiver iRevenueDataReceiver : this.this$0.revenueDataReceivers) {
-                            iRevenueDataReceiver.onUnicastData(pSCIMessageUnicast.getAppId(), pSCIMessageUnicast);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
     public void registerDataReceivers(IRevenueDataReceiver iRevenueDataReceiver) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iRevenueDataReceiver) == null) || this.revenueDataReceivers.contains(iRevenueDataReceiver)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRevenueDataReceiver) == null) || this.revenueDataReceivers.contains(iRevenueDataReceiver)) {
             return;
         }
         this.revenueDataReceivers.add(iRevenueDataReceiver);

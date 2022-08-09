@@ -248,8 +248,8 @@ public class GDTNativeUnifiedVideoView extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900f4);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a4);
+            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
         }
     }
 

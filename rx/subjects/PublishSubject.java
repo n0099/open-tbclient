@@ -8,39 +8,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as9;
-import com.repackage.bs9;
-import com.repackage.gs9;
-import com.repackage.mw9;
-import com.repackage.ps9;
-import com.repackage.ur9;
-import com.repackage.vr9;
-import com.repackage.wr9;
+import com.repackage.bv9;
+import com.repackage.hz9;
+import com.repackage.kv9;
+import com.repackage.pu9;
+import com.repackage.qu9;
+import com.repackage.ru9;
+import com.repackage.vu9;
+import com.repackage.wu9;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
-public final class PublishSubject<T> extends mw9<T, T> {
+public final class PublishSubject<T> extends hz9<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PublishSubjectState<T> b;
 
     /* loaded from: classes8.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements wr9, bs9, vr9<T> {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements ru9, wu9, qu9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final as9<? super T> actual;
+        public final vu9<? super T> actual;
         public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, as9<? super T> as9Var) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, vu9<? super T> vu9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {publishSubjectState, as9Var};
+                Object[] objArr = {publishSubjectState, vu9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,17 +51,17 @@ public final class PublishSubject<T> extends mw9<T, T> {
                 }
             }
             this.parent = publishSubjectState;
-            this.actual = as9Var;
+            this.actual = vu9Var;
         }
 
-        @Override // com.repackage.bs9
+        @Override // com.repackage.wu9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == Long.MIN_VALUE) {
@@ -70,7 +70,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
             this.actual.onCompleted();
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || get() == Long.MIN_VALUE) {
@@ -79,7 +79,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -97,21 +97,21 @@ public final class PublishSubject<T> extends mw9<T, T> {
             }
         }
 
-        @Override // com.repackage.wr9
+        @Override // com.repackage.ru9
         public void request(long j) {
             long j2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && ps9.h(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && kv9.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, ps9.a(j2, j)));
+                } while (!compareAndSet(j2, kv9.a(j2, j)));
             }
         }
 
-        @Override // com.repackage.bs9
+        @Override // com.repackage.wu9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
@@ -122,7 +122,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements ur9.a<T>, vr9<T> {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements pu9.a<T>, qu9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
         public static final PublishSubjectProducer[] TERMINATED;
@@ -184,12 +184,12 @@ public final class PublishSubject<T> extends mw9<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.ur9.a, com.repackage.is9
+        @Override // com.repackage.pu9.a, com.repackage.dv9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((as9) ((as9) obj));
+            call((vu9) ((vu9) obj));
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -199,7 +199,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -215,11 +215,11 @@ public final class PublishSubject<T> extends mw9<T, T> {
                         arrayList.add(th2);
                     }
                 }
-                gs9.d(arrayList);
+                bv9.d(arrayList);
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
@@ -267,12 +267,12 @@ public final class PublishSubject<T> extends mw9<T, T> {
             }
         }
 
-        public void call(as9<? super T> as9Var) {
+        public void call(vu9<? super T> vu9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as9Var) == null) {
-                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, as9Var);
-                as9Var.b(publishSubjectProducer);
-                as9Var.f(publishSubjectProducer);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vu9Var) == null) {
+                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, vu9Var);
+                vu9Var.b(publishSubjectProducer);
+                vu9Var.f(publishSubjectProducer);
                 if (add(publishSubjectProducer)) {
                     if (publishSubjectProducer.isUnsubscribed()) {
                         remove(publishSubjectProducer);
@@ -282,9 +282,9 @@ public final class PublishSubject<T> extends mw9<T, T> {
                 }
                 Throwable th = this.error;
                 if (th != null) {
-                    as9Var.onError(th);
+                    vu9Var.onError(th);
                 } else {
-                    as9Var.onCompleted();
+                    vu9Var.onCompleted();
                 }
             }
         }
@@ -302,7 +302,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ur9.a) newInitContext.callArgs[0]);
+                super((pu9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -317,7 +317,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new PublishSubject<>(new PublishSubjectState()) : (PublishSubject) invokeV.objValue;
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -325,7 +325,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
         }
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -333,7 +333,7 @@ public final class PublishSubject<T> extends mw9<T, T> {
         }
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {

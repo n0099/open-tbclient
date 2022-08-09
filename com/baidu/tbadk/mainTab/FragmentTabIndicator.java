@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
+import com.repackage.gj8;
 import com.repackage.h9;
-import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.pg;
-import com.repackage.sg8;
-import com.repackage.ym;
+import com.repackage.kg;
+import com.repackage.qg;
+import com.repackage.zm;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -56,10 +56,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int t;
     public boolean u;
     public HashMap<String, TbFragmentTabIndicator.a> v;
-    public final ig<ym> w;
+    public final jg<zm> w;
 
     /* loaded from: classes3.dex */
-    public class a extends pg {
+    public class a extends qg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -82,7 +82,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.repackage.pg
+        @Override // com.repackage.qg
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
@@ -92,7 +92,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends ig<ym> {
+    public class b extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -116,18 +116,18 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((b) ymVar, str, i);
-                if (this.a.q == null || ymVar == null || !ymVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, zmVar, str, i) == null) {
+                super.onLoaded((b) zmVar, str, i);
+                if (this.a.q == null || zmVar == null || !zmVar.w()) {
                     this.a.l();
                     return;
                 }
                 this.a.q.setBackgroundResource(0);
                 this.a.q.setImageDrawable(null);
-                ymVar.h(this.a.q);
+                zmVar.h(this.a.q);
             }
         }
     }
@@ -248,9 +248,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02cc, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09241d);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09241e);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ce, this);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09253f);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092540);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
@@ -263,9 +263,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             return;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.o)) {
-            jg.h().m(this.o, 10, this.w, getBdUniqueId());
+            kg.h().m(this.o, 10, this.w, getBdUniqueId());
         } else if (!TextUtils.isEmpty(this.n)) {
-            jg.h().m(this.n, 10, this.w, getBdUniqueId());
+            kg.h().m(this.n, 10, this.w, getBdUniqueId());
         } else {
             l();
         }
@@ -359,7 +359,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f132c) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1368) + charSequence;
             }
             this.r.setContentDescription(charSequence);
         }
@@ -504,13 +504,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.r.setTextColor(sg8.f(this.f.dark.font_color));
+                        this.r.setTextColor(gj8.f(this.f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.r.setTextColor(sg8.f(this.f.night.font_color));
+                        this.r.setTextColor(gj8.f(this.f.night.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(sg8.f(this.f.day.font_color));
+                        this.r.setTextColor(gj8.f(this.f.day.font_color));
                         return;
                     }
                 }

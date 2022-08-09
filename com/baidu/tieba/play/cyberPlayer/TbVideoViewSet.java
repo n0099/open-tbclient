@@ -1,5 +1,11 @@
 package com.baidu.tieba.play.cyberPlayer;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
     public static TbVideoViewSet c;
@@ -25,7 +31,7 @@ public class TbVideoViewSet {
     public LRULinkedHashMap<String, TbVideoViewContainer> a;
     public boolean b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
@@ -73,7 +79,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +114,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
@@ -147,10 +153,10 @@ public class TbVideoViewSet {
         MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
-    public static TbVideoViewSet b() {
+    public static TbVideoViewSet c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (c == null) {
                 synchronized (TbVideoViewSet.class) {
                     if (c == null) {
@@ -163,11 +169,11 @@ public class TbVideoViewSet {
         return (TbVideoViewSet) invokeV.objValue;
     }
 
-    public TbVideoViewContainer c(String str) {
+    public TbVideoViewContainer d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (oi.isEmpty(str) || !this.a.containsKey(str)) {
+            if (pi.isEmpty(str) || !this.a.containsKey(str)) {
                 return null;
             }
             return this.a.get(str);
@@ -175,7 +181,7 @@ public class TbVideoViewSet {
         return (TbVideoViewContainer) invokeL.objValue;
     }
 
-    public void d(String str) {
+    public void e(String str) {
         TbVideoViewContainer remove;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
@@ -184,7 +190,7 @@ public class TbVideoViewSet {
         remove.getControl().stopPlayback();
     }
 
-    public void e(TbVideoViewContainer tbVideoViewContainer, String str) {
+    public void f(TbVideoViewContainer tbVideoViewContainer, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbVideoViewContainer, str) == null) {
             if (this.a.containsKey(str) && tbVideoViewContainer != this.a.get(str)) {
@@ -205,11 +211,49 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.b && !oi.isEmpty(str2)) {
+                if (!this.b && !pi.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }
             this.a.put(str, tbVideoViewContainer);
+            if (tbVideoViewContainer != null) {
+                Context context = tbVideoViewContainer.getContext();
+                if (context instanceof LifecycleOwner) {
+                    ((LifecycleOwner) context).getLifecycle().addObserver(new LifecycleObserver(this, str) { // from class: com.baidu.tieba.play.cyberPlayer.TbVideoViewSet.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ String a;
+                        public final /* synthetic */ TbVideoViewSet b;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, str};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.b = this;
+                            this.a = str;
+                        }
+
+                        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                        private void onDestroy() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
+                                this.b.a.remove(this.a);
+                            }
+                        }
+                    });
+                }
+            }
         }
     }
 }

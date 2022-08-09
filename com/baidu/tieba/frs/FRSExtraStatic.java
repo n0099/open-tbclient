@@ -29,24 +29,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be6;
-import com.repackage.bh8;
-import com.repackage.dj6;
-import com.repackage.fj6;
-import com.repackage.gq4;
-import com.repackage.li6;
-import com.repackage.mi6;
-import com.repackage.ng;
-import com.repackage.oi;
-import com.repackage.qk6;
-import com.repackage.qr6;
-import com.repackage.r55;
-import com.repackage.ue6;
-import com.repackage.wc6;
-import com.repackage.xh8;
-import com.repackage.xj6;
-import com.repackage.yj6;
-import com.repackage.zy5;
+import com.repackage.ek6;
+import com.repackage.fk6;
+import com.repackage.jm6;
+import com.repackage.jt6;
+import com.repackage.lk8;
+import com.repackage.mg6;
+import com.repackage.n65;
+import com.repackage.oe6;
+import com.repackage.og;
+import com.repackage.pi;
+import com.repackage.pj8;
+import com.repackage.ql6;
+import com.repackage.r06;
+import com.repackage.rl6;
+import com.repackage.tf6;
+import com.repackage.wk6;
+import com.repackage.xq4;
+import com.repackage.yk6;
 import com.tencent.connect.share.QzonePublish;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -88,10 +88,10 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, gq4.c, null));
-                absDelegateAdapterList.add(new li6(null, zy5.g, true));
-                absDelegateAdapterList.add(new mi6(null, xh8.d, null));
-                absDelegateAdapterList.add(new xj6(null, qr6.e, null));
+                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, xq4.c, null));
+                absDelegateAdapterList.add(new ek6(null, r06.g, true));
+                absDelegateAdapterList.add(new fk6(null, lk8.d, null));
+                absDelegateAdapterList.add(new ql6(null, jt6.e, null));
             }
         }
     }
@@ -157,23 +157,23 @@ public class FRSExtraStatic {
                         return 3;
                     }
                     String str2 = paramPair.get(TbEnum.SystemMessage.KEY_USER_NAME);
-                    if (!oi.isEmpty(str2)) {
+                    if (!pi.isEmpty(str2)) {
                         str2 = URLDecoder.decode(str2);
                     }
                     String str3 = paramPair.get("portrait");
-                    if (!oi.isEmpty(str3)) {
+                    if (!pi.isEmpty(str3)) {
                         str3 = URLDecoder.decode(str3);
                     }
                     String str4 = paramPair.get("videoUrl");
-                    if (!oi.isEmpty(str4)) {
+                    if (!pi.isEmpty(str4)) {
                         str4 = URLDecoder.decode(str4);
                     }
                     String str5 = paramPair.get("thumbnailUrl");
-                    if (!oi.isEmpty(str5)) {
+                    if (!pi.isEmpty(str5)) {
                         str5 = URLDecoder.decode(str5);
                     }
                     String str6 = paramPair.get("title");
-                    if (!oi.isEmpty(str6)) {
+                    if (!pi.isEmpty(str6)) {
                         str6 = URLDecoder.decode(str6);
                     }
                     ArrayList arrayList = new ArrayList();
@@ -193,8 +193,8 @@ public class FRSExtraStatic {
                     videoItemData.thread_id = paramPair.get("threadId");
                     videoItemData.is_agreed = paramPair.get("hasAgree");
                     videoItemData.title = str6;
-                    videoItemData.video_duration = ng.e(paramPair.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-                    videoItemData.play_count = ng.e(paramPair.get("postNum"), 0);
+                    videoItemData.video_duration = og.e(paramPair.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+                    videoItemData.play_count = og.e(paramPair.get("postNum"), 0);
                     videoItemData.agree_num = paramPair.get("agreeNum");
                     videoItemData.share_num = paramPair.get("shareNum");
                     arrayList.add(videoItemData);
@@ -238,17 +238,17 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616) {
                 Object data = customResponsedMessage.getData();
-                if (data instanceof be6) {
-                    be6 be6Var = (be6) data;
-                    be6Var.a(new yj6(be6Var.c(), be6Var.d()));
-                    for (FrsTabInfo frsTabInfo : be6Var.f()) {
+                if (data instanceof tf6) {
+                    tf6 tf6Var = (tf6) data;
+                    tf6Var.a(new rl6(tf6Var.c(), tf6Var.d()));
+                    for (FrsTabInfo frsTabInfo : tf6Var.f()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
-                            qk6 qk6Var = new qk6(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
-                            be6Var.a(qk6Var);
-                            if (be6Var.getContext() == null) {
+                            jm6 jm6Var = new jm6(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
+                            tf6Var.a(jm6Var);
+                            if (tf6Var.getContext() == null) {
                                 continue;
                             } else {
-                                r55 b = qk6Var.b();
+                                n65 b = jm6Var.b();
                                 if (b == null) {
                                     return;
                                 }
@@ -291,7 +291,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new fj6(null, bh8.c, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new yk6(null, pj8.c, true));
             }
         }
     }
@@ -319,7 +319,7 @@ public class FRSExtraStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new dj6()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new wk6()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -340,7 +340,7 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(VideoAggregationActivityConfig.class, VideoAggregationActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
         ThreadData.isFRSExtraLoaded.set(true);
-        wc6.a.set(new ue6());
+        oe6.a.set(new mg6());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

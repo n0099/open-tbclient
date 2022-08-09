@@ -7,23 +7,26 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kp7;
-import com.repackage.nn;
+import com.repackage.fr7;
+import com.repackage.on;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements kp7 {
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements fr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicListModel a;
     public HotTopicListView b;
-    public List<nn> c;
+    public List<on> c;
 
     public HotTopicListActivity() {
         Interceptable interceptable = $ic;
@@ -39,22 +42,10 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    public final void A1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            Intent intent = getIntent();
-            if (intent != null) {
-                intent.getStringExtra(IntentConfig.CALL_FROM);
-            } else if (bundle != null) {
-                bundle.getString(IntentConfig.CALL_FROM);
-            }
-        }
-    }
-
-    @Override // com.repackage.kp7
+    @Override // com.repackage.fr7
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean loadData = this.a.loadData();
             if (!ListUtils.isEmpty(this.c)) {
                 if (loadData) {
@@ -72,17 +63,17 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a078" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.kp7
-    public void j(int i, List<nn> list) {
+    @Override // com.repackage.fr7
+    public void j(int i, List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.b.m();
             this.b.v();
             this.b.n();
@@ -99,18 +90,19 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
             this.b.q();
+            UtilHelper.setNavigationBarBg(this, SkinManager.getColor(R.color.CAM_X0201));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            A1(bundle);
+            z1(bundle);
             this.a = new HotTopicListModel(getPageContext(), this);
             HotTopicListView hotTopicListView = new HotTopicListView(getPageContext(), this, bundle);
             this.b = hotTopicListView;
@@ -125,9 +117,21 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             TiebaStatic.log(new StatisticItem("c13741").param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public final void z1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.getStringExtra(IntentConfig.CALL_FROM);
+            } else if (bundle != null) {
+                bundle.getString(IntentConfig.CALL_FROM);
+            }
         }
     }
 }

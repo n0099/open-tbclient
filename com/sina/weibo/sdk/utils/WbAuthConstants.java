@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WbAuthConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE = "8001";

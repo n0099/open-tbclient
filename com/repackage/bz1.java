@@ -1,20 +1,35 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import com.repackage.az1;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bz1 {
+public class bz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    @SuppressLint({"BDOfflineUrl"})
+    public String b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public boolean g;
 
     static {
         InterceptResult invokeClinit;
@@ -29,35 +44,65 @@ public final class bz1 {
                 return;
             }
         }
-        a = sg1.a;
+        h = jh1.a;
+        i = "V8Master";
+        j = "page";
+        k = "runtime/index.js";
+        l = "ws://localhost:4000";
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public bz1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                az1.a d = az1.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+        this.a = String.valueOf(System.currentTimeMillis());
+        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
+        this.c = false;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = true;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("title", i);
+                jSONObject.putOpt("type", j);
+                jSONObject.putOpt("url", k);
+                jSONObject.putOpt("webSocketDebuggerUrl", l);
+                jSONObject.putOpt("id", this.a);
+                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
+                jSONObject.putOpt("swanJsVersion", ea3.h(0));
+                jSONObject.putOpt("appVersion", te3.D());
+                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
+                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
+                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
+                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
+                jSONObject2.putOpt("visible", Boolean.valueOf(this.g));
+                jSONObject.putOpt("description", jSONObject2.toString());
+                jSONArray.put(jSONObject);
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("V8Module", "Build V8 module fail", e);
+                }
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

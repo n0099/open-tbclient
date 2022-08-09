@@ -1,135 +1,228 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
+import android.os.Process;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
+import com.repackage.o99;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 /* loaded from: classes7.dex */
-public class u99 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static u99 d;
+public class u99 implements o99 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final String a;
+    public final o99.a b;
+    public volatile int c;
+    public volatile long d;
 
-    /* loaded from: classes7.dex */
-    public class a implements ca9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t99 a;
-
-        public a(u99 u99Var, t99 t99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u99Var, t99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t99Var;
-        }
-
-        @Override // com.repackage.ca9
-        public void a(da9 da9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, da9Var) == null) {
-                if (u99.c) {
-                    String str = u99.b;
-                    Log.d(str, "异步回调 结果:" + da9Var);
-                    String str2 = u99.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    sb.append(this.a != null);
-                    Log.d(str2, sb.toString());
-                }
-                t99 t99Var = this.a;
-                if (t99Var != null) {
-                    t99Var.a(0, da9Var == null ? null : new s99(da9Var.c(), da9Var.isSupport(), da9Var.getOAID(), da9Var.getAAID(), da9Var.getVAID(), da9Var.getStatusCode()));
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755305988, "Lcom/repackage/u99;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755305988, "Lcom/repackage/u99;");
-        }
-    }
-
-    public u99(Context context) {
+    public u99(String str, o99.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = str;
+        this.b = aVar;
     }
 
-    public static u99 c(Context context) {
-        InterceptResult invokeL;
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (u99.class) {
-                    if (d == null) {
-                        d = new u99(context);
-                        w99.c(context);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!isCanceled()) {
+                if (isPaused()) {
+                    throw new DownloadException(106, "Connection Paused!");
+                }
+                return;
+            }
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        this.d = System.currentTimeMillis();
+        try {
+            URL url = new URL(this.a);
+            ?? r2 = 0;
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    try {
+                        httpURLConnection.setConnectTimeout(4000);
+                        httpURLConnection.setReadTimeout(4000);
+                        httpURLConnection.setRequestMethod("GET");
+                        httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == 200) {
+                            d(httpURLConnection, false);
+                        } else if (responseCode == 206) {
+                            d(httpURLConnection, true);
+                        } else {
+                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = url;
+                    if (r2 != 0) {
+                        r2.disconnect();
+                    }
+                    throw th;
+                }
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (r2 != 0) {
+                }
+                throw th;
+            }
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
+        }
+    }
+
+    public final void c(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    @Override // com.repackage.o99
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
                 }
             }
-            return d;
-        }
-        return (u99) invokeL.objValue;
-    }
-
-    public void d(v99 v99Var, t99 t99Var, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, v99Var, t99Var, looper) == null) {
-            aa9.o().i(this.a, looper, new a(this, t99Var));
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
         }
     }
 
-    public void e(t99 t99Var) {
+    @Override // com.repackage.o99
+    public boolean isCanceled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t99Var) == null) {
-            v99 v99Var = new v99();
-            v99Var.b(1);
-            v99Var.a(false);
-            d(v99Var, t99Var, Looper.getMainLooper());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c == 107 : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.o99
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c == 106 : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.o99
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
+            try {
+                b();
+            } catch (DownloadException e) {
+                c(e);
+            }
         }
     }
 }

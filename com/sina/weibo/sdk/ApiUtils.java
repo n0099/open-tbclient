@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApiUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUILD_INT = 10350;

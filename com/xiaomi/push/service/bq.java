@@ -18,10 +18,10 @@ public class bq {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f946a;
+    public long f947a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f947a;
+    public XMPushService f948a;
     public int b;
     public int c;
 
@@ -57,9 +57,9 @@ public class bq {
         }
         this.b = 0;
         this.c = 0;
-        this.f947a = xMPushService;
+        this.f948a = xMPushService;
         this.a = 500;
-        this.f946a = 0L;
+        this.f947a = 0L;
     }
 
     private int a() {
@@ -77,10 +77,10 @@ public class bq {
             if (i > 1) {
                 return (int) (random * 10000.0d);
             }
-            if (this.f946a == 0) {
+            if (this.f947a == 0) {
                 return 0;
             }
-            if (System.currentTimeMillis() - this.f946a >= 310000) {
+            if (System.currentTimeMillis() - this.f947a >= 310000) {
                 this.a = 1000;
                 this.c = 0;
                 return 0;
@@ -105,8 +105,8 @@ public class bq {
     public void m647a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f946a = System.currentTimeMillis();
-            this.f947a.a(1);
+            this.f947a = System.currentTimeMillis();
+            this.f948a.a(1);
             this.b = 0;
         }
     }
@@ -114,22 +114,22 @@ public class bq {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f947a.m592a()) {
+            if (!this.f948a.m592a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f947a.m593a(1)) {
+                if (!this.f948a.m593a(1)) {
                     this.b++;
                 }
-                this.f947a.a(1);
-                XMPushService xMPushService = this.f947a;
+                this.f948a.a(1);
+                XMPushService xMPushService = this.f948a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.e(xMPushService));
-            } else if (this.f947a.m593a(1)) {
+            } else if (this.f948a.m593a(1)) {
             } else {
                 int a = a();
                 this.b++;
                 com.xiaomi.channel.commonutils.logger.b.m89a("schedule reconnect in " + a + "ms");
-                XMPushService xMPushService2 = this.f947a;
+                XMPushService xMPushService2 = this.f948a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.e(xMPushService2), (long) a);
                 if (this.b == 2 && fh.m328a().m333a()) {

@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m45;
-import com.repackage.ng;
-import com.repackage.ym;
+import com.repackage.i55;
+import com.repackage.og;
+import com.repackage.zm;
 /* loaded from: classes3.dex */
 public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -75,24 +75,24 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.kg
-    public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.lg
+    public zm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
-            ym m = m45.k().m(str3);
+            zm m = i55.k().m(str3);
             if (m == null) {
-                Bitmap bitmap = SkinManager.getBitmap(ng.e(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(og.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                ym ymVar = new ym(bitmap, false, str2);
-                m45.k().d(str3, ymVar);
-                return ymVar;
+                zm zmVar = new zm(bitmap, false, str2);
+                i55.k().d(str3, zmVar);
+                return zmVar;
             }
             return m;
         }
-        return (ym) invokeCommon.objValue;
+        return (zm) invokeCommon.objValue;
     }
 }

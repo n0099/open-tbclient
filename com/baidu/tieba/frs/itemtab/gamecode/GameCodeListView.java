@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc5;
-import com.repackage.pi;
-import com.repackage.vr4;
-import com.repackage.zl6;
+import com.repackage.ld5;
+import com.repackage.ms4;
+import com.repackage.qi;
+import com.repackage.sn6;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
-public class GameCodeListView extends ConstraintLayout implements nc5 {
+public class GameCodeListView extends ConstraintLayout implements ld5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -58,13 +58,13 @@ public class GameCodeListView extends ConstraintLayout implements nc5 {
                 return;
             }
         }
-        f = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-        g = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-        h = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        j = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        k = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        l = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        f = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+        g = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        h = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        j = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        k = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        l = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,25 +92,25 @@ public class GameCodeListView extends ConstraintLayout implements nc5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0323, this);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c08);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0325, this);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c49);
             this.a = eMTextView;
             eMTextView.setTextSize(0, j);
             EMTextView eMTextView2 = this.a;
             int i2 = f;
             eMTextView2.setPadding(i2, g, i2, h);
             this.a.setGravity(1);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0268);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c07);
+            this.a.setText(R.string.obfuscated_res_0x7f0f026c);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c48);
             this.b = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
             this.c = gameCodeAdapter;
             this.b.setAdapter(gameCodeAdapter);
-            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c06);
+            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c47);
             this.d = eMTextView3;
             eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f036a);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0370);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
             this.d.setLayoutParams(layoutParams);
@@ -120,18 +120,18 @@ public class GameCodeListView extends ConstraintLayout implements nc5 {
         }
     }
 
-    public void b(zl6 zl6Var) {
+    public void b(sn6 sn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zl6Var) == null) {
-            this.c.g(zl6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sn6Var) == null) {
+            this.c.g(sn6Var);
         }
     }
 
-    @Override // com.repackage.nc5
+    @Override // com.repackage.ld5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            vr4 d = vr4.d(this);
+            ms4 d = ms4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);

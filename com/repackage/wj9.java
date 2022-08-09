@@ -1,71 +1,106 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class wj9 {
+public class wj9 implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    @NonNull
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public wj9(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case -1:
-                    return "SUCCESS_CACHE";
-                case 0:
-                    return "SUCCESS";
-                case 1:
-                case 9:
-                case 11:
-                case 12:
-                default:
-                    StringBuilder sb = new StringBuilder(32);
-                    sb.append("unknown status code: ");
-                    sb.append(i);
-                    return sb.toString();
-                case 2:
-                    return "SERVICE_VERSION_UPDATE_REQUIRED";
-                case 3:
-                    return "SERVICE_DISABLED";
-                case 4:
-                    return "SIGN_IN_REQUIRED";
-                case 5:
-                    return "INVALID_ACCOUNT";
-                case 6:
-                    return "RESOLUTION_REQUIRED";
-                case 7:
-                    return "NETWORK_ERROR";
-                case 8:
-                    return "INTERNAL_ERROR";
-                case 10:
-                    return "DEVELOPER_ERROR";
-                case 13:
-                    return "ERROR";
-                case 14:
-                    return "INTERRUPTED";
-                case 15:
-                    return "TIMEOUT";
-                case 16:
-                    return "CANCELED";
-                case 17:
-                    return "API_NOT_CONNECTED";
-                case 18:
-                    return "DEAD_CLIENT";
-                case 19:
-                    return "REMOTE_EXCEPTION";
-                case 20:
-                    return "CONNECTION_SUSPENDED_DURING_CALL";
-                case 21:
-                    return "RECONNECTION_TIMED_OUT_DURING_UPDATE";
-                case 22:
-                    return "RECONNECTION_TIMED_OUT";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, pBNative};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeI.objValue;
+        this.b = context;
+        this.a = pBNative;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if ((adType.equals("h5") || adType.equals("video")) && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
+            }
+            return this.c;
+        }
+        return (View) invokeV.objValue;
     }
 }

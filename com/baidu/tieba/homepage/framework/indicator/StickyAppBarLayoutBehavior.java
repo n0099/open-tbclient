@@ -207,7 +207,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             }
             NestedScrollHeader nestedScrollHeader = this.d;
             if (nestedScrollHeader != null) {
-                nestedScrollHeader.p(1.0f - f);
+                nestedScrollHeader.n(1.0f - f);
             }
             View view2 = this.f;
             if (view2 == null || f > 1.0f || f < 0.0f) {
@@ -258,15 +258,15 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, coordinatorLayout, appBarLayout, i)) == null) {
             if (this.b == null) {
                 this.b = appBarLayout;
-                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d32);
+                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d78);
                 if (findViewById instanceof NestedScrollHeader) {
                     this.d = (NestedScrollHeader) findViewById;
                 }
-                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d3c);
+                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d85);
                 if (findViewById2 instanceof HomeTabBarView) {
                     this.e = (HomeTabBarView) findViewById2;
                 }
-                this.f = this.b.findViewById(R.id.obfuscated_res_0x7f0907c8);
+                this.f = this.b.findViewById(R.id.obfuscated_res_0x7f0907f6);
                 g();
             }
             AppBarLayout appBarLayout2 = this.b;

@@ -59,11 +59,11 @@ public abstract class b extends a implements View.OnClickListener {
     private void bh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090fd6).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f090fd5).setVisibility(8);
-            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f091043);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091045);
-            this.dj = findViewById(R.id.obfuscated_res_0x7f091046);
+            findViewById(R.id.obfuscated_res_0x7f09102c).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f09102b).setVisibility(8);
+            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09109b);
+            this.dj = findViewById(R.id.obfuscated_res_0x7f09109c);
             this.di.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             this.cE.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.dj.setOnClickListener(this);
@@ -75,15 +75,15 @@ public abstract class b extends a implements View.OnClickListener {
     private void bi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090fd5).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f090fd6).setVisibility(8);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fec);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090fe8);
+            findViewById(R.id.obfuscated_res_0x7f09102b).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f09102c).setVisibility(8);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091042);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091046);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09103e);
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080bc0);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080be6);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();
@@ -102,12 +102,12 @@ public abstract class b extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f090fd1);
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091048)).setRatio(0.56f);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd7);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fd4);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090fea);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091027);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09109e)).setRatio(0.56f);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102d);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091029);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09102a);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091040);
         }
     }
 

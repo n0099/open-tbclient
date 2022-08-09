@@ -1,558 +1,254 @@
 package com.repackage;
 
-import android.content.Context;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok2;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ap2 implements gn2 {
+public class ap2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ok2 a;
-    public String b;
-    public cp2 c;
-    public boolean d;
-    public Context e;
-    public boolean f;
-    public bp2 g;
+    public ArrayList<zo2> a;
+    public ArrayList<MediaModel> b;
+    public String c;
+    public Handler d;
 
-    /* loaded from: classes5.dex */
-    public class a implements ok2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public a(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.a
-        public void b(ok2 ok2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ok2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.b(ok2Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ok2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public b(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.b
-        public boolean f(ok2 ok2Var, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, ok2Var, i, i2)) == null) ? this.a.g != null && this.a.g.f(ok2Var, i, i2) : invokeLII.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements ok2.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public c(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.d
-        public void e(ok2 ok2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ok2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.e(ok2Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements ok2.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public d(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.e
-        public void a(ok2 ok2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ok2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.a(ok2Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements ok2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public e(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.f
-        public void d(ok2 ok2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ok2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.d(ok2Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements ok2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap2 a;
-
-        public f(ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ap2Var;
-        }
-
-        @Override // com.repackage.ok2.c
-        public void c(ok2 ok2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ok2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.c(ok2Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755849170, "Lcom/repackage/ap2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755849170, "Lcom/repackage/ap2;");
-                return;
-            }
-        }
-        h = sg1.a;
-    }
-
-    public ap2(Context context, @NonNull cp2 cp2Var) {
+    public ap2(String str, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cp2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = true;
-        this.e = context;
-        this.c = cp2Var;
-        this.b = cp2Var.j;
-        h();
-        d();
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = str;
+        this.d = handler;
     }
 
-    public void A(cp2 cp2Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cp2Var) == null) {
-            if (h) {
-                Log.e("SwanAppVideoPlayer", "update 接口");
-            }
-            ok2 ok2Var = this.a;
-            if (ok2Var != null) {
-                ok2Var.h(cp2Var, true);
-            }
-            this.c = cp2Var;
-        }
-    }
-
-    public final boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cp2 cp2Var = this.c;
-            return (cp2Var == null || TextUtils.isEmpty(cp2Var.y) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c.b)) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.gn2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.gn2
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || TextUtils.isEmpty(this.b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.c, "video")) {
             return;
         }
-        hn2.a(this);
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().getCurrentPosition() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.gn2
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            cp2 cp2Var = this.c;
-            return cp2Var != null ? cp2Var.z : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public cp2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (cp2) invokeV.objValue;
-    }
-
-    public ok2 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.a == null) {
-                ix1.i("video", "create player");
-                ok2 C0 = pj2.C0();
-                C0.e(this.e, this.c);
-                this.a = C0;
-                C0.g(new a(this));
-                this.a.p(new b(this));
-                this.a.m(new c(this));
-                this.a.j(new d(this));
-                this.a.k(new e(this));
-                this.a.r(new f(this));
-            }
-            return this.a;
-        }
-        return (ok2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.gn2
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : invokeV.objValue;
-    }
-
-    @Override // com.repackage.gn2
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.gn2
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f = z;
-            if (z) {
-                if (this.d) {
-                    h().resume();
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+            } catch (Exception e) {
+                if (oo2.a) {
+                    e.printStackTrace();
                 }
-                h().b();
-            } else if (this.a != null) {
-                this.d = h().isPlaying();
-                h().pause();
-                h().c();
+            }
+            if (cursor == null) {
+                return;
+            }
+            while (cursor.moveToNext()) {
+                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                File file = new File(string);
+                if (file.exists() && (oo2.d || !po2.d(string))) {
+                    ImageModel imageModel = new ImageModel(string);
+                    imageModel.setAddDate(j);
+                    imageModel.setSize(j2);
+                    d(file, imageModel);
+                }
+            }
+        } finally {
+            bh4.d(null);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
+        if (r11 != null) goto L30;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [com.repackage.ap2, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() {
+        Throwable th;
+        Cursor cursor;
+        Exception e;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Throwable th2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ?? r1 = "Image";
+            if (TextUtils.equals(this.c, "Image")) {
+                return;
+            }
+            try {
+                try {
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+                } catch (Throwable th3) {
+                    th = th3;
+                    bh4.d(r1);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                cursor = null;
+                e = e2;
+            } catch (Throwable th4) {
+                r1 = 0;
+                th = th4;
+                bh4.d(r1);
+                throw th;
+            }
+            if (cursor == null) {
+                bh4.d(cursor);
+                return;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
+                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
+                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
+                    if (i <= 0 || i2 <= 0) {
+                        try {
+                            mediaMetadataRetriever = new MediaMetadataRetriever();
+                            try {
+                                try {
+                                    mediaMetadataRetriever.setDataSource(string);
+                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
+                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
+                                    i = Integer.parseInt(extractMetadata);
+                                    i2 = Integer.parseInt(extractMetadata2);
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    if (oo2.a) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Throwable th5) {
+                                th2 = th5;
+                                if (mediaMetadataRetriever != null) {
+                                    mediaMetadataRetriever.release();
+                                }
+                                throw th2;
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            mediaMetadataRetriever = null;
+                        } catch (Throwable th6) {
+                            mediaMetadataRetriever = null;
+                            th2 = th6;
+                        }
+                        mediaMetadataRetriever.release();
+                    }
+                    File file = new File(string);
+                    if (file.exists()) {
+                        VideoModel videoModel = new VideoModel(string);
+                        videoModel.setAddDate(j);
+                        videoModel.setDuration(j2);
+                        videoModel.setSize(j3);
+                        videoModel.setWidth(i);
+                        videoModel.setHeight(i2);
+                        d(file, videoModel);
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    if (oo2.a) {
+                        e.printStackTrace();
+                    }
+                    bh4.d(cursor);
+                }
+            }
+            bh4.d(cursor);
+        }
+    }
+
+    public final void c(ArrayList<zo2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            Iterator<zo2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                zo2 next = it.next();
+                next.i(new File(next.b()).lastModified());
+            }
+            Collections.sort(arrayList);
+        }
+    }
+
+    public final void d(File file, MediaModel mediaModel) {
+        String name;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
+            if (file.getParentFile() != null) {
+                name = file.getParentFile().getName();
+                path = file.getParent();
+            } else {
+                name = file.getName();
+                path = file.getPath();
+            }
+            zo2 zo2Var = new zo2();
+            zo2Var.h(name);
+            zo2Var.g(path);
+            int indexOf = this.a.indexOf(zo2Var);
+            if (indexOf >= 0) {
+                this.a.get(indexOf).a(mediaModel);
+            } else {
+                zo2Var.a(mediaModel);
+                this.a.add(zo2Var);
+            }
+            this.b.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            b();
+            c(this.a);
+            zo2 zo2Var = new zo2();
+            zo2Var.h(po2.b(AppRuntime.getAppContext(), this.c));
+            zo2Var.d = this.b;
+            this.a.add(0, zo2Var);
+            Iterator<zo2> it = this.a.iterator();
+            while (it.hasNext()) {
+                Collections.sort(it.next().f());
+            }
+            Handler handler = this.d;
+            if (handler != null) {
+                Message obtainMessage = handler.obtainMessage(0);
+                obtainMessage.obj = this.a;
+                this.d.sendMessage(obtainMessage);
             }
         }
-    }
-
-    public void l() {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.f();
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ok2 ok2Var = this.a;
-            return ok2Var != null && ok2Var.isEnd();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ok2 ok2Var = this.a;
-            return ok2Var != null && ok2Var.isPlaying();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o(cp2 cp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, cp2Var) == null) {
-            ix1.i("video", "Open Player " + cp2Var.j);
-            ok2 ok2Var = this.a;
-            if (ok2Var != null) {
-                ok2Var.o(cp2Var);
-            }
-            this.c = cp2Var;
-        }
-    }
-
-    @Override // com.repackage.gn2
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ix1.i("video", "onBackPressed");
-            ok2 ok2Var = this.a;
-            return ok2Var != null && ok2Var.onBackPressed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.gn2
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            ix1.i("video", MissionEvent.MESSAGE_DESTROY);
-            ok2 ok2Var = this.a;
-            if (ok2Var != null) {
-                ok2Var.stop();
-                this.a = null;
-            }
-            hn2.k(this);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && B()) {
-            h().pause();
-        }
-    }
-
-    public int q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            ok2 ok2Var = this.a;
-            if (ok2Var != null) {
-                return ok2Var.q(str);
-            }
-            return 1001;
-        }
-        return invokeL.intValue;
-    }
-
-    public void r(String str) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.i(str);
-    }
-
-    public void s() {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && B() && !n() && this.f && (ok2Var = this.a) != null) {
-            ok2Var.resume();
-        }
-    }
-
-    public void t(int i) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && B() && (ok2Var = this.a) != null) {
-            ok2Var.seekTo(i);
-        }
-    }
-
-    public void u(boolean z, int i) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.l(z, i);
-    }
-
-    public void v(bp2 bp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bp2Var) == null) {
-            this.g = bp2Var;
-        }
-    }
-
-    public void w(boolean z) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.d(z);
-    }
-
-    public void x(FrameLayout frameLayout) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, frameLayout) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.a(frameLayout);
-    }
-
-    public void y() {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && B() && (ok2Var = this.a) != null) {
-            ok2Var.seekTo(0);
-            this.a.pause();
-        }
-    }
-
-    public void z(cp2 cp2Var) {
-        ok2 ok2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, cp2Var) == null) || (ok2Var = this.a) == null) {
-            return;
-        }
-        ok2Var.n(cp2Var);
     }
 }

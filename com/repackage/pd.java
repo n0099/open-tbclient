@@ -1,23 +1,28 @@
 package com.repackage;
 
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class pd implements ld {
+import java.lang.reflect.Type;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class pd implements md {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
+    public JSONObject a;
 
-    public pd(List<Object> list) {
+    public pd(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,13 +32,57 @@ public class pd implements ld {
                 return;
             }
         }
-        this.a = list;
+        this.a = jSONObject;
     }
 
-    @Override // com.repackage.ld
-    public Object a(be beVar) {
+    @Override // com.repackage.md
+    public Object a(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) ? ae.c(this.a, beVar) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ceVar)) == null) {
+            Class<?> a = ceVar.a();
+            Type[] b = ceVar.b();
+            if (cc.e(a, Map.class)) {
+                Map<String, Object> b2 = ae.b(ceVar, this.a.length());
+                if (b2 != null) {
+                    Iterator<String> keys = this.a.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (next instanceof String) {
+                            String str = next;
+                            Object a2 = ge.a(this.a.opt(str)).a(new ce(b[1]));
+                            if (a2 != null) {
+                                b2.put(str, a2);
+                            }
+                        }
+                    }
+                }
+                return b2;
+            } else if (a == SparseArray.class) {
+                SparseArray sparseArray = new SparseArray(this.a.length());
+                Iterator<String> keys2 = this.a.keys();
+                while (keys2.hasNext()) {
+                    String next2 = keys2.next();
+                    if (next2 instanceof String) {
+                        String str2 = next2;
+                        try {
+                            int parseInt = Integer.parseInt(str2);
+                            Object a3 = ge.a(this.a.opt(String.valueOf(str2))).a(new ce(b[0]));
+                            if (a3 != null) {
+                                sparseArray.put(parseInt, a3);
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                return sparseArray;
+            } else if (cc.e(a, dc.class)) {
+                return OrmObject.objectWithJson(this.a, a);
+            } else {
+                return null;
+            }
+        }
+        return invokeL.objValue;
     }
 }

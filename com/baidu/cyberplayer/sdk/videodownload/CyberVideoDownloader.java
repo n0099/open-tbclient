@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberVideoDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class DMDownloadError {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Cust01 = 1901;
@@ -35,7 +35,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface DownloadListener {
         void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
 
@@ -43,7 +43,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class DownloadOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final int DELETE = 0;
@@ -70,7 +70,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class DownloadSubStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILE_EXIST = 1;
@@ -98,7 +98,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class DownloadTaskStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ABNORMAL_EXIT = 8;

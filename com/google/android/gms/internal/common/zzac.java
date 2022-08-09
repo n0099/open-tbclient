@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sl9;
+import com.repackage.no9;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.CheckForNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class zzac<E> extends AbstractCollection<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[] zza;
@@ -162,7 +162,7 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     /* renamed from: zze */
-    public abstract sl9<E> iterator();
+    public abstract no9<E> iterator();
 
     public abstract boolean zzf();
 

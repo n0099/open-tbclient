@@ -43,33 +43,19 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         }
     }
 
-    public final void A1() {
-        Bitmap c;
+    public void A1() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = this.a.c()) == null) {
-            return;
-        }
-        String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
-        String saveBitmapByRelativelyPath = FileHelper.saveBitmapByRelativelyPath(str, System.currentTimeMillis() + ".jpg", c, 90);
-        Intent intent = new Intent();
-        intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, saveBitmapByRelativelyPath);
-        setResult(-1, intent);
-        finish();
-    }
-
-    public void B1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092424);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f09070a);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092546);
             this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e4d));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7a));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f0924ef)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809e0));
-            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c22));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092614)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
+            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c47));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.c.setOnClickListener(this);
@@ -83,11 +69,11 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.e) {
-                A1();
+                z1();
             }
         }
     }
@@ -95,7 +81,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0030);
@@ -103,8 +89,22 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
                 this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
             }
-            B1();
+            A1();
             this.a.setClipType(this.f);
         }
+    }
+
+    public final void z1() {
+        Bitmap c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (c = this.a.c()) == null) {
+            return;
+        }
+        String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
+        String saveBitmapByRelativelyPath = FileHelper.saveBitmapByRelativelyPath(str, System.currentTimeMillis() + ".jpg", c, 90);
+        Intent intent = new Intent();
+        intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, saveBitmapByRelativelyPath);
+        setResult(-1, intent);
+        finish();
     }
 }

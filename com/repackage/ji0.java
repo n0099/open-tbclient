@@ -1,9 +1,9 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ji0 implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ji0 {
+    void a(HashMap<String, oi0> hashMap);
+
+    void b(fy0 fy0Var);
 }

@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw6;
-import com.repackage.kv6;
-import com.repackage.nn;
+import com.repackage.dx6;
+import com.repackage.on;
+import com.repackage.vx6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes3.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements bw6 {
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements vx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<nn> mHotTopicDataList;
+    public List<on> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabHttpResponse() {
@@ -39,14 +39,14 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b
         }
     }
 
-    @Override // com.repackage.bw6
-    public List<nn> getDataList() {
+    @Override // com.repackage.vx6
+    public List<on> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.bw6
+    @Override // com.repackage.vx6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements b
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = kv6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = dx6.c(hotThreadListResIdl);
             }
         }
     }

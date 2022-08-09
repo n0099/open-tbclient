@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
@@ -18,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eb0;
-import com.repackage.na0;
-import com.repackage.t80;
+import com.repackage.ab0;
+import com.repackage.la0;
+import com.repackage.m80;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -30,7 +31,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
     public LayoutInflater a;
     public List<LiveTabEntity.TabLabelInfo> b;
     public Context c;
-    public boolean d;
+    public String d;
     public int e;
     public float[] f;
     public b g;
@@ -102,12 +103,12 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         void a(View view2, int i);
     }
 
-    public LiveFeedPageSubTipAdapter(Context context, boolean z) {
+    public LiveFeedPageSubTipAdapter(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,49 +121,39 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         this.b = new ArrayList();
         this.e = 0;
         this.c = context;
-        this.d = z;
+        this.d = str;
         this.a = LayoutInflater.from(context);
-        float a2 = t80.a(this.c, 14.0f);
-        this.f = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
+        float b2 = m80.b(this.c, 14.0f);
+        this.f = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
     }
 
-    public int e() {
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!la0.c(this.b) && str != null) {
+                for (int i = 0; i < this.b.size(); i++) {
+                    LiveTabEntity.TabLabelInfo tabLabelInfo = this.b.get(i);
+                    if (tabLabelInfo != null && str.equals(tabLabelInfo.type)) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public LiveTabEntity.TabLabelInfo f() {
+    public LiveTabEntity.TabLabelInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (LiveTabEntity.TabLabelInfo) na0.b(this.b, this.e) : (LiveTabEntity.TabLabelInfo) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        LiveTabEntity.TabLabelInfo tabLabelInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i) == null) || (tabLabelInfo = (LiveTabEntity.TabLabelInfo) na0.b(this.b, i)) == null) {
-            return;
-        }
-        viewHolder.a.setText(tabLabelInfo.name);
-        if (this.g != null) {
-            viewHolder.itemView.setOnClickListener(new a(this, viewHolder));
-        }
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(this.f);
-        if (i == this.e) {
-            viewHolder.a.setTextColor(eb0.e().a(this.c, this.d, "color_FF33551"));
-            gradientDrawable.setColors(new int[]{eb0.e().a(this.c, this.d, "color_FF33552"), eb0.e().a(this.c, this.d, "color_FF33552")});
-            viewHolder.a.setTypeface(Typeface.defaultFromStyle(1));
-        } else {
-            viewHolder.a.setTextColor(eb0.e().a(this.c, this.d, "color_525252"));
-            gradientDrawable.setColors(new int[]{eb0.e().a(this.c, this.d, "color_F5F5F53"), eb0.e().a(this.c, this.d, "color_F5F5F53")});
-            viewHolder.a.setTypeface(Typeface.defaultFromStyle(0));
-        }
-        viewHolder.a.setBackgroundDrawable(gradientDrawable);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (LiveTabEntity.TabLabelInfo) la0.b(this.b, this.e) : (LiveTabEntity.TabLabelInfo) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -175,35 +166,72 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: h */
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        LiveTabEntity.TabLabelInfo tabLabelInfo;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) || (tabLabelInfo = (LiveTabEntity.TabLabelInfo) la0.b(this.b, i)) == null) {
+            return;
+        }
+        viewHolder.a.setText(tabLabelInfo.name);
+        if (this.g != null) {
+            viewHolder.itemView.setOnClickListener(new a(this, viewHolder));
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setCornerRadii(this.f);
+        if (i == this.e) {
+            viewHolder.a.setTextColor(ab0.f().a(this.c, this.d, "color_FF33551"));
+            gradientDrawable.setColors(new int[]{ab0.f().a(this.c, this.d, "color_FF33552"), ab0.f().a(this.c, this.d, "color_FF33552")});
+            viewHolder.a.setTypeface(Typeface.defaultFromStyle(1));
+        } else {
+            viewHolder.a.setTextColor(ab0.f().a(this.c, this.d, "color_525252"));
+            gradientDrawable.setColors(new int[]{ab0.f().a(this.c, this.d, "color_F5F5F53"), ab0.f().a(this.c, this.d, "color_F5F5F53")});
+            viewHolder.a.setTypeface(Typeface.defaultFromStyle(0));
+        }
+        viewHolder.a.setBackgroundDrawable(gradientDrawable);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: i */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d0527, viewGroup, false);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
+            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d0535, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092248);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092350);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;
     }
 
-    public void i(b bVar) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (!la0.c(this.b)) {
+                this.b.clear();
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             this.g = bVar;
         }
     }
 
-    public void j(int i) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void k(List<LiveTabEntity.TabLabelInfo> list, String str) {
+    public void m(List<LiveTabEntity.TabLabelInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, str) == null) || na0.c(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, list, str) == null) || la0.c(list)) {
             return;
         }
         List<LiveTabEntity.TabLabelInfo> list2 = this.b;
@@ -220,7 +248,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
             LiveTabEntity.TabLabelInfo tabLabelInfo = this.b.get(i3);
             if (tabLabelInfo != null) {
                 if (!TextUtils.isEmpty(str) && i == 0 && str.equals(tabLabelInfo.type)) {
-                    LiveFeedPageSdk.m("Scheme指定找到了三级标签 = " + tabLabelInfo.name);
+                    LiveFeedPageSdk.liveLog("Scheme指定找到了三级标签 = " + tabLabelInfo.name);
                     i = i3;
                 }
                 if (tabLabelInfo.selected && i2 == 0) {

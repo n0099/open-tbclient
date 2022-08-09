@@ -112,21 +112,28 @@ public class TbDimenManager {
         }
     }
 
+    public void adaptThisDimen(DisplayMetrics displayMetrics) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayMetrics) == null) {
+            setDensity(displayMetrics, 3.0f, 480);
+        }
+    }
+
     public float getDefaultDensity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDefaultDensity : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDefaultDensity : invokeV.floatValue;
     }
 
     public int getDefaultDensityDpi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDefaultDensityDpi : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDefaultDensityDpi : invokeV.intValue;
     }
 
     public void init(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, application) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, application) == null) {
             this.mApplication = application;
             Display defaultDisplay = ((WindowManager) application.getSystemService("window")).getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -147,11 +154,24 @@ public class TbDimenManager {
     public boolean needAdapt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             float f = this.mDefaultDensity;
             return ((double) f) > 2.5d && f < 3.0f;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean needAdapt(DisplayMetrics displayMetrics) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, displayMetrics)) == null) {
+            if (displayMetrics == null) {
+                return false;
+            }
+            float f = displayMetrics.density;
+            return ((double) f) > 2.5d && f < 3.0f;
+        }
+        return invokeL.booleanValue;
     }
 
     public void adaptDimen(Context context) {

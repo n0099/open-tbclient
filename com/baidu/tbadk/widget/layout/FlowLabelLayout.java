@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FlowLabelLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -38,8 +38,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {
@@ -139,8 +139,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -162,7 +162,7 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 }

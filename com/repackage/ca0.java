@@ -1,16 +1,11 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ca0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ca0<T> {
+    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
-    }
+    T onParseResponseInBackground(NetResponse netResponse);
 }

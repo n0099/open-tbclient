@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
-import com.repackage.nn;
+import com.repackage.bn;
+import com.repackage.on;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -42,10 +42,10 @@ public class HTypeListView extends HListView {
         b();
     }
 
-    public void a(List<an> list) {
+    public void a(List<bn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<an> it = list.iterator();
+            Iterator<bn> it = list.iterator();
             while (it.hasNext()) {
                 this.a.a(it.next());
             }
@@ -60,13 +60,13 @@ public class HTypeListView extends HListView {
         }
     }
 
-    public List<nn> getData() {
+    public List<on> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.d() : (List) invokeV.objValue;
     }
 
-    public void setData(List<? extends nn> list) {
+    public void setData(List<? extends on> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.h(list);

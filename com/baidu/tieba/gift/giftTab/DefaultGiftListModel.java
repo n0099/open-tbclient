@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.rr6;
-import com.repackage.vr6;
-import com.repackage.wh8;
-import com.repackage.yo4;
-import com.repackage.za;
-import com.repackage.zo4;
+import com.repackage.kk8;
+import com.repackage.kt6;
+import com.repackage.ot6;
+import com.repackage.pp4;
+import com.repackage.qp4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rr6> a;
-    public ArrayList<yo4> b;
-    public ArrayList<vr6> c;
+    public ArrayList<kt6> a;
+    public ArrayList<pp4> b;
+    public ArrayList<ot6> c;
     public String d;
     public int e;
     public b f;
-    public za g;
+    public ab g;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultGiftListModel a;
@@ -60,15 +60,15 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
         /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            zo4 zo4Var;
+            qp4 qp4Var;
             int i;
             int i2;
-            zo4 zo4Var2;
+            qp4 qp4Var2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
@@ -85,12 +85,12 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                zo4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                qp4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
-                zo4Var = null;
+                qp4Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, zo4Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, qp4Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
@@ -102,10 +102,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                zo4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                qp4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
             i = i2;
-            zo4Var = zo4Var2;
+            qp4Var = qp4Var2;
             if (this.a.f == null) {
             }
         }
@@ -113,7 +113,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, zo4 zo4Var, ArrayList<rr6> arrayList, ArrayList<yo4> arrayList2, ArrayList<vr6> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, qp4 qp4Var, ArrayList<kt6> arrayList, ArrayList<pp4> arrayList2, ArrayList<ot6> arrayList3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -139,7 +139,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         registerListener();
     }
 
-    public void L(String str, long j) {
+    public void K(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             DefaultGiftListRequest defaultGiftListRequest = new DefaultGiftListRequest();
@@ -149,7 +149,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    public void M(b bVar) {
+    public void L(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.f = bVar;
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            wh8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            wh8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            kk8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

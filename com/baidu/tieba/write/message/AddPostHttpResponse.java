@@ -89,6 +89,8 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
                     jSONObject3.put("current_level", addPostResIdl.data.exp.current_level);
                     jSONObject3.put("old", addPostResIdl.data.exp.old);
                     jSONObject3.put("inc", addPostResIdl.data.exp.inc);
+                    jSONObject3.put("question_exp", addPostResIdl.data.exp.question_exp);
+                    jSONObject3.put("question_msg", addPostResIdl.data.exp.question_msg);
                     addPostHttpResponse.resultJSON.put("exp", jSONObject3);
                 }
                 if (addPostResIdl.data.contri_info != null) {

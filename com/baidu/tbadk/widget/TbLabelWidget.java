@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.on4;
-import com.repackage.sg8;
-import com.repackage.vr4;
+import com.repackage.fo4;
+import com.repackage.gj8;
+import com.repackage.ms4;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
@@ -50,11 +50,12 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public BarImageView l;
     public TextView m;
     public b n;
-    public vr4 o;
-    public vr4 p;
-    public vr4 q;
+    public ms4 o;
+    public ms4 p;
+    public ms4 q;
     public int r;
     public boolean s;
+    public int t;
 
     /* loaded from: classes3.dex */
     public class a implements b {
@@ -97,6 +98,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 }
                 StatisticItem statisticItem = new StatisticItem("c14686");
                 statisticItem.param("obj_type", 2);
+                statisticItem.param("obj_locate", this.b.t);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -188,21 +190,26 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public void a() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f();
+            g();
             if (this.s) {
                 this.l.setVisibility(8);
                 this.m.setVisibility(8);
                 this.f.setVisibility(0);
-                this.g.setVisibility(0);
-                this.h.setVisibility(0);
                 this.i.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
-                this.f.J(this.d.c, 10, false);
-                this.g.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.d, 8, ""));
+                this.f.K(this.d.c, 10, false);
+                if (TextUtils.isEmpty(this.d.d)) {
+                    this.g.setVisibility(8);
+                    this.h.setVisibility(8);
+                } else {
+                    this.g.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.d, 8, ""));
+                    this.g.setVisibility(0);
+                    this.h.setVisibility(0);
+                }
                 this.i.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
                 if (!StringUtils.isNull(this.d.f)) {
                     this.j.setVisibility(0);
@@ -224,12 +231,12 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             this.k.setVisibility(8);
             if (!TextUtils.isEmpty(this.d.a)) {
                 this.l.setVisibility(0);
-                this.l.J(this.d.a, 10, false);
+                this.l.K(this.d.a, 10, false);
             } else {
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f064c) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f065a) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
             } else if (TextUtils.isEmpty(this.d.e)) {
             } else {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
@@ -237,7 +244,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c = new d(this);
@@ -245,40 +252,40 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void c() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.o = vr4.d(this.e);
-            this.p = vr4.d(this.j);
-            this.q = vr4.d(this.k);
+            this.o = ms4.d(this.e);
+            this.p = ms4.d(this.j);
+            this.q = ms4.d(this.k);
         }
     }
 
-    public final void d() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f5, (ViewGroup) this, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fe, (ViewGroup) this, false);
             this.e = inflate;
-            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee1);
-            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0911db);
-            this.h = this.e.findViewById(R.id.obfuscated_res_0x7f0911d4);
-            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0911d7);
-            this.j = this.e.findViewById(R.id.obfuscated_res_0x7f0911d6);
-            this.k = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091a71);
-            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091a7e);
-            setOnClickListener(this);
+            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd8);
+            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091231);
+            this.h = this.e.findViewById(R.id.obfuscated_res_0x7f09122a);
+            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09122d);
+            this.j = this.e.findViewById(R.id.obfuscated_res_0x7f09122c);
+            this.k = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09122f);
+            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091b50);
+            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091b5d);
+            this.e.setOnClickListener(this);
             addView(this.e);
         }
     }
 
-    public final boolean e(ThemeElement themeElement) {
+    public final boolean f(ThemeElement themeElement) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, themeElement)) == null) ? (themeElement == null || StringUtils.isNull(themeElement.common_color)) ? false : true : invokeL.booleanValue;
     }
 
-    public void f() {
+    public void g() {
         d dVar;
         ThemeColorInfo themeColorInfo;
         ThemeColorInfo themeColorInfo2;
@@ -288,9 +295,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.o.n(R.string.J_X01);
             if (this.s) {
-                vr4 vr4Var = this.p;
-                vr4Var.n(R.string.J_X03);
-                vr4Var.f(R.color.CAM_X0108);
+                ms4 ms4Var = this.p;
+                ms4Var.n(R.string.J_X03);
+                ms4Var.f(R.color.CAM_X0108);
                 this.q.v(R.color.CAM_X0108);
                 int skinType = TbadkApplication.getInst().getSkinType();
                 if (skinType == this.r || (themeColorInfo = (dVar = this.c).b) == null || (themeColorInfo2 = dVar.c) == null || (themeColorInfo3 = dVar.d) == null || (themeColorInfo4 = dVar.a) == null) {
@@ -298,52 +305,52 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 }
                 this.r = skinType;
                 if (skinType == 1) {
-                    g(themeColorInfo.night, themeColorInfo2.night, themeColorInfo3.night, themeColorInfo4.night);
+                    h(themeColorInfo.night, themeColorInfo2.night, themeColorInfo3.night, themeColorInfo4.night);
                     return;
                 } else if (skinType != 4) {
-                    g(themeColorInfo.day, themeColorInfo2.day, themeColorInfo3.day, themeColorInfo4.day);
+                    h(themeColorInfo.day, themeColorInfo2.day, themeColorInfo3.day, themeColorInfo4.day);
                     return;
                 } else {
-                    g(themeColorInfo.dark, themeColorInfo2.dark, themeColorInfo3.dark, themeColorInfo4.dark);
+                    h(themeColorInfo.dark, themeColorInfo2.dark, themeColorInfo3.dark, themeColorInfo4.dark);
                     return;
                 }
             }
             this.o.f(R.color.CAM_X0209);
-            vr4 d2 = vr4.d(this.m);
+            ms4 d2 = ms4.d(this.m);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0107);
         }
     }
 
-    public final void g(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3, ThemeElement themeElement4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
-            if (e(themeElement)) {
-                this.g.setTextColor(sg8.f(themeElement.common_color));
-            }
-            if (e(themeElement2)) {
-                this.h.setBackgroundColor(sg8.f(themeElement2.common_color));
-            }
-            if (e(themeElement3)) {
-                this.i.setTextColor(sg8.f(themeElement3.common_color));
-            }
-            if (e(themeElement4)) {
-                this.o.g(sg8.f(themeElement4.common_color));
-            }
-        }
-    }
-
     public c getContentStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (c) invokeV.objValue;
     }
 
     public d getStyleStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (d) invokeV.objValue;
+    }
+
+    public final void h(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3, ThemeElement themeElement4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
+            if (f(themeElement)) {
+                this.g.setTextColor(gj8.f(themeElement.common_color));
+            }
+            if (f(themeElement2)) {
+                this.h.setBackgroundColor(gj8.f(themeElement2.common_color));
+            }
+            if (f(themeElement3)) {
+                this.i.setTextColor(gj8.f(themeElement3.common_color));
+            }
+            if (f(themeElement4)) {
+                this.o.g(gj8.f(themeElement4.common_color));
+            }
+        }
     }
 
     @Override // android.view.View.OnClickListener
@@ -356,12 +363,12 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         bVar.a(view2);
     }
 
-    public void setData(on4 on4Var) {
+    public void setData(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, on4Var) == null) || on4Var == null || on4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, fo4Var) == null) || fo4Var == null || fo4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = on4Var.getThreadData();
+        ThreadData threadData = fo4Var.getThreadData();
         if (threadData.getThreadRecommendInfoDataList() == null || threadData.getThreadRecommendInfoDataList().size() <= 0) {
             return;
         }
@@ -384,7 +391,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         d dVar2 = this.c;
         dVar2.c = threadRecommendInfoData.stripColor;
         dVar2.a = threadRecommendInfoData.backgroundColor;
-        a();
+        b();
         setEventCallback(new a(this, threadRecommendInfoData));
     }
 
@@ -392,6 +399,13 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.n = bVar;
+        }
+    }
+
+    public void setObjLocate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.t = i;
         }
     }
 
@@ -438,8 +452,8 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         this.a = 24;
         this.b = 16;
         this.r = -1;
-        b();
-        d();
         c();
+        e();
+        d();
     }
 }

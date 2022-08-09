@@ -35,7 +35,7 @@ public class fv implements fz {
     public void a(fw fwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fwVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f400a.format(new Date()) + " Connection started (" + this.a.f397a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f401a.format(new Date()) + " Connection started (" + this.a.f398a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -43,7 +43,7 @@ public class fv implements fz {
     public void a(fw fwVar, int i, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fwVar, i, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f400a.format(new Date()) + " Connection closed (" + this.a.f397a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f401a.format(new Date()) + " Connection closed (" + this.a.f398a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -51,7 +51,7 @@ public class fv implements fz {
     public void a(fw fwVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fwVar, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f400a.format(new Date()) + " Reconnection failed due to an exception (" + this.a.f397a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f401a.format(new Date()) + " Reconnection failed due to an exception (" + this.a.f398a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
             exc.printStackTrace();
         }
     }
@@ -60,7 +60,7 @@ public class fv implements fz {
     public void b(fw fwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fwVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f400a.format(new Date()) + " Connection reconnected (" + this.a.f397a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f401a.format(new Date()) + " Connection reconnected (" + this.a.f398a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 }

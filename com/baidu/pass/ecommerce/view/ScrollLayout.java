@@ -394,7 +394,7 @@ public class ScrollLayout extends FrameLayout {
         int dimensionPixelOffset;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040015, R.attr.obfuscated_res_0x7f040019, R.attr.obfuscated_res_0x7f04001a, R.attr.obfuscated_res_0x7f04002c, R.attr.obfuscated_res_0x7f04002f, R.attr.obfuscated_res_0x7f040030});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040018, R.attr.obfuscated_res_0x7f04001c, R.attr.obfuscated_res_0x7f04001d, R.attr.obfuscated_res_0x7f04002f, R.attr.obfuscated_res_0x7f040032, R.attr.obfuscated_res_0x7f040033});
             if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
                 this.maxOffset = getContentHeight() - dimensionPixelOffset;
             }

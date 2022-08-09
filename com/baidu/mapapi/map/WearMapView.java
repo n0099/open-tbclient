@@ -25,6 +25,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
@@ -492,12 +493,12 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (interceptable == null || interceptable.invokeLZ(65550, this, view2, z) == null) {
             if (z) {
                 animatorSet = new AnimatorSet();
-                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", 0.0f, -50.0f), ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 0.0f));
+                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", 0.0f, -50.0f), ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 0.0f));
                 animatorSet.addListener(new aa(this, view2));
             } else {
                 view2.setVisibility(0);
                 animatorSet = new AnimatorSet();
-                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", -50.0f, 0.0f), ObjectAnimator.ofFloat(view2, "alpha", 0.0f, 1.0f));
+                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", -50.0f, 0.0f), ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f, 1.0f));
             }
             animatorSet.setDuration(IMLikeRequest.TIME_INTERVAL);
             animatorSet.start();

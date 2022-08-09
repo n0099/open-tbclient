@@ -1,134 +1,58 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vw1 {
+public final class vw1 extends kw1<TextView, xw1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755216863, "Lcom/repackage/vw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755216863, "Lcom/repackage/vw1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vw1(@Nullable Context context, @NonNull xw1 xw1Var) {
+        super(context, xw1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, xw1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (lw1) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = sg1.a;
     }
 
-    @Nullable
-    public static <C extends xv1> C a(yv1 yv1Var) {
-        InterceptResult invokeL;
-        C c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, yv1Var)) == null) {
-            if (yv1Var == null) {
-                bx1.a("Component-Finder", "find a null component: null model");
-                return null;
-            }
-            String d = yv1Var.d();
-            String str = yv1Var.c;
-            if (TextUtils.isEmpty(str)) {
-                ix1.c("Component-Finder", "find a null " + d + " : slaveId is empty");
-                return null;
-            }
-            yw1 d2 = d(str);
-            if (d2 == null) {
-                ix1.c("Component-Finder", "find a null " + d + " : null component context");
-                return null;
-            }
-            String str2 = yv1Var.b;
-            if (TextUtils.isEmpty(str2)) {
-                ix1.o("Component-Finder", "find " + d + " with a empty componentId");
-                List<xv1> list = d2.a().c.get(yv1Var.a);
-                if (list == null) {
-                    ix1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
-                    return null;
-                } else if (list.size() <= 0) {
-                    ix1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
-                    return null;
-                } else {
-                    ix1.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
-                    c = (C) list.get(0);
-                }
-            } else {
-                c = (C) d2.a().b.get(str2);
-            }
-            if (c == null) {
-                ix1.c("Component-Finder", "find a null " + d + " : not exist");
-                return null;
-            }
-            return c;
-        }
-        return (C) invokeL.objValue;
-    }
-
-    @Nullable
-    public static <C extends xv1> C b(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            yw1 d = d(str);
-            if (d == null) {
-                ix1.c("Component-Finder", "find a null " + str2 + " : null component context");
-                return null;
-            }
-            C c = (C) d.a().b.get(str2);
-            if (c == null) {
-                ix1.c("Component-Finder", "find a null " + str2 + " : not exist");
-                return null;
-            }
-            return c;
-        }
-        return (C) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static yw1 c(yv1 yv1Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ow1
+    @NonNull
+    /* renamed from: Z */
+    public TextView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yv1Var)) == null) {
-            if (yv1Var == null) {
-                bx1.a("Component-Finder", "find component context with a null model");
-                return null;
-            }
-            return d(yv1Var.c);
-        }
-        return (yw1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new TextView(context) : (TextView) invokeL.objValue;
     }
 
-    @Nullable
-    public static yw1 d(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kw1
+    /* renamed from: a0 */
+    public void X(@NonNull TextView textView, @NonNull xw1 xw1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                ix1.c("Component-Finder", "find component context with a null slave id");
-                return null;
-            }
-            qm1 A = vl2.U().A(str);
-            if (A instanceof om1) {
-                return ((om1) A).e0();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, xw1Var) == null) {
+            Y(textView, xw1Var, 16);
         }
-        return (yw1) invokeL.objValue;
     }
 }

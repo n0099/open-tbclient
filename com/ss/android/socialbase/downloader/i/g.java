@@ -42,7 +42,7 @@ import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static Handler a = new Handler(Looper.getMainLooper());
 
@@ -50,7 +50,7 @@ public class g {
         if (downloadTask == null) {
             return null;
         }
-        return new a.AbstractBinderC0684a() { // from class: com.ss.android.socialbase.downloader.i.g.1
+        return new a.AbstractBinderC0689a() { // from class: com.ss.android.socialbase.downloader.i.g.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
                 return DownloadTask.this.getDownloadInfo();

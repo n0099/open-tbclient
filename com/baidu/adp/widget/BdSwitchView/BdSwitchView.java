@@ -2,7 +2,6 @@ package com.baidu.adp.widget.BdSwitchView;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Vibrator;
 import android.util.AttributeSet;
@@ -145,7 +144,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void j0(View view2, SwitchState switchState);
+        void i0(View view2, SwitchState switchState);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -170,7 +169,6 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.g = false;
         this.h = false;
         this.i = false;
-        new Paint();
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -254,7 +252,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
             this.c = 0.0f;
         }
         if (z && switchState != this.a && (bVar = this.n) != null) {
-            bVar.j0(this, switchState);
+            bVar.i0(this, switchState);
         }
         this.a = switchState;
         this.i = false;
@@ -437,7 +435,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState3 != (switchState = this.a) && (bVar = this.n) != null) {
-                    bVar.j0(this, switchState);
+                    bVar.i0(this, switchState);
                 }
                 this.i = false;
                 invalidate();
@@ -465,7 +463,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState4 != (switchState2 = this.a) && (bVar2 = this.n) != null) {
-                    bVar2.j0(this, switchState2);
+                    bVar2.i0(this, switchState2);
                 }
                 this.i = false;
                 invalidate();
@@ -506,7 +504,6 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.g = false;
         this.h = false;
         this.i = false;
-        new Paint();
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -539,7 +536,6 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.g = false;
         this.h = false;
         this.i = false;
-        new Paint();
         this.j = 0;
         this.k = 0;
         this.l = 0;

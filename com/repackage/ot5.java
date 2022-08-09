@@ -1,52 +1,40 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class ot5 extends BaseAdapter {
+/* loaded from: classes7.dex */
+public class ot5 extends mt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public List<ThreadData> b;
+    public ViewGroup f;
+    public TbImageView g;
 
-    /* loaded from: classes6.dex */
-    public static class a {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TbImageView b;
-        public AlaCardBottomUserInfoLayout c;
-        public RelativeLayout d;
-        public TextView e;
+        public final /* synthetic */ ot5 a;
 
-        public a(View view2) {
+        public a(ot5 ot5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {ot5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,15 +44,25 @@ public class ot5 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea5);
-            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901be);
-            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c0);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);
+            this.a = ot5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.d.b)) {
+                return;
+            }
+            UrlManager urlManager = UrlManager.getInstance();
+            ot5 ot5Var = this.a;
+            urlManager.dealOneLink(ot5Var.c, new String[]{ot5Var.d.b}, true);
+            ns5.c().f("c12909", this.a.d.e, 3, "-1", 0L, null, null);
         }
     }
 
-    public ot5(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ot5(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,98 +72,109 @@ public class ot5 extends BaseAdapter {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        e();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ThreadData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.mt5
+    public void b(at5 at5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<ThreadData> list = this.b;
-            if (list != null && i >= 0 && i <= list.size()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (ThreadData) invokeI.objValue;
-    }
-
-    public void b(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048576, this, at5Var) == null) {
+            super.b(at5Var);
+            this.g.K(at5Var.a, 10, false);
+            ns5.c().f("c12908", this.d.e, 3, "-1", 0L, null, null);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.repackage.mt5
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return 0;
-            }
-            return this.b.size();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.mt5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = new FrameLayout(this.c.getPageActivity());
+            this.g = new TbImageView(this.c.getPageActivity());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.b);
+            this.g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.g.setLayoutParams(layoutParams);
+            this.f.addView(this.g);
+            this.e.setVisibility(8);
+            this.f.addView(this.e);
+            this.g.setOnClickListener(new a(this));
+            i(TbadkCoreApplication.getInst().getSkinType());
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.mt5
+    public boolean f(at5 at5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, at5Var)) == null) ? (at5Var == null || 3 != at5Var.d || TextUtils.isEmpty(at5Var.a)) ? false : true : invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        AlaInfoData threadAlaInfo;
+    @Override // com.repackage.mt5
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e7, (ViewGroup) null);
-                aVar = new a(view2);
-                aVar.b.setIsRound(true);
-                aVar.b.setDrawBorder(false);
-                aVar.b.setAutoChangeStyle(true);
-                aVar.b.setGifIconSupport(false);
-                int k = (pi.k(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
-                int i2 = (k * 16) / 9;
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
-                layoutParams.height = k;
-                layoutParams.width = i2;
-                aVar.d.setLayoutParams(layoutParams);
-                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
-                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
-                view2.setLayoutParams(layoutParams2);
-                view2.setTag(aVar);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.mt5
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.h();
+            TbImageView tbImageView = this.g;
+            if (tbImageView != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
+                layoutParams.width = this.a;
+                layoutParams.height = this.b;
+                this.g.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    @Override // com.repackage.mt5
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (1 == i) {
+                this.e.setVisibility(0);
             } else {
-                aVar = (a) view2.getTag();
+                this.e.setVisibility(8);
             }
-            ThreadData item = getItem(i);
-            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
-                return null;
-            }
-            aVar.b.J(threadAlaInfo.cover, 10, false);
-            aVar.c.setData(item);
-            aVar.c.setUserHeadImgVisible(8);
-            aVar.e.setText(item.getTitle());
-            aVar.c.onChangeSkinType(this.a);
-            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // com.repackage.mt5
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g = null;
+        }
+    }
+
+    @Override // com.repackage.mt5
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.mt5
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
     }
 }

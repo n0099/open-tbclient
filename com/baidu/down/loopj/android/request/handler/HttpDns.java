@@ -29,7 +29,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class HttpDns {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ID = "0024";
@@ -46,7 +46,7 @@ public final class HttpDns {
     public CopyOnWriteArrayList<String> mRequstingHost;
     public ExecutorService pool;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class HostObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class QueryHostTask implements Callable<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

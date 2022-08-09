@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
-import com.repackage.i69;
+import com.repackage.d99;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -139,7 +139,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new i69().c(str, new b().getType());
+                return (List) new d99().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

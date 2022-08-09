@@ -79,7 +79,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public b.InterfaceC0376b dY;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f4do;
+    public ImageView f5do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.components.core.video.c dq;
     public d dr;
@@ -1092,12 +1092,12 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
             this.ds = (!(ksAdVideoPlayConfig instanceof KSAdVideoPlayConfigImpl) || ((KSAdVideoPlayConfigImpl) ksAdVideoPlayConfig).getVideoSoundValue() == 0) ? com.kwad.sdk.core.response.a.a.bh(this.mAdInfo) : ksAdVideoPlayConfig.isVideoSoundEnable();
             String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
             if (TextUtils.isEmpty(url)) {
-                imageView = this.f4do;
+                imageView = this.f5do;
                 i = 8;
             } else {
-                this.f4do.setImageDrawable(null);
-                KSImageLoader.loadImage(this.f4do, url, this.mAdTemplate);
-                imageView = this.f4do;
+                this.f5do.setImageDrawable(null);
+                KSImageLoader.loadImage(this.f5do, url, this.mAdTemplate);
+                imageView = this.f5do;
                 i = 0;
             }
             imageView.setVisibility(i);
@@ -1248,12 +1248,12 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911c8);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09121e);
             this.mAdWebView = ksAdWebView;
             ksAdWebView.setVisibility(4);
-            this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091012);
-            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09119f);
-            this.f4do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091068);
+            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f5);
+            this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091205);
         }
     }
 
@@ -1311,7 +1311,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0424 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0427 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

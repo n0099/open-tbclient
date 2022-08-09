@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii;
+import com.repackage.ji;
 /* loaded from: classes3.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -91,7 +91,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
             }
             if (this.g == 0) {
                 setOverScrollMode(2);
-                int a2 = ii.a(getContext());
+                int a2 = ji.a(getContext());
                 this.g = a2;
                 this.f = (this.a * 1.0f) / a2;
             }

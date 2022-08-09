@@ -1,20 +1,7 @@
 package com.repackage;
-
-import android.app.Activity;
-import android.content.Context;
 /* loaded from: classes7.dex */
 public interface yr {
-    Activity a();
+    String a(String str);
 
-    void b(Activity activity);
-
-    boolean c();
-
-    Context getAppContext();
-
-    String getAppVersion();
-
-    zr getEnv();
-
-    String getSdkVersion();
+    void a(String str, String str2);
 }

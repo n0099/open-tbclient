@@ -1,5 +1,7 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface pl4 {
-    void a();
+    void a(boolean z);
+
+    void onFail();
 }

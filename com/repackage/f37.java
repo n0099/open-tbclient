@@ -1,18 +1,21 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.Hottopic.JoinUser;
-import tbclient.Hottopic.UserInfo;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes6.dex */
 public class f37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<i37> a;
+    public String a;
+    public List<e37> b;
 
     public f37() {
         Interceptable interceptable = $ic;
@@ -28,17 +31,23 @@ public class f37 {
         }
     }
 
-    public void a(JoinUser joinUser) {
+    public void a(long j, TimeLine timeLine) {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
-            joinUser.join_user_num.longValue();
-            this.a = new ArrayList();
-            for (UserInfo userInfo : joinUser.join_user) {
-                if (userInfo != null) {
-                    i37 i37Var = new i37();
-                    i37Var.a(userInfo);
-                    this.a.add(i37Var);
-                }
+        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) || timeLine == null || ListUtils.isEmpty(timeLine.timeline_info)) {
+            return;
+        }
+        this.a = timeLine.title;
+        this.b = new ArrayList();
+        int i = 0;
+        for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
+            if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
+                e37 e37Var = new e37();
+                e37Var.a = j;
+                e37Var.f = i;
+                e37Var.a(timeLineInfo);
+                this.b.add(e37Var);
+                i++;
             }
         }
     }

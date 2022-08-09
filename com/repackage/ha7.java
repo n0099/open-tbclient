@@ -1,29 +1,26 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import com.squareup.wire.Wire;
+import java.util.Date;
+import java.util.LinkedList;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public class ha7 implements v75 {
+public class ha7 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<FeedData> a;
-    public pp4 b;
-    public fa7 c;
 
     public ha7() {
         Interceptable interceptable = $ic;
@@ -35,74 +32,46 @@ public class ha7 implements v75 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new pp4();
-        this.c = new fa7();
     }
 
-    public ArrayList<FeedData> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public pp4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (pp4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.v75
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-                if (optJSONArray == null) {
-                    optJSONArray = jSONObject.optJSONArray("at_list");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                tr4.f();
+                ue<byte[]> d = tr4.d("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = d.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
                 }
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserJson(optJSONArray.optJSONObject(i));
-                        this.a.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.a.remove(feedData);
+                LinkedList linkedList = new LinkedList();
+                try {
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                pi.getDateStringMouth(date);
+                                msgInfo.type.intValue();
+                                String str = msgInfo.content;
+                                msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
                         }
                     }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
                 }
-                this.c.f(jSONObject.optJSONObject("message"));
-                this.b.i(jSONObject.optJSONObject("page"));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
+            return null;
         }
-    }
-
-    @Override // com.repackage.v75
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        this.a.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.a.remove(feedData);
-                        }
-                    }
-                }
-                this.b.j(dataRes.page);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

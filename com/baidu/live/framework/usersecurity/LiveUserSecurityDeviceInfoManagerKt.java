@@ -10,11 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\u001a!\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0004\u0010\u0005\u001a!\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0006\u0010\u0005\u001a!\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0007\u0010\u0005\u001a!\u0010\b\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\b\u0010\u0005\u001a\u0019\u0010\t\u001a\u00020\u00022\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\t\u0010\n\u001a\u0019\u0010\u000b\u001a\u00020\u00022\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u000b\u0010\n\u001a\u0019\u0010\f\u001a\u00020\u00022\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\f\u0010\n\u001a!\u0010\r\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\r\u0010\u0005\u001a\u0019\u0010\u000e\u001a\u00020\u00022\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u000e\u0010\n\u001a\r\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0010\u0010\u0011\"%\u0010\u0018\u001a\n \u0013*\u0004\u0018\u00010\u00120\u00128B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017¨\u0006\u0019"}, d2 = {"Landroid/content/Context;", "context", "", "purpose", "getAndroidId", "(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;", "getHarmonyVersion", "getIMEI", "getMacAddress", "getManufacturer", "(Ljava/lang/String;)Ljava/lang/String;", "getModel", "getOAID", "getOperator", "getOsVersion", "", "isDeviceInfoServiceAvailable", "()Z", "Lcom/baidu/searchbox/live/interfaces/service/LiveUserSecurityDeviceInfoService;", "kotlin.jvm.PlatformType", "service$delegate", "Lkotlin/Lazy;", "getService", "()Lcom/baidu/searchbox/live/interfaces/service/LiveUserSecurityDeviceInfoService;", "service", "lib-live-feed-page_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlin.jvm.internal.PropertyReference0Impl;
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KProperty;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\u001a\u0019\u0010\u0002\u001a\u00020\u00002\n\b\u0002\u0010\u0001\u001a\u0004\u0018\u00010\u0000¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0019\u0010\u0004\u001a\u00020\u00002\n\b\u0002\u0010\u0001\u001a\u0004\u0018\u00010\u0000¢\u0006\u0004\b\u0004\u0010\u0003\u001a\r\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0006\u0010\u0007\"%\u0010\u000e\u001a\n \t*\u0004\u0018\u00010\b0\b8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r¨\u0006\u000f"}, d2 = {"", "purpose", "getManufacturer", "(Ljava/lang/String;)Ljava/lang/String;", "getModel", "", "isDeviceInfoServiceAvailable", "()Z", "Lcom/baidu/searchbox/live/interfaces/service/LiveUserSecurityDeviceInfoService;", "kotlin.jvm.PlatformType", "service$delegate", "Lkotlin/Lazy;", "getService", "()Lcom/baidu/searchbox/live/interfaces/service/LiveUserSecurityDeviceInfoService;", "service", "lib-live-feed-page_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveUserSecurityDeviceInfoManagerKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Lazy a;
+    public static final /* synthetic */ KProperty[] a;
+    public static final Lazy b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +34,8 @@ public final class LiveUserSecurityDeviceInfoManagerKt {
                 return;
             }
         }
-        a = LazyKt__LazyJVMKt.lazy(LiveUserSecurityDeviceInfoManagerKt$service$2.INSTANCE);
+        a = new KProperty[]{Reflection.property0(new PropertyReference0Impl(Reflection.getOrCreateKotlinPackage(LiveUserSecurityDeviceInfoManagerKt.class, "lib-live-feed-page_release"), "service", "getService()Lcom/baidu/searchbox/live/interfaces/service/LiveUserSecurityDeviceInfoService;"))};
+        b = LazyKt__LazyJVMKt.lazy(LiveUserSecurityDeviceInfoManagerKt$service$2.INSTANCE);
     }
 
     public static final String a(String str) {
@@ -54,7 +59,12 @@ public final class LiveUserSecurityDeviceInfoManagerKt {
     public static final LiveUserSecurityDeviceInfoService c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LiveUserSecurityDeviceInfoService) a.getValue() : (LiveUserSecurityDeviceInfoService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Lazy lazy = b;
+            KProperty kProperty = a[0];
+            return (LiveUserSecurityDeviceInfoService) lazy.getValue();
+        }
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 
     public static final boolean d() {

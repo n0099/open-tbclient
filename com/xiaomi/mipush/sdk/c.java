@@ -41,9 +41,9 @@ public class c implements eh {
             ii iiVar = new ii();
             iiVar.b(ed.a(context).m307a());
             iiVar.d(ed.a(context).b());
-            iiVar.c(ht.I.f505a);
+            iiVar.c(ht.I.f506a);
             iiVar.a(bd.a());
-            iiVar.f644a = hashMap;
+            iiVar.f645a = hashMap;
             ao.a(context).a((ao) iiVar, hj.i, true, (hw) null, true);
             com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo：\u3000send data in app layer");
         }

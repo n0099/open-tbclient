@@ -1,18 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class ke4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Drawable a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) ? context.getDrawable(i) : (Drawable) invokeLI.objValue;
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            activity.invalidateOptionsMenu();
+        }
     }
 }

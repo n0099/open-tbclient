@@ -1,12 +1,17 @@
 package com.baidu.live;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +19,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bo9;
-import com.repackage.eb0;
-import com.repackage.fa0;
-import com.repackage.h90;
-import com.repackage.j90;
+import com.repackage.ab0;
+import com.repackage.ea0;
 import com.repackage.q90;
+import com.repackage.wq9;
 /* loaded from: classes2.dex */
 public class LiveFeedPageSdk {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean f;
-    public static LiveFeedPageSdk g;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String HK_START_LIVE = "baiduhaokan://video/yylive/router?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1";
+    public static final String HOST_BAIDU = "baidu";
+    public static final String HOST_HAOKAN = "haokan";
+    public static final String HOST_LIVE_TAB = "live_tab";
+    public static final String HOST_QUANMIN = "quanmin";
+    public static final String HOST_TIEBA = "tieba";
+    public static final String IMMERSION = "immersion";
+    public static final String LIVE_SDK_VERSION = "6.2.5";
+    public static final long REFRESH_TIME = 180000;
+    public static final String UI_MODE_DARK = "dark";
+    public static final String UI_MODE_DAY = "day";
+    public static final String UI_MODE_NIGHT = "night";
+    public static final String VIDEO_BAR = "video_bar";
+    public static boolean liveFeedDebug;
+    public static LiveFeedPageSdk sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Context b;
-    public boolean c;
-    public j90 d;
-    public h90 e;
+    public IHKLiveFeedPageInvoke hkLiveFeedPageInvoke;
+    public boolean isInit;
+    public ILiveFeedPageInvoke liveFeedPageInvoke;
+    public Context mAppContext;
+    public String mHost;
 
     /* loaded from: classes2.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
-        public static final LiveFeedPageSdk a;
+        public static final LiveFeedPageSdk INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +67,7 @@ public class LiveFeedPageSdk {
                     return;
                 }
             }
-            a = new LiveFeedPageSdk();
+            INSTANCE = new LiveFeedPageSdk();
         }
 
         public Holder() {
@@ -98,142 +114,166 @@ public class LiveFeedPageSdk {
         }
     }
 
-    public static LiveFeedPageSdk f() {
+    public static LiveFeedPageSdk getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                g = Holder.a;
+            if (sInstance == null) {
+                sInstance = Holder.INSTANCE;
             }
-            return g;
+            return sInstance;
         }
         return (LiveFeedPageSdk) invokeV.objValue;
     }
 
-    public static void m(String str) {
+    public static void liveLog(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            n("LiveFeedPageSdk", str);
+            liveLog("LiveFeedPageSdk", str);
         }
     }
 
-    public static void n(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f) {
-            Log.i(str, str2);
-        }
-    }
-
-    public Context a() {
+    public Context getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppContext : (Context) invokeV.objValue;
     }
 
-    public String b() {
+    public String getBdId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g() != null) {
-                String b = g().b();
-                return (TextUtils.isEmpty(b) || "0".equals(b)) ? g().getCuid() : b;
+            if (getInvoker() != null) {
+                String uk = getInvoker().getUK();
+                return (TextUtils.isEmpty(uk) || "0".equals(uk)) ? getInvoker().getCuid() : uk;
             }
             return "";
         }
         return (String) invokeV.objValue;
     }
 
-    public String c() {
+    public String getDefaultStartLiveScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if ("haokan".equals(e())) {
-                return "baiduhaokan://video/yylive/router?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1";
+            if (HOST_HAOKAN.equals(getHost())) {
+                return HK_START_LIVE;
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public h90 d() {
+    public IHKLiveFeedPageInvoke getHKInvoker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (h90) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hkLiveFeedPageInvoke : (IHKLiveFeedPageInvoke) invokeV.objValue;
     }
 
-    public String e() {
+    public String getHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHost : (String) invokeV.objValue;
     }
 
     @Nullable
-    public j90 g() {
+    public ILiveFeedPageInvoke getInvoker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (j90) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.liveFeedPageInvoke : (ILiveFeedPageInvoke) invokeV.objValue;
     }
 
-    public String h(Context context) {
+    public String getYYHDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? bo9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? wq9.a(context) : (String) invokeL.objValue;
     }
 
-    public void i(String str, String str2) {
+    public void initHostInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            this.a = str;
-            eb0.e().p(str, str2);
+            this.mHost = str;
+            ab0.f().r(str, str2);
         }
     }
 
-    public void j(j90 j90Var) {
+    public void initInvoke(ILiveFeedPageInvoke iLiveFeedPageInvoke) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j90Var) == null) {
-            this.d = j90Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLiveFeedPageInvoke) == null) {
+            this.liveFeedPageInvoke = iLiveFeedPageInvoke;
         }
     }
 
-    public void k(INetWork iNetWork) {
+    public void initNetWork(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            fa0.b(iNetWork);
+            ea0.b(iNetWork);
         }
     }
 
-    public boolean l() {
+    public boolean isInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isInit : invokeV.booleanValue;
     }
 
-    public void o(Context context) {
+    public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && context != null && this.b == null) {
-            this.b = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && context != null && this.mAppContext == null) {
+            this.mAppContext = context.getApplicationContext();
         }
     }
 
-    public void p() {
+    public void setHKInvoker(IHKLiveFeedPageInvoke iHKLiveFeedPageInvoke) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c = true;
+        if (interceptable == null || interceptable.invokeL(1048588, this, iHKLiveFeedPageInvoke) == null) {
+            this.hkLiveFeedPageInvoke = iHKLiveFeedPageInvoke;
         }
     }
 
-    public void q(Context context) {
+    public void setInit() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, context) == null) || q90.a() == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.isInit = true;
+        }
+    }
+
+    public void starLivePageActivity(Context context, String str, String str2, String str3, String str4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, str, str2, str3, str4, Boolean.valueOf(z)}) == null) || context == null) {
+            return;
+        }
+        Intent intent = new Intent(context, LiveFeedPageActivity.class);
+        intent.putExtra("source", str);
+        intent.putExtra("scheme_next", str2);
+        intent.putExtra("tab_extend_subtype", str3);
+        intent.putExtra("tab_extend_thirdtype", str4);
+        intent.putExtra("tab_extend_scroll_to_tab", z);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
+    }
+
+    public void startLiveSearchActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, context) == null) || q90.a() == null) {
             return;
         }
         q90.a().a(context, "");
     }
 
-    public void r(String str) {
+    public void updateUiMode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            eb0.e().r(str);
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            ab0.f().t(str);
+        }
+    }
+
+    public static void liveLog(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && liveFeedDebug) {
+            Log.i(str, str2);
         }
     }
 }

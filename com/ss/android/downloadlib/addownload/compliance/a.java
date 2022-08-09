@@ -16,7 +16,7 @@ import com.ss.android.downloadlib.addownload.compliance.d;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.downloadlib.guide.install.ClipImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends Dialog {
     public TextView a;
     public TextView b;
@@ -52,10 +52,10 @@ public class a extends Dialog {
             return;
         }
         requestWindowFeature(1);
-        setContentView(R.layout.obfuscated_res_0x7f0d085d);
+        setContentView(R.layout.obfuscated_res_0x7f0d0887);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f0811b5);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08121c);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);
@@ -71,14 +71,14 @@ public class a extends Dialog {
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092206);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092209);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092205);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092204);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09223d);
-        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090f84);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091330);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09230a);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09230d);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092309);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092308);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09230b);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092344);
+        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090fd6);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d2);
         this.a.setText(l.a(this.l.e, "--"));
         TextView textView = this.b;
         textView.setText("版本号：" + l.a(this.l.f, "--"));

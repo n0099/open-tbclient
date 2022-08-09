@@ -1,22 +1,24 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.viewpager.PointPageIndicator;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r64 extends PointPageIndicator {
+public class r64 extends s64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r64(Context context) {
-        super(context);
+    public r64(@NonNull Context context) {
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0cfc), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,7 +28,8 @@ public class r64 extends PointPageIndicator {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,22 +37,24 @@ public class r64 extends PointPageIndicator {
         }
     }
 
-    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
-    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        g(drawable, drawable2);
-        return this;
-    }
-
-    public r64 g(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.s64
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            return this;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) || latLng == null || latLng2 == null) {
+            return;
         }
-        return (r64) invokeLL.objValue;
+        Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+        buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+        buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+        buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+        buildUpon.appendQueryParameter("sname", str);
+        buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+        buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+        buildUpon.appendQueryParameter("dname", str2);
+        buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+        buildUpon.appendQueryParameter("t", "0");
+        Intent intent = new Intent("android.intent.action.VIEW", buildUpon.build());
+        intent.setPackage("com.autonavi.minimap");
+        context.startActivity(intent);
     }
 }

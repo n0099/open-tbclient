@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes2.dex */
 public class p extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class p extends com.baidu.platform.base.e {
                 this.a.a("ec", planNode2.getCity());
             }
             this.a.a("ie", IMAudioTransRequest.CHARSET);
-            this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
+            this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "3");
             this.a.a("rp_format", "json");
             this.a.a("rp_filter", "mobile");

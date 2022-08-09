@@ -2,21 +2,63 @@ package com.repackage;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nf1 extends HandlerThread {
+public class nf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static nf1 a;
-    public static Handler b;
+    public static volatile nf1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nf1 nf1Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nf1Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                kf1 kf1Var = new kf1();
+                kf1Var.a = message.arg2;
+                int i = message.arg1;
+                if (i == -1) {
+                    i = lf1.j().a();
+                }
+                lf1.j().c(message.what, 3, 2019, i, "out time.", kf1Var, true);
+            }
+        }
+    }
+
     public nf1() {
-        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,36 +66,45 @@ public class nf1 extends HandlerThread {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        HandlerThread handlerThread = new HandlerThread("callback-handler");
+        this.a = handlerThread;
+        this.b = null;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    public static Handler a() {
+    public static nf1 a() {
         InterceptResult invokeV;
-        Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (nf1.class) {
-                b();
-                handler = b;
+            if (c == null) {
+                synchronized (nf1.class) {
+                    if (c == null) {
+                        c = new nf1();
+                    }
+                }
             }
-            return handler;
+            return c;
         }
-        return (Handler) invokeV.objValue;
+        return (nf1) invokeV.objValue;
     }
 
-    public static void b() {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
-            nf1 nf1Var = new nf1();
-            a = nf1Var;
-            nf1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.removeMessages(i);
+        }
+    }
+
+    public void c(Message message, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
+            this.b.sendMessageDelayed(message, j);
         }
     }
 }

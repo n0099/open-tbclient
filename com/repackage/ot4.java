@@ -1,7 +1,7 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface ot4 {
-    String m0();
+    void a(String str);
 
-    String y();
+    void b();
 }

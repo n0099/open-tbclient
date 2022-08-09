@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b73;
-import com.repackage.cd3;
-import com.repackage.ce3;
-import com.repackage.g72;
-import com.repackage.i03;
-import com.repackage.is1;
-import com.repackage.ix1;
-import com.repackage.jo1;
-import com.repackage.k73;
-import com.repackage.lo1;
-import com.repackage.pj2;
-import com.repackage.q83;
-import com.repackage.vo1;
-import com.repackage.w83;
+import com.repackage.ap1;
+import com.repackage.b83;
+import com.repackage.cp1;
+import com.repackage.gk2;
+import com.repackage.h93;
+import com.repackage.mp1;
+import com.repackage.n93;
+import com.repackage.s73;
+import com.repackage.td3;
+import com.repackage.te3;
+import com.repackage.x72;
+import com.repackage.z03;
+import com.repackage.zs1;
+import com.repackage.zx1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
+public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String f;
@@ -70,9 +70,9 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
                     return;
                 }
             }
-            NORMAL = new GuideType("NORMAL", 0, "bar", -1, 992, R.string.obfuscated_res_0x7f0f0159);
-            WEAK = new GuideType("WEAK", 1, "bar-autohide", -1, 865, R.string.obfuscated_res_0x7f0f0159);
-            GuideType guideType = new GuideType("TIPS", 2, "tip", 18, -1, R.string.obfuscated_res_0x7f0f015a);
+            NORMAL = new GuideType("NORMAL", 0, "bar", -1, 992, R.string.obfuscated_res_0x7f0f015c);
+            WEAK = new GuideType("WEAK", 1, "bar-autohide", -1, 865, R.string.obfuscated_res_0x7f0f015c);
+            GuideType guideType = new GuideType("TIPS", 2, "tip", 18, -1, R.string.obfuscated_res_0x7f0f015d);
             TIPS = guideType;
             $VALUES = new GuideType[]{NORMAL, WEAK, guideType};
         }
@@ -137,7 +137,7 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ i03 c;
+        public final /* synthetic */ z03 c;
         public final /* synthetic */ Activity d;
         public final /* synthetic */ ShowFavoriteGuideApi e;
 
@@ -174,22 +174,22 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    vo1 l = vo1.l();
+                    mp1 l = mp1.l();
                     a aVar = this.c;
                     ShowFavoriteGuideApi showFavoriteGuideApi = aVar.e;
                     Activity activity = aVar.d;
-                    i03 i03Var = aVar.c;
-                    l.p(showFavoriteGuideApi, activity, i03Var, this.a, this.b, i03Var.W().Q(), this.c.e.g);
+                    z03 z03Var = aVar.c;
+                    l.p(showFavoriteGuideApi, activity, z03Var, this.a, this.b, z03Var.W().Q(), this.c.e.g);
                 }
             }
         }
 
-        public a(ShowFavoriteGuideApi showFavoriteGuideApi, String str, JSONObject jSONObject, i03 i03Var, Activity activity) {
+        public a(ShowFavoriteGuideApi showFavoriteGuideApi, String str, JSONObject jSONObject, z03 z03Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {showFavoriteGuideApi, str, jSONObject, i03Var, activity};
+                Object[] objArr = {showFavoriteGuideApi, str, jSONObject, z03Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -202,30 +202,30 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
             this.e = showFavoriteGuideApi;
             this.a = str;
             this.b = jSONObject;
-            this.c = i03Var;
+            this.c = z03Var;
             this.d = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || pj2.y0().d()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || gk2.y0().d()) {
                 return;
             }
-            q83 a = w83.a();
+            h93 a = n93.a();
             GuideType parse = GuideType.parse(this.a);
             String string = this.e.getContext().getString(parse.defaultText);
             this.e.f = this.b.optString("cb");
             String str = this.c.b;
             String str2 = "favorite_guide_count_" + str;
-            if (g72.n(str)) {
-                ix1.i("ShowFavoriteGuideApi", "favorite already");
-                w83.a().putString(str2, "-1");
+            if (x72.n(str)) {
+                zx1.i("ShowFavoriteGuideApi", "favorite already");
+                n93.a().putString(str2, "-1");
                 return;
             }
-            String string2 = w83.a().getString(str2, "");
+            String string2 = n93.a().getString(str2, "");
             if (TextUtils.equals("-1", string2)) {
-                ix1.i("ShowFavoriteGuideApi", "favorite at one time");
+                zx1.i("ShowFavoriteGuideApi", "favorite at one time");
                 return;
             }
             String[] split = string2.split("#");
@@ -240,13 +240,13 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
             this.e.g = a.getLong("swan_favorite_guide_duration", 3L);
             this.e.h = a.getLong("swan_favorite_guide_intervalDays", 3L);
             this.e.i = a.getLong("swan_favorite_guide_maxTimes", 3L);
-            ix1.i("ShowFavoriteGuideApi", "duration=" + this.e.g + ", mIntervalDays=" + this.e.h + ", mMaxTimes=" + this.e.i + " ,storageValue=" + string2);
+            zx1.i("ShowFavoriteGuideApi", "duration=" + this.e.g + ", mIntervalDays=" + this.e.h + ", mMaxTimes=" + this.e.i + " ,storageValue=" + string2);
             if (i2 < this.e.i && currentTimeMillis - j > this.e.h * 86400000) {
-                w83.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                ce3.e0(new RunnableC0174a(this, parse, string));
+                n93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                te3.e0(new RunnableC0174a(this, parse, string));
                 return;
             }
-            ix1.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
+            zx1.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
         }
     }
 
@@ -283,18 +283,18 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShowFavoriteGuideApi(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public ShowFavoriteGuideApi(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -306,57 +306,57 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, guideType, str, str2) == null) {
-            String g0 = i03.g0();
-            k73 k73Var = new k73();
+            String g0 = z03.g0();
+            b83 b83Var = new b83();
             if (guideType == null) {
                 str3 = "window";
             } else {
                 int i = b.a[guideType.ordinal()];
                 str3 = i != 1 ? i != 2 ? "flow_close" : "flow" : "TIPS";
             }
-            k73Var.b = str3;
-            k73Var.c = str;
-            k73Var.e = str2;
-            k73Var.a("appkey", g0);
-            b73.x("923", k73Var);
+            b83Var.b = str3;
+            b83Var.c = str;
+            b83Var.e = str2;
+            b83Var.a("appkey", g0);
+            s73.x("923", b83Var);
         }
     }
 
-    public is1 G(String str) {
+    public zs1 G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             q("#showFavoriteGuide", false);
-            i03 b0 = i03.b0();
+            z03 b0 = z03.b0();
             if (b0 == null) {
-                return new is1(1001, "SwanApp is null");
+                return new zs1(1001, "SwanApp is null");
             }
             SwanAppActivity w = b0.w();
             if (w == null) {
-                ix1.c("ShowFavoriteGuideApi", "null activity");
-                return new is1(1001, "null activity");
-            } else if (!ce3.G()) {
-                ix1.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
-                return new is1(1001, "not support outside baiduboxapp");
+                zx1.c("ShowFavoriteGuideApi", "null activity");
+                return new zs1(1001, "null activity");
+            } else if (!te3.G()) {
+                zx1.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
+                return new zs1(1001, "not support outside baiduboxapp");
             } else {
-                Pair<is1, JSONObject> s = s(str);
-                is1 is1Var = (is1) s.first;
-                if (is1Var.isSuccess()) {
+                Pair<zs1, JSONObject> s = s(str);
+                zs1 zs1Var = (zs1) s.first;
+                if (zs1Var.isSuccess()) {
                     JSONObject jSONObject = (JSONObject) s.second;
                     String optString = jSONObject.optString("type");
-                    if (vo1.l().n(optString)) {
-                        return new is1(202);
+                    if (mp1.l().n(optString)) {
+                        return new zs1(202);
                     }
-                    cd3.g().execute(new a(this, optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
-                    return is1.f();
+                    td3.g().execute(new a(this, optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
+                    return zs1.f();
                 }
-                return is1Var;
+                return zs1Var;
             }
         }
-        return (is1) invokeL.objValue;
+        return (zs1) invokeL.objValue;
     }
 
-    @Override // com.repackage.vo1.j
+    @Override // com.repackage.mp1.j
     @AnyThread
     public void e(boolean z) {
         Interceptable interceptable = $ic;
@@ -369,17 +369,17 @@ public class ShowFavoriteGuideApi extends lo1 implements vo1.j {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        d(this.f, new is1(0, "success", jSONObject));
+        d(this.f, new zs1(0, "success", jSONObject));
     }
 
-    @Override // com.repackage.lo1
+    @Override // com.repackage.cp1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "Favorite" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.lo1
+    @Override // com.repackage.cp1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

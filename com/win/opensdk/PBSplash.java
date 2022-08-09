@@ -336,8 +336,8 @@ public class PBSplash implements A {
                 }
             } else if (this.b.b().equals("image")) {
                 viewGroup.removeAllViews();
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e3, viewGroup);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092506);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09262b);
                 a(inflate);
                 imageView.setVisibility(0);
                 b(inflate);
@@ -346,9 +346,9 @@ public class PBSplash implements A {
                 this.b.a(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
-                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e3, viewGroup);
+                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup);
                 a(inflate2);
-                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f0924fe);
+                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f092623);
                 gifImageView.setVisibility(0);
                 byte[] bArr = this.m;
                 if (bArr != null) {
@@ -377,12 +377,12 @@ public class PBSplash implements A {
             return;
         }
         try {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092507);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09262c);
             relativeLayout.removeAllViews();
             if (this.s != null) {
                 relativeLayout.addView(this.s);
             }
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09250a);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09262f);
             float a = M.a(this.a, this.t);
             float c = M.c(this.a) / 2.0f;
             if (a < c) {
@@ -404,11 +404,11 @@ public class PBSplash implements A {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             F1 f1 = this.b.a;
             long countdown = (f1 == null || !f1.b()) ? 0L : f1.c.getCountdown();
-            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f092509);
+            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f09262e);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f1559)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f1558)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a0)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f159f)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(s2.b);
             CircleProgressbar circleProgressbar2 = this.d;

@@ -50,9 +50,9 @@ public class bz extends al.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
             c = this.a.c();
-            context = this.a.f149a;
+            context = this.a.f150a;
             cc ccVar = new cc(c, new WeakReference(context));
-            context2 = this.a.f149a;
+            context2 = this.a.f150a;
             cj.a(context2).a(ccVar);
             this.a.b("check_time");
         }

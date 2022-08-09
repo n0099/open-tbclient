@@ -64,7 +64,7 @@ public class p extends v implements View.OnClickListener {
                 return;
             }
         }
-        this.wc = R.layout.obfuscated_res_0x7f0d044d;
+        this.wc = R.layout.obfuscated_res_0x7f0d0450;
         this.wd = true;
     }
 
@@ -164,27 +164,27 @@ public class p extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091145);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091142);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091147);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091148);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091140);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091141);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091144);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09113d);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091146);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09119b);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091198);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09119d);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09119e);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091196);
+        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091197);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09119a);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091193);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09119c);
     }
 
     public int jb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f09113f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f091195 : invokeV.intValue;
     }
 
     public int jc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.id.obfuscated_res_0x7f09113e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.id.obfuscated_res_0x7f091194 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

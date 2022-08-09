@@ -20,6 +20,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -148,14 +149,14 @@ public class KsShakeView extends KSFrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036a, R.attr.obfuscated_res_0x7f04036b, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037d}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403ba}, i, 0);
             this.As = obtainStyledAttributes.getDimension(4, 1.0f);
             this.At = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
             this.Au = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
             this.Ar = obtainStyledAttributes.getInteger(6, 1);
             this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
             this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-            this.Ay = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bd6);
+            this.Ay = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfc);
             this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.nC = new ImageView(getContext());
@@ -172,16 +173,16 @@ public class KsShakeView extends KSFrameLayout {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{view2, Long.valueOf(j), Float.valueOf(f)})) == null) {
             Interpolator create = PathInterpolatorCompat.create(0.33f, 0.0f, 0.36f, 1.0f);
             AnimatorSet animatorSet = new AnimatorSet();
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "translationY", f).setDuration(100L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, f).setDuration(100L);
             duration.setInterpolator(create);
             float f2 = -f;
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "translationY", f2).setDuration(200L);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, f2).setDuration(200L);
             duration2.setInterpolator(create);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "translationY", f).setDuration(200L);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, f).setDuration(200L);
             duration3.setInterpolator(create);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, "translationY", f2).setDuration(200L);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, f2).setDuration(200L);
             duration4.setInterpolator(create);
-            animatorSet.playSequentially(duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, "translationY", f).setDuration(100L), ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 1.0f).setDuration(100L));
+            animatorSet.playSequentially(duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, f).setDuration(100L), ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f).setDuration(100L));
             return animatorSet;
         }
         return (Animator) invokeCommon.objValue;
@@ -230,7 +231,7 @@ public class KsShakeView extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.Ar = i;
-            setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bd6 : R.drawable.obfuscated_res_0x7f080bd7);
+            setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bfc : R.drawable.obfuscated_res_0x7f080bfd);
         }
     }
 

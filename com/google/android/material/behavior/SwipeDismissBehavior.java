@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
@@ -43,14 +43,14 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public int swipeDirection;
     public ViewDragHelper viewDragHelper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnDismissListener {
         void onDismiss(View view2);
 
         void onDragStateChanged(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         public final /* synthetic */ SwipeDismissBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1066view;
+        public final View f1069view;
 
         public SettleRunnable(SwipeDismissBehavior swipeDismissBehavior, View view2, boolean z) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                 }
             }
             this.this$0 = swipeDismissBehavior;
-            this.f1066view = view2;
+            this.f1069view = view2;
             this.dismiss = z;
         }
 
@@ -87,10 +87,10 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1066view, this);
+                    ViewCompat.postOnAnimation(this.f1069view, this);
                 } else if (!this.dismiss || (onDismissListener = this.this$0.listener) == null) {
                 } else {
-                    onDismissListener.onDismiss(this.f1066view);
+                    onDismissListener.onDismiss(this.f1069view);
                 }
             }
         }

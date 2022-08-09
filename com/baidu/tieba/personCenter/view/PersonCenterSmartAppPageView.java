@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m18;
+import com.repackage.q38;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m18> a;
+    public List<q38> a;
     public List<PersonCenterSmartAppItemView> b;
     public int c;
 
@@ -45,14 +45,14 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public void a(m18 m18Var) {
+    public void a(q38 q38Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, m18Var) == null) || m18Var == null || this.a.size() == this.c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q38Var) == null) || q38Var == null || this.a.size() == this.c) {
             return;
         }
-        this.a.add(m18Var);
+        this.a.add(q38Var);
         PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.b, this.a.size() - 1);
-        personCenterSmartAppItemView.a(m18Var);
+        personCenterSmartAppItemView.a(q38Var);
         personCenterSmartAppItemView.setVisibility(0);
     }
 

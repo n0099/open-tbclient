@@ -1,40 +1,40 @@
 package com.repackage;
 
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
+import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SportScheduleInfo;
 /* loaded from: classes7.dex */
-public class up6 implements di6, ko6 {
+public class up6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NoPressedRelativeLayout b;
-    public TbImageView c;
-    public Animation d;
-    public Animation e;
-    public int f;
-    public boolean g;
-    public LinearLayout h;
-    public EntelechyPullUpRefreshView i;
-    public EntelechyPullUpRefreshView j;
-    public boolean k;
-    public View.OnClickListener l;
+    public TbPageContext a;
+    public View b;
+    public TextView c;
+    public TbImageView d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public String k;
+    public String l;
+    public final View.OnClickListener m;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -63,131 +63,20 @@ public class up6 implements di6, ko6 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || pi.isEmpty(this.a.k)) {
                 return;
             }
-            if (view2 == this.a.i) {
-                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                if (this.a.a.x3() || this.a.a.l1() == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11752").param("fid", this.a.a.U()).param("obj_locate", "3"));
-                this.a.a.l1().T1();
-            } else if (view2 != this.a.j || this.a.a.l1() == null || this.a.a.l1().d0() == null) {
-            } else {
-                this.a.a.l1().d0().smoothScrollToPosition(0);
-            }
+            UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
+            TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (view2 = this.a) == null) {
-                return;
-            }
-            view2.setVisibility(8);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public c(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (view2 = this.a) == null) {
-                return;
-            }
-            view2.setVisibility(0);
-        }
-    }
-
-    public up6(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+    public up6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, noPressedRelativeLayout};
+            Object[] objArr = {frsSportsRecommendFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -197,175 +86,68 @@ public class up6 implements di6, ko6 {
                 return;
             }
         }
-        this.c = null;
-        this.f = 3;
-        this.g = false;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = true;
-        this.l = new a(this);
-        this.a = frsFragment;
-        this.b = noPressedRelativeLayout;
-        i();
-        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090bad);
-        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bac);
-        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bae);
-        this.j.setOnClickListener(this.l);
-        this.i.setOnClickListener(this.l);
-        onChangeSkinType(this.f);
-    }
-
-    @Override // com.repackage.di6
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.g = z;
-            if (this.i != null) {
-                if (z) {
-                    LinearLayout linearLayout = this.h;
-                    if (linearLayout == null || linearLayout.getVisibility() != 0) {
-                        return;
-                    }
-                    l();
-                    return;
-                }
-                m();
-            }
-        }
-    }
-
-    @Override // com.repackage.di6
-    public void b(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.g) {
+        this.m = new a(this);
+        if (frsSportsRecommendFragment == null || view2 == null) {
             return;
         }
-        this.k = z;
-        if (z) {
-            if (z2) {
-                m();
-            } else {
-                this.h.setVisibility(0);
-            }
-        } else if (z2) {
-            l();
-        } else {
-            this.h.setVisibility(8);
-        }
+        this.a = frsSportsRecommendFragment.getPageContext();
+        BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090bda);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be2);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bdb);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090be0);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bdc);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be1);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bdf);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bde);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bdd);
+        this.d.setPageId(uniqueId);
+        this.e.setPageId(uniqueId);
     }
 
-    @Override // com.repackage.di6
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.i == null) {
-                return false;
-            }
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ko6
     public void d() {
-        TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbImageView = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
         }
-        tbImageView.clearAnimation();
-        this.c.setImageDrawable(null);
-        this.c.setVisibility(8);
     }
 
-    public final void h() {
-        LinearLayout linearLayout;
+    public void e(SportScheduleInfo sportScheduleInfo, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (linearLayout = this.h) == null) {
-            return;
-        }
-        linearLayout.clearAnimation();
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = new TbImageView(this.a.getPageContext().getPageActivity());
-            int f = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070261);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f, f);
-            layoutParams.addRule(10);
-            layoutParams.addRule(14);
-            layoutParams.topMargin = f;
-            this.c.setLayoutParams(layoutParams);
-            this.b.addView(this.c);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
+            if (sportScheduleInfo == null) {
+                this.b.setVisibility(8);
+                this.c.setVisibility(0);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0751);
+                return;
+            }
+            this.b.setVisibility(0);
             this.c.setVisibility(8);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.isAdded()) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010074);
-            this.d = loadAnimation;
-            loadAnimation.setAnimationListener(new b(this.h));
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.isAdded()) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010073);
-            this.e = loadAnimation;
-            loadAnimation.setAnimationListener(new c(this.h));
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h();
-            if (this.d == null) {
-                j();
+            this.d.K(sportScheduleInfo.home_team_icon, 10, false);
+            this.e.K(sportScheduleInfo.guest_team_icon, 10, false);
+            String str2 = sportScheduleInfo.home_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
+                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
             }
-            Animation animation = this.d;
-            if (animation == null) {
-                return;
+            String str3 = sportScheduleInfo.guest_team_name;
+            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
+                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
             }
-            this.h.startAnimation(animation);
+            this.f.setText(str2);
+            this.g.setText(str3);
+            this.h.setText(sportScheduleInfo.match_top_info);
+            this.i.setText(sportScheduleInfo.match_middle_info);
+            this.j.setText(sportScheduleInfo.match_bottom_info);
+            this.k = sportScheduleInfo.msg_url;
+            this.l = str;
+            this.b.setOnClickListener(this.m);
         }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h();
-            if (this.e == null) {
-                k();
-            }
-            if (this.e == null) {
-                return;
-            }
-            this.h.setVisibility(0);
-            this.h.startAnimation(this.e);
-        }
-    }
-
-    @Override // com.repackage.di6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || this.f == i) {
-            return;
-        }
-        EntelechyPullUpRefreshView entelechyPullUpRefreshView = this.i;
-        if (entelechyPullUpRefreshView != null) {
-            entelechyPullUpRefreshView.b(i);
-        }
-        EntelechyPullUpRefreshView entelechyPullUpRefreshView2 = this.j;
-        if (entelechyPullUpRefreshView2 != null) {
-            entelechyPullUpRefreshView2.b(i);
-        }
-        this.f = i;
     }
 }

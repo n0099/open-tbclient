@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ElevationOverlayProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FORMULA_MULTIPLIER = 4.5f;
@@ -43,9 +43,9 @@ public class ElevationOverlayProvider {
                 return;
             }
         }
-        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040217, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040216, 0);
-        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040171, 0);
+        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f04026f, false);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04026e, 0);
+        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04017e, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }
 

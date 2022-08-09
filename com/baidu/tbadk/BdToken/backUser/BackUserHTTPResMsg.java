@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nj4;
+import com.repackage.ek4;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BackUserHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nj4 mData;
+    public ek4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserHTTPResMsg() {
@@ -36,10 +36,10 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public nj4 getData() {
+    public ek4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (nj4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ek4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
             setErrorString(backUserResIdl.error.usermsg);
         }
         if (backUserResIdl.data != null) {
-            nj4 nj4Var = new nj4();
-            this.mData = nj4Var;
-            nj4Var.a(backUserResIdl.data);
+            ek4 ek4Var = new ek4();
+            this.mData = ek4Var;
+            ek4Var.a(backUserResIdl.data);
         }
     }
 }

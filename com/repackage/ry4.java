@@ -1,110 +1,52 @@
 package com.repackage;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ry4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
 
-    /* loaded from: classes7.dex */
-    public class a implements gm4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ ry4 c;
-
-        public a(ry4 ry4Var, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ry4Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ry4Var;
-            this.a = z;
-            this.b = z2;
-        }
-
-        @Override // com.repackage.gm4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    qy4.d().V(true);
-                }
-                if (this.b) {
-                    oz4.l(this.c.a.getPageActivity());
-                } else {
-                    lz4.e(this.c.a);
-                }
-            }
-        }
-
-        @Override // com.repackage.gm4
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    public ry4(TbPageContext<?> tbPageContext) {
+    public ry4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    public void b(int i) {
-        TbPageContext<?> tbPageContext;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (tbPageContext = this.a) == null || tbPageContext.getPageActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (i == 1 || i == 2) {
-            if (UbsABTestHelper.isPushOpenNewStyle()) {
-                boolean areNotificationsEnabled = NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled();
-                boolean C = qy4.d().C();
-                if (!(areNotificationsEnabled && C) && oz4.g(TbadkCoreApplication.getInst(), 0)) {
-                    a aVar = new a(this, C, areNotificationsEnabled);
-                    if (i == 1) {
-                        oz4.k(this.a, 4, aVar);
-                    } else {
-                        oz4.k(this.a, 5, aVar);
-                    }
-                }
-            } else if (lz4.g(TbadkCoreApplication.getInst(), 0)) {
-                lz4.i(this.a, 5, 0L);
-            }
-        }
+        this.a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f = jSONObject.optString("downloadNaniTxt", null);
+        this.g = jSONObject.optString("showNaniTailTxt", null);
+        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

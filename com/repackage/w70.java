@@ -1,597 +1,292 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Looper;
-import android.os.Message;
-import android.os.Process;
-import android.util.SparseIntArray;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class w70 implements Executor {
+public class w70 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadFactory k;
-    public static final BlockingQueue<Runnable> l;
-    public static final Executor m;
-    public static volatile w70 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseIntArray a;
-    public final LinkedList<d> b;
-    public final LinkedList<d> c;
-    public final LinkedList<d> d;
-    public volatile int e;
-    public volatile int f;
-    public volatile int g;
-    public volatile int h;
-    public HandlerThread i;
-    public Handler j;
 
     /* loaded from: classes7.dex */
-    public static class a implements ThreadFactory {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
+        public final /* synthetic */ SharedPreferences a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Object c;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                String str = "BdAsyncTask #" + String.valueOf(this.a.getAndIncrement());
-                fb0.g(str);
-                return new Thread(runnable, str);
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w70 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(w70 w70Var, Looper looper) {
-            super(looper);
+        public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w70Var, looper};
+                Object[] objArr = {sharedPreferences, str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = w70Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i = message.what;
-                if (i == 1) {
-                    Object obj2 = message.obj;
-                    if (obj2 == null || !(obj2 instanceof d)) {
-                        return;
-                    }
-                    this.a.j((d) obj2);
-                } else if (i == 2 && (obj = message.obj) != null && (obj instanceof d)) {
-                    this.a.i((d) obj);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w70 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(w70 w70Var, x70 x70Var) {
-            super(x70Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w70Var, x70Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((x70) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = w70Var;
+            this.a = sharedPreferences;
+            this.b = str;
+            this.c = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        if (e() == 4) {
-                            Process.setThreadPriority(-2);
-                        } else if (e() == 3) {
-                            Process.setThreadPriority(-1);
-                        } else if (e() == 2) {
-                            Process.setThreadPriority(0);
-                        } else {
-                            Process.setThreadPriority(10);
-                        }
-                    } catch (Exception e) {
-                        fb0.d(e.getMessage());
-                    }
-                    j();
-                } finally {
-                    if (!h()) {
-                        this.b.j.sendMessageDelayed(this.b.j.obtainMessage(2, this), 1L);
-                    }
-                }
+                w70.D(this.a, this.b, this.c);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static abstract class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public x70<?> a;
-
-        public d(x70<?> x70Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x70Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            if (x70Var != null && x70Var.b() != null) {
-                this.a = x70Var;
-                return;
-            }
-            throw new InvalidParameterException("parameter is null");
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
-            }
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().a();
-                }
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().b();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public BdAsyncTaskParallelType d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().getType();
-                }
-                return BdAsyncTaskParallelType.MAX_PARALLEL;
-            }
-            return (BdAsyncTaskParallelType) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.b().k() : invokeV.intValue;
-        }
-
-        public BdAsyncTask<?, ?, ?> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b() : (BdAsyncTask) invokeV.objValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isCancelled() : invokeV.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.b().m() : invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.b().n() : invokeV.booleanValue;
-        }
-
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                try {
-                    this.a.run();
-                } catch (OutOfMemoryError e) {
-                    fb0.e(e);
-                }
-            }
-        }
-
-        public void k(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.a.b().y(z);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755248607, "Lcom/repackage/w70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755248607, "Lcom/repackage/w70;");
-                return;
-            }
-        }
-        k = new a();
-        l = new SynchronousQueue();
-        m = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, l, k, new ThreadPoolExecutor.DiscardPolicy());
-        n = null;
-    }
-
-    public w70() {
+    public static void A(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLZ(65536, null, context, str, z) == null) {
+            E(context, str, Boolean.valueOf(z));
         }
-        this.a = new SparseIntArray();
-        this.b = new LinkedList<>();
-        this.c = new LinkedList<>();
-        this.d = new LinkedList<>();
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = null;
-        this.j = null;
-        HandlerThread handlerThread = new HandlerThread("BdAsyncTaskExecutor");
-        this.i = handlerThread;
-        handlerThread.start();
-        this.j = new b(this, this.i.getLooper());
     }
 
-    public static w70 e() {
-        InterceptResult invokeV;
+    public static void B(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (n == null) {
-                synchronized (w70.class) {
-                    if (n == null) {
-                        n = new w70();
-                    }
-                }
-            }
-            return n;
+        if (interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) {
+            C(context, "conn_type", i);
         }
-        return (w70) invokeV.objValue;
     }
 
-    public final boolean c(int i, d dVar) {
-        InterceptResult invokeIL;
+    public static void C(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, dVar)) == null) {
-            if (dVar == null) {
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i) == null) {
+            E(context, str, Integer.valueOf(i));
+        }
+    }
+
+    public static void D(SharedPreferences sharedPreferences, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, sharedPreferences, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
+            } else if (obj instanceof Integer) {
+                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
+            } else if (obj instanceof Long) {
+                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
+            } else if (obj instanceof Float) {
+                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
+            } else if (obj instanceof String) {
+                sharedPreferences.edit().putString(str, (String) obj).apply();
+            }
+        }
+    }
+
+    public static void E(Context context, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, obj) == null) || context == null) {
+            return;
+        }
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("blcp_sp", 0);
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                q70.a(context).b(new a(sharedPreferences, str, obj));
+            } else {
+                D(sharedPreferences, str, obj);
+            }
+        } catch (Throwable th) {
+            v70.b("SpUtils", th.getMessage());
+        }
+    }
+
+    public static void F(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
+            E(context, str, str2);
+        }
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? p(context, "blcp_app_id", "") : (String) invokeL.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? n(context, "bddns_enable", false) : invokeL.booleanValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? o(context, "conn_type", 1) : invokeL.intValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? p(context, "blcp_cuid", "") : (String) invokeL.objValue;
+    }
+
+    public static int f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? o(context, "key_vip_connect_type", 3) : invokeL.intValue;
+    }
+
+    public static int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? o(context, "lcp_env_debug", 0) : invokeL.intValue;
+    }
+
+    public static String h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
+            return p(context, "protocol_priority" + i, " : : ");
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static int i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? o(context, "protocols_size", 1) : invokeL.intValue;
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? p(context, "blcp_token", "") : (String) invokeL.objValue;
+    }
+
+    public static boolean k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? !TextUtils.isEmpty(j(context)) : invokeL.booleanValue;
+    }
+
+    public static boolean l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? n(context, "lcp_debug", false) : invokeL.booleanValue;
+    }
+
+    public static boolean m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? r70.a().b() || n(context, "small_flow", true) : invokeL.booleanValue;
+    }
+
+    public static boolean n(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65555, null, context, str, z)) == null) {
+            if (context == null) {
                 return false;
             }
-            BdAsyncTaskParallelType d2 = dVar.d();
-            if (d2 == BdAsyncTaskParallelType.SERIAL) {
-                if (i < 1) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.TWO_PARALLEL) {
-                if (i < 2) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.THREE_PARALLEL) {
-                if (i < 3) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.FOUR_PARALLEL) {
-                if (i < 4) {
-                    return true;
-                }
-            } else if (d2 != BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < dVar.b()) {
-                return true;
-            }
-            return false;
+            return context.getSharedPreferences("blcp_sp", 0).getBoolean(str, z);
         }
-        return invokeIL.booleanValue;
+        return invokeLLZ.booleanValue;
     }
 
-    public final synchronized void d(d dVar) {
+    public static int o(Context context, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                this.c.add(dVar);
-                this.b.remove(dVar);
-                m.execute(dVar);
-                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), 180000L);
-                int e = dVar.e();
-                if (e == 1) {
-                    this.h++;
-                } else if (e == 2) {
-                    this.g++;
-                } else if (e == 3) {
-                    this.f++;
-                } else if (e == 4) {
-                    this.e++;
-                    if (this.e >= 7) {
-                        fb0.d("SuperHight Task too much num = " + this.e);
-                    }
-                }
-                int c2 = dVar.c();
-                if (c2 != 0) {
-                    this.a.put(c2, this.a.get(c2, 0) + 1);
-                }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65556, null, context, str, i)) == null) {
+            if (context == null) {
+                return -1;
             }
+            return context.getSharedPreferences("blcp_sp", 0).getInt(str, i);
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static String p(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, context, str, str2)) == null) ? context == null ? "" : context.getSharedPreferences("blcp_sp", 0).getString(str, str2) : (String) invokeLLL.objValue;
+    }
+
+    public static void q(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, context, str) == null) {
+            F(context, "blcp_app_id", str);
         }
     }
 
-    @Override // java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
+    public static void r(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            synchronized (this) {
-                if (runnable instanceof x70) {
-                    c cVar = new c(this, (x70) runnable);
-                    if (cVar.h()) {
-                        new Thread(cVar).start();
-                        return;
-                    }
-                    f(cVar);
-                    i(null);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLZ(65559, null, context, z) == null) {
+            A(context, "bddns_enable", z);
         }
     }
 
-    public final synchronized void f(d dVar) {
+    public static void s(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                int size = this.b.size();
-                int i = 0;
-                while (i < size && this.b.get(i).e() >= dVar.e()) {
-                    i++;
-                }
-                this.b.add(i, dVar);
-            }
+        if (interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) {
+            F(context, "blcp_cuid", str);
         }
     }
 
-    public final synchronized void g(d dVar) {
+    public static void t(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                if (dVar.i()) {
-                    this.d.remove(dVar);
-                } else {
-                    this.c.remove(dVar);
-                    this.j.removeMessages(1, dVar);
-                    int e = dVar.e();
-                    if (e == 1) {
-                        this.h--;
-                    } else if (e == 2) {
-                        this.g--;
-                    } else if (e == 3) {
-                        this.f--;
-                    } else if (e == 4) {
-                        this.e--;
-                    }
-                    int c2 = dVar.c();
-                    if (c2 != 0) {
-                        int i = this.a.get(c2) - 1;
-                        if (i <= 0) {
-                            this.a.delete(c2);
-                        } else {
-                            this.a.put(c2, i);
-                        }
-                        if (i < 0) {
-                            fb0.d("removeTask error < 0");
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLI(65561, null, context, i) == null) {
+            C(context, "key_vip_connect_type", i);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        r0.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void h(BdAsyncTask<?, ?, ?> bdAsyncTask) {
+    public static void u(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdAsyncTask) == null) {
-            synchronized (this) {
-                Iterator<d> it = this.b.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    d next = it.next();
-                    if (next != null && next.f() == bdAsyncTask) {
-                        break;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLI(65562, null, context, i) == null) {
+            C(context, "lcp_env_debug", i);
         }
     }
 
-    public synchronized void i(d dVar) {
+    public static void v(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                for (int i = 0; i < this.b.size(); i++) {
-                    d dVar2 = this.b.get(i);
-                    if (dVar2 != null) {
-                        int c2 = dVar2.c();
-                        int e = dVar2.e();
-                        if (e != 1) {
-                            if (e != 2) {
-                                if (e != 3) {
-                                    if (e == 4 && c2 == 0) {
-                                        d(dVar2);
-                                        return;
-                                    }
-                                } else if (this.f + this.g + this.h >= 7) {
-                                    return;
-                                }
-                            } else if (this.f + this.g + this.h >= 6) {
-                                return;
-                            }
-                        } else if (this.f + this.g + this.h >= 5) {
-                            return;
-                        }
-                        if (c(this.a.get(c2), dVar2)) {
-                            d(dVar2);
-                            return;
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLZ(65563, null, context, z) == null) {
+            A(context, "lcp_debug", z);
         }
     }
 
-    public final synchronized void j(d dVar) {
-        d poll;
+    public static void w(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                if (!dVar.g()) {
-                    dVar.k(true);
-                    this.d.add(dVar);
-                    if (this.d.size() > 242 && (poll = this.d.poll()) != null) {
-                        poll.a();
-                    }
-                } else {
-                    fb0.d("task TimeOut but it's cancelled()");
-                }
-                i(null);
-            }
+        if (interceptable == null || interceptable.invokeLLI(65564, null, context, str, i) == null) {
+            F(context, "protocol_priority" + i, str);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void x(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "mWaitingTasks = " + this.b.size() + " mRunningTasks = " + this.c.size() + " mTimeOutTasks = " + this.d.size();
+        if (interceptable == null || interceptable.invokeLI(65565, null, context, i) == null) {
+            C(context, "protocols_size", i);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void y(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65566, null, context, z) == null) {
+            r70.a().c(z);
+            A(context, "small_flow", z);
+        }
+    }
+
+    public static void z(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65567, null, context, str) == null) {
+            F(context, "blcp_token", str);
+        }
     }
 }

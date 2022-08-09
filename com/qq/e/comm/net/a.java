@@ -115,7 +115,7 @@ public class a {
                 jSONObject.putOpt(Config.DEVICE_ID_SEC, Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));
                 jSONObject.putOpt("os", "android");
-                jSONObject.putOpt(Config.OPERATOR, deviceStatus.getOperator());
+                jSONObject.putOpt("op", deviceStatus.getOperator());
                 jSONObject.putOpt("mf", Build.MANUFACTURER);
                 SharedPreferences sharedPreferences = GDTADManager.getInstance().getAppContext().getSharedPreferences("com.qq.e.sdkconfig", 0);
                 if (sharedPreferences != null) {

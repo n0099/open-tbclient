@@ -1,71 +1,155 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import android.os.CountDownTimer;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wj0;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class uj0 {
+public class uj0<VIEW extends wj0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CountDownTimer a;
+    public long b;
+    public long c;
+    public WeakReference<VIEW> d;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            yx0.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+    /* loaded from: classes7.dex */
+    public static class a extends CountDownTimer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<uj0> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@NonNull uj0 uj0Var, long j, long j2) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj0Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            yx0.e(jSONObject, "process", Math.round(d));
-            yx0.f(jSONObject, "uri", str3);
-            yx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
+            this.a = new WeakReference<>(uj0Var);
         }
-        return (String) invokeLLLL.objValue;
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            uj0 uj0Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (uj0Var = this.a.get()) == null) {
+                return;
+            }
+            uj0Var.f(uj0Var.j());
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            uj0 uj0Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (uj0Var = this.a.get()) == null) {
+                return;
+            }
+            uj0Var.c = uj0Var.b - j;
+            uj0Var.g(uj0Var.e(), uj0Var.j());
+        }
     }
 
-    public static void b(@Nullable zg0 zg0Var, boolean z, @Nullable Map<String, String> map) {
+    public uj0(@NonNull VIEW view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{zg0Var, Boolean.valueOf(z), map}) == null) || zg0Var == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = new WeakReference<>(view2);
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public final void f(long j) {
+        VIEW k;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (k = k()) == null) {
             return;
         }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        zx0.e(map, "status", z ? "0" : "202");
-        zx0.e(map, "message", z ? "调用成功" : "");
-        zg0Var.a(z, map);
+        k.a(j);
     }
 
-    public static void c(@Nullable zg0 zg0Var, String str, String str2, String str3, String str4) {
+    public final void g(long j, long j2) {
+        VIEW k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, zg0Var, str, str2, str3, str4) == null) || zg0Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (k = k()) == null) {
             return;
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        yx0.f(jSONObject, "uri", str2);
-        yx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        yx0.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(zg0Var, true, hashMap);
+        k.onProgress(j, j2);
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : yx0.c(str).optString("bt_info") : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i();
+            this.b = j;
+            this.c = 0L;
+            a aVar = new a(this, this.b, 1000L);
+            this.a = aVar;
+            aVar.start();
+            VIEW k = k();
+            if (k != null) {
+                long j2 = this.b;
+                k.b(j2, j2);
+            }
+        }
+    }
+
+    public void i() {
+        CountDownTimer countDownTimer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.a) == null) {
+            return;
+        }
+        countDownTimer.cancel();
+        VIEW k = k();
+        if (k != null) {
+            k.c(this.c, this.b);
+        }
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public final VIEW k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.get() : (VIEW) invokeV.objValue;
     }
 }

@@ -21,7 +21,7 @@ public class t {
     public final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f1004a;
+    public final String f1005a;
     public final String b;
     public final String c;
     public final String d;
@@ -43,7 +43,7 @@ public class t {
                 return;
             }
         }
-        this.f1004a = str;
+        this.f1005a = str;
         this.b = str2;
         this.c = str3;
         this.d = str4;
@@ -109,13 +109,13 @@ public class t {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, context, jVar, str)) == null) {
-            bVar.f933a = context.getPackageName();
-            bVar.f936b = this.f1004a;
+            bVar.f934a = context.getPackageName();
+            bVar.f937b = this.f1005a;
             bVar.h = this.c;
             bVar.c = this.b;
             bVar.g = "5";
             bVar.d = "XMPUSH-PASS";
-            bVar.f935a = false;
+            bVar.f936a = false;
             w.a aVar = new w.a();
             aVar.a("sdk_ver", 48).a("cpvn", "4_9_0").a("cpvc", 40090).a("country_code", a.a(context).b()).a("region", a.a(context).a()).a("miui_vn", com.xiaomi.push.m.c()).a("miui_vc", Integer.valueOf(com.xiaomi.push.m.a(context))).a("xmsf_vc", Integer.valueOf(com.xiaomi.push.h.a(context, "com.xiaomi.xmsf"))).a("android_ver", Integer.valueOf(Build.VERSION.SDK_INT)).a("n_belong_to_app", Boolean.valueOf(ax.m623a(context))).a("systemui_vc", Integer.valueOf(com.xiaomi.push.h.a(context)));
             String a = a(context);
@@ -138,7 +138,7 @@ public class t {
                 aVar2.a("ab", str);
             }
             bVar.f = aVar2.toString();
-            bVar.f932a = jVar;
+            bVar.f933a = jVar;
             return bVar;
         }
         return (bg.b) invokeLLLL.objValue;

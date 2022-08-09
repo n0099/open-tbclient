@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class tu1 extends ot1 {
+public class tu1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yu1 a;
+    public String a;
+    public float b;
+    public boolean c;
+    public boolean d;
 
     public tu1() {
         Interceptable interceptable = $ic;
@@ -23,24 +27,72 @@ public class tu1 extends ot1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "sans-serif";
+        this.b = qe3.g(10.0f);
+        this.c = false;
+        this.d = false;
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        yu1 yu1Var;
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) && (yu1Var = this.a) != null && yu1Var.a()) {
-            pt1Var.i = this.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) {
+            if (this.c && this.d) {
+                i = 3;
+            } else if (this.c) {
+                i = 1;
+            } else {
+                i = this.d ? 2 : 0;
+            }
+            gu1Var.e.setTypeface(Typeface.create(this.a, i));
+            gu1Var.e.setTextSize(this.b);
         }
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
+        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new yu1(jSONArray);
+            try {
+                if (jSONArray.length() > 0) {
+                    for (String str : jSONArray.optString(0).split(" ")) {
+                        if (str.contains("italic")) {
+                            this.d = true;
+                        } else if (str.contains("oblique")) {
+                            this.d = true;
+                        } else if (str.contains("bold")) {
+                            this.c = true;
+                        } else if (!str.contains("normal")) {
+                            if (Character.isDigit(str.charAt(0))) {
+                                int length = str.length();
+                                int i = 0;
+                                while (true) {
+                                    if (i >= str.length()) {
+                                        break;
+                                    } else if (!Character.isDigit(str.charAt(i))) {
+                                        length = i;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                this.b = qe3.g(Float.parseFloat(str.substring(0, length)));
+                            } else {
+                                this.a = str;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

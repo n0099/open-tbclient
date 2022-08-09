@@ -7,6 +7,7 @@ import android.animation.ValueAnimator;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +48,7 @@ public final class r {
             if (view2 == null || view2.getLayoutParams() == null || (width = view2.getWidth()) == 0) {
                 return null;
             }
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "translationX", -width).setDuration(300L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, -width).setDuration(300L);
             duration.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
             if (com.kwad.sdk.core.response.a.a.av(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) || detailVideoView == null) {
                 return duration;
@@ -68,7 +69,7 @@ public final class r {
             if (view2 == null || view2.getHeight() == 0) {
                 return null;
             }
-            return ObjectAnimator.ofFloat(view2, "translationY", view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07038e));
+            return ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07038e));
         }
         return (Animator) invokeL.objValue;
     }

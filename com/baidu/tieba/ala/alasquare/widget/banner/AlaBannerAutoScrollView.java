@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jr5;
-import com.repackage.ms5;
-import com.repackage.ns5;
-import com.repackage.os5;
+import com.repackage.bt5;
+import com.repackage.eu5;
+import com.repackage.fu5;
+import com.repackage.gu5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaBannerAutoScrollView<T> extends FrameLayout {
@@ -40,9 +40,9 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public int f;
     public long g;
     public boolean h;
-    public os5 i;
-    public ns5 j;
-    public ms5 k;
+    public gu5 i;
+    public fu5 j;
+    public eu5 k;
     public Runnable l;
     public RecyclerView.OnScrollListener m;
 
@@ -129,13 +129,13 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ms5 {
+    public class c implements eu5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes3.dex */
-        public class a extends AlaBannerViewHolder<jr5> {
+        public class a extends AlaBannerViewHolder<bt5> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -164,7 +164,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906dd);
+                    this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906fd);
                 }
             }
 
@@ -178,12 +178,12 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, jr5 jr5Var) {
+            public void a(int i, bt5 bt5Var) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, jr5Var) == null) || jr5Var == null || this.a == null || StringUtils.isNull(jr5Var.b)) {
+                if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bt5Var) == null) || bt5Var == null || this.a == null || StringUtils.isNull(bt5Var.b)) {
                     return;
                 }
-                this.a.J(jr5Var.b, 10, false);
+                this.a.K(bt5Var.b, 10, false);
             }
         }
 
@@ -205,11 +205,11 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // com.repackage.ms5
+        @Override // com.repackage.eu5
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0795, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d07bd, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -366,9 +366,9 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void n(List<T> list, ms5 ms5Var) {
+    public void n(List<T> list, eu5 eu5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, ms5Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, eu5Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         u();
@@ -392,8 +392,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e5, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907e7);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0912b8);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090815);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091312);
             this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.c.setOnTouchListener(new a(this));
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(context, this.k, false);
@@ -482,28 +482,28 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(ns5 ns5Var) {
+    public void setOnBannerClickListener(fu5 fu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ns5Var) == null) {
-            this.j = ns5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fu5Var) == null) {
+            this.j = fu5Var;
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.d;
             if (alaBannerRecyclerAdapter != null) {
-                alaBannerRecyclerAdapter.i(ns5Var);
+                alaBannerRecyclerAdapter.i(fu5Var);
             }
         }
     }
 
-    public void setOnBannerScrollListener(os5 os5Var) {
+    public void setOnBannerScrollListener(gu5 gu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, os5Var) == null) {
-            this.i = os5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, gu5Var) == null) {
+            this.i = gu5Var;
         }
     }
 
-    public void setViewHolderAdapter(ms5 ms5Var) {
+    public void setViewHolderAdapter(eu5 eu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ms5Var) == null) {
-            this.d.j(ms5Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, eu5Var) == null) {
+            this.d.j(eu5Var);
         }
     }
 

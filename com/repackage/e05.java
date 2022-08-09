@@ -1,193 +1,99 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Advertisement;
-/* loaded from: classes5.dex */
-public class e05 implements Comparable<e05> {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public class e05 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
 
-    public e05() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755791417, "Lcom/repackage/e05;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755791417, "Lcom/repackage/e05;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(e05 e05Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e05Var)) == null) ? k() > e05Var.k() ? -1 : 1 : invokeL.intValue;
-    }
-
-    public String b() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (StringUtils.isNull(this.g) && StringUtils.isNull(this.h)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (pi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
             }
-            String c = vi.c(TbadkApplication.getInst().getAndroidId());
-            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            StringBuilder sb = new StringBuilder();
-            sb.append("&ANDROIDID=");
-            sb.append(c == null ? "" : c.toLowerCase());
-            sb.append("&OAID=");
-            sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
-            String sb2 = sb.toString();
-            if (!StringUtils.isNull(this.g) && !this.g.contains("ANDROIDID") && !this.g.contains("OAID")) {
-                this.g += sb2;
-            }
-            if (StringUtils.isNull(this.h) || this.h.contains("ANDROIDID") || this.h.contains("OAID")) {
-                return;
-            }
-            this.h += sb2;
+            return ru4.k().l("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
+        return invokeV.intValue;
     }
 
-    public boolean n() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !"0".equals(this.l) : invokeV.booleanValue;
-    }
-
-    public void o(Advertisement advertisement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, advertisement) == null) {
-            this.a = advertisement.time.longValue();
-            this.b = advertisement.pic;
-            this.c = advertisement.pic_click;
-            this.d = advertisement.jump_link;
-            this.e = advertisement.advertisement_id;
-            this.g = advertisement.view_statistics_url;
-            this.h = advertisement.click_statistics_url;
-            this.i = advertisement.floating_text;
-            this.j = advertisement.scheme;
-            this.k = advertisement.package_name;
-            this.l = advertisement.display_ad_icon;
-            m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c()) {
+                return -1;
+            }
+            int a2 = a();
+            return a2 != 2 ? a2 != 3 ? a2 != 4 ? a2 != 6 ? a2 != 8 ? R.drawable.obfuscated_res_0x7f080819 : R.drawable.obfuscated_res_0x7f080816 : R.drawable.obfuscated_res_0x7f08081a : R.drawable.obfuscated_res_0x7f080817 : R.drawable.obfuscated_res_0x7f080819 : R.drawable.obfuscated_res_0x7f080815;
         }
+        return invokeV.intValue;
     }
 
-    public void p(JSONObject jSONObject) {
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, jSONObject) == null) {
-            this.b = jSONObject.optString("pic");
-            this.c = jSONObject.optString("pic_click");
-            this.d = jSONObject.optString("jump_link");
-            this.e = jSONObject.optString("advertisement_id");
-            this.g = jSONObject.optString("view_statistics_url");
-            this.h = jSONObject.optString("click_statistics_url");
-            this.i = jSONObject.optString("floating_text");
-            this.j = jSONObject.optString("scheme");
-            this.k = jSONObject.optString("package_name");
-            this.l = jSONObject.optString("display_ad_icon");
-            m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!pi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = ru4.k().m("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
         }
+        return invokeV.longValue;
     }
 
-    public void q(int i) {
+    public static void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.f = i;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) || i <= 0 || pi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        ru4.k().w("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+        ru4.k().D("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+        a = 0L;
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(65541, null, j) == null) || pi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        ru4.k().x("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+        a = j;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
         }
     }
 }

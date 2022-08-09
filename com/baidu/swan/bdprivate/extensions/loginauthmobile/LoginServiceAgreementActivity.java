@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ce3;
-/* loaded from: classes2.dex */
+import com.repackage.te3;
+/* loaded from: classes3.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = ce3.c0(this);
+            int c0 = te3.c0(this);
             super.onCreate(bundle);
-            ce3.g(this, c0);
+            te3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -79,15 +79,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             }
             Bundle extras = intent.getExtras();
             setContentView(R.layout.obfuscated_res_0x7f0d0041);
-            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901a6);
+            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901ac);
             if (extras != null) {
                 ngWebView.loadUrl(extras.getString("url"));
             }
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017a);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090180);
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f12b7);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f12f3);
             this.b.setRightZoneVisibility(false);
         }
     }

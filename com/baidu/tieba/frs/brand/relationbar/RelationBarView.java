@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes3.dex */
@@ -53,16 +53,16 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f7, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f9, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090aa8);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090ae3);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
             this.c = relationBarAdapter;
             this.b.setAdapter(relationBarAdapter);
             this.b.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.b.setItemAnimator(new DefaultItemAnimator());
-            int f = pi.f(context, R.dimen.tbds44);
-            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, pi.f(context, R.dimen.tbds26), f));
+            int f = qi.f(context, R.dimen.tbds44);
+            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, qi.f(context, R.dimen.tbds26), f));
             b();
         }
     }

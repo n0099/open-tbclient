@@ -1,59 +1,44 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
+import androidx.annotation.CallSuper;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nu;
-/* loaded from: classes6.dex */
-public final class ou implements nu {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface ou {
 
-    public ou() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.repackage.nu
-    public void a(SubTaskState subTaskState) {
-        zt d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            nu.a.c(this, subTaskState);
-            yt v = BDPTask.m.v();
-            if (v == null || (d = v.d()) == null) {
+        public static void a(ou ouVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(65536, null, ouVar, subTaskState) == null) || ouVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
                 return;
             }
-            d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
+            ouVar.a(subTaskState);
+        }
+
+        public static boolean b(ou ouVar, TaskInfo taskInfo, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, ouVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
+        }
+
+        @CallSuper
+        public static void c(ou ouVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, null, ouVar, subTaskState) == null) {
+                ru.c.b(subTaskState);
+            }
         }
     }
 
-    @Override // com.repackage.nu
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? nu.a.b(this, taskInfo, i) : invokeLI.booleanValue;
-    }
+    @CallSuper
+    void a(SubTaskState subTaskState);
 
-    public void c(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            nu.a.a(this, subTaskState);
-        }
-    }
+    boolean b(TaskInfo taskInfo, int i);
 }

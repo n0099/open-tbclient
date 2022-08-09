@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ko3;
+import com.repackage.bp3;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient ko3 mDownloadListener;
+    public transient bp3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -27,7 +27,7 @@ public class DownloadInfo implements Serializable {
     public int mStatus;
     public String mUri;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,10 +158,10 @@ public class DownloadInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCreateAt : invokeV.longValue;
     }
 
-    public ko3 getDownloadListener() {
+    public bp3 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (ko3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (bp3) invokeV.objValue;
     }
 
     public DownloadException getException() {
@@ -231,10 +231,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(ko3 ko3Var) {
+    public void setDownloadListener(bp3 bp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ko3Var) == null) {
-            this.mDownloadListener = ko3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bp3Var) == null) {
+            this.mDownloadListener = bp3Var;
         }
     }
 

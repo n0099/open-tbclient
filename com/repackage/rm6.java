@@ -1,7 +1,10 @@
 package com.repackage;
 
-import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes7.dex */
 public interface rm6 {
-    void a(int i, boolean z, int i2, boolean z2, ArrayList<nn> arrayList, boolean z3);
+    void a();
+
+    void b(List<LiveFuseForumData> list, qm6 qm6Var);
 }

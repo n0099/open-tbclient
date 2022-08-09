@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj5;
-import com.repackage.js4;
+import com.repackage.at4;
+import com.repackage.qk5;
 @SuppressLint({"HandlerLeak"})
 /* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dj5 a;
+    public qk5 a;
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,11 +86,11 @@ public class LogoActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             setUseStyleImmersiveSticky(false);
             super.onCreate(bundle);
-            dj5 dj5Var = new dj5(this);
-            this.a = dj5Var;
-            dj5Var.e(bundle);
+            qk5 qk5Var = new qk5(this);
+            this.a = qk5Var;
+            qk5Var.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            js4.m();
+            at4.m();
         }
     }
 
@@ -102,7 +102,7 @@ public class LogoActivity extends BaseFragmentActivity {
             super.onDestroy();
             this.a.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            js4.n();
+            at4.n();
         }
     }
 
@@ -124,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            js4.m();
+            at4.m();
         }
     }
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.og;
 /* loaded from: classes3.dex */
 public class MyGiftListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -115,7 +115,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("id", uri.getQueryParameter("id"));
-            getIntent().putExtra("sex", ng.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("sex", og.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
             getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
         }

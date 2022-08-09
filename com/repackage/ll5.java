@@ -6,17 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class ll5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<bz4> b;
+    public HashMap<Integer, Integer> a;
 
     public ll5() {
         Interceptable interceptable = $ic;
@@ -28,59 +23,31 @@ public class ll5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public List<bz4> a() {
-        InterceptResult invokeV;
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            HashMap<Integer, Integer> hashMap = this.a;
+            if (hashMap != null && hashMap.containsKey(Integer.valueOf(i))) {
+                return this.a.get(Integer.valueOf(i)).intValue();
             }
-            return this.b;
+            return 0;
         }
-        return (List) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(int i, int i2) {
+        HashMap<Integer, Integer> hashMap;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) || listdata == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || (hashMap = this.a) == null) {
             return;
         }
-        this.a = listdata.key;
-        if (listdata.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : listdata.friend_list) {
-                bz4 bz4Var = new bz4();
-                bz4Var.i(friendlist);
-                bz4Var.j(this.a);
-                this.b.add(bz4Var);
-            }
-        }
-    }
-
-    public void d(robotsList robotslist) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) || robotslist == null) {
-            return;
-        }
-        this.a = robotslist.key;
-        if (robotslist.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : robotslist.friend_list) {
-                bz4 bz4Var = new bz4();
-                bz4Var.i(friendlist);
-                bz4Var.j(this.a);
-                this.b.add(bz4Var);
-            }
-        }
+        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
     }
 }

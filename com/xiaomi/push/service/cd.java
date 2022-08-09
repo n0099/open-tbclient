@@ -17,13 +17,13 @@ public final class cd extends al.a {
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Notification f966a;
+    public final /* synthetic */ Notification f967a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f967a;
+    public final /* synthetic */ Context f968a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f968a;
+    public final /* synthetic */ String f969a;
     public final /* synthetic */ String b;
 
     public cd(int i, String str, Context context, String str2, Notification notification) {
@@ -42,10 +42,10 @@ public final class cd extends al.a {
             }
         }
         this.a = i;
-        this.f968a = str;
-        this.f967a = context;
+        this.f969a = str;
+        this.f968a = context;
         this.b = str2;
-        this.f966a = notification;
+        this.f967a = notification;
     }
 
     @Override // com.xiaomi.push.al.a
@@ -55,7 +55,7 @@ public final class cd extends al.a {
         String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b = cc.b(this.a, this.f968a);
+            b = cc.b(this.a, this.f969a);
             return b;
         }
         return (String) invokeV.objValue;
@@ -66,7 +66,7 @@ public final class cd extends al.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cc.c(this.f967a, this.b, this.a, this.f968a, this.f966a);
+            cc.c(this.f968a, this.b, this.a, this.f969a, this.f967a);
         }
     }
 }

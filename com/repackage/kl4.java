@@ -1,24 +1,17 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class kl4 {
+public class kl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
-    }
+    public Activity a;
+    public String b;
+    public boolean c;
 
     public kl4() {
         Interceptable interceptable = $ic;
@@ -33,46 +26,4 @@ public abstract class kl4 {
             }
         }
     }
-
-    public static kl4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, kl4.class, baseActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
-            }
-            return (kl4) runTask.getData();
-        }
-        return (kl4) invokeL.objValue;
-    }
-
-    public static kl4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, kl4.class, baseFragmentActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
-            }
-            return (kl4) runTask.getData();
-        }
-        return (kl4) invokeL.objValue;
-    }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
 }

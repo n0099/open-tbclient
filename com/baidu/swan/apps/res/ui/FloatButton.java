@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.repackage.sg1;
-import com.repackage.zd3;
+import com.repackage.jh1;
+import com.repackage.qe3;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class FloatButton extends FullScreenFloatView {
@@ -45,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        o = sg1.a;
+        o = jh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -165,7 +165,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0909a1).setBottom(zd3.O(191.0f));
+            findViewById(R.id.obfuscated_res_0x7f0909db).setBottom(qe3.O(191.0f));
         }
     }
 
@@ -174,7 +174,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0909a1);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0909db);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
@@ -183,7 +183,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonStyle(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909a1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909db);
             String optString = jSONObject != null ? jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "#4E4E4E") : "#4E4E4E";
             if (findViewById instanceof Button) {
                 ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.t(optString));

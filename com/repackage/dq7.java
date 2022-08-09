@@ -1,99 +1,83 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class dq7 implements pw4 {
+/* loaded from: classes6.dex */
+public class dq7 extends iq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static dq7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public ImageView c;
 
-    public dq7() {
+    public dq7(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = view2;
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09088d);
+        this.b = textView;
+        textView.setText(str);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09088e);
+        c();
     }
 
-    public static synchronized dq7 d() {
+    public View a() {
         InterceptResult invokeV;
-        dq7 dq7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (dq7.class) {
-                if (a == null) {
-                    a = new dq7();
-                }
-                dq7Var = a;
-            }
-            return dq7Var;
-        }
-        return (dq7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.pw4
-    public void a() {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TextView textView = this.b;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
+            }
+            ImageView imageView = this.c;
+            if (imageView != null) {
+                SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i);
+            }
+            View view2 = this.a;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0201, i);
             }
         }
     }
 
-    @Override // com.repackage.pw4
-    public void b(AccountData accountData) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().validate(sapiAccount);
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.pw4
-    public void c(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = qi.i(TbadkCoreApplication.getInst());
+            int dimensionPixelSize = i <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i * 0.11d);
+            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = dimensionPixelSize;
+                this.c.setLayoutParams(marginLayoutParams);
             }
         }
     }

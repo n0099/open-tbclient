@@ -3,7 +3,6 @@ package com.baidu.searchbox.launch.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +100,7 @@ public class SpeedStatsUtils {
                             jSONArray.put(jSONObject2);
                         }
                     }
-                    jSONObject.put(SpeedStatsMainTable.PART, jSONArray);
+                    jSONObject.put("part", jSONArray);
                 }
                 return jSONObject;
             } catch (JSONException e) {

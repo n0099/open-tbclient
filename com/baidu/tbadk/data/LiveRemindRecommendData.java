@@ -1,0 +1,335 @@
+package com.baidu.tbadk.data;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import tbclient.Loop.YyLiveInfoSimple;
+import tbclient.YyExt;
+/* loaded from: classes3.dex */
+public class LiveRemindRecommendData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int PAGE_LOCATE_BIG_PIC = 2;
+    public static final int PAGE_LOCATE_HOMEPAGE = 1;
+    public static final int PAGE_LOCATE_TOP_FLOAT_VIEW = 0;
+    public static final int PAGE_LOCATE_VIDEO_CHANNEL = 3;
+    public static final int PAGE_LOCATE_VIDEO_CHANNEL_MIDDLE = 2;
+    public static final int PAGE_LOCATE_VIDEO_CHANNEL_RECOMMON = 1;
+    public static final long serialVersionUID = -2948583989203992664L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int dayMaxNum;
+    public String desc;
+    public int descGlobalMaxNum;
+    public int disappearSecond;
+    public int disappearType;
+    public String feedId;
+    public String liveIconScheme;
+    public String liveIconSrc;
+    public String mBtnText;
+    public Long mRoomId;
+    public int minStepSecond;
+    public String portrait;
+    public int remindType;
+    public int showPage;
+    public int singleOpenMaxNum;
+    public String title;
+    public String userName;
+    public YyExtData yyExtData;
+
+    public LiveRemindRecommendData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.yyExtData = new YyExtData();
+    }
+
+    public String getBtnText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBtnText : (String) invokeV.objValue;
+    }
+
+    public int getDayMaxNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dayMaxNum : invokeV.intValue;
+    }
+
+    public String getDesc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.desc : (String) invokeV.objValue;
+    }
+
+    public int getDescGlobalMaxNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.descGlobalMaxNum : invokeV.intValue;
+    }
+
+    public int getDisappearSecond() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.disappearSecond : invokeV.intValue;
+    }
+
+    public int getDisappearType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.disappearType : invokeV.intValue;
+    }
+
+    public String getFeedId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.feedId : (String) invokeV.objValue;
+    }
+
+    public String getLiveIconScheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.liveIconScheme : (String) invokeV.objValue;
+    }
+
+    public String getLiveIconSrc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.liveIconSrc : (String) invokeV.objValue;
+    }
+
+    public int getMinStepSecond() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.minStepSecond : invokeV.intValue;
+    }
+
+    public String getPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.portrait : (String) invokeV.objValue;
+    }
+
+    public int getRemindType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.remindType : invokeV.intValue;
+    }
+
+    public Long getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRoomId : (Long) invokeV.objValue;
+    }
+
+    public int getShowPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.showPage : invokeV.intValue;
+    }
+
+    public int getSingleOpenMaxNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.singleOpenMaxNum : invokeV.intValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.title : (String) invokeV.objValue;
+    }
+
+    public String getUserName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.userName : (String) invokeV.objValue;
+    }
+
+    public YyExtData getYyExtData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.yyExtData : (YyExtData) invokeV.objValue;
+    }
+
+    public void parserProtobuf(YyLiveInfoSimple yyLiveInfoSimple) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, yyLiveInfoSimple) == null) || yyLiveInfoSimple == null) {
+            return;
+        }
+        this.liveIconSrc = yyLiveInfoSimple.icon_url;
+        this.liveIconScheme = yyLiveInfoSimple.icon_scheme;
+        this.disappearType = yyLiveInfoSimple.disappear_type.intValue();
+        this.disappearSecond = yyLiveInfoSimple.disappear_second.intValue();
+        this.desc = yyLiveInfoSimple.desc;
+        this.descGlobalMaxNum = yyLiveInfoSimple.desc_global_max_num.intValue();
+        this.singleOpenMaxNum = yyLiveInfoSimple.single_open_max_num.intValue();
+        this.dayMaxNum = yyLiveInfoSimple.day_max_num.intValue();
+        this.minStepSecond = yyLiveInfoSimple.min_step_second.intValue();
+        this.userName = yyLiveInfoSimple.user_name;
+        this.portrait = yyLiveInfoSimple.portrait;
+        this.title = yyLiveInfoSimple.title;
+        parserYyExt(yyLiveInfoSimple.yy_ext);
+        this.mRoomId = yyLiveInfoSimple.room_id;
+        this.mBtnText = yyLiveInfoSimple.btn_text;
+        this.feedId = yyLiveInfoSimple.feed_id;
+        this.remindType = yyLiveInfoSimple.remind_type.intValue();
+        this.showPage = yyLiveInfoSimple.show_page.intValue();
+    }
+
+    public void parserYyExt(YyExt yyExt) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, yyExt) == null) || yyExt == null) {
+            return;
+        }
+        YyExtData yyExtData = this.yyExtData;
+        yyExtData.mSid = yyExt.sid;
+        yyExtData.mSsid = yyExt.ssid;
+        yyExtData.mTemplateId = yyExt.template_id;
+        yyExtData.mYyUid = yyExt.yy_uid;
+        yyExtData.isYyGame = yyExt.is_yy_game.intValue() == 1;
+        YyExtData yyExtData2 = this.yyExtData;
+        yyExtData2.mRankShow = yyExt.rank_show;
+        yyExtData2.streamInfo = yyExt.stream_info;
+        yyExtData2.mIconUrl = yyExt.icon_url;
+    }
+
+    public void setBtnText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.mBtnText = str;
+        }
+    }
+
+    public void setDayMaxNum(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.dayMaxNum = i;
+        }
+    }
+
+    public void setDesc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.desc = str;
+        }
+    }
+
+    public void setDescGlobalMaxNum(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.descGlobalMaxNum = i;
+        }
+    }
+
+    public void setDisappearSecond(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.disappearSecond = i;
+        }
+    }
+
+    public void setDisappearType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.disappearType = i;
+        }
+    }
+
+    public void setFeedId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.feedId = str;
+        }
+    }
+
+    public void setLiveIconScheme(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.liveIconScheme = str;
+        }
+    }
+
+    public void setLiveIconSrc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.liveIconSrc = str;
+        }
+    }
+
+    public void setMinStepSecond(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.minStepSecond = i;
+        }
+    }
+
+    public void setPortrait(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.portrait = str;
+        }
+    }
+
+    public void setRemindType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.remindType = i;
+        }
+    }
+
+    public void setRoomId(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, l) == null) {
+            this.mRoomId = l;
+        }
+    }
+
+    public void setShowPage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.showPage = i;
+        }
+    }
+
+    public void setSingleOpenMaxNum(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.singleOpenMaxNum = i;
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.title = str;
+        }
+    }
+
+    public void setUserName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.userName = str;
+        }
+    }
+
+    public void setYyExtData(YyExtData yyExtData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, yyExtData) == null) {
+            this.yyExtData = yyExtData;
+        }
+    }
+}

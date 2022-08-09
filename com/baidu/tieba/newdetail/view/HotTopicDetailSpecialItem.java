@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.hn7;
-import com.repackage.km4;
-import com.repackage.pi;
+import com.repackage.bn4;
+import com.repackage.cp7;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -41,8 +41,8 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public TextView g;
     public TextView h;
     public TextView i;
-    public hn7 j;
-    public km4<hn7> k;
+    public cp7 j;
+    public bn4<cp7> k;
     public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,63 +67,63 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         b();
     }
 
-    public void a(hn7 hn7Var) {
+    public void a(cp7 cp7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hn7Var) == null) || hn7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cp7Var) == null) || cp7Var == null) {
             return;
         }
-        this.j = hn7Var;
-        if (TextUtils.isEmpty(hn7Var.d)) {
+        this.j = cp7Var;
+        if (TextUtils.isEmpty(cp7Var.d)) {
             this.c.setVisibility(8);
             this.d.setVisibility(8);
             this.e.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams.addRule(8, 0);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090756);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090782);
             this.i.setLayoutParams(layoutParams);
         } else {
-            this.c.J(hn7Var.d, 10, false);
+            this.c.K(cp7Var.d, 10, false);
             this.c.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0906df);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0906ff);
             layoutParams2.addRule(3, 0);
             this.i.setLayoutParams(layoutParams2);
-            if (hn7Var.e > 0) {
+            if (cp7Var.e > 0) {
                 this.e.setVisibility(0);
                 this.d.setVisibility(0);
-                this.g.setText(StringUtils.translateSecondsToString(hn7Var.e));
+                this.g.setText(StringUtils.translateSecondsToString(cp7Var.e));
             } else {
                 this.e.setVisibility(8);
                 this.d.setVisibility(8);
             }
         }
-        this.h.setText(hn7Var.a);
-        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(hn7Var.b);
-        String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f087f, numberUniformFormatExtra);
-        String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(hn7Var.c);
+        this.h.setText(cp7Var.a);
+        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(cp7Var.b);
+        String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0893, numberUniformFormatExtra);
+        String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(cp7Var.c);
         if (str.length() > 0) {
             str = str + GlideException.IndentedAppendable.INDENT;
         }
-        this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f087e, numberUniformFormatExtra2));
-        setPadding(0, 0, 0, hn7Var.g ? pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
+        this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0892, numberUniformFormatExtra2));
+        setPadding(0, 0, 0, cp7Var.g ? qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039f, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091b37);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) this, true);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c1b);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906df);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0906de);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09236e);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09236c);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09236d);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090756);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906ff);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0906fe);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09248e);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09248c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090782);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fdf);
             this.c.setPlaceHolder(2);
-            this.c.setRadius(pi.f(getContext(), R.dimen.tbds10));
+            this.c.setRadius(qi.f(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);
         }
     }
@@ -143,14 +143,14 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        hn7 hn7Var;
+        cp7 cp7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (hn7Var = this.j) == null || hn7Var.h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (cp7Var = this.j) == null || cp7Var.h == null) {
             return;
         }
-        km4<hn7> km4Var = this.k;
-        if (km4Var != null) {
-            km4Var.c(view2, hn7Var, 0, 0L);
+        bn4<cp7> bn4Var = this.k;
+        if (bn4Var != null) {
+            bn4Var.c(view2, cp7Var, 0, 0L);
         }
         ThreadCardUtils.jumpToPB(this.j.h, view2.getContext(), 17, false, this.l, "1");
     }
@@ -162,10 +162,10 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         }
     }
 
-    public void setOnItemCoverListener(km4<hn7> km4Var) {
+    public void setOnItemCoverListener(bn4<cp7> bn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) {
-            this.k = km4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bn4Var) == null) {
+            this.k = bn4Var;
         }
     }
 

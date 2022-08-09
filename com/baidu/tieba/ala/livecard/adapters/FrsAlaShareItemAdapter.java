@@ -15,36 +15,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au5;
-import com.repackage.bd6;
-import com.repackage.bk5;
-import com.repackage.cd6;
-import com.repackage.ck5;
-import com.repackage.hy5;
-import com.repackage.jy5;
+import com.repackage.b06;
+import com.repackage.ol5;
+import com.repackage.pl5;
+import com.repackage.sv5;
+import com.repackage.te6;
+import com.repackage.ue6;
+import com.repackage.zz5;
 /* loaded from: classes3.dex */
-public class FrsAlaShareItemAdapter extends cd6<ThreadData, FrsPageAlaShareHolder> implements hy5, ck5 {
+public class FrsAlaShareItemAdapter extends ue6<ThreadData, FrsPageAlaShareHolder> implements zz5, pl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public au5 u;
-    public String v;
-    public jy5<ThreadData> w;
+    public String l;
+    public sv5 m;
+    public String n;
+    public b06<ThreadData> o;
 
     /* loaded from: classes3.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public au5 a;
+        public sv5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsPageAlaShareHolder(au5 au5Var) {
-            super(au5Var.h());
+        public FrsPageAlaShareHolder(sv5 sv5Var) {
+            super(sv5Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {au5Var};
+                Object[] objArr = {sv5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,12 +55,12 @@ public class FrsAlaShareItemAdapter extends cd6<ThreadData, FrsPageAlaShareHolde
                     return;
                 }
             }
-            this.a = au5Var;
+            this.a = sv5Var;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a extends jy5<ThreadData> {
+    public class a extends b06<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAlaShareItemAdapter b;
@@ -84,24 +84,24 @@ public class FrsAlaShareItemAdapter extends cd6<ThreadData, FrsPageAlaShareHolde
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jy5
+        @Override // com.repackage.b06
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091287) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238d ? new CustomMessage(2921019) : null;
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09053f && view2.getId() != R.id.obfuscated_res_0x7f09053b) {
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0924ad ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.b.k == null) {
+                if (customMessage == null || this.b.c == null) {
                     return;
                 }
                 customMessage.setData(threadData);
-                this.b.k.sendMessage(customMessage);
+                this.b.c.sendMessage(customMessage);
             }
         }
     }
@@ -125,76 +125,76 @@ public class FrsAlaShareItemAdapter extends cd6<ThreadData, FrsPageAlaShareHolde
                 return;
             }
         }
-        this.w = new a(this);
-    }
-
-    @Override // com.repackage.hy5
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
-        }
-    }
-
-    @Override // com.repackage.ck5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.v = str;
-        }
+        this.o = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: n0 */
-    public FrsPageAlaShareHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: G */
+    public FrsPageAlaShareHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.c;
             if (tbPageContext == null) {
                 return null;
             }
-            au5 au5Var = new au5(tbPageContext, this.e);
-            this.u = au5Var;
-            au5Var.T(this.e);
-            this.u.a(this.t);
-            this.u.n(this.w);
-            return new FrsPageAlaShareHolder(this.u);
+            sv5 sv5Var = new sv5(tbPageContext, this.mPageId);
+            this.m = sv5Var;
+            sv5Var.T(this.mPageId);
+            this.m.a(this.l);
+            this.m.n(this.o);
+            return new FrsPageAlaShareHolder(this.m);
         }
         return (FrsPageAlaShareHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.cd6, com.repackage.an
-    /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+    @Override // com.repackage.ue6, com.repackage.bn
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaShareHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaShareHolder})) == null) {
             CustomMessage customMessage = new CustomMessage(2921017);
-            FrsViewData frsViewData = this.j;
+            FrsViewData frsViewData = this.b;
             threadData.statFloor = (i + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
             customMessage.setData(threadData);
-            this.k.sendMessage(customMessage);
+            this.c.sendMessage(customMessage);
             if (threadData != null) {
-                au5 au5Var = frsPageAlaShareHolder.a;
-                if (au5Var instanceof bk5) {
-                    au5Var.b(this.v);
+                sv5 sv5Var = frsPageAlaShareHolder.a;
+                if (sv5Var instanceof ol5) {
+                    sv5Var.b(this.n);
                 }
-                frsPageAlaShareHolder.a.a(this.t);
-                bd6.j(frsPageAlaShareHolder.a.M(), this.j);
-                bd6.j(frsPageAlaShareHolder.a.O(), this.j);
+                frsPageAlaShareHolder.a.a(this.l);
+                te6.j(frsPageAlaShareHolder.a.M(), this.b);
+                te6.j(frsPageAlaShareHolder.a.O(), this.b);
                 frsPageAlaShareHolder.a.i(threadData);
                 threadData.updateShowStatus();
             }
-            return frsPageAlaShareHolder.a();
+            return frsPageAlaShareHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.hy5
-    public void q(int i) {
+    @Override // com.repackage.zz5
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.l = str;
+        }
+    }
+
+    @Override // com.repackage.pl5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    @Override // com.repackage.zz5
+    public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }

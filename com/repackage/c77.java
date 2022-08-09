@@ -1,51 +1,37 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.GroupImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.mygroup.PersonalGroupFragment;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.PushMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.x67;
+import java.util.Iterator;
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c77 extends BaseAdapter {
+public class c77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonalGroupFragment a;
-    public List<GroupInfoData> b;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements x67.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LinearLayout a;
-        public GroupImageView b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public ImageView g;
-        public ImageView h;
-        public ImageView i;
-        public ImageView j;
-        public ImageView k;
-        public ImageView l;
-        public ImageView[] m;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,151 +46,187 @@ public class c77 extends BaseAdapter {
                 }
             }
         }
-    }
 
-    public c77(PersonalGroupFragment personalGroupFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {personalGroupFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // com.repackage.x67.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
             }
-        }
-        this.b = new ArrayList();
-        this.a = personalGroupFragment;
-    }
-
-    public final void a(ImageView[] imageViewArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, imageViewArr, i) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            if (i > 3) {
-                i = 3;
-            }
-            for (int i2 = 1; i2 <= 3; i2++) {
-                if (i2 <= i) {
-                    imageViewArr[i2].setVisibility(0);
-                } else {
-                    imageViewArr[i2].setVisibility(8);
-                }
-            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public GroupInfoData getItem(int i) {
-        InterceptResult invokeI;
+    public static GroupNewsPojo a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int itemId = (int) getItemId(i);
-            if (itemId < 0 || itemId >= this.b.size()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
                 return null;
             }
-            return this.b.get(itemId);
-        }
-        return (GroupInfoData) invokeI.objValue;
-    }
-
-    public void c(List<GroupInfoData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0804, viewGroup, false);
-                aVar = new a();
-                aVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09061b);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ab);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907aa);
-                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ac);
-                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3a);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f37);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f38);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1a);
-                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f33);
-                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f34);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f35);
-                aVar.l = imageView;
-                ImageView[] imageViewArr = new ImageView[4];
-                aVar.m = imageViewArr;
-                imageViewArr[1] = aVar.j;
-                imageViewArr[2] = aVar.k;
-                imageViewArr[3] = imageView;
-                view2.setTag(aVar);
-            }
-            GroupInfoData groupInfoData = this.b.get(i);
-            aVar.b.setTag(null);
-            aVar.b.setDrawBorder(true);
-            aVar.b.setPlaceHolder(1);
-            if (groupInfoData != null) {
-                String portrait = groupInfoData.getPortrait();
-                if (!TextUtils.isEmpty(portrait)) {
-                    aVar.b.J(portrait, 10, false);
-                } else {
-                    aVar.b.J("", 10, false);
+            try {
+                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                    return null;
                 }
-                aVar.a.setOnClickListener(this.a);
-                aVar.a.setTag(groupInfoData);
-                aVar.g.setVisibility(8);
-                aVar.i.setVisibility(8);
-                aVar.h.setVisibility(0);
-                aVar.c.setText(groupInfoData.getName());
-                TextView textView = aVar.d;
-                textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-                aVar.e.setText(groupInfoData.getIntro());
-                if (groupInfoData.getIsGroupManager() == 1) {
-                    aVar.f.setVisibility(0);
-                } else {
-                    aVar.f.setVisibility(8);
+                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
                 }
-                a(aVar.m, groupInfoData.getGrade());
+                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
+                groupNewsPojo.setOriginalPushMsg(chatMessage);
+                return groupNewsPojo;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            this.a.getBaseFragmentActivity().getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-            this.a.getBaseFragmentActivity().getLayoutMode().j(view2);
-            if (groupInfoData != null && groupInfoData.isMemGroup()) {
-                SkinManager.setViewTextColor(aVar.c, R.color.common_color_10009, 1);
-                SkinManager.setImageResource(aVar.j, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(aVar.k, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(aVar.l, R.drawable.icon_vip_grade_big_small_s);
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+        return (GroupNewsPojo) invokeL.objValue;
+    }
+
+    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
+            if (linkedList == null || linkedList.size() == 0) {
+                return null;
+            }
+            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
+            Iterator<ChatMessage> it = linkedList.iterator();
+            while (it.hasNext()) {
+                GroupNewsPojo a2 = a(it.next());
+                if (a2 != null) {
+                    linkedList2.add(a2);
+                }
+            }
+            return linkedList2;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        String optString;
+        String optString2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                String optString3 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (!str.equals("apply_join_group")) {
+                    return "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) ? optString3 : "";
+                }
+                if (true != jSONObject.isNull("notice_id")) {
+                    optString = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                    String optString4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                    optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
+                    str3 = optString4;
+                } else if (optJSONObject != null) {
+                    optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                    str3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                    optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
+                } else {
+                    optString = "";
+                    optString2 = optString;
+                    str3 = optString2;
+                }
+                ImMessageCenterPojo i = m87.o().i(optString, 1);
+                if (i != null) {
+                    optString2 = i.getGroup_name();
+                }
+                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
+                    return "";
+                }
+                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14f2) + optString2;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) : invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("apply_join_group") : invokeL.booleanValue;
+    }
+
+    public static void f(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x67.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            x67.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+        }
+    }
+
+    public static void g(GroupMsgData groupMsgData) {
+        LinkedList<GroupNewsPojo> b;
+        PushMessage newInstance;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, groupMsgData) == null) || (b = b(groupMsgData.getListMessage())) == null || b.isEmpty()) {
+            return;
+        }
+        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+        Iterator<GroupNewsPojo> it = b.iterator();
+        GroupNewsPojo groupNewsPojo = null;
+        GroupNewsPojo groupNewsPojo2 = null;
+        long j = 0;
+        while (it.hasNext()) {
+            GroupNewsPojo next = it.next();
+            if (!TextUtils.isEmpty(next.getNotice_id())) {
+                long parseLong = Long.parseLong(next.getNotice_id());
+                if (parseLong > j) {
+                    j = parseLong;
+                }
+                if (d(next.getCmd())) {
+                    linkedList.add(next);
+                    if (groupNewsPojo2 == null || parseLong > Long.parseLong(groupNewsPojo2.getNotice_id())) {
+                        groupNewsPojo2 = next;
+                    }
+                } else if (e(next.getCmd())) {
+                    linkedList.add(next);
+                    if (groupNewsPojo == null || parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
+                        groupNewsPojo = next;
+                    }
+                }
+            }
+        }
+        p77.f().m(linkedList);
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
+        imMessageCenterPojo.setIs_hidden(1);
+        imMessageCenterPojo.setCustomGroupType(-2);
+        imMessageCenterPojo.setPulled_msgId(j);
+        v77.f().k(imMessageCenterPojo);
+        if (groupNewsPojo != null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
+            imMessageCenterPojo2.setCustomGroupType(-4);
+            imMessageCenterPojo2.setUnread_count(1);
+            imMessageCenterPojo2.setLast_rid(og.g(groupNewsPojo.getNotice_id(), 0L));
+            imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
+            imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
+            imMessageCenterPojo2.setIs_hidden(0);
+            v77.f().l(imMessageCenterPojo2, 2);
+        }
+        Iterator<GroupNewsPojo> it2 = b.iterator();
+        while (it2.hasNext()) {
+            GroupNewsPojo next2 = it2.next();
+            if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
+            }
+        }
     }
 }

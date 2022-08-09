@@ -23,29 +23,29 @@ public class av implements au, InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f113a;
+    public volatile int f114a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile long f114a;
+    public volatile long f115a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f115a;
+    public Context f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f116a;
+    public volatile a f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f117a;
+    public Class f118a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f118a;
+    public final Object f119a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Method f119a;
+    public Method f120a;
     public Class b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Method f120b;
+    public Method f121b;
     public Method c;
     public Method d;
     public Method e;
@@ -59,10 +59,10 @@ public class av implements au, InvocationHandler {
         public final /* synthetic */ av a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Boolean f121a;
+        public Boolean f122a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f122a;
+        public String f123a;
         public String b;
         public String c;
         public String d;
@@ -83,8 +83,8 @@ public class av implements au, InvocationHandler {
                 }
             }
             this.a = avVar;
-            this.f121a = null;
             this.f122a = null;
+            this.f123a = null;
             this.b = null;
             this.c = null;
             this.d = null;
@@ -98,10 +98,10 @@ public class av implements au, InvocationHandler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f122a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
-                    this.f121a = Boolean.TRUE;
+                if (!TextUtils.isEmpty(this.f123a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
+                    this.f122a = Boolean.TRUE;
                 }
-                return this.f121a != null;
+                return this.f122a != null;
             }
             return invokeV.booleanValue;
         }
@@ -138,20 +138,20 @@ public class av implements au, InvocationHandler {
                 return;
             }
         }
-        this.f117a = null;
+        this.f118a = null;
         this.b = null;
-        this.f119a = null;
-        this.f120b = null;
+        this.f120a = null;
+        this.f121b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
-        this.f118a = new Object();
-        this.f113a = 0;
-        this.f114a = 0L;
-        this.f116a = null;
-        this.f115a = context.getApplicationContext();
+        this.f119a = new Object();
+        this.f114a = 0;
+        this.f115a = 0L;
+        this.f117a = null;
+        this.f116a = context.getApplicationContext();
         a(context);
         b(context);
     }
@@ -208,9 +208,9 @@ public class av implements au, InvocationHandler {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            synchronized (this.f118a) {
+            synchronized (this.f119a) {
                 try {
-                    this.f118a.notifyAll();
+                    this.f119a.notifyAll();
                 } catch (Exception unused) {
                 }
             }
@@ -242,10 +242,10 @@ public class av implements au, InvocationHandler {
                 cls2 = a4;
                 cls = a3;
             }
-            this.f117a = a2;
-            this.f119a = a(a2, "InitSdk", Context.class, cls);
+            this.f118a = a2;
+            this.f120a = a(a2, "InitSdk", Context.class, cls);
             this.b = cls;
-            this.f120b = a(cls2, "getUDID", new Class[0]);
+            this.f121b = a(cls2, "getUDID", new Class[0]);
             this.c = a(cls2, "getOAID", new Class[0]);
             this.d = a(cls2, "getVAID", new Class[0]);
             this.e = a(cls2, "getAAID", new Class[0]);
@@ -256,29 +256,29 @@ public class av implements au, InvocationHandler {
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f116a == null) {
-            long j = this.f114a;
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f117a == null) {
+            long j = this.f115a;
             long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-            int i = this.f113a;
+            int i = this.f114a;
             if (elapsedRealtime > 3000 && i < 3) {
-                synchronized (this.f118a) {
-                    if (this.f114a == j && this.f113a == i) {
+                synchronized (this.f119a) {
+                    if (this.f115a == j && this.f114a == i) {
                         b("retry, current count is " + i);
-                        this.f113a = this.f113a + 1;
-                        b(this.f115a);
-                        j = this.f114a;
+                        this.f114a = this.f114a + 1;
+                        b(this.f116a);
+                        j = this.f115a;
                         elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
                     }
                 }
             }
-            if (this.f116a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
+            if (this.f117a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
                 return;
             }
-            synchronized (this.f118a) {
-                if (this.f116a == null) {
+            synchronized (this.f119a) {
+                if (this.f117a == null) {
                     try {
                         b(str + " wait...");
-                        this.f118a.wait(3000L);
+                        this.f119a.wait(3000L);
                     } catch (Exception unused) {
                     }
                 }
@@ -304,14 +304,14 @@ public class av implements au, InvocationHandler {
                     if (classLoader == null) {
                         classLoader = context.getClassLoader();
                     }
-                    a(this.f119a, this.f117a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
+                    a(this.f120a, this.f118a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
                 } catch (Throwable th) {
                     b("call init sdk error:" + th);
                 }
-                this.f114a = elapsedRealtime;
+                this.f115a = elapsedRealtime;
             }
             elapsedRealtime = j;
-            this.f114a = elapsedRealtime;
+            this.f115a = elapsedRealtime;
         }
     }
 
@@ -328,10 +328,10 @@ public class av implements au, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a("getOAID");
-            if (this.f116a == null) {
+            if (this.f117a == null) {
                 return null;
             }
-            return this.f116a.b;
+            return this.f117a.b;
         }
         return (String) invokeV.objValue;
     }
@@ -342,7 +342,7 @@ public class av implements au, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a("isSupported");
-            return this.f116a != null && Boolean.TRUE.equals(this.f116a.f121a);
+            return this.f117a != null && Boolean.TRUE.equals(this.f117a.f122a);
         }
         return invokeV.booleanValue;
     }
@@ -352,7 +352,7 @@ public class av implements au, InvocationHandler {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-            this.f114a = SystemClock.elapsedRealtime();
+            this.f115a = SystemClock.elapsedRealtime();
             if (objArr != null) {
                 a aVar = new a(this, null);
                 int length = objArr.length;
@@ -363,20 +363,20 @@ public class av implements au, InvocationHandler {
                     }
                     Object obj2 = objArr[i];
                     if (obj2 != null && !a(obj2)) {
-                        aVar.f122a = (String) a(this.f120b, obj2, new Object[0]);
+                        aVar.f123a = (String) a(this.f121b, obj2, new Object[0]);
                         aVar.b = (String) a(this.c, obj2, new Object[0]);
                         aVar.c = (String) a(this.d, obj2, new Object[0]);
                         aVar.d = (String) a(this.e, obj2, new Object[0]);
-                        aVar.f121a = (Boolean) a(this.f, obj2, new Object[0]);
+                        aVar.f122a = (Boolean) a(this.f, obj2, new Object[0]);
                         a(this.g, obj2, new Object[0]);
                         if (aVar.a()) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("has get succ, check duplicate:");
-                            sb.append(this.f116a != null);
+                            sb.append(this.f117a != null);
                             b(sb.toString());
                             synchronized (av.class) {
-                                if (this.f116a == null) {
-                                    this.f116a = aVar;
+                                if (this.f117a == null) {
+                                    this.f117a = aVar;
                                 }
                             }
                         }

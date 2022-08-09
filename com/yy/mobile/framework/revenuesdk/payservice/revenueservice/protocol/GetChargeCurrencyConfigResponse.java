@@ -3,6 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,6 +30,7 @@ import org.json.JSONObject;
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String bubbleActMsg;
     public int cmd;
     public List<ProductInfo> confList;
     public String currencyName;
@@ -233,7 +235,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.cid = optJSONObject.optInt("cid");
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
-                    productInfo.level = optJSONObject.optInt("level");
+                    productInfo.level = optJSONObject.optInt(PollingModel.LEVEL);
                     productInfo.srcAmount = optJSONObject.optDouble("srcAmount");
                     productInfo.srcCurrencySymbol = optJSONObject.optString("srcCurrencySymbol");
                     productInfo.destAmount = optJSONObject.optLong("destAmount");
@@ -297,9 +299,11 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");
                         this.paysSettingInfo.successMsg = jSONObject2.optString("successMsg");
                         this.paysSettingInfo.payRemindMsg = jSONObject2.optString("payRemindMsg");
+                        this.paysSettingInfo.feedbackSwitch = jSONObject2.optInt("feedbackSwitch");
                         this.defaultCid = jSONObject.optInt("defaultCid");
                         this.confList.addAll(optProductList(jSONObject.optJSONArray("confList")));
                         this.payWayInfoList.addAll(optPayWayInfoList(jSONObject.optJSONArray("payWayList")));
+                        this.bubbleActMsg = jSONObject.optString("bubbleActMsg");
                         return;
                     }
                     throw new Exception(this.cmd + " != " + optInt);

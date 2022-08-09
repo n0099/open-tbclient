@@ -52,12 +52,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a9, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a6f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aaa);
             this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a10);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090a70);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a4b);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090aab);
         }
     }
 
@@ -88,7 +88,7 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
                     layoutParams.leftMargin = this.b;
                     layoutParams.gravity = 17;
-                    tbImageView.J(str, 10, false);
+                    tbImageView.K(str, 10, false);
                     this.c.addView(tbImageView, layoutParams);
                 }
             }

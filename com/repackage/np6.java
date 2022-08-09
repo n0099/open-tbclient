@@ -1,34 +1,36 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.frs.FrsFragment;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: TabBarLogic.java */
 /* loaded from: classes6.dex */
-public class np6 {
+public final /* synthetic */ class np6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    @NonNull
+    public static pp6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
-            if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && qp6.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
-                Intent intent = new Intent();
-                intent.putExtra(DealIntentService.KEY_CLASS, 2);
-                intent.putExtra("fname", str);
-                intent.putExtra(str2, "short_cut");
-                frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
-                return false;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new op6() : (pp6) invokeV.objValue;
+    }
+
+    @ColorInt
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SkinManager.getColor(R.color.CAM_X0107) : invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UtilHelper.getDimenPixelSize(R.dimen.tbds42) : invokeV.intValue;
     }
 }

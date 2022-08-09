@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IFragmentWrapper;
-import com.repackage.dk9;
+import com.repackage.ym9;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FragmentWrapper extends IFragmentWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            dk9.d(view2);
+            ym9.d(view2);
             fragment.registerForContextMenu(view2);
         }
     }
@@ -196,7 +196,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            dk9.d(view2);
+            ym9.d(view2);
             fragment.unregisterForContextMenu(view2);
         }
     }

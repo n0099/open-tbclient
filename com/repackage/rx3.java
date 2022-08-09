@@ -1,15 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface rx3 {
-    View a(Context context, GameCloseGuidePopView.e eVar);
+public class rx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile qx3 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
-
-    void c();
-
-    void release();
+    public static synchronized qx3 a() {
+        InterceptResult invokeV;
+        qx3 qx3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (rx3.class) {
+                if (a == null) {
+                    a = new qx3();
+                }
+                qx3Var = a;
+            }
+            return qx3Var;
+        }
+        return (qx3) invokeV.objValue;
+    }
 }

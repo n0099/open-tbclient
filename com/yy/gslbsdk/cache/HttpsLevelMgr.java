@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.cache;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +86,7 @@ public class HttpsLevelMgr {
             hashMap.put("devid", str2);
             hashMap.put("gslbid", identity);
             hashMap.put("appid", str);
-            hashMap.put("version", "2.2.18-lianyun");
+            hashMap.put("version", "2.2.28-live");
             boolean z = true;
             if (GlobalTools.IS_TEST_ENV && !GlobalTools.HTTPDNS_SERVER_HOST.equals(GlobalTools.HTTPDNS_HOST_TEST)) {
                 z = false;
@@ -111,7 +112,7 @@ public class HttpsLevelMgr {
                     SwitchController.getInstance().deal(1);
                     return 3;
                 }
-                int i = jSONObject.getInt("level");
+                int i = jSONObject.getInt(PollingModel.LEVEL);
                 SwitchController.getInstance().deal(i);
                 if (i >= 0 && 2 >= i) {
                     setHttpsLevel(i);

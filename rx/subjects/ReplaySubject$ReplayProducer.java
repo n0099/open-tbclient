@@ -6,30 +6,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as9;
-import com.repackage.bs9;
-import com.repackage.ps9;
-import com.repackage.wr9;
+import com.repackage.kv9;
+import com.repackage.ru9;
+import com.repackage.vu9;
+import com.repackage.wu9;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements wr9, bs9 {
+public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements ru9, wu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5006209596735204567L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final as9<? super T> actual;
+    public final vu9<? super T> actual;
     public int index;
     public Object node;
     public final AtomicLong requested;
     public final ReplaySubject$ReplayState<T> state;
     public int tailIndex;
 
-    public ReplaySubject$ReplayProducer(as9<? super T> as9Var, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
+    public ReplaySubject$ReplayProducer(vu9<? super T> vu9Var, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {as9Var, replaySubject$ReplayState};
+            Object[] objArr = {vu9Var, replaySubject$ReplayState};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,25 +39,25 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
                 return;
             }
         }
-        this.actual = as9Var;
+        this.actual = vu9Var;
         this.requested = new AtomicLong();
         this.state = replaySubject$ReplayState;
     }
 
-    @Override // com.repackage.bs9
+    @Override // com.repackage.wu9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.actual.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wr9
+    @Override // com.repackage.ru9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i > 0) {
-                ps9.b(this.requested, j);
+                kv9.b(this.requested, j);
                 this.state.buffer.a(this);
             } else if (i >= 0) {
             } else {
@@ -66,7 +66,7 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
         }
     }
 
-    @Override // com.repackage.bs9
+    @Override // com.repackage.wu9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

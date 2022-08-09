@@ -407,9 +407,27 @@ public class IpVersionController {
         return (ArrayList) invokeLL.objValue;
     }
 
+    public boolean isIpv4AndIpv6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? getCurrIpVer() == 3 : invokeV.booleanValue;
+    }
+
+    public boolean isIpv4Only() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? getCurrIpVer() == 1 : invokeV.booleanValue;
+    }
+
+    public boolean isIpv6Only() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? getCurrIpVer() == 2 : invokeV.booleanValue;
+    }
+
     public void judgeIpVersion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             List<String> currentIp = getCurrentIp();
             LogTools.printDebug(TAG, String.format(Locale.US, "judgeIpVersion listIp: %s", currentIp.toString()));
             this.mCurrIpVer = 0;
@@ -431,7 +449,7 @@ public class IpVersionController {
     public int putHttpDNSIntoCache(Context context, ResInfo resInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048593, this, context, resInfo)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048596, this, context, resInfo)) != null) {
             return invokeLL.intValue;
         }
         if (resInfo == null) {
@@ -498,7 +516,7 @@ public class IpVersionController {
 
     public void putLocalDNSIntoCache(DnsInfo dnsInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, dnsInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, dnsInfo) == null) {
             String str = dnsInfo.getIps().get(0);
             int tellIpVer = tellIpVer(str);
             if (tellIpVer == 6) {
@@ -513,7 +531,7 @@ public class IpVersionController {
 
     public void resetBestServerIPCache(ServerIPInfo serverIPInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, serverIPInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, serverIPInfo) == null) {
             if (tellIpVer(serverIPInfo.getIp()) == 6) {
                 ServerIPV6Mgr.getInstance().resetBestServerIPCache(serverIPInfo);
             } else {
@@ -524,7 +542,7 @@ public class IpVersionController {
 
     public void setEnableIpv6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             NetworkStatus.updateEnableV6(z);
             DataCacheMgr.INSTANCE.getCachedNetStatusInfo().setNetworkStatus(NetworkStatus.getInstanceClone());
         }
@@ -532,7 +550,7 @@ public class IpVersionController {
 
     public void setNetworkStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             NetworkStatus.updateStatus(i);
             DataCacheMgr.INSTANCE.getCachedNetStatusInfo().setNetworkStatus(NetworkStatus.getInstanceClone());
         }

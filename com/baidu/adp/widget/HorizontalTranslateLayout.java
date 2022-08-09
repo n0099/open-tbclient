@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.bo;
+import com.repackage.co;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -349,7 +349,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (bo.a(f2, f, false) + this.d);
+                this.h.d = (int) (co.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -372,7 +372,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (bo.a(f2, f, false) + this.d);
+                this.h.d = (int) (co.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -394,7 +394,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (bo.a(f2, f, false) + this.d);
+                this.h.d = (int) (co.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -417,7 +417,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (bo.a(f2, f, false) + this.d);
+                this.h.d = (int) (co.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -704,7 +704,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04061c, R.attr.obfuscated_res_0x7f0406ad, R.attr.obfuscated_res_0x7f0406ae});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040422, R.attr.obfuscated_res_0x7f040427, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c6, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f04073a, R.attr.obfuscated_res_0x7f04073b});
             this.b = obtainStyledAttributes.getDimension(0, -1.0f);
             this.c = obtainStyledAttributes.getDimension(2, -1.0f);
             String string = obtainStyledAttributes.getString(6);

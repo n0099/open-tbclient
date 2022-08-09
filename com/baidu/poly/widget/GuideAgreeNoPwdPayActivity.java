@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga1;
-import com.repackage.q71;
-import com.repackage.w81;
-import com.repackage.y71;
-import com.repackage.z81;
+import com.repackage.h81;
+import com.repackage.n91;
+import com.repackage.p81;
+import com.repackage.q91;
+import com.repackage.xa1;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public View i;
 
     /* loaded from: classes2.dex */
-    public class a extends q71<JSONObject> {
+    public class a extends h81<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
@@ -61,7 +61,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             this.a = guideAgreeNoPwdPayActivity;
         }
 
-        @Override // com.repackage.q71
+        @Override // com.repackage.h81
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
@@ -70,7 +70,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.q71
+        @Override // com.repackage.h81
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -85,13 +85,13 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     }
 
     /* loaded from: classes2.dex */
-    public class b extends q71<JSONObject> {
+    public class b extends h81<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
 
         /* loaded from: classes2.dex */
-        public class a extends q71<JSONObject> {
+        public class a extends h81<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -115,7 +115,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.q71
+            @Override // com.repackage.h81
             /* renamed from: d */
             public void c(JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -144,19 +144,19 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             this.a = guideAgreeNoPwdPayActivity;
         }
 
-        @Override // com.repackage.q71
+        @Override // com.repackage.h81
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
                 this.a.h.c();
                 this.a.h.setEnable(true);
                 this.a.h.setPressed(false);
-                ga1.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
+                xa1.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.q71
+        @Override // com.repackage.h81
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                 if (TextUtils.equals(optString, "BAIDU-ALIPAY-WISE") && !TextUtils.isEmpty(optString2)) {
                     GuideAgreeNoPwdPayActivity.j.aLiAuth(this.a, optString2, new a(this));
                 } else {
-                    ga1.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
+                    xa1.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
                 }
             }
         }
@@ -234,19 +234,19 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ga1.e(this, R.drawable.obfuscated_res_0x7f080623, "加载中");
-            y71.j().k(this.a, this.c, this.b, new a(this));
+            xa1.e(this, R.drawable.obfuscated_res_0x7f080628, "加载中");
+            p81.j().k(this.a, this.c, this.b, new a(this));
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091903);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091904);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0918ef);
-            this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090155);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0918f7);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0919d5);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0919d6);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0919c1);
+            this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f09015b);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0919c9);
             this.h.setText("立即开启小额免密支付");
             this.g.setOnClickListener(this);
             this.h.setOnClickListener(this);
@@ -268,8 +268,8 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public final void l(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
-            ga1.e(this, R.drawable.obfuscated_res_0x7f080623, "加载中");
-            y71.j().l(str, str2, str3, new b(this));
+            xa1.e(this, R.drawable.obfuscated_res_0x7f080628, "加载中");
+            p81.j().l(str, str2, str3, new b(this));
         }
     }
 
@@ -277,15 +277,15 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "10000")) {
-                z81.e(new w81("202"));
+                q91.e(new n91("202"));
                 runOnUiThread(new c(this));
             } else if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "60001")) {
-                z81.e(new w81("203"));
+                q91.e(new n91("203"));
                 h();
-                ga1.f(this, "开通失败，请重试");
+                xa1.f(this, "开通失败，请重试");
             } else {
                 h();
-                ga1.f(this, "网络异常，请重试");
+                xa1.f(this, "网络异常，请重试");
             }
         }
     }
@@ -309,15 +309,15 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0918ef) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0919c1) {
                 finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090155) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09015b) {
                 this.h.b();
                 this.h.setEnable(false);
                 this.h.setPressed(true);
-                z81.e(new w81(Info.kBaiduPIDValue));
+                q91.e(new n91(Info.kBaiduPIDValue));
                 l(this.a, this.c, this.b);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918f7) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919c9) {
                 finish();
             }
         }

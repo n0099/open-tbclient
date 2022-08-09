@@ -1,75 +1,59 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
-public class n13 extends f23 {
+public abstract class n13<T> implements dk2<byte[], T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n13(f13 f13Var) {
-        super(f13Var, "/swanAPI/getAppInfoSync");
+    public n13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public abstract void a(@NonNull T t, @NonNull fk2 fk2Var) throws Exception;
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.repackage.dk2
+    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
+        return call2((n13<T>) obj);
+    }
+
+    @Override // com.repackage.dk2
+    /* renamed from: call  reason: avoid collision after fix types in other method */
+    public final byte[] call2(T t) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t == null) {
+                return null;
             }
-            if (i03Var == null) {
-                ix1.c(DI.APP_INFO_NAME, "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            try {
-                JSONObject D = hq1.D(i03Var, context);
-                if (f23.b && D != null) {
-                    Log.d("GetAppInfoSyncAction", "data: " + D.toString());
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(D, 0);
-                return true;
-            } catch (JSONException e) {
-                if (f23.b) {
-                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
-                }
-                ix1.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            fk2 fk2Var = new fk2(byteArrayOutputStream);
+            a(t, fk2Var);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            fk2Var.close();
+            byteArrayOutputStream.close();
+            return byteArray;
         }
-        return invokeLLLL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 }

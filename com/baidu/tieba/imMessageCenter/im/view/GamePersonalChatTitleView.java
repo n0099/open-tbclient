@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k57;
-import com.repackage.pi;
-import com.repackage.vr4;
-import com.repackage.vu4;
+import com.repackage.e77;
+import com.repackage.ms4;
+import com.repackage.pv4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class GamePersonalChatTitleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public k57 d;
+    public e77 d;
     public b e;
 
     /* loaded from: classes3.dex */
@@ -66,7 +66,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(@NonNull k57 k57Var);
+        void a(@NonNull e77 e77Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,14 +95,14 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new TBSpecificationBtn(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, pi.f(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.setMargins(0, 0, qi.f(getContext(), R.dimen.M_W_X007), 0);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            vu4 vu4Var = new vu4();
-            vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(vu4Var);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0795));
+            pv4 pv4Var = new pv4();
+            pv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(pv4Var);
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f07a7));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
         }
@@ -114,9 +114,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(9);
             this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(pi.f(getContext(), R.dimen.M_W_X008), pi.f(getContext(), R.dimen.tbds44), 0, pi.f(getContext(), R.dimen.tbds44));
+            this.b.setPadding(qi.f(getContext(), R.dimen.M_W_X008), qi.f(getContext(), R.dimen.tbds44), 0, qi.f(getContext(), R.dimen.tbds44));
             addView(this.b);
-            vr4 d = vr4.d(this.b);
+            ms4 d = ms4.d(this.b);
             d.z(R.dimen.T_X13);
             d.A(R.string.F_X01);
         }
@@ -150,18 +150,18 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            vr4.d(this).f(R.color.CAM_X0204);
-            vr4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            vr4.d(this.b).v(R.color.CAM_X0105);
+            ms4.d(this).f(R.color.CAM_X0204);
+            ms4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            ms4.d(this.b).v(R.color.CAM_X0105);
             this.c.k();
         }
     }
 
-    public void h(k57 k57Var) {
+    public void h(e77 e77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, k57Var) == null) {
-            this.d = k57Var;
-            this.b.setText(k57Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, e77Var) == null) {
+            this.d = e77Var;
+            this.b.setText(e77Var.c());
         }
     }
 

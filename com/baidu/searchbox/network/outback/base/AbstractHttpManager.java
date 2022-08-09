@@ -86,7 +86,7 @@ public abstract class AbstractHttpManager {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callFactoryParams) == null) {
             CallFactory chooseCallFactory = OutbackComponent.getInstance().chooseCallFactory(str, callFactoryParams);
             this.callFactory = chooseCallFactory;
-            this.callFactoryMap.put(EngineName.CUSTOM_ENGINE, chooseCallFactory);
+            this.callFactoryMap.put("CUSTOM", chooseCallFactory);
         }
     }
 

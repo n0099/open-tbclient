@@ -16,7 +16,7 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.repackage.z49;
+import com.repackage.u79;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
@@ -177,7 +177,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setup();
-            this.isAr = z49.c().i();
+            this.isAr = u79.c().i();
             this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
     }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbDomainConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_HTTPS_BAIDU = "http://www.baidu.com/";
@@ -15,6 +15,10 @@ public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_STATIC_SERVER = "http://tb1.bdstatic.com/";
     public static final String DOMAIN_HTTPS_TB_HI_IMAGE = "http://tb.himg.baidu.com/";
     public static final String DOMAIN_HTTPS_TIEBA = "https://tieba.baidu.com/";
+    public static final String DOMAIN_TIEBA = "tieba.baidu.com/";
+    public static final String DOMAIN_TIEBAC = "tiebac.baidu.com/";
+    public static final String HTTPS_PREFIX = "https://";
+    public static final String HTTP_PREFIX = "http://";
     public transient /* synthetic */ FieldHolder $fh;
 
     public TbDomainConfig() {

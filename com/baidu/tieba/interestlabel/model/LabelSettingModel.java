@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.ni;
-import com.repackage.ub7;
-import com.repackage.vb7;
-import com.repackage.za;
+import com.repackage.oi;
+import com.repackage.pd7;
+import com.repackage.qd7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public vb7 b;
-    public ub7 c;
-    public za d;
-    public za e;
+    public qd7 b;
+    public pd7 c;
+    public ab d;
+    public ab e;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelSettingModel a;
@@ -62,7 +62,7 @@ public class LabelSettingModel extends BdBaseModel {
             this.a = labelSettingModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
@@ -75,7 +75,7 @@ public class LabelSettingModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends za {
+    public class b extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelSettingModel a;
@@ -102,7 +102,7 @@ public class LabelSettingModel extends BdBaseModel {
             this.a = labelSettingModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
@@ -141,18 +141,18 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new ub7();
+        this.c = new pd7();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void F() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!ni.A()) {
-                vb7 vb7Var = this.b;
-                if (vb7Var != null) {
-                    vb7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+            if (!oi.A()) {
+                qd7 qd7Var = this.b;
+                if (qd7Var != null) {
+                    qd7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;
@@ -165,11 +165,11 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(List<Integer> list) {
+    public void F(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (!ni.A()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c17);
+            if (!oi.A()) {
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3c);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -179,10 +179,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void H(vb7 vb7Var) {
+    public void G(qd7 qd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vb7Var) == null) {
-            this.b = vb7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd7Var) == null) {
+            this.b = qd7Var;
         }
     }
 

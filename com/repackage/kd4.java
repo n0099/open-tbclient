@@ -1,77 +1,66 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public kd4(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    public static kd4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) != null) {
-            return (String) invokeLZ.objValue;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read > 0) {
-                        messageDigest.update(bArr, 0, read);
-                    } else {
-                        String a = a(messageDigest.digest(), "", z);
-                        kg4.d(fileInputStream);
-                        return a;
-                    }
-                }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                kg4.d(fileInputStream);
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                kg4.d(fileInputStream2);
-                throw th;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new kd4(2, 2, 1000) : (kd4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static kd4 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                return new kd4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
             }
-        } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+            return a();
         }
+        return (kd4) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

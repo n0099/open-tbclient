@@ -1,49 +1,135 @@
 package com.repackage;
 
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.DegradeData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.bean.ResultData;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class em {
+public class em extends DefaultPackageCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DefaultDownloadCallback a;
+    public gm b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public em(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str.contains(".so")) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                StringBuilder sb = new StringBuilder();
-                sb.append(di.a() ? "so_64_cache" : "so_cache");
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else {
-                str2 = str.contains(".mp3") ? "mp3_cache" : "res_cache";
-            }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        return (String) invokeL.objValue;
+        this.a = defaultDownloadCallback;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onDegradeData(DegradeData degradeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return a(str) + File.separator + str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
+            super.onDegradeData(degradeData);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onFetchError(ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) || errorInfo == null) {
+            return;
+        }
+        BdLog.e(errorInfo.errorMsg);
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onResultData(ResultData resultData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) || resultData == null) {
+            return;
+        }
+        DebugUtils.log(resultData);
+        ArrayList<PackageInfo> arrayList = new ArrayList();
+        arrayList.addAll(resultData.addList);
+        arrayList.addAll(resultData.updateList);
+        if (!arrayList.isEmpty()) {
+            for (PackageInfo packageInfo : arrayList) {
+                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                    DownloadOptions downloadOptions = new DownloadOptions();
+                    downloadOptions.fileDir = fm.a(packageInfo.name);
+                    PmsManager.getInstance().download(packageInfo, downloadOptions, new dm(this.a));
+                }
+            }
+        }
+        arrayList.clear();
+        arrayList.addAll(resultData.configChangeList);
+        arrayList.addAll(resultData.filterList);
+        if (!arrayList.isEmpty()) {
+            for (PackageInfo packageInfo2 : arrayList) {
+                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
+                    if (!packageInfo2.name.contains(".so")) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo2.name;
+                        resHashMap.put(str, fm.a(str));
+                    } else if (hm.a(BdBaseApplication.getInst().getContext(), fm.a(packageInfo2.name))) {
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo2.name;
+                        resHashMap2.put(str2, fm.a(str2));
+                        gm gmVar = this.b;
+                        if (gmVar != null) {
+                            gmVar.onSoFileLoaded(packageInfo2.name);
+                        }
+                    }
+                }
+            }
+        }
+        if (resultData.invalidList.isEmpty()) {
+            return;
+        }
+        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
+        if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
+            cm cmVar = new cm();
+            cmVar.setKey("key_res_del");
+            cmVar.execute(resultData.invalidList);
+        }
+    }
+
+    public em(DefaultDownloadCallback defaultDownloadCallback, gm gmVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback, gmVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = defaultDownloadCallback;
+        this.b = gmVar;
     }
 }

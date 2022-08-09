@@ -1,162 +1,447 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.TouchDelegate;
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class dv extends TouchDelegate {
+import com.repackage.av;
+import com.repackage.zu;
+/* loaded from: classes6.dex */
+public class dv extends av {
     public static /* synthetic */ Interceptable $ic;
+    public static View a;
+    public static Runnable b;
+    public static View c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<View, a> a;
 
-    /* loaded from: classes5.dex */
-    public class a {
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public Rect f;
-        public boolean g;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ FrameLayout.LayoutParams d;
+        public final /* synthetic */ Animation e;
 
-        public a(dv dvVar, Rect rect, int i, int i2, int i3, int i4) {
+        public a(View view2, Context context, View view3, FrameLayout.LayoutParams layoutParams, Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dvVar, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {view2, context, view3, layoutParams, animation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = i;
-            this.a = rect;
-            this.c = i3;
-            this.d = i4;
+            this.a = view2;
+            this.b = context;
+            this.c = view3;
+            this.d = layoutParams;
+            this.e = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (dv.d && this.a != null) {
+                    if (dv.c != null && (dv.c.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) dv.c.getParent()).removeView(dv.c);
+                    }
+                    Context context = this.b;
+                    if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
+                        return;
+                    }
+                    FrameLayout frameLayout = new FrameLayout(this.b);
+                    frameLayout.setClickable(true);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                    layoutParams.topMargin = zu.m(this.b);
+                    View view2 = this.a;
+                    if (view2 instanceof ViewGroup) {
+                        ((ViewGroup) view2).addView(frameLayout, layoutParams);
+                        View unused = dv.c = frameLayout;
+                    }
+                }
+                if (dv.a != null && (dv.a.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) dv.a.getParent()).removeView(dv.a);
+                }
+                Context context2 = this.b;
+                if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
+                    return;
+                }
+                ((ViewGroup) this.a).addView(this.c, this.d);
+                this.c.startAnimation(this.e);
+                View unused2 = dv.a = this.c;
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dv(View view2, int i, int i2, int i3, int i4, Rect rect) {
-        super(rect, view2);
-        Interceptable interceptable = $ic;
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                dv.f();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements av.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(int i, View view2, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), view2, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = view2;
+            this.c = i2;
+        }
+
+        @Override // com.repackage.av.e
+        public void a(ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.gravity = 81;
+                layoutParams.bottomMargin = this.a;
+                dv.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f010125);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements zu.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zu.a a;
+
+        public d(zu.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.repackage.zu.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zu.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                dv.f();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ View b;
+
+        /* loaded from: classes6.dex */
+        public class a implements Animation.AnimationListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            /* renamed from: com.repackage.dv$e$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0464a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public RunnableC0464a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a.getParent() == null) {
+                        return;
+                    }
+                    ((ViewGroup) this.a.a.a.getParent()).removeView(this.a.a.a);
+                }
+            }
+
+            /* loaded from: classes6.dex */
+            public class b implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public b(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    View view2;
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a.a.b) == null || view2.getParent() == null || !(this.a.a.b.getParent() instanceof ViewGroup)) {
+                        return;
+                    }
+                    ((ViewGroup) this.a.a.b.getParent()).removeView(this.a.a.b);
+                }
+            }
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                    if (this.a.a.getParent() instanceof ViewGroup) {
+                        this.a.a.post(new RunnableC0464a(this));
+                    }
+                    View view2 = this.a.b;
+                    if (view2 != null) {
+                        view2.post(new b(this));
+                    }
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                }
+            }
+        }
+
+        public e(View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, view3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = view3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f010126);
+                loadAnimation.setAnimationListener(new a(this));
+                this.a.startAnimation(loadAnimation);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964041805, "Lcom/repackage/dv;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Rect) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new HashMap();
-        b(view2, i, i2, i3, i4);
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                a value = entry.getValue();
-                key.getGlobalVisibleRect(value.a);
-                Rect rect = value.a;
-                int i = rect.left;
-                int i2 = value.b;
-                rect.left = i - i2;
-                rect.right += value.c;
-                rect.top -= i2;
-                rect.bottom += value.d;
-                value.e = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
-                Rect rect2 = new Rect(value.a);
-                value.f = rect2;
-                int i3 = value.e;
-                rect2.inset(-i3, -i3);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964041805, "Lcom/repackage/dv;");
         }
     }
 
-    public void b(View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
-        }
-    }
-
-    @Override // android.view.TouchDelegate
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public static View d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = true;
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                if (key.getVisibility() != 0) {
-                    break;
-                }
-                a value = entry.getValue();
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action == 1 || action == 2) {
-                        z2 = value.g;
-                        if (z2 && !value.f.contains(rawX, rawY)) {
-                            z3 = false;
-                        }
-                    } else if (action == 3) {
-                        z2 = value.g;
-                        value.g = false;
-                    }
-                } else if (value.a.contains(rawX, rawY)) {
-                    value.g = true;
-                    z2 = true;
-                } else {
-                    value.g = false;
-                    z2 = false;
-                }
-                if (z2) {
-                    if (z3) {
-                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
-                    } else {
-                        float f = -(value.e * 2);
-                        motionEvent.setLocation(f, f);
-                    }
-                    z = key.dispatchTouchEvent(motionEvent);
-                    continue;
-                }
-                if (z) {
-                    break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+                return null;
+            }
+            return activity.getWindow().getDecorView().findViewById(16908290);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (dv.class) {
+                if (a != null) {
+                    a.post(new e(a, c));
+                    a.removeCallbacks(b);
+                    a = null;
+                    b = null;
+                    c = null;
                 }
             }
-            return z;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void g(Activity activity, CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, zu.a aVar, xs xsVar) {
+        View d2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{activity, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, aVar, xsVar}) == null) || (d2 = d(activity)) == null) {
+            return;
+        }
+        activity.getResources();
+        Context context = d2.getContext();
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070645);
+        if (xsVar != null) {
+            dimension = xsVar.a();
+        }
+        av.b(context, charSequence, i, charSequence2, i2, str, str2, str3, str4, str5, str6, new c(dimension, d2, i3), new d(aVar));
+    }
+
+    public static void i(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, Animation animation) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, animation}) == null) || view2 == null || view3 == null) {
+            return;
+        }
+        Context context = view2.getContext();
+        if (view3.getParent() instanceof ViewGroup) {
+            ((ViewGroup) view3.getParent()).removeView(view3);
+        }
+        view3.setClickable(true);
+        if (view2 instanceof ViewGroup) {
+            view2.post(new a(view2, context, view3, layoutParams, animation));
+            if (b == null) {
+                b = new b();
+            }
+            view2.postDelayed(b, i * 1000);
+        }
+    }
+
+    public static void k(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, Integer.valueOf(i2)}) == null) || view2 == null || view3 == null) {
+            return;
+        }
+        i(view2, view3, i, layoutParams, AnimationUtils.loadAnimation(view2.getContext(), i2));
     }
 }

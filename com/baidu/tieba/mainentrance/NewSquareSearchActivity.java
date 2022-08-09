@@ -38,16 +38,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bg7;
-import com.repackage.df7;
-import com.repackage.ef7;
-import com.repackage.ni;
-import com.repackage.pi;
-import com.repackage.qg;
-import com.repackage.tt4;
-import com.repackage.yt4;
+import com.repackage.ab;
+import com.repackage.mu4;
+import com.repackage.oi;
+import com.repackage.qi;
+import com.repackage.rg;
+import com.repackage.ru4;
+import com.repackage.wh7;
+import com.repackage.yg7;
 import com.repackage.z8;
-import com.repackage.za;
+import com.repackage.zg7;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,14 +60,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean b;
     public boolean c;
     public HotForumModel d;
-    public bg7 e;
+    public wh7 e;
     public boolean f;
-    public final za g;
+    public final ab g;
     public CustomMessageListener h;
     public HotSearchInfoData i;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewSquareSearchActivity a;
@@ -94,7 +94,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             this.a = newSquareSearchActivity;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -105,7 +105,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                             return;
                         }
                         NewSquareSearchActivity newSquareSearchActivity = this.a;
-                        newSquareSearchActivity.showToast(newSquareSearchActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c17));
+                        newSquareSearchActivity.showToast(newSquareSearchActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c3c));
                         this.a.b = true;
                         return;
                     }
@@ -166,7 +166,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.E1(customResponsedMessage.getData().toString());
+                this.a.D1(customResponsedMessage.getData().toString());
             }
         }
     }
@@ -199,7 +199,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pi.M(this.a.getPageContext().getPageActivity(), this.a.e.o());
+                qi.M(this.a.getPageContext().getPageActivity(), this.a.e.o());
             }
         }
     }
@@ -333,11 +333,18 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         this.h = new b(this, 2001608);
     }
 
-    public final void E1(String str) {
+    @Override // com.baidu.tieba.mainentrance.HotForumModel.b
+    public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (!ni.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c17);
+        }
+    }
+
+    public final void D1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (!oi.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c3c);
             } else if (StringUtils.isNull(str)) {
             } else {
                 if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
@@ -349,14 +356,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void F(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public final void F1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String stringExtra = getIntent().getStringExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY);
@@ -373,29 +373,29 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    public final void G1() {
+    public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HotSearchInfoData hotSearchInfoData = this.i;
-            if (hotSearchInfoData != null && !TextUtils.isEmpty(hotSearchInfoData.A()) && !TextUtils.isEmpty(this.i.getName())) {
+            if (hotSearchInfoData != null && !TextUtils.isEmpty(hotSearchInfoData.z()) && !TextUtils.isEmpty(this.i.getName())) {
                 this.e.y(this.i);
                 return;
             }
             try {
-                this.a = (HotSearchInfoData) OrmObject.objectWithJsonStr(yt4.k().q("hot_search_info", ""), HotSearchInfoData.class);
+                this.a = (HotSearchInfoData) OrmObject.objectWithJsonStr(ru4.k().q("hot_search_info", ""), HotSearchInfoData.class);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
             HotSearchInfoData hotSearchInfoData2 = this.a;
-            if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.A()) && !TextUtils.isEmpty(this.a.getName())) {
+            if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.z()) && !TextUtils.isEmpty(this.a.getName())) {
                 this.e.y(this.a);
             } else {
-                this.d.L();
+                this.d.K();
             }
         }
     }
 
-    public final void H1(HotSearchInfoData hotSearchInfoData) {
+    public final void G1(HotSearchInfoData hotSearchInfoData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, hotSearchInfoData) == null) || this.c || hotSearchInfoData == null) {
             return;
@@ -413,9 +413,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                tt4.e(getPageContext().getPageActivity(), 1);
+                mu4.e(getPageContext().getPageActivity(), 1);
             } else {
-                tt4.e(getPageContext().getPageActivity(), 2);
+                mu4.e(getPageContext().getPageActivity(), 2);
             }
         }
     }
@@ -431,7 +431,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -456,7 +456,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         } else {
             this.i.setName(stringExtra2);
         }
-        this.i.C(stringExtra);
+        this.i.B(stringExtra);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -478,10 +478,10 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             addGlobalLayoutListener();
             registerListener(this.g);
             registerListener(this.h);
-            this.e = new bg7(this, this.c);
-            F1();
+            this.e = new wh7(this, this.c);
+            E1();
             this.d = new HotForumModel(getPageContext(), this);
-            G1();
+            F1();
         }
     }
 
@@ -490,9 +490,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            bg7 bg7Var = this.e;
-            if (bg7Var != null) {
-                bg7Var.s();
+            wh7 wh7Var = this.e;
+            if (wh7Var != null) {
+                wh7Var.s();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
@@ -512,7 +512,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     p.goBack();
                     return true;
                 }
-                qg.a().postDelayed(new d(this), 200L);
+                rg.a().postDelayed(new d(this), 200L);
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -534,9 +534,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            bg7 bg7Var = this.e;
-            if (bg7Var != null) {
-                bg7Var.t();
+            wh7 wh7Var = this.e;
+            if (wh7Var != null) {
+                wh7Var.t();
             }
             registerGetShareContentTask();
             TbSingleton.getInstance().setFromWhichSearchSource("");
@@ -548,7 +548,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onStart();
-            qg.a().postDelayed(new c(this), 300L);
+            rg.a().postDelayed(new c(this), 300L);
         }
     }
 
@@ -560,21 +560,21 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    public final void registerGetShareContentTask() {
+    @Override // com.baidu.tieba.mainentrance.HotForumModel.b
+    public void r(List<yg7> list, List<zg7> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new e(this));
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+        if (interceptable == null || interceptable.invokeLLLL(1048593, this, list, list2, hotSearchInfoData, str) == null) {
+            G1(hotSearchInfoData);
+            this.e.y(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void s(List<df7> list, List<ef7> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public final void registerGetShareContentTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048594, this, list, list2, hotSearchInfoData, str) == null) {
-            H1(hotSearchInfoData);
-            this.e.y(this.a);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new e(this));
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 }

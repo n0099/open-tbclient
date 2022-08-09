@@ -1,18 +1,16 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class tb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? IPCServiceManager.d() : (Bundle) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ey0.a().b("splash_sp_name").g("splash_launch_status", 2);
+        }
     }
 }

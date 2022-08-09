@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
-import com.repackage.b99;
+import com.repackage.wb9;
 import java.nio.Buffer;
 import java.util.List;
 import java.util.Map;
@@ -186,10 +186,10 @@ public class MultiDataSourceUtil {
         MediaSegment mediaSegment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, mediaTrack, i)) == null) {
-            if (i < 0 || mediaTrack == null || b99.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) b99.c(mediaTrack.mediaSegments, i)) == null) {
+            if (i < 0 || mediaTrack == null || wb9.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) wb9.c(mediaTrack.mediaSegments, i)) == null) {
                 return 0L;
             }
-            MediaTransition mediaTransition = (MediaTransition) b99.c(mediaTrack.mediaTransitions, i);
+            MediaTransition mediaTransition = (MediaTransition) wb9.c(mediaTrack.mediaTransitions, i);
             return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
         }
         return invokeLI.longValue;

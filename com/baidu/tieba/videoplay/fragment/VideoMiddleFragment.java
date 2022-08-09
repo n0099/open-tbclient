@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.BdTracesManager;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tieba.videoplay.VideoPlayActivity;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener K;
+    public CustomMessageListener L;
 
     /* loaded from: classes4.dex */
     public class a implements BdSwipeRefreshLayout.k {
@@ -121,23 +122,21 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (customResponsedMessage == null && customResponsedMessage.getData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
+            }
+            boolean z = true;
+            boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : true;
+            if ((this.a.getActivity() == null || !(this.a.getActivity() instanceof VideoPlayActivity)) ? false : false) {
+                if (booleanValue) {
+                    this.a.i.setVisibility(0);
+                    this.a.k.setVisibility(0);
+                    this.a.j.setVisibility(0);
                     return;
                 }
-                boolean z = true;
-                boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : true;
-                if ((this.a.getActivity() == null || !(this.a.getActivity() instanceof VideoPlayActivity)) ? false : false) {
-                    if (booleanValue) {
-                        this.a.i.setVisibility(0);
-                        this.a.k.setVisibility(0);
-                        this.a.j.setVisibility(0);
-                        return;
-                    }
-                    this.a.i.setVisibility(8);
-                    this.a.k.setVisibility(8);
-                    this.a.j.setVisibility(8);
-                }
+                this.a.i.setVisibility(8);
+                this.a.k.setVisibility(8);
+                this.a.j.setVisibility(8);
             }
         }
     }
@@ -155,11 +154,11 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 return;
             }
         }
-        this.K = new c(this, 2921665);
+        this.L = new c(this, 2921665);
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int M1() {
+    public int L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -169,14 +168,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment O1() {
+    public Fragment N1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VideoAttentionPageFragment(this.g, new a(this), 0, 2) : (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment P1() {
+    public Fragment O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new VideoVerticalPageFragment(this.g, new b(this), 1, 1) : (Fragment) invokeV.objValue;
@@ -195,15 +194,15 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
-            registerListener(this.K);
+            registerListener(this.L);
         }
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment
-    public void v1(View view2, Bundle bundle) {
+    public void u1(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, bundle) == null) {
-            super.v1(view2, bundle);
+            super.u1(view2, bundle);
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 VideoChannelHeaderLayout videoChannelHeaderLayout = this.i;
                 if (videoChannelHeaderLayout != null) {
@@ -213,9 +212,9 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 if (imageView != null) {
                     imageView.setVisibility(8);
                 }
-                ImageView imageView2 = this.j;
-                if (imageView2 != null) {
-                    imageView2.setVisibility(8);
+                AlaLiveTipView alaLiveTipView = this.j;
+                if (alaLiveTipView != null) {
+                    alaLiveTipView.setVisibility(8);
                 }
             }
         }

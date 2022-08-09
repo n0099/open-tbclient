@@ -1,285 +1,234 @@
 package com.repackage;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
+import com.baidu.nadcore.download.view.DefaultDownloadViewLP;
+import com.baidu.nadcore.download.view.NadLPDownloadAuditView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class aj0 {
+public class aj0 extends bj0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NotificationManager a;
-    public NotificationCompat.Builder b;
+    public boolean f;
+    public vi0 g;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final aj0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-527199060, "Lcom/repackage/aj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-527199060, "Lcom/repackage/aj0$b;");
+        public a(aj0 aj0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aj0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new aj0(null);
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
         }
-    }
 
-    public /* synthetic */ aj0(a aVar) {
-        this();
-    }
-
-    public static aj0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (aj0) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        try {
-            a(135637042);
-            a(1743353008);
-            a(-1276312226);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final NotificationCompat.Builder c() {
-        InterceptResult invokeV;
-        NotificationCompat.Builder builder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context b2 = hh0.b();
-            if (Build.VERSION.SDK_INT >= 26) {
-                d();
-                builder = new NotificationCompat.Builder(b2, "com.baidu.nadcore.notification.channel");
-            } else {
-                builder = new NotificationCompat.Builder(b2);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
             }
-            builder.setSmallIcon(ri0.b().a());
-            builder.setWhen(System.currentTimeMillis());
-            builder.setPriority(0);
-            builder.setDefaults(-1);
-            builder.setVisibility(1);
-            builder.setVibrate(new long[]{0});
-            builder.setSound(null);
-            return builder;
-        }
-        return (NotificationCompat.Builder) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 26)
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null) {
-            return;
-        }
-        NotificationChannel notificationChannel = new NotificationChannel("com.baidu.nadcore.notification.channel", "下载消息提示", 4);
-        notificationChannel.setLockscreenVisibility(1);
-        notificationChannel.enableLights(false);
-        notificationChannel.enableVibration(false);
-        notificationChannel.setVibrationPattern(new long[]{0});
-        notificationChannel.setSound(null, null);
-        this.a.createNotificationChannel(notificationChannel);
-    }
-
-    public PendingIntent e(String str, si0 si0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, si0Var)) == null) {
-            if (TextUtils.isEmpty(str) || si0Var == null) {
-                return null;
-            }
-            Context b2 = hh0.b();
-            Intent intent = new Intent(str);
-            intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_PACKAGE_NAME, si0Var.d);
-            File file = si0Var.h;
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH, (file == null || !file.exists()) ? "" : si0Var.h.getAbsolutePath());
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFY_TYPE, si0Var.q.m);
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFICATION_ID, si0Var.d().hashCode());
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_EXTRA_PARAM, si0Var.p.a);
-            return PendingIntent.getBroadcast(b2, si0Var.d().hashCode(), intent, 134217728);
-        }
-        return (PendingIntent) invokeLL.objValue;
-    }
-
-    public void g(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.z(str);
-            }
-            if (!TextUtils.equals(str, ClogBuilder.LogType.DOWNLOAD_INSTALL.type) && !TextUtils.equals(str, ClogBuilder.LogType.OPEN_APP.type)) {
-                clogBuilder.u(ClogBuilder.Page.AD_NOTIFICATION);
-            } else {
-                clogBuilder.u(ClogBuilder.Page.RETARGET);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                clogBuilder.k(str4);
-            }
-            iy0.b(clogBuilder);
         }
     }
 
-    public void h(si0 si0Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, si0Var, str) == null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = hh0.b();
-            String str2 = si0Var.p.h;
-            String str3 = "";
-            if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b79);
-            } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b7f);
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
+
+        public b(aj0 aj0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aj0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            NotificationCompat.Builder c = c();
-            c.setTicker(str2 + str3);
-            c.setContentTitle(str2);
-            c.setContentText(str3);
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(1743353008, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
         }
-    }
 
-    public void i(si0 si0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, si0Var) == null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = hh0.b();
-            String str = si0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b80);
-            NotificationCompat.Builder c = c();
-            c.setTicker(string);
-            c.setContentTitle(str);
-            c.setContentText(string);
-            c.setContentIntent(e(NotificationReceiver.RECEIVER_ACTION_DOWNLOAD_SUCCESS, si0Var));
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(-1276312226, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void j(si0 si0Var) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, si0Var) == null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(1743353008);
-            this.a.cancel(-1276312226);
-            Context b2 = hh0.b();
-            String str = si0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b81);
-            int i = (int) (si0Var.i * 100.0f);
-            if (this.b == null) {
-                NotificationCompat.Builder c = c();
-                this.b = c;
-                c.setAutoCancel(false);
-                this.b.setOngoing(true);
-                NotificationCompat.Builder builder = this.b;
-                builder.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setContentText(string);
-            } else {
-                NotificationCompat.Builder builder2 = this.b;
-                builder2.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setDefaults(4);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
             }
-            this.b.setProgress(100, i, false);
-            this.a.notify(135637042, this.b.build());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public aj0() {
+    /* loaded from: classes5.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aj0 a;
+
+        public c(aj0 aj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aj0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aj0Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                WeakReference<hj0<?>> weakReference = this.a.e;
+                if (weakReference != null) {
+                    weakReference.clear();
+                }
+                this.a.e = null;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Type inference failed for: r8v1, types: [android.view.View] */
+    public aj0(@NonNull oi0 oi0Var, @NonNull hj0<?> hj0Var) {
+        super(oi0Var, hj0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {oi0Var, hj0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((oi0) objArr2[0], (hj0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (NotificationManager) hh0.b().getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        hj0Var.getRealView().setOnClickListener(this);
+    }
+
+    public void A(ViewGroup viewGroup, vi0 vi0Var, Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, viewGroup, vi0Var, activity, i) == null) && viewGroup != null && (this.e.get() instanceof DefaultDownloadViewLP)) {
+            DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) this.e.get();
+            defaultDownloadViewLP.d(false);
+            if (i == 1) {
+                AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
+                adDownloadDlgView.b(vi0Var);
+                adDownloadDlgView.setDownloadView(defaultDownloadViewLP);
+                NadLPDownloadAuditView nadLPDownloadAuditView = new NadLPDownloadAuditView(activity);
+                nadLPDownloadAuditView.getDownloadView().addView(adDownloadDlgView);
+                adDownloadDlgView.setOnCloseClickListener(new a(this, viewGroup, nadLPDownloadAuditView));
+                nadLPDownloadAuditView.getDownloadViewOtherArea().setOnClickListener(new b(this, viewGroup, nadLPDownloadAuditView));
+                viewGroup.addView(nadLPDownloadAuditView);
+                return;
+            }
+            tj0.c(vi0Var, defaultDownloadViewLP, activity, new c(this), null);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            m();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r5v1, types: [android.view.View] */
+    @Override // com.repackage.bj0
+    public void t(hj0<?> hj0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hj0Var) == null) {
+            super.t(hj0Var);
+            hj0Var.getRealView().setOnClickListener(this);
+        }
+    }
+
+    public vi0 v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (vi0) invokeV.objValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            WeakReference<hj0<?>> weakReference = this.e;
+            if (weakReference != null && weakReference.get() != null) {
+                hj0<?> hj0Var = this.e.get();
+                if (hj0Var instanceof View) {
+                    return !((View) hj0Var).isAttachedToWindow();
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(vi0 vi0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, vi0Var) == null) {
+            this.g = vi0Var;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
+        }
     }
 }

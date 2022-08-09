@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
-import cn.com.chinatelecom.gateway.lib.c.j;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
@@ -138,7 +137,7 @@ public class a {
             contentValues.put("g", Integer.valueOf(aVar.f));
             contentValues.put("f", Integer.valueOf(aVar.h));
             contentValues.put("i", Integer.valueOf(aVar.i));
-            contentValues.put(j.a, aVar.j);
+            contentValues.put("j", aVar.j);
             String str = aVar.d;
             try {
                 str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
@@ -286,7 +285,7 @@ public class a {
                         aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
                         aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
                         aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
-                        aVar.j = cursor.getString(cursor.getColumnIndex(j.a));
+                        aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                         String string = cursor.getString(cursor.getColumnIndex("h"));
                         try {
                             string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
@@ -364,7 +363,7 @@ public class a {
                         aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
                         aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
                         aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
-                        aVar.j = cursor.getString(cursor.getColumnIndex(j.a));
+                        aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                         String string = cursor.getString(cursor.getColumnIndex("h"));
                         try {
                             string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));

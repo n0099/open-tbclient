@@ -33,7 +33,7 @@ public class PushMessageHandler extends BaseService {
     public static List<MiPushClient.ICallbackResult> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f46a;
+    public static ThreadPoolExecutor f47a;
     public static List<MiPushClient.MiPushClientCallback> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +56,7 @@ public class PushMessageHandler extends BaseService {
         }
         a = new ArrayList();
         b = new ArrayList();
-        f46a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f47a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public PushMessageHandler() {
@@ -175,21 +175,21 @@ public class PushMessageHandler extends BaseService {
                 MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) aVar;
                 String command = miPushCommandMessage.getCommand();
                 String str = null;
-                if (ey.a.f333a.equals(command)) {
+                if (ey.a.f334a.equals(command)) {
                     List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     if (commandArguments != null && !commandArguments.isEmpty()) {
                         str = commandArguments.get(0);
                     }
                     a(miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ey.c.f333a.equals(command) || ey.d.f333a.equals(command) || ey.i.f333a.equals(command)) {
+                } else if (ey.c.f334a.equals(command) || ey.d.f334a.equals(command) || ey.i.f334a.equals(command)) {
                     a(context, miPushCommandMessage.getCategory(), command, miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), miPushCommandMessage.getCommandArguments());
-                } else if (ey.g.f333a.equals(command)) {
+                } else if (ey.g.f334a.equals(command)) {
                     List<String> commandArguments2 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments2 != null && !commandArguments2.isEmpty()) {
                         str = commandArguments2.get(0);
                     }
                     a(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ey.h.f333a.equals(command)) {
+                } else if (ey.h.f334a.equals(command)) {
                     List<String> commandArguments3 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments3 != null && !commandArguments3.isEmpty()) {
                         str = commandArguments3.get(0);
@@ -376,10 +376,10 @@ public class PushMessageHandler extends BaseService {
 
     public static void c(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, context, intent) == null) || intent == null || f46a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeLL(65556, null, context, intent) == null) || intent == null || f47a.isShutdown()) {
             return;
         }
-        f46a.execute(new al(context, intent));
+        f47a.execute(new al(context, intent));
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService
@@ -388,8 +388,8 @@ public class PushMessageHandler extends BaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = f46a;
-            return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f46a.getQueue().size() <= 0) ? false : true;
+            ThreadPoolExecutor threadPoolExecutor = f47a;
+            return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f47a.getQueue().size() <= 0) ? false : true;
         }
         return invokeV.booleanValue;
     }

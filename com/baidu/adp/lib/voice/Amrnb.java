@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
 import com.repackage.mi;
+import com.repackage.ni;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +19,7 @@ public class Amrnb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends mi {
+    public static class a extends ni {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class Amrnb {
             }
         }
 
-        @Override // com.repackage.mi
+        @Override // com.repackage.ni
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -59,7 +59,7 @@ public class Amrnb {
                 return;
             }
         }
-        bLoadLibrary = li.d().i("amr-codec", 2, new a());
+        bLoadLibrary = mi.d().i("amr-codec", 2, new a());
     }
 
     public Amrnb() {

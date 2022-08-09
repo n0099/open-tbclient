@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.upstream.cache;
 
 import com.google.android.exoplayer2.upstream.cache.Cache;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface CacheEvictor extends Cache.Listener {
     void onCacheInitialized();
 

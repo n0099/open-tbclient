@@ -1,34 +1,35 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z43 extends f23 {
+public class z43 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public in1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z43(f13 f13Var) {
-        super(f13Var, "/swanAPI/login");
+    public z43(w13 w13Var) {
+        super(w13Var, "/swanAPI/webviewPostMessage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,57 +43,63 @@ public class z43 extends f23 {
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var != null && i03Var.n0()) {
-                if (f23.b) {
-                    Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (w23.b) {
+                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            zx1.i("webviewPostMsg", "start post webview msg");
+            in1 in1Var = this.c;
+            if (in1Var == null) {
+                zx1.c("webviewPostMsg", "none webview widget");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
                 return false;
-            } else if (i03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                qj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception").toString());
+            }
+            x43 params = in1Var.getParams();
+            if (params == null) {
+                zx1.c("webviewPostMsg", "none WWWParams");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
+                return false;
+            }
+            JSONObject a = w23.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                zx1.c("webviewPostMsg", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+                return false;
+            } else if (!a.has("data")) {
+                zx1.c("webviewPostMsg", "none param data");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
                 return false;
             } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                    qj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "params is null").toString());
-                    qo1.J(i03Var, 1, 201, "params is null");
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("invokeFrom");
-                String str = optString.equals(NativeConstants.COMPONENT) ? "loginButton" : "loginApi";
-                b73.T(str, "create");
-                String optString2 = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    qj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-                    qo1.J(i03Var, 1, 201, "empty cb");
-                    return false;
-                } else if (!optParamsAsJo.optBoolean(TTDownloadField.TT_FORCE, true) && !i03Var.N().e(context)) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                    qj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                    qo1.J(i03Var, 43, 10004, "user not logged in");
-                    return true;
-                } else {
-                    if (!i03Var.N().e(context)) {
-                        b73.S("show", 1, optString);
+                String optString = a.optString("data");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("data", optString);
+                    jSONObject.put("eventType", "message");
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
+                    jSONObject.put("webviewId", params.b);
+                } catch (JSONException e) {
+                    if (w23.b) {
+                        e.printStackTrace();
                     }
-                    if (!h03.K().q().N().e(context)) {
-                        b73.T(str, "passLogin");
-                    }
-                    qo1.D(i03Var, (Activity) context, optParamsAsJo, callbackHandler, optString2, true, str);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
+                    zx1.c("webviewPostMsg", "meet json exception");
                 }
+                gg3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
+                zx1.i("webviewPostMsg", "post webview msg success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public void j(in1 in1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, in1Var) == null) {
+            this.c = in1Var;
+        }
     }
 }

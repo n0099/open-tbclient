@@ -1,7 +1,7 @@
 package com.repackage;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import android.content.Context;
 /* loaded from: classes7.dex */
-public interface xl1 extends SlideInterceptor {
-    double B();
+public interface xl1 {
+    void a(Context context);
 }

@@ -1,85 +1,64 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rl8 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class rl8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final al8 b;
-    public final Runnable c;
+    public HashMap<String, List<sl8>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rl8 a;
-
-        public a(rl8 rl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rl8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                if (this.a.b != null && this.a.b.B() != null && this.a.b.B().getCurrentTabType() == 22) {
-                    videoRedIconRequest.setCallFrom("video_tab");
-                }
-                this.a.a.sendMessage(videoRedIconRequest);
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    qg.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
-                }
-            }
-        }
-    }
-
-    public rl8(MainTabActivity mainTabActivity, al8 al8Var) {
+    public rl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this);
-        this.a = mainTabActivity;
-        this.b = al8Var;
     }
 
-    public void c() {
+    public tl8 addObserver(String str, tl8 tl8Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qg.a().removeCallbacks(this.c);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, tl8Var, z)) == null) {
+            if (tl8Var == null) {
+                tl8Var = new tl8();
+            }
+            if (this.mNotificationNameList.contains(str)) {
+                tl8Var.n(false);
+                tl8Var.s(true);
+                List<sl8> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                sl8 sl8Var = new sl8();
+                sl8Var.e(tl8Var.c());
+                sl8Var.d(z);
+                sl8Var.f(tl8Var.e());
+                list.add(sl8Var);
+                this.mAsyncCallBackMethodList.put(str, list);
+            }
+            return tl8Var;
         }
+        return (tl8) invokeLLZ.objValue;
     }
+
+    public abstract tl8 dispatch(vl8 vl8Var, tl8 tl8Var);
+
+    public abstract List<tl8> processNotification(String str, HashMap hashMap);
 }

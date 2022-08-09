@@ -1,90 +1,160 @@
 package com.repackage;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class tz5 {
+public class tz5 extends bz5<s06> {
     public static /* synthetic */ Interceptable $ic;
-    public static tz5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
+    public View i;
+    public HeadImageView j;
+    public TextView k;
+    public TextView l;
+    public TbImageView m;
+    public TextView n;
+    public View o;
+    public s06 p;
+    public int q;
+    public String r;
+    public String s;
 
-    public tz5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.q = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070266);
+        r(h());
     }
 
-    public static tz5 a() {
+    @Override // com.repackage.bz5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new tz5();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01af : invokeV.intValue;
+    }
+
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.drawable.addresslist_item_bg);
+                SkinManager.setBackgroundResource(this.n, R.drawable.label_bg_gray);
+                SkinManager.setBackgroundResource(this.o, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+                this.j.setPlaceHolder(1);
+                this.m.setPlaceHolder(2);
             }
-            return b;
+            this.a = i;
         }
-        return (tz5) invokeV.objValue;
     }
 
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.j || view2 == this.k || view2 == this.n) && !StringUtils.isNull(this.p.d)) {
+                TiebaStatic.log(new StatisticItem(this.r).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.d});
+            } else if ((view2 == this.i || view2 == this.l || view2 == this.m) && !StringUtils.isNull(this.p.g)) {
+                TiebaStatic.log(new StatisticItem(this.s).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.g});
+            }
         }
-        splashAdView.onConfigurationChanged(configuration);
     }
 
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091c31);
+            this.j = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a8a);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a8d);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a89);
+            this.m = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a8c);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a8b);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f09224a);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            this.j.setDefaultResource(17170445);
+            this.j.setPlaceHolder(1);
+            this.j.setRadius(this.q);
+            this.m.setDrawBorder(true);
+            this.m.setBorderWidth(1);
+            this.m.setPlaceHolder(2);
         }
-        splashAdView.a();
     }
 
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: s */
+    public void i(s06 s06Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, s06Var) == null) {
+            if (s06Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            this.p = s06Var;
+            this.j.K(s06Var.c, 10, false);
+            this.k.setText(UtilHelper.getFixedText(s06Var.b, 7, true));
+            if (StringUtils.isNull(s06Var.i)) {
+                this.n.setVisibility(8);
+            } else {
+                this.n.setVisibility(0);
+                this.n.setText(s06Var.i);
+            }
+            this.l.setText(s06Var.e);
+            if (rn4.c().g()) {
+                this.m.setVisibility(0);
+                this.m.K(s06Var.f, 10, false);
+                return;
+            }
+            this.m.setVisibility(8);
         }
-        splashAdView.b();
     }
 
-    public void e(BaseFragmentActivity baseFragmentActivity) {
+    public void t(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) || baseFragmentActivity == null) {
-            return;
-        }
-        SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
-        this.a = new WeakReference<>(splashAdView);
-        ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f09122d);
-        if (viewGroup != null) {
-            viewGroup.addView(splashAdView);
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            this.r = str2;
+            this.s = str3;
         }
     }
 }

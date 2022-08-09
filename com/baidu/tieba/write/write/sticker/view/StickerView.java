@@ -19,27 +19,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dd5;
-import com.repackage.ge5;
-import com.repackage.pi;
-import com.repackage.ty8;
-import com.repackage.uy8;
-import com.repackage.vy8;
+import com.repackage.ce5;
+import com.repackage.ff5;
+import com.repackage.j19;
+import com.repackage.k19;
+import com.repackage.l19;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class StickerView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ty8 b;
+    public j19 b;
     public Matrix c;
     public Matrix d;
     public PointF e;
-    public vy8 f;
+    public l19 f;
     public Paint g;
     public int h;
     public boolean i;
     public boolean j;
-    public uy8 k;
+    public k19 k;
     public long l;
     public float m;
     public float n;
@@ -72,30 +72,30 @@ public class StickerView extends ImageView {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             setScaleType(ImageView.ScaleType.MATRIX);
-            this.f = new vy8(context);
+            this.f = new l19(context);
             Paint paint = new Paint();
             this.g = paint;
             paint.setColor(-1);
-            this.g.setStrokeWidth(pi.f(context, R.dimen.obfuscated_res_0x7f070224));
+            this.g.setStrokeWidth(qi.f(context, R.dimen.obfuscated_res_0x7f070224));
             this.g.setAntiAlias(true);
         }
     }
 
-    public final boolean b(ty8 ty8Var, MotionEvent motionEvent) {
+    public final boolean b(j19 j19Var, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty8Var, motionEvent)) == null) ? ge5.e(dd5.d(ty8Var.c(), ty8Var.b()), motionEvent.getX(), motionEvent.getY()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j19Var, motionEvent)) == null) ? ff5.e(ce5.d(j19Var.c(), j19Var.b()), motionEvent.getX(), motionEvent.getY()) : invokeLL.booleanValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        ty8 ty8Var;
+        j19 j19Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (ty8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (j19Var = this.b) == null) {
             return;
         }
-        ty8Var.a(canvas);
-        float[] d = dd5.d(this.b.c(), this.b.b());
+        j19Var.a(canvas);
+        float[] d = ce5.d(this.b.c(), this.b.b());
         float f = d[0];
         float f2 = d[1];
         float f3 = d[2];
@@ -131,7 +131,7 @@ public class StickerView extends ImageView {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        uy8 uy8Var;
+        k19 k19Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
@@ -144,9 +144,9 @@ public class StickerView extends ImageView {
                         int i = this.h;
                         if (i == 2) {
                             this.d.set(this.c);
-                            float d = ge5.d(motionEvent) / this.o;
-                            float c = ge5.c(motionEvent) - this.p;
-                            PointF b = ge5.b(motionEvent);
+                            float d = ff5.d(motionEvent) / this.o;
+                            float c = ff5.c(motionEvent) - this.p;
+                            PointF b = ff5.b(motionEvent);
                             Matrix matrix = this.d;
                             PointF pointF = this.e;
                             matrix.postScale(d, d, pointF.x, pointF.y);
@@ -170,9 +170,9 @@ public class StickerView extends ImageView {
                         return true;
                     } else if (actionMasked == 5) {
                         this.h = 2;
-                        this.o = ge5.d(motionEvent);
-                        this.p = ge5.c(motionEvent);
-                        this.e = ge5.b(motionEvent);
+                        this.o = ff5.d(motionEvent);
+                        this.p = ff5.c(motionEvent);
+                        this.e = ff5.b(motionEvent);
                         this.c.set(this.b.b());
                         return true;
                     } else if (actionMasked != 6) {
@@ -181,10 +181,10 @@ public class StickerView extends ImageView {
                 }
                 this.h = 0;
                 this.e = null;
-                uy8 uy8Var2 = this.k;
-                if (uy8Var2 != null) {
+                k19 k19Var2 = this.k;
+                if (k19Var2 != null) {
                     if (this.i) {
-                        uy8Var2.c(this);
+                        k19Var2.c(this);
                     }
                     if (this.j) {
                         this.i = false;
@@ -202,16 +202,16 @@ public class StickerView extends ImageView {
             }
             if (this.j && this.f.b(motionEvent)) {
                 this.i = false;
-                uy8 uy8Var3 = this.k;
-                if (uy8Var3 != null) {
-                    uy8Var3.onDelete();
+                k19 k19Var3 = this.k;
+                if (k19Var3 != null) {
+                    k19Var3.onDelete();
                     return true;
                 }
                 return true;
             } else if (b(this.b, motionEvent)) {
                 this.i = true;
-                if (System.currentTimeMillis() - this.l <= 300 && (uy8Var = this.k) != null) {
-                    uy8Var.a(this);
+                if (System.currentTimeMillis() - this.l <= 300 && (k19Var = this.k) != null) {
+                    k19Var.a(this);
                     this.i = false;
                 }
                 this.l = System.currentTimeMillis();
@@ -220,9 +220,9 @@ public class StickerView extends ImageView {
                 return true;
             } else {
                 this.i = false;
-                uy8 uy8Var4 = this.k;
-                if (uy8Var4 != null) {
-                    uy8Var4.b(this, false);
+                k19 k19Var4 = this.k;
+                if (k19Var4 != null) {
+                    k19Var4.b(this, false);
                     invalidate();
                 }
                 return false;
@@ -243,7 +243,7 @@ public class StickerView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bitmap) == null) {
-            this.b = new ty8(bitmap);
+            this.b = new j19(bitmap);
         }
     }
 
@@ -251,7 +251,7 @@ public class StickerView extends ImageView {
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = new ty8(BitmapHelper.getResBitmap(this.a, i));
+            this.b = new j19(BitmapHelper.getResBitmap(this.a, i));
         }
     }
 
@@ -262,10 +262,10 @@ public class StickerView extends ImageView {
         }
     }
 
-    public void setmOnStickerActionListener(uy8 uy8Var) {
+    public void setmOnStickerActionListener(k19 k19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, uy8Var) == null) {
-            this.k = uy8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, k19Var) == null) {
+            this.k = k19Var;
         }
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +66,7 @@ public final class BridgeActivity extends Activity {
             Log.d("BridgeActivity", "onCreate");
             if (bundle == null || !bundle.getBoolean("isRestart")) {
                 try {
-                    intent = (Intent) getIntent().getParcelableExtra("intent");
+                    intent = (Intent) getIntent().getParcelableExtra(IntentData.KEY);
                     if (intent != null) {
                         try {
                             i = intent.getIntExtra("request_code", 0);

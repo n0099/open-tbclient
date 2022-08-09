@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-/* loaded from: classes3.dex */
+import com.repackage.pi;
+/* loaded from: classes4.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public View d;
     public View.OnClickListener e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +75,9 @@ public class PersonIntroductionActivity extends BaseActivity {
         this.e = new a(this);
     }
 
-    public static void A1(Context context, String str) {
+    public static void z1(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || oi.isEmpty(str) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || pi.isEmpty(str) || context == null) {
             return;
         }
         Intent intent = new Intent();
@@ -102,16 +102,16 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06d6);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09186e);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
+            setContentView(R.layout.obfuscated_res_0x7f0d06fd);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09193f);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e26));
-            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08ad, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e53));
+            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08d8, (View.OnClickListener) null);
             this.b = imageView;
             imageView.setOnClickListener(this.e);
             SkinManager.setImageResource(this.b, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09186d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09193e);
             this.c = textView;
             textView.setText(getIntent().getStringExtra("person_introduction"));
         }

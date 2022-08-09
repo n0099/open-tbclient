@@ -1,29 +1,15 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface gp0 {
-    void a(int i);
+    void mute(boolean z);
 
-    void onBufferEnd();
+    void pause();
 
-    void onBufferStart();
+    void resume();
 
-    void onEnd(int i);
+    void setVideoScalingMode(int i);
 
-    void onError(int i, int i2, String str);
+    void start();
 
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    void stop();
 }

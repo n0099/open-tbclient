@@ -8,6 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public final class bi {
         @Override // com.kwad.sdk.core.b
         public final JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.putValue(jSONObject, "level", this.level);
+            r.putValue(jSONObject, PollingModel.LEVEL, this.level);
             r.putValue(jSONObject, "ssid", this.apq);
             r.putValue(jSONObject, "bssid", this.apr);
             return jSONObject;

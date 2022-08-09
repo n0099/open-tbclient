@@ -2,7 +2,6 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,7 +71,7 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.pn = i;
-            addParam(Config.PACKAGE_NAME, i);
+            addParam("pn", i);
         }
     }
 

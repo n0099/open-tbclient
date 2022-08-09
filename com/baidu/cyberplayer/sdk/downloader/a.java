@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -28,7 +28,7 @@ public class a implements b.a {
     public ArrayList<String> e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface InterfaceC0090a {
         void a(String str, long j);
 

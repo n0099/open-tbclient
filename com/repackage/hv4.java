@@ -1,169 +1,91 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class hv4 {
+public class hv4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
 
-    /* loaded from: classes6.dex */
-    public static class a extends BdAsyncTask<String, Integer, Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Integer doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            HttpURLConnection httpURLConnection;
-            DataOutputStream dataOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                HttpURLConnection httpURLConnection2 = null;
-                if (strArr != null) {
-                    ?? length = strArr.length;
-                    try {
-                        if (length != 0) {
-                            try {
-                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
-                                try {
-                                    httpURLConnection.setRequestMethod("POST");
-                                    httpURLConnection.setDoOutput(true);
-                                    httpURLConnection.setDoInput(true);
-                                    httpURLConnection.setConnectTimeout(ib.d().c().b());
-                                    httpURLConnection.setReadTimeout(ib.d().b().b());
-                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
-                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                                    httpURLConnection.connect();
-                                    try {
-                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                                        try {
-                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
-                                            dataOutputStream.flush();
-                                            mg.d(dataOutputStream);
-                                            httpURLConnection.getResponseCode();
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            mg.d(dataOutputStream);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        dataOutputStream = null;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    e.printStackTrace();
-                                    mg.e(httpURLConnection);
-                                    return null;
-                                }
-                            } catch (Exception e2) {
-                                e = e2;
-                                httpURLConnection = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                mg.e(httpURLConnection2);
-                                throw th;
-                            }
-                            mg.e(httpURLConnection);
-                            return null;
-                        }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        httpURLConnection2 = length;
-                    }
-                }
-                return null;
-            }
-            return (Integer) invokeL.objValue;
-        }
-    }
-
-    public static void a(DownloadData downloadData, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hv4(Drawable drawable) {
+        super(drawable);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
-            if (oi.isEmpty(itemDownloadExtraData.shouzhuSource)) {
-                itemDownloadExtraData.shouzhuSource = iv4.f().g(itemDownloadExtraData.pkgName);
-            }
-            c(downloadData, i);
-            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
-        }
-    }
-
-    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pkgname", str);
-                jSONObject.put("appname", str2);
-                jSONObject.put("host", 4);
-                jSONObject.put("scene", i);
-                jSONObject.put("category", i2);
-                jSONObject.put("event", i3);
-                jSONObject.put("source", str3);
-                new a().execute(jSONObject.toString());
-            } catch (JSONException unused) {
-            }
-        }
-    }
-
-    public static void c(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
-            if (i != 100 && i != 200) {
-                if (i != 300) {
-                    if (i != 400) {
-                        if (i != 500) {
-                            if (i != 600) {
-                                if (i == 700 || i == 800) {
-                                    iv4.f().e(downloadData);
-                                    return;
-                                } else if (i != 900) {
-                                    return;
-                                } else {
-                                    iv4.f().k(downloadData);
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                    iv4.f().j(downloadData);
-                    return;
-                }
-                iv4.f().d(downloadData);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            iv4.f();
         }
+    }
+
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+            a.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = a().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
+            }
+            return bounds.right;
+        }
+        return invokeCommon.intValue;
     }
 }

@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ai5;
+import com.repackage.oj5;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,7 +95,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public ai5 g0;
+    public oj5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -454,7 +454,7 @@ public class VerticalViewPager extends ViewGroup {
 
     /* loaded from: classes3.dex */
     public interface f {
-        void a(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
+        void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 
     /* loaded from: classes3.dex */
@@ -1314,7 +1314,7 @@ public class VerticalViewPager extends ViewGroup {
                             sb.append(" => ");
                             sb.append(parent2.getClass().getSimpleName());
                         }
-                        Log.e(ViewPager.TAG, "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
+                        Log.e("ViewPager", "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
                     }
                 }
                 findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, i);
@@ -2436,7 +2436,7 @@ public class VerticalViewPager extends ViewGroup {
             if (fVar == null || pagerAdapter3 == pagerAdapter) {
                 return;
             }
-            fVar.a(pagerAdapter3, pagerAdapter);
+            fVar.onAdapterChanged(pagerAdapter3, pagerAdapter);
         }
     }
 
@@ -2447,7 +2447,7 @@ public class VerticalViewPager extends ViewGroup {
                 try {
                     this.W = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
                 } catch (NoSuchMethodException e2) {
-                    Log.e(ViewPager.TAG, "Can't find setChildrenDrawingOrderEnabled", e2);
+                    Log.e("ViewPager", "Can't find setChildrenDrawingOrderEnabled", e2);
                 }
             }
             Method method = this.W;
@@ -2455,7 +2455,7 @@ public class VerticalViewPager extends ViewGroup {
                 try {
                     method.invoke(this, Boolean.valueOf(z));
                 } catch (Exception e3) {
-                    Log.e(ViewPager.TAG, "Error changing children drawing order", e3);
+                    Log.e("ViewPager", "Error changing children drawing order", e3);
                 }
             }
         }
@@ -2469,13 +2469,13 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(ai5.b bVar) {
-        ai5 ai5Var;
+    public void setEventListener(oj5.b bVar) {
+        oj5 oj5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (ai5Var = this.g0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (oj5Var = this.g0) == null) {
             return;
         }
-        ai5Var.f(bVar);
+        oj5Var.f(bVar);
     }
 
     public void setNeedHanleTouch(boolean z) {
@@ -2489,7 +2489,7 @@ public class VerticalViewPager extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             if (i < 1) {
-                Log.w(ViewPager.TAG, "Requested offscreen page limit " + i + " too small; defaulting to 1");
+                Log.w("ViewPager", "Requested offscreen page limit " + i + " too small; defaulting to 1");
                 i = 1;
             }
             if (i != this.w) {
@@ -2606,7 +2606,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new ai5(this);
+            this.g0 = new oj5(this);
         }
     }
 

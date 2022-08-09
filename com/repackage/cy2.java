@@ -1,29 +1,36 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.graphics.Rect;
+import android.graphics.Color;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.publisher.PublishParams;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class cy2 {
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public final class cy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
+    public static final List<String> b;
+    public static final List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public ky2 c;
-    public Context d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,135 +45,151 @@ public class cy2 {
                 return;
             }
         }
-        e = sg1.a;
+        a = jh1.a;
+        b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", ReplyEditorParams.MODULE_EMOJI, "video", "friends", "target"});
+        c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", ReplyEditorParams.MODULE_EMOJI});
     }
 
-    public cy2(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
-    }
-
-    public final ky2 a(View view2) {
+    public static final PublishParams a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        int i;
+        float f;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ky2 ky2Var = this.c;
-            if (ky2Var != null) {
-                return ky2Var;
-            }
-            if (view2 instanceof ky2) {
-                ky2 ky2Var2 = (ky2) view2;
-                this.c = ky2Var2;
-                return ky2Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    ky2 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
+                ArrayList arrayList = new ArrayList(c);
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    arrayList.clear();
+                    int length = optJSONArray.length();
+                    for (int i5 = 0; i5 < length; i5++) {
+                        try {
+                            String string = optJSONArray.getString(i5);
+                            if (b.contains(string)) {
+                                arrayList.add(string);
+                            }
+                        } catch (JSONException e) {
+                            if (a) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }
-                return null;
-            } else {
-                return null;
+                if (arrayList.isEmpty() && a) {
+                    Log.d("PublishParams", "展示列表为空");
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
+                if (optJSONObject != null) {
+                    double d = 1.0f;
+                    i = Math.min(9, optJSONObject.optInt("maxNum", 9));
+                    f = (float) Math.min(d, jSONObject.optDouble("ratio", d));
+                } else {
+                    i = 9;
+                    f = 1.0f;
+                }
+                Application context = gk2.c();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f12e1);
+                String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f12e2), 20, null, 4, null);
+                String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f12e3), 4, null, 4, null);
+                String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f0110), 4, null, 4, null);
+                String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f12e4), 8, null, 4, null);
+                String c2 = c(jSONObject, "navBarTextStyle", "");
+                if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
+                    c2 = "black";
+                }
+                int parseColor = Color.parseColor(c2);
+                try {
+                    i2 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
+                } catch (Exception e6) {
+                    if (a) {
+                        e6.printStackTrace();
+                    }
+                    i2 = -1;
+                }
+                int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060a8e);
+                try {
+                    i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
+                } catch (Exception e7) {
+                    if (a) {
+                        e7.printStackTrace();
+                    }
+                    i3 = color;
+                }
+                try {
+                    i4 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
+                } catch (Exception e8) {
+                    if (a) {
+                        e8.printStackTrace();
+                    }
+                    i4 = -16777216;
+                }
+                return new PublishParams(b2, e2, e5, parseColor, i2, e3, i3, e4, i4, jSONObject.optString("targetText", ""), jSONObject.optString("emojiPath", ""), jSONObject.optString("cb"), i, f, arrayList, null, null, 98304, null);
             }
+            return null;
         }
-        return (ky2) invokeL.objValue;
+        return (PublishParams) invokeL.objValue;
     }
 
-    public void b(int i, int i2) {
+    public static final String b(@NonNull Context context, @NonNull JSONObject obj, @NonNull String key, @StringRes int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (jy2.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (jy2.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, obj, key, i)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(obj, "obj");
+            Intrinsics.checkNotNullParameter(key, "key");
+            String optString = obj.optString(key);
+            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
+            if (StringsKt__StringsJVMKt.isBlank(optString)) {
+                String string = context.getString(i);
+                Intrinsics.checkNotNullExpressionValue(string, "context.getString(defaultStrRes)");
+                return string;
             }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            ky2 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < hy2.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > hy2.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
+            return optString;
         }
+        return (String) invokeLLLI.objValue;
+    }
+
+    public static final String c(@NonNull JSONObject obj, @NonNull String key, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, key, str)) == null) {
+            Intrinsics.checkNotNullParameter(obj, "obj");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(str, "default");
+            String optString = obj.optString(key);
+            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
+            return StringsKt__StringsJVMKt.isBlank(optString) ? str : optString;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static final String d(String s, int i, String substitue) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, s, i, substitue)) == null) {
+            Intrinsics.checkNotNullParameter(s, "s");
+            Intrinsics.checkNotNullParameter(substitue, "substitue");
+            if (s.length() <= i) {
+                return s;
+            }
+            StringBuilder sb = new StringBuilder();
+            String substring = s.substring(0, i - 1);
+            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            sb.append(substring);
+            sb.append(substitue);
+            return sb.toString();
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    public static /* synthetic */ String e(String str, int i, String str2, int i2, Object obj) {
+        if ((i2 & 4) != 0) {
+            str2 = StringHelper.STRING_MORE;
+        }
+        return d(str, i, str2);
     }
 }

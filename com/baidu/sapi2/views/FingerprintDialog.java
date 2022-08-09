@@ -109,7 +109,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FingerprintDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100182);
+        super(context, R.style.obfuscated_res_0x7f100186);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,13 +127,13 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
             }
         }
         this.g = context;
-        setContentView(R.layout.obfuscated_res_0x7f0d04da);
-        this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090364);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf9);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf8);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf6);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf7);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bf5);
+        setContentView(R.layout.obfuscated_res_0x7f0d04e3);
+        this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09037c);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce1);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cde);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cdf);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cdd);
         a();
         ViewUtility.setViewClickAlpha(this.d, 0.2f);
         ViewUtility.setViewClickAlpha(this.e, 0.2f);
@@ -149,13 +149,13 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
             if ((i <= 2 ? Math.max(i, 1) : 2) == 1) {
                 this.d.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-                layoutParams.leftMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f07061f);
-                layoutParams.rightMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f07061f);
+                layoutParams.leftMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f070620);
+                layoutParams.rightMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f070620);
             } else {
                 this.d.setVisibility(0);
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-                layoutParams2.leftMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f07061e);
-                layoutParams2.rightMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f070620);
+                layoutParams2.leftMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f07061f);
+                layoutParams2.rightMargin = (int) this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f070621);
             }
             return this;
         }
@@ -167,7 +167,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090dbb).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f090e05).setVisibility(8);
             return this;
         }
         return (FingerprintDialogInterface) invokeV.objValue;
@@ -221,14 +221,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fcf);
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f080fcd);
-                this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609a7));
-                this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609d4));
-                this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609a7));
-                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd1));
-                this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609a7));
-                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd3));
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081035);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f081033);
+                this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
+                this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
+                this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
+                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081037));
+                this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
+                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081039));
             }
         }
     }

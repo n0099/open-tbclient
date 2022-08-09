@@ -1,73 +1,40 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collection;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class oj2 extends DataOutputStream {
+import com.repackage.ix1;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class oj2 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final mj2<byte[], String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements mj2<byte[], String> {
+    /* loaded from: classes7.dex */
+    public class a implements ix1.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ oj2 b;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mj2
-        @Nullable
-        public byte[] call(@Nullable String str) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str == null) {
-                    return null;
-                }
-                return str.getBytes();
-            }
-            return (byte[]) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements mj2<byte[], Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oj2 a;
-
-        public b(oj2 oj2Var) {
+        public a(oj2 oj2Var, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oj2Var};
+                Object[] objArr = {oj2Var, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -77,146 +44,97 @@ public class oj2 extends DataOutputStream {
                     return;
                 }
             }
-            this.a = oj2Var;
+            this.b = oj2Var;
+            this.a = callbackHandler;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mj2
-        @Nullable
-        public byte[] call(@Nullable Boolean bool) throws Exception {
-            InterceptResult invokeL;
+        @Override // com.repackage.ix1.g
+        public void a(String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
-                if (bool == null || !bool.booleanValue()) {
-                    return null;
-                }
-                return new byte[0];
-            }
-            return (byte[]) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755437862, "Lcom/repackage/oj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755437862, "Lcom/repackage/oj2;");
-                return;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+                this.b.k(this.a, 0, str, jSONObject);
             }
         }
-        a = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oj2(OutputStream outputStream) throws IOException {
-        super(outputStream);
+    public oj2(w13 w13Var) {
+        super(w13Var, "/swanAPI/openInput");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((OutputStream) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public void a(Map<String, Boolean> map) throws IOException {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            e(map, new b(this));
-        }
-    }
-
-    public void b(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            if (bArr == null) {
-                writeInt(-1);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (w23.b) {
+                Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            writeInt(bArr.length);
-            if (bArr.length > 0) {
-                write(bArr);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            mm2 U = mm2.U();
+            if (optParamsAsJo == null) {
+                zx1.c("openInput", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-        }
-    }
-
-    public <T> void c(@Nullable T t, @NonNull mj2<byte[], T> mj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, mj2Var) == null) {
+            i02 V = U.V();
+            if (V == null) {
+                zx1.c("openInput", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
+                return false;
+            }
+            SwanAppActivity activity = mm2.U().getActivity();
+            if (activity == null) {
+                zx1.c("openInput", "activity is null when add input");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add input");
+                return false;
+            }
+            h02 o = V.o();
+            if (o == null) {
+                zx1.c("openInput", "fragment is null when add input");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
+                return false;
+            }
+            jx1 jx1Var = new jx1();
             try {
-                b(mj2Var.call(t));
-            } catch (Exception e) {
+                jx1Var.a(optParamsAsJo);
+            } catch (JSONException e) {
                 e.printStackTrace();
+                zx1.d("OpenInputAction", "model parse exception:", e);
             }
+            boolean a2 = new ix1(context, jx1Var, activity, o, new a(this, callbackHandler)).insert().a();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a2 ? 0 : 1001));
+            return a2;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public <T> void d(@Nullable Collection<T> collection, mj2<byte[], T> mj2Var) throws IOException {
+    public final void k(CallbackHandler callbackHandler, int i, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, collection, mj2Var) == null) {
-            if (collection == null) {
-                writeInt(-1);
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, i, str, jSONObject) == null) {
+            if (w23.b) {
+                Log.d("OpenInputAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
+            }
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-            writeInt(collection.size());
-            for (T t : collection) {
-                try {
-                    b(mj2Var.call(t));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public <T> void e(Map<String, T> map, mj2<byte[], T> mj2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, mj2Var) == null) {
-            if (map == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(map.size());
-            g(map.keySet());
-            d(map.values(), mj2Var);
-        }
-    }
-
-    public void f(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                b(a.call(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(Collection<String> collection) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, a);
-        }
-    }
-
-    public void h(Map<String, String> map) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, a);
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
         }
     }
 }

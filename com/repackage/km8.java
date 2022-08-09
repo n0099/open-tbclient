@@ -1,48 +1,12 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class km8 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final nl8 b;
+public interface km8 {
+    void a(nm8 nm8Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public km8(MainTabActivity mainTabActivity, al8 al8Var) {
-        super(2001437);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
-    }
+    VideoFinishResult b(String str, int i) throws IOException;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        nl8 nl8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ok8) && ((ok8) customResponsedMessage.getData()).b && this.a.C == 0 && (nl8Var = this.b) != null && nl8Var.a() != null) {
-            this.b.a().e();
-        }
-    }
+    void cancel();
 }

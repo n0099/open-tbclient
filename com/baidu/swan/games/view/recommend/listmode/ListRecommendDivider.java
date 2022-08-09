@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,11 +38,11 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070721);
-        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070722);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070722);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070723);
         Paint paint = new Paint();
         this.c = paint;
-        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060a9a));
+        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060ab6));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

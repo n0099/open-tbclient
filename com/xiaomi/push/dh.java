@@ -14,7 +14,7 @@ public class dh extends ao.b {
     public ao.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ df f219a;
+    public final /* synthetic */ df f220a;
 
     public dh(df dfVar) {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class dh extends ao.b {
                 return;
             }
         }
-        this.f219a = dfVar;
+        this.f220a = dfVar;
     }
 
     @Override // com.xiaomi.push.ao.b
     public void b() {
         df.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (df.b) this.f219a.f207a.peek()) != null && bVar.a()) {
-            if (this.f219a.f207a.remove(bVar)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (df.b) this.f220a.f208a.peek()) != null && bVar.a()) {
+            if (this.f220a.f208a.remove(bVar)) {
                 this.a = bVar;
             }
             ao.b bVar2 = this.a;

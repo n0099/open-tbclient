@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w61;
+import com.repackage.n71;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -23,6 +23,8 @@ import java.util.Set;
 public class ResourcesHookUtil {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Set<Integer>> sAddedAssetsMap;
+    public static Map<String, Set<String>> sAddedGroupMap;
+    public static Map<String, Set<Integer>> sGroupRecoveryRecord;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,6 +41,8 @@ public class ResourcesHookUtil {
             }
         }
         sAddedAssetsMap = new HashMap();
+        sGroupRecoveryRecord = new HashMap();
+        sAddedGroupMap = new HashMap();
     }
 
     public ResourcesHookUtil() {
@@ -75,7 +79,7 @@ public class ResourcesHookUtil {
                             if (!new File(str).exists()) {
                                 return false;
                             }
-                            w61.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            n71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
@@ -98,10 +102,107 @@ public class ResourcesHookUtil {
         return invokeL.booleanValue;
     }
 
+    public static Set<String> getRecoveryAssetsPathByGroup(int i, String str) {
+        InterceptResult invokeIL;
+        Set<String> set;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashSet hashSet = new HashSet();
+            if (!sAddedAssetsMap.isEmpty() && (set = sAddedGroupMap.get(str)) != null && !set.isEmpty()) {
+                for (String str2 : set) {
+                    Set<Integer> set2 = sAddedAssetsMap.get(str2);
+                    if (set2 != null && set2.contains(Integer.valueOf(i))) {
+                        hashSet.add(str2);
+                    }
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeIL.objValue;
+    }
+
     public static synchronized boolean hookAssets(AssetManager assetManager, String str) {
         InterceptResult invokeLL;
+        boolean hookAssets;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, assetManager, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, assetManager, str)) == null) {
+            synchronized (ResourcesHookUtil.class) {
+                hookAssets = hookAssets(assetManager, str, null);
+            }
+            return hookAssets;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized boolean hookResources(Resources resources, String str) {
+        InterceptResult invokeLL;
+        boolean hookResources;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, resources, str)) == null) {
+            synchronized (ResourcesHookUtil.class) {
+                hookResources = hookResources(resources, str, null);
+            }
+            return hookResources;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void recordAddByGroup(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Set<String> set = sAddedGroupMap.get(str);
+        if (set == null) {
+            set = new HashSet<>();
+            sAddedGroupMap.put(str, set);
+        }
+        if (set.contains(str2)) {
+            return;
+        }
+        set.add(str2);
+    }
+
+    public static synchronized boolean recoveryAssetsByGroup(AssetManager assetManager, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, assetManager, i, str)) == null) {
+            synchronized (ResourcesHookUtil.class) {
+                if (assetManager == null) {
+                    return false;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                Set<Integer> set = sGroupRecoveryRecord.get(str);
+                boolean z = true;
+                if (set == null || !set.contains(Integer.valueOf(assetManager.hashCode()))) {
+                    Set<String> recoveryAssetsPathByGroup = getRecoveryAssetsPathByGroup(i, str);
+                    if (recoveryAssetsPathByGroup != null && !recoveryAssetsPathByGroup.isEmpty()) {
+                        for (String str2 : recoveryAssetsPathByGroup) {
+                            z &= hookAssets(assetManager, str2, str);
+                        }
+                    }
+                    if (set == null) {
+                        set = new HashSet<>();
+                        sGroupRecoveryRecord.put(str, set);
+                    }
+                    set.add(Integer.valueOf(assetManager.hashCode()));
+                    return z;
+                }
+                return true;
+            }
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static synchronized boolean hookAssets(AssetManager assetManager, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, assetManager, str, str2)) == null) {
             synchronized (ResourcesHookUtil.class) {
                 if (assetManager == null) {
                     return false;
@@ -114,10 +215,13 @@ public class ResourcesHookUtil {
                 if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                     if (new File(str).exists()) {
                         try {
-                            w61.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            n71.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
+                                if (!TextUtils.isEmpty(str2)) {
+                                    recordAddByGroup(str2, str);
+                                }
                             }
                             set.add(Integer.valueOf(hashCode));
                             return true;
@@ -136,13 +240,13 @@ public class ResourcesHookUtil {
                 return true;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static synchronized boolean hookResources(Resources resources, String str) {
-        InterceptResult invokeLL;
+    public static synchronized boolean hookResources(Resources resources, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, resources, str, str2)) == null) {
             synchronized (ResourcesHookUtil.class) {
                 if (resources == null) {
                     return false;
@@ -156,10 +260,13 @@ public class ResourcesHookUtil {
                 if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                     if (new File(str).exists()) {
                         try {
-                            w61.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            n71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
+                                if (!TextUtils.isEmpty(str2)) {
+                                    recordAddByGroup(str2, str);
+                                }
                             }
                             set.add(Integer.valueOf(hashCode));
                             return true;
@@ -178,6 +285,6 @@ public class ResourcesHookUtil {
                 return true;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

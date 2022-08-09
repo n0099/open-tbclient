@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.content.ContentValues;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class az0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sy0[][] a;
 
     public az0() {
         Interceptable interceptable = $ic;
@@ -23,35 +23,37 @@ public abstract class az0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new sy0[0];
     }
 
-    public static sy0 a(int i, String str, String str2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) ? b(i, str, str2, i2, 0) : (sy0) invokeCommon.objValue;
-    }
-
-    public static sy0 b(int i, String str, String str2, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? new sy0(i, str, str2, i2, i3) : (sy0) invokeCommon.objValue;
-    }
-
-    public abstract Column[] c();
-
-    public abstract sy0[] d();
-
-    public sy0[][] e() {
+    public ContentValues a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (sy0[][]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? xy0.b(b().c()) : (ContentValues) invokeV.objValue;
     }
 
-    public abstract sy0[] f();
+    public abstract zy0 b();
 
-    public abstract String g();
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
 }

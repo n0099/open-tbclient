@@ -20,13 +20,13 @@ public class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f826a;
+    public Context f827a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f827a;
+    public Handler f828a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Map<String, String>> f828a;
+    public Map<String, Map<String, String>> f829a;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class r {
                 return;
             }
         }
-        this.f826a = context;
-        this.f827a = new Handler(Looper.getMainLooper());
-        this.f828a = new HashMap();
+        this.f827a = context;
+        this.f828a = new Handler(Looper.getMainLooper());
+        this.f829a = new HashMap();
     }
 
     public static r a(Context context) {
@@ -69,10 +69,10 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
             synchronized (this) {
-                if (this.f828a != null && !TextUtils.isEmpty(str)) {
+                if (this.f829a != null && !TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(str2)) {
                         try {
-                            Map<String, String> map = this.f828a.get(str);
+                            Map<String, String> map = this.f829a.get(str);
                             return map != null ? map.get(str2) : "";
                         } catch (Throwable unused) {
                             return "";
@@ -89,15 +89,15 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, str3) == null) {
             synchronized (this) {
-                if (this.f828a == null) {
-                    this.f828a = new HashMap();
+                if (this.f829a == null) {
+                    this.f829a = new HashMap();
                 }
-                Map<String, String> map = this.f828a.get(str);
+                Map<String, String> map = this.f829a.get(str);
                 if (map == null) {
                     map = new HashMap<>();
                 }
                 map.put(str2, str3);
-                this.f828a.put(str, map);
+                this.f829a.put(str, map);
             }
         }
     }
@@ -108,7 +108,7 @@ public class r {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
             synchronized (this) {
                 String a2 = a(str, str2);
-                return !TextUtils.isEmpty(a2) ? a2 : this.f826a.getSharedPreferences(str, 4).getString(str2, str3);
+                return !TextUtils.isEmpty(a2) ? a2 : this.f827a.getSharedPreferences(str, 4).getString(str2, str3);
             }
         }
         return (String) invokeLLL.objValue;
@@ -120,7 +120,7 @@ public class r {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             synchronized (this) {
                 b(str, str2, str3);
-                this.f827a.post(new s(this, str, str2, str3));
+                this.f828a.post(new s(this, str, str2, str3));
             }
         }
     }

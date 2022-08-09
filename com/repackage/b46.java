@@ -1,22 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.repackage.c46;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b46 {
+public final class b46 implements c46.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public HashMap<String, String> b;
-    public boolean c;
 
     public b46() {
         Interceptable interceptable = $ic;
@@ -28,53 +23,24 @@ public class b46 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.c46.a
+    public void a(h26 item, long j, h46 displayer, b26 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            DrawState f = item.f();
+            if (item.i().compareTo(ItemState.Measured) >= 0) {
+                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
+                f.H(true);
                 return;
             }
-        }
-        this.a = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public HashMap<String, String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (HashMap) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONObject2 = optJSONObject.optJSONObject("hotmonitor")) == null) {
-            return;
-        }
-        this.a = optJSONObject2.optString("link");
-        this.c = optJSONObject2.optInt("open", 0) == 1;
-        JSONArray optJSONArray = optJSONObject2.optJSONArray(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            return;
-        }
-        this.b = new HashMap<>();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-            if (optJSONObject3 != null) {
-                String optString = optJSONObject3.optString("event");
-                String optString2 = optJSONObject3.optString("rule");
-                if (!oi.isEmpty(optString) && !oi.isEmpty(optString2)) {
-                    this.b.put(optString, optString2);
-                }
-            }
+            f.H(false);
         }
     }
 }

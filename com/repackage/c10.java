@@ -1,54 +1,56 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.util.devices.DeviceUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes5.dex */
 public class c10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
-    public c10() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a extends g10 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public String a() {
+    @Inject(force = false)
+    public static f10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.b) {
-                StringBuilder sb = new StringBuilder();
-                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
-                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
-                    if (TextUtils.isEmpty(harmonyVersion)) {
-                        harmonyVersion = "0.0";
-                    }
-                    sb.append("HMS");
-                    sb.append("_");
-                    sb.append(harmonyVersion);
-                }
-                this.a = sb.toString();
-                this.b = true;
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bg8.a() : (f10) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static g10 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (g10) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static h10 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? dg8.a() : (h10) invokeV.objValue;
     }
 }

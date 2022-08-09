@@ -1,148 +1,104 @@
 package com.repackage;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorBar;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.net.SocketTimeoutException;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class b19 implements Executor {
+public class b19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue<Runnable> a;
-    public boolean b;
-    public boolean c;
-    public long d;
-    public final String e;
+    public TbPageContext a;
+    public o16 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755879705, "Lcom/repackage/b19;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b19 a;
+
+        public a(b19 b19Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755879705, "Lcom/repackage/b19;");
+            this.a = b19Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.b.N();
             }
         }
     }
 
-    public b19(String str) {
+    public b19(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = -1L;
-        this.e = str;
-        this.a = new LinkedBlockingQueue();
+        this.a = tbPageContext;
     }
 
-    public void a() throws IOException {
+    public void b() {
+        o16 o16Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(0);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (o16Var = this.b) == null) {
+            return;
         }
+        o16Var.N();
     }
 
-    public void b(int i) throws IOException {
+    public void c(EditorTools editorTools) {
+        EditorBar editorBar;
+        View s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            long nanoTime = System.nanoTime();
-            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-            if (!this.c) {
-                if (!this.b) {
-                    this.b = true;
-                    while (this.b) {
-                        if (i == 0) {
-                            try {
-                                c(false, 0L).run();
-                            } catch (InterruptedIOException | RuntimeException e) {
-                                this.b = false;
-                                this.c = true;
-                                throw e;
-                            }
-                        } else {
-                            c(true, (convert - System.nanoTime()) + nanoTime).run();
-                        }
-                    }
-                    return;
-                }
-                throw new IllegalStateException("Cannot run loop when it is already running.");
-            }
-            throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
+            return;
         }
-    }
-
-    public final Runnable c(boolean z, long j) throws InterruptedIOException {
-        Runnable poll;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            try {
-                if (!z) {
-                    poll = this.a.take();
-                } else {
-                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
-                }
-                if (poll != null) {
-                    return poll;
-                }
-                n09.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.e);
-                throw new SocketTimeoutException();
-            } catch (InterruptedException e) {
-                InterruptedIOException interruptedIOException = new InterruptedIOException();
-                interruptedIOException.initCause(e);
-                throw interruptedIOException;
-            }
+        if (this.b == null) {
+            o16 o16Var = new o16(this.a, s);
+            this.b = o16Var;
+            o16Var.q0(R.drawable.obfuscated_res_0x7f0802ea);
+            this.b.T(32);
+            this.b.Q(2);
+            this.b.R(new a(this));
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
+            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.b.j0(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+            this.b.u0(0);
+            this.b.v0(-dimensionPixelSize3);
+            this.b.S(3000);
         }
-        return (Runnable) invokeCommon.objValue;
-    }
-
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) throws RejectedExecutionException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            if (runnable != null) {
-                try {
-                    this.a.put(runnable);
-                    return;
-                } catch (InterruptedException e) {
-                    throw new RejectedExecutionException(e);
-                }
-            }
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void quit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-        }
+        this.b.x0(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0898), "key_show_hottopic_tip");
     }
 }

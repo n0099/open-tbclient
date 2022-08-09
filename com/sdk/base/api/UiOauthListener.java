@@ -2,7 +2,7 @@ package com.sdk.base.api;
 
 import com.sdk.base.framework.bean.OauthResultMode;
 import com.sdk.w.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface UiOauthListener {
     void onFailed(OauthResultMode oauthResultMode, e eVar);
 

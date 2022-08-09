@@ -2,22 +2,24 @@ package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PrivatePopInfo a;
-    public PrivateForumInfo b;
-    public Integer c;
+    public UserData a;
+    public AntiData b;
+    public ArrayList<String> c;
 
     public yp4() {
         Interceptable interceptable = $ic;
@@ -32,41 +34,58 @@ public class yp4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
         this.c = null;
+        this.a = new UserData();
+        this.b = new AntiData();
+        this.c = new ArrayList<>();
+        e(0);
     }
 
-    public PrivateForumInfo a() {
+    public AntiData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (PrivateForumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AntiData) invokeV.objValue;
     }
 
-    public Integer b() {
+    public UserData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (UserData) invokeV.objValue;
     }
 
-    public PrivatePopInfo c() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (PrivatePopInfo) invokeV.objValue;
-    }
-
-    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, privateForumTotalInfo) == null) || privateForumTotalInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                d(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        try {
-            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.b = privateForumTotalInfo.private_forum_info;
-            this.c = privateForumTotalInfo.private_forum_taskpercent;
-            this.a = privateForumTotalInfo.private_forum_popinfo;
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("user"));
+                this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+                JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.c.add(optJSONArray.optString(i, null));
+                    }
+                }
+                e(jSONObject.optInt("retrytime"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 }

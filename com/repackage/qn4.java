@@ -1,116 +1,70 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
+import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qn4 {
+public class qn4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+        public final /* synthetic */ boolean a;
 
-        public a() {
+        public a(qn4 qn4Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn4Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z;
         }
 
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ej4.D().G(this.a);
             }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
         }
     }
 
@@ -124,70 +78,196 @@ public class qn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (!et4.a().d() || SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) || SpeedStats.PUSH_ACTIVITY.equals(name) || "com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            return;
+        }
+        if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                et4.a().k(true);
+                return;
+            } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
                 return;
             }
         }
-        this.e = -1.0f;
+        et4.a().h(name);
     }
 
-    public static boolean a(qn4 qn4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qn4Var)) == null) {
-            if (qn4Var == null) {
-                return false;
-            }
-            return (TextUtils.isEmpty(qn4Var.f) && TextUtils.isEmpty(qn4Var.d) && ((bVar = qn4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = qn4Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        String name = activity.getClass().getName();
+        if (!et4.a().d() || SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) || SpeedStats.PUSH_ACTIVITY.equals(name) || "com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            return;
+        }
+        if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                et4.a().l(true);
+                return;
+            } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                return;
+            }
+        }
+        et4.a().g(name);
     }
 
-    @Nullable
-    public static qn4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void c(@Nullable Activity activity, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qn4 qn4Var = new qn4();
-            qn4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            qn4Var.b = jSONObject.optString("app_icon");
-            qn4Var.c = jSONObject.optString("app_name");
-            qn4Var.d = jSONObject.optString("developer_name");
-            qn4Var.f = jSONObject.optString("version");
-            qn4Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            qn4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            qn4Var.i = jSONObject.optString("apk_size");
-            qn4Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    qn4Var.e = parseFloat;
-                } else {
-                    qn4Var.e = -1.0f;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, event) == null) || activity == null || BaseActivity.class.isAssignableFrom(activity.getClass()) || BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
+            return;
+        }
+        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+            hr4 hr4Var = new hr4();
+            hr4Var.a = TbadkCoreApplication.getInst();
+            hr4Var.b = activity;
+            hr4Var.c = event;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921698, hr4Var));
+            return;
+        }
+        ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent = new ThirdPartyActivityLifecycleEvent();
+        thirdPartyActivityLifecycleEvent.event = event;
+        o75.i(thirdPartyActivityLifecycleEvent);
+    }
+
+    public final void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && activity != null && PermissionUtil.isAgreePrivacyPolicy()) {
+            if (activity.getClass().getName().equals(qi.w())) {
+                CurrentPageTypeHelper.PageType pageType = CurrentPageTypeHelper.PageType.OTHER;
+                if (TbWebViewActivity.class.isAssignableFrom(activity.getClass())) {
+                    pageType = CurrentPageTypeHelper.PageType.WEB;
+                } else if (activity.getClass().getName().contains("SwanAppActivity")) {
+                    pageType = CurrentPageTypeHelper.PageType.SMART_APP;
+                } else if (activity.getClass().getName().contains("FlutterPageActivity")) {
+                    pageType = CurrentPageTypeHelper.PageType.FLUTTER;
+                } else if (activity.getClass().getName().contains("NewSquareSearchActivity")) {
+                    pageType = CurrentPageTypeHelper.PageType.NATIVE_WEB;
+                } else if (BaseActivity.class.isAssignableFrom(activity.getClass()) || BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
+                    pageType = CurrentPageTypeHelper.PageType.NATIVE;
                 }
-            } catch (NumberFormatException unused) {
-                qn4Var.e = -1.0f;
+                o75.i(new CurrentPageTypeEvent(pageType));
             }
-            return qn4Var;
         }
-        return (qn4) invokeL.objValue;
     }
 
-    public static boolean c(qn4 qn4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qn4Var)) == null) {
-            if (qn4Var != null && qn4Var.a) {
-                return (TextUtils.isEmpty(qn4Var.f) || TextUtils.isEmpty(qn4Var.d) || (bVar = qn4Var.g) == null || TextUtils.isEmpty(bVar.b) || (aVar = qn4Var.h) == null || TextUtils.isEmpty(aVar.b)) ? false : true;
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) || activity == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        ou4.q().w(activity);
+        if (ou4.q().v(activity)) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !dt4.a().a)) {
+            rb.b().e();
+        }
+        if (!PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && TbadkCoreApplication.getInst().isMainProcess(false) && !TbSingleton.getInstance().isBrowseMode()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(activity, activity.getIntent())));
+            activity.finish();
+        }
+        if (g75.b().e(name)) {
+            g75.b().a();
+        } else if (g75.b().h(activity)) {
+            g75.b().c();
+            if (g75.b().g(name)) {
+                g75.b().l(true);
+            }
+        } else if (g75.b().f(name)) {
+            g75.b().o();
+            if (!g75.b().g(name)) {
+                g75.b().l(false);
+            } else {
+                g75.b().l(true);
+            }
+        }
+        dt4.a().e(activity);
+        c(activity, Lifecycle.Event.ON_CREATE);
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (activity != null && currentActivity != null && g75.b().h(activity) && !g75.b().h(currentActivity)) {
+                g75.b().o();
+                if (!g75.b().g(currentActivity.getClass().getName())) {
+                    g75.b().l(false);
+                }
+            }
+            c(activity, Lifecycle.Event.ON_DESTROY);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            c(activity, Lifecycle.Event.ON_PAUSE);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            if (activity != null) {
+                if (!activity.getClass().getSimpleName().equals("LogoActivity")) {
+                    rb.b().a("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
+                }
+                String name = activity.getClass().getName();
+                if (g75.b().e(name)) {
+                    g75.b().a();
+                } else if (g75.b().h(activity)) {
+                    g75.b().c();
+                    if (g75.b().g(name)) {
+                        g75.b().l(true);
+                    }
+                }
+            }
+            d(activity);
+            b(activity);
+            a(activity);
+            c(activity, Lifecycle.Event.ON_RESUME);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            c(activity, Lifecycle.Event.ON_START);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            TbadkCoreApplication.getInst().setStartType(1);
+            ou4.q().x(activity);
+            c(activity, Lifecycle.Event.ON_STOP);
+        }
     }
 }

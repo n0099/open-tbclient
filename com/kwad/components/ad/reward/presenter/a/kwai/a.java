@@ -168,8 +168,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091051);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091011);
+            this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910a7);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091067);
         }
     }
 

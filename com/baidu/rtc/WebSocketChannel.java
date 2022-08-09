@@ -17,6 +17,7 @@ import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.services.vod.VodClient;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
 import com.xiaomi.mipush.sdk.Constants;
@@ -611,7 +611,7 @@ public class WebSocketChannel {
                             this.delegate.onUserKickOff(jSONObject.optJSONObject("userkickout").optLong("id"));
                         } else if (jSONObject.has("bypass_event")) {
                             JSONObject optJSONObject5 = jSONObject.optJSONObject("bypass_event");
-                            if (optJSONObject5.optString("level").contains("room")) {
+                            if (optJSONObject5.optString(PollingModel.LEVEL).contains("room")) {
                                 rtcLiveTransferMode = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
                             } else {
                                 rtcLiveTransferMode = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
@@ -722,7 +722,7 @@ public class WebSocketChannel {
                         janusHandle.onLeaving.onJoined(janusHandle);
                     } else if (optString.equals("webrtcup")) {
                         this.delegate.onWebrtcUp(janusHandle.handleId);
-                    } else if (optString.equals(VodClient.PATH_MEDIA)) {
+                    } else if (optString.equals("media")) {
                         boolean z = jSONObject.getBoolean("receiving");
                         String string = jSONObject.getString("type");
                         if (this.delegate != null) {
@@ -2300,7 +2300,7 @@ public class WebSocketChannel {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject.putOpt("request", "startbypass");
-                jSONObject.putOpt("level", rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
+                jSONObject.putOpt(PollingModel.LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 JSONObject jSONObject3 = new JSONObject();
@@ -2325,7 +2325,7 @@ public class WebSocketChannel {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("request", "stopbypass");
-                jSONObject.putOpt("level", rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
+                jSONObject.putOpt(PollingModel.LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 Send(jSONObject);

@@ -3,9 +3,8 @@ package com.ss.android.socialbase.downloader.f;
 import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l implements e {
     public final i a;
     public final com.ss.android.socialbase.downloader.model.e b;
@@ -45,7 +44,7 @@ public class l implements e {
             a.a(iVar.e());
             return a;
         } catch (IOException e) {
-            throw new BaseException((int) RevenueServerConst.ChargeCurrencyHistoryRequest, e);
+            throw new BaseException(1054, e);
         }
     }
 

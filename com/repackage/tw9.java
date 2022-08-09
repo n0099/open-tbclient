@@ -1,23 +1,59 @@
 package com.repackage;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface tw9 {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+public final class tw9<T> implements qu9<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final dv9<? super T> a;
+    public final dv9<? super Throwable> b;
+    public final cv9 c;
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    public tw9(dv9<? super T> dv9Var, dv9<? super Throwable> dv9Var2, cv9 cv9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dv9Var, dv9Var2, cv9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = dv9Var;
+        this.b = dv9Var2;
+        this.c = cv9Var;
+    }
 
-    List<IRevenue> getAllRevenue();
+    @Override // com.repackage.qu9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.call();
+        }
+    }
 
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
+    @Override // com.repackage.qu9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.call(th);
+        }
+    }
 
-    IRevenue getRevenue(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    @Override // com.repackage.qu9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.a.call(t);
+        }
+    }
 }

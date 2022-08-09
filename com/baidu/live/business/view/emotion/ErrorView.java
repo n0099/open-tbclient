@@ -9,16 +9,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.business.util.NetWorkUtils;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.c90;
-import com.repackage.eb0;
-import com.repackage.t80;
+import com.repackage.ab0;
+import com.repackage.m80;
 /* loaded from: classes2.dex */
 public class ErrorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -56,14 +55,14 @@ public class ErrorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (NetWorkUtils.b(this.a.getContext())) {
+                if (m80.f(this.a.getContext())) {
                     if (this.a.d != null) {
                         this.a.d.a(view2);
                         return;
                     }
                     return;
                 }
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f09dc, 1).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f09f4, 1).show();
             }
         }
     }
@@ -101,50 +100,57 @@ public class ErrorView extends LinearLayout {
         }
     }
 
-    public void c(boolean z) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (NetWorkUtils.b(getContext())) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (m80.f(getContext())) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = t80.a(getContext(), c90.a().o);
-                layoutParams.height = t80.a(getContext(), c90.a().p);
+                layoutParams.width = m80.b(getContext(), EmotionStrategy.getInstance().errorWidth);
+                layoutParams.height = m80.b(getContext(), EmotionStrategy.getInstance().errorHeight);
                 this.b.setLayoutParams(layoutParams);
-                setImageResource(eb0.e().c(z));
-                this.c.setText(R.string.obfuscated_res_0x7f0f09db);
+                setImageResource(ab0.f().c(str));
+                this.c.setText(R.string.obfuscated_res_0x7f0f09f3);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams2.width = t80.a(getContext(), c90.a().u);
-                layoutParams2.height = t80.a(getContext(), c90.a().v);
+                layoutParams2.width = m80.b(getContext(), EmotionStrategy.getInstance().networkWidth);
+                layoutParams2.height = m80.b(getContext(), EmotionStrategy.getInstance().networkHeight);
                 this.b.setLayoutParams(layoutParams2);
-                setImageResource(eb0.e().d(z));
-                this.c.setText(R.string.obfuscated_res_0x7f0f09dc);
+                setImageResource(ab0.f().d(str));
+                this.c.setText(R.string.obfuscated_res_0x7f0f09f4);
             }
-            this.c.setTextColor(eb0.e().a(getContext(), z, "color_8585852"));
-            this.a.setTextColor(eb0.e().a(getContext(), z, "color_5252522"));
-            this.a.setBackground(eb0.e().m(getContext(), z));
+            this.c.setTextColor(ab0.f().a(getContext(), str, "color_8585852"));
+            this.a.setTextColor(ab0.f().a(getContext(), str, "color_5252522"));
+            this.a.setBackground(ab0.f().n(getContext(), str));
         }
     }
 
-    public void d(int i, boolean z) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            e(i, LiveFeedPageSdk.HOST_LIVE_TAB);
+        }
+    }
+
+    public void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
             super.setVisibility(i);
             if (i == 0) {
-                c(z);
+                c(str);
             }
         }
     }
 
     public void setActionCallback(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || i == -1) {
             return;
         }
         this.b.setActualImageResource(i);
@@ -190,12 +196,12 @@ public class ErrorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0516, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0521, this);
         setOrientation(1);
         setGravity(17);
-        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908e1);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908df);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e0);
+        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090918);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090916);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090917);
         b();
     }
 }

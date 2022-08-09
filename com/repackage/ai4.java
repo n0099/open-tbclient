@@ -1,347 +1,150 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.media.AudioManager;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.view.Surface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa3;
+import com.repackage.jh2;
+import com.repackage.we2;
 /* loaded from: classes5.dex */
-public class ai4 implements View.OnClickListener, View.OnTouchListener, SeekBar.OnSeekBarChangeListener {
+public class ai4 implements jh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public SwanVideoView b;
-    public FrameLayout c;
-    public LinearLayout d;
-    public LinearLayout e;
-    public SeekBar f;
-    public SeekBar g;
-    public AudioManager h;
-    public int i;
-    public boolean j;
 
-    /* loaded from: classes5.dex */
-    public class a implements aa3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ai4 a;
-
-        public a(ai4 ai4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ai4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ai4Var;
-        }
-
-        @Override // com.repackage.aa3.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.g.setProgress(i);
-            }
-        }
-    }
-
-    public ai4(Context context) {
+    public ai4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        f();
     }
 
-    public void b(SwanVideoView swanVideoView) {
+    @Override // com.repackage.we2
+    public void A(@NonNull we2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.b = swanVideoView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
         }
     }
 
-    public FrameLayout c() {
+    @Override // com.repackage.jh2
+    public void R(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.repackage.jh2
+    public void X(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        }
+    }
+
+    @Override // com.repackage.lh2
+    public RtcStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? RtcStatus.UNKNOWN : (RtcStatus) invokeV.objValue;
     }
 
-    public void d() {
-        LinearLayout linearLayout;
+    @Override // com.repackage.we2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linearLayout = this.d) == null) {
-            return;
-        }
-        linearLayout.setVisibility(8);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public void e() {
-        LinearLayout linearLayout;
+    @Override // com.repackage.jh2
+    public int getVideoHeight() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (linearLayout = this.e) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
         }
-        linearLayout.setVisibility(8);
+        return invokeV.intValue;
     }
 
-    public final void f() {
+    @Override // com.repackage.jh2
+    public int getVideoWidth() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f1, (ViewGroup) null);
-            this.c = frameLayout;
-            frameLayout.setOnTouchListener(this);
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e92);
-            this.d = linearLayout;
-            linearLayout.setVisibility(8);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091e9a).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091e9b).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091e9c).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091e9d).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091e9e).setOnClickListener(this);
-            this.i = R.id.obfuscated_res_0x7f091e9b;
-            j(R.id.obfuscated_res_0x7f091e9b, -13399809);
-            h();
-            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e93);
-            this.e = linearLayout2;
-            linearLayout2.setVisibility(8);
-            this.e.setOnTouchListener(this);
-            this.f = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f091ea2);
-            this.g = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f091ea3);
-            this.f.setOnSeekBarChangeListener(this);
-            this.g.setOnSeekBarChangeListener(this);
-            this.f.setMax(100);
-            AudioManager audioManager = (AudioManager) this.a.getSystemService("audio");
-            this.h = audioManager;
-            this.g.setMax(audioManager.getStreamMaxVolume(3));
-            n();
-            aa3.e().d("#com.baidu.swan.videoplayer&MediaSettingViewLayer", new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public void g(String str) {
+    @Override // com.repackage.we2
+    @Nullable
+    public String k0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            j(this.i, -1);
-            if (TextUtils.equals("0.75", str)) {
-                this.i = R.id.obfuscated_res_0x7f091e9a;
-            } else if (TextUtils.equals("1.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f091e9b;
-            } else if (TextUtils.equals("1.25", str)) {
-                this.i = R.id.obfuscated_res_0x7f091e9c;
-            } else if (TextUtils.equals("1.5", str)) {
-                this.i = R.id.obfuscated_res_0x7f091e9d;
-            } else if (TextUtils.equals("2.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f091e9e;
-            } else {
-                this.i = 0;
-            }
-            j(this.i, -13399809);
-            SwanVideoView swanVideoView = this.b;
-            if (swanVideoView != null) {
-                swanVideoView.Q(str);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public void h() {
-        float dimension;
+    @Override // com.repackage.jh2
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.d == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
         }
-        if (this.j) {
-            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706ff);
-        } else {
-            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706fe);
-        }
-        ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-        layoutParams.width = (int) dimension;
-        this.d.setLayoutParams(layoutParams);
     }
 
-    public void i(int i) {
-        SwanVideoView swanVideoView;
+    @Override // com.repackage.jh2
+    public void o(@NonNull jh2.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (swanVideoView = this.b) == null || swanVideoView.A()) {
-            return;
-        }
-        AudioManager audioManager = this.h;
-        if (audioManager != null) {
-            audioManager.setStreamVolume(3, i, 0);
-        }
-        if (i == 0) {
-            this.b.setMuted(true);
-        } else if (this.b.y()) {
-            this.b.setMuted(false);
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
         }
     }
 
-    public final void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) || i == 0) {
-            return;
-        }
-        ((TextView) this.c.findViewById(i)).setTextColor(i2);
-    }
-
-    public void k(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048585, this, f) == null) && (this.a instanceof Activity)) {
-            ga3.c().e((Activity) this.a, f / 100.0f);
-        }
-    }
-
-    public void l() {
+    @Override // com.repackage.lh2
+    public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SwanVideoView swanVideoView = this.b;
-            boolean x = swanVideoView != null ? swanVideoView.x() : false;
-            if (this.d != null) {
-                if (x != this.j) {
-                    this.j = x;
-                    h();
-                }
-                this.d.setVisibility(0);
-            }
         }
     }
 
-    public void m() {
+    @Override // com.repackage.lh2
+    public boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.e == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
         }
-        n();
-        this.e.setVisibility(0);
+        return invokeV.booleanValue;
     }
 
-    public final void n() {
+    @Override // com.repackage.jh2
+    public void s(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.a instanceof Activity) {
-                this.f.setProgress((int) (ga3.c().a((Activity) this.a) * 100.0f));
-            }
-            SwanVideoView swanVideoView = this.b;
-            if (swanVideoView != null && swanVideoView.y()) {
-                this.g.setProgress(0);
-            } else {
-                this.g.setProgress(this.h.getStreamVolume(3));
-            }
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.repackage.jh2
+    public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            d();
-            if (this.b == null) {
-                return;
-            }
-            int id = view2.getId();
-            int i = this.i;
-            if (id == i) {
-                return;
-            }
-            j(i, -1);
-            int id2 = view2.getId();
-            this.i = id2;
-            j(id2, -13399809);
-            int i2 = this.i;
-            String str = i2 == R.id.obfuscated_res_0x7f091e9a ? "0.75" : i2 == R.id.obfuscated_res_0x7f091e9b ? "1.0" : i2 == R.id.obfuscated_res_0x7f091e9c ? "1.25" : i2 == R.id.obfuscated_res_0x7f091e9d ? "1.5" : i2 == R.id.obfuscated_res_0x7f091e9e ? "2.0" : "";
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                this.b.J(Float.parseFloat(str));
-                this.b.Q(str);
-            } catch (NumberFormatException unused) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048589, this, surface) == null) {
         }
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+    @Override // com.repackage.jh2
+    public void z(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-            if (seekBar.getId() == R.id.obfuscated_res_0x7f091ea3) {
-                i(i);
-            } else if (seekBar.getId() == R.id.obfuscated_res_0x7f091ea2) {
-                k(i);
-            }
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, seekBar) == null) {
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, seekBar) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, view2, motionEvent)) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091e93) {
-                return true;
-            }
-            e();
-            d();
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            b(null);
-            aa3.e().i("#com.baidu.swan.videoplayer&MediaSettingViewLayer");
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
         }
     }
 }

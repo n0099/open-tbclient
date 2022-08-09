@@ -167,7 +167,7 @@ public final class AppCompatDrawableManager {
                         private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R$attr.obfuscated)) : (ColorStateList) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R$attr.colorAccent)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
@@ -254,7 +254,7 @@ public final class AppCompatDrawableManager {
                                 }
                                 if (i != R$drawable.abc_spinner_mtrl_am_alpha && i != R$drawable.abc_spinner_textfield_background_material) {
                                     if (arrayContains(this.TINT_COLOR_CONTROL_NORMAL, i)) {
-                                        return ThemeUtils.getThemeAttrColorStateList(context, R$attr.obfuscated);
+                                        return ThemeUtils.getThemeAttrColorStateList(context, R$attr.colorControlNormal);
                                     }
                                     if (arrayContains(this.TINT_COLOR_CONTROL_STATE_LIST, i)) {
                                         return AppCompatResources.getColorStateList(context, R$color.abc_tint_default);
@@ -292,13 +292,13 @@ public final class AppCompatDrawableManager {
                             if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048579, this, context, i, drawable)) == null) {
                                 if (i == R$drawable.abc_seekbar_track_material) {
                                     LayerDrawable layerDrawable = (LayerDrawable) drawable;
-                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R$attr.obfuscated), AppCompatDrawableManager.DEFAULT_MODE);
-                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R$attr.obfuscated), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
                                 } else if (i == R$drawable.abc_ratingbar_material || i == R$drawable.abc_ratingbar_indicator_material || i == R$drawable.abc_ratingbar_small_material) {
                                     LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
-                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R$attr.obfuscated), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
@@ -326,7 +326,7 @@ public final class AppCompatDrawableManager {
                             PorterDuff.Mode mode = AppCompatDrawableManager.DEFAULT_MODE;
                             int i3 = 16842801;
                             if (arrayContains(this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
-                                i3 = R$attr.obfuscated;
+                                i3 = R$attr.colorControlNormal;
                             } else if (arrayContains(this.COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
                                 i3 = R$attr.colorControlActivated;
                             } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {

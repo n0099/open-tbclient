@@ -4,115 +4,60 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class g91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable... closeableArr) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) || closeableArr == null) {
-            return;
-        }
-        for (Closeable closeable : closeableArr) {
-            if (closeable != null) {
-                try {
-                    closeable.close();
-                } catch (IOException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (hexString.length() == 1) {
+                    sb.append('0');
                 }
+                sb.append(hexString);
             }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileInputStream fileInputStream2 = null;
-        if (file == null) {
-            return null;
-        }
-        try {
-            fileInputStream = new FileInputStream(file);
-            try {
-                String c = c(fileInputStream);
-                a(fileInputStream);
-                return c;
-            } catch (Exception unused) {
-                a(fileInputStream);
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                a(fileInputStream2);
-                throw th;
-            }
-        } catch (Exception unused2) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static String c(InputStream inputStream) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, inputStream)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder sb = new StringBuilder();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                sb.append(readLine);
-            } else {
-                return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return String.valueOf(str.hashCode());
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str, File file) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) || TextUtils.isEmpty(str) || file == null) {
-            return;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
             try {
-                fileOutputStream2.write(str.getBytes());
-                fileOutputStream2.flush();
-                a(fileOutputStream2);
-            } catch (Exception unused) {
-                fileOutputStream = fileOutputStream2;
-                a(fileOutputStream);
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                a(fileOutputStream);
-                throw th;
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeL.objValue;
     }
 }

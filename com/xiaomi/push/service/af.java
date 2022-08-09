@@ -20,10 +20,10 @@ public final class af extends XMPushService.j {
     public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ii f884a;
+    public final /* synthetic */ ii f885a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f885a;
+    public final /* synthetic */ XMPushService f886a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(int i, ii iiVar, Cif cif, XMPushService xMPushService) {
@@ -43,9 +43,9 @@ public final class af extends XMPushService.j {
                 return;
             }
         }
-        this.f884a = iiVar;
+        this.f885a = iiVar;
         this.a = cif;
-        this.f885a = xMPushService;
+        this.f886a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -61,17 +61,17 @@ public final class af extends XMPushService.j {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 ia iaVar = new ia();
-                iaVar.c(ht.D.f505a);
-                iaVar.a(this.f884a.m480a());
-                iaVar.a(this.f884a.a());
-                iaVar.b(this.f884a.b());
-                iaVar.e(this.f884a.c());
+                iaVar.c(ht.D.f506a);
+                iaVar.a(this.f885a.m480a());
+                iaVar.a(this.f885a.a());
+                iaVar.b(this.f885a.b());
+                iaVar.e(this.f885a.c());
                 iaVar.a(0L);
                 iaVar.d("success clear push message.");
-                ah.a(this.f885a, ah.b(this.a.b(), this.a.m466a(), iaVar, hj.i));
+                ah.a(this.f886a, ah.b(this.a.b(), this.a.m466a(), iaVar, hj.i));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
-                this.f885a.a(10, e);
+                this.f886a.a(10, e);
             }
         }
     }

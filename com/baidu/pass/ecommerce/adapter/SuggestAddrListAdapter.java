@@ -51,15 +51,15 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 }
             }
             this.this$0 = suggestAddrListAdapter;
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091c47);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091c46);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091c43);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2f);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2e);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091d2b);
             Resources resources = view2.getContext().getResources();
             if (suggestAddrListAdapter.isDarkMode) {
-                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06092d));
-                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060988));
-                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060986));
-                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060923));
+                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060948));
+                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609a3));
+                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609a1));
+                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06093e));
             }
         }
 
@@ -72,7 +72,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 int indexOf = optString.indexOf(this.this$0.queryContent);
                 if (indexOf >= 0) {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(optString);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06098e)), indexOf, this.this$0.queryContent.length() + indexOf, 33);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0609a9)), indexOf, this.this$0.queryContent.length() + indexOf, 33);
                     this.tvName.setText(spannableStringBuilder);
                 } else {
                     this.tvName.setText(optString);
@@ -111,7 +111,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public int getItemLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d04e8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d04f1 : invokeV.intValue;
     }
 
     public void setQueryContent(String str) {

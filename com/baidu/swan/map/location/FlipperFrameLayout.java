@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v54;
-/* loaded from: classes2.dex */
-public class FlipperFrameLayout extends FrameLayout implements v54.b {
+import com.repackage.m64;
+/* loaded from: classes3.dex */
+public class FlipperFrameLayout extends FrameLayout implements m64.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public v54 b;
+    public m64 b;
     public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class FlipperFrameLayout extends FrameLayout implements v54.b {
         }
     }
 
-    @Override // com.repackage.v54.b
+    @Override // com.repackage.m64.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -52,7 +52,7 @@ public class FlipperFrameLayout extends FrameLayout implements v54.b {
         }
     }
 
-    @Override // com.repackage.v54.b
+    @Override // com.repackage.m64.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -121,10 +121,10 @@ public class FlipperFrameLayout extends FrameLayout implements v54.b {
         return invokeL.booleanValue;
     }
 
-    public void setViewFlipper(v54 v54Var) {
+    public void setViewFlipper(m64 m64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, v54Var) == null) {
-            this.b = v54Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m64Var) == null) {
+            this.b = m64Var;
         }
     }
 

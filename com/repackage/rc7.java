@@ -1,40 +1,85 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment;
+import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class rc7 extends kk4 {
+public class rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ChatAggregationFragment a;
 
     /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Object, Integer, pk4> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public String b;
-        public String c;
-        public HashMap<String, String> d;
-        public c9 e;
+        public final /* synthetic */ rc7 a;
 
-        public a(rc7 rc7Var, String str, String str2, HashMap<String, String> hashMap, c9 c9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(rc7 rc7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rc7Var, str, str2, hashMap, c9Var};
+                Object[] objArr = {rc7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rc7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int[] iArr;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
+                int i = iArr[0];
+                int i2 = iArr[1];
+                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
+                if (pageContext == null || pageContext.getUniqueId() == null || pageContext.getUniqueId().getId() != i) {
+                    return;
+                }
+                this.a.d(i2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements xm4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        public b(rc7 rc7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rc7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,123 +89,145 @@ public class rc7 extends kk4 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = hashMap;
-            this.e = c9Var;
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public pk4 doInBackground(Object... objArr) {
-            InterceptResult invokeL;
+        @Override // com.repackage.xm4
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                pk4 pk4Var = new pk4();
-                try {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
-                    Set<String> keySet = this.d.keySet();
-                    if (keySet.size() > 0) {
-                        for (String str : keySet) {
-                            if (!"url".equalsIgnoreCase(str)) {
-                                this.a.addPostData(str, this.d.get(str));
-                            }
-                        }
-                    }
-                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                    boolean z = true;
-                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.a.postNetData();
-                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
-                        pk4Var.b = this.a.getNetErrorCode();
-                        pk4Var.c = this.a.getNetString();
-                    } else {
-                        pk4Var.b = this.a.getServerErrorCode();
-                        pk4Var.c = this.a.getErrorString();
-                    }
-                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (pk4Var.b != 0) {
-                            z = false;
-                        }
-                        pk4Var.a = z;
-                        return pk4Var;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).E(1, true, null);
                 }
-                pk4Var.a = false;
-                return pk4Var;
-            }
-            return (pk4) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(pk4 pk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pk4Var) == null) {
-                c9 c9Var = this.e;
-                if (c9Var != null) {
-                    c9Var.c(pk4Var);
+                if (this.c) {
+                    j05.l(this.d);
+                } else {
+                    g05.e(this.b);
                 }
-                nc7.a().d(this.c, this.d, pk4Var);
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
+        @Override // com.repackage.xm4
+        public void onCancelClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                    this.a = null;
-                }
-                super.cancel(true);
-                c9 c9Var = this.e;
-                if (c9Var != null) {
-                    c9Var.c(null);
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
 
-    public rc7() {
+    /* loaded from: classes7.dex */
+    public class c implements xm4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        public c(rc7 rc7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rc7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.repackage.xm4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).E(10, true, null);
+                }
+                if (this.c) {
+                    j05.l(this.d);
+                } else {
+                    g05.e(this.b);
+                }
+            }
+        }
+
+        @Override // com.repackage.xm4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
+
+    public rc7(ChatAggregationFragment chatAggregationFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatAggregationFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = chatAggregationFragment;
     }
 
-    @Override // com.repackage.kk4, com.repackage.nk4
-    public void a(Object obj, HashMap<String, String> hashMap, String str, c9 c9Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, c9Var) == null) || hashMap == null || hashMap.isEmpty() || !hashMap.containsKey("url")) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        String str2 = hashMap.get("url");
-        if (TextUtils.isEmpty(str2)) {
-            return;
-        }
-        a aVar = new a(this, str, str2, hashMap, c9Var);
-        aVar.setPriority(2);
-        aVar.execute(new Object[0]);
+        this.a.registerListener(new a(this, 2921700));
     }
 
-    @Override // com.repackage.kk4
-    public String c() {
-        InterceptResult invokeV;
+    public final void d(int i) {
+        ChatAggregationFragment chatAggregationFragment;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (chatAggregationFragment = this.a) == null) {
+            return;
+        }
+        FragmentActivity fragmentActivity = chatAggregationFragment.getFragmentActivity();
+        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
+        if (fragmentActivity == null || pageContext == null) {
+            return;
+        }
+        boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
+        if (i == 3) {
+            boolean y = lz4.d().y();
+            if (areNotificationsEnabled && y) {
+                return;
+            }
+            b bVar = new b(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
+            if (j05.g(TbadkCoreApplication.getInst(), 0)) {
+                j05.k(pageContext, 3, bVar);
+            }
+        }
+        if (i == 2) {
+            boolean q = lz4.d().q();
+            if (areNotificationsEnabled && q) {
+                return;
+            }
+            c cVar = new c(this, q, pageContext, areNotificationsEnabled, fragmentActivity);
+            if (j05.g(TbadkCoreApplication.getInst(), 0)) {
+                j05.k(pageContext, 2, cVar);
+            }
+        }
     }
 }

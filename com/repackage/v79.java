@@ -1,9 +1,13 @@
 package com.repackage;
+
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes7.dex */
 public interface v79 {
-    void a();
+    IMediaPlayer a();
 
-    void b(long j);
+    String b();
 
-    void c(int i);
+    c99 c();
+
+    String e();
 }

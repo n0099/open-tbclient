@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -18,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zm;
+import com.repackage.an;
 /* loaded from: classes.dex */
-public class BdRoundedImageView extends ImageView {
+public class BdRoundedImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageView.ScaleType[] i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,92 +127,92 @@ public class BdRoundedImageView extends ImageView {
         this.e = false;
     }
 
-    public final void a(Drawable drawable, boolean z) {
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView, android.view.View
+    public void drawableStateChanged() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, drawable, z) == null) || drawable == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            invalidate();
+        }
+    }
+
+    public final void f(Drawable drawable, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, z) == null) || drawable == null) {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof zm) {
-            zm zmVar = (zm) drawable;
-            zmVar.g(this.h);
-            zmVar.e((this.d || !z) ? this.a : 0.0f);
+        if (drawable instanceof an) {
+            an anVar = (an) drawable;
+            anVar.g(this.h);
+            anVar.e((this.d || !z) ? this.a : 0.0f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            zmVar.d(i2);
-            zmVar.c(this.c);
-            zmVar.f(this.e);
+            anVar.d(i2);
+            anVar.c(this.c);
+            anVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
             while (i2 < numberOfLayers) {
-                a(layerDrawable.getDrawable(i2), z);
+                f(layerDrawable.getDrawable(i2), z);
                 i2++;
             }
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.g, true);
-        }
-    }
-
-    public final void c() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(this.f, false);
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.drawableStateChanged();
-            invalidate();
+            f(this.g, true);
         }
     }
 
     public int getBorderColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c.getDefaultColor() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getDefaultColor() : invokeV.intValue;
     }
 
     public ColorStateList getBorderColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
     }
 
     public int getBorderWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getCornerRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
     }
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (ImageView.ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (ImageView.ScaleType) invokeV.objValue;
     }
 
-    @Override // android.view.View
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            f(this.f, false);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = zm.b(drawable);
-            b();
+            this.g = an.b(drawable);
+            g();
             super.setBackgroundDrawable(this.g);
         }
     }
@@ -232,8 +233,8 @@ public class BdRoundedImageView extends ImageView {
             colorStateList = ColorStateList.valueOf(0);
         }
         this.c = colorStateList;
-        c();
-        b();
+        k();
+        g();
         if (this.b > 0) {
             invalidate();
         }
@@ -245,8 +246,8 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         this.b = i2;
-        c();
-        b();
+        k();
+        g();
         invalidate();
     }
 
@@ -256,17 +257,17 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         this.a = i2;
-        c();
-        b();
+        k();
+        g();
     }
 
-    @Override // android.widget.ImageView
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new zm(bitmap);
-                c();
+                this.f = new an(bitmap);
+                k();
             } else {
                 this.f = null;
             }
@@ -274,13 +275,13 @@ public class BdRoundedImageView extends ImageView {
         }
     }
 
-    @Override // android.widget.ImageView
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f = zm.b(drawable);
-                c();
+                this.f = an.b(drawable);
+                k();
             } else {
                 this.f = null;
             }
@@ -288,7 +289,7 @@ public class BdRoundedImageView extends ImageView {
         }
     }
 
-    @Override // android.widget.ImageView
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
@@ -301,8 +302,8 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.e = z;
-            c();
-            b();
+            k();
+            g();
             invalidate();
         }
     }
@@ -313,7 +314,7 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         this.d = z;
-        b();
+        g();
         invalidate();
     }
 
@@ -338,8 +339,8 @@ public class BdRoundedImageView extends ImageView {
                             super.setScaleType(scaleType);
                             break;
                     }
-                    c();
-                    b();
+                    k();
+                    g();
                     invalidate();
                     return;
                 }
@@ -394,7 +395,7 @@ public class BdRoundedImageView extends ImageView {
         this.c = ColorStateList.valueOf(0);
         this.d = false;
         this.e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f040314, R.attr.obfuscated_res_0x7f040556}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f040356, R.attr.obfuscated_res_0x7f0405d7}, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);
@@ -414,8 +415,8 @@ public class BdRoundedImageView extends ImageView {
         }
         this.d = obtainStyledAttributes.getBoolean(5, false);
         this.e = obtainStyledAttributes.getBoolean(4, false);
-        c();
-        b();
+        k();
+        g();
         obtainStyledAttributes.recycle();
     }
 }

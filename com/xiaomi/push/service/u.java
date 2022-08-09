@@ -23,7 +23,7 @@ public class u {
     public static t a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f1005a;
+    public static a f1006a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -131,11 +131,11 @@ public class u {
         synchronized (u.class) {
             TreeMap treeMap = new TreeMap();
             treeMap.put("devid", com.xiaomi.push.j.a(context, false));
-            if (a != null && !TextUtils.isEmpty(a.f1004a)) {
-                treeMap.put("uuid", a.f1004a);
-                int lastIndexOf = a.f1004a.lastIndexOf("/");
+            if (a != null && !TextUtils.isEmpty(a.f1005a)) {
+                treeMap.put("uuid", a.f1005a);
+                int lastIndexOf = a.f1005a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = a.f1004a.substring(lastIndexOf + 1);
+                    str4 = a.f1005a.substring(lastIndexOf + 1);
                     com.xiaomi.push.ba.a(context).a(treeMap);
                     a2 = com.xiaomi.push.j.a(context);
                     if (!TextUtils.isEmpty(a2)) {
@@ -340,8 +340,8 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             t m680a = m680a(context);
-            if (m680a != null && !TextUtils.isEmpty(m680a.f1004a)) {
-                String[] split = m680a.f1004a.split("@");
+            if (m680a != null && !TextUtils.isEmpty(m680a.f1005a)) {
+                String[] split = m680a.f1005a.split("@");
                 if (split.length > 0) {
                     return split[0];
                 }
@@ -394,7 +394,7 @@ public class u {
     public static void a() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (aVar = f1005a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (aVar = f1006a) == null) {
             return;
         }
         aVar.a();
@@ -423,7 +423,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, tVar) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-            edit.putString("uuid", tVar.f1004a);
+            edit.putString("uuid", tVar.f1005a);
             edit.putString("security", tVar.c);
             edit.putString("token", tVar.b);
             edit.putString("app_id", tVar.d);
@@ -439,7 +439,7 @@ public class u {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, aVar) == null) {
-            f1005a = aVar;
+            f1006a = aVar;
         }
     }
 

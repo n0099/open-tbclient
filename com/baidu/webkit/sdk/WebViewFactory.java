@@ -36,7 +36,6 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.baidubce.services.vod.VodClient;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -1427,7 +1426,7 @@ public final class WebViewFactory {
             try {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix != null) {
-                    return processSuffix.indexOf(VodClient.PATH_MEDIA) >= 0;
+                    return processSuffix.indexOf("media") >= 0;
                 }
                 return false;
             } catch (Exception e) {

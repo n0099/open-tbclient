@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -64,13 +64,13 @@ public class FacePackageData extends AbstractImageProvider implements Serializab
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            if (!oi.isEmpty(this.banner_url)) {
+            if (!pi.isEmpty(this.banner_url)) {
                 arrayList.add(this.banner_url);
             }
-            if (!oi.isEmpty(this.new_icon)) {
+            if (!pi.isEmpty(this.new_icon)) {
                 arrayList.add(this.new_icon);
             }
-            if (!oi.isEmpty(this.tag_url)) {
+            if (!pi.isEmpty(this.tag_url)) {
                 arrayList.add(this.tag_url);
             }
             return arrayList;

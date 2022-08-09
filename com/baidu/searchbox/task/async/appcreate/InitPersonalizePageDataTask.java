@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz6;
-import com.repackage.dz6;
+import com.repackage.w07;
+import com.repackage.x07;
 /* loaded from: classes2.dex */
 public class InitPersonalizePageDataTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,9 +35,9 @@ public class InitPersonalizePageDataTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (MainTabDataSwitch.isCacheOpen()) {
-                dz6.c().f();
+                x07.c().f();
             } else {
-                cz6.m().p();
+                w07.m().p();
             }
         }
     }

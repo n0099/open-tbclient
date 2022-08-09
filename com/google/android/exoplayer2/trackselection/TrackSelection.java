@@ -4,10 +4,10 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface TrackSelection {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Factory {
         TrackSelection createTrackSelection(TrackGroup trackGroup, int... iArr);
     }

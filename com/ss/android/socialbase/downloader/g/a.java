@@ -11,7 +11,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final h<Integer, a> a = new h<>(16, 16);
     public static final a b = new a(null);

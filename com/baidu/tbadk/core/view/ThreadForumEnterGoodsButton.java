@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo6;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.eq6;
+import com.repackage.ms4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -70,7 +70,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.a = threadData;
             if (threadData != null) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f06f9);
+                String string = getResources().getString(R.string.obfuscated_res_0x7f0f0708);
                 if (StringUtils.isNull(string)) {
                     setVisibility(8);
                     return;
@@ -111,11 +111,11 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.b = context;
             setOnClickListener(this);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0192, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0193, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a39);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a74);
             this.e = textView;
-            vr4 d = vr4.d(textView);
+            ms4 d = ms4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -123,7 +123,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d.n(R.string.J_X01);
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0305);
-            this.e.setCompoundDrawablePadding(pi.f(this.b, R.dimen.M_W_X002));
+            this.e.setCompoundDrawablePadding(qi.f(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -136,10 +136,10 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080920, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093d, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
-            this.f.setBounds(0, 0, pi.f(this.b, R.dimen.T_X09), pi.f(this.b, R.dimen.T_X09));
+            this.f.setBounds(0, 0, qi.f(this.b, R.dimen.T_X09), qi.f(this.b, R.dimen.T_X09));
         }
         f();
     }
@@ -170,9 +170,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            lo6 lo6Var = new lo6();
-            lo6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, lo6Var));
+            eq6 eq6Var = new eq6();
+            eq6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, eq6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

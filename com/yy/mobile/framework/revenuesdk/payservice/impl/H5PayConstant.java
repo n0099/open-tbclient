@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class H5PayConstant {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int DxmH5LocalPageType = 5;
     public static final int DxmKjLocalPageType = 2;
     public static final String EXTRA_APP_ID = "EXTRA_APP_ID";
     public static final int EXTRA_INVALID_ID = -1;

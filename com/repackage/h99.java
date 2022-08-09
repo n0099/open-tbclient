@@ -1,287 +1,126 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MediaInfo;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
+    public int g;
+    public String h;
 
-    public static long a(String str) {
-        InterceptResult invokeL;
+    public h99() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.longValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = "";
+        this.g = 0;
     }
 
-    public static long b(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return invokeL.longValue;
-        }
-        if (TextUtils.isEmpty(str)) {
-            return 0L;
-        }
-        MediaMetadataRetriever mediaMetadataRetriever = null;
-        try {
-            if (new File(str).exists()) {
-                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
-                try {
-                    mediaMetadataRetriever2.setDataSource(str);
-                    long c = a99.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
-                    try {
-                        mediaMetadataRetriever2.release();
-                    } catch (Exception unused) {
-                    }
-                    return c;
-                } catch (Exception unused2) {
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused3) {
-                        }
-                    }
-                    return 0L;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return 0L;
-        } catch (Exception unused5) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public static long c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            long j = 0;
-            if (FileUtils.isExists(str)) {
-                MediaExtractor mediaExtractor = new MediaExtractor();
-                try {
-                    try {
-                        mediaExtractor.setDataSource(str);
-                        MediaFormat mediaFormat = null;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 >= mediaExtractor.getTrackCount()) {
-                                break;
-                            }
-                            MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
-                            if (trackFormat.getString("mime").startsWith(i == 0 ? "audio/" : com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
-                                mediaExtractor.selectTrack(i2);
-                                mediaFormat = trackFormat;
-                                break;
-                            }
-                            i2++;
-                        }
-                        if (mediaFormat != null) {
-                            j = mediaFormat.getLong("durationUs");
-                        }
-                    } catch (Exception e) {
-                        w89.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
-                    }
-                    return j / 1000;
-                } finally {
-                    mediaExtractor.release();
-                }
-            }
-            return 0L;
-        }
-        return invokeLI.longValue;
-    }
-
-    public static MediaInfo d(String str) {
-        InterceptResult invokeL;
-        MediaInfo mediaInfo;
-        File file;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
-            return (MediaInfo) invokeL.objValue;
-        }
-        MediaMetadataRetriever mediaMetadataRetriever2 = null;
-        try {
-            try {
-                file = new File(str);
-            } catch (Exception e) {
-                e = e;
-                mediaInfo = null;
-            }
-            if (file.exists() && file.isFile()) {
-                mediaInfo = new MediaInfo();
-                try {
-                    mediaInfo.setVideoPath(str);
-                    mediaInfo.setLastModified(file.lastModified());
-                    mediaMetadataRetriever = new MediaMetadataRetriever();
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
-                    mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
-                    mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
-                    mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
-                    mediaInfo.setRotation(a99.b(mediaMetadataRetriever.extractMetadata(24), 0));
-                    v89.a(mediaMetadataRetriever);
-                } catch (Exception e3) {
-                    e = e3;
-                    mediaMetadataRetriever2 = mediaMetadataRetriever;
-                    w89.g(e);
-                    if (mediaMetadataRetriever2 != null) {
-                        v89.a(mediaMetadataRetriever2);
-                    }
-                    return mediaInfo;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaMetadataRetriever2 = mediaMetadataRetriever;
-                    if (mediaMetadataRetriever2 != null) {
-                        v89.a(mediaMetadataRetriever2);
-                    }
-                    throw th;
-                }
-                return mediaInfo;
-            }
-            return null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static int e(String str) {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    int b = a99.b(mediaMetadataRetriever.extractMetadata(20), 0);
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return b;
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                try {
-                    mediaMetadataRetriever.release();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, str)) != null) {
-            return invokeL.intValue;
-        }
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        MediaMetadataRetriever mediaMetadataRetriever = null;
-        try {
-            if (new File(str).exists()) {
-                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
-                try {
-                    mediaMetadataRetriever2.setDataSource(str);
-                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
-                    try {
-                        mediaMetadataRetriever2.release();
-                    } catch (Exception unused) {
-                    }
-                    return parseInt;
-                } catch (Exception unused2) {
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused3) {
-                        }
-                    }
-                    return 0;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return 0;
-        } catch (Exception unused5) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    @TargetApi(16)
-    public static boolean g(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str);
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (g99.j(mediaExtractor.getTrackFormat(i))) {
-                    return true;
-                }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optString("name");
+                this.b = jSONObject.optString("id");
+                this.c = jSONObject.optString("image");
+                this.d = jSONObject.optString("url");
+                this.e = jSONObject.optInt("progress");
+                this.f = jSONObject.optString("downloadPerSize");
+                this.g = jSONObject.optInt("status");
+                this.h = jSONObject.optString("savePath");
+                return true;
+            } catch (JSONException unused) {
+                return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.a);
+                jSONObject.put("id", this.b);
+                jSONObject.put("image", this.c);
+                jSONObject.put("url", this.d);
+                jSONObject.put("progress", this.e);
+                jSONObject.put("downloadPerSize", this.f);
+                jSONObject.put("status", this.g);
+                jSONObject.put("savePath", this.h);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

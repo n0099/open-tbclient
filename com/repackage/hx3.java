@@ -1,22 +1,18 @@
 package com.repackage;
 
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class hx3 implements nh1 {
+public final class hx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h82 a;
 
     public hx3() {
         Interceptable interceptable = $ic;
@@ -32,36 +28,48 @@ public class hx3 implements nh1 {
         }
     }
 
-    @Override // com.repackage.nh1
-    public List<f23> a(f13 f13Var) {
+    public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f13Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new xv3(f13Var));
-            arrayList.add(new yv3(f13Var));
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            h82 h82Var = this.a;
+            if (h82Var == null) {
+                return false;
+            }
+            boolean f = ix3.f(h82Var.m());
+            boolean f2 = ix3.f(this.a.w());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = ix3.j(motionEvent);
+            }
+            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
+            if (f2 && this.a.u0()) {
+                this.a.w().dispatchEvent(jSEvent);
+            }
+            ix3.g(true);
+            return dispatchEvent;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.nh1
-    public List<f23> b(f13 f13Var) {
-        InterceptResult invokeL;
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f13Var)) == null) ? Arrays.asList(new kw3(f13Var), new zu3(f13Var), new iv3(f13Var), new vv3(f13Var)) : (List) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            ix3.m(i, i2);
+        }
     }
 
-    @Override // com.repackage.nh1
-    public List<f23> c(f13 f13Var) {
-        InterceptResult invokeL;
+    public void c(h82 h82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f13Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new q04(f13Var));
-            arrayList.add(new p04(f13Var));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h82Var) == null) {
+            this.a = h82Var;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            ix3.l(i, i2);
+        }
     }
 }

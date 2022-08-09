@@ -1,260 +1,101 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n83 implements l83 {
+public class n83 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m83 a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-201106805, "Lcom/repackage/n83$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-201106805, "Lcom/repackage/n83$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.RELATIVE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.BD_FILE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public n83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n83(w13 w13Var) {
+        super(w13Var, "/swanAPI/file/getSavedFileInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.l83
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            i03 b0 = i03.b0();
-            return b0 == null ? str : q73.H(str, b0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? q73.G(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.l83
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            i03 b0 = i03.b0();
-            return b0 == null ? "" : q73.n(b0.b, str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    @NonNull
-    public synchronized m83 d() {
-        InterceptResult invokeV;
-        m83 m83Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new o83();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (context != null && callbackHandler != null && z03Var != null && z03Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    zx1.c("getSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
-                m83Var = this.a;
+                String M = h83.M(optParamsAsJo.optString("filePath"), z03.g0());
+                if (w23.b) {
+                    Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("GetSavedFileInfoAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    zx1.c("getSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                g83 h = z03Var.f0().h(M);
+                if (h == null) {
+                    zx1.c("getSavedFile", "file info is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, t13.a(2001)));
+                    if (w23.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: file not exist");
+                    }
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, Math.round((float) (h.a() / 1000)));
+                    jSONObject.put("size", h.c());
+                    if (w23.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    zx1.o("getSavedFile", "file info to json fail");
+                    e.printStackTrace();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, t13.a(2003)));
+                    if (w23.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: jsonException ");
+                    }
+                    return false;
+                }
             }
-            return m83Var;
+            zx1.c("getSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return (m83) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                return null;
-            }
-            return q73.L(str, b0, b0.k0());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            i03 b0 = i03.b0();
-            return b0 == null ? "" : q73.z(b0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            i03 b0 = i03.b0();
-            return b0 == null ? str : q73.I(str, b0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String t = kg4.t(str);
-            if (TextUtils.isEmpty(t)) {
-                return g(str);
-            }
-            return g(str) + "." + t;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                return null;
-            }
-            return q73.M(str, b0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            PathType s = q73.s(str);
-            if (z) {
-                s = o(str, s);
-            }
-            return s != PathType.ERROR;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.repackage.l83
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            i03 b0 = i03.b0();
-            return b0 == null ? "" : q73.x(b0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l83
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? q73.F(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.l83
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? q73.K(str) : (String) invokeL.objValue;
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int indexOf = str.indexOf("../");
-            if (indexOf != 0) {
-                return indexOf > 0;
-            }
-            String substring = str.substring(3);
-            return !TextUtils.isEmpty(substring) && substring.contains("../");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final PathType o(String str, PathType pathType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, pathType)) == null) {
-            int i = a.a[pathType.ordinal()];
-            if (i == 1) {
-                return n(str) ? PathType.ERROR : pathType;
-            } else if (i != 2) {
-                return i != 3 ? PathType.ERROR : pathType;
-            } else {
-                StringBuilder sb = new StringBuilder();
-                sb.append("bdfile://code");
-                sb.append(File.separator);
-                return (str.startsWith(sb.toString()) || "bdfile://code".equals(str)) ? PathType.RELATIVE : pathType;
-            }
-        }
-        return (PathType) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

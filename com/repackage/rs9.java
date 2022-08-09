@@ -2,60 +2,73 @@ package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OnSubscribeAmb$Selection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public final class rs9<T> extends as9<T> {
+public class rs9 implements ns9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final as9<? super T> e;
-    public final OnSubscribeAmb$Selection<T> f;
-    public boolean g;
+    public byte[] a;
+    public TreeMap<String, String> b;
 
-    public final boolean g() {
+    public rs9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    }
+
+    @Override // com.repackage.qs9
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.b.get(str);
+            return str2 == null ? "" : str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.qs9
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.containsKey(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.qs9
+    public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.g) {
-                return true;
-            }
-            if (this.f.get() == this) {
-                this.g = true;
-                return true;
-            } else if (this.f.compareAndSet(null, this)) {
-                this.f.unsubscribeOthers(this);
-                this.g = true;
-                return true;
-            } else {
-                this.f.unsubscribeLosers();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
-    @Override // com.repackage.vr9
-    public void onCompleted() {
+    @Override // com.repackage.qs9
+    public byte[] getContent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.e.onCompleted();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.vr9
-    public void onError(Throwable th) {
+    @Override // com.repackage.ns9
+    public void put(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.repackage.vr9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.e.onNext(t);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.b.put(str, str2);
         }
     }
 }

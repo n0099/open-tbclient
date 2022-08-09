@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k15;
-import com.repackage.lk7;
-import com.repackage.ng;
-import com.repackage.nk7;
-import com.repackage.oi7;
-import com.repackage.q15;
-import com.repackage.r15;
+import com.repackage.gm7;
+import com.repackage.h25;
+import com.repackage.im7;
+import com.repackage.jk7;
+import com.repackage.n25;
+import com.repackage.o25;
+import com.repackage.og;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class PrivilegeDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<r15> m;
+    public LinkedList<o25> m;
     public int n;
     public DLauncher o;
     public DLauncher p;
@@ -82,7 +82,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             } else {
                 this.a.o.c();
             }
-            this.a.w();
+            this.a.v();
         }
     }
 
@@ -123,7 +123,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 } else {
                     this.a.p.c();
                 }
-                this.a.w();
+                this.a.v();
             }
         }
     }
@@ -157,7 +157,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.L(new k15(1, 16, null));
+                this.a.J(new h25(1, 16, null));
             }
         }
     }
@@ -191,7 +191,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.L(new k15(1, 12, null));
+                this.a.J(new h25(1, 12, null));
             }
         }
     }
@@ -219,23 +219,23 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.s = new b(this, 2001353);
         this.t = new c(this);
         this.u = new d(this);
-        s(context);
-        nk7 nk7Var = new nk7(context, 1);
-        p(new oi7(context));
-        q(nk7Var);
+        r(context);
+        im7 im7Var = new im7(context, 1);
+        p(new jk7(context));
+        q(im7Var);
         this.q = context;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.l15
-    public void C(k15 k15Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.i25
+    public void A(h25 h25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) {
-            super.C(k15Var);
-            if (k15Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) {
+            super.A(h25Var);
+            if (h25Var == null) {
                 return;
             }
-            if (k15Var.a == 2) {
-                Object obj = k15Var.c;
+            if (h25Var.a == 2) {
+                Object obj = h25Var.c;
                 if (obj == null) {
                     this.n--;
                 } else if (obj instanceof String) {
@@ -245,31 +245,31 @@ public class PrivilegeDeskView extends CommonTabHost {
                     } else if (TextUtils.isEmpty(str.trim())) {
                         this.n++;
                     } else {
-                        this.n += ng.e(str, 1);
+                        this.n += og.e(str, 1);
                     }
                 }
                 if (this.n > 0) {
-                    L(new k15(2, 18, " "));
+                    J(new h25(2, 18, " "));
                 } else {
-                    L(new k15(2, 18, null));
+                    J(new h25(2, 18, null));
                 }
             }
-            if (k15Var.a == 1) {
+            if (h25Var.a == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.w15
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.t25
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            lk7 lk7Var = new lk7();
-            lk7Var.A(this.m);
-            h(lk7Var);
-            u();
+            gm7 gm7Var = new gm7();
+            gm7Var.z(this.m);
+            h(gm7Var);
             t();
+            s();
         }
     }
 
@@ -280,11 +280,11 @@ public class PrivilegeDeskView extends CommonTabHost {
             super.onAttachedToWindow();
             MessageManager.getInstance().registerListener(this.r);
             MessageManager.getInstance().registerListener(this.s);
-            w();
+            v();
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.w15
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.t25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -304,27 +304,27 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void p(oi7 oi7Var) {
+    public final void p(jk7 jk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oi7Var) == null) {
-            DLauncher dLauncher = (DLauncher) q15.a(getContext(), oi7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048581, this, jk7Var) == null) {
+            DLauncher dLauncher = (DLauncher) n25.a(getContext(), jk7Var, 6);
             this.p = dLauncher;
             dLauncher.setOnClickListener(this.u);
             this.m.add(this.p);
         }
     }
 
-    public final void q(nk7 nk7Var) {
+    public final void q(im7 im7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nk7Var) == null) {
-            DLauncher dLauncher = (DLauncher) q15.a(getContext(), nk7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048582, this, im7Var) == null) {
+            DLauncher dLauncher = (DLauncher) n25.a(getContext(), im7Var, 6);
             this.o = dLauncher;
             dLauncher.setOnClickListener(this.t);
             this.m.add(this.o);
         }
     }
 
-    public final void s(Context context) {
+    public final void r(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             setBackgroundColorId(R.color.CAM_X0206);
@@ -333,7 +333,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void t() {
+    public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
@@ -341,11 +341,11 @@ public class PrivilegeDeskView extends CommonTabHost {
             } else {
                 this.p.c();
             }
-            w();
+            v();
         }
     }
 
-    public final void u() {
+    public final void t() {
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null) {
@@ -356,10 +356,10 @@ public class PrivilegeDeskView extends CommonTabHost {
         } else {
             this.o.c();
         }
-        w();
+        v();
     }
 
-    public final void v(boolean z) {
+    public final void u(boolean z) {
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null) {
@@ -368,7 +368,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         currentAccountObj.setIsSelectTail(z);
     }
 
-    public final void w() {
+    public final void v() {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -376,17 +376,17 @@ public class PrivilegeDeskView extends CommonTabHost {
             String text2 = this.p.getText();
             if (text != null && !text.equals("")) {
                 z = true;
-                L(new k15(2, 18, " "));
-                L(new k15(2, 16, " "));
+                J(new h25(2, 18, " "));
+                J(new h25(2, 16, " "));
             } else {
                 if (text2 != null && !text2.equals("")) {
-                    L(new k15(2, 18, " "));
+                    J(new h25(2, 18, " "));
                 } else {
-                    L(new k15(2, 18, null));
+                    J(new h25(2, 18, null));
                 }
                 z = false;
             }
-            v(z);
+            u(z);
         }
     }
 }

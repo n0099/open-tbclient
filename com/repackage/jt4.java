@@ -1,116 +1,190 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jt4 extends ct4 {
+public abstract class jt4 implements nt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public at4 c;
+    public final rt4 a;
+    public final HashMap<String, Method> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jt4(at4 at4Var) {
-        super(at4Var);
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.jt4 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public jt4(rt4 rt4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {at4Var};
+            Object[] objArr = {rt4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((at4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = at4Var;
+        this.a = rt4Var;
+        this.b = new HashMap<>();
+        b(getClass());
+        if (this.b.isEmpty()) {
+            throw new IllegalStateException("No native methods found!");
+        }
     }
 
-    @Override // com.repackage.ct4
-    public String f() {
+    @Override // com.repackage.nt4
+    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        Object invoke;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
+            Method method = this.b.get(str);
+            if (method != null) {
+                ut4 ut4Var = (ut4) method.getAnnotation(ut4.class);
+                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
+                try {
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    if (!ut4Var.isAsync()) {
+                        if (parameterTypes.length == 2) {
+                            invoke = method.invoke(this, optString, jSONObject);
+                        } else if (parameterTypes.length == 1) {
+                            invoke = method.invoke(this, jSONObject);
+                        } else if (parameterTypes.length == 0) {
+                            kt4.a("native method " + getClass().getSimpleName() + ":" + ut4Var.value() + " ignored all parameters.");
+                            invoke = method.invoke(this, new Object[0]);
+                        } else {
+                            e(str, jSONObject2, "500", "parameters too much!");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, (JSONObject) invoke);
+                        return;
+                    } else if (parameterTypes.length == 2) {
+                        method.invoke(this, optString, jSONObject);
+                        return;
+                    } else if (parameterTypes.length == 1) {
+                        method.invoke(this, jSONObject);
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, null);
+                        return;
+                    } else if (parameterTypes.length == 0) {
+                        kt4.a("native method " + getClass().getSimpleName() + ":" + ut4Var.value() + " ignored all parameters.");
+                        method.invoke(this, new Object[0]);
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, null);
+                        return;
+                    } else {
+                        e(str, jSONObject2, "500", "parameters too much!");
+                        return;
+                    }
+                } catch (IllegalAccessException e) {
+                    kt4.a("native method call error:" + e.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
+                    return;
+                } catch (InvocationTargetException e2) {
+                    kt4.a("native method call error:" + e2.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
+                    return;
+                } catch (Exception e3) {
+                    kt4.a("native method call error:" + e3.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
+                    return;
+                }
+            }
+            e(str, jSONObject2, "403", "method " + str + " not exists");
+        }
+    }
+
+    public final void b(Class<? extends jt4> cls) {
+        Method[] declaredMethods;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
+            for (Method method : cls.getDeclaredMethods()) {
+                ut4 ut4Var = (ut4) method.getAnnotation(ut4.class);
+                if (ut4Var != null) {
+                    String value = ut4Var.value();
+                    String str = TextUtils.isEmpty(value) ? null : value;
+                    if (ut4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
+                        throw new IllegalArgumentException("Method with async flag should return void.");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = method.getName();
+                    }
+                    method.setAccessible(true);
+                    this.b.put(str, method);
+                }
+            }
+            Class<? super Object> superclass = cls.getSuperclass();
+            if (superclass == null || superclass == cls) {
+                return;
+            }
+            b(superclass);
+        }
+    }
+
+    public void c(Message<?> message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            gt4.a(message);
+        }
+    }
+
+    public void d(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kt4.a("sendResponseToJS got empty callbackId.");
+                return;
+            }
+            HashMap hashMap = new HashMap(4);
+            hashMap.put("errNo", "0");
+            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
+            if (jSONObject != null) {
+                hashMap.put("data", jSONObject);
+            }
+            this.a.c(st4.k(str, hashMap));
+        }
+    }
+
+    public final void e(String str, JSONObject jSONObject, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, jSONObject, str2, str3) == null) {
+            String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
+            if (TextUtils.isEmpty(optString)) {
+                kt4.a("method " + str + " not found!");
+                return;
+            }
+            HashMap hashMap = new HashMap(4);
+            hashMap.put("errNo", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
+            this.a.c(st4.k(optString, hashMap));
+        }
+    }
+
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
-    }
-
-    @dt4(isAsync = false, value = "scanBigImages")
-    public void sanBigImages(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
-        int optInt = jSONObject.optInt("clickIndex");
-        int length = optJSONArray.length();
-        ArrayList<String> arrayList = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-        for (int i = 0; i < length; i++) {
-            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-            if (jSONObject2 != null) {
-                String string = jSONObject2.getString("bigImageUrl");
-                String string2 = jSONObject2.getString("originImageUrl");
-                if (!TextUtils.isEmpty(string)) {
-                    arrayList.add(string);
-                    if (!TextUtils.isEmpty(string2)) {
-                        ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.imageUrl = string;
-                        imageUrlData.originalUrl = string2;
-                        concurrentHashMap.put(string, imageUrlData);
-                    }
-                }
-            }
-        }
-        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-        builder.y(arrayList);
-        builder.C(optInt);
-        builder.D(true);
-        builder.K(arrayList.size() > 0 ? arrayList.get(0) : "");
-        builder.G(true);
-        builder.x(concurrentHashMap);
-        builder.I(true);
-        c(new CustomMessage(2010000, builder.w(this.c.getContext())));
-    }
-
-    @dt4("selectPhotos")
-    public void selectPhotos(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
-                    linkedList.add(imageFileInfo);
-                }
-            }
-            writeImagesInfo.setChosedFiles(linkedList);
-            writeImagesInfo.setMaxImagesAllowed(9);
-            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
-            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
-            albumActivityConfig.setRequestCode(12015);
-            c(new CustomMessage(2002001, albumActivityConfig));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
     }
 }

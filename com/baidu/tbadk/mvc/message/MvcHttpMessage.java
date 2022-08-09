@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t75;
-import com.repackage.v75;
+import com.repackage.r85;
+import com.repackage.t85;
 /* loaded from: classes3.dex */
-public class MvcHttpMessage<T extends t75, D extends v75> extends HttpMessage {
+public class MvcHttpMessage<T extends r85, D extends t85> extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;

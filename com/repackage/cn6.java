@@ -1,33 +1,84 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeColorInfo;
-/* loaded from: classes5.dex */
-public class cn6 extends an<ch8, FrsLikeRecommendHolder> {
+/* loaded from: classes6.dex */
+public class cn6 extends bn<ln6, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThemeColorInfo i;
+
+    /* loaded from: classes6.dex */
+    public class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cn6 cn6Var, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn6Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (view2 instanceof TextView) {
+                this.a = (TextView) view2;
+                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
+                marginLayoutParams.topMargin = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+                this.a.setLayoutParams(marginLayoutParams);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0713);
+                this.a.setPadding(qi.f(cn6Var.mContext, R.dimen.M_W_X005), qi.f(cn6Var.mContext, R.dimen.M_H_X005), 0, 0);
+                ms4 d = ms4.d(this.a);
+                d.z(R.dimen.T_X07);
+                d.A(R.string.F_X02);
+            }
+        }
+
+        public void a() {
+            TextView textView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.a) == null) {
+                return;
+            }
+            ms4 d = ms4.d(textView);
+            d.v(R.color.CAM_X0105);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn6(@NonNull Context context) {
-        super(context, ch8.e);
+    public cn6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,59 +90,28 @@ public class cn6 extends an<ch8, FrsLikeRecommendHolder> {
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ch8 ch8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        b0(i, view2, viewGroup, ch8Var, frsLikeRecommendHolder);
-        return view2;
-    }
-
-    public /* synthetic */ void Z(ch8 ch8Var, ViewGroup viewGroup, int i, View view2) {
-        if (z() != null) {
-            z().b(view2, ch8Var, ch8.e, viewGroup, i, view2.getId());
-        }
+        this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public FrsLikeRecommendHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0329, viewGroup, false), this.i) : (FrsLikeRecommendHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, new TextView(this.mContext)) : (a) invokeL.objValue;
     }
 
-    public View b0(final int i, View view2, final ViewGroup viewGroup, final ch8 ch8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ln6 ln6Var, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ch8Var, frsLikeRecommendHolder})) == null) {
-            if (ch8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.b(ch8Var);
-                frsLikeRecommendHolder.d(new View.OnClickListener() { // from class: com.repackage.ym6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                            cn6.this.Z(ch8Var, viewGroup, i, view3);
-                        }
-                    }
-                });
-                frsLikeRecommendHolder.c();
-            }
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ln6Var, aVar})) == null) {
+            aVar.a();
+            return aVar.getView();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void c0(ThemeColorInfo themeColorInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, themeColorInfo) == null) {
-            this.i = themeColorInfo;
-        }
     }
 }

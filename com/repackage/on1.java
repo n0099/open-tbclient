@@ -1,376 +1,102 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.io.File;
-import java.util.Iterator;
-import java.util.Map;
-import okhttp3.Headers;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class on1 extends kn1 {
+/* loaded from: classes7.dex */
+public class on1 implements an1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ pn1 c;
-        public final /* synthetic */ on1 d;
-
-        public a(on1 on1Var, CallbackHandler callbackHandler, String str, pn1 pn1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on1Var, callbackHandler, str, pn1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = on1Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = pn1Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.d.r(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ on1 d;
-
-        public b(on1 on1Var, CallbackHandler callbackHandler, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on1Var, callbackHandler, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = on1Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (kn1.c) {
-                    Log.i("CloudUploadAction", "onFailure: ");
-                }
-                on1 on1Var = this.d;
-                CallbackHandler callbackHandler = this.a;
-                String str = this.b;
-                on1Var.s(callbackHandler, str, null, "uploadFile:fail" + exc.getMessage());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(in1.n(this.c, null, "uploadFile:ok"), 0).toString());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public on1(f13 f13Var) {
-        super(f13Var, "/swanAPI/cloudUploadFile");
+    public on1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((f13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.kn1, com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                return l(unitedSchemeEntity, 1001, "swanApp is null");
-            }
-            JSONObject a2 = f23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                return l(unitedSchemeEntity, 202, "illegal params");
-            }
-            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
-            if (TextUtils.isEmpty(param)) {
-                return l(unitedSchemeEntity, 202, "illegal callback");
-            }
-            String optString = a2.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return l(unitedSchemeEntity, 202, "illegal cb");
-            }
-            if (kn1.c) {
-                Log.d("CloudUploadAction", "schema params : " + a2.toString());
-                Log.d("CloudUploadAction", "schema cb : " + optString);
-            }
-            pn1 p = p(a2);
-            if (p == null) {
-                l(unitedSchemeEntity, 202, "illegal params");
-                return false;
-            }
-            Request c = in1.c(i03Var, a2, unitedSchemeEntity);
-            if (c != null) {
-                callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                in1.p(c.url().toString(), c.body(), new a(this, callbackHandler, optString, p));
-                return true;
-            }
-            callbackHandler.handleSchemeDispatchCallback(param, unitedSchemeEntity.result.toString());
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.kn1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
-        }
-    }
-
-    public pn1 p(JSONObject jSONObject) {
+    @Override // com.repackage.an1
+    public in1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("fileMap");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("stringMap");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
-            }
-            String optString = optJSONObject2.optString("cloudPath");
-            if (TextUtils.isEmpty(optString) || optString.startsWith("/") || optString.contains("@")) {
-                return null;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String M = q73.M(optJSONObject.optString(keys.next()), i03.g0());
-                if (M != null && !TextUtils.isEmpty(M)) {
-                    File file = new File(M);
-                    if (file.exists()) {
-                        pn1 pn1Var = new pn1(file);
-                        u(jSONObject, pn1Var.contentLength());
-                        return pn1Var;
-                    }
-                }
-            }
-            return null;
-        }
-        return (pn1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new SwanWebModeWidget(context) : (in1) invokeL.objValue;
     }
 
-    public final int q(String str) {
+    @Override // com.repackage.an1
+    public en1 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                if (kn1.c) {
-                    e.printStackTrace();
-                }
-                return 1001;
-            }
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new wz1(context) : (en1) invokeL.objValue;
     }
 
-    public final void r(Response response, CallbackHandler callbackHandler, String str, RequestBody requestBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, callbackHandler, str, requestBody) == null) {
-            if (!response.isSuccessful()) {
-                s(callbackHandler, str, null, null);
-                return;
-            }
-            String header = response.header("Content-Type", "");
-            if (header != null && header.contains("application/json")) {
-                JSONObject m = in1.m(response);
-                if (m != null && response.isSuccessful()) {
-                    String optString = m.optString("errno", String.valueOf(0));
-                    String optString2 = m.optString("errmsg");
-                    if (in1.o(optString)) {
-                        s(callbackHandler, str, optString, optString2);
-                        return;
-                    }
-                    String optString3 = m.optString("UploadUrl");
-                    String optString4 = m.optString("fileID");
-                    if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                        JSONObject optJSONObject = m.optJSONObject("ExtraHeaders");
-                        if (optJSONObject == null) {
-                            s(callbackHandler, str, optString, optString2);
-                            return;
-                        }
-                        Map<String, String> t = t(optJSONObject);
-                        try {
-                            Request build = new Request.Builder().headers(Headers.of(t)).url(optString3).put(requestBody).build();
-                            if (i03.M() == null) {
-                                k(callbackHandler, str, 1001, "uploadFile:fail");
-                                return;
-                            }
-                            j74 j74Var = new j74(build.url().toString(), build.body(), new b(this, callbackHandler, str, optString4));
-                            j74Var.c = t;
-                            j74Var.f = true;
-                            j74Var.g = false;
-                            j74Var.h = true;
-                            k74.g().f(j74Var);
-                            return;
-                        } catch (Exception e) {
-                            if (kn1.c) {
-                                e.printStackTrace();
-                            }
-                            s(callbackHandler, str, optString, optString2);
-                            return;
-                        }
-                    }
-                    s(callbackHandler, str, optString, optString2);
-                    return;
-                }
-                k(callbackHandler, str, 1001, "uploadFile:fail");
-                return;
-            }
-            k(callbackHandler, str, 1001, "uploadFile:fail");
-        }
-    }
-
-    public final void s(CallbackHandler callbackHandler, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, callbackHandler, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                k(callbackHandler, str, 1001, "uploadFile:fail");
-            } else {
-                k(callbackHandler, str, q(str2), in1.k(str3));
-            }
-        }
-    }
-
-    @NonNull
-    public final Map<String, String> t(JSONObject jSONObject) {
+    @Override // com.repackage.an1
+    public in1 c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            ArrayMap arrayMap = new ArrayMap();
-            if (jSONObject == null) {
-                return arrayMap;
-            }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                arrayMap.put(next, jSONObject.optString(next));
-            }
-            return arrayMap;
-        }
-        return (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? new vn1(context) : (in1) invokeL.objValue;
     }
 
-    public final void u(JSONObject jSONObject, long j) {
+    @Override // com.repackage.an1
+    public u22 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, jSONObject, j) == null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("stringMap");
-        JSONObject jSONObject2 = new JSONObject();
-        JSONObject jSONObject3 = new JSONObject();
-        try {
-            jSONObject3.put("Content-Length", String.valueOf(j));
-            jSONObject2.put("Headers", jSONObject3);
-            if (optJSONObject != null) {
-                optJSONObject.put("data", jSONObject2);
-                jSONObject.put("stringMap", optJSONObject);
-            }
-        } catch (JSONException e) {
-            if (kn1.c) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new u22() : (u22) invokeV.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public fn1 e(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) ? new SwanAppSlaveManager(context) : (fn1) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public in1 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? new oo1(context) : (in1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public in1 g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new so1(context) : (in1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public v22 h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) ? new w22().a(context, i) : (v22) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public in1 i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? new SwanAppSimpleH5Widget(context) : (in1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.an1
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
     }
 }

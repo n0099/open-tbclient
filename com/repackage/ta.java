@@ -1,15 +1,12 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ta<T extends Message<?>, M extends MessageTask> extends va<T> {
+public abstract class ta extends wa<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,11 +30,7 @@ public abstract class ta<T extends Message<?>, M extends MessageTask> extends va
         }
     }
 
-    public abstract T process(T t, M m);
+    public abstract void a(int i, BdUniqueId bdUniqueId);
 
-    public T rule(T t, M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, m)) == null) ? t != null ? (getCmd() == 0 || getCmd() == t.getCmd()) ? process(t, m) : t : t : (T) invokeLL.objValue;
-    }
+    public abstract void b(BdUniqueId bdUniqueId);
 }

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t90;
+import com.repackage.s90;
 /* loaded from: classes2.dex */
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t90 a;
+    public s90 a;
     public int b;
     public int c;
 
@@ -40,9 +40,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t90 t90Var = this.a;
-            if (t90Var != null) {
-                return t90Var.a();
+            s90 s90Var = this.a;
+            if (s90Var != null) {
+                return s90Var.a();
             }
             return 0;
         }
@@ -60,9 +60,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            t90 t90Var = this.a;
-            if (t90Var != null) {
-                return t90Var.d(i);
+            s90 s90Var = this.a;
+            if (s90Var != null) {
+                return s90Var.d(i);
             }
             this.b = i;
             return false;
@@ -77,7 +77,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
             F(coordinatorLayout, v, i);
             if (this.a == null) {
-                this.a = new t90(v);
+                this.a = new s90(v);
             }
             this.a.b();
             int i2 = this.b;

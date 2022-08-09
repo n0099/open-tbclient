@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb;
-import com.repackage.dr4;
-import com.repackage.qy4;
+import com.repackage.cb;
+import com.repackage.lz4;
+import com.repackage.ur4;
 /* loaded from: classes.dex */
 public class AlaLivePushRemindDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext mPageContext;
-    public bb msgRemindListener;
+    public cb msgRemindListener;
 
     public AlaLivePushRemindDialog(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AlaLivePushRemindDialog {
                 return;
             }
         }
-        bb bbVar = new bb(this, 104102) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.1
+        cb cbVar = new cb(this, 104102) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AlaLivePushRemindDialog this$0;
@@ -73,20 +73,20 @@ public class AlaLivePushRemindDialog {
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                    qy4.d().J(300);
-                    qy4.d().H(true);
-                    qy4.d().L(true);
-                    qy4.d().M(true);
-                    qy4.d().G(true);
-                    qy4.d().P(true);
-                    qy4.d().I(true);
+                    lz4.d().K(300);
+                    lz4.d().I(true);
+                    lz4.d().M(true);
+                    lz4.d().N(true);
+                    lz4.d().H(true);
+                    lz4.d().Q(true);
+                    lz4.d().J(true);
                     this.this$0.jumpSystemPermissionSetting();
                 }
             }
         };
-        this.msgRemindListener = bbVar;
+        this.msgRemindListener = cbVar;
         this.mPageContext = tbPageContext;
-        tbPageContext.registerListener(bbVar);
+        tbPageContext.registerListener(cbVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,10 +117,10 @@ public class AlaLivePushRemindDialog {
     public void showDialog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            dr4 dr4Var = new dr4(this.mPageContext.getPageActivity());
-            dr4Var.setAutoNight(false);
-            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0229);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f022b, new dr4.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
+            ur4 ur4Var = new ur4(this.mPageContext.getPageActivity());
+            ur4Var.setAutoNight(false);
+            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f022c);
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f022e, new ur4.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AlaLivePushRemindDialog this$0;
@@ -145,20 +145,20 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // com.repackage.dr4.e
-                public void onClick(dr4 dr4Var2) {
+                @Override // com.repackage.ur4.e
+                public void onClick(ur4 ur4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, ur4Var2) == null) {
                         TiebaStatic.log("c12670");
                         this.this$0.openMsgRemind();
-                        dr4Var2.dismiss();
+                        ur4Var2.dismiss();
                         if (this.val$showAttentionSuccessPanel) {
                             AlaAttentionManager.getInstance().showAttentionSucceedTip(this.this$0.mPageContext);
                         }
                     }
                 }
             });
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f022a, new dr4.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
+            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f022d, new ur4.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AlaLivePushRemindDialog this$0;
@@ -183,19 +183,19 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // com.repackage.dr4.e
-                public void onClick(dr4 dr4Var2) {
+                @Override // com.repackage.ur4.e
+                public void onClick(ur4 ur4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, ur4Var2) == null) {
                         TiebaStatic.log("c12671");
-                        dr4Var2.dismiss();
+                        ur4Var2.dismiss();
                         if (this.val$showAttentionSuccessPanel) {
                             AlaAttentionManager.getInstance().showAttentionSucceedTip(this.this$0.mPageContext);
                         }
                     }
                 }
             });
-            dr4Var.create(this.mPageContext).show();
+            ur4Var.create(this.mPageContext).show();
             TiebaStatic.log("c12669");
         }
     }

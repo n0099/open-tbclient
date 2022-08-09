@@ -1,64 +1,74 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gt3 {
+public class gt3 implements um1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gt3 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public bt3 a;
+    public ft3 b;
 
-    public static boolean a(View view2, oq2 oq2Var) {
-        InterceptResult invokeLL;
+    public gt3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, oq2Var)) == null) {
-            zh1 W = vl2.U().W();
-            return W != null && W.c(view2, oq2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        c();
     }
 
-    public static boolean b() {
+    public static gt3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            zh1 W = vl2.U().W();
-            return (W == null || !W.b() || W.h()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            zh1 W = vl2.U().W();
-            return W != null && W.d(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            zh1 W = vl2.U().W();
-            if (W == null) {
-                return false;
-            }
-            if (W.h()) {
-                SwanAppActivity activity = vl2.U().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
+            if (c == null) {
+                synchronized (gt3.class) {
+                    if (c == null) {
+                        c = new gt3();
+                    }
                 }
-                W.g(false);
             }
-            return W.removeView(view2);
+            return c;
         }
-        return invokeL.booleanValue;
+        return (gt3) invokeV.objValue;
+    }
+
+    @Override // com.repackage.um1
+    public zs1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull de2 de2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, de2Var)) == null) {
+            if (this.a.e(str)) {
+                return this.a.a(str, jSONObject, de2Var);
+            }
+            if (this.a.f()) {
+                return this.b.a(str, jSONObject, de2Var);
+            }
+            return new zs1(10001, "authorize fail.");
+        }
+        return (zs1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new bt3();
+            this.b = new ft3();
+        }
     }
 }

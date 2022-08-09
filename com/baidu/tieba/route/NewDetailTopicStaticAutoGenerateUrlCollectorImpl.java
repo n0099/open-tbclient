@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class NewDetailTopicStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,7 @@ public final class NewDetailTopicStaticAutoGenerateUrlCollectorImpl implements I
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("TopicDetailActivityConfig");
-            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
-            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
+            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL);
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC);
             hashMap.put("com.baidu.tieba.newdetail.NewDetailTopicStatic", arrayList);
             return hashMap;

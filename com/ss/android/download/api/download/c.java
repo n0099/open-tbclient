@@ -2,7 +2,7 @@ package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements DownloadEventConfig {
     public String a;
     public boolean b;
@@ -22,7 +22,7 @@ public class c implements DownloadEventConfig {
     public String p;
     public String q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public String a;
         public boolean b;

@@ -1,81 +1,98 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q53 extends t53<JSONObject> {
+public class q53 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
 
-    public q53(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q53(w13 w13Var) {
+        super(w13Var, "/swanAPI/login");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f53
-    /* renamed from: P */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? g53.c(jSONObject) : (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.repackage.f53
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            i03 M = i03.M();
-            if (M != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ma_id", M.O());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var != null && z03Var.n0()) {
+                if (w23.b) {
+                    Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
                 }
-                v("data", jSONObject.toString());
-                return true;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            } else if (z03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                hk2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception").toString());
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
+                    hk2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "params is null").toString());
+                    hp1.J(z03Var, 1, 201, "params is null");
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("invokeFrom");
+                String str = optString.equals(NativeConstants.COMPONENT) ? "loginButton" : "loginApi";
+                s73.T(str, "create");
+                String optString2 = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    hk2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+                    hp1.J(z03Var, 1, 201, "empty cb");
+                    return false;
+                } else if (!optParamsAsJo.optBoolean(TTDownloadField.TT_FORCE, true) && !z03Var.N().e(context)) {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                    hk2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                    hp1.J(z03Var, 43, 10004, "user not logged in");
+                    return true;
+                } else {
+                    if (!z03Var.N().e(context)) {
+                        s73.S("show", 1, optString);
+                    }
+                    if (!y03.K().q().N().e(context)) {
+                        s73.T(str, "passLogin");
+                    }
+                    hp1.D(z03Var, (Activity) context, optParamsAsJo, callbackHandler, optString2, true, str);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
             }
-            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.t53
-    public HttpRequest w(t53 t53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t53Var)) == null) ? pj2.o().g(this.m, t53Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.repackage.t53
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.SWAN_ID : (SwanInterfaceType) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -50,7 +50,7 @@ public class ComplianceParmasSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mInstance.isOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

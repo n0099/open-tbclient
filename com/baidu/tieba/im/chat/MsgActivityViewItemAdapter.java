@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -66,43 +65,43 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: E */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            MsgActivityView msgActivityView = new MsgActivityView(this.a);
+            return new a(this, msgActivityView.k(), msgActivityView);
+        }
+        return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgActivityView b = msgViewHolder.b();
-            b.B(i);
-            b.T(chatMessage);
-            b.z(this.j);
-            b.A(this.k);
-            b.r(this.l);
-            b.x(chatMessage.getCacheData().getLastMsgTime());
-            this.i.getLayoutMode().k(false);
-            this.i.getLayoutMode().j(view2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
+            MsgActivityView a2 = msgViewHolder.a();
+            a2.D(i);
+            a2.W(chatMessage);
+            a2.B(this.b);
+            a2.C(this.c);
+            a2.t(this.d);
+            a2.z(chatMessage.getCacheData().getLastMsgTime());
+            this.a.getLayoutMode().l(false);
+            this.a.getLayoutMode().k(view2);
             return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            MsgActivityView msgActivityView = new MsgActivityView(this.i);
-            return new a(this, msgActivityView.h(), msgActivityView);
-        }
-        return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 }

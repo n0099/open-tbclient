@@ -1,11 +1,21 @@
 package com.repackage;
 
-import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
+import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public interface fq0 {
-    void a(BdThumbSeekBarView bdThumbSeekBarView);
+    void onBeforeSwitchToFull();
 
-    void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
+    void onBeforeSwitchToHalf();
 
-    void c(BdThumbSeekBarView bdThumbSeekBarView);
+    void onGestureActionEnd();
+
+    void onGestureActionStart();
+
+    boolean onGestureDoubleClick(MotionEvent motionEvent);
+
+    void onPanelVisibilityChanged(boolean z);
+
+    void onVideoSwitchToFull();
+
+    void onVideoSwitchToHalf();
 }

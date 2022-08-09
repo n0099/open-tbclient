@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b99;
-import com.repackage.oe0;
+import com.repackage.ke0;
+import com.repackage.wb9;
 /* loaded from: classes4.dex */
 public class SuperpositionProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
@@ -29,11 +29,11 @@ public class SuperpositionProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(oe0 oe0Var, int i, float[] fArr) {
+    public int onProcessFrame(ke0 ke0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int d;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, oe0Var, i, fArr)) == null) ? (oe0Var == null || (d = oe0Var.d((MediaTrack) b99.c(oe0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, ke0Var, i, fArr)) == null) ? (ke0Var == null || (d = ke0Var.d((MediaTrack) wb9.c(ke0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor

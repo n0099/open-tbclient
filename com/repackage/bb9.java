@@ -1,11 +1,9 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,442 +11,265 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.io.FileOutputStream;
+import java.io.RandomAccessFile;
+import java.util.Random;
 /* loaded from: classes5.dex */
 public class bb9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int i = 500;
     public transient /* synthetic */ FieldHolder $fh;
-    public cb9 a;
-    public long b;
-    public int c;
-    public long d;
-    public LinkedList<ab9> e;
-    public ArrayList<String> f;
+    public volatile int a;
+    public volatile int b;
+    public volatile boolean c;
+    public int d;
+    public int e;
+    public String f;
+    public volatile String g;
+    public Context h;
 
     /* loaded from: classes5.dex */
-    public class a implements Comparator<ab9> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ byte[] a;
+        public final /* synthetic */ bb9 b;
 
-        public a(bb9 bb9Var) {
+        public a(bb9 bb9Var, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bb9Var};
+                Object[] objArr = {bb9Var, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = bb9Var;
+            this.a = bArr;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ab9 ab9Var, ab9 ab9Var2) {
-            InterceptResult invokeLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ab9Var, ab9Var2)) == null) {
-                int h = ab9Var2.h() - ab9Var.h();
-                return h == 0 ? (int) (ab9Var2.i() - ab9Var.i()) : h;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Bitmap a = new ec9(this.b.h).a(this.b.j(this.a, this.b.e, this.b.d), this.b.d, this.b.e);
+                    this.b.g = this.b.b(a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            return invokeLL.intValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755832616, "Lcom/repackage/bb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755832616, "Lcom/repackage/bb9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755832616, "Lcom/repackage/bb9;")) == null) {
+            return;
         }
-        g = AppConfig.isDebug();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755832616, "Lcom/repackage/bb9;");
+        }
     }
 
-    public bb9(Context context, boolean z) {
+    public bb9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cb9.f(context);
-        j(z);
+        this.a = 0;
+        this.b = -1;
+        this.h = context;
     }
 
-    public void a(ab9 ab9Var) {
+    public final String b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ab9Var) == null) {
-            if (ab9Var != null) {
-                if (this.e.size() == 0) {
-                    this.e.addFirst(ab9Var);
-                } else {
-                    int i = 0;
-                    Iterator<ab9> it = this.e.iterator();
-                    while (it.hasNext() && ab9Var.h() < it.next().h()) {
-                        i++;
-                    }
-                    this.e.add(i, ab9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            File file = new File(new File(this.f), "samplecover.dat");
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                if (bitmap != null) {
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                 }
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (g) {
-                Log.d("VoyagerTaskModel", "count: " + this.e.size());
-            }
+            g(file);
+            return file.getAbsolutePath();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void e(int i2, int i3, int i4, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+            this.c = z;
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void f(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c < qa9.f().m()) {
-                if (g) {
-                    Log.d("VoyagerTaskModel", "current count: " + this.c + ", max: " + qa9.f().m());
-                }
-                return true;
-            }
-            this.c = 0;
-            return System.currentTimeMillis() - this.b > qa9.f().l();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d();
-            jb9.b(sa9.g().h());
-            LinkedList<ab9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() > 0) {
-                this.e.clear();
-            }
-            ArrayList<String> arrayList = this.f;
-            if (arrayList != null && arrayList.size() > 0) {
-                this.f.clear();
-            }
-            this.b = 0L;
-            this.c = 0;
-            this.d = 0L;
-        }
-    }
-
-    public final void d() {
-        cb9 cb9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cb9Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, closeable) == null) || closeable == null) {
             return;
         }
-        cb9Var.a();
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public final void e() {
+    public final void g(File file) {
+        RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LinkedList<ab9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() != 0) {
-                long h = qa9.f().h();
-                File h2 = sa9.g().h();
-                Iterator<ab9> it = this.e.iterator();
-                while (it.hasNext()) {
-                    ab9 next = it.next();
-                    File file = new File(h2, next.j());
-                    if (this.d < h) {
-                        if (file.exists()) {
-                            this.d += file.length();
-                        }
-                    } else {
-                        next.r(false);
-                        next.q(System.currentTimeMillis());
-                        n(next);
-                        file.delete();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048579, this, file) == null) {
+            Closeable closeable = null;
+            try {
+                try {
+                    randomAccessFile = new RandomAccessFile(file, "rw");
+                } catch (Exception e) {
+                    e = e;
                 }
-                if (g) {
-                    Log.d("VoyagerTaskModel", "task count after delete exceed task: " + this.e.size());
-                }
-                int g2 = qa9.f().g();
-                int size = this.e.size();
-                if (size <= g2) {
-                    return;
-                }
-                int i = size - g2;
-                for (int i2 = i; i2 > 0; i2--) {
-                    ab9 removeLast = this.e.removeLast();
-                    removeLast.r(false);
-                    removeLast.q(System.currentTimeMillis());
-                    n(removeLast);
-                    jb9.d(sa9.g().h(), removeLast.j());
-                }
-                if (g) {
-                    Log.d("VoyagerTaskModel", "delete count: " + i);
-                }
-            } else if (g) {
-                Log.d("VoyagerTaskModel", "task list length 0");
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[i];
+                randomAccessFile.read(bArr, 0, i);
+                byte[] m = m(bArr);
+                randomAccessFile.seek(0L);
+                randomAccessFile.write(m, 0, i);
+                f(randomAccessFile);
+            } catch (Exception e2) {
+                e = e2;
+                closeable = randomAccessFile;
+                e.printStackTrace();
+                f(closeable);
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = randomAccessFile;
+                f(closeable);
+                throw th;
             }
         }
     }
 
-    public final void f() {
+    public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g(this.f, this.e);
-            if (this.f.size() > 0) {
-                Iterator<String> it = this.f.iterator();
-                while (it.hasNext()) {
-                    jb9.d(sa9.g().h(), it.next());
-                    it.remove();
+        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
+            if (this.b > 0 && this.c && this.a == this.b) {
+                byte[] bArr2 = new byte[bArr.length];
+                for (int i2 = 0; i2 < bArr.length; i2++) {
+                    bArr2[i2] = bArr[i2];
                 }
+                new Thread(new a(this, bArr2), "yuvtobitmap").start();
             }
+            this.a++;
         }
     }
 
-    public final void g() {
-        ArrayList<File> f;
+    public final byte[] j(byte[] bArr, int i2, int i3) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (f = sa9.g().f()) == null || f.size() == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
+            int i4 = i2 * i3;
+            byte[] bArr2 = new byte[(i4 * 3) / 2];
+            int i5 = i2 - 1;
+            int i6 = 0;
+            for (int i7 = i5; i7 >= 0; i7--) {
+                for (int i8 = 0; i8 < i3; i8++) {
+                    bArr2[i6] = bArr[(i8 * i2) + i7];
+                    i6++;
+                }
+            }
+            int i9 = i4;
+            while (i5 > 0) {
+                for (int i10 = 0; i10 < i3 / 2; i10++) {
+                    int i11 = (i10 * i2) + i4;
+                    bArr2[i9] = bArr[i11 + i5];
+                    int i12 = i9 + 1;
+                    bArr2[i12] = bArr[i11 + (i5 - 1)];
+                    i9 = i12 + 1;
+                }
+                i5 -= 2;
+            }
+            n(bArr2, i3, i2);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b >= 0) {
             return;
         }
-        Iterator<File> it = f.iterator();
-        while (it.hasNext()) {
-            String name = it.next().getName();
-            Iterator<ab9> it2 = this.e.iterator();
-            while (it2.hasNext() && !TextUtils.equals(name, it2.next().j())) {
-            }
-            it.remove();
-        }
-        if (g) {
-            Log.d("VoyagerTaskModel", "unreference file count: " + f.size());
-        }
-        if (f.size() > 0) {
-            jb9.c(f);
-        }
+        this.b = new Random().nextInt(240);
     }
 
-    public final boolean h() {
-        InterceptResult invokeV;
-        LinkedList<ab9> linkedList;
+    public final byte[] m(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null || (linkedList = this.e) == null || linkedList.size() == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            int i2 = i;
+            int i3 = i2 / 2;
+            byte[] bArr2 = new byte[i2];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i3; i5++) {
+                bArr2[i4] = bArr[i5];
+                int i6 = i4 + 1;
+                bArr2[i6] = bArr[i3 + i5];
+                i4 = i6 + 1;
             }
-            String c = this.a.c();
-            ab9 ab9Var = null;
-            Iterator<ab9> it = this.e.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                ab9 next = it.next();
-                if (TextUtils.equals(c, next.j())) {
-                    ab9Var = next;
-                    break;
+            return bArr2;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] n(byte[] bArr, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) {
+            for (int i4 = 0; i4 < (i3 * 3) / 2; i4++) {
+                for (int i5 = 0; i5 < i2 / 2; i5++) {
+                    int i6 = (i4 * i2) + i5;
+                    byte b = bArr[i6];
+                    int i7 = (((i4 + 1) * i2) - 1) - i5;
+                    bArr[i6] = bArr[i7];
+                    bArr[i7] = b;
                 }
             }
-            if (ab9Var != null) {
-                this.e.remove(ab9Var);
-            }
-            File file = new File(sa9.g().h(), c);
-            if (file.exists()) {
-                file.delete();
-                this.d -= file.length();
-                return true;
-            }
-            return true;
+            return bArr;
         }
-        return invokeV.booleanValue;
-    }
-
-    public ab9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            LinkedList<ab9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() != 0) {
-                return this.e.getFirst();
-            }
-            if (g) {
-                Log.d("VoyagerTaskModel", "have no task in list");
-            }
-            this.c = 0;
-            return null;
-        }
-        return (ab9) invokeV.objValue;
-    }
-
-    public final void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                c();
-                return;
-            }
-            this.e = new LinkedList<>();
-            this.f = new ArrayList<>();
-            this.b = 0L;
-            this.c = 0;
-            this.d = 0L;
-            f();
-            g();
-            e();
-            l();
-        }
-    }
-
-    public void k(ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, ab9Var) == null) || ab9Var == null) {
-            return;
-        }
-        this.a.h(ab9Var);
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.e.size() <= 0) {
-            return;
-        }
-        Collections.sort(this.e, new a(this));
-    }
-
-    public void m(boolean z, ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, ab9Var) == null) {
-            ab9Var.r(false);
-            ab9Var.q(System.currentTimeMillis());
-            n(ab9Var);
-            if (z) {
-                this.e.remove(ab9Var);
-            }
-        }
-    }
-
-    public void n(ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, ab9Var) == null) || ab9Var == null) {
-            return;
-        }
-        this.a.i(ab9Var);
-    }
-
-    public void o(ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, ab9Var) == null) || ab9Var == null) {
-            return;
-        }
-        this.a.j(ab9Var);
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b = System.currentTimeMillis();
-            if (g) {
-                Log.d("VoyagerTaskModel", "update check task time: " + this.b);
-            }
-        }
-    }
-
-    public void q(ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, ab9Var) == null) || ab9Var == null) {
-            return;
-        }
-        this.e.remove(ab9Var);
-        this.e.addLast(ab9Var);
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.c++;
-        }
-    }
-
-    public void s(boolean z, ab9 ab9Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), ab9Var, Long.valueOf(j)}) == null) {
-            ab9Var.r(false);
-            ab9Var.s(ab9Var.k() + 1);
-            ab9Var.q(System.currentTimeMillis());
-            if (z) {
-                if (g) {
-                    Log.d("VoyagerTaskModel", "max upload count: " + ab9Var.d() + ", has uploaded " + ab9Var.k());
-                }
-                if (ab9Var.k() < ab9Var.d()) {
-                    o(ab9Var);
-                    q(ab9Var);
-                    return;
-                }
-                n(ab9Var);
-                this.e.remove(ab9Var);
-                return;
-            }
-            o(ab9Var);
-            a(ab9Var);
-            if (g) {
-                Log.d("VoyagerTaskModel", "add task " + ab9Var.j() + " to list");
-            }
-            this.d += j;
-            while (this.d > qa9.f().h()) {
-                if (!h()) {
-                    this.d = 0L;
-                    return;
-                }
-            }
-        }
-    }
-
-    public void t(boolean z, ab9 ab9Var, long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), ab9Var, Long.valueOf(j), str}) == null) {
-            ab9Var.r(true);
-            ab9Var.q(System.currentTimeMillis());
-            ab9Var.p(str);
-            n(ab9Var);
-            if (z) {
-                this.e.remove(ab9Var);
-                this.d -= j;
-            }
-        }
-    }
-
-    public void u(boolean z, ab9 ab9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048596, this, z, ab9Var) == null) {
-            ab9Var.r(false);
-            ab9Var.q(System.currentTimeMillis());
-            o(ab9Var);
-            if (z) {
-                q(ab9Var);
-            } else {
-                a(ab9Var);
-            }
-        }
+        return (byte[]) invokeLII.objValue;
     }
 }

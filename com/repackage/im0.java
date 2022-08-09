@@ -1,7 +1,13 @@
 package com.repackage;
-/* loaded from: classes6.dex */
-public interface im0 extends gh0 {
-    void a(String str, String str2);
 
-    void c(String str, String str2, String str3);
+import android.widget.FrameLayout;
+/* loaded from: classes6.dex */
+public interface im0 extends ch0 {
+    int getVideoHeight();
+
+    FrameLayout h();
+
+    boolean k();
+
+    int l();
 }

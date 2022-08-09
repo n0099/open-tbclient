@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GamenowDownloadButtomView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class GamenowDownloadButtomView extends View {
     public DownloadState l;
     public float m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -101,8 +101,8 @@ public class GamenowDownloadButtomView extends View {
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
         this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070142);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060399);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f06039a);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f0603a8);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f0603a9);
     }
 
     public final void a(Canvas canvas, RectF rectF) {

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.og;
 import com.squareup.wire.ByteString;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,8 +50,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = ng.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = ng.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = og.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = og.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

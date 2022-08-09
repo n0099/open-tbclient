@@ -1,54 +1,57 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public abstract class kp9 extends mp9 {
+public final class kp9 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ hp9 a;
+    public final /* synthetic */ gp9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kp9(Framedata.Opcode opcode) {
-        super(opcode);
+    public kp9(gp9 gp9Var, hp9 hp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
+            Object[] objArr = {gp9Var, hp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = gp9Var;
+        this.a = hp9Var;
     }
 
-    @Override // com.repackage.mp9
-    public void h() throws InvalidDataException {
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (e()) {
-                            throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                        }
-                        return;
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
+                this.b.p();
+                int i = extras.getInt("install.status");
+                if (i == 1 || i == 2 || i == 3) {
+                    this.a.a(com.google.ar.core.p.a);
+                } else if (i == 4) {
+                    this.a.a(com.google.ar.core.p.c);
+                } else if (i != 6) {
+                } else {
+                    this.a.a(com.google.ar.core.p.b);
                 }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
             }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
         }
     }
 }

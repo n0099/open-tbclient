@@ -1,72 +1,117 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz2;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes7.dex */
-public class qf3 implements mz2.c {
+public abstract class qf3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public final tf3<OuT> a;
+    public OuT b;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a extends qf3<OuT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ qf3 b;
+        public final /* synthetic */ CountDownLatch c;
 
-        public a(qf3 qf3Var, ViewGroup viewGroup) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tf3 tf3Var, CountDownLatch countDownLatch) {
+            super(tf3Var, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qf3Var, viewGroup};
+                Object[] objArr = {tf3Var, countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((tf3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = qf3Var;
-            this.a = viewGroup;
+            this.c = countDownLatch;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.qf3
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
+                this.c.countDown();
             }
         }
     }
 
-    public qf3() {
+    public /* synthetic */ qf3(tf3 tf3Var, a aVar) {
+        this(tf3Var);
+    }
+
+    public static <OuT> OuT a(Looper looper, tf3<OuT> tf3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, tf3Var)) == null) {
+            if (tf3Var == null) {
+                return null;
+            }
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(tf3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    zx1.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
+            }
+            return tf3Var.create();
+        }
+        return (OuT) invokeLL.objValue;
+    }
+
+    public static <OuT> OuT b(tf3<OuT> tf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tf3Var)) == null) ? (OuT) a(Looper.getMainLooper(), tf3Var) : (OuT) invokeL.objValue;
+    }
+
+    public abstract void c();
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    zx1.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
+                }
+            } finally {
+                c();
+            }
+        }
+    }
+
+    public qf3(tf3<OuT> tf3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tf3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,54 +121,7 @@ public class qf3 implements mz2.c {
                 return;
             }
         }
-        this.a = null;
-    }
-
-    @Override // com.repackage.mz2.c
-    public void a(mz2 mz2Var, mz2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, mz2Var, bVar) == null) || mz2Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(mz2Var);
-        ViewGroup viewGroup = (ViewGroup) mz2Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (pj2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
-            }
-        }
-    }
-
-    public final void d(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        view2.post(new a(this, viewGroup));
-    }
-
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
-            return;
-        }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
-    }
-
-    public final void f(mz2 mz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mz2Var) == null) {
-            Context context = mz2Var.getContext();
-            if (mz2Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) mz2Var.getContext()).getBaseContext();
-            }
-            if (context instanceof Activity) {
-                rc3.b((Activity) context, mz2Var);
-            }
-        }
+        this.b = null;
+        this.a = tf3Var;
     }
 }

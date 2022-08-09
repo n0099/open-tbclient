@@ -1,113 +1,78 @@
 package com.repackage;
 
-import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class a52 implements r42 {
+public class a52 extends cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public OutputStream c;
-    public File d;
-    public boolean e;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(File file);
-
-        void b(File file);
-    }
-
-    public a52(File file, a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a52(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, aVar};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = file;
-        this.b = aVar;
-        b(file);
     }
 
-    public void a() {
+    @Override // com.repackage.cp1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
-            return;
-        }
-        a aVar = this.b;
-        if (aVar != null) {
-            if (this.e) {
-                aVar.a(this.d);
-            } else {
-                aVar.b(this.d);
-            }
-        }
-        kg4.d(this.c);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
     }
 
-    public final void b(File file) {
+    @Override // com.repackage.cp1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
-            try {
-                if (this.c != null || file == null) {
-                    return;
-                }
-                kg4.h(this.d);
-                this.c = new FileOutputStream(file);
-            } catch (Exception e) {
-                if (r42.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
     }
 
-    public void c(InputStream inputStream) {
+    public zs1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) || inputStream == null || this.e) {
-            return;
-        }
-        kg4.Q(inputStream, this.d);
-        this.e = true;
-    }
-
-    public void d(byte[] bArr, int i, int i2) {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) || (outputStream = this.c) == null) {
-            return;
-        }
-        try {
-            if (i2 > 0) {
-                outputStream.write(bArr, i, i2);
-            } else {
-                this.e = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#prefetchResources params=" + str, false);
+            Pair<zs1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (jSONObject == null) {
+                return (zs1) s.first;
             }
-        } catch (IOException unused) {
-            kg4.d(this.c);
-            this.c = null;
-            a aVar = this.b;
-            if (aVar != null) {
-                aVar.b(this.d);
+            if (!SwanAppNetworkUtils.i(gk2.c())) {
+                return new zs1(1001, "network disconnected");
             }
+            JSONArray c = zd3.c(jSONObject, "video");
+            if (c != null && c.length() > 0) {
+                gk2.U().a(c);
+            }
+            JSONArray c2 = zd3.c(jSONObject, "image");
+            if (c2 != null && c2.length() > 0) {
+                gk2.U().c(c2);
+            }
+            return zs1.f();
         }
+        return (zs1) invokeL.objValue;
     }
 }

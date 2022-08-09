@@ -1,15 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wc8 implements iz4 {
+public class wc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
     public wc8() {
         Interceptable interceptable = $ic;
@@ -25,10 +28,19 @@ public class wc8 implements iz4 {
         }
     }
 
-    @Override // com.repackage.iz4
-    public hz4 a(Context context, gz4 gz4Var) {
-        InterceptResult invokeLL;
+    public static wc8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, gz4Var)) == null) ? new vc8(context, gz4Var) : (hz4) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            wc8 wc8Var = new wc8();
+            wc8Var.a = jSONObject.optString("apk_name");
+            wc8Var.b = jSONObject.optString("apk_url");
+            wc8Var.c = jSONObject.optString("download_key");
+            return wc8Var;
+        }
+        return (wc8) invokeL.objValue;
     }
 }

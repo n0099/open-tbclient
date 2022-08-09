@@ -1,6 +1,7 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,54 +9,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface ku {
-    public static final a a = a.b;
+public final class ku implements iu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final UBCManager a;
+    public final lu b;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static ServiceReference a;
-        public static final /* synthetic */ a b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1947115842, "Lcom/repackage/ku$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1947115842, "Lcom/repackage/ku$a;");
-                    return;
-                }
-            }
-            b = new a();
-            a = new ServiceReference("bdptask", "yalog");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964035109, "Lcom/repackage/ku;")) == null) {
+            return;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (ServiceReference) invokeV.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964035109, "Lcom/repackage/ku;");
         }
     }
 
-    void a(String str, String str2, String str3);
+    public ku() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        this.b = (lu) ServiceManager.getService(lu.a.a());
+    }
+
+    @Override // com.repackage.iu
+    public void a(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", str2);
+            hashMap.put("page", str);
+            if (jSONObject != null) {
+                String jSONObject2 = jSONObject.toString();
+                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
+                hashMap.put("ext", jSONObject2);
+            }
+            UBCManager uBCManager = this.a;
+            if (uBCManager != null) {
+                uBCManager.onEvent("3676", hashMap);
+            }
+        }
+    }
+
+    @Override // com.repackage.iu
+    public void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            String extra = jSONObject.toString();
+            HashMap hashMap = new HashMap();
+            hashMap.put("value", str);
+            hashMap.put("type", "abnormal");
+            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
+            hashMap.put("ext", extra);
+            lu luVar = this.b;
+            if (luVar != null) {
+                luVar.a("3677", str, extra);
+            }
+        }
+    }
 }

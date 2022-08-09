@@ -1,63 +1,76 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.on;
 /* loaded from: classes7.dex */
-public class vw4 {
+public abstract class vw4<T extends on, V extends BdBaseViewPagerAdapter.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ww4 a;
-    public ww4 b;
+    public Context a;
+    public a<T, V> b;
+    public BdUniqueId c;
 
-    public vw4() {
+    /* loaded from: classes7.dex */
+    public interface a<T extends on, V extends BdBaseViewPagerAdapter.a> {
+        void a(V v, T t);
+    }
+
+    public vw4(Context context, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.c = bdUniqueId;
     }
 
-    public ww4 a() {
+    public a<T, V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ww4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
     }
 
-    public ww4 b() {
+    public abstract V b(ViewGroup viewGroup);
+
+    public void c(V v, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+        }
+    }
+
+    public abstract View d(ViewGroup viewGroup, V v, T t);
+
+    public void e(a<T, V> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ww4) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
-        if (optJSONObject != null) {
-            ww4 ww4Var = new ww4();
-            this.a = ww4Var;
-            ww4Var.q = 1;
-            ww4Var.e(optJSONObject);
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
-        if (optJSONObject2 != null) {
-            ww4 ww4Var2 = new ww4();
-            this.b = ww4Var2;
-            ww4Var2.q = 2;
-            ww4Var2.e(optJSONObject2);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
     }
 }

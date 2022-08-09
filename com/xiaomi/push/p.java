@@ -14,7 +14,7 @@ public final class p implements Runnable {
     public final /* synthetic */ ComponentName a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f820a;
+    public final /* synthetic */ Context f821a;
 
     public p(Context context, ComponentName componentName) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class p implements Runnable {
                 return;
             }
         }
-        this.f820a = context;
+        this.f821a = context;
         this.a = componentName;
     }
 
@@ -40,7 +40,7 @@ public final class p implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageManager packageManager = this.f820a.getPackageManager();
+                PackageManager packageManager = this.f821a.getPackageManager();
                 if (packageManager.getComponentEnabledSetting(this.a) != 2) {
                     packageManager.setComponentEnabledSetting(this.a, 2, 1);
                 }

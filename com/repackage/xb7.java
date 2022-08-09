@@ -1,45 +1,34 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
+import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.DelReplyAtMsgResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fs4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelRecommendActivity a;
-    public ViewGroup b;
-    public View c;
-    public TextView d;
-    public NoNetworkView e;
-    public TextView f;
-    public BdListView g;
-    public sb7 h;
-    public wb7 i;
-    public View.OnClickListener j;
-    public List<tb7> k;
-    public List<Integer> l;
-    public View.OnClickListener m;
+    public ds4 a;
+    public fs4 b;
+    public List<bs4> c;
+    public bs4 d;
+    public wb7 e;
+    public c f;
+    public fs4.d g;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements fs4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xb7 a;
@@ -62,27 +51,63 @@ public class xb7 {
             this.a = xb7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.repackage.fs4.c
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof tb7)) {
-                Integer valueOf = Integer.valueOf(((tb7) view2.getTag()).a);
-                if (this.a.l.contains(valueOf)) {
-                    this.a.l.remove(valueOf);
-                } else {
-                    this.a.l.add(valueOf);
-                }
-                this.a.i();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
             }
         }
     }
 
-    public xb7(LabelRecommendActivity labelRecommendActivity) {
+    /* loaded from: classes7.dex */
+    public class b implements fs4.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xb7 a;
+
+        public b(xb7 xb7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xb7Var;
+        }
+
+        @Override // com.repackage.fs4.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+                if (this.a.f != null) {
+                    this.a.f.a();
+                }
+                this.a.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
+    }
+
+    public xb7(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {labelRecommendActivity};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,125 +117,82 @@ public class xb7 {
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = new ArrayList();
-        this.m = new a(this);
-        if (labelRecommendActivity == null) {
+        this.g = new b(this);
+        this.b = new fs4(d9Var.getPageActivity());
+        bs4 bs4Var = new bs4(d9Var.getString(R.string.obfuscated_res_0x7f0f04ab), this.b);
+        this.d = bs4Var;
+        bs4Var.m(this.g);
+        ArrayList arrayList = new ArrayList();
+        this.c = arrayList;
+        arrayList.add(this.d);
+        this.b.m(new a(this));
+        this.b.j(this.c);
+        this.a = new ds4(d9Var, this.b);
+        e();
+        f();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null) {
             return;
         }
-        this.a = labelRecommendActivity;
-        g();
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
+        httpMessage.addParam("type", this.e.a);
+        httpMessage.addParam("thread_id", this.e.b);
+        httpMessage.addParam("post_id", this.e.c);
+        httpMessage.addParam("ori_ugc_nid", this.e.d);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public void d() {
+        ds4 ds4Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public List<Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.i.b()));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d003e);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092443);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091e38);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dbd);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e4e);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
-            }
-            l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0912b9);
-            sb7 sb7Var = new sb7(this.a.getPageContext().getPageActivity());
-            this.h = sb7Var;
-            sb7Var.b(this.m);
-            wb7 wb7Var = new wb7(this.a.getPageContext().getPageActivity());
-            this.i = wb7Var;
-            this.g.addHeaderView(wb7Var.a());
-            this.g.setAdapter((ListAdapter) this.h);
-            h();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ds4Var = this.a) != null && ds4Var.isShowing()) {
+            this.a.dismiss();
         }
     }
 
-    public final void h() {
+    public void e() {
+        fs4 fs4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f, R.drawable.bule_bg_commen_label_button);
-            this.e.d(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (tb7 tb7Var : this.k) {
-                if (tb7Var != null) {
-                    tb7Var.c = this.l.contains(Integer.valueOf(tb7Var.a));
-                }
-            }
-            this.h.a(this.k);
-            l(this.l.size(), this.k.size());
-        }
-    }
-
-    public void j(ub7 ub7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, ub7Var) == null) || ub7Var == null || ub7Var.b() == null || ub7Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fs4Var = this.b) == null) {
             return;
         }
-        for (tb7 tb7Var : ub7Var.a()) {
-            if (tb7Var != null) {
-                tb7Var.c = false;
-            }
-        }
-        this.k.clear();
-        this.k.addAll(ub7Var.a());
-        this.i.d(ub7Var.b());
-        this.h.a(this.k);
-        this.g.setVisibility(0);
-        l(0, this.k.size());
+        fs4Var.i();
     }
 
-    public void k(View.OnClickListener onClickListener) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.j = onClickListener;
-            this.d.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG, TbConfig.SERVER_ADDRESS + TbConfig.URL_DELETE_REPLY_AT_MSG);
+            tbHttpMessageTask.setResponsedClass(DelReplyAtMsgResMsg.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    public final void l(int i, int i2) {
+    public void g(wb7 wb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            this.f.setEnabled(i > 0);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f11b1, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            this.f.setOnClickListener(i > 0 ? this.j : null);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wb7Var) == null) {
+            this.e = wb7Var;
         }
+    }
+
+    public void h(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
+
+    public void i() {
+        ds4 ds4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ds4Var = this.a) == null) {
+            return;
+        }
+        ds4Var.show();
     }
 }

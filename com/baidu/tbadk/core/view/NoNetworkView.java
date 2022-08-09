@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ni;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -138,7 +138,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            if (ni.z()) {
+            if (oi.z()) {
                 setIsHasNetwork(true);
             } else {
                 setIsHasNetwork(false);
@@ -184,16 +184,16 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915dc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e0);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09169f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040315});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04035d});
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
             try {
-                if (ni.z()) {
+                if (oi.z()) {
                     update(false);
                     setIsHasNetwork(true);
                     return;
@@ -211,8 +211,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLI(1048579, this, d9Var, i) == null) {
             if (d9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) d9Var;
-                tbPageContext.getLayoutMode().k(i == 1);
-                tbPageContext.getLayoutMode().j(this);
+                tbPageContext.getLayoutMode().l(i == 1);
+                tbPageContext.getLayoutMode().k(this);
             }
             SkinManager.setBackgroundResource(this, R.drawable.nonetworkview_bg_selector, i);
         }
@@ -228,7 +228,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d062a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d064b : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,7 +277,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c50);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c75);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cb7);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cdd);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

@@ -1,137 +1,437 @@
 package com.repackage;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity;
+import com.baidu.tieba.ad.browser.newstyle.view.ApkDownloadBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public class im5 extends BdAsyncTask<Void, Void, Boolean> {
+public class im5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdInfo a;
+    public View a;
+    public View b;
+    public AdBaseWebViewActivity c;
+    public NavigationBar d;
+    public TextView e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public ImageView i;
+    public LinearLayout j;
+    public TextView k;
+    public NoDataView l;
+    public View.OnClickListener m;
+    public View n;
+    public MorePopupWindow o;
+    public ApkDownloadBannerView p;
+    public boolean q;
+    public String r;
+    public jm5 s;
+    public oi0 t;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755613632, "Lcom/repackage/im5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ im5 a;
+
+        public a(im5 im5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {im5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755613632, "Lcom/repackage/im5;");
+            this.a = im5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.c.webViewGoBack()) {
                 return;
             }
+            this.a.c.finish();
         }
-        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        c = File.separator;
     }
 
-    public im5() {
+    public im5(AdBaseWebViewActivity adBaseWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adBaseWebViewActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.q = true;
+        this.c = adBaseWebViewActivity;
+        i();
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.l == null) {
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d3)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0fb6), this.m)));
+            }
+            this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.j.setVisibility(8);
+            this.l.setVisibility(0);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void C(ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem) == null) || shareItem == null) {
+            return;
+        }
+        TiebaStatic.eventStat(this.c.getPageContext().getPageActivity(), "share", "click", 1, new Object[0]);
+        StatisticItem statisticItem = new StatisticItem("c10898");
+        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.w);
+        statisticItem.param("obj_type", 0);
+        TiebaStatic.log(statisticItem);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.c.getPageContext().getPageActivity(), shareItem, true, d())));
+    }
+
+    public void b() {
+        oi0 oi0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (oi0Var = this.t) == null) {
+            return;
+        }
+        oi0Var.p.c = this.r;
+        if (this.s == null) {
+            this.s = new jm5(this.p, oi0Var);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            tg.d(this.o, this.c.getPageContext().getPageActivity());
+        }
+    }
+
+    public final SparseArray<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SparseArray<String> sparseArray = new SparseArray<>(8);
+            sparseArray.put(2, "pb_wx_timeline");
+            sparseArray.put(3, "pb_wx_friend");
+            sparseArray.put(4, "pb_qq_zone");
+            sparseArray.put(5, "pb_tencent_weibo");
+            sparseArray.put(6, "pb_sina_weibo");
+            sparseArray.put(7, "pb_renren");
+            return sparseArray;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.k.setVisibility(8);
+        }
+    }
+
+    public void f() {
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (noDataView = this.l) == null) {
+            return;
+        }
+        noDataView.setVisibility(8);
+        this.j.setVisibility(0);
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            UtilHelper.getStatusBarHeight();
+            qi.f(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070282);
+            int i = qi.r(this.c.getPageContext().getPageActivity()).heightPixels;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.c.setContentView(R.layout.obfuscated_res_0x7f0d013c);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091c31);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255b);
+            w("");
+            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0925f1);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f0925eb);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            this.j.setLayoutParams(layoutParams);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0925f3);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08ff, new a(this));
+            this.f = addCustomView;
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.g = imageView;
+            imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02c9));
+            h();
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                this.j.addView(this.c.createWebView());
+                this.k.setVisibility(8);
+                if (this.q) {
+                    return true;
+                }
+                this.d.setStatusBarVisibility(8);
+                return true;
+            } catch (Exception e) {
+                this.k.setVisibility(0);
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k(oi0 oi0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, oi0Var) == null) {
+            this.t = oi0Var;
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            NavigationBar navigationBar = this.d;
+            return navigationBar != null && navigationBar.getVisibility() == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.c.getPageContext(), i);
+            }
+            MorePopupWindow morePopupWindow = this.o;
+            if (morePopupWindow != null) {
+                morePopupWindow.onChangeSkinType(this.c, i, SkinManager.getDrawable(R.drawable.bg_pull_down_right_n));
+            }
+            NoDataView noDataView = this.l;
+            if (noDataView != null) {
+                noDataView.f(this.c.getPageContext(), i);
+            }
+            SkinManager.setNavbarIconSrc(this.g, R.drawable.selector_web_topbar_return_black, R.drawable.selector_web_topbar_return_white, i);
+            SkinManager.setNavbarIconSrc(this.h, R.drawable.selector_web_topbar_close_black, R.drawable.selector_web_topbar_close_white, i);
+            SkinManager.setNavbarIconSrc(this.i, R.drawable.selector_web_topbar_more_black, R.drawable.selector_web_topbar_more_white, i);
+        }
+    }
+
+    public void n() {
+        jm5 jm5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (jm5Var = this.s) == null) {
+            return;
+        }
+        jm5Var.v();
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            LinearLayout linearLayout = this.j;
+            if (linearLayout != null) {
+                linearLayout.removeAllViews();
+            }
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.release();
+            }
+            MorePopupWindow morePopupWindow = this.o;
+            if (morePopupWindow != null) {
+                tg.d(morePopupWindow, this.c.getPageContext().getPageActivity());
             }
         }
     }
 
-    public final void b(boolean z, File file) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
-            if (z && file != null) {
-                File file2 = new File(b + c + (vi.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                if (file.renameTo(file2)) {
-                    this.a.videoLocalPath = file2.getAbsolutePath();
-                } else {
-                    this.a.videoLocalPath = "";
-                }
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            this.j.setLayoutParams(layoutParams);
+            this.g.setBackgroundDrawable(null);
+            this.h.setBackgroundDrawable(null);
+            this.i.setBackgroundDrawable(null);
+            this.d.showBottomLine(true);
+            this.c.getWindow().clearFlags(1024);
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.r = str;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.p.setDownloadWarningVisible(z);
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, 0);
+            layoutParams.height = -1;
+            this.j.setLayoutParams(layoutParams);
+            this.d.getBackground().mutate().setAlpha(0);
+            this.d.showBottomLine(false);
+            SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08058c);
+            SkinManager.setBackgroundResource(this.h, R.drawable.obfuscated_res_0x7f08058c);
+            SkinManager.setBackgroundResource(this.i, R.drawable.obfuscated_res_0x7f08058c);
+            w("");
+            this.c.getWindow().setFlags(1024, 1024);
+        }
+    }
+
+    public void u(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (view2 = this.n) == null) {
+            return;
+        }
+        if (z) {
+            view2.setVisibility(0);
+        } else {
+            view2.setVisibility(8);
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(0);
             } else {
-                this.a.videoLocalPath = "";
+                this.d.setVisibility(8);
             }
-            mm5.i(this.a);
+            this.j.getLayoutParams().height = -1;
         }
     }
 
-    public void c(AdInfo adInfo) {
+    public void w(String str) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            this.a = adInfo;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.e = this.d.setCenterTextTitle(str);
+            ImageView imageView2 = this.g;
+            if (imageView2 != null && imageView2.getVisibility() == 0 && (imageView = this.h) != null && imageView.getVisibility() == 0) {
+                this.e.setMaxWidth(qi.f(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07024e) * 2);
+            }
+            SkinManager.setNavbarTitleColor(this.e, R.color.CAM_X0105, R.color.s_navbar_title_color);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        File file;
-        boolean z;
-        boolean c2;
+    public void x(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
-            return (Boolean) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048601, this, onClickListener) == null) {
+            this.m = onClickListener;
         }
-        String str = b + c + "advideo.temp";
-        file = new File(str);
-        if (file.exists()) {
-            file.delete();
+    }
+
+    public void y(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (view2 = this.b) == null) {
+            return;
         }
-        z = false;
-        try {
-            new File(b).mkdirs();
-            if (!file.createNewFile()) {
-                b(false, null);
-                return Boolean.FALSE;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (z) {
+            view2.setVisibility(0);
+        } else {
+            view2.setVisibility(8);
         }
-        rf rfVar = new rf();
-        rfVar.b().s(this.a.adVideoUrl);
-        c2 = new of(rfVar).c(str, null, 3, 3000, -1, -1, true, true);
-        try {
-            if (TextUtils.isEmpty(this.a.videoMd5)) {
-                b(c2, file);
-                return Boolean.valueOf(c2);
-            }
-            String b2 = vi.b(new FileInputStream(str));
-            if (TextUtils.isEmpty(b2)) {
-                c2 = false;
-            }
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
+        this.o.refresh();
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.q = z;
         }
-        z = c2;
-        b(z, file);
-        return Boolean.valueOf(z);
     }
 }

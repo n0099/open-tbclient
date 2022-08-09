@@ -15,10 +15,10 @@ public class cq {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f178a;
+    public long f179a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f179a;
+    public String f180a;
     public long b;
     public long c;
 
@@ -57,11 +57,11 @@ public class cq {
             }
         }
         this.a = i;
-        this.f178a = j;
+        this.f179a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f179a = exc.getClass().getSimpleName();
+            this.f180a = exc.getClass().getSimpleName();
         }
     }
 
@@ -75,11 +75,11 @@ public class cq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f178a = jSONObject.getLong("cost");
+            this.f179a = jSONObject.getLong("cost");
             this.c = jSONObject.getLong("size");
             this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.a = jSONObject.getInt("wt");
-            this.f179a = jSONObject.optString("expt");
+            this.f180a = jSONObject.optString("expt");
             return this;
         }
         return (cq) invokeL.objValue;
@@ -91,11 +91,11 @@ public class cq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cost", this.f178a);
+            jSONObject.put("cost", this.f179a);
             jSONObject.put("size", this.c);
             jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
             jSONObject.put("wt", this.a);
-            jSONObject.put("expt", this.f179a);
+            jSONObject.put("expt", this.f180a);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.im0;
+import com.repackage.fm0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
@@ -19,7 +19,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
     public final /* synthetic */ AlsComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements im0 {
+    public static final class a implements fm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlsComponent$alsService$2 a;
@@ -43,24 +43,24 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
             this.a = alsComponent$alsService$2;
         }
 
-        @Override // com.repackage.im0
+        @Override // com.repackage.fm0
         public void a(String type, String area) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, type, area) == null) {
                 Intrinsics.checkNotNullParameter(type, "type");
                 Intrinsics.checkNotNullParameter(area, "area");
-                this.a.this$0.q(type, area);
+                this.a.this$0.o(type, area);
             }
         }
 
-        @Override // com.repackage.im0
+        @Override // com.repackage.fm0
         public void c(String type, String area, String ext1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type, area, ext1) == null) {
                 Intrinsics.checkNotNullParameter(type, "type");
                 Intrinsics.checkNotNullParameter(area, "area");
                 Intrinsics.checkNotNullParameter(ext1, "ext1");
-                this.a.this$0.r(type, area, ext1);
+                this.a.this$0.p(type, area, ext1);
             }
         }
     }

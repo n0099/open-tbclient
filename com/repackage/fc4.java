@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fc4 {
+public abstract class fc4 implements ic4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fc4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public fc4() {
@@ -28,41 +27,17 @@ public class fc4 {
         }
     }
 
-    public static fc4 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ic4
+    public void a(JSONArray jSONArray, s84 s84Var, @Nullable s84 s84Var2, @Nullable s84 s84Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (fc4.class) {
-                    if (a == null) {
-                        a = new fc4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, s84Var, s84Var2, s84Var3) == null) {
         }
-        return (fc4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ic4
+    public void b(JSONObject jSONObject, s84 s84Var, @Nullable s84 s84Var2, @Nullable s84 s84Var3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? r74.b() == null ? "0" : r74.b().i().getString("local_debug_version", "0") : (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, s84Var, s84Var2, s84Var3) == null) {
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || r74.b() == null) {
-            return;
-        }
-        r74.b().i().putString("local_debug_version", optString);
-        r74.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-        r74.b().i().putString("error_url", optJSONObject.optString("error_url"));
-        r74.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
     }
 }

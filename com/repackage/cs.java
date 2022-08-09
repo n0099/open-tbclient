@@ -1,5 +1,9 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+
+import android.graphics.Bitmap;
+/* loaded from: classes6.dex */
 public interface cs {
-    void a(String str, bs bsVar);
+    void a(Bitmap bitmap);
+
+    void onError();
 }

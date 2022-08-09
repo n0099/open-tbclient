@@ -1,11 +1,7 @@
 package com.repackage;
-
-import com.baidu.bdtask.utils.UniqueId;
 /* loaded from: classes7.dex */
-public interface zt {
-    void a(String str);
+public interface zt extends ar {
+    au d();
 
-    void b(String str, UniqueId uniqueId);
-
-    void c(String str, String str2);
+    iu f();
 }

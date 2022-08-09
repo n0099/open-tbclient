@@ -1,12 +1,14 @@
 package com.repackage;
 
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mu0;
 /* loaded from: classes6.dex */
-public abstract class nu0 extends qq0 {
+public abstract class nu0<VG extends ViewGroup, BE extends mu0> extends ru0<VG, BE> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,16 +26,19 @@ public abstract class nu0 extends qq0 {
         }
     }
 
-    public cp0 q() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hu0
+    /* renamed from: S */
+    public bp0 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bp0 g = super.g();
-            if (g != null) {
-                return (cp0) g;
+            ap0 u = super.u();
+            if (u != null) {
+                return (bp0) u;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
         }
-        return (cp0) invokeV.objValue;
+        return (bp0) invokeV.objValue;
     }
 }

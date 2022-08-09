@@ -20,6 +20,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.SurfaceHolder;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -475,7 +476,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         this.a.x.setDisplayOrientation(a);
                     } catch (Throwable unused) {
                     }
-                    this.a.y.set("rotation", a);
+                    this.a.y.set(Key.ROTATION, a);
                     this.a.C.set(a);
                     Camera.Parameters parameters = this.a.y;
                     b bVar5 = this.a;
@@ -646,7 +647,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         b bVar5 = this.a;
                         int a = b.a(bVar5, bVar5.a);
                         this.a.E.setDisplayOrientation(a);
-                        this.a.F.set("rotation", a);
+                        this.a.F.set(Key.ROTATION, a);
                         this.a.C.set(a);
                         Camera.Parameters parameters = this.a.F;
                         b bVar6 = this.a;

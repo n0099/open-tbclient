@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.te;
-import com.repackage.vq7;
+import com.repackage.rs7;
+import com.repackage.tr4;
+import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -23,7 +23,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements vq7 {
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements rs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -77,49 +77,49 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements vq
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.vq7
+    @Override // com.repackage.rs7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -140,8 +140,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements vq
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            cr4.f();
-            te<byte[]> d = cr4.d("tb.pb_normal");
+            tr4.f();
+            ue<byte[]> d = tr4.d("tb.pb_normal");
             d.remove("chosen_pb_page_cache");
             d.g("chosen_pb_page_cache", bArr);
         }

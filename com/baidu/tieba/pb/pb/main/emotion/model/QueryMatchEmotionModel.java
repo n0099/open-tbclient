@@ -24,7 +24,7 @@ import com.repackage.d9;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static LinkedHashMap<String, List<EmotionImageData>> c;
@@ -32,7 +32,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,13 +71,13 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 } else {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
-                    this.a.E(str, queryMatchEmotionResponseMessage.getData());
+                    this.a.D(str, queryMatchEmotionResponseMessage.getData());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(String str, List<EmotionImageData> list);
 
@@ -124,7 +124,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> C(String str) {
+    public final List<EmotionImageData> B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -137,14 +137,14 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void D(String str, b bVar) {
+    public void C(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
             this.a = bVar;
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(C(str))) {
+            if (!ListUtils.isEmpty(B(str))) {
                 this.a.a(str, c.get(str));
                 return;
             }
@@ -155,7 +155,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void E(String str, List<EmotionImageData> list) {
+    public final void D(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(list)) {
             return;

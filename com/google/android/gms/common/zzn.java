@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
-import com.repackage.el9;
-import com.repackage.fk9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.zn9;
+/* loaded from: classes5.dex */
 public final class zzn extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzn> CREATOR;
@@ -40,7 +40,7 @@ public final class zzn extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new el9();
+        CREATOR = new zn9();
     }
 
     public zzn(String str, boolean z, boolean z2, IBinder iBinder, boolean z3) {
@@ -70,13 +70,13 @@ public final class zzn extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.k(parcel, 1, this.zza, false);
-            fk9.c(parcel, 2, this.zzb);
-            fk9.c(parcel, 3, this.zzc);
-            fk9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
-            fk9.c(parcel, 5, this.zze);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.k(parcel, 1, this.zza, false);
+            an9.c(parcel, 2, this.zzb);
+            an9.c(parcel, 3, this.zzc);
+            an9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
+            an9.c(parcel, 5, this.zze);
+            an9.b(parcel, a);
         }
     }
 }

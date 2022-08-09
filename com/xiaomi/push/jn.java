@@ -13,7 +13,7 @@ public class jn extends jp {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ix f814a;
+    public ix f815a;
 
     public jn(int i) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class jn extends jp {
                 return;
             }
         }
-        this.f814a = new ix(i);
+        this.f815a = new ix(i);
     }
 
     @Override // com.xiaomi.push.jp
@@ -38,9 +38,9 @@ public class jn extends jp {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            byte[] m533a = this.f814a.m533a();
-            if (i2 > this.f814a.a() - this.a) {
-                i2 = this.f814a.a() - this.a;
+            byte[] m533a = this.f815a.m533a();
+            if (i2 > this.f815a.a() - this.a) {
+                i2 = this.f815a.a() - this.a;
             }
             if (i2 > 0) {
                 System.arraycopy(m533a, this.a, bArr, i, i2);
@@ -55,13 +55,13 @@ public class jn extends jp {
     public void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
-            this.f814a.write(bArr, i, i2);
+            this.f815a.write(bArr, i, i2);
         }
     }
 
     public int a_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f814a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f815a.size() : invokeV.intValue;
     }
 }

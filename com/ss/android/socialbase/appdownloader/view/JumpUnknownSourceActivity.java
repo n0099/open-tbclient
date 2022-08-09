@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.ss.android.socialbase.appdownloader.b;
 import com.ss.android.socialbase.appdownloader.c;
 import com.ss.android.socialbase.appdownloader.c.k;
@@ -18,7 +18,7 @@ import com.ss.android.socialbase.appdownloader.d;
 import com.ss.android.socialbase.appdownloader.h;
 import com.ss.android.socialbase.appdownloader.i;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JumpUnknownSourceActivity extends Activity {
     public k a;
     public Intent b;
@@ -47,10 +47,10 @@ public class JumpUnknownSourceActivity extends Activity {
         Intent intent = getIntent();
         this.b = intent;
         if (intent != null) {
-            this.c = (Intent) intent.getParcelableExtra("intent");
+            this.c = (Intent) intent.getParcelableExtra(IntentData.KEY);
             this.d = intent.getIntExtra("id", -1);
             try {
-                this.e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
+                this.e = new JSONObject(intent.getStringExtra("config"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.pi;
+import com.repackage.oi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -65,11 +64,11 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = pi.k(TbadkCoreApplication.getInst());
-            int i = pi.i(TbadkCoreApplication.getInst());
-            float h = pi.h(TbadkCoreApplication.getInst());
+            int k = qi.k(TbadkCoreApplication.getInst());
+            int i = qi.i(TbadkCoreApplication.getInst());
+            float h = qi.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
-            addParam(Config.PACKAGE_NAME, this.pn);
+            addParam("pn", this.pn);
             addParam("ps", this.ps);
             addParam("scr_w", k);
             addParam("scr_h", i);
@@ -80,14 +79,14 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             addParam(SuggestAddrField.KEY_LAT, this.lat);
             addParam(SuggestAddrField.KEY_LNG, this.lng);
             String str = "N";
-            if (ni.z()) {
-                if (ni.H()) {
+            if (oi.z()) {
+                if (oi.H()) {
                     str = "1_0";
-                } else if (ni.v()) {
+                } else if (oi.v()) {
                     str = "0_13";
-                } else if (ni.u()) {
+                } else if (oi.u()) {
                     str = "0_3";
-                } else if (ni.t()) {
+                } else if (oi.t()) {
                     str = "0_2";
                 }
             }

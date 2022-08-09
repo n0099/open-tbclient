@@ -1,33 +1,32 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
+import com.baidu.nadcore.widget.txt.SelectorTextView;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class d51 extends z41 {
+import com.repackage.a51;
+import com.repackage.c51;
+import com.repackage.p01;
+/* loaded from: classes6.dex */
+public class d51 extends a51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TextView f;
-    public final RelativeLayout g;
-    public final kj0<?> h;
-    public ej0 i;
+    public View i;
+    public TextView j;
+    public SelectorTextView k;
+    public c l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,27 +53,25 @@ public class d51 extends z41 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.l.k == null) {
                 return;
             }
-            this.a.i.m();
+            this.a.l.k.a(view2);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements ij0 {
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ si0 b;
-        public final /* synthetic */ d51 c;
+        public final /* synthetic */ d51 a;
 
-        public b(d51 d51Var, AdBaseModel adBaseModel, si0 si0Var) {
+        public b(d51 d51Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d51Var, adBaseModel, si0Var};
+                Object[] objArr = {d51Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,191 +81,162 @@ public class d51 extends z41 {
                     return;
                 }
             }
-            this.c = d51Var;
-            this.a = adBaseModel;
-            this.b = si0Var;
+            this.a = d51Var;
         }
 
-        @Override // com.repackage.ij0
-        public void a(AdDownloadStatus adDownloadStatus) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) {
-                int i = c.a[adDownloadStatus.ordinal()];
-                if (i == 1) {
-                    d51 d51Var = this.c;
-                    if (d51Var.e == null || !d51Var.n(this.a)) {
-                        return;
-                    }
-                    this.c.e.f(this.a, this.b.i);
-                } else if (i == 2) {
-                    d51 d51Var2 = this.c;
-                    if (d51Var2.e == null || !d51Var2.n(this.a)) {
-                        return;
-                    }
-                    this.c.e.d(this.a);
-                } else if (i == 3) {
-                    d51 d51Var3 = this.c;
-                    if (d51Var3.e == null || !d51Var3.n(this.a)) {
-                        return;
-                    }
-                    this.c.e.e(this.a);
-                } else if (i != 4) {
-                } else {
-                    d51 d51Var4 = this.c;
-                    if (d51Var4.e == null || !d51Var4.n(this.a)) {
-                        return;
-                    }
-                    this.c.e.a(this.a);
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.l.j == null) {
+                return;
             }
-        }
-
-        @Override // com.repackage.ij0
-        public void b(AdDownloadCode adDownloadCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) {
-                if ((!(adDownloadCode != AdDownloadCode.ERROR_FAST_CLICK) || !(this.c.e != null)) || !this.c.n(this.a)) {
-                    return;
-                }
-                this.c.e.b(this.a);
-            }
+            this.a.l.j.a(view2);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class c {
+    /* loaded from: classes6.dex */
+    public static class c extends a51.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public int g;
+        public int h;
+        public int i;
+        public a51.c j;
+        public a51.c k;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-490228398, "Lcom/repackage/d51$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-490228398, "Lcom/repackage/d51$c;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.DOWNLOADING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        public c A(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                super.q(i);
+                return this;
             }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            return (c) invokeI.objValue;
+        }
+
+        @Override // com.repackage.a51.b, com.repackage.c51.a
+        public c51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d51 d51Var = (d51) super.a();
+                d51Var.p(this);
+                return d51Var;
             }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            return (c51) invokeV.objValue;
+        }
+
+        @Override // com.repackage.c51.a
+        public c51 f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? new d51(context) : (c51) invokeL.objValue;
+        }
+
+        @Override // com.repackage.c51.a
+        public /* bridge */ /* synthetic */ c51.a q(int i) {
+            A(i);
+            return this;
+        }
+
+        public c z(int i, a51.c cVar) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, cVar)) == null) {
+                this.g = i;
+                this.k = cVar;
+                return this;
             }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            return (c) invokeIL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d51(int i, View view2) {
-        super(i, view2);
+    public d51(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f09095a);
-        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f091508);
-        view2.setBackgroundColor(0);
-        this.h = yj0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
-        this.g.setOnClickListener(new a(this));
-        m();
     }
 
-    @Override // com.repackage.z41
-    public void e() {
-        ej0 ej0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ej0Var = this.i) == null) {
-            return;
-        }
-        ej0Var.k();
-        this.i = null;
-    }
-
-    public final void m() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f) == null) {
-            return;
-        }
-        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060254));
-    }
-
-    public final boolean n(AdBaseModel adBaseModel) {
+    @Override // com.repackage.a51
+    public View i(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        xm0 xm0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (xm0Var = adBaseModel.l) == null) {
-                return false;
-            }
-            return xm0Var.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d060a, viewGroup, false);
+            this.i = inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c50);
+            this.j = textView;
+            textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060857));
+            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091c51);
+            this.k = selectorTextView;
+            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060856));
+            o();
+            return this.i;
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
     }
 
-    public final void o(AdBaseModel adBaseModel) {
+    public final void o() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.l) == null) {
             return;
         }
-        this.f.setTextColor(getResources().getColor(adBaseModel.b ? R.color.obfuscated_res_0x7f060284 : R.color.obfuscated_res_0x7f060254));
+        this.j.setText(this.e.getText(cVar.g));
+        this.j.setOnClickListener(new a(this));
+        if (this.l.h > 0) {
+            this.k.setVisibility(0);
+            this.k.setText(this.e.getText(this.l.h));
+            this.k.setOnClickListener(new b(this));
+        } else {
+            this.k.setVisibility(8);
+        }
+        if (this.l.i > 0) {
+            Drawable drawable = this.e.getResources().getDrawable(this.l.i);
+            z51.c(getContext(), drawable);
+            drawable.setBounds(0, 0, p01.c.a(this.e, 12.0f), p01.c.a(this.e, 12.0f));
+            this.k.setCompoundDrawables(drawable, null, null, null);
+        }
     }
 
-    @Override // com.repackage.z41
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        TextView textView;
+    public void p(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            if (z41.c(adBaseModel) && adBaseModel.h != null) {
-                m();
-                String str = adBaseModel.h.b.a;
-                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
-                    textView.setText(str);
-                    o(adBaseModel);
-                }
-                if (TextUtils.isEmpty(adBaseModel.f.d)) {
-                    return;
-                }
-                si0 b2 = si0.b(adBaseModel);
-                this.i = new ej0(b2, this.h);
-                q41 q41Var = this.e;
-                if (q41Var != null) {
-                    q41Var.c(adBaseModel);
-                }
-                this.i.o(new b(this, adBaseModel, b2));
-                return;
-            }
-            i(8);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.l = cVar;
         }
     }
 }

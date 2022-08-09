@@ -1,127 +1,220 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.repackage.ja3;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c42 {
+public class c42 extends h42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean k;
 
-    /* loaded from: classes5.dex */
-    public static class a extends BaseBitmapDataSubscriber {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ int b;
-
-        public a(b bVar, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755847248, "Lcom/repackage/c42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bVar;
-            this.b = i;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                c42.b(this.b, this.a, "download icon fail: onCancellation");
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                c42.b(this.b, this.a, "download icon fail: onFailureImpl");
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap == null || bitmap.isRecycled()) {
-                    c42.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
-                    return;
-                }
-                try {
-                    if (bitmap.getConfig() == null) {
-                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                    } else {
-                        copy = bitmap.copy(bitmap.getConfig(), true);
-                    }
-                    if (this.a != null) {
-                        this.a.a(copy);
-                    }
-                } catch (Exception e) {
-                    int i = this.b;
-                    b bVar = this.a;
-                    c42.b(i, bVar, "download icon fail: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(Bitmap bitmap);
-    }
-
-    public static void b(int i, b bVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
-            bc3 bc3Var = new bc3();
-            bc3Var.k(4L);
-            bc3Var.i(10L);
-            bc3Var.f(str);
-            fc3.a().f(bc3Var);
-            j73 j73Var = new j73();
-            j73Var.p(bc3Var);
-            j73Var.q(b73.n(i));
-            b73.R(j73Var);
-            if (bVar != null) {
-                bVar.a(null);
-            }
-        }
-    }
-
-    public static void c(String str, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
-            Uri C = ce3.C(str);
-            if (C == null) {
-                b(i, bVar, "download icon fail: icon url is null");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755847248, "Lcom/repackage/c42;");
                 return;
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
         }
+        l = jh1.a;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public c42(sf3<Exception> sf3Var) {
+        this(sf3Var, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sf3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((sf3) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.repackage.s84
+    public Map<String, String> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Map<String, String> B = super.B();
+            if (this.k && dd4.a) {
+                if (B == null) {
+                    B = new HashMap<>();
+                }
+                B.put("hb_type", "1");
+                B.put("lastsynctime", String.valueOf(dd4.c));
+                B.put("SWAN-TIMEOUT-SETTING", String.valueOf(dd4.b(60) * 1000));
+            }
+            return B;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h42
+    public int U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.h42
+    public PMSDownloadType V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PMSDownloadType.SWAN_APP_UPDATE_CORE : (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h42
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? r42.d() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h42
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? r42.h() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h42
+    public sc3 b0(s94 s94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, s94Var)) == null) {
+            if (s94Var == null) {
+                sc3 sc3Var = new sc3();
+                sc3Var.k(14L);
+                sc3Var.b(2908L);
+                sc3Var.d("小程序Extension包 Extension null");
+                return sc3Var;
+            }
+            fc2 fc2Var = new fc2();
+            fc2Var.b = s94Var.i;
+            fc2Var.a = s94Var.j;
+            fc2Var.c = s94Var.a;
+            fc2Var.d = s94Var.m;
+            if (ib2.b(0, fc2Var) == null) {
+                if (l) {
+                    Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
+                }
+                boolean m = gk2.g0().m();
+                if (l) {
+                    Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + m);
+                }
+                if (m) {
+                    if (l) {
+                        Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
+                    }
+                    lb2 f = ib2.f(0);
+                    if (f == null) {
+                        return null;
+                    }
+                    long g = f.f().g();
+                    if (g > 0) {
+                        if (l) {
+                            Log.d("SwanAppUpdateCore", "发送extension core更新事件");
+                        }
+                        SwanAppMessengerService.sendMessageWithDataToAllClient(121, g);
+                    }
+                }
+                return null;
+            }
+            sc3 sc3Var2 = new sc3();
+            sc3Var2.k(14L);
+            sc3Var2.b(2908L);
+            sc3Var2.d("小程序Extension包更新失败");
+            return sc3Var2;
+        }
+        return (sc3) invokeL.objValue;
+    }
+
+    @Override // com.repackage.h42
+    public sc3 c0(u94 u94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, u94Var)) == null) {
+            if (l) {
+                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + u94Var);
+            }
+            if (u94Var == null) {
+                sc3 sc3Var = new sc3();
+                sc3Var.k(13L);
+                sc3Var.b(2907L);
+                sc3Var.d("小程序Core包 Framework null");
+                return sc3Var;
+            }
+            ja3.b c = ja3.c(u94Var, 0);
+            zx1.k("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
+            bh4.k(u94Var.a);
+            if (c.c()) {
+                long e = ja3.e(0);
+                if (e > 0) {
+                    SwanJSVersionUpdateEvent.sendEvent(e);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(114, e);
+                    return null;
+                }
+                return null;
+            }
+            sc3 sc3Var2 = new sc3();
+            sc3Var2.k(13L);
+            sc3Var2.b(2907L);
+            sc3Var2.d("小程序Core包更新失败");
+            return sc3Var2;
+        }
+        return (sc3) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c42(sf3<Exception> sf3Var, boolean z) {
+        super(sf3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sf3Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((sf3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.k = z;
     }
 }

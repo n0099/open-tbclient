@@ -56,7 +56,7 @@ public class cd extends cf {
     private void a(long j) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cj.d) this).f175a) == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cj.d) this).f176a) == null || strArr.length <= 0) {
             return;
         }
         strArr[0] = String.valueOf(j);
@@ -68,7 +68,7 @@ public class cd extends cf {
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
             long a = cp.a(m239a());
-            long j = cb.f158a;
+            long j = cb.f159a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;

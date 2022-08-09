@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a63;
-import com.repackage.sg1;
+import com.repackage.jh1;
+import com.repackage.r63;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -39,7 +39,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -57,8 +57,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = sg1.a;
-        sUbcImpl = new a63();
+        DEBUG = jh1.a;
+        sUbcImpl = new r63();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 

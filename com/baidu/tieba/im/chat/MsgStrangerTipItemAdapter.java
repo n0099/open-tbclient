@@ -6,7 +6,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
@@ -16,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.ms4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     public static /* synthetic */ Interceptable $ic;
@@ -71,47 +70,47 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
-        return view2;
-    }
-
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<TextView> msgViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            TextView b = msgViewHolder.b();
-            vr4 d = vr4.d(b);
-            d.z(R.dimen.T_X09);
-            d.A(R.string.F_X01);
-            d.v(R.color.CAM_X0101);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0603);
-            b.setText(R.string.obfuscated_res_0x7f0f0e46);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<TextView> M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: E */
+    public MsgCommonItemAdapter.MsgViewHolder<TextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            frameLayout.setPadding(pi.f(viewGroup.getContext(), R.dimen.M_W_X022), pi.f(viewGroup.getContext(), R.dimen.M_H_X005), pi.f(viewGroup.getContext(), R.dimen.M_W_X022), pi.f(viewGroup.getContext(), R.dimen.M_H_X008));
+            frameLayout.setPadding(qi.f(viewGroup.getContext(), R.dimen.M_W_X022), qi.f(viewGroup.getContext(), R.dimen.M_H_X005), qi.f(viewGroup.getContext(), R.dimen.M_W_X022), qi.f(viewGroup.getContext(), R.dimen.M_H_X008));
             TextView textView = new TextView(viewGroup.getContext());
-            textView.setPadding(pi.f(viewGroup.getContext(), R.dimen.M_W_X006), pi.f(viewGroup.getContext(), R.dimen.M_H_X002), pi.f(viewGroup.getContext(), R.dimen.M_W_X006), pi.f(viewGroup.getContext(), R.dimen.M_H_X002));
+            textView.setPadding(qi.f(viewGroup.getContext(), R.dimen.M_W_X006), qi.f(viewGroup.getContext(), R.dimen.M_H_X002), qi.f(viewGroup.getContext(), R.dimen.M_W_X006), qi.f(viewGroup.getContext(), R.dimen.M_H_X002));
             textView.setGravity(17);
             frameLayout.addView(textView, new ViewGroup.LayoutParams(-1, -2));
             return new a(frameLayout, textView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        return view2;
+    }
+
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<TextView> msgViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
+            TextView a2 = msgViewHolder.a();
+            ms4 d = ms4.d(a2);
+            d.z(R.dimen.T_X09);
+            d.A(R.string.F_X01);
+            d.v(R.color.CAM_X0101);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0603);
+            a2.setText(R.string.obfuscated_res_0x7f0f0e73);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

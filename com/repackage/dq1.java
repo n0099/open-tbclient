@@ -1,107 +1,117 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.support.v4.app.Fragment;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n62;
-import com.repackage.rz1;
-import com.repackage.x33;
-import java.util.UUID;
+import com.repackage.e63;
+import com.repackage.eq1;
+import com.repackage.zk2;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class dq1 extends zp1 {
+/* loaded from: classes6.dex */
+public class dq1 extends cp1 implements eq1.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class a implements sf3<c63<e63.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vl2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ iq2 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ rz1 e;
-        public final /* synthetic */ dq1 f;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ dq1 b;
 
-        /* renamed from: com.repackage.dq1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0464a implements x33.e {
+        public a(dq1 dq1Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dq1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dq1Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(c63<e63.e> c63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c63Var) == null) {
+                this.b.z(c63Var, this.a, false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements sf3<c63<e63.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dq1 b;
+
+        /* loaded from: classes6.dex */
+        public class a implements zk2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ i03 b;
-            public final /* synthetic */ a c;
 
-            public C0464a(a aVar, Activity activity, i03 i03Var) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity, i03Var};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
-                        return;
                     }
                 }
-                this.c = aVar;
-                this.a = activity;
-                this.b = i03Var;
             }
 
-            @Override // com.repackage.x33.e
-            public void a(String str) {
+            @Override // com.repackage.zk2.a
+            public void a(y33 y33Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    ot2.d(this.c.d);
-                    ix1.i("RelaunchApi", "check pages success");
-                    this.c.a.o();
-                    n62.e f = n62.f(this.a, s62.c(this.c.c.a));
-                    String b = f.a.b();
-                    a aVar = this.c;
-                    r33.m(aVar.f, this.b, b, aVar.c.a, null, aVar.b);
-                    s63.t(b);
-                    a aVar2 = this.c;
-                    aVar2.f.z(f, aVar2.c, aVar2.e, aVar2.d);
+                if (interceptable == null || interceptable.invokeL(1048576, this, y33Var) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("data", y33Var.a().toString());
+                    mm2.U().u(new ab2("locationChange", hashMap));
                 }
             }
 
-            @Override // com.repackage.x33.e
-            public void b(int i, bc3 bc3Var) {
+            @Override // com.repackage.zk2.a
+            public void onFailed(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bc3Var) == null) {
-                    ix1.c("RelaunchApi", "check pages failed");
-                    this.c.a.o();
-                    a aVar = this.c;
-                    r33.k(aVar.f, aVar.b);
-                    w63.j(this.c.c, bc3Var);
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    f83.b("startLocationUpdate", 4000, "sdk's errCode is " + i, -1, "");
                 }
             }
         }
 
-        public a(dq1 dq1Var, vl2 vl2Var, String str, iq2 iq2Var, String str2, rz1 rz1Var) {
+        public b(dq1 dq1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dq1Var, vl2Var, str, iq2Var, str2, rz1Var};
+                Object[] objArr = {dq1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,81 +121,38 @@ public class dq1 extends zp1 {
                     return;
                 }
             }
-            this.f = dq1Var;
-            this.a = vl2Var;
-            this.b = str;
-            this.c = iq2Var;
-            this.d = str2;
-            this.e = rz1Var;
+            this.b = dq1Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(c63<e63.e> c63Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppActivity activity = this.a.getActivity();
-                if (activity != null && !activity.isFinishing()) {
-                    i03 M = i03.M();
-                    if (M == null) {
-                        this.f.d(this.b, new is1(1001, "swan app is null"));
-                        w63.i(this.c);
-                        return;
-                    }
-                    this.a.a();
-                    x33.g(M, this.c, "", new C0464a(this, activity, M), this.d);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c63Var) == null) {
+                if (!x53.h(c63Var)) {
+                    int b = c63Var.b();
+                    f83.b("startLocationUpdate", 5000, x53.f(b), b, x53.f(b));
+                    this.b.d(this.a, new zs1(b, x53.f(b)));
+                } else if (!te3.M()) {
+                    f83.b("startLocationUpdate", 5004, "user no permission", 10005, x53.f(10005));
+                    this.b.d(this.a, new zs1(10005, x53.f(10005)));
+                } else {
+                    this.b.d(this.a, new zs1(0));
+                    gk2.I().f(new a(this));
                 }
-                this.f.d(this.b, new is1(1001, "swan activity is null"));
-                w63.i(this.c);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements n62.f {
+    /* loaded from: classes6.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n62.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ iq2 c;
-        public final /* synthetic */ rz1 d;
-
-        public b(dq1 dq1Var, n62.e eVar, String str, iq2 iq2Var, rz1 rz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dq1Var, eVar, str, iq2Var, rz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = str;
-            this.c = iq2Var;
-            this.d = rz1Var;
-        }
-
-        @Override // com.repackage.n62.f
-        public void onReady() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ot2.e(this.a, this.b);
-                r33.e(this.a.a, this.c, this.b);
-                dq1.y(this.d, this.c, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements rz1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public String c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -201,35 +168,56 @@ public class dq1 extends zp1 {
             }
         }
 
-        @Override // com.repackage.rz1.a
-        public void a(@NonNull Fragment fragment) {
+        public static c b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fragment) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                c cVar = new c();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    String optString = jSONObject.optString("type");
+                    cVar.a = optString;
+                    if (TextUtils.isEmpty(optString)) {
+                        cVar.a = CoordinateType.WGS84;
+                    }
+                    cVar.b = jSONObject.optBoolean("altitude");
+                    String optString2 = jSONObject.optString("cb");
+                    cVar.c = optString2;
+                    if (TextUtils.isEmpty(optString2)) {
+                        return null;
+                    }
+                    return cVar;
+                } catch (JSONException e) {
+                    zx1.d("GetLocationApi", "# parseFromJSON error", e);
+                    return null;
+                }
             }
+            return (c) invokeL.objValue;
         }
 
-        @Override // com.repackage.rz1.a
-        public void b(@NonNull Fragment fragment) {
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) && (fragment instanceof qz1)) {
-                ((qz1) fragment).S0 = true;
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.a, CoordinateType.WGS84) || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq1(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public dq1(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -237,108 +225,125 @@ public class dq1 extends zp1 {
         }
     }
 
-    public static void y(rz1 rz1Var, iq2 iq2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, rz1Var, iq2Var, str) == null) {
-            if (iq2Var != null) {
-                ix1.i("RelaunchApi", "doReLaunch page=" + iq2Var.a + " routePage=" + iq2Var.d);
-            }
-            SwanAppActivity w = h03.K().w();
-            if (w == null || w.isFinishing() || w.isDestroyed()) {
-                return;
-            }
-            c cVar = new c();
-            ot2.c(3, str);
-            qz1.S3(ce3.n());
-            rz1Var.g(cVar);
-            rz1.b i = rz1Var.i("reLaunch");
-            i.n(0, 0);
-            i.f();
-            i.k("normal", iq2Var).b();
-            rz1Var.p(cVar);
-            nt2.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-            ot2.a(str, iq2Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public is1 A(String str) {
+    public zs1 A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#reLaunch params" + str, false);
-            String uuid = UUID.randomUUID().toString();
-            ot2.b(uuid);
-            Pair<is1, JSONObject> s = s(str);
-            is1 is1Var = (is1) s.first;
-            if (is1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String p = r33.p(jSONObject);
-                if (TextUtils.isEmpty(p)) {
-                    ix1.c("RelaunchApi", "url is null");
-                    return new is1(202, "url is null");
-                }
-                vl2 U = vl2.U();
-                rz1 V = U.V();
-                if (V == null) {
-                    ix1.c("RelaunchApi", "manager is null");
-                    return new is1(1001, "manager is null");
-                }
-                iq2 d = iq2.d(p, U.z());
-                d.e = "3";
-                d.f = uuid;
-                w63.g(d);
-                if (!ce3.b(U.s(), d, true)) {
-                    String str2 = "page params error : path=" + d.a + " ; routePath=" + d.d;
-                    ix1.c("RelaunchApi", str2);
-                    w63.i(d);
-                    return new is1(202, str2);
-                }
-                String optString = jSONObject.optString("initData");
-                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(d.d) && i03.M() != null) {
-                    i03.M().L0(optString, d.d);
-                }
-                String optString2 = jSONObject.optString(FetchLog.START_TIME);
-                if (!TextUtils.isEmpty(optString2)) {
-                    HybridUbcFlow q = nt2.q("route", uuid);
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                    ubcFlowEvent.h(Long.valueOf(optString2).longValue());
-                    q.F(ubcFlowEvent);
-                }
-                String optString3 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString3)) {
-                    ix1.c("RelaunchApi", "cb is null");
-                    w63.i(d);
-                    return new is1(202, "cb is null");
-                } else if (v23.b().a(d)) {
-                    v23.b().i("reLaunch", d);
-                    ix1.c("RelaunchApi", "access to this page is prohibited");
-                    return new is1(1003, "access to this page is prohibited");
-                } else {
-                    ce3.a0(new a(this, U, optString3, d, uuid, V));
-                    return is1.f();
-                }
+            q("#startLocationUpdate", false);
+            z03 b0 = z03.b0();
+            if (b0 == null) {
+                f83.b("startLocationUpdate", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new zs1(1001, "SwanApp is null");
             }
-            return is1Var;
+            Pair<zs1, JSONObject> s = s(str);
+            zs1 zs1Var = (zs1) s.first;
+            if (zs1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    f83.b("startLocationUpdate", 1001, "empty cb", 201, "empty cb");
+                    zx1.c("GetLocationApi", "empty cb");
+                    return new zs1(201, "empty cb");
+                }
+                b0.e0().g(getContext(), "mapp_location", new b(this, optString));
+                return zs1.f();
+            }
+            return zs1Var;
         }
-        return (is1) invokeL.objValue;
+        return (zs1) invokeL.objValue;
     }
 
-    @Override // com.repackage.lo1
+    public zs1 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            gk2.I().e();
+            return zs1.f();
+        }
+        return (zs1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.eq1.c
+    public void b(c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i) == null) {
+            zx1.c("GetLocationApi", "request location error code : " + i);
+            d(cVar.c, new zs1(1001, String.valueOf(i)));
+        }
+    }
+
+    @Override // com.repackage.eq1.c
+    public void f(c cVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, str) == null) {
+            d(cVar.c, new zs1(10005, "system deny"));
+        }
+    }
+
+    @Override // com.repackage.eq1.c
+    public void g(c cVar, y33 y33Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, y33Var) == null) {
+            d(cVar.c, new zs1(0, "success", y33Var.a()));
+        }
+    }
+
+    @Override // com.repackage.cp1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LocationService" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cp1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RelaunchApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "GetLocationApi" : (String) invokeV.objValue;
     }
 
-    public final void z(n62.e eVar, iq2 iq2Var, rz1 rz1Var, String str) {
+    public zs1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, iq2Var, rz1Var, str) == null) {
-            boolean z = eVar != null && eVar.b;
-            HybridUbcFlow q = nt2.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            q.D("preload", z ? "1" : "0");
-            n62.q(eVar, new b(this, eVar, str, iq2Var, rz1Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            q("#getLocation", false);
+            z03 b0 = z03.b0();
+            if (b0 == null) {
+                f83.b("getLocation", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new zs1(1001, "SwanApp is null");
+            }
+            Pair<zs1, JSONObject> s = s(str);
+            zs1 zs1Var = (zs1) s.first;
+            if (zs1Var.isSuccess()) {
+                c b2 = c.b(((JSONObject) s.second).toString());
+                if (b2 != null && b2.a()) {
+                    if (TextUtils.isEmpty(b2.c)) {
+                        f83.b("getLocation", 1001, "empty cb", 201, "empty cb");
+                        zx1.c("GetLocationApi", "empty cb");
+                        return new zs1(201, "empty cb");
+                    }
+                    b0.e0().g(getContext(), "mapp_location", new a(this, b2));
+                    return zs1.f();
+                }
+                f83.b("getLocation", 1001, "params is invalid", 201, "params is invalid");
+                p("params is invalid", null, true);
+                return new zs1(201, "params is invalid");
+            }
+            return zs1Var;
+        }
+        return (zs1) invokeL.objValue;
+    }
+
+    public final void z(c63<e63.e> c63Var, c cVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, c63Var, cVar, z) == null) {
+            zx1.i("GetLocationApi", "authorized result is " + c63Var);
+            if (x53.h(c63Var)) {
+                eq1.d().e(cVar, this, z);
+                return;
+            }
+            int b2 = c63Var.b();
+            f83.b("getLocation", 5000, x53.f(b2), b2, x53.f(b2));
+            d(cVar.c, new zs1(b2, x53.f(b2)));
         }
     }
 }

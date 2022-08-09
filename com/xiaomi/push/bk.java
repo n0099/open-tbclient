@@ -25,7 +25,7 @@ public class bk {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f141a;
+        public final T f142a;
     }
 
     static {
@@ -293,7 +293,7 @@ public class bk {
                 if (obj == null || !(obj instanceof a)) {
                     objArr2[i] = obj;
                 } else {
-                    objArr2[i] = ((a) obj).f141a;
+                    objArr2[i] = ((a) obj).f142a;
                 }
             }
             return objArr2;

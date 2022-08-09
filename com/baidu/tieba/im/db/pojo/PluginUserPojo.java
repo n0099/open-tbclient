@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import protobuf.PluginUser;
+import tbclient.PluginUser;
 /* loaded from: classes3.dex */
 public class PluginUserPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -39,17 +39,17 @@ public class PluginUserPojo extends OrmObject {
                 return null;
             }
             PluginUserPojo pluginUserPojo = new PluginUserPojo();
-            pluginUserPojo.userId = pluginUser.userId;
-            pluginUserPojo.userNameShow = pluginUser.userNameShow;
-            pluginUserPojo.userType = pluginUser.userType;
-            pluginUserPojo.userPhoto = pluginUser.userPhoto;
-            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.isDownloadCardWhiteuser;
+            pluginUserPojo.userId = pluginUser.user_id;
+            pluginUserPojo.userNameShow = pluginUser.user_name_show;
+            pluginUserPojo.userType = pluginUser.user_type;
+            pluginUserPojo.userPhoto = pluginUser.user_photo;
+            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.is_download_card_whiteuser;
             return pluginUserPojo;
         }
         return (PluginUserPojo) invokeL.objValue;
     }
 
-    public static PluginUserPojo B(tbclient.PluginUser pluginUser) {
+    public static PluginUserPojo z(protobuf.PluginUser pluginUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pluginUser)) == null) {
@@ -57,11 +57,11 @@ public class PluginUserPojo extends OrmObject {
                 return null;
             }
             PluginUserPojo pluginUserPojo = new PluginUserPojo();
-            pluginUserPojo.userId = pluginUser.user_id;
-            pluginUserPojo.userNameShow = pluginUser.user_name_show;
-            pluginUserPojo.userType = pluginUser.user_type;
-            pluginUserPojo.userPhoto = pluginUser.user_photo;
-            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.is_download_card_whiteuser;
+            pluginUserPojo.userId = pluginUser.userId;
+            pluginUserPojo.userNameShow = pluginUser.userNameShow;
+            pluginUserPojo.userType = pluginUser.userType;
+            pluginUserPojo.userPhoto = pluginUser.userPhoto;
+            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.isDownloadCardWhiteuser;
             return pluginUserPojo;
         }
         return (PluginUserPojo) invokeL.objValue;

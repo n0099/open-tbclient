@@ -1,7 +1,19 @@
 package com.repackage;
 /* loaded from: classes6.dex */
-public interface fj extends dj {
-    void a(int i);
+public interface fj {
+    boolean isOnCancle();
 
-    void e();
+    void onDeletedVoice(String str);
+
+    void onSendVoice(String str, int i);
+
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z);
+
+    void onStopingRecorder();
 }

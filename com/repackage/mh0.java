@@ -1,8 +1,6 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,8 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface mh0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-    public static final mh0 b = new a();
+    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
+    public static final mh0 c = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements mh0 {
@@ -33,14 +31,12 @@ public interface mh0 {
         }
 
         @Override // com.repackage.mh0
-        @NonNull
-        public oh0 a() {
+        public String h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oh0.a : (oh0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
     }
 
-    @NonNull
-    oh0 a();
+    String h();
 }

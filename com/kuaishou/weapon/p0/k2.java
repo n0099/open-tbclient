@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.jni.Engine;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class k2 {
@@ -100,14 +100,14 @@ public class k2 {
                         jSONObject.put("17", q0Var.a("17"));
                         jSONObject.put("18", q0Var.a("18"));
                         jSONObject.put("19", q0Var.a("19"));
-                        jSONObject.put(UVEventType.PAY_WALLET_BANNER_SHOW, q0Var.a(UVEventType.PAY_WALLET_BANNER_SHOW));
+                        jSONObject.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, q0Var.a(PayUVEventType.PAY_WALLET_BANNER_SHOW));
                         jSONObject.put("21", q0Var.a("21"));
                         jSONObject.put("22", q0Var.a("22"));
                         jSONObject.put("23", q0Var.a("23"));
                         jSONObject.put("24", q0Var.a("24"));
                         jSONObject.put("25", q0Var.a("25"));
                         jSONObject.put("26", q0Var.a("26"));
-                        jSONObject.put("27", q0Var.a("27"));
+                        jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, q0Var.a(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK));
                         jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, q0Var.a(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT));
                         jSONObject.put("29", q0Var.a("29"));
                         jSONObject.put("30", q0Var.a("30"));

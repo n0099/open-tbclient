@@ -1,11 +1,9 @@
 package com.repackage;
 
-import java.net.MalformedURLException;
-/* loaded from: classes6.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface ph1 {
-    String a();
+    void a(int i);
 
-    boolean b();
-
-    String c(String str) throws MalformedURLException;
+    void b(JSONObject jSONObject);
 }

@@ -59,7 +59,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import okhttp3.internal.http2.StreamResetException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static final String a = "f";
     public static final Pattern b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
@@ -322,7 +322,7 @@ public class f {
         } catch (IllegalArgumentException e2) {
             throw new BaseException(1050, e2);
         } catch (Throwable th) {
-            throw new BaseException((int) RevenueServerConst.GetChargeCouponDiscountRequest, th);
+            throw new BaseException(1052, th);
         }
     }
 
@@ -1372,7 +1372,7 @@ public class f {
                                 }
                                 throw new BaseException(1049, b(th, str2));
                             }
-                            throw new BaseException((int) RevenueServerConst.GetUserCouponStoreRequest, b(th, str2));
+                            throw new BaseException(1047, b(th, str2));
                         }
                         throw new com.ss.android.socialbase.downloader.exception.b(1004, 416, b(th, str2));
                     }
@@ -1429,7 +1429,7 @@ public class f {
                                         }
                                         throw new BaseException((int) RevenueServerConst.GetChargeOrderStatusRequest, b2);
                                     }
-                                    throw new BaseException((int) RevenueServerConst.GetChargeCurrencyConfigByChannelsRequest, b2);
+                                    throw new BaseException(1060, b2);
                                 }
                                 throw new BaseException(1059, b2);
                             }

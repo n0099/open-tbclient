@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.q01;
+import com.repackage.p01;
 /* loaded from: classes6.dex */
 public class g11 {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +54,7 @@ public class g11 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                int a = q01.c.a(this.a, this.b);
+                int a = p01.c.a(this.a, this.b);
                 this.c.getHitRect(rect);
                 rect.left -= a;
                 rect.right += a;

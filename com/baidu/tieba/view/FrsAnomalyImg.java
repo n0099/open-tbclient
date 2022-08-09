@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.ym;
+import com.repackage.kg;
+import com.repackage.zm;
 /* loaded from: classes4.dex */
 public class FrsAnomalyImg extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -48,10 +48,10 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public Shader o;
     public final Matrix p;
     public boolean q;
-    public final ig<ym> r;
+    public final jg<zm> r;
 
     /* loaded from: classes4.dex */
-    public class a extends ig<ym> {
+    public class a extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAnomalyImg a;
@@ -74,7 +74,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             this.a = frsAnomalyImg;
         }
 
-        @Override // com.repackage.ig
+        @Override // com.repackage.jg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +82,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             }
         }
 
-        @Override // com.repackage.ig
+        @Override // com.repackage.jg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -91,15 +91,15 @@ public class FrsAnomalyImg extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ymVar, str, i) == null) || ymVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zmVar, str, i) == null) || zmVar == null) {
                 return;
             }
-            this.a.m = ymVar.r();
-            this.a.n = ymVar.m();
-            this.a.o = ymVar.d();
+            this.a.m = zmVar.r();
+            this.a.n = zmVar.m();
+            this.a.o = zmVar.d();
             this.a.invalidate();
         }
     }
@@ -270,7 +270,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s();
+            r();
             this.b.setColor(SkinManager.getColor(R.color.CAM_X0210));
             invalidate();
         }
@@ -364,14 +364,14 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public void q(String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, bdUniqueId) == null) {
-            jg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
+            kg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
         }
     }
 
-    public final void s() {
+    public final void r() {
         Drawable pureDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080922, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093f, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
             return;
         }
         this.k = pureDrawable.getIntrinsicHeight();

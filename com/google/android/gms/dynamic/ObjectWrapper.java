@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IObjectWrapper;
-import com.repackage.dk9;
+import com.repackage.ym9;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 }
             }
             if (i == 1) {
-                dk9.d(field);
+                ym9.d(field);
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                     try {

@@ -43,7 +43,7 @@ public final class c extends b {
     public boolean ia;
 
     /* renamed from: if  reason: not valid java name */
-    public TransViewPager f7if;
+    public TransViewPager f8if;
     public a ig;
     public ViewPagerIndicator ih;
     public SlideTipsView ij;
@@ -52,7 +52,7 @@ public final class c extends b {
     public boolean im;
 
     /* renamed from: io  reason: collision with root package name */
-    public boolean f1076io;
+    public boolean f1079io;
     public final ViewPager.OnPageChangeListener iq;
     public AdInfo mAdInfo;
     @NonNull
@@ -204,18 +204,18 @@ public final class c extends b {
                 e F;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3) == null) {
-                    e F2 = this.ir.f7if.F(i3);
+                    e F2 = this.ir.f8if.F(i3);
                     if (F2 != null) {
                         F2.dW();
                     }
-                    if (this.is != i3 && (F = this.ir.f7if.F(this.is)) != null) {
+                    if (this.is != i3 && (F = this.ir.f8if.F(this.is)) != null) {
                         F.dX();
                     }
                     this.is = i3;
                 }
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d042e, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0431, this);
         this.mContext = context;
         initView();
     }
@@ -258,10 +258,10 @@ public final class c extends b {
                 this.ir.mAdTemplateList.addAll(list);
                 this.ir.ig.setAdTemplateList(this.ir.mAdTemplateList);
                 this.ir.ig.notifyDataSetChanged();
-                this.ir.f7if.setOffscreenPageLimit(this.ir.mAdTemplateList.size() - 1);
-                this.ir.f7if.addOnPageChangeListener(this.ir.iq);
+                this.ir.f8if.setOffscreenPageLimit(this.ir.mAdTemplateList.size() - 1);
+                this.ir.f8if.addOnPageChangeListener(this.ir.iq);
                 this.ir.dP();
-                this.ir.ih.setViewPager(this.ir.f7if);
+                this.ir.ih.setViewPager(this.ir.f8if);
                 this.ir.ih.setVisibility(0);
                 this.ir.aM.a(this.ir.bX);
                 com.kwad.components.ad.interstitial.a.a.I(this.ir.mContext);
@@ -300,13 +300,13 @@ public final class c extends b {
                 public final void dS() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.ir.f1076io = true;
+                        this.ir.f1079io = true;
                         if (this.ir.ia) {
                             this.ir.dR();
                         } else {
                             this.ir.dQ();
                         }
-                        this.ir.f7if.setScrollable(true);
+                        this.ir.f8if.setScrollable(true);
                     }
                 }
             });
@@ -348,8 +348,8 @@ public final class c extends b {
                     float f;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.ir.f7if.scrollTo(com.kwad.sdk.b.kwai.a.a(this.ir.mContext, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
-                        this.ir.f7if.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(this.ir.mContext, f) / this.ir.getWidth(), 0);
+                        this.ir.f8if.scrollTo(com.kwad.sdk.b.kwai.a.a(this.ir.mContext, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
+                        this.ir.f8if.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(this.ir.mContext, f) / this.ir.getWidth(), 0);
                     }
                 }
             });
@@ -431,8 +431,8 @@ public final class c extends b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        this.ir.f7if.scrollTo(intValue, 0);
-                        this.ir.f7if.onPageScrolled(0, intValue / this.ir.getWidth(), 0);
+                        this.ir.f8if.scrollTo(intValue, 0);
+                        this.ir.f8if.onPageScrolled(0, intValue / this.ir.getWidth(), 0);
                     }
                 }
             });
@@ -463,7 +463,7 @@ public final class c extends b {
                 public final void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.ir.f7if.setCurrentItem(1);
+                        this.ir.f8if.setCurrentItem(1);
                         this.ir.ik.setVisibility(0);
                         TranslateAnimation translateAnimation = new TranslateAnimation(1, -0.5f, 1, -0.1f, 1, 0.0f, 1, 0.0f);
                         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.8f);
@@ -483,10 +483,10 @@ public final class c extends b {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.f7if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09108d);
-            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09108e);
-            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091077);
-            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09115f);
+            this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910e6);
+            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910e7);
+            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910d0);
+            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911b5);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
         }
     }
@@ -531,7 +531,7 @@ public final class c extends b {
                 public final void a(e eVar, int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, eVar, i) == null) {
-                        this.ir.f7if.a(i, eVar);
+                        this.ir.f8if.a(i, eVar);
                     }
                 }
             });
@@ -561,7 +561,7 @@ public final class c extends b {
                 @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0320a
                 public final void dL() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1076io) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1079io) {
                         return;
                     }
                     if (this.ir.il != null) {
@@ -569,10 +569,10 @@ public final class c extends b {
                     }
                     this.ir.ih.setPlayProgressListener(null);
                     this.ir.ih.setVisibility(8);
-                    this.ir.f7if.setScrollable(false);
+                    this.ir.f8if.setScrollable(false);
                 }
             });
-            this.f7if.setAdapter(this.ig);
+            this.f8if.setAdapter(this.ig);
             this.ig.setAdTemplateList(this.mAdTemplateList);
             this.ig.notifyDataSetChanged();
             this.aM.qi();

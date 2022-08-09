@@ -1,342 +1,162 @@
 package com.repackage;
 
-import android.os.Environment;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class pq3 {
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes7.dex */
+public final class pq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public long g;
-    public Download h;
-    public String i;
-    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755401313, "Lcom/repackage/pq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755401313, "Lcom/repackage/pq3;");
-                return;
-            }
-        }
-        k = sg1.a;
-    }
-
-    public pq3() {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-        }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
                 }
                 return str;
             }
-            return null;
+            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static String n() {
-        InterceptResult invokeV;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/zip";
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            return null;
+            String e = e(map);
+            if (TextUtils.isEmpty(e)) {
+                return str;
+            }
+            return str + "&" + e;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public pq3 a(String str) {
-        InterceptResult invokeL;
+    public static String c(String str, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public Download b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, set)) == null) {
+            if (TextUtils.isEmpty(str) || !str.startsWith("http") || set == null || set.size() == 0) {
+                return str;
+            }
+            String str2 = null;
             try {
-                jSONObject.put("apk_id", this.c);
-                jSONObject.put("download_time", this.g);
-                jSONObject.put("from_view", this.d);
-                jSONObject.put("from_value", this.e);
-                jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f);
-            } catch (JSONException e) {
-                if (k) {
-                    e.printStackTrace();
-                }
+                str2 = new URL(str).getQuery();
+            } catch (MalformedURLException unused) {
             }
-            download.setFromParam(jSONObject.toString());
-            download.setMimetype("application/vnd.android.package-archive");
-            download.setWifiOnly(false);
-            String i = i();
-            if (!TextUtils.isEmpty(i)) {
-                download.setSavedPathForUser(i);
+            if (TextUtils.isEmpty(str2)) {
+                return str;
             }
-            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return download;
+            CharSequence d = d(str2, set);
+            return TextUtils.isEmpty(d) ? str : str.replace(str2, d);
         }
-        return (Download) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public Download c() {
-        InterceptResult invokeV;
+    public static String d(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            download.setMimetype("application/zip");
-            download.setWifiOnly(false);
-            String n = n();
-            if (!TextUtils.isEmpty(n)) {
-                download.setSavedPathForUser(n);
-            }
-            download.setFileName(this.i + ".zip");
-            download.setFromParam(this.j);
-            return download;
-        }
-        return (Download) invokeV.objValue;
-    }
-
-    public pq3 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public pq3 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public pq3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public pq3 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Download download = this.h;
-            if (download == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, set)) == null) {
+            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
                 return null;
             }
-            return download.getFromParam();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.longValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public pq3 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public <T> void p(String str, T t) {
-        Download download;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, t) == null) || (download = this.h) == null) {
-            return;
-        }
-        String fromParam = download.getFromParam();
-        if (TextUtils.isEmpty(fromParam)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(fromParam);
-            jSONObject.put(str, t);
-            this.h.setFromParam(jSONObject.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public pq3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public pq3 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (pq3) invokeL.objValue;
-    }
-
-    public pq3(@NonNull Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length > 0 && !set.contains(split2[0])) {
+                    sb.append(str2);
+                    sb.append("&");
+                }
             }
-        }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
-        this.h = download;
-        this.a = download.getUrl();
-        this.b = download.getKeyByUser();
-        String fromParam = download.getFromParam();
-        if (TextUtils.isEmpty(fromParam)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(fromParam);
-            this.c = jSONObject.optString("apk_id");
-            this.d = jSONObject.optString("from_view");
-            this.e = jSONObject.optString("from_value");
-            this.f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            this.g = jSONObject.optLong("download_time", System.currentTimeMillis());
-        } catch (JSONException e) {
-            if (k) {
-                e.printStackTrace();
+            int length = sb.length();
+            if (length > 0) {
+                int i = length - 1;
+                if (sb.charAt(i) == '&') {
+                    sb.deleteCharAt(i);
+                }
             }
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
+            if (map == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                try {
+                    sb.append(entry.getKey() != null ? URLEncoder.encode(entry.getKey(), "UTF-8") : "");
+                    sb.append("=");
+                    sb.append(entry.getValue() != null ? URLEncoder.encode(entry.getValue(), "UTF-8") : "");
+                } catch (UnsupportedEncodingException unused) {
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

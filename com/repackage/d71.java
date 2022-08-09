@@ -1,76 +1,22 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class d71 implements w91 {
+import java.util.concurrent.CountDownLatch;
+/* loaded from: classes6.dex */
+public class d71 {
     public static /* synthetic */ Interceptable $ic;
-    public static d71 c;
+    public static volatile d71 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public boolean b;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d71 this$0;
-
-        public b(d71 d71Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = d71Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
-                this.this$0.b = false;
-                try {
-                    int intExtra = intent.getIntExtra("code", 0);
-                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
-                    intent2.putExtra("code", intExtra);
-                    PolyActivity.g.startActivity(intent2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public /* synthetic */ b(d71 d71Var, a aVar) {
-            this(d71Var);
-        }
-    }
+    public boolean a;
 
     public d71() {
         Interceptable interceptable = $ic;
@@ -85,64 +31,51 @@ public class d71 implements w91 {
                 return;
             }
         }
-        this.b = false;
+        this.a = false;
     }
 
-    public static d71 d() {
+    public static d71 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
                 synchronized (d71.class) {
-                    if (c == null) {
-                        c = new d71();
+                    if (b == null) {
+                        b = new d71();
                     }
                 }
             }
-            return c;
+            return b;
         }
         return (d71) invokeV.objValue;
     }
 
-    @Override // com.repackage.w91
-    public void a(Activity activity, String str, String str2) {
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            i91.b("WECHAT signWechatAutoRenew appId=" + str);
-            k71 a2 = a71.a();
-            if (a2 == null) {
-                return;
-            }
-            if (!a2.b(activity)) {
-                ga1.f(activity, "您没有安装微信，请选择其他支付方式");
-                activity.finish();
-                return;
-            }
-            this.b = true;
-            f();
-            e();
-            a2.a(activity, str, str2);
-            activity.finish();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b(this, null);
-            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.a) {
             return;
         }
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            c(context);
+            return;
+        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        new c71(context, countDownLatch).sendMessage(Message.obtain());
         try {
-            PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
-        } catch (Exception e) {
-            e.printStackTrace();
+            countDownLatch.await();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            o61.a().c();
+            try {
+                new WebView(context);
+            } catch (Exception unused) {
+            }
+            this.a = true;
         }
     }
 }

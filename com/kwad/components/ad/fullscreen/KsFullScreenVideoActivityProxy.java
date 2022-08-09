@@ -270,9 +270,9 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091160);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
             this.mRootContainer = adBaseFrameLayout;
-            DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0911b6);
+            DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09120c);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
         }
@@ -387,7 +387,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
             com.kwad.components.ad.reward.monitor.a.a(false, this.mAdTemplate, elapsedRealtime);
             com.kwad.components.ad.reward.monitor.a.b(false, this.mAdTemplate, this.mPageEnterTime);
             this.mContext = Wrapper.wrapContextIfNeed(getActivity());
-            setContentView(R.layout.obfuscated_res_0x7f0d03fc);
+            setContentView(R.layout.obfuscated_res_0x7f0d03ff);
             initView();
             onActivityCreated(this.mRootContainer);
         }
@@ -424,7 +424,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
                 kVar.mm = new m(kVar, this.mReportExtData, null);
             }
             if (com.kwad.sdk.core.response.a.a.aY(this.mAdInfo)) {
-                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910be));
+                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091117));
             }
             if (com.kwad.sdk.core.response.a.d.bX(this.mAdTemplate)) {
                 kVar.mo = new com.kwad.components.ad.i.a().ae(false);

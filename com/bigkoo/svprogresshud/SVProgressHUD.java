@@ -340,7 +340,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091e72);
+            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091f68);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -364,16 +364,16 @@ public class SVProgressHUD {
                     configMaskType(17170445, true, true);
                     return;
                 case 4:
-                    configMaskType(R.color.obfuscated_res_0x7f06040d, true, false);
+                    configMaskType(R.color.obfuscated_res_0x7f06041c, true, false);
                     return;
                 case 5:
-                    configMaskType(R.color.obfuscated_res_0x7f06040d, true, true);
+                    configMaskType(R.color.obfuscated_res_0x7f06041c, true, true);
                     return;
                 case 6:
-                    configMaskType(R.drawable.obfuscated_res_0x7f0802b6, true, false);
+                    configMaskType(R.drawable.obfuscated_res_0x7f0802b8, true, false);
                     return;
                 case 7:
-                    configMaskType(R.drawable.obfuscated_res_0x7f0802b6, true, true);
+                    configMaskType(R.drawable.obfuscated_res_0x7f0802b8, true, true);
                     return;
                 default:
                     return;
@@ -487,7 +487,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04f4, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04fd, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

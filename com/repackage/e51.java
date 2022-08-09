@@ -1,77 +1,106 @@
 package com.repackage;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pn0;
+import com.repackage.a51;
+import com.repackage.c51;
 /* loaded from: classes6.dex */
-public class e51 extends Dialog implements View.OnClickListener {
+public class e51 extends a51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final b a;
+    public FrameLayout i;
+    public a j;
 
     /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    public static class a extends a51.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e51 a;
+        public View g;
 
-        public a(e51 e51Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e51Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = e51Var;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.repackage.a51.b, com.repackage.c51.a
+        public c51 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.a.a(false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e51 e51Var = (e51) super.a();
+                e51Var.o(this);
+                return e51Var;
             }
+            return (c51) invokeV.objValue;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
+        @Override // com.repackage.c51.a
+        public c51 f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new e51(context) : (c51) invokeL.objValue;
+        }
+
+        @Override // com.repackage.c51.a
+        public /* bridge */ /* synthetic */ c51.a q(int i) {
+            y(i);
+            return this;
+        }
+
+        public a x(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.q(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e51(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+    public e51(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, adBaseModel, bVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,73 +111,34 @@ public class e51 extends Dialog implements View.OnClickListener {
                 return;
             }
         }
-        c(adBaseModel);
-        this.a = bVar;
     }
 
-    public final void b(AdBaseModel adBaseModel) {
-        pn0 pn0Var;
+    @Override // com.repackage.a51
+    public View i(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            pn0.b bVar = (adBaseModel == null || (pn0Var = adBaseModel.p) == null) ? null : pn0Var.f;
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d9, (ViewGroup) null);
-            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb8) : bVar.a;
-            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb7) : bVar.b;
-            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb6) : bVar.c;
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09152a)).setText(string);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09152b);
-            textView.setText(string2);
-            textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091529);
-            textView2.setText(string3);
-            textView2.setOnClickListener(this);
-            setContentView(inflate);
-            setOnDismissListener(new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d060b, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f0e);
+            n();
+            return inflate;
         }
+        return (View) invokeL.objValue;
     }
 
-    public final void c(@NonNull AdBaseModel adBaseModel) {
+    public final void n() {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
-            Window window = getWindow();
-            window.requestFeature(1);
-            b(adBaseModel);
-            window.getDecorView().setPadding(0, 0, 0, 0);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.width = -1;
-            attributes.height = -2;
-            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003bd;
-            attributes.gravity = 17;
-            window.setAttributes(attributes);
-            window.setBackgroundDrawableResource(17170445);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.j) == null) {
+            return;
         }
+        this.i.addView(aVar.g);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void o(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09152b) {
-                this.a.a(false);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091529) {
-                this.a.a(true);
-            }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Window window = getWindow();
-            if (window == null) {
-                super.show();
-                return;
-            }
-            window.setFlags(8, 8);
-            super.show();
-            e11.a(window);
-            window.clearFlags(8);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.j = aVar;
         }
     }
 }

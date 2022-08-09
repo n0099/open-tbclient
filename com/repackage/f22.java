@@ -1,42 +1,69 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class f22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public f22() {
+    public static synchronized e22 a(@NonNull String str) {
+        InterceptResult invokeL;
+        e22 j22Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public e22 a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new g22(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            synchronized (f22.class) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case 48:
+                        if (str.equals("0")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 49:
+                        if (str.equals("1")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 50:
+                        if (str.equals("2")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 51:
+                        if (str.equals("3")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 52:
+                        if (str.equals("4")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
                 }
-                return new i22(context);
+                if (c == 0) {
+                    j22Var = new j22();
+                } else if (c == 1) {
+                    j22Var = new c22();
+                } else if (c == 2) {
+                    j22Var = new i22();
+                } else if (c == 3) {
+                    j22Var = new g22();
+                } else if (c != 4) {
+                    j22Var = new d22();
+                } else {
+                    j22Var = new h22();
+                }
             }
-            return new g22(context);
+            return j22Var;
         }
-        return (e22) invokeLI.objValue;
+        return (e22) invokeL.objValue;
     }
 }

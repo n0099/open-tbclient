@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Cea608Decoder extends CeaDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BASIC_CHARACTER_SET;
@@ -83,7 +83,7 @@ public final class Cea608Decoder extends CeaDecoder {
     public boolean repeatableControlSet;
     public final int selectedField;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BASE_ROW = 15;
@@ -101,7 +101,7 @@ public final class Cea608Decoder extends CeaDecoder {
         public int tabOffset;
         public int underlineStartPosition;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class CueStyle {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

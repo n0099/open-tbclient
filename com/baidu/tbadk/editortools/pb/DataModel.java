@@ -1,9 +1,7 @@
 package com.baidu.tbadk.editortools.pb;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,21 +34,16 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         }
     }
 
-    @Nullable
-    public String A() {
+    public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
-    }
-
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return -1;
         }
         return invokeV.intValue;
     }
+
+    public abstract String B();
 
     public abstract String C();
 
@@ -60,23 +53,28 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String F();
 
-    public abstract String G();
+    public abstract WriteData G(String str);
 
-    public abstract WriteData H(String str);
-
-    public boolean I() {
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? J() || K() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? I() || J() : invokeV.booleanValue;
     }
+
+    public abstract boolean I();
 
     public abstract boolean J();
 
     public abstract boolean K();
 
-    public abstract boolean L();
-
     public abstract String getForumId();
 
     public abstract String getFromForumId();
+
+    @Nullable
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
+    }
 }

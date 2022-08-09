@@ -94,12 +94,12 @@ public class bj {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f140a;
+        public Map<String, String> f141a;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f140a.toString()) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f141a.toString()) : (String) invokeV.objValue;
         }
     }
 
@@ -217,7 +217,7 @@ public class bj {
                                     bufferedReader = new BufferedReader(new InputStreamReader(new a(m195a.getErrorStream())));
                                 }
                             } else {
-                                bhVar.f139a.put(headerFieldKey, headerField);
+                                bhVar.f140a.put(headerFieldKey, headerField);
                                 i = i + 1 + 1;
                             }
                         }
@@ -235,7 +235,7 @@ public class bj {
                         stringBuffer.append(readLine);
                         stringBuffer.append(property);
                     }
-                    bhVar.f138a = stringBuffer.toString();
+                    bhVar.f139a = stringBuffer.toString();
                     bufferedReader.close();
                     ab.a((Closeable) null);
                     ab.a((Closeable) null);
@@ -293,8 +293,8 @@ public class bj {
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
                             bVar.a = m195a.getResponseCode();
-                            if (bVar.f140a == null) {
-                                bVar.f140a = new HashMap();
+                            if (bVar.f141a == null) {
+                                bVar.f141a = new HashMap();
                             }
                             int i = 0;
                             while (true) {
@@ -304,7 +304,7 @@ public class bj {
                                     break;
                                 }
                                 if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                                    bVar.f140a.put(headerFieldKey, headerField);
+                                    bVar.f141a.put(headerFieldKey, headerField);
                                 }
                                 i++;
                             }

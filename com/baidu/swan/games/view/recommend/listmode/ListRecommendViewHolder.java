@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091eae);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eaf);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ead);
-        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091eb0);
+        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091fa4);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa5);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa3);
+        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091fa6);
     }
 }

@@ -1,23 +1,24 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import com.baidubce.AbstractBceClient;
+import com.repackage.wl2;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zs3 extends ns3 {
+public class zs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,58 +34,81 @@ public class zs3 extends ns3 {
                 return;
             }
         }
-        c = sg1.a;
+        a = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zs3() {
-        super("startPermissionsPage");
+    public static void a(String str, String str2, String str3, String str4, xs3 xs3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, xs3Var) == null) {
+            String l = ys3.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            ys3 ys3Var = new ys3();
+            ys3Var.m(xs3Var);
+            ys3Var.b = l;
+            ys3Var.e = str3;
+            ys3Var.v = str;
+            ys3Var.l = te3.D();
+            if (z03.b0() != null) {
+                wl2.a W = z03.b0().W();
+                ys3Var.a = s73.n(W.G());
+                ys3Var.f = W.H();
+                ys3Var.c = W.T();
+            }
+            ys3Var.t = str4;
+            s73.x("1245", ys3Var);
         }
     }
 
-    @Override // com.repackage.ns3
-    public is1 a(JSONObject jSONObject, md2 md2Var) {
-        InterceptResult invokeLL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
-            i03 b0 = i03.b0();
-            if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
-                }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        md3.f(b0.w());
-                    }
-                } else {
-                    md3.g(b0.w());
-                }
-                md2Var.a(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
         }
-        return (is1) invokeLL.objValue;
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = ys3.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            ys3 ys3Var = new ys3();
+            ys3Var.b = l;
+            ys3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            ys3Var.a("packageName", str3);
+            s73.x("1245", ys3Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = px3.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", gk2.h0().i(gk2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", gk2.n().a());
+                jSONObject.put("version", te3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b84.h(gk2.c()).postRequest().cookieManager(gk2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
+            }
+        }
     }
 }

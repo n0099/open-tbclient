@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.al9;
-import com.repackage.ck9;
-import com.repackage.dk9;
-import com.repackage.fk9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.vn9;
+import com.repackage.xm9;
+import com.repackage.ym9;
+/* loaded from: classes5.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int API_DISABLED = 23;
@@ -78,7 +78,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
             }
         }
         RESULT_SUCCESS = new ConnectionResult(0);
-        CREATOR = new al9();
+        CREATOR = new vn9();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -208,7 +208,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
             }
             if (obj instanceof ConnectionResult) {
                 ConnectionResult connectionResult = (ConnectionResult) obj;
-                return this.zzb == connectionResult.zzb && ck9.a(this.zzc, connectionResult.zzc) && ck9.a(this.zzd, connectionResult.zzd);
+                return this.zzb == connectionResult.zzb && xm9.a(this.zzc, connectionResult.zzc) && xm9.a(this.zzd, connectionResult.zzd);
             }
             return false;
         }
@@ -244,7 +244,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ck9.b(Integer.valueOf(this.zzb), this.zzc, this.zzd) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? xm9.b(Integer.valueOf(this.zzb), this.zzc, this.zzd) : invokeV.intValue;
     }
 
     public boolean isSuccess() {
@@ -257,7 +257,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, activity, i) == null) && hasResolution()) {
             PendingIntent pendingIntent = this.zzc;
-            dk9.d(pendingIntent);
+            ym9.d(pendingIntent);
             activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
         }
     }
@@ -267,7 +267,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ck9.a c = ck9.c(this);
+            xm9.a c = xm9.c(this);
             c.a("statusCode", zza(this.zzb));
             c.a("resolution", this.zzc);
             c.a("message", this.zzd);
@@ -280,12 +280,12 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, this.zza);
-            fk9.g(parcel, 2, getErrorCode());
-            fk9.j(parcel, 3, getResolution(), i, false);
-            fk9.k(parcel, 4, getErrorMessage(), false);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.g(parcel, 1, this.zza);
+            an9.g(parcel, 2, getErrorCode());
+            an9.j(parcel, 3, getResolution(), i, false);
+            an9.k(parcel, 4, getErrorMessage(), false);
+            an9.b(parcel, a);
         }
     }
 

@@ -27,7 +27,7 @@ public class MessageHandleService extends BaseService {
     public static ConcurrentLinkedQueue<a> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ExecutorService f34a;
+    public static ExecutorService f35a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -37,7 +37,7 @@ public class MessageHandleService extends BaseService {
         public Intent a;
 
         /* renamed from: a  reason: collision with other field name */
-        public PushMessageReceiver f35a;
+        public PushMessageReceiver f36a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class MessageHandleService extends BaseService {
                     return;
                 }
             }
-            this.f35a = pushMessageReceiver;
+            this.f36a = pushMessageReceiver;
             this.a = intent;
         }
 
@@ -68,7 +68,7 @@ public class MessageHandleService extends BaseService {
         public PushMessageReceiver m103a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35a : (PushMessageReceiver) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36a : (PushMessageReceiver) invokeV.objValue;
         }
     }
 
@@ -86,7 +86,7 @@ public class MessageHandleService extends BaseService {
             }
         }
         a = new ConcurrentLinkedQueue<>();
-        f34a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f35a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public MessageHandleService() {
@@ -157,7 +157,7 @@ public class MessageHandleService extends BaseService {
                     MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) a3;
                     com.xiaomi.channel.commonutils.logger.b.e("begin execute onCommandResult, command=" + miPushCommandMessage.getCommand() + ", resultCode=" + miPushCommandMessage.getResultCode() + ", reason=" + miPushCommandMessage.getReason());
                     m103a.onCommandResult(context, miPushCommandMessage);
-                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ey.a.f333a)) {
+                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ey.a.f334a)) {
                         return;
                     }
                     m103a.onReceiveRegisterResult(context, miPushCommandMessage);
@@ -177,7 +177,7 @@ public class MessageHandleService extends BaseService {
                 MiPushCommandMessage miPushCommandMessage2 = (MiPushCommandMessage) a2.getSerializableExtra(PushMessageHelper.KEY_COMMAND);
                 com.xiaomi.channel.commonutils.logger.b.e("(Local) begin execute onCommandResult, command=" + miPushCommandMessage2.getCommand() + ", resultCode=" + miPushCommandMessage2.getResultCode() + ", reason=" + miPushCommandMessage2.getReason());
                 m103a.onCommandResult(context, miPushCommandMessage2);
-                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ey.a.f333a)) {
+                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ey.a.f334a)) {
                     return;
                 }
                 m103a.onReceiveRegisterResult(context, miPushCommandMessage2);
@@ -204,10 +204,10 @@ public class MessageHandleService extends BaseService {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, context) == null) || f34a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, context) == null) || f35a.isShutdown()) {
             return;
         }
-        f34a.execute(new z(context));
+        f35a.execute(new z(context));
     }
 
     public static void c(Context context) {

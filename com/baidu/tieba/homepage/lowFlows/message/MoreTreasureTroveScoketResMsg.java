@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
-import com.repackage.sw6;
-import com.repackage.xw6;
+import com.repackage.my6;
+import com.repackage.on;
+import com.repackage.ry6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements sw6 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements my6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nn> mMoreTreasureTroveDataList;
+    public List<on> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -55,15 +55,15 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = xw6.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = ry6.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.sw6
-    public List<nn> getDataList() {
+    @Override // com.repackage.my6
+    public List<on> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;

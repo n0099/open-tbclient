@@ -14,6 +14,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.hiidostatis.inner.BaseStatisContent;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", Config.OPERATOR, "tm", Config.CELL_LOCATION, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 
@@ -239,7 +240,7 @@ public class LayerParser {
         }
         arrayList2.add(new Keyframe(lottieComposition, valueOf, valueOf, null, f5, Float.valueOf(f6)));
         arrayList2.add(new Keyframe(lottieComposition, valueOf2, valueOf2, null, f6, Float.valueOf(Float.MAX_VALUE)));
-        if (str3.endsWith(".ai") || "ai".equals(str2)) {
+        if (str3.endsWith(".ai") || CacheDeviceInfo.JSON_KEY_ANDROID_ID.equals(str2)) {
             lottieComposition.addWarning("Convert your Illustrator layers to shape layers.");
         }
         return new Layer(arrayList4, lottieComposition, str3, j2, layerType, j, str, arrayList, animatableTransform, i, i2, i3, f3, f4, i4, i5, animatableTextFrame, animatableTextProperties, arrayList2, matteType2, animatableFloatValue, z);

@@ -1,80 +1,56 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.tieba.view.ShadowLinearLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import tbclient.GetMyPost.DataRes;
-import tbclient.GetMyPost.GetMyPostResIdl;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static WeakReference<bu4> b;
-    public static PostWriteCallBackData c;
-    public static gy4 d;
-    public static WriteData e;
-    public static AntiData f;
-    public static Intent g;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public a b;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ NavigationBarCoverTip b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
 
-        public a(Activity activity, NavigationBarCoverTip navigationBarCoverTip, long j, long j2) {
+        public b(String str, long j, String str2, a aVar, mk8 mk8Var, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity, navigationBarCoverTip, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, mk8Var, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,452 +60,125 @@ public class mk8 {
                     return;
                 }
             }
-            this.a = activity;
-            this.b = navigationBarCoverTip;
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(mk8Var);
+            this.b = str;
             this.c = j;
-            this.d = j2;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                lk8.a("发帖-成功： 开始分享 -- start");
-                view2.setOnClickListener(null);
-                if (!ni.z()) {
-                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0c17);
-                    this.b.e();
-                    lk8.a("发帖-成功： 开始分享 -- 失败 -- 无网");
-                    return;
-                }
-                int k = pi.k(TbadkCoreApplication.getInst());
-                int i = pi.i(TbadkCoreApplication.getInst());
-                float f = this.a.getResources().getDisplayMetrics().density;
-                int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(mk8.a);
-                requestGetMyPostNetMessage.setParams(this.c, this.d, 0L, k, i, f, i2);
-                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
-                lk8.a("发帖-成功： 开始分享 -- 发送GetMyPost");
-                mk8.j(this.a);
-                this.b.e();
-                lk8.a("发帖-成功： 开始分享 -- 关闭成功弹框");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ Activity b;
-
-        public b(WriteData writeData, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-            this.b = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                lk8.a("发帖-失败： 重新编辑 -- start");
-                view2.setOnClickListener(null);
-                WriteData writeData = this.a;
-                if (writeData != null && writeData.isWork()) {
-                    WorkPublishOpenHelper.Companion.d(this.a, this.b);
-                    nk8.b(true);
-                    return;
-                }
-                WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.b);
-                Intent intent = mk8.g;
-                if (intent != null) {
-                    newInstance.setIntent(intent);
-                }
-                newInstance.setFromErrorDialog(true);
-                newInstance.send();
-                nk8.b(false);
-                lk8.a("发帖-失败： 重新编辑 -- end");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.repackage.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                lk8.a("发帖-成功： 分享进行 -- 接受GetMyPost");
-                mk8.h();
-                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-                    GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    mk8.g(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
-                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                    GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    mk8.g(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755496297, "Lcom/repackage/mk8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755496297, "Lcom/repackage/mk8;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-        i();
-    }
-
-    public static String e(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadData)) == null) {
-            if (threadData == null || threadData.getMedias() == null) {
-                return null;
-            }
-            ArrayList<MediaData> medias = threadData.getMedias();
-            int size = medias.size();
-            for (int i = 0; i < size; i++) {
-                MediaData mediaData = medias.get(i);
-                if (mediaData != null && mediaData.getType() == 3) {
-                    if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
-                        return mediaData.getThumbnails_url();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                try {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!pi.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
+                        }
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
                     }
-                    if (!StringUtils.isNull(mediaData.getPicUrl())) {
-                        return mediaData.getPicUrl();
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
+                }
+            }
+            return (Integer) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            NetWork netWork;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    an8 an8Var = new an8();
+                    an8Var.a = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
                     }
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, threadData)) == null) {
-            if (threadData != null) {
-                if (threadData.isRealGod()) {
-                    return 4;
-                }
-                if (threadData.getIsLive() == 1) {
-                    return 3;
-                }
-                return threadData.isRealVideoThread() ? 2 : 1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void g(int i, GetMyPostResIdl getMyPostResIdl) {
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65543, null, i, getMyPostResIdl) == null) {
-            lk8.a("发帖-成功： 分享进行 -- 处理GetMyPost");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                lk8.a("发帖-成功： 分享进行 -- 处理GetMyPost -- 失败 -- ACT为NULL");
-            } else if (i == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(getMyPostResIdl.data.thread_info);
-                k(threadData, currentActivity);
-            } else {
-                pi.N(currentActivity, R.string.obfuscated_res_0x7f0f0c17);
-                lk8.a("发帖-成功： 分享进行 -- 处理GetMyPost -- 失败 -- 请求数据异常");
-            }
-        }
-    }
-
-    public static void h() {
-        bu4 bu4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            lk8.a("发帖-成功： 开始分享 -- 隐藏loading -- start");
-            WeakReference<bu4> weakReference = b;
-            if (weakReference == null || (bu4Var = weakReference.get()) == null) {
-                return;
-            }
-            bu4Var.h(false);
-            lk8.a("发帖-成功： 开始分享 -- 隐藏loading -- end");
-            b.clear();
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            c cVar = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
-            cVar.setTag(a);
-            cVar.getHttpMessageListener().setSelfListener(true);
-            cVar.getSocketMessageListener().setSelfListener(true);
-            MessageManager.getInstance().registerListener(cVar);
-        }
-    }
-
-    public static void j(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            bu4 bu4Var = new bu4(activity);
-            b = new WeakReference<>(bu4Var);
-            bu4Var.h(true);
-            lk8.a("发帖-成功： 开始分享 -- 显示loading");
-        }
-    }
-
-    public static void k(ThreadData threadData, Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, threadData, activity) == null) {
-            lk8.a("发帖-成功： 分享弹框 -- start");
-            if (threadData == null || activity == null) {
-                return;
-            }
-            String valueOf = String.valueOf(threadData.getFid());
-            String forum_name = threadData.getForum_name();
-            String title = threadData.getTitle();
-            if (TextUtils.isEmpty(title)) {
-                title = threadData.getAbstract();
-            }
-            String tid = threadData.getTid();
-            String str = "https://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
-            String e2 = e(threadData);
-            Uri parse = e2 == null ? null : Uri.parse(e2);
-            String str2 = threadData.getAbstract();
-            String format = MessageFormat.format(activity.getResources().getString(R.string.obfuscated_res_0x7f0f10f3), title, str2);
-            ShareItem shareItem = new ShareItem();
-            shareItem.u = title;
-            shareItem.v = format;
-            shareItem.U = 0L;
-            shareItem.G = str2;
-            shareItem.w = str;
-            shareItem.r = 5;
-            shareItem.t = tid;
-            shareItem.I = 3;
-            shareItem.M = valueOf;
-            shareItem.s = forum_name;
-            shareItem.N = tid;
-            shareItem.f = true;
-            shareItem.H = 15;
-            shareItem.P = f(threadData);
-            if (parse != null) {
-                shareItem.y = parse;
-            }
-            shareItem.W = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
-            shareItem.Z = ShareItem.ForwardInfo.generateForwardInfo(threadData);
-            TbadkCoreApplication.getInst().setShareItem(shareItem);
-            shareItem.p0 = threadData.getShareImageUrl();
-            Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.I);
-            bundle.putInt("obj_type", shareItem.P);
-            bundle.putString("fid", shareItem.M);
-            bundle.putString("tid", shareItem.N);
-            bundle.putInt("obj_source", shareItem.r);
-            shareItem.k(bundle);
-            lk8.a("发帖-成功： 分享弹框 -- 显示 -- end");
-            xz5.c().l(new ShareDialogConfig((Context) activity, shareItem, true, true));
-        }
-    }
-
-    public static void l(PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, postWriteCallBackData, gy4Var, writeData, antiData) == null) {
-            if (postWriteCallBackData == null) {
-                lk8.a("发帖-失败： 失败弹框 -- 无backData");
-                return;
-            }
-            c = postWriteCallBackData;
-            d = gy4Var;
-            e = writeData;
-            f = antiData;
-            lk8.a("发帖-失败： 失败弹框 -- start");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                lk8.a("发帖-失败： 失败弹框 -- 失败 -- 当前Activity为NULL");
-                return;
-            }
-            FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
-            if (frameLayout == null) {
-                lk8.a("发帖-失败： 失败弹框 -- 失败 -- 当前Activity的content为NULL");
-                return;
-            }
-            NavigationBarCoverTip navigationBarCoverTip = null;
-            for (int i = 0; i < frameLayout.getChildCount(); i++) {
-                if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
-                    navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
-                }
-            }
-            if (navigationBarCoverTip == null) {
-                navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
-                frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
-            }
-            navigationBarCoverTip.setVisibility(8);
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0820, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f091f97);
-            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
-            TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f96);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f95);
-            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1595));
-            String errorString = postWriteCallBackData.getErrorString();
-            if (TextUtils.isEmpty(errorString)) {
-                textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1594));
-            } else {
-                textView2.setText(errorString);
-            }
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1593));
-            tBSpecificationBtn.setConfig(new wu4());
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0301);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0301);
-            tBSpecificationBtn.k();
-            shadowLinearLayout.b();
-            tBSpecificationBtn.setOnClickListener(new b(writeData, currentActivity));
-            navigationBarCoverTip.setBackgroundColor(0);
-            navigationBarCoverTip.m(currentActivity, shadowLinearLayout, 5000);
-            nk8.a(false, writeData != null && writeData.isWork());
-            lk8.a("发帖-失败： 失败弹框 -- 成功 -- end");
-        }
-    }
-
-    public static void m(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, postWriteCallBackData) == null) {
-            lk8.a("发帖-成功： 成功弹框 -- start");
-            if (postWriteCallBackData == null) {
-                return;
-            }
-            long g2 = ng.g(postWriteCallBackData.getPostId(), 0L);
-            long g3 = ng.g(postWriteCallBackData.getThreadId(), 0L);
-            if (g2 != 0 && g3 != 0) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity == null) {
-                    lk8.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity为NULL");
-                    return;
-                }
-                FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
-                if (frameLayout == null) {
-                    lk8.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity的content为NULL");
-                    return;
-                }
-                NavigationBarCoverTip navigationBarCoverTip = null;
-                for (int i = 0; i < frameLayout.getChildCount(); i++) {
-                    if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
-                        navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        an8Var.b = true;
+                    } else {
+                        an8Var.b = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            String errorString = netWork2.isNetSuccess() ? this.a.getErrorString() : this.a.getNetException();
+                            an8Var.c = errorString;
+                            aVar.a(errorString, this.f);
+                        }
                     }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, an8Var));
                 }
-                if (navigationBarCoverTip == null) {
-                    navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
-                    frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
-                }
-                NavigationBarCoverTip navigationBarCoverTip2 = navigationBarCoverTip;
-                navigationBarCoverTip2.setVisibility(8);
-                ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0820, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f091f97);
-                TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
-                TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f96);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f95);
-                textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1598));
-                textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1596));
-                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10ee));
-                tBSpecificationBtn.setConfig(new wu4());
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0302);
-                tBSpecificationBtn.k();
-                shadowLinearLayout.b();
-                tBSpecificationBtn.setOnClickListener(new a(currentActivity, navigationBarCoverTip2, g3, g2));
-                navigationBarCoverTip2.setBackgroundColor(0);
-                navigationBarCoverTip2.m(currentActivity, shadowLinearLayout, 5000);
-                nk8.a(true, false);
-                lk8.a("发帖-成功： 成功弹框 -- 成功 -- end");
-                return;
             }
-            lk8.a("发帖-成功： 成功弹框 -- 失败 -- postId = " + g2 + "  threadId = " + g3);
         }
     }
 
-    public static void n(PostWriteCallBackData postWriteCallBackData) {
+    public mk8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, postWriteCallBackData) == null) {
-            lk8.a("发帖-成功-视频： 成功弹框 -- start");
-            if (postWriteCallBackData == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                lk8.a("发帖-成功-视频： 成功弹框 -- 失败 -- 当前Activity为NULL");
-                return;
-            }
-            FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
-            if (frameLayout == null) {
-                lk8.a("发帖-成功-视频： 成功弹框 -- 失败 -- 当前Activity的content为NULL");
-                return;
-            }
-            NavigationBarCoverTip navigationBarCoverTip = null;
-            for (int i = 0; i < frameLayout.getChildCount(); i++) {
-                if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
-                    navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
-                }
-            }
-            if (navigationBarCoverTip == null) {
-                navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
-                frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
-            }
-            navigationBarCoverTip.setVisibility(8);
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0821, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f091f97);
-            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
-            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1599));
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
-            shadowLinearLayout.b();
-            navigationBarCoverTip.setBackgroundColor(0);
-            navigationBarCoverTip.m(currentActivity, shadowLinearLayout, 5000);
-            nk8.a(true, true);
-            lk8.a("发帖-成功-视频： 成功弹框 -- 成功 -- end");
+        }
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
         }
     }
 }

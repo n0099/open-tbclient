@@ -1,7 +1,9 @@
 package com.repackage;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface ok1 {
-    void a(Context context, String str, String str2, yg1 yg1Var);
+    void a(Context context, int i);
+
+    int b(Context context);
 }

@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de5;
-import com.repackage.he5;
-import com.repackage.kd5;
+import com.repackage.cf5;
+import com.repackage.gf5;
+import com.repackage.je5;
 /* loaded from: classes2.dex */
 public class InitCertVerifyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class InitCertVerifyTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TbadkCoreApplication.getInst().isDebugMode() && TbConfig.IS_CHECK_OFFICAL_APPLICATION) {
-            he5.b(new de5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
+            gf5.b(new cf5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitCertVerifyTask this$0;
@@ -61,13 +61,13 @@ public class InitCertVerifyTask extends LaunchTask {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.de5
+                @Override // com.repackage.cf5
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(CertVerifyHelper.isOfficial(TbadkCoreApplication.getInst())) : (Boolean) invokeV.objValue;
                 }
-            }, new kd5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
+            }, new je5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitCertVerifyTask this$0;
@@ -91,7 +91,7 @@ public class InitCertVerifyTask extends LaunchTask {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.kd5
+                @Override // com.repackage.je5
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) || bool == null) {

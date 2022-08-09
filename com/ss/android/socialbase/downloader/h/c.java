@@ -22,7 +22,6 @@ import com.ss.android.socialbase.downloader.model.DownloadTask;
 import com.ss.android.socialbase.downloader.model.b;
 import com.ss.android.socialbase.downloader.network.i;
 import com.ss.android.socialbase.downloader.network.l;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements f, Runnable {
     public static final String a = c.class.getSimpleName();
     public r A;
@@ -583,7 +582,7 @@ public class c implements f, Runnable {
                     String str4 = a;
                     com.ss.android.socialbase.downloader.c.a.d(str4, "downloadInner: throwable =  " + th);
                     if (this.n != com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_PAUSE) {
-                        b(new BaseException((int) RevenueServerConst.ReportPurchaseRequest, th));
+                        b(new BaseException(1045, th));
                     }
                 }
                 if (n()) {
@@ -730,7 +729,7 @@ public class c implements f, Runnable {
             if (e instanceof BaseException) {
                 this.v.a((BaseException) e);
             } else {
-                this.v.a(new BaseException((int) RevenueServerConst.GetUserAccountHistoryRequest, e));
+                this.v.a(new BaseException(1046, e));
             }
             z = true;
             z2 = true;
@@ -1354,7 +1353,7 @@ public class c implements f, Runnable {
                         sb.append("availableSpace ");
                         sb.append(i == 0 ? "=" : "<");
                         sb.append(" 0");
-                        throw new BaseException((int) RevenueServerConst.GetChargeCouponDiscountRequest, sb.toString());
+                        throw new BaseException(1052, sb.toString());
                     } else {
                         a2.b(j);
                         com.ss.android.socialbase.downloader.i.f.a(a2);
@@ -1367,7 +1366,7 @@ public class c implements f, Runnable {
                     sb2.append("availableSpace ");
                     sb2.append(i2 == 0 ? "=" : "<");
                     sb2.append(" 0");
-                    throw new BaseException((int) RevenueServerConst.GetChargeCouponDiscountRequest, sb2.toString());
+                    throw new BaseException(1052, sb2.toString());
                 } else if (d < j3) {
                     throw new com.ss.android.socialbase.downloader.exception.d(d, j3);
                 }
@@ -1487,7 +1486,7 @@ public class c implements f, Runnable {
             }
             if (!this.j && !this.k) {
                 if (i == 403) {
-                    throw new BaseException((int) RevenueServerConst.GetUserCouponStoreRequest, "response code error : 403");
+                    throw new BaseException(1047, "response code error : 403");
                 }
                 throw new com.ss.android.socialbase.downloader.exception.b(1004, i, "response code error : " + i);
             }

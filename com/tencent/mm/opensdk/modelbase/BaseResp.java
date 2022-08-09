@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseResp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public abstract class BaseResp {
     public String openId;
     public String transaction;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ErrCode {
         public static final int ERR_AUTH_DENIED = -4;
         public static final int ERR_BAN = -6;

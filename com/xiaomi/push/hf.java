@@ -66,7 +66,7 @@ public class hf {
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, hnVar) == null) {
-            if (hnVar.f480a) {
+            if (hnVar.f481a) {
                 hnVar.a("push_sdk_channel");
             }
             if (TextUtils.isEmpty(hnVar.d())) {

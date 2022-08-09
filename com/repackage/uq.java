@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class uq extends oq {
+public final class uq extends pq {
     public static /* synthetic */ Interceptable $ic;
     public static final UniqueId b;
     public static final a c;
@@ -62,8 +62,8 @@ public final class uq extends oq {
             }
         }
         c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
+        UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
+        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
         b = gen;
     }
 

@@ -269,9 +269,9 @@ public class KsRefluxNativeView extends FrameLayout {
                     cVar = new com.kwad.components.ad.reflux.kwai.b(this.mContext);
                 } else {
                     if (i == -1) {
-                        i2 = R.layout.obfuscated_res_0x7f0d0446;
+                        i2 = R.layout.obfuscated_res_0x7f0d0449;
                     } else if (i == -2) {
-                        i2 = R.layout.obfuscated_res_0x7f0d044a;
+                        i2 = R.layout.obfuscated_res_0x7f0d044d;
                     } else {
                         cVar = new com.kwad.components.ad.reflux.kwai.c(this.mContext);
                     }
@@ -382,8 +382,8 @@ public class KsRefluxNativeView extends FrameLayout {
     private void L(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0449, this);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0910d9);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044c, this);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09112f);
             this.kG = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
             b bVar = new b(getContext());

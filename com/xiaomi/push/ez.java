@@ -43,7 +43,7 @@ public final class ez {
     public static final ez a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ez[] f334a;
+    public static final /* synthetic */ ez[] f335a;
     public static final ez aa;
     public static final ez ab;
     public static final ez ac;
@@ -77,7 +77,7 @@ public final class ez {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f335a;
+    public final int f336a;
 
     static {
         InterceptResult invokeClinit;
@@ -150,7 +150,7 @@ public final class ez {
         ad = new ez("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ez ezVar = new ez("CHANNEL_TIMER_DELAYED", 56, SessionCommand.COMMAND_CODE_LIBRARY_SUBSCRIBE);
         ae = ezVar;
-        f334a = new ez[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ezVar};
+        f335a = new ez[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ezVar};
     }
 
     public ez(String str, int i2, int i3) {
@@ -171,7 +171,7 @@ public final class ez {
                 return;
             }
         }
-        this.f335a = i3;
+        this.f336a = i3;
     }
 
     public static ez a(int i2) {
@@ -328,12 +328,12 @@ public final class ez {
     public static ez[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ez[]) f334a.clone() : (ez[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ez[]) f335a.clone() : (ez[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f335a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f336a : invokeV.intValue;
     }
 }

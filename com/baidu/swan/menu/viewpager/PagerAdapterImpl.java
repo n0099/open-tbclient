@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t64;
-/* loaded from: classes2.dex */
+import com.repackage.k74;
+/* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t64<View> a;
+    public k74<View> a;
     public SparseArray<View> b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void recycle();
     }
@@ -37,7 +37,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.a = new t64<>(5);
+        this.a = new k74<>(5);
         this.b = new SparseArray<>();
     }
 

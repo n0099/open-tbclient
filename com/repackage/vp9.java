@@ -1,13 +1,10 @@
 package com.repackage;
 
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface vp9 {
-    String d(String str);
-
-    boolean e(String str);
-
-    Iterator<String> g();
-
-    byte[] getContent();
+public final class vp9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public transient /* synthetic */ FieldHolder $fh;
 }

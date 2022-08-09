@@ -1,74 +1,175 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class ua6 extends cd6<va6, ManitoHeaderItemViewHolder> {
+public class ua6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ua6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public class a implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ c c;
+
+        public a(ua6 ua6Var, AtomicInteger atomicInteger, List list, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ua6Var, atomicInteger, list, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atomicInteger;
+            this.b = list;
+            this.c = cVar;
+        }
+
+        @Override // com.repackage.ua6.d
+        public void a(ImageUploadResult imageUploadResult) {
+            ImageUploadResult.picInfo picinfo;
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
+                this.a.decrementAndGet();
+                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
+                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                }
+                if (this.a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.b)) {
+                        this.c.b0(this.b);
+                    } else {
+                        this.c.B0();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ d b;
+
+        public b(ua6 ua6Var, ImageFileInfo imageFileInfo, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ua6Var, imageFileInfo, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageFileInfo;
+            this.b = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String filePath = this.a.getFilePath();
+                ImageUploader imageUploader = new ImageUploader("from_user_collect");
+                if (this.a.isGif()) {
+                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
+                    return;
+                }
+                Bitmap b = op7.b(this.a);
+                if (b == null) {
+                    this.b.a(null);
+                    return;
+                }
+                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
+                b.recycle();
+                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
+                    this.b.a(null);
+                    return;
+                }
+                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
+                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
+                this.b.a(uploadInBackground);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void B0();
+
+        void b0(List<String> list);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    public ua6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.cd6, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        m0(i, view2, viewGroup, (va6) obj, (ManitoHeaderItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public ManitoHeaderItemViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
-    }
-
-    public View m0(int i, View view2, ViewGroup viewGroup, va6 va6Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, va6Var, manitoHeaderItemViewHolder})) == null) {
-            super.S(i, view2, viewGroup, va6Var, manitoHeaderItemViewHolder);
-            if (manitoHeaderItemViewHolder.b != this.n) {
-                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.a(), R.color.CAM_X0201);
-                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
-            }
-            manitoHeaderItemViewHolder.a.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0677), Integer.valueOf(va6Var.a())));
-            manitoHeaderItemViewHolder.b = this.n;
-            return view2;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.set(arrayList.size());
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<ImageFileInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        }
+    }
+
+    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
+            ep7.b().a(new b(this, imageFileInfo, dVar));
+        }
     }
 }

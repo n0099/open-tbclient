@@ -1,17 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
+import com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UpdateTail.ResData;
 /* loaded from: classes7.dex */
-public class yj7 {
+public class yj7 extends uc1<ThirdPartAccountService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     public yj7() {
         Interceptable interceptable = $ic;
@@ -27,18 +27,12 @@ public class yj7 {
         }
     }
 
-    public int a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uc1
+    /* renamed from: a */
+    public ThirdPartAccountService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void b(ResData resData) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) == null) || resData == null || (l = resData.tailId) == null) {
-            return;
-        }
-        this.a = l.intValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ThirdPartyAccountServiceImpl() : (ThirdPartAccountService) invokeV.objValue;
     }
 }

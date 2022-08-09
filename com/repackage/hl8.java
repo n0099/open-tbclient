@@ -1,96 +1,129 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public SeekBar b;
-    public View c;
-    public int d;
-    public ViewTreeObserver.OnGlobalLayoutListener e;
 
     /* loaded from: classes6.dex */
-    public class a implements SeekBar.OnSeekBarChangeListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public a(hl8 hl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                o68 o68Var = new o68();
-                o68Var.a = 1;
-                o68Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, o68Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811dd));
-                o68 o68Var = new o68();
-                o68Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, o68Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811de));
-                o68 o68Var = new o68();
-                o68Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, o68Var));
-            }
-        }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hl8 a;
+        public final String a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public final String e;
+        public final boolean f;
+        public final StatisticItem g;
 
-        public b(hl8 hl8Var) {
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
+            this(str, str2, str3, str4, str5);
+        }
+
+        public final StatisticItem b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                StatisticItem statisticItem = new StatisticItem(this.a);
+                if (!StringUtils.isNull(this.b)) {
+                    statisticItem = statisticItem.param("line", this.b);
+                }
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem = statisticItem.param("page", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem = statisticItem.param("locate", this.d);
+                }
+                return !StringUtils.isNull(this.e) ? statisticItem.param("task", this.e) : statisticItem;
+            }
+            return (StatisticItem) invokeV.objValue;
+        }
+
+        public final StatisticItem c(String str, String str2, String str3, String str4, String str5) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5)) == null) {
+                if (!StringUtils.isNull(str)) {
+                    this.g.param("action_type", str);
+                }
+                if (!StringUtils.isNull(str2)) {
+                    this.g.param("obj_id", str2);
+                }
+                if (!StringUtils.isNull(str3)) {
+                    this.g.param("fid", str3);
+                }
+                if (!StringUtils.isNull(str4)) {
+                    this.g.param("fname", str4);
+                }
+                if (!StringUtils.isNull(str5)) {
+                    this.g.param("tid", str5);
+                }
+                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
+                return this.g;
+            }
+            return (StatisticItem) invokeLLLLL.objValue;
+        }
+
+        public b d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                    this.g.param(str, str2);
+                }
+                return this;
+            }
+            return (b) invokeLL.objValue;
+        }
+
+        public void delete(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.g.delete(str);
+            }
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                TiebaStatic.log(this.g);
+                if (this.f) {
+                    return;
+                }
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    BdLog.e("Invalid parameter.");
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+        }
+
+        public b(String str, String str2, String str3, String str4, String str5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hl8Var};
+                Object[] objArr = {str, str2, str3, str4, str5};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -100,52 +133,82 @@ public class hl8 {
                     return;
                 }
             }
-            this.a = hl8Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
+            this.f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
+            this.g = b();
         }
+    }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
-                if (layoutParams.bottomMargin != this.a.d) {
-                    layoutParams.bottomMargin = this.a.c.getHeight() - pi.f(this.a.a, R.dimen.tbds16);
-                    this.a.b.setLayoutParams(layoutParams);
-                    this.a.d = layoutParams.bottomMargin;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    public hl8(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
+            bVar.c(null, null, str3, str4, str5);
+            if (!pi.isEmpty(str6)) {
+                bVar.d("obj_ref", str6);
             }
+            return bVar;
         }
-        this.d = -1;
-        this.e = new b(this);
-        this.a = baseFragmentActivity;
-        this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0923dd);
-        this.b = seekBar;
-        seekBar.setOnSeekBarChangeListener(new a(this));
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
+        return (b) invokeCommon.objValue;
     }
 
-    public void f(boolean z) {
+    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b.setVisibility(z ? 0 : 4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
+            b bVar = new b(str, str2, str3, str4, str5, null);
+            bVar.c(str6, str7, str8, str9, str10);
+            return bVar;
         }
+        return (b) invokeCommon.objValue;
+    }
+
+    @Deprecated
+    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
+            bVar.c(str2, str7, str3, str4, str5);
+            bVar.d(TiebaStatic.Params.OBJ_URL, str6);
+            bVar.e();
+        }
+    }
+
+    @Deprecated
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || pi.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (str2 != null) {
+            statisticItem = statisticItem.param("obj_type", str2);
+        }
+        TiebaStatic.log(statisticItem);
     }
 }

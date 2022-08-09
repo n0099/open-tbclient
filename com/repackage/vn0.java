@@ -1,17 +1,29 @@
 package com.repackage;
 
-import android.app.Application;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class vn0 {
+public final class vn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final un0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
-            wb1.b(application);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755225543, "Lcom/repackage/vn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755225543, "Lcom/repackage/vn0;");
+                return;
+            }
         }
+        a = new yn0();
     }
 }

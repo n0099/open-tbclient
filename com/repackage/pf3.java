@@ -1,76 +1,102 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class pf3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
+/* loaded from: classes7.dex */
+public class pf3 implements of3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<nf3> a;
+    public nf3 b;
 
-    public static JSONObject a(String str, String str2) {
-        InterceptResult invokeLL;
+    public pf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("slaveId", str);
-                jSONObject.put("type", str2);
-            } catch (JSONException e) {
-                if (sg1.a) {
-                    e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayDeque();
+    }
+
+    @Override // com.repackage.of3
+    public void a(nf3 nf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, nf3Var) == null) {
+            synchronized (this.a) {
+                if (nf3Var == this.b) {
+                    e();
                 }
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("id", str2);
-                jSONObject3.put("action", str4);
-                jSONObject3.put("e", jSONObject);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("type", str3);
-                jSONObject4.put("params", jSONObject3);
-                jSONObject2.put("slaveId", str);
-                jSONObject2.put("type", "abilityMessage");
-                jSONObject2.put("value", jSONObject4);
-            } catch (JSONException e) {
-                if (sg1.a) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.b != null) {
+                    return;
+                }
+                e();
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.a();
+                    this.b = null;
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public void d(nf3 nf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nf3Var) == null) {
+            if (nf3Var != null) {
+                synchronized (this.a) {
+                    Queue<nf3> queue = this.a;
+                    nf3Var.b(this);
+                    queue.offer(nf3Var);
                 }
             }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeLLLLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
-    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
-            oa2 oa2Var = new oa2();
-            oa2Var.c = b(str, str2, str3, str4, jSONObject);
-            vl2.U().u(oa2Var);
+            b();
         }
     }
 
-    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
-    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
-            oa2 oa2Var = new oa2();
-            oa2Var.c = b(str, str2, str3, str4, jSONObject);
-            vl2.U().m(str, oa2Var);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                this.b = null;
+                if (this.a.isEmpty()) {
+                    return;
+                }
+                nf3 poll = this.a.poll();
+                this.b = poll;
+                if (poll == null) {
+                    e();
+                } else {
+                    te3.a0(poll);
+                }
+            }
         }
     }
 }

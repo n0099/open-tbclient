@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.Div;
-import com.repackage.w89;
+import com.repackage.rb9;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -301,7 +301,7 @@ public class NinePatchChunk implements Externalizable {
                 }
                 return true;
             } catch (Exception e) {
-                w89.g(e);
+                rb9.g(e);
                 return true;
             }
         }
@@ -505,7 +505,7 @@ public class NinePatchChunk implements Externalizable {
                 this.padding = parse.padding;
                 this.colors = parse.colors;
             } catch (ChunkNotSerializedException | DivLengthException e) {
-                w89.g(e);
+                rb9.g(e);
             }
         }
     }

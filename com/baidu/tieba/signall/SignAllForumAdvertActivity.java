@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.ym;
+import com.repackage.kg;
+import com.repackage.zm;
 /* loaded from: classes4.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar f;
 
     /* loaded from: classes4.dex */
-    public class a extends ig<ym> {
+    public class a extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -55,12 +55,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((a) ymVar, str, i);
-                if (ymVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, zmVar, str, i) == null) {
+                super.onLoaded((a) zmVar, str, i);
+                if (zmVar == null) {
                     this.a.finish();
                 }
             }
@@ -147,26 +147,26 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    public final void B1() {
+    public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TiebaStatic.log("c10746");
         }
     }
 
-    public final void C1() {
+    public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0784);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
+            setContentView(R.layout.obfuscated_res_0x7f0d07ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
             this.f = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f114f));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d9f);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d9a);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d99);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
-            jg.h().m(this.a, 10, new a(this), null);
-            this.d.J(this.a, 10, false);
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1189));
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e8e);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091e89);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e88);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            kg.h().m(this.a, 10, new a(this), null);
+            this.d.K(this.a, 10, false);
             this.d.setOnClickListener(new b(this));
             this.e.setOnClickListener(new c(this));
         }
@@ -203,8 +203,8 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             this.a = intent.getStringExtra("ad_pic");
             this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
             intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            C1();
             B1();
+            A1();
         }
     }
 }

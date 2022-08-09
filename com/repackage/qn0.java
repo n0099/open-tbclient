@@ -1,159 +1,281 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.ParseError;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qn0 {
+public final class qn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a A;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final int a;
     public final String b;
     public final String c;
     public final String d;
-    public final double e;
+    public final String e;
     public final String f;
-    public final b g;
-    public final a h;
-    public final String i;
+    public final String g;
+    public final int h;
+    public final List<MonitorUrl> i;
     public final String j;
-    public final boolean k;
+    public final String k;
+    public final String l;
+    public final String m;
+    public final String n;
+    public final String o;
+    public final String p;
+    public final String q;
+    public final String r;
+    public final String s;
+    public final String t;
+    public final int u;
+    public final String v;
+    public final String w;
+    public final String x;
+    public final String y;
+    public final String z;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
 
-        public a(JSONObject jSONObject) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            if (jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("desc");
-            this.b = jSONObject.optString("cmd");
         }
 
-        public static a a(JSONObject jSONObject) {
+        @JvmStatic
+        public final qn0 a(JSONObject jsonObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new a(jSONObject) : (a) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                int optInt = jsonObject.optInt("reward_switch", 0);
+                String optString = jsonObject.optString("activity_cmd");
+                String optString2 = jsonObject.optString("stay_cmd");
+                String optString3 = jsonObject.optString("reward_cmd");
+                String optString4 = jsonObject.optString("task_from");
+                Intrinsics.checkNotNullExpressionValue(optString4, "json.optString(\"task_from\")");
+                String a = rn0.a(jsonObject, "token");
+                String optString5 = jsonObject.optString("unique_id");
+                Intrinsics.checkNotNullExpressionValue(optString5, "json.optString(\"unique_id\")");
+                int optInt2 = jsonObject.optInt("reward_log_type");
+                List<MonitorUrl> fromJson = MonitorUrl.fromJson(jsonObject.optJSONArray("ad_monitor_url"));
+                String a2 = rn0.a(jsonObject, "task_id");
+                String optString6 = jsonObject.optString("active_url");
+                Intrinsics.checkNotNullExpressionValue(optString6, "json.optString(\"active_url\")");
+                String b = rn0.b(jsonObject, "task_type", "0");
+                String a3 = rn0.a(jsonObject, "task_behavior");
+                String optString7 = jsonObject.optString("receive_url");
+                String optString8 = jsonObject.optString("progress_lottie");
+                Intrinsics.checkNotNullExpressionValue(optString8, "json.optString(\"progress_lottie\")");
+                String optString9 = jsonObject.optString("complete_lottie");
+                Intrinsics.checkNotNullExpressionValue(optString9, "json.optString(\"complete_lottie\")");
+                String b2 = rn0.b(jsonObject, GameGuideConfigInfo.KEY_PROGRESS_COLOR, "#FF6D4D");
+                String optString10 = jsonObject.optString("bubble_icon");
+                Intrinsics.checkNotNullExpressionValue(optString10, "json.optString(\"bubble_icon\")");
+                String optString11 = jsonObject.optString("bubble_front_icon");
+                Intrinsics.checkNotNullExpressionValue(optString11, "json.optString(\"bubble_front_icon\")");
+                String optString12 = jsonObject.optString("bubble_text");
+                Intrinsics.checkNotNullExpressionValue(optString12, "json.optString(\"bubble_text\")");
+                int optInt3 = jsonObject.optInt("task_duration", 15);
+                String optString13 = jsonObject.optString("search_id");
+                Intrinsics.checkNotNullExpressionValue(optString13, "json.optString(\"search_id\")");
+                String optString14 = jsonObject.optString("bubble_arrow");
+                Intrinsics.checkNotNullExpressionValue(optString14, "json.optString(\"bubble_arrow\")");
+                String optString15 = jsonObject.optString("bubble_color");
+                Intrinsics.checkNotNullExpressionValue(optString15, "json.optString(\"bubble_color\")");
+                String optString16 = jsonObject.optString("bubble_text_color");
+                Intrinsics.checkNotNullExpressionValue(optString16, "json.optString(\"bubble_text_color\")");
+                String optString17 = jsonObject.optString("task_policy");
+                Intrinsics.checkNotNullExpressionValue(optString17, "json.optString(\"task_policy\")");
+                return new qn0(optInt, optString, optString2, optString3, optString4, a, optString5, optInt2, fromJson, a2, optString6, b, a3, optString7, optString8, optString9, b2, optString10, optString11, optString12, optInt3, optString13, optString14, optString15, optString16, optString17);
+            }
+            return (qn0) invokeL.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755374498, "Lcom/repackage/qn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            if (jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755374498, "Lcom/repackage/qn0;");
                 return;
             }
-            this.a = jSONObject.optString("desc");
-            this.b = jSONObject.optString("cmd");
         }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new b(jSONObject) : (b) invokeL.objValue;
-        }
+        A = new a(null);
     }
 
-    public qn0(@NonNull JSONObject jSONObject) throws ParseError {
+    public qn0(int i, String str, String str2, String str3, String taskFrom, String token, String uniqueId, int i2, List<MonitorUrl> list, String taskId, String activeUrl, String taskType, String taskBehavior, String str4, String progressLottieUrl, String completeLottieUrl, String progressColor, String bubbleIcon, String bubbleFrontIcon, String bubbleText, int i3, String searchId, String bubbleArrow, String bubbleBgColor, String bubbleTextColor, String taskPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, taskFrom, token, uniqueId, Integer.valueOf(i2), list, taskId, activeUrl, taskType, taskBehavior, str4, progressLottieUrl, completeLottieUrl, progressColor, bubbleIcon, bubbleFrontIcon, bubbleText, Integer.valueOf(i3), searchId, bubbleArrow, bubbleBgColor, bubbleTextColor, taskPolicy};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = jSONObject.optString("strict_mode");
-        this.b = jSONObject.optString("app_icon");
-        this.c = jSONObject.optString("app_name");
-        this.d = jSONObject.optString("developer_name");
-        this.e = jSONObject.optDouble("score", -1.0d);
-        this.f = jSONObject.optString("version");
-        this.g = b.a(jSONObject.optJSONObject("privacy"));
-        this.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-        jSONObject.optDouble("app_icon_scale");
-        this.i = jSONObject.optString("apk_size");
-        this.j = jSONObject.optString("apk_url");
-        this.k = a();
+        Intrinsics.checkNotNullParameter(taskFrom, "taskFrom");
+        Intrinsics.checkNotNullParameter(token, "token");
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(taskId, "taskId");
+        Intrinsics.checkNotNullParameter(activeUrl, "activeUrl");
+        Intrinsics.checkNotNullParameter(taskType, "taskType");
+        Intrinsics.checkNotNullParameter(taskBehavior, "taskBehavior");
+        Intrinsics.checkNotNullParameter(progressLottieUrl, "progressLottieUrl");
+        Intrinsics.checkNotNullParameter(completeLottieUrl, "completeLottieUrl");
+        Intrinsics.checkNotNullParameter(progressColor, "progressColor");
+        Intrinsics.checkNotNullParameter(bubbleIcon, "bubbleIcon");
+        Intrinsics.checkNotNullParameter(bubbleFrontIcon, "bubbleFrontIcon");
+        Intrinsics.checkNotNullParameter(bubbleText, "bubbleText");
+        Intrinsics.checkNotNullParameter(searchId, "searchId");
+        Intrinsics.checkNotNullParameter(bubbleArrow, "bubbleArrow");
+        Intrinsics.checkNotNullParameter(bubbleBgColor, "bubbleBgColor");
+        Intrinsics.checkNotNullParameter(bubbleTextColor, "bubbleTextColor");
+        Intrinsics.checkNotNullParameter(taskPolicy, "taskPolicy");
+        this.a = i;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = taskFrom;
+        this.f = token;
+        this.g = uniqueId;
+        this.h = i2;
+        this.i = list;
+        this.j = taskId;
+        this.k = activeUrl;
+        this.l = taskType;
+        this.m = taskBehavior;
+        this.n = str4;
+        this.o = progressLottieUrl;
+        this.p = completeLottieUrl;
+        this.q = progressColor;
+        this.r = bubbleIcon;
+        this.s = bubbleFrontIcon;
+        this.t = bubbleText;
+        this.u = i3;
+        this.v = searchId;
+        this.w = bubbleArrow;
+        this.x = bubbleBgColor;
+        this.y = bubbleTextColor;
+        this.z = taskPolicy;
     }
 
-    public static qn0 c(JSONObject jSONObject) throws ParseError {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new qn0(jSONObject) : (qn0) invokeL.objValue;
-    }
-
-    public final boolean a() throws ParseError {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("0", this.a)) {
-                return b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof qn0) {
+                    qn0 qn0Var = (qn0) obj;
+                    return this.a == qn0Var.a && Intrinsics.areEqual(this.b, qn0Var.b) && Intrinsics.areEqual(this.c, qn0Var.c) && Intrinsics.areEqual(this.d, qn0Var.d) && Intrinsics.areEqual(this.e, qn0Var.e) && Intrinsics.areEqual(this.f, qn0Var.f) && Intrinsics.areEqual(this.g, qn0Var.g) && this.h == qn0Var.h && Intrinsics.areEqual(this.i, qn0Var.i) && Intrinsics.areEqual(this.j, qn0Var.j) && Intrinsics.areEqual(this.k, qn0Var.k) && Intrinsics.areEqual(this.l, qn0Var.l) && Intrinsics.areEqual(this.m, qn0Var.m) && Intrinsics.areEqual(this.n, qn0Var.n) && Intrinsics.areEqual(this.o, qn0Var.o) && Intrinsics.areEqual(this.p, qn0Var.p) && Intrinsics.areEqual(this.q, qn0Var.q) && Intrinsics.areEqual(this.r, qn0Var.r) && Intrinsics.areEqual(this.s, qn0Var.s) && Intrinsics.areEqual(this.t, qn0Var.t) && this.u == qn0Var.u && Intrinsics.areEqual(this.v, qn0Var.v) && Intrinsics.areEqual(this.w, qn0Var.w) && Intrinsics.areEqual(this.x, qn0Var.x) && Intrinsics.areEqual(this.y, qn0Var.y) && Intrinsics.areEqual(this.z, qn0Var.z);
+                }
+                return false;
             }
-            if (b()) {
-                return true;
-            }
-            throw ParseError.contentError(8, "");
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean b() {
+    public int hashCode() {
         InterceptResult invokeV;
-        b bVar;
-        a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.f) || (bVar = this.g) == null || TextUtils.isEmpty(bVar.b) || TextUtils.isEmpty(this.g.a) || (aVar = this.h) == null || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(this.h.a)) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.a * 31;
+            String str = this.b;
+            int hashCode = (i + (str != null ? str.hashCode() : 0)) * 31;
+            String str2 = this.c;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.d;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.e;
+            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
+            String str5 = this.f;
+            int hashCode5 = (hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31;
+            String str6 = this.g;
+            int hashCode6 = (((hashCode5 + (str6 != null ? str6.hashCode() : 0)) * 31) + this.h) * 31;
+            List<MonitorUrl> list = this.i;
+            int hashCode7 = (hashCode6 + (list != null ? list.hashCode() : 0)) * 31;
+            String str7 = this.j;
+            int hashCode8 = (hashCode7 + (str7 != null ? str7.hashCode() : 0)) * 31;
+            String str8 = this.k;
+            int hashCode9 = (hashCode8 + (str8 != null ? str8.hashCode() : 0)) * 31;
+            String str9 = this.l;
+            int hashCode10 = (hashCode9 + (str9 != null ? str9.hashCode() : 0)) * 31;
+            String str10 = this.m;
+            int hashCode11 = (hashCode10 + (str10 != null ? str10.hashCode() : 0)) * 31;
+            String str11 = this.n;
+            int hashCode12 = (hashCode11 + (str11 != null ? str11.hashCode() : 0)) * 31;
+            String str12 = this.o;
+            int hashCode13 = (hashCode12 + (str12 != null ? str12.hashCode() : 0)) * 31;
+            String str13 = this.p;
+            int hashCode14 = (hashCode13 + (str13 != null ? str13.hashCode() : 0)) * 31;
+            String str14 = this.q;
+            int hashCode15 = (hashCode14 + (str14 != null ? str14.hashCode() : 0)) * 31;
+            String str15 = this.r;
+            int hashCode16 = (hashCode15 + (str15 != null ? str15.hashCode() : 0)) * 31;
+            String str16 = this.s;
+            int hashCode17 = (hashCode16 + (str16 != null ? str16.hashCode() : 0)) * 31;
+            String str17 = this.t;
+            int hashCode18 = (((hashCode17 + (str17 != null ? str17.hashCode() : 0)) * 31) + this.u) * 31;
+            String str18 = this.v;
+            int hashCode19 = (hashCode18 + (str18 != null ? str18.hashCode() : 0)) * 31;
+            String str19 = this.w;
+            int hashCode20 = (hashCode19 + (str19 != null ? str19.hashCode() : 0)) * 31;
+            String str20 = this.x;
+            int hashCode21 = (hashCode20 + (str20 != null ? str20.hashCode() : 0)) * 31;
+            String str21 = this.y;
+            int hashCode22 = (hashCode21 + (str21 != null ? str21.hashCode() : 0)) * 31;
+            String str22 = this.z;
+            return hashCode22 + (str22 != null ? str22.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "RewardData(rewardSwitch=" + this.a + ", activityCmd=" + this.b + ", stayCmd=" + this.c + ", rewardCmd=" + this.d + ", taskFrom=" + this.e + ", token=" + this.f + ", uniqueId=" + this.g + ", rewardLogType=" + this.h + ", adMonitorUrlList=" + this.i + ", taskId=" + this.j + ", activeUrl=" + this.k + ", taskType=" + this.l + ", taskBehavior=" + this.m + ", receiveUrl=" + this.n + ", progressLottieUrl=" + this.o + ", completeLottieUrl=" + this.p + ", progressColor=" + this.q + ", bubbleIcon=" + this.r + ", bubbleFrontIcon=" + this.s + ", bubbleText=" + this.t + ", taskDuration=" + this.u + ", searchId=" + this.v + ", bubbleArrow=" + this.w + ", bubbleBgColor=" + this.x + ", bubbleTextColor=" + this.y + ", taskPolicy=" + this.z + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

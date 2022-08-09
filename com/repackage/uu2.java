@@ -1,25 +1,24 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uu2 {
+public class uu2 implements vu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
     public uu2() {
         Interceptable interceptable = $ic;
@@ -35,114 +34,55 @@ public class uu2 {
         }
     }
 
-    public void a() {
+    @Override // com.repackage.vu2
+    public List<hu2> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
-        }
-    }
-
-    public final ViewGroup b() {
-        InterceptResult invokeV;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (i03.b0() == null || i03.b0().w() == null || (viewGroup = (ViewGroup) i03.b0().w().findViewById(16908290)) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e34);
-            if (viewGroup2 != null) {
-                return viewGroup2;
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt > 0 && (optJSONObject = jSONObject.optJSONObject("caller")) != null) {
+                b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+                b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
+                return arrayList;
             }
-            ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(i03.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d07d7, viewGroup);
-            this.b = true;
-            return viewGroup3;
+            return arrayList;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void c() {
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<hu2> list, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
-        }
-    }
-
-    public final void d() {
-        i03 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b0 = i03.b0()) == null || b0.w() == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) || jSONObject == null || jSONObject.length() <= 0) {
             return;
         }
-        ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f091e34);
-        if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
-        }
-        this.b = false;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090956, j, "#80ff0000", "FCP");
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090974, j, "#80ff0000", "FIP");
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909bd, j, "#8000ff00", "FMP");
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090bcb, j, "#80ff0000", "FTP");
-        }
-    }
-
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) || this.a || (b = b()) == null) {
+        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
+        if (optJSONArray == null || optJSONArray2 == null) {
             return;
         }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
+        int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+        for (int i2 = 0; i2 < min; i2++) {
+            hu2 hu2Var = new hu2();
+            hu2Var.g(i);
+            hu2Var.f(str);
+            hu2Var.i(optJSONArray.optLong(i2));
+            hu2Var.h(optJSONArray2.optLong(i2));
+            list.add(hu2Var);
+        }
     }
 
-    public void k() {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && vu2.a) {
+            Log.d("Api-Parser", str);
         }
-        b();
-    }
-
-    public void l(long j, long j2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
-            return;
-        }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091e68)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

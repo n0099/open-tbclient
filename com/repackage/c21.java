@@ -1,130 +1,67 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q21;
 /* loaded from: classes5.dex */
-public class c21 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile int a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c21 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
+    public static final c21 b = new a();
 
     /* loaded from: classes5.dex */
-    public static class a implements q21.b {
+    public static class a implements c21 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q21.b a;
 
-        /* renamed from: com.repackage.c21$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0448a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0448a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                q21.b bVar;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.a.a) == null) {
-                    return;
-                }
-                bVar.a();
-            }
-        }
-
-        public a(q21.b bVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bVar;
         }
 
-        @Override // com.repackage.q21.b
-        public void a() {
+        @Override // com.repackage.c21
+        public void a(Object obj, b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = c21.a = 3;
-                uh0.b(new RunnableC0448a(this));
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.c21
+        public void b(Context context, RelativeLayout relativeLayout, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.c21
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755849201, "Lcom/repackage/c21;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755849201, "Lcom/repackage/c21;");
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
     }
 
-    public static int b(Context context, q21.b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
-            if (3 != a && 4 != a) {
-                int a2 = h21.k().a(context, new a(bVar));
-                if (3 != a2 && 1 != a2 && 2 != a2) {
-                    if (a2 == 0 || 4 == a2) {
-                        try {
-                            x11.a.c(context, h21.j(), 0);
-                            if (bVar != null) {
-                                bVar.a();
-                            }
-                            a = 3;
-                        } catch (Throwable unused) {
-                            a = 4;
-                        }
-                    }
-                    return a;
-                }
-                a = a2;
-                return a;
-            }
-            return a;
-        }
-        return invokeLL.intValue;
-    }
+    void a(Object obj, b bVar);
+
+    void b(Context context, RelativeLayout relativeLayout, String str);
+
+    void release();
 }

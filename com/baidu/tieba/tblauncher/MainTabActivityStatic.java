@@ -39,10 +39,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k65;
-import com.repackage.ng;
-import com.repackage.tt4;
-import com.repackage.tw8;
+import com.repackage.g75;
+import com.repackage.jz8;
+import com.repackage.mu4;
+import com.repackage.og;
 import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes4.dex */
@@ -79,7 +79,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1545);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f158c);
                         return 1;
                     }
                 }
@@ -121,7 +121,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    tt4.d((Activity) data);
+                    mu4.d((Activity) data);
                 }
             }
         }
@@ -160,10 +160,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            tt4.f(tbPageContext.getPageActivity(), 1, true);
+                            mu4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            tt4.f(tbPageContext.getPageActivity(), 2, true);
+                            mu4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -173,7 +173,7 @@ public class MainTabActivityStatic {
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                                 i = -1;
                             } else {
-                                int e = ng.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e = og.e(parse.getQueryParameter("subTabIndex"), 0);
                                 i = e == 1 ? 18 : 17;
                                 try {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e)));
@@ -190,7 +190,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            tt4.f(tbPageContext.getPageActivity(), i, true);
+                            mu4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -268,11 +268,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    k65.b().m(k65.b().j());
-                    k65.b().c();
-                } else if (k65.b().i() || !k65.b().k()) {
+                    g75.b().m(g75.b().j());
+                    g75.b().c();
+                } else if (g75.b().i() || !g75.b().k()) {
                 } else {
-                    k65.b().o();
+                    g75.b().o();
                 }
             }
         }
@@ -310,11 +310,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    k65.b().m(k65.b().j());
-                    k65.b().c();
-                } else if (k65.b().i() || !k65.b().k()) {
+                    g75.b().m(g75.b().j());
+                    g75.b().c();
+                } else if (g75.b().i() || !g75.b().k()) {
                 } else {
-                    k65.b().o();
+                    g75.b().o();
                 }
             }
         }
@@ -371,11 +371,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                tw8.j(tbPageContext, "", forumWriteData);
+                                jz8.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                tw8.j(tbPageContext, str2, forumWriteData2);
+                                jz8.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));

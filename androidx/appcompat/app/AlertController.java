@@ -1031,7 +1031,7 @@ public class AlertController {
     private void setupContent(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, viewGroup) == null) {
-            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R$id.obfuscated);
+            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R$id.scrollView);
             this.mScrollView = nestedScrollView;
             nestedScrollView.setFocusable(false);
             this.mScrollView.setNestedScrollingEnabled(false);
@@ -1070,7 +1070,7 @@ public class AlertController {
                 this.mWindow.setFlags(131072, 131072);
             }
             if (z) {
-                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.obfuscated);
+                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.custom);
                 frameLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
                 if (this.mViewSpacingSpecified) {
                     frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -1095,7 +1095,7 @@ public class AlertController {
             }
             this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
             if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
-                TextView textView = (TextView) this.mWindow.findViewById(R$id.obfuscated);
+                TextView textView = (TextView) this.mWindow.findViewById(R$id.alertTitle);
                 this.mTitleView = textView;
                 textView.setText(this.mTitle);
                 int i = this.mIconId;
@@ -1128,15 +1128,15 @@ public class AlertController {
         View findViewById2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            View findViewById3 = this.mWindow.findViewById(R$id.obfuscated);
-            View findViewById4 = findViewById3.findViewById(R$id.obfuscated);
-            View findViewById5 = findViewById3.findViewById(R$id.obfuscated);
-            View findViewById6 = findViewById3.findViewById(R$id.obfuscated);
+            View findViewById3 = this.mWindow.findViewById(R$id.parentPanel);
+            View findViewById4 = findViewById3.findViewById(R$id.topPanel);
+            View findViewById5 = findViewById3.findViewById(R$id.contentPanel);
+            View findViewById6 = findViewById3.findViewById(R$id.buttonPanel);
             ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(R$id.customPanel);
             setupCustomContent(viewGroup);
-            View findViewById7 = viewGroup.findViewById(R$id.obfuscated);
-            View findViewById8 = viewGroup.findViewById(R$id.obfuscated);
-            View findViewById9 = viewGroup.findViewById(R$id.obfuscated);
+            View findViewById7 = viewGroup.findViewById(R$id.topPanel);
+            View findViewById8 = viewGroup.findViewById(R$id.contentPanel);
+            View findViewById9 = viewGroup.findViewById(R$id.buttonPanel);
             ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
             ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
             ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);

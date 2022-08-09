@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class uu1 extends ot1 {
+public class uu1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wt1 a;
+    public int a;
+    public int b;
 
     public uu1() {
         Interceptable interceptable = $ic;
@@ -23,31 +24,31 @@ public class uu1 extends ot1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        wt1 wt1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) && (wt1Var = this.a) != null && wt1Var.d()) {
-            if (this.a.c()) {
-                pt1Var.c.setShader(this.a.b());
                 return;
             }
-            pt1Var.m = this.a.a();
-            pt1Var.c.setColor(this.a.a());
-            pt1Var.b.setShader(null);
         }
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.repackage.ot1
-    public void b(JSONArray jSONArray) {
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) || (i = this.a) == Integer.MAX_VALUE || (i2 = this.b) == Integer.MAX_VALUE) {
             return;
         }
-        this.a = new wt1(jSONArray);
+        gu1Var.f.lineTo(i, i2);
+    }
+
+    @Override // com.repackage.fu1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+            return;
+        }
+        this.a = qe3.g((float) jSONArray.optDouble(0));
+        this.b = qe3.g((float) jSONArray.optDouble(1));
     }
 }

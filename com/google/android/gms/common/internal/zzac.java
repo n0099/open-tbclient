@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rk9;
-/* loaded from: classes4.dex */
+import com.repackage.mn9;
+/* loaded from: classes5.dex */
 public final class zzac implements IGmsServiceBroker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class zzac implements IGmsServiceBroker {
                 obtain.writeStrongBinder(iGmsCallbacks != null ? iGmsCallbacks.asBinder() : null);
                 if (getServiceRequest != null) {
                     obtain.writeInt(1);
-                    rk9.a(getServiceRequest, obtain, 0);
+                    mn9.a(getServiceRequest, obtain, 0);
                 } else {
                     obtain.writeInt(0);
                 }

@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements o {
     public static final String e = "a";
     public volatile boolean c;

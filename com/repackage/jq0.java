@@ -1,5 +1,5 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface jq0 {
-    void a(boolean z);
+    boolean a(int i);
 }

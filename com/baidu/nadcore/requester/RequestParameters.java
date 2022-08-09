@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.pn0;
+import com.repackage.mn0;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class RequestParameters {
@@ -23,7 +23,7 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final pn0 e;
+    public final mn0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -180,7 +180,7 @@ public class RequestParameters {
         public int b;
         public String c;
         public String d;
-        public pn0 e;
+        public mn0 e;
         public RefreshType f;
         public String g;
         public SlotType h;

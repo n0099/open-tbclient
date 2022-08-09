@@ -1,78 +1,50 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class bn3 extends hi1 {
+public class bn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755821270, "Lcom/repackage/bn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755821270, "Lcom/repackage/bn3;");
-                return;
-            }
-        }
-        a = sg1.a;
-    }
-
-    public bn3() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (!SwanAppInitHelper.entranceOK()) {
+                Log.w("SwanAppLaunchHelper", "entrance not open");
+                r03.g(AppRuntime.getAppContext(), "not support for this android version").G();
+            } else if (TextUtils.isEmpty(str)) {
+                r03.g(AppRuntime.getAppContext(), "url is empty").G();
+            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
+                b(str);
+            } else if (str.startsWith("bdswan")) {
+                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
+            } else if (!str.startsWith("https") && !str.startsWith("http")) {
+                r03.g(AppRuntime.getAppContext(), "not support this uri").G();
+            } else {
+                c(str);
             }
         }
     }
 
-    @Override // com.repackage.ek1
-    public JSONObject getRawSwitch() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (hi4.a()) {
-                    jSONObject.put("swanswitch_android_setdata", 1);
-                }
-                jSONObject.put("swanswitch_ab_inline_video", 1);
-                jSONObject.put("swanswitch_ab_inline_input", 1);
-                jSONObject.put("swanswitch_ab_inline_textarea", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.repackage.ek1
-    public boolean y() {
-        InterceptResult invokeV;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (a && hw2.G().booleanValue()) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            an3.e(str);
+        }
     }
 }

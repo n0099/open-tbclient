@@ -2,339 +2,170 @@ package com.repackage;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdptask.bdtls.AES;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur;
-import java.io.IOException;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 /* loaded from: classes7.dex */
 public class wr {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wr d;
+    public static volatile wr a;
     public transient /* synthetic */ FieldHolder $fh;
-    public nr a;
-    public ConcurrentLinkedQueue<ir> b;
-    public volatile boolean c;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                System.loadLibrary("bdptask");
-                return null;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ tr b;
-        public final /* synthetic */ wr c;
-
-        public b(wr wrVar, String str, tr trVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wrVar, str, trVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = wrVar;
-            this.a = str;
-            this.b = trVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.l(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements ur.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr a;
-
-        public c(wr wrVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wrVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wrVar;
-        }
-
-        @Override // com.repackage.ur.b
-        public void a(boolean z, byte[] bArr) {
-            lr a;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, bArr) == null) {
-                String str = "";
-                try {
-                    try {
-                        DebugTrace.a.a("doHandShake response");
-                        if (z && bArr != null && (a = qr.a(bArr)) != null) {
-                            byte i = a.i();
-                            byte[] o = a.o();
-                            if (o != null) {
-                                DebugTrace debugTrace = DebugTrace.a;
-                                debugTrace.a("doHandShake response schemeType =" + ((int) i));
-                                if (i == 21) {
-                                    DebugTrace.a.a("doHandShake alert");
-                                    br a2 = br.a(o);
-                                    if (a2 != null) {
-                                        DebugTrace.a.a("bdtls ubc handshake alert");
-                                        if (a2.b() != null) {
-                                            str = a2.b();
-                                        }
-                                    }
-                                } else if (i == 22) {
-                                    if (pr.a(this.a.a, o) != null) {
-                                        DebugTrace.a.a("doHandShake serverHello");
-                                        this.a.a.b(1);
-                                        while (true) {
-                                            ir irVar = (ir) this.a.b.poll();
-                                            if (irVar == null) {
-                                                return;
-                                            }
-                                            this.a.n(irVar.a(), irVar.b());
-                                        }
-                                    } else {
-                                        str = "params decode error";
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        DebugTrace debugTrace2 = DebugTrace.a;
-                        debugTrace2.a("exception=" + e.getMessage());
-                    }
-                    this.a.f(str);
-                } finally {
-                    this.a.c = false;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964023670, "Lcom/repackage/wr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964023670, "Lcom/repackage/wr;");
-                return;
-            }
-        }
-        et.a(new a());
-        d = new wr();
-    }
 
     public wr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new nr();
-        this.c = false;
-        this.b = new ConcurrentLinkedQueue<>();
     }
 
-    public static wr b() {
-        InterceptResult invokeV;
+    public static int a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d : (wr) invokeV.objValue;
-    }
-
-    public final void c(int i, tr trVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, trVar) == null) || trVar == null) {
-            return;
-        }
-        trVar.b(i);
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
-            return;
-        }
-        DebugTrace.a.a("onHandshakeError");
-        int i = TextUtils.equals(str, "down grade") ? 2 : -1;
-        this.a.b(i);
-        while (true) {
-            ir poll = this.b.poll();
-            if (poll == null) {
-                return;
-            }
-            if (i == 2) {
-                o(poll.a(), poll.b());
-            } else {
-                tr b2 = poll.b();
-                if (b2 != null) {
-                    b2.c(new IOException(TextUtils.isEmpty(str) ? "connect fail" : str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
+                int i = 0;
+                for (byte b : bArr) {
+                    i = (i << 8) | (b & 255);
                 }
+                return i;
             }
+            return 0;
         }
+        return invokeL.intValue;
     }
 
-    public void g(String str, tr trVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, trVar) == null) {
-            ExecutorUtilsExt.postOnSerial(new b(this, str, trVar), "SessionController");
-        }
-    }
-
-    public nr i() {
+    public static wr c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a == null) {
-                this.a = new nr();
-            }
-            return this.a;
-        }
-        return (nr) invokeV.objValue;
-    }
-
-    public final void l(String str, tr trVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, trVar) == null) {
-            if (this.a.a() != 2) {
-                if (!this.a.k()) {
-                    if (this.b == null) {
-                        this.b = new ConcurrentLinkedQueue<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (wr.class) {
+                    if (a == null) {
+                        a = new wr();
                     }
-                    this.b.offer(new ir(str, trVar));
-                    m();
-                    return;
                 }
-                n(str, trVar);
-                return;
             }
-            o(str, trVar);
+            return a;
         }
+        return (wr) invokeV.objValue;
     }
 
-    public void m() {
+    public static byte[] d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            DebugTrace.a.a("doHandShake");
-            if (this.c) {
-                DebugTrace.a.a("doHandShake isHandshakeRunning");
-                return;
-            }
-            this.c = true;
-            byte[] e = vr.c().e(this.a);
-            if (e != null && e.length > 0) {
-                new ur().a(e, new c(this));
-                return;
-            }
-            this.c = false;
-            f("record data error");
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
     }
 
-    public final void n(String str, tr trVar) {
-        byte[] f;
+    public nr b(or orVar, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, trVar) == null) {
-            if (str != null && trVar != null) {
-                if (TextUtils.equals(trVar.a(), "GET")) {
-                    f = vr.c().f(this.a, null);
-                } else {
-                    f = vr.c().f(this.a, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, orVar, bArr)) == null) {
+            nr nrVar = new nr();
+            try {
+                mr a2 = rr.a(bArr);
+                byte i = a2.i();
+                if (i == 21) {
+                    cr a3 = cr.a(a2.o());
+                    if (a3 != null) {
+                        String b = a3.b();
+                        DebugTrace debugTrace = DebugTrace.a;
+                        debugTrace.a("bdtls ubc application alert : " + b);
+                        if (1 == a3.d()) {
+                            nrVar.b(-2);
+                        } else if (TextUtils.equals(b, "down grade")) {
+                            nrVar.b(2);
+                        } else {
+                            nrVar.b(-1);
+                        }
+                        if (br.c.h().c()) {
+                            if (a3.b() != null) {
+                                DebugTrace debugTrace2 = DebugTrace.a;
+                                debugTrace2.a("BdtlsPostRequest response alert message=" + b);
+                            } else {
+                                DebugTrace.a.a("BdtlsPostRequest response alert messag=null");
+                            }
+                        }
+                    } else {
+                        nrVar.b(-1);
+                    }
+                } else if (i == 23) {
+                    nrVar.c(new String(AES.aesDecrypt(a2.p(), orVar.q())));
+                    nrVar.b(1);
                 }
-                if (f != null) {
-                    DebugTrace.a.a("doBdtlsApplicationDataRequest");
-                    trVar.e(true);
-                    trVar.f(f);
-                    return;
-                }
-                c(-1, trVar);
-                return;
+            } catch (Exception e) {
+                DebugTrace debugTrace3 = DebugTrace.a;
+                debugTrace3.a("exception=" + e.getMessage());
+                nrVar.b(-1);
             }
-            c(-1, null);
+            return nrVar;
         }
+        return (nr) invokeLL.objValue;
     }
 
-    public final void o(String str, tr trVar) {
+    public byte[] e(or orVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, trVar) == null) {
-            if (trVar != null && str != null) {
-                DebugTrace.a.a("doNormalApplicationDataRequest");
-                trVar.e(false);
-                trVar.f(str.getBytes());
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, orVar)) == null) {
+            if (orVar == null) {
+                return null;
             }
-            c(-1, trVar);
+            try {
+                byte[] b = qr.b(orVar, new kr());
+                if (b == null) {
+                    return null;
+                }
+                mr a2 = mr.i.a();
+                a2.a((byte) 22);
+                a2.c((short) b.length);
+                a2.j(b);
+                return rr.b(a2);
+            } catch (Exception e) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("exception=" + e.getMessage());
+                return null;
+            }
         }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] f(or orVar, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, orVar, str)) == null) {
+            if (orVar == null) {
+                return null;
+            }
+            try {
+                mr a2 = mr.i.a();
+                a2.a((byte) 23);
+                byte[] r = orVar.r();
+                if (r != null && r.length > 0 && r.length <= 32767) {
+                    a2.c((short) r.length);
+                    a2.j(r);
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    byte[] aesEncrypt = AES.aesEncrypt(str, orVar.q());
+                    a2.b(aesEncrypt.length);
+                    a2.l(aesEncrypt);
+                }
+                return rr.b(a2);
+            } catch (Exception e) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("exception=" + e.getMessage());
+                return null;
+            }
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

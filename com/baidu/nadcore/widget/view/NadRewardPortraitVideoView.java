@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pn0;
-import com.repackage.qn0;
-import com.repackage.zx0;
+import com.repackage.mn0;
+import com.repackage.nn0;
+import com.repackage.yx0;
 /* loaded from: classes2.dex */
 public class NadRewardPortraitVideoView extends NadRewardVideoView {
     public static /* synthetic */ Interceptable $ic;
@@ -112,9 +112,9 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) || (portraitVideoTailView = this.u) == null || adBaseModel == null) {
             return;
         }
-        qn0 qn0Var = adBaseModel.i;
-        if (qn0Var != null && qn0Var.k) {
-            portraitVideoTailView.setAdInfo(qn0Var);
+        nn0 nn0Var = adBaseModel.i;
+        if (nn0Var != null && nn0Var.k) {
+            portraitVideoTailView.setAdInfo(nn0Var);
         }
         this.u.setOnAdClickListener(new a(this));
     }
@@ -130,11 +130,11 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, pn0 pn0Var) {
+    public void m(LayoutInflater layoutInflater, mn0 mn0Var) {
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, pn0Var) == null) {
-            layoutInflater.inflate((pn0Var == null || (num = (Integer) zx0.b(pn0Var.a, AdBaseModel.STYLE.VIDEO)) == null) ? R.layout.obfuscated_res_0x7f0d05da : num.intValue(), this);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, mn0Var) == null) {
+            layoutInflater.inflate((mn0Var == null || (num = (Integer) yx0.b(mn0Var.a, AdBaseModel.STYLE.VIDEO)) == null) ? R.layout.obfuscated_res_0x7f0d05f9 : num.intValue(), this);
         }
     }
 
@@ -181,7 +181,7 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (pn0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (mn0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -190,24 +190,24 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, pn0 pn0Var) {
-        super(context, attributeSet, i, pn0Var);
+    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, mn0 mn0Var) {
+        super(context, attributeSet, i, mn0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), pn0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), mn0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (pn0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (mn0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        this.u = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f091525);
+        this.u = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0915e1);
     }
 }

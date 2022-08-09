@@ -1,15 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface fo0 {
-    @Nullable
-    String a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "net");
 
-    @Nullable
-    String b();
-
-    long c();
-
-    boolean isSuccess();
+    do0 a();
 }

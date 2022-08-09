@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -24,7 +25,7 @@ public class m {
     public static volatile int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, q> f818a = null;
+    public static Map<String, q> f819a = null;
     public static int b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,7 +110,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int a2 = v.a();
-            return (!m560a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+            return (!m560a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
         }
         return (String) invokeV.objValue;
     }
@@ -201,55 +202,55 @@ public class m {
     /* renamed from: a  reason: collision with other method in class */
     public static void m559a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && f818a == null) {
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && f819a == null) {
             HashMap hashMap = new HashMap();
-            f818a = hashMap;
+            f819a = hashMap;
             hashMap.put("CN", q.a);
-            f818a.put("FI", q.c);
-            f818a.put("SE", q.c);
-            f818a.put(HlsPlaylistParser.BOOLEAN_FALSE, q.c);
-            f818a.put("FO", q.c);
-            f818a.put("EE", q.c);
-            f818a.put("LV", q.c);
-            f818a.put("LT", q.c);
-            f818a.put("BY", q.c);
-            f818a.put("MD", q.c);
-            f818a.put("UA", q.c);
-            f818a.put("PL", q.c);
-            f818a.put("CZ", q.c);
-            f818a.put("SK", q.c);
-            f818a.put("HU", q.c);
-            f818a.put("DE", q.c);
-            f818a.put("AT", q.c);
-            f818a.put("CH", q.c);
-            f818a.put("LI", q.c);
-            f818a.put("GB", q.c);
-            f818a.put("IE", q.c);
-            f818a.put("NL", q.c);
-            f818a.put("BE", q.c);
-            f818a.put("LU", q.c);
-            f818a.put("FR", q.c);
-            f818a.put("RO", q.c);
-            f818a.put("BG", q.c);
-            f818a.put("RS", q.c);
-            f818a.put("MK", q.c);
-            f818a.put("AL", q.c);
-            f818a.put("GR", q.c);
-            f818a.put("SI", q.c);
-            f818a.put("HR", q.c);
-            f818a.put("IT", q.c);
-            f818a.put("SM", q.c);
-            f818a.put("MT", q.c);
-            f818a.put("ES", q.c);
-            f818a.put("PT", q.c);
-            f818a.put("AD", q.c);
-            f818a.put("CY", q.c);
-            f818a.put("DK", q.c);
-            f818a.put("IS", q.c);
-            f818a.put("UK", q.c);
-            f818a.put("EL", q.c);
-            f818a.put("RU", q.d);
-            f818a.put("IN", q.e);
+            f819a.put("FI", q.c);
+            f819a.put("SE", q.c);
+            f819a.put(HlsPlaylistParser.BOOLEAN_FALSE, q.c);
+            f819a.put("FO", q.c);
+            f819a.put("EE", q.c);
+            f819a.put("LV", q.c);
+            f819a.put("LT", q.c);
+            f819a.put("BY", q.c);
+            f819a.put("MD", q.c);
+            f819a.put("UA", q.c);
+            f819a.put("PL", q.c);
+            f819a.put("CZ", q.c);
+            f819a.put("SK", q.c);
+            f819a.put("HU", q.c);
+            f819a.put("DE", q.c);
+            f819a.put("AT", q.c);
+            f819a.put("CH", q.c);
+            f819a.put("LI", q.c);
+            f819a.put("GB", q.c);
+            f819a.put("IE", q.c);
+            f819a.put("NL", q.c);
+            f819a.put("BE", q.c);
+            f819a.put("LU", q.c);
+            f819a.put("FR", q.c);
+            f819a.put("RO", q.c);
+            f819a.put("BG", q.c);
+            f819a.put("RS", q.c);
+            f819a.put("MK", q.c);
+            f819a.put("AL", q.c);
+            f819a.put("GR", q.c);
+            f819a.put("SI", q.c);
+            f819a.put("HR", q.c);
+            f819a.put("IT", q.c);
+            f819a.put("SM", q.c);
+            f819a.put("MT", q.c);
+            f819a.put("ES", q.c);
+            f819a.put("PT", q.c);
+            f819a.put("AD", q.c);
+            f819a.put("CY", q.c);
+            f819a.put("DK", q.c);
+            f819a.put("IS", q.c);
+            f819a.put("UK", q.c);
+            f819a.put("EL", q.c);
+            f819a.put("RU", q.d);
+            f819a.put("IN", q.e);
         }
     }
 
@@ -292,7 +293,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             m559a();
-            return f818a.get(str.toUpperCase());
+            return f819a.get(str.toUpperCase());
         }
         return (q) invokeL.objValue;
     }

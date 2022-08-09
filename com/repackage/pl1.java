@@ -1,7 +1,10 @@
 package com.repackage;
-/* loaded from: classes6.dex */
-public interface pl1 {
-    void a(boolean z);
 
-    boolean b();
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface pl1 {
+    @Nullable
+    List<ContentValues> a();
 }

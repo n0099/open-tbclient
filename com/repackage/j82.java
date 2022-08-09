@@ -1,43 +1,42 @@
 package com.repackage;
 
-import android.webkit.ValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes6.dex */
-public class j82 implements V8FileSystemDelegatePolicy {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface j82 extends JSRuntime, xz1, TypedCallbackHandler {
+    JsSerializeValue A(byte[] bArr, boolean z);
 
-    public j82() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    byte[] I(JsSerializeValue jsSerializeValue, boolean z);
 
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    void Z(String str, String str2);
 
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            h82.e().g(str, valueCallback);
-        }
-    }
+    w82 d0();
+
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    String getInitBasePath();
+
+    int getInvokeSourceType();
+
+    EventTarget m();
+
+    boolean post(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget w();
+
+    s82 x();
 }

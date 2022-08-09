@@ -10,36 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBDrawVideo;
-import com.win.opensdk.PBDrawVideoListener;
-import com.win.opensdk.PBError;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ug9 extends ReporterPidLoader<PBDrawVideo> {
+public class ug9 extends gh9<mh9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
 
     /* loaded from: classes7.dex */
-    public class a implements PBDrawVideoListener {
+    public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PBDrawVideo a;
+        public final /* synthetic */ FunAdSlot a;
         public final /* synthetic */ ug9 b;
 
-        public a(ug9 ug9Var, PBDrawVideo pBDrawVideo) {
+        public a(ug9 ug9Var, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ug9Var, pBDrawVideo};
+                Object[] objArr = {ug9Var, funAdSlot};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,49 +48,42 @@ public class ug9 extends ReporterPidLoader<PBDrawVideo> {
                 }
             }
             this.b = ug9Var;
-            this.a = pBDrawVideo;
+            this.a = funAdSlot;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdClick(this.a);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
         }
 
-        @Override // com.win.opensdk.PBDrawVideoListener
-        public void onDisplayed() {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdShow(this.a);
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.b.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.b.onAdLoaded((ug9) this.a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    ug9 ug9Var = this.b;
+                    mh9 mh9Var = new mh9(tTNativeExpressAd);
+                    this.a.getSid();
+                    ug9Var.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener(new xg9(ug9Var, mh9Var));
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ug9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,35 +100,33 @@ public class ug9 extends ReporterPidLoader<PBDrawVideo> {
                 return;
             }
         }
-        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
-        PBDrawVideo pBDrawVideo;
+        mh9 mh9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pBDrawVideo = (PBDrawVideo) obj) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (mh9Var = (mh9) obj) == null) {
             return;
         }
-        this.e.destroy(pBDrawVideo);
-        pBDrawVideo.destroy();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) ? new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new vg9(this, this)) : (FunNativeAd2) invokeLLL.objValue;
+        ((TTNativeExpressAd) mh9Var.a).destroy();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
             onLoadStart(funAdSlot);
-            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
-            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
-            pBDrawVideo.load();
+            this.e.loadBannerExpressAd(build, new a(this, funAdSlot));
         }
     }
 
@@ -145,15 +134,18 @@ public class ug9 extends ReporterPidLoader<PBDrawVideo> {
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
-            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
-            View drawVideoView = pBDrawVideo.getDrawVideoView();
-            if (drawVideoView.getParent() != null) {
-                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            mh9 mh9Var = (mh9) obj;
+            onShowStart(mh9Var);
+            ((TTNativeExpressAd) mh9Var.a).setSlideIntervalTime(this.mPid.interval);
+            View expressAdView = ((TTNativeExpressAd) mh9Var.a).getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
             }
+            ((TTNativeExpressAd) mh9Var.a).setDislikeCallback(activity, new zg9(this, expressAdView, mh9Var));
+            ((TTNativeExpressAd) mh9Var.a).setDownloadListener(new yg9(null));
             viewGroup.removeAllViews();
-            viewGroup.addView(drawVideoView);
+            viewGroup.addView(expressAdView);
             return true;
         }
         return invokeLLLL.booleanValue;

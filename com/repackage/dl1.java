@@ -1,15 +1,15 @@
 package com.repackage;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes5.dex */
+import android.content.Context;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface dl1 {
-    tg2 a(ZeusPluginFactory.Invoker invoker, String str);
+    void a(String str, String str2);
 
-    ti2 b(ZeusPluginFactory.Invoker invoker, String str);
+    File b(Context context, String str);
 
-    ti2 c(ZeusPluginFactory.Invoker invoker, String str);
+    JSONObject c(Context context, String str);
 
-    sg2 d(ZeusPluginFactory.Invoker invoker, String str);
-
-    qe2 e(ZeusPluginFactory.Invoker invoker, String str);
+    void d();
 }

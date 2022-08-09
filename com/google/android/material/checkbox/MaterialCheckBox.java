@@ -21,12 +21,12 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialCheckBox extends AppCompatCheckBox {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10035d = 2131755869;
+    public static final int obfuscated_res_0x7f100361 = 2131755873;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -76,9 +76,9 @@ public class MaterialCheckBox extends AppCompatCheckBox {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.materialThemeColorsTintList == null) {
                 int[] iArr = new int[ENABLED_CHECKED_STATES.length];
-                int color = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
-                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016a);
+                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
+                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e);
+                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040177);
                 iArr[0] = MaterialColors.layer(color2, color, 1.0f);
                 iArr[1] = MaterialColors.layer(color2, color3, 0.54f);
                 iArr[2] = MaterialColors.layer(color2, color3, 0.38f);
@@ -121,7 +121,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.checkboxStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040133);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035d), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100361), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406ba}, i, obfuscated_res_0x7f10035d, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04074e}, i, obfuscated_res_0x7f100361, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

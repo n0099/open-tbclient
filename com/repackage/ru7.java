@@ -1,12 +1,20 @@
 package com.repackage;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,43 +23,79 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.DislikeInfo;
 /* loaded from: classes7.dex */
-public class ru7 implements nn {
+public class ru7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId o;
+    public static TbHttpMessageTask g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public int c;
-    public String d;
+    public String b;
+    public String c;
+    public int d;
     public String e;
-    public MetaData f;
-    public HashMap<String, MetaData> g;
-    public boolean h;
-    public String i;
-    public String j;
-    public boolean k;
-    public boolean l;
-    public lp4 m;
-    public YyExtData n;
+    public final BdUniDispatchSchemeController.b f;
+
+    /* loaded from: classes7.dex */
+    public class a implements BdUniDispatchSchemeController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ru7 a;
+
+        public a(ru7 ru7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ru7Var;
+        }
+
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
+        public void a(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null) {
+                return;
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_TID) instanceof String) {
+                this.a.a = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID) instanceof String) {
+                this.a.b = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID) instanceof String) {
+                this.a.c = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE) instanceof String) {
+                this.a.d = og.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID) instanceof String) {
+                this.a.e = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755337763, "Lcom/repackage/ru7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755337763, "Lcom/repackage/ru7;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755337763, "Lcom/repackage/ru7;")) == null) {
+            return;
         }
-        o = BdUniqueId.gen();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755337763, "Lcom/repackage/ru7;");
+        }
     }
 
     public ru7() {
@@ -67,77 +111,362 @@ public class ru7 implements nn {
                 return;
             }
         }
-        this.l = false;
+        this.f = new a(this);
     }
 
-    public void a(AlaLiveInfo alaLiveInfo) {
-        HashMap<String, MetaData> hashMap;
-        MetaData metaData;
+    public final String f(String str, boolean z, int i, String str2, String str3, int i2, String str4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
-            if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-                this.a = alaLiveInfo.user_info.user_name;
-                this.b = alaLiveInfo.live_status.intValue();
-                this.c = alaLiveInfo.audience_count.intValue();
-                this.d = alaLiveInfo.description;
-                String str = alaLiveInfo.cover_wide;
-                this.e = str;
-                if (str == null || TextUtils.isEmpty(str)) {
-                    this.e = alaLiveInfo.cover;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4})) == null) {
+            if (str == null || str.equals("0")) {
+                str = g(str2, str3, i2, str4);
+            }
+            if (z) {
+                str = str + "_host";
+            }
+            if (i == 1) {
+                str = str + "_rev";
+            } else if (i == 2) {
+                str = str + "_hot";
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                return str + TbadkCoreApplication.getCurrentAccount();
+            }
+            return str;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final String g(String str, String str2, int i, String str3) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, str3)) == null) {
+            String str4 = "";
+            if (str != null) {
+                str4 = "" + str;
+            }
+            if (str2 != null) {
+                str4 = str4 + str2;
+            }
+            String str5 = str4 + i;
+            if (str3 != null) {
+                return str5 + str3;
+            }
+            return str5;
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public HashMap<String, Object> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            if (str.startsWith("//")) {
+                str = str.substring(2);
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String[] split = str.split("[&]");
+            if (split.length == 0) {
+                return null;
+            }
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
                 }
-                alaLiveInfo.live_id.longValue();
-                this.h = alaLiveInfo.live_from.intValue() == 1;
-                this.i = alaLiveInfo.third_live_type;
-                this.j = alaLiveInfo.third_room_id;
-                String str2 = alaLiveInfo.router_type;
-                YyExtData yyExtData = new YyExtData();
-                this.n = yyExtData;
-                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-                Long l = alaLiveInfo.user_info.user_id;
-                if (l != null && l.longValue() > 0 && (hashMap = this.g) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                    this.f = metaData;
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0182  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x01b5 A[Catch: Exception -> 0x0284, TryCatch #0 {Exception -> 0x0284, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01bd A[Catch: Exception -> 0x0284, TryCatch #0 {Exception -> 0x0284, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01fd A[Catch: Exception -> 0x0284, TryCatch #0 {Exception -> 0x0284, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0205 A[Catch: Exception -> 0x0284, TryCatch #0 {Exception -> 0x0284, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x022c A[Catch: Exception -> 0x0284, TryCatch #0 {Exception -> 0x0284, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void i(String str) {
+        int i;
+        int i2;
+        PbPageRequestMessage pbPageRequestMessage;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if ((!str.contains("tbpb") && !str.contains(PbModel.UNIDISPATCH_PB)) || "tbpb://tieba.baidu.com".equals(str)) {
+            return;
+        }
+        Uri parse = Uri.parse(str);
+        if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+            BdUniDispatchSchemeController.getInstance().parsePbScheme(parse, this.f);
+        } else if (StringUtils.isNull(this.a)) {
+            if (!StringUtils.isNull(str) && str.startsWith("tbpb://")) {
+                String decode = Uri.decode(parse.getEncodedPath());
+                if (StringUtils.isNull(decode)) {
+                    return;
                 }
-                List<DislikeInfo> list = alaLiveInfo.dislike_info;
-                if (ListUtils.getCount(list) > 0) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    SparseArray<String> sparseArray2 = new SparseArray<>();
-                    for (DislikeInfo dislikeInfo : list) {
-                        if (dislikeInfo != null) {
-                            sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
-                            sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                h(decode);
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+                httpMessage.addParam("call_url", str);
+                MessageManager.getInstance().sendMessage(httpMessage);
+            }
+            if (StringUtils.isNull(this.a)) {
+                this.a = parse.getQueryParameter("thread_id");
+            }
+            if (StringUtils.isNull(this.b)) {
+                this.b = parse.getQueryParameter("key_ori_ugc_nid");
+            }
+            if (StringUtils.isNull(this.c)) {
+                this.c = parse.getQueryParameter("key_ori_ugc_tid");
+            }
+            if (this.d == 0) {
+                this.d = og.e(parse.getQueryParameter("key_ori_ugc_type"), 0);
+            }
+            if (StringUtils.isNull(this.e)) {
+                this.e = parse.getQueryParameter("key_ori_ugc_vid");
+            }
+        }
+        String queryParameter = parse.getQueryParameter("comment_sort_type");
+        int i3 = -1;
+        try {
+            if (!TextUtils.isEmpty(queryParameter)) {
+                if ("0".equals(queryParameter)) {
+                    i = 0;
+                } else if ("2".equals(queryParameter)) {
+                    i = 2;
+                }
+                if (i < 0) {
+                    i = ru4.k().l("key_pb_current_sort_type", 2);
+                }
+                i2 = i;
+                pbPageRequestMessage = new PbPageRequestMessage();
+                pbPageRequestMessage.setUpdateType(3);
+                pbPageRequestMessage.setIsReqAd(1);
+                pbPageRequestMessage.setLastids(x15.l);
+                if (this.a == null && this.a.length() != 0) {
+                    pbPageRequestMessage.set_kz(og.g(this.a, 0L));
+                    pbPageRequestMessage.setFloorSortType(1);
+                    pbPageRequestMessage.setFloor_rn(4);
+                    pbPageRequestMessage.set_rn(15);
+                    pbPageRequestMessage.set_with_floor(1);
+                    pbPageRequestMessage.set_scr_w(Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_h(Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                    pbPageRequestMessage.set_q_type(Integer.valueOf(!TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+                    pbPageRequestMessage.setSchemeUrl(str);
+                    pbPageRequestMessage.set_r(Integer.valueOf(i2));
+                    pbPageRequestMessage.set_thread_type(0);
+                    pbPageRequestMessage.set_banner(1);
+                    pbPageRequestMessage.set_back(0);
+                    if (i2 != 0 && i2 != 2) {
+                        z = false;
+                        if (!z) {
+                            pbPageRequestMessage.set_pn(1);
+                        } else {
+                            pbPageRequestMessage.set_last(1);
+                            pbPageRequestMessage.set_pn(1);
                         }
+                        pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                        pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                        pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                        pbPageRequestMessage.setIsSubPostDataReverse(false);
+                        pbPageRequestMessage.setFromSmartFrs(0);
+                        if (!UtilHelper.isUgcThreadType(this.d)) {
+                            pbPageRequestMessage.setForumId(String.valueOf(0));
+                        } else {
+                            pbPageRequestMessage.setForumId(null);
+                        }
+                        pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                        pbPageRequestMessage.setFrom_push(0);
+                        pbPageRequestMessage.setSourceType(1);
+                        pbPageRequestMessage.setOriUgcNid(this.b);
+                        pbPageRequestMessage.setOriUgcTid(this.c);
+                        pbPageRequestMessage.setOriUgcType(this.d);
+                        pbPageRequestMessage.setOriUgcVid(this.e);
+                        if (pbPageRequestMessage.getPn() != null) {
+                            if (pbPageRequestMessage.getR().intValue() == 1) {
+                                if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                    pbPageRequestMessage.setAfterAdThreadCount(i3);
+                                    pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                    pbPageRequestMessage.setReqFoldComment(false);
+                                    pbPageRequestMessage.setTag(m60.d);
+                                    pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                    pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                    pbPageRequestMessage.setFromPbOptimize(true);
+                                    int i4 = PbPageRequestMessage.requestTimes;
+                                    PbPageRequestMessage.requestTimes = i4 + 1;
+                                    pbPageRequestMessage.setRequestTimes(i4);
+                                    m60.e(pbPageRequestMessage.getHttpMessage(), g);
+                                    return;
+                                }
+                            } else if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                pbPageRequestMessage.setAfterAdThreadCount(i3);
+                                pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                pbPageRequestMessage.setReqFoldComment(false);
+                                pbPageRequestMessage.setTag(m60.d);
+                                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                pbPageRequestMessage.setFromPbOptimize(true);
+                                int i42 = PbPageRequestMessage.requestTimes;
+                                PbPageRequestMessage.requestTimes = i42 + 1;
+                                pbPageRequestMessage.setRequestTimes(i42);
+                                m60.e(pbPageRequestMessage.getHttpMessage(), g);
+                                return;
+                            }
+                        }
+                        i3 = 0;
+                        pbPageRequestMessage.setAfterAdThreadCount(i3);
+                        pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                        pbPageRequestMessage.setReqFoldComment(false);
+                        pbPageRequestMessage.setTag(m60.d);
+                        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                        pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                        pbPageRequestMessage.setFromPbOptimize(true);
+                        int i422 = PbPageRequestMessage.requestTimes;
+                        PbPageRequestMessage.requestTimes = i422 + 1;
+                        pbPageRequestMessage.setRequestTimes(i422);
+                        m60.e(pbPageRequestMessage.getHttpMessage(), g);
+                        return;
                     }
-                    lp4 lp4Var = new lp4();
-                    this.m = lp4Var;
-                    lp4Var.j(sparseArray);
-                    this.m.g = sparseArray2;
-                } else {
-                    this.m = null;
+                    z = true;
+                    if (!z) {
+                    }
+                    pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                    pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                    pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                    pbPageRequestMessage.setIsSubPostDataReverse(false);
+                    pbPageRequestMessage.setFromSmartFrs(0);
+                    if (!UtilHelper.isUgcThreadType(this.d)) {
+                    }
+                    pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                    pbPageRequestMessage.setFrom_push(0);
+                    pbPageRequestMessage.setSourceType(1);
+                    pbPageRequestMessage.setOriUgcNid(this.b);
+                    pbPageRequestMessage.setOriUgcTid(this.c);
+                    pbPageRequestMessage.setOriUgcType(this.d);
+                    pbPageRequestMessage.setOriUgcVid(this.e);
+                    if (pbPageRequestMessage.getPn() != null) {
+                    }
+                    i3 = 0;
+                    pbPageRequestMessage.setAfterAdThreadCount(i3);
+                    pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                    pbPageRequestMessage.setReqFoldComment(false);
+                    pbPageRequestMessage.setTag(m60.d);
+                    pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                    pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                    pbPageRequestMessage.setFromPbOptimize(true);
+                    int i4222 = PbPageRequestMessage.requestTimes;
+                    PbPageRequestMessage.requestTimes = i4222 + 1;
+                    pbPageRequestMessage.setRequestTimes(i4222);
+                    m60.e(pbPageRequestMessage.getHttpMessage(), g);
+                    return;
                 }
-                this.k = true;
                 return;
             }
-            this.k = false;
+            if (this.a == null) {
+                return;
+            }
+            pbPageRequestMessage.set_kz(og.g(this.a, 0L));
+            pbPageRequestMessage.setFloorSortType(1);
+            pbPageRequestMessage.setFloor_rn(4);
+            pbPageRequestMessage.set_rn(15);
+            pbPageRequestMessage.set_with_floor(1);
+            pbPageRequestMessage.set_scr_w(Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp())));
+            pbPageRequestMessage.set_scr_h(Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp())));
+            pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+            pbPageRequestMessage.set_q_type(Integer.valueOf(!TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+            pbPageRequestMessage.setSchemeUrl(str);
+            pbPageRequestMessage.set_r(Integer.valueOf(i2));
+            pbPageRequestMessage.set_thread_type(0);
+            pbPageRequestMessage.set_banner(1);
+            pbPageRequestMessage.set_back(0);
+            if (i2 != 0) {
+                z = false;
+                if (!z) {
+                }
+                pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                pbPageRequestMessage.setIsSubPostDataReverse(false);
+                pbPageRequestMessage.setFromSmartFrs(0);
+                if (!UtilHelper.isUgcThreadType(this.d)) {
+                }
+                pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                pbPageRequestMessage.setFrom_push(0);
+                pbPageRequestMessage.setSourceType(1);
+                pbPageRequestMessage.setOriUgcNid(this.b);
+                pbPageRequestMessage.setOriUgcTid(this.c);
+                pbPageRequestMessage.setOriUgcType(this.d);
+                pbPageRequestMessage.setOriUgcVid(this.e);
+                if (pbPageRequestMessage.getPn() != null) {
+                }
+                i3 = 0;
+                pbPageRequestMessage.setAfterAdThreadCount(i3);
+                pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                pbPageRequestMessage.setReqFoldComment(false);
+                pbPageRequestMessage.setTag(m60.d);
+                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                pbPageRequestMessage.setFromPbOptimize(true);
+                int i42222 = PbPageRequestMessage.requestTimes;
+                PbPageRequestMessage.requestTimes = i42222 + 1;
+                pbPageRequestMessage.setRequestTimes(i42222);
+                m60.e(pbPageRequestMessage.getHttpMessage(), g);
+                return;
+            }
+            z = true;
+            if (!z) {
+            }
+            pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+            pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+            pbPageRequestMessage.setObjParam1(String.valueOf(25));
+            pbPageRequestMessage.setIsSubPostDataReverse(false);
+            pbPageRequestMessage.setFromSmartFrs(0);
+            if (!UtilHelper.isUgcThreadType(this.d)) {
+            }
+            pbPageRequestMessage.setNeedRepostRecommendForum(false);
+            pbPageRequestMessage.setFrom_push(0);
+            pbPageRequestMessage.setSourceType(1);
+            pbPageRequestMessage.setOriUgcNid(this.b);
+            pbPageRequestMessage.setOriUgcTid(this.c);
+            pbPageRequestMessage.setOriUgcType(this.d);
+            pbPageRequestMessage.setOriUgcVid(this.e);
+            if (pbPageRequestMessage.getPn() != null) {
+            }
+            i3 = 0;
+            pbPageRequestMessage.setAfterAdThreadCount(i3);
+            pbPageRequestMessage.setImmersionVideoCommentSource(0);
+            pbPageRequestMessage.setReqFoldComment(false);
+            pbPageRequestMessage.setTag(m60.d);
+            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+            pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+            pbPageRequestMessage.setFromPbOptimize(true);
+            int i422222 = PbPageRequestMessage.requestTimes;
+            PbPageRequestMessage.requestTimes = i422222 + 1;
+            pbPageRequestMessage.setRequestTimes(i422222);
+            m60.e(pbPageRequestMessage.getHttpMessage(), g);
+            return;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return;
         }
-    }
-
-    public void b(HashMap<String, MetaData> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            this.g = hashMap;
+        i = -1;
+        if (i < 0) {
         }
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.booleanValue;
+        i2 = i;
+        pbPageRequestMessage = new PbPageRequestMessage();
+        pbPageRequestMessage.setUpdateType(3);
+        pbPageRequestMessage.setIsReqAd(1);
+        pbPageRequestMessage.setLastids(x15.l);
     }
 }

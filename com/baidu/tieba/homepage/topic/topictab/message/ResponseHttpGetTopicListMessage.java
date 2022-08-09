@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
-import com.repackage.v17;
-import com.repackage.x17;
+import com.repackage.on;
+import com.repackage.p37;
+import com.repackage.r37;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nn> mTopicDataList;
+    public List<on> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -44,7 +44,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<nn> getTopicDataList() {
+    public List<on> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
@@ -68,18 +68,18 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         int i2 = 1;
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                v17 v17Var = new v17();
-                v17Var.R = i2;
-                v17Var.O(newTopicList);
-                this.mTopicDataList.add(v17Var);
-                x17 x17Var = new x17();
-                x17Var.a = R.dimen.tbds1;
-                x17Var.b = R.color.CAM_X0203;
-                this.mTopicDataList.add(x17Var);
+                p37 p37Var = new p37();
+                p37Var.R = i2;
+                p37Var.O(newTopicList);
+                this.mTopicDataList.add(p37Var);
+                r37 r37Var = new r37();
+                r37Var.a = R.dimen.tbds1;
+                r37Var.b = R.color.CAM_X0203;
+                this.mTopicDataList.add(r37Var);
                 i2++;
             }
         }
-        List<nn> list = this.mTopicDataList;
-        ((x17) ListUtils.getItem(list, list.size() - 1)).a = 0;
+        List<on> list = this.mTopicDataList;
+        ((r37) ListUtils.getItem(list, list.size() - 1)).a = 0;
     }
 }

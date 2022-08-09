@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q01;
+import com.repackage.p01;
 import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -88,8 +88,8 @@ public class UnifyTextView extends TextView {
                 int i6 = round - textSize;
                 fm.ascent = i6;
                 fm.top = (i6 - this.c) - this.f;
-                String a = q01.a.a();
-                int a2 = q01.b.a();
+                String a = p01.a.a();
+                int a2 = p01.b.a();
                 int i7 = 0;
                 try {
                     if (text.length() == i2 && (subSequence = text.subSequence(i, i2)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
@@ -150,7 +150,7 @@ public class UnifyTextView extends TextView {
             if (b(charSequence)) {
                 Context context = getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.d = Math.round(a(context, R.dimen.obfuscated_res_0x7f070575) * 1.5f);
+                this.d = Math.round(a(context, R.dimen.obfuscated_res_0x7f070576) * 1.5f);
                 if (this.b) {
                     String str = this.a;
                     Log.d(str, "has emoji, mTopBuffer: " + this.d);
@@ -158,7 +158,7 @@ public class UnifyTextView extends TextView {
             } else {
                 Context context2 = getContext();
                 Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.d = a(context2, R.dimen.obfuscated_res_0x7f070575);
+                this.d = a(context2, R.dimen.obfuscated_res_0x7f070576);
                 if (this.b) {
                     String str2 = this.a;
                     Log.d(str2, "has no emoji, mTopBuffer: " + this.d);
@@ -166,7 +166,7 @@ public class UnifyTextView extends TextView {
             }
             Context context3 = getContext();
             Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.e = a(context3, R.dimen.obfuscated_res_0x7f070573);
+            this.e = a(context3, R.dimen.obfuscated_res_0x7f070574);
         }
     }
 
@@ -245,8 +245,8 @@ public class UnifyTextView extends TextView {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = "UnifyTextView";
-        this.c = a(context, R.dimen.obfuscated_res_0x7f070574);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f0405be});
+        this.c = a(context, R.dimen.obfuscated_res_0x7f070575);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040642, R.attr.obfuscated_res_0x7f040643});
         this.f = obtainStyledAttributes.getDimensionPixelSize(1, this.c);
         this.g = obtainStyledAttributes.getDimensionPixelSize(0, this.c);
         obtainStyledAttributes.recycle();

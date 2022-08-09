@@ -1,207 +1,160 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.MarginLayoutParamsCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class w80 implements SharedPreferences {
+public final class w80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    @JvmOverloads
-    public w80(Context context, String fileName) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, fileName};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(fileName, "fileName");
-        this.a = context.getSharedPreferences(fileName, 0);
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    public static int a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.contains(str);
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? b(view2, false) : invokeL.intValue;
     }
 
-    public final void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.edit().putBoolean(str, z).apply();
-        }
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.edit().putLong(str, j).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.edit();
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    public final void f(String key, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, key, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.edit().putString(key, str).apply();
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.edit().remove(str).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getAll();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
+    public static int b(View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getBoolean(str, z);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return n(view2) ? z ? view2.getLeft() + g(view2) : view2.getLeft() : z ? view2.getRight() - g(view2) : view2.getRight();
         }
-        return invokeLZ.booleanValue;
+        return invokeLZ.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
+    public static int c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getFloat(str, f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return MarginLayoutParamsCompat.getMarginEnd((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
         }
-        return invokeLF.floatValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
+    public static int d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getInt(str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
         }
-        return invokeLI.intValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
+    public static int e(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getLong(str, j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
         }
-        return invokeLJ.longValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
+    public static int f(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getString(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getMeasuredWidth();
         }
-        return (String) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
+    public static int g(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            return sharedPreferences.getStringSet(str, set);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingEnd(view2);
         }
-        return (Set) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static int h(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getPaddingLeft() + view2.getPaddingRight();
         }
+        return invokeL.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static int i(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingStart(view2);
         }
+        return invokeL.intValue;
+    }
+
+    public static int j(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) ? k(view2, false) : invokeL.intValue;
+    }
+
+    public static int k(View view2, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return n(view2) ? z ? view2.getRight() - i(view2) : view2.getRight() : z ? view2.getLeft() + i(view2) : view2.getLeft();
+        }
+        return invokeLZ.intValue;
+    }
+
+    public static int l(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getWidth();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int m(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) ? l(view2) + d(view2) : invokeL.intValue;
+    }
+
+    public static boolean n(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 }

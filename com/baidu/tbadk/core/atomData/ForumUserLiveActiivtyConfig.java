@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +12,8 @@ public class ForumUserLiveActiivtyConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
     public static final String KEY_FORUM_NAME = "KEY_FORUM_NAME";
+    public static final String KEY_FROM_FRS_CARD = "key_from_frs_card";
+    public static final String KEY_FROM_LIVE_CLOSE_LINK = "key_from_live_close_link";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,5 +43,13 @@ public class ForumUserLiveActiivtyConfig extends IntentConfig {
         }
         getIntent().putExtra("KEY_FORUM_ID", str);
         getIntent().putExtra(KEY_FORUM_NAME, str2);
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("from", str);
     }
 }

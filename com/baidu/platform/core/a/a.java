@@ -2,7 +2,6 @@ package com.baidu.platform.core.a;
 
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.district.DistrictSearchOption;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +44,7 @@ public class a extends com.baidu.platform.base.e {
         this.a.a("area_res", "true");
         this.a.a("addr_identify", "1");
         this.a.a("ie", IMAudioTransRequest.CHARSET);
-        this.a.a(Config.PACKAGE_NAME, "0");
+        this.a.a("pn", "0");
         this.a.a("rn", "10");
         this.a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;

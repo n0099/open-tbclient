@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv;
+import com.repackage.nv;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
@@ -111,7 +111,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             if (this.taskInfo.isVisitAction()) {
                 json.put("duration", this.duration);
             }
-            json.put("duplicateId", mv.a.b(this.duplicateId));
+            json.put("duplicateId", nv.a.b(this.duplicateId));
             return json;
         }
         return (JSONObject) invokeV.objValue;

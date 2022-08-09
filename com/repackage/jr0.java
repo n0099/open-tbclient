@@ -1,12 +1,13 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jr0 extends vr0 {
+public class jr0 extends or0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,9 +25,39 @@ public class jr0 extends vr0 {
         }
     }
 
-    public static vr0 w(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? vr0.m(str, 8) : (vr0) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ur0 w = gr0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ur0 w = gr0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ur0 w = gr0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ur0 w = gr0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
+            w.s(1);
+            c(w);
+        }
     }
 }

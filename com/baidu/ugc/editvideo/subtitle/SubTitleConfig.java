@@ -4,6 +4,7 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.repackage.a99;
-import com.repackage.z49;
+import com.repackage.u79;
+import com.repackage.vb9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -196,7 +197,7 @@ public class SubTitleConfig {
                     try {
                         int i = typefaceConfig.mInputType;
                         if (i == 1) {
-                            typeface = Typeface.createFromAsset(z49.c().getContext().getAssets(), typefaceConfig.mSource);
+                            typeface = Typeface.createFromAsset(u79.c().getContext().getAssets(), typefaceConfig.mSource);
                         } else if (i == 2) {
                             typeface = Typeface.createFromFile(typefaceConfig.mSource);
                         }
@@ -283,7 +284,7 @@ public class SubTitleConfig {
                 if (subTitleConfig.mTextColorEntity != null) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("color", subTitleConfig.mTextColorEntity.mColor);
-                    jSONObject2.put("alpha", subTitleConfig.mTextColorEntity.mAlpha);
+                    jSONObject2.put(Key.ALPHA, subTitleConfig.mTextColorEntity.mAlpha);
                     jSONObject.put("textColor", jSONObject2);
                 }
                 if (subTitleConfig.chineseShadowConfig != null) {
@@ -375,35 +376,35 @@ public class SubTitleConfig {
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject2 != null) {
                     ShadowConfig shadowConfig = new ShadowConfig();
-                    shadowConfig.shadowRadius = a99.a(optJSONObject2.optString("shadowRadius"), 2.0f);
-                    shadowConfig.shadowDx = a99.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                    shadowConfig.shadowDy = a99.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                    shadowConfig.shadowRadius = vb9.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                    shadowConfig.shadowDx = vb9.a(optJSONObject2.optString("shadowDx"), 0.0f);
+                    shadowConfig.shadowDy = vb9.a(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleConfig.chineseShadowConfig = shadowConfig;
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject3 != null) {
                     ShadowConfig shadowConfig2 = new ShadowConfig();
-                    shadowConfig2.shadowRadius = a99.a(optJSONObject3.optString("shadowRadius"), 2.0f);
-                    shadowConfig2.shadowDx = a99.a(optJSONObject3.optString("shadowDx"), 0.0f);
-                    shadowConfig2.shadowDy = a99.a(optJSONObject3.optString("shadowDy"), 2.0f);
+                    shadowConfig2.shadowRadius = vb9.a(optJSONObject3.optString("shadowRadius"), 2.0f);
+                    shadowConfig2.shadowDx = vb9.a(optJSONObject3.optString("shadowDx"), 0.0f);
+                    shadowConfig2.shadowDy = vb9.a(optJSONObject3.optString("shadowDy"), 2.0f);
                     subTitleConfig.engShadowConfig = shadowConfig2;
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("chineseStrokeConfig");
                 if (optJSONObject4 != null) {
                     StrokeConfig strokeConfig = new StrokeConfig();
-                    strokeConfig.strokeWidth = a99.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                    strokeConfig.strokeWidth = vb9.a(optJSONObject4.optString("strokeWidth"), 0.0f);
                     strokeConfig.strokeColor = optJSONObject4.optInt("strokeColor");
                     subTitleConfig.chineseStrokeConfig = strokeConfig;
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("engStrokeConfig");
                 if (optJSONObject5 != null) {
                     StrokeConfig strokeConfig2 = new StrokeConfig();
-                    strokeConfig2.strokeWidth = a99.a(optJSONObject5.optString("strokeWidth"), 0.0f);
+                    strokeConfig2.strokeWidth = vb9.a(optJSONObject5.optString("strokeWidth"), 0.0f);
                     strokeConfig2.strokeColor = optJSONObject5.optInt("strokeColor");
                     subTitleConfig.engStrokeConfig = strokeConfig2;
                 }
                 subTitleConfig.isHorizontal = jSONObject.optBoolean("isHorizontal", false);
-                subTitleConfig.mScale = a99.a(jSONObject.optString("mScale"), 1.0f);
+                subTitleConfig.mScale = vb9.a(jSONObject.optString("mScale"), 1.0f);
                 String optString = jSONObject.optString("chineseTypefaceConfig");
                 if (!TextUtils.isEmpty(optString)) {
                     TypefaceConfig parseJson = TypefaceConfig.parseJson(optString);
@@ -416,8 +417,8 @@ public class SubTitleConfig {
                     subTitleConfig.engTypefaceConfig = parseJson2;
                     subTitleConfig.engTypeface = TypefaceConfig.toTypeFace(parseJson2);
                 }
-                float a = a99.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
-                float a2 = a99.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
+                float a = vb9.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
+                float a2 = vb9.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
                 if (a != -2.1474836E9f && a2 != -2.1474836E9f) {
                     subTitleConfig.mCenterPoint = new PointF(a, a2);
                 }

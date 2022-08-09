@@ -22,14 +22,14 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f implements ServiceConnection, t {
     public static boolean b;
     public static int c;
     public static long d;
     @Nullable
     public c a;
-    public c.a.InterfaceC0679a g;
+    public c.a.InterfaceC0684a g;
     public Future<?> i;
     public Handler e = new Handler(Looper.getMainLooper());
     public b f = null;
@@ -50,7 +50,7 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC0679a a(f fVar) {
+    public static /* synthetic */ c.a.InterfaceC0684a a(f fVar) {
         return fVar.g;
     }
 
@@ -232,8 +232,8 @@ public class f implements ServiceConnection, t {
         }
     }
 
-    public void a(c.a.InterfaceC0679a interfaceC0679a) {
-        this.g = interfaceC0679a;
+    public void a(c.a.InterfaceC0684a interfaceC0684a) {
+        this.g = interfaceC0684a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j

@@ -149,11 +149,11 @@ public class AlaUtilHelper {
             return;
         }
         if (z2 && str.toLowerCase().startsWith("http")) {
-            tbImageView.J(str, 10, false);
+            tbImageView.K(str, 10, false);
         } else if (z) {
-            tbImageView.J(str, 25, false);
+            tbImageView.K(str, 25, false);
         } else {
-            tbImageView.J(str, 12, false);
+            tbImageView.K(str, 12, false);
         }
     }
 
@@ -163,11 +163,11 @@ public class AlaUtilHelper {
             return;
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.J(str, 10, false);
+            tbImageView.K(str, 10, false);
         } else if (z) {
-            tbImageView.J(str, 25, false);
+            tbImageView.K(str, 25, false);
         } else {
-            tbImageView.J(str, 12, false);
+            tbImageView.K(str, 12, false);
         }
     }
 }

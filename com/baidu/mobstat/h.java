@@ -29,7 +29,7 @@ public class h {
                 jSONObject.put("pv", "24");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));
+                    jSONObject.put("pn", bw.h(2, context));
                     jSONObject.put("a", packageInfo.versionCode);
                     jSONObject.put("n", packageInfo.versionName);
                 } catch (Exception e) {

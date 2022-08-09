@@ -11,12 +11,12 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SendMessageToWX {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FAV_CONTENT_LENGTH_LIMIT = 26214400;
@@ -83,7 +83,7 @@ public class SendMessageToWX {
                         str = "Send specifiedContact openid can not be null.";
                     }
                 }
-                Log.e("MicroMsg.SDK.SendMessageToWX.Req", str);
+                Log.e(TAG, str);
                 return false;
             }
             return invokeV.booleanValue;
@@ -123,7 +123,7 @@ public class SendMessageToWX {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

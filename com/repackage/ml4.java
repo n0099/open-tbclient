@@ -1,10 +1,9 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class ml4 {
+public class ml4 {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<TbPageContext<?>> a;
-    public static boolean b;
+    public static ml4 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
+    public SparseArray<ol4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,72 +46,41 @@ public abstract class ml4 {
                 return;
             }
         }
-        new ArrayList(5);
+        this.a = new SparseArray<>();
     }
 
-    public static ml4 a(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, ml4.class, baseFragmentActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
-            }
-            return (ml4) runTask.getData();
-        }
-        return (ml4) invokeL.objValue;
-    }
-
-    public boolean b() {
+    public static ml4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i);
-
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = a) == null) {
-            return;
-        }
-        weakReference.get();
-        a.clear();
-        a = null;
-    }
-
-    public abstract void i();
-
-    public void j(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            WeakReference<TbPageContext<?>> weakReference = a;
-            if (weakReference == null) {
-                a = new WeakReference<>(tbPageContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (ml4.class) {
+                    if (b == null) {
+                        b = new ml4();
+                    }
+                }
             }
-            weakReference.clear();
-            a = null;
-            a = new WeakReference<>(tbPageContext);
+            return b;
         }
+        return (ml4) invokeV.objValue;
     }
 
-    public abstract void k(a aVar);
-
-    public void l(boolean z) {
+    public View a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (this.a.get(i) != null) {
+                return this.a.get(i).a(context);
+            }
+            return null;
         }
+        return (View) invokeLI.objValue;
     }
 
-    public abstract void m();
+    public void c(int i, ol4 ol4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ol4Var) == null) {
+            this.a.put(i, ol4Var);
+        }
+    }
 }

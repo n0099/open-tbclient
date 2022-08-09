@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +17,19 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.live.business.model.data.LeftLableInfo;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.util.CustomTypefaceSpan;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eb0;
-import com.repackage.t80;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.repackage.ab0;
+import com.repackage.l80;
+import com.repackage.m80;
 /* loaded from: classes2.dex */
 public class LiveStatusAnimView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -33,8 +38,10 @@ public class LiveStatusAnimView extends FrameLayout {
     public ImageView b;
     public LottieAnimationView c;
     public TextView d;
-    public boolean e;
-    public boolean f;
+    public SimpleDraweeView e;
+    public SimpleDraweeView f;
+    public boolean g;
+    public String h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveStatusAnimView(@NonNull Context context) {
@@ -61,18 +68,20 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0525, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ea);
-            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912eb);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0533, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09134b);
+            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09134c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09134d);
             this.c.loop(true);
+            this.e = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091341);
+            this.f = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091342);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     public void c() {
@@ -81,7 +90,7 @@ public class LiveStatusAnimView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lottieAnimationView = this.c) == null) {
             return;
         }
-        if (this.e) {
+        if (this.g) {
             lottieAnimationView.setVisibility(0);
             this.c.setProgress(0.0f);
             if (this.c.isAnimating()) {
@@ -131,92 +140,120 @@ public class LiveStatusAnimView extends FrameLayout {
         }
     }
 
-    public void setData(int i, String str, String str2, String str3) {
+    public void setData(LiveRoomEntity liveRoomEntity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, liveRoomEntity, z) == null) {
             d();
             this.c.setVisibility(8);
-            if (this.f) {
-                this.c.setAnimation("live_feed_page_tag_live_ani.json");
-            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(eb0.e().o()) && !"dark".equals(eb0.e().o())) {
-                this.c.setAnimation("live_feed_page_tag_live_ani.json");
+            this.e.setVisibility(8);
+            this.f.setVisibility(8);
+            if (!LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
+                if (!"night".equals(ab0.f().q()) && !"dark".equals(ab0.f().q())) {
+                    this.c.setAnimation("live_feed_page_tag_live_ani.json");
+                } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
+                    this.c.setAnimation("live_feed_page_tag_live_ani.json");
+                } else {
+                    this.c.setAnimation("live_feed_page_tag_live_night.json");
+                }
             } else {
-                this.c.setAnimation("live_feed_page_tag_live_night.json");
+                this.c.setAnimation("live_feed_page_tag_live_ani.json");
             }
-            boolean z = (str2 == null || str2.equals(str3)) ? false : true;
+            LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
+            String str = leftLableInfo.startColor;
+            boolean z2 = (str == null || str.equals(leftLableInfo.endColor)) ? false : true;
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(t80.a(this.a, 9.0f));
+            gradientDrawable.setCornerRadius(m80.b(this.a, 9.0f));
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             try {
-                gradientDrawable.setColors(new int[]{Color.parseColor(str2), Color.parseColor(str3)});
+                gradientDrawable.setColors(new int[]{Color.parseColor(liveRoomEntity.leftLabel.startColor), Color.parseColor(liveRoomEntity.leftLabel.endColor)});
             } catch (Exception e) {
                 gradientDrawable.setColors(new int[]{Color.parseColor("#FE33BA"), Color.parseColor("#FE3355")});
                 e.printStackTrace();
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(eb0.e().o()) && !this.f) {
+            if ("night".equals(ab0.f().q()) && LiveFeedPageSdk.HOST_LIVE_TAB.equals(this.h)) {
                 gradientDrawable.setColorFilter(Color.parseColor("#80000000"), PorterDuff.Mode.SRC_ATOP);
             } else {
                 gradientDrawable.setColorFilter(null);
             }
             setBackground(gradientDrawable);
-            if (z) {
+            if (z2) {
                 this.d.setPadding(0, 0, 0, 0);
             } else {
-                this.d.setPadding(t80.a(this.a, 3.0f), 0, 0, 0);
+                this.d.setPadding(m80.b(this.a, 3.0f), 0, 0, 0);
             }
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(t80.a(this.a, 9.0f));
+            gradientDrawable2.setCornerRadius(m80.b(this.a, 9.0f));
+            int i = liveRoomEntity.liveStatus;
             if (i == 3) {
-                this.e = false;
-                gradientDrawable2.setColors(new int[]{eb0.e().a(this.a, this.f, "color_768CAE"), eb0.e().a(this.a, this.f, "color_768CAE")});
-                if (!Config.TRACE_VISIT_RECENT_DAY.equals(eb0.e().o()) && !this.f) {
-                    if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cb9);
+                this.g = false;
+                gradientDrawable2.setColors(new int[]{ab0.f().a(this.a, this.h, "color_768CAE"), ab0.f().a(this.a, this.h, "color_768CAE")});
+                if (!"day".equals(ab0.f().q()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
+                    if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce8);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cba);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cb9);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
             } else if (i == 0) {
-                this.e = false;
-                gradientDrawable2.setColors(new int[]{eb0.e().a(this.a, this.f, "color_4E6EF2"), eb0.e().a(this.a, this.f, "color_4E6EF2")});
-                if (!Config.TRACE_VISIT_RECENT_DAY.equals(eb0.e().o()) && !this.f) {
-                    if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cbb);
+                this.g = false;
+                gradientDrawable2.setColors(new int[]{ab0.f().a(this.a, this.h, "color_4E6EF2"), ab0.f().a(this.a, this.h, "color_4E6EF2")});
+                if (!"day".equals(ab0.f().q()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
+                    if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cea);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cbc);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce9);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cbb);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce9);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
+            } else if (!TextUtils.isEmpty(liveRoomEntity.leftLabel.leftIcon)) {
+                this.b.setVisibility(8);
+                this.g = false;
+                this.e.setVisibility(0);
+                this.e.setImageURI(liveRoomEntity.leftLabel.leftIcon);
             } else {
-                this.e = true;
-                if (z) {
+                this.g = true;
+                if (z2) {
                     this.b.setVisibility(4);
                 } else {
-                    gradientDrawable2.setColors(new int[]{eb0.e().a(this.a, this.f, "color_FF3333"), eb0.e().a(this.a, this.f, "color_FF3333")});
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cbe);
+                    gradientDrawable2.setColors(new int[]{ab0.f().a(this.a, this.h, "color_FF3333"), ab0.f().a(this.a, this.h, "color_FF3333")});
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ced);
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     this.b.setVisibility(0);
                 }
             }
-            this.d.setTextColor(eb0.e().a(this.a, this.f, "color_white3"));
-            this.d.setText(str);
+            if (z) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                spannableStringBuilder.append((CharSequence) liveRoomEntity.leftLabel.prefix);
+                spannableStringBuilder.append((CharSequence) liveRoomEntity.leftLabel.newText);
+                spannableStringBuilder.setSpan(new CustomTypefaceSpan(l80.b("dinalternate.ttf")), liveRoomEntity.leftLabel.prefix.length(), spannableStringBuilder.length(), 33);
+                this.d.setTextColor(ab0.f().a(this.a, this.h, "color_white3"));
+                this.d.setText(spannableStringBuilder);
+            } else {
+                this.d.setTextColor(ab0.f().a(this.a, this.h, "color_white3"));
+                this.d.setText(liveRoomEntity.leftLabel.text);
+            }
+            if (TextUtils.isEmpty(liveRoomEntity.leftLabel.rightIcon)) {
+                return;
+            }
+            this.f.setVisibility(0);
+            this.f.setImageURI(liveRoomEntity.leftLabel.rightIcon);
         }
     }
 
-    public void setIsImmersion(boolean z) {
+    public void setScene(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f = z;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.h = str;
         }
     }
 
@@ -260,8 +297,7 @@ public class LiveStatusAnimView extends FrameLayout {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
+        this.g = false;
         a(context);
     }
 }

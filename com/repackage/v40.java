@@ -1,31 +1,90 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.support.okhttp.converters.ResponseConverter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
+import java.io.IOException;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
-public class v40 implements CookieJar {
+public class v40 implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
+    @NonNull
+    public Request a;
+    @NonNull
+    public okhttp3.Request b;
+    @NonNull
+    public OkHttpClient c;
+    @NonNull
+    public okhttp3.Call d;
 
-    public v40(CookieManager cookieManager) {
+    /* loaded from: classes7.dex */
+    public class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.searchbox.network.outback.core.Callback a;
+        public final /* synthetic */ v40 b;
+
+        public a(v40 v40Var, com.baidu.searchbox.network.outback.core.Callback callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v40Var, callback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = v40Var;
+            this.a = callback;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(okhttp3.Call call, IOException iOException) {
+            com.baidu.searchbox.network.outback.core.Callback callback;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) || (callback = this.a) == null) {
+                return;
+            }
+            callback.onFailure(this.b, iOException);
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(okhttp3.Call call, Response response) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.b.a, response);
+                if (fromOks.getStatRecord() != null) {
+                    fromOks.getStatRecord().finishTs = System.currentTimeMillis();
+                }
+                com.baidu.searchbox.network.outback.core.Callback callback = this.a;
+                if (callback != null) {
+                    callback.onResponse(this.b, fromOks);
+                }
+            }
+        }
+    }
+
+    public v40(@NonNull Request request, @NonNull okhttp3.Request request2, @NonNull OkHttpClient okHttpClient) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cookieManager};
+            Object[] objArr = {request, request2, okHttpClient};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,90 +94,70 @@ public class v40 implements CookieJar {
                 return;
             }
         }
-        this.a = cookieManager;
+        this.a = request;
+        this.b = request2;
+        this.c = okHttpClient;
+        this.d = okHttpClient.newCall(request2);
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt <= 31 || charAt >= 127) {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                } else {
-                    sb.append(charAt);
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.cancel();
         }
-        return (String) invokeL.objValue;
     }
 
-    public final List<Cookie> b(HttpUrl httpUrl, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void enqueue(com.baidu.searchbox.network.outback.core.Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int length = str.length();
-            int i = 0;
-            while (i < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
-                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
-                String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
-                if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {
-                    trimSubstring2 = trimSubstring2.substring(1, trimSubstring2.length() - 1);
-                }
-                String a = a(trimSubstring);
-                String a2 = a(trimSubstring2);
-                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
-                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
-                }
-                i = delimiterOffset + 1;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
+            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            this.d.enqueue(new a(this, callback));
         }
-        return (List) invokeLL.objValue;
     }
 
-    @Override // okhttp3.CookieJar
-    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public com.baidu.searchbox.network.outback.core.Response execute() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CookieManager cookieManager = this.a;
-            if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(httpUrl.toString());
-                if (!Util.isTextEmpty(cookie)) {
-                    arrayList.addAll(b(httpUrl, cookie));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.a, this.d.execute());
+            if (fromOks.getStatRecord() != null) {
+                fromOks.getStatRecord().finishTs = System.currentTimeMillis();
             }
-            return arrayList;
+            return fromOks;
         }
-        return (List) invokeL.objValue;
+        return (com.baidu.searchbox.network.outback.core.Response) invokeV.objValue;
     }
 
-    @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) || this.a == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        String httpUrl2 = httpUrl.toString();
-        for (Cookie cookie : list) {
-            String cookie2 = cookie.toString();
-            if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
-                arrayList.add(cookie2);
-            }
-        }
-        this.a.storeCookie(httpUrl.toString(), arrayList);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isCanceled() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isExecuted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.isExecuted() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Request) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Call clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new v40(this.a, this.b, this.c) : (Call) invokeV.objValue;
     }
 }

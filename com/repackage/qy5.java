@@ -1,72 +1,70 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qy5 extends vy5 {
+public class qy5 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId N0;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755363772, "Lcom/repackage/qy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755363772, "Lcom/repackage/qy5;");
-                return;
-            }
-        }
-        N0 = BdUniqueId.gen();
-    }
-
-    public qy5(ThreadData threadData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qy5(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadData;
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_ARTICLE : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setBackgroundShapeDrawable(this.a, qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+        }
     }
 
-    @Override // com.repackage.vy5, com.repackage.ny5, com.repackage.on4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? N0 : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setDimAmount(0.0f);
+                window.setContentView(R.layout.obfuscated_res_0x7f0d03b5);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f092216);
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09221f);
+                if (!StringUtils.isNull(this.c)) {
+                    this.b.setText(this.c);
+                }
+                a(TbadkCoreApplication.getInst().getSkinType());
+            }
+        }
     }
 }

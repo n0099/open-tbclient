@@ -1,35 +1,42 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f92 {
+public class f92 implements p82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SwitchIntDef"})
-    public static q92 a(@NonNull o92 o92Var) {
-        InterceptResult invokeL;
+    public f92() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o92Var)) == null) {
-            int i = o92Var.a;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return new p92(o92Var);
-                        }
-                        return new t92(o92Var);
-                    }
-                    return new r92(o92Var);
-                }
-                return new u92(o92Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return new s92(o92Var);
         }
-        return (q92) invokeL.objValue;
+    }
+
+    @Override // com.repackage.p82
+    public h82 a(String str, e92 e92Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, e92Var, v8ThreadDelegatePolicy)) == null) ? new l82(str, e92Var, v8ThreadDelegatePolicy) : (h82) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.p82
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? yc3.a() : (String) invokeV.objValue;
     }
 }

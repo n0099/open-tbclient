@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm0;
+import com.repackage.gm0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
@@ -21,7 +21,7 @@ public final class NestedScrollComponent$nestedScrollService$2 extends Lambda im
     public final /* synthetic */ NestedScrollComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements jm0 {
+    public static final class a implements gm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NestedScrollComponent$nestedScrollService$2 a;
@@ -45,22 +45,22 @@ public final class NestedScrollComponent$nestedScrollService$2 extends Lambda im
             this.a = nestedScrollComponent$nestedScrollService$2;
         }
 
-        @Override // com.repackage.jm0
+        @Override // com.repackage.gm0
         public WebViewContainer b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.this$0.z() : (WebViewContainer) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.this$0.y() : (WebViewContainer) invokeV.objValue;
         }
 
-        @Override // com.repackage.jm0
+        @Override // com.repackage.gm0
         public void f(boolean z, boolean z2, boolean z3, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i)}) == null) {
-                this.a.this$0.L(z, z2, z3, i);
+                this.a.this$0.K(z, z2, z3, i);
             }
         }
 
-        @Override // com.repackage.jm0
+        @Override // com.repackage.gm0
         public boolean g() {
             InterceptResult invokeV;
             boolean z;
@@ -72,20 +72,20 @@ public final class NestedScrollComponent$nestedScrollService$2 extends Lambda im
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.jm0
+        @Override // com.repackage.gm0
         public void i(MotionEvent event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                this.a.this$0.z().dispatchTouchEvent(event);
+                this.a.this$0.y().dispatchTouchEvent(event);
             }
         }
 
-        @Override // com.repackage.jm0
+        @Override // com.repackage.gm0
         public void j(boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-                this.a.this$0.E(z, z2, z3);
+                this.a.this$0.D(z, z2, z3);
             }
         }
     }

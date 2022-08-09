@@ -1,45 +1,38 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.tieba.R;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ry2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
 
-    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
-        InterceptResult invokeLLI;
+    public ry2(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
-            if (context == null || viewGroup == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            FullScreenFloatView b = b(context, i);
-            viewGroup.addView(b);
-            return b;
         }
-        return (FullScreenFloatView) invokeLLI.objValue;
+        this.a = view2;
     }
 
-    public static FullScreenFloatView b(Context context, int i) {
-        InterceptResult invokeLI;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return null;
-            }
-            int i2 = R.layout.obfuscated_res_0x7f0d00a4;
-            if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00a5;
-            }
-            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.a.getVisibility() == 4) {
+            this.a.setVisibility(8);
         }
-        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload.compliance;
 
 import com.ss.android.downloadlib.addownload.b.f;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static void a(String str, long j) {
         com.ss.android.downloadlib.addownload.b.e e = f.a().e(j);

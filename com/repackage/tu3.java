@@ -1,18 +1,26 @@
 package com.repackage;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tu3 {
+public class tu3 extends fo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public EventTargetImpl d;
+    public qu3 e;
 
     static {
         InterceptResult invokeClinit;
@@ -27,51 +35,72 @@ public class tu3 {
                 return;
             }
         }
-        a = sg1.a;
-        b = -1;
+        f = jh1.a;
     }
 
-    public static su3 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tu3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            su3 su3Var = new su3();
-            su3Var.a = b();
-            su3Var.b = c();
-            su3Var.c = d();
-            if (a) {
-                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + su3Var.a + " ,sizeLimit: " + su3Var.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return su3Var;
         }
-        return (su3) invokeV.objValue;
+        this.d = eventTargetImpl;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.fo2
+    public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b < 0) {
-                pj2.g0().getSwitch("minigame_code_cache_max_count", 20);
-                b = 20;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            qu3 qu3Var = this.e;
+            if (qu3Var != null) {
+                qu3Var.p(optString, jSONObject);
             }
-            return b;
+            if (this.d.hasEventListener(optString)) {
+                JSEvent jSEvent = new JSEvent(optString);
+                if (jSONObject != null) {
+                    jSEvent.data = jSONObject;
+                }
+                if (f && !"onTimeUpdate".equals(str)) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("type = ");
+                    sb.append(str);
+                    sb.append("  result = ");
+                    sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
+                    Log.d("AudioCallbackForV8", sb.toString());
+                }
+                this.d.dispatchEvent(jSEvent);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public static int c() {
+    @Override // com.repackage.fo2
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 102400;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static long d() {
-        InterceptResult invokeV;
+    public void e(qu3 qu3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b() * 6 * 1048576 : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu3Var) == null) {
+            this.e = qu3Var;
+        }
     }
 }

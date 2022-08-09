@@ -30,7 +30,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static volatile com.ss.android.socialbase.downloader.d.b A;
     public static volatile aa B;
@@ -84,18 +84,18 @@ public class c {
     public static final int L = Runtime.getRuntime().availableProcessors() + 1;
     public static final int M = (Runtime.getRuntime().availableProcessors() * 2) + 1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public interface InterfaceC0679a {
+        /* loaded from: classes8.dex */
+        public interface InterfaceC0684a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0679a interfaceC0679a);
+        t a(InterfaceC0684a interfaceC0684a);
 
         m b();
     }

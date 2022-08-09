@@ -12,8 +12,8 @@ import com.yy.gslbsdk.thread.ThreadInfo;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +49,7 @@ public class ThreadPoolMgr {
                     return;
                 }
             }
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i2, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new DefaultThreadFactory());
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i2, 60L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new DefaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
             this.mExcutorSvc = threadPoolExecutor;
             threadPoolExecutor.prestartAllCoreThreads();
         }
@@ -220,6 +220,7 @@ public class ThreadPoolMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadInfo)) == null) {
             synchronized (this) {
+                LogTools.printDebug(TAG, "addTask to ThreadPool :" + this.mExecutorSvc);
                 if (threadInfo == null) {
                     return 5;
                 }
@@ -277,10 +278,11 @@ public class ThreadPoolMgr {
             if (iTaskExecutor == null) {
                 create(GlobalTools.THREAD_POOL_MIN, GlobalTools.THREAD_POOL_MAX);
                 LogTools.printDebug(TAG, "initThreadPool..." + GlobalTools.THREAD_POOL_MIN + "/" + GlobalTools.THREAD_POOL_MAX);
-                return;
+            } else {
+                this.mReleaseAble = false;
+                this.mExecutorSvc = iTaskExecutor;
             }
-            this.mReleaseAble = false;
-            this.mExecutorSvc = iTaskExecutor;
+            LogTools.printDebug(TAG, "create ThreadPool :" + iTaskExecutor);
         }
     }
 

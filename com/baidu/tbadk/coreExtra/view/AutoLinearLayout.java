@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class AutoLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -51,10 +51,10 @@ public class AutoLinearLayout extends LinearLayout {
         this.h = 0;
         this.a = context;
         setOrientation(0);
-        this.c = pi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
-        this.d = pi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-        this.g = pi.f(context, R.dimen.obfuscated_res_0x7f070207);
-        this.e = pi.k(this.a) - (this.g * 2);
+        this.c = qi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+        this.d = qi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+        this.g = qi.f(context, R.dimen.obfuscated_res_0x7f070207);
+        this.e = qi.k(this.a) - (this.g * 2);
         this.h = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
     }
 
@@ -215,10 +215,10 @@ public class AutoLinearLayout extends LinearLayout {
         this.h = 0;
         this.a = context;
         setOrientation(0);
-        this.c = pi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
-        this.d = pi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-        this.g = pi.f(context, R.dimen.obfuscated_res_0x7f070207);
-        this.e = pi.k(this.a) - (this.g * 2);
+        this.c = qi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+        this.d = qi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+        this.g = qi.f(context, R.dimen.obfuscated_res_0x7f070207);
+        this.e = qi.k(this.a) - (this.g * 2);
         this.h = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
     }
 }

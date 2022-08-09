@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vu4;
-import com.repackage.yv4;
-/* loaded from: classes3.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements yv4 {
+import com.repackage.pv4;
+import com.repackage.sw4;
+/* loaded from: classes4.dex */
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements sw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,19 +45,19 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements y
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                vu4 vu4Var = new vu4();
-                vu4Var.t(R.color.CAM_X0109);
-                setConfig(vu4Var);
+                pv4 pv4Var = new pv4();
+                pv4Var.t(R.color.CAM_X0109);
+                setConfig(pv4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
             } else {
-                vu4 vu4Var2 = new vu4();
-                vu4Var2.r(R.color.CAM_X0302);
-                vu4Var2.i(R.drawable.obfuscated_res_0x7f0808e2, 0, TBSpecificationButtonConfig.IconType.SVG);
-                vu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(vu4Var2);
+                pv4 pv4Var2 = new pv4();
+                pv4Var2.r(R.color.CAM_X0302);
+                pv4Var2.i(R.drawable.obfuscated_res_0x7f0808fd, 0, TBSpecificationButtonConfig.IconType.SVG);
+                pv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(pv4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

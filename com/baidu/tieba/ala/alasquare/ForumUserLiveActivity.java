@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.alasquare;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
@@ -14,13 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.no5;
+import com.repackage.fq5;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements fq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
     public LiveTabYYSubFragment b;
+    public String c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -69,11 +71,18 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
         }
     }
 
-    @Override // com.repackage.no5
-    public boolean c0() {
+    @Override // com.repackage.fq5
+    public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fq5
+    public boolean n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -82,7 +91,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
             LiveTabYYSubFragment liveTabYYSubFragment = this.b;
             if (liveTabYYSubFragment != null) {
@@ -94,19 +103,21 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02c8);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091543);
+            setContentView(R.layout.obfuscated_res_0x7f0d02ca);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0915ff);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06ba));
-            this.b = LiveTabYYSubFragment.K1(false, 2);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.b).commitAllowingStateLoss();
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06c8));
+            this.b = LiveTabYYSubFragment.J1(false, 2);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.b).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");
-            this.b.u1(stringExtra, getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME));
+            String stringExtra2 = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
+            this.c = getIntent().getStringExtra("from");
+            this.b.t1(stringExtra, stringExtra2);
             this.a.post(new a(this));
-            TiebaStatic.log(new StatisticItem("c14703").param("fid", stringExtra));
+            TiebaStatic.log(new StatisticItem("c14703").param("fid", stringExtra).param("obj_source", TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.c) ? 1 : 2));
         }
     }
 }

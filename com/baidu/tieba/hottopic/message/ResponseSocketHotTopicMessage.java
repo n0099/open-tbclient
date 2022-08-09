@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c37;
+import com.repackage.w47;
 import com.squareup.wire.Wire;
 import tbclient.Hottopic.HottopicResIdl;
 /* loaded from: classes3.dex */
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c37 topicData;
+    public w47 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotTopicMessage() {
@@ -51,10 +51,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
                 }
                 Object extra = getOrginalMessage().getExtra();
                 Integer num = extra instanceof Integer ? (Integer) extra : null;
-                c37 c37Var = new c37();
-                this.topicData = c37Var;
+                w47 w47Var = new w47();
+                this.topicData = w47Var;
                 if (num != null) {
-                    c37Var.p = num.intValue();
+                    w47Var.p = num.intValue();
                 }
                 this.topicData.h(hottopicResIdl.data);
             }
@@ -63,10 +63,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public c37 getHotTopicData() {
+    public w47 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.topicData : (c37) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.topicData : (w47) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

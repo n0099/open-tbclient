@@ -1,324 +1,144 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
-@SuppressLint({"SwanCommentWar"})
+import com.repackage.en2;
+import com.repackage.fn2;
+import com.repackage.gn2;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class cn2 implements hq2 {
+public class cn2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public bn2 b;
-    public String c;
-    public String d;
-    public double e;
-    public double f;
-    public int g;
-    public int h;
-    public b i;
-    public c j;
-    public a k;
+    public final List<en2> a;
 
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class a implements hq2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755791510, "Lcom/repackage/cn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = 0.5d;
-            this.b = 1.0d;
-        }
-
-        @Override // com.repackage.hq2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755791510, "Lcom/repackage/cn2;");
                 return;
             }
-            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
-            double d = 1.0d;
-            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d2 = this.a;
-            if (d2 < 0.0d) {
-                d2 = 0.0d;
-            } else if (d2 > 1.0d) {
-                d2 = 1.0d;
-            }
-            this.a = d2;
-            double d3 = this.b;
-            if (d3 < 0.0d) {
-                d = 0.0d;
-            } else if (d3 <= 1.0d) {
-                d = d3;
-            }
-            this.b = d;
         }
-
-        @Override // com.repackage.hq2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class b extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public String g;
-        public int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cn2 cn2Var) {
-            super(cn2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((cn2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = "BYCLICK";
-            this.h = -1;
-        }
-
-        @Override // com.repackage.cn2.d, com.repackage.hq2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
-            jSONObject.optDouble("borderWidth", 0.0d);
-            this.g = jSONObject.has(CriusAttrConstants.DISPLAY) ? jSONObject.optString(CriusAttrConstants.DISPLAY) : "BYCLICK";
-            this.h = vm2.a(jSONObject.optString("bgColor"), -1);
-            vm2.a(jSONObject.optString("borderColor"), this.h);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class c extends d implements hq2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public float g;
-        public float h;
-        public int i;
-        public float j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(cn2 cn2Var) {
-            super(cn2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((cn2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = 0.0f;
-            this.h = 0.0f;
-            this.i = 0;
-            this.j = 0.0f;
-        }
-
-        @Override // com.repackage.cn2.d, com.repackage.hq2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = vm2.b(jSONObject.optDouble("x", 0.0d));
-            float b = vm2.b(jSONObject.optDouble("y", 0.0d));
-            this.g = b;
-            if (this.f == 0.0f && b == 0.0f) {
-                this.f = vm2.b(jSONObject.optDouble("anchorX", 0.0d));
-                this.g = vm2.b(jSONObject.optDouble("anchorY", 0.0d));
-            }
-            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
-            this.i = vm2.a(jSONObject.optString("borderColor"), 0);
-            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class d implements hq2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public float c;
-        public int d;
-        public float e;
-
-        public d(cn2 cn2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = -16777216;
-            this.c = vm2.b(10.0d);
-            this.d = 0;
-            this.e = 0.0f;
-        }
-
-        @Override // com.repackage.hq2
-        public void a(JSONObject jSONObject) throws JSONException {
-            float b;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("content")) {
-                this.a = jSONObject.optString("content");
-                this.b = vm2.a(jSONObject.optString("color"), -16777216);
-                if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
-                    b = Math.abs(vm2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
-                } else {
-                    b = vm2.b(10.0d);
-                }
-                this.c = b;
-                this.d = vm2.a(jSONObject.optString("bgColor"), 0);
-                this.e = vm2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
-                if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
-                    jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-                }
-            }
-        }
-
-        @Override // com.repackage.hq2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
-        }
+        b = jh1.a;
     }
 
     public cn2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = 0.0d;
-        this.f = 1.0d;
-        this.g = -1;
-        this.h = -1;
+        this.a = new ArrayList();
+        e();
     }
 
-    @Override // com.repackage.hq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Nullable
+    public final fn2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        bn2 bn2Var = new bn2();
-        this.b = bn2Var;
-        bn2Var.a(jSONObject);
-        if (this.b.isValid()) {
-            String optString = jSONObject.optString("markerId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            fn2.a aVar = new fn2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            fn2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
+                }
+                return null;
             }
-            this.c = jSONObject.optString("title");
-            this.d = jSONObject.optString("iconPath");
-            this.e = jSONObject.optDouble("rotate", 0.0d);
-            this.f = Math.abs(jSONObject.optDouble("alpha", 1.0d));
-            this.g = jSONObject.has("width") ? Math.abs(zd3.g(jSONObject.optInt("width"))) : -1;
-            this.h = jSONObject.has("height") ? Math.abs(zd3.g(jSONObject.optInt("height"))) : -1;
-            jSONObject.optInt("zIndex", 0);
-            b bVar = new b(this);
-            this.i = bVar;
-            bVar.a(jSONObject.optJSONObject("callout"));
-            c cVar = new c(this);
-            this.j = cVar;
-            cVar.a(jSONObject.optJSONObject("label"));
-            a aVar = new a();
-            this.k = aVar;
-            aVar.a(jSONObject.optJSONObject("anchor"));
+            return a;
         }
+        return (fn2) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.hq2
-    public boolean isValid() {
+    @Nullable
+    public final gn2 b(int i, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            gn2.a aVar = new gn2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            gn2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+                }
+                return null;
+            }
+            return a;
+        }
+        return (gn2) invokeILL.objValue;
+    }
+
+    @NonNull
+    public List<en2> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bn2 bn2Var = this.b;
-            return bn2Var != null && bn2Var.isValid();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            gn2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            en2.a aVar = new en2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            en2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
         }
         return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            zx1.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        }
     }
 }

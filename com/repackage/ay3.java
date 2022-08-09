@@ -1,76 +1,83 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.iu3;
+import com.repackage.ot2;
+@Service
 /* loaded from: classes5.dex */
-public class ay3 {
+public class ay3 implements fi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s72 a;
 
-    public ay3(s72 s72Var) {
+    /* loaded from: classes5.dex */
+    public class a implements iu3.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ot2.k a;
+
+        public a(ay3 ay3Var, ot2.k kVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ay3Var, kVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kVar;
+        }
+
+        @Override // com.repackage.iu3.d
+        public void onFail(String str) {
+            ot2.k kVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (kVar = this.a) == null) {
+                return;
+            }
+            kVar.onFail(str);
+        }
+
+        @Override // com.repackage.iu3.d
+        public void onSuccess() {
+            ot2.k kVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kVar = this.a) == null) {
+                return;
+            }
+            kVar.onSuccess();
+        }
+    }
+
+    public ay3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = s72Var;
-    }
-
-    public final void a(String str, String str2) {
-        s72 s72Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (s72Var = this.a) == null || s72Var.o() == null || !this.a.o().hasEventListener(str2)) {
-            return;
-        }
-        cy3 cy3Var = new cy3();
-        cy3Var.value = str;
-        JSEvent jSEvent = new JSEvent(str2);
-        jSEvent.data = cy3Var;
-        this.a.o().dispatchEvent(jSEvent);
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardcomplete");
         }
     }
 
-    public void c(String str) {
+    @Override // com.repackage.fi1
+    public void a(String str, ot2.k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardinput");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
+            lu3.o().j(str, new a(this, kVar));
         }
     }
 }

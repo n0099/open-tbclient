@@ -1,65 +1,86 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.report.UEGReportRequestMessage;
-import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbVideoDetailBrowseModeEmotionHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class mx7 {
+public final class mx7 extends bw7<ut7, PbVideoDetailBrowseModeEmotionHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public View.OnClickListener g;
 
-    public mx7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mx7(t08 activity, BdUniqueId mType) {
+        super(activity, mType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, mType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UEG_REPORT, TbConfig.SERVER_ADDRESS + TbConfig.URL_UEG_REPORT);
-        tbHttpMessageTask.setResponsedClass(UEGReportResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(mType, "mType");
     }
 
-    public void a(String str) {
+    public final View.OnClickListener u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.a);
-            uEGReportRequestMessage.setPid(str);
-            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View.OnClickListener) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public PbVideoDetailBrowseModeEmotionHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            View view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d08ac, viewGroup, false);
+            Intrinsics.checkNotNullExpressionValue(view2, "view");
+            return new PbVideoDetailBrowseModeEmotionHolder(view2);
+        }
+        return (PbVideoDetailBrowseModeEmotionHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: w */
+    public void onFillViewHolder(int i, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, ut7 ut7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), viewGroup, pbVideoDetailBrowseModeEmotionHolder, ut7Var}) == null) {
+            super.onFillViewHolder(i, viewGroup, pbVideoDetailBrowseModeEmotionHolder, ut7Var);
+            if (pbVideoDetailBrowseModeEmotionHolder == null) {
+                return;
+            }
+            pbVideoDetailBrowseModeEmotionHolder.a();
+            pbVideoDetailBrowseModeEmotionHolder.b(u());
         }
     }
 
-    public void b(String str) {
+    public final void x(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.a);
-            uEGReportRequestMessage.setTUid(str);
-            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
-        }
-    }
-
-    public void c(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 }

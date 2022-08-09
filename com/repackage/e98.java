@@ -1,36 +1,45 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes6.dex */
-public class e98 implements vi5<d98> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e98 extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
+    void changeRenderViewMode(int i);
 
-    public e98() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCurrentPosition();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vi5
-    /* renamed from: b */
-    public d98 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d98() : (d98) invokeV.objValue;
-    }
+    View getMainView();
+
+    boolean isFullScreen();
+
+    boolean isPlaying();
+
+    boolean onBackPress();
+
+    boolean onBackground(boolean z);
+
+    void onScroll();
+
+    boolean onVolumeUp();
+
+    void setAfterClickListener(View.OnClickListener onClickListener);
+
+    void setData(ThreadData threadData);
+
+    void setFrom(String str);
+
+    void setJumpToPbClickListener(View.OnClickListener onClickListener);
+
+    void setStageType(String str);
+
+    void setStatistic(z88 z88Var);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void startPlay();
+
+    void stopPlay();
 }

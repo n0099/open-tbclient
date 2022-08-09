@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xz7;
+import com.repackage.a28;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrCode;
     public String mErrMsg;
     public int mTotalNum;
-    public List<xz7> mZanItemDataList;
+    public List<a28> mZanItemDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PraiseListResponsedMessage(int i) {
@@ -61,7 +61,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
                     this.mZanItemDataList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        this.mZanItemDataList.add(new xz7(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), 1000 * jSONObject2.optLong("zan_time")));
+                        this.mZanItemDataList.add(new a28(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), 1000 * jSONObject2.optLong("zan_time")));
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTotalNum : invokeV.intValue;
     }
 
-    public List<xz7> getmZanItemDataList() {
+    public List<a28> getmZanItemDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mZanItemDataList : (List) invokeV.objValue;

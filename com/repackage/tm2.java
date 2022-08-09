@@ -1,23 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tm2 extends um2 {
+public class tm2 implements qm2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<bn2> z;
+    @Nullable
+    public h82 a;
 
     public tm2() {
         Interceptable interceptable = $ic;
@@ -29,49 +23,42 @@ public class tm2 extends um2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.A = new int[]{0, 0, 0, 0};
-    }
-
-    @Override // com.repackage.um2, com.repackage.yv1, com.repackage.hq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    bn2 bn2Var = new bn2();
-                    bn2Var.a(jSONObject2);
-                    if (bn2Var.isValid()) {
-                        this.z.add(bn2Var);
-                    }
-                }
-            }
-        }
-        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
-            return;
-        }
-        int min = Math.min(jSONArray.length(), 4);
-        for (int i2 = 0; i2 < min; i2++) {
-            this.A[i2] = zd3.g(jSONArray.optInt(i2));
         }
     }
 
-    @Override // com.repackage.yv1, com.repackage.hq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        ArrayList<bn2> arrayList;
+    public final void a() {
+        v22 W;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            h82 h82Var = this.a;
+            if ((h82Var == null || h82Var.isDestroyed()) && (W = t72.U().W()) != null && (W.e() instanceof h82)) {
+                this.a = (h82) W.e();
+            }
+        }
+    }
+
+    @Override // com.repackage.qm2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            h82 h82Var = this.a;
+            if (h82Var != null) {
+                h82Var.suspendTimer();
+            }
+        }
+    }
+
+    @Override // com.repackage.qm2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            h82 h82Var = this.a;
+            if (h82Var != null) {
+                h82Var.continueTimer();
+            }
+        }
     }
 }

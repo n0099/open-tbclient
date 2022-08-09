@@ -1,63 +1,210 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.game.GameShareJsBridge;
+import com.baidu.tbadk.game.RequestGameDetailMessage;
+import com.baidu.tbadk.game.ResponseGameDetailMessage;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a55 extends w45 {
+public class a55 {
     public static /* synthetic */ Interceptable $ic;
+    public static a55 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public GameInfoData a;
+    public String b;
+    public final cb c;
+
+    /* loaded from: classes5.dex */
+    public class a implements CustomMessageTask.CustomRunnable<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a55 a;
+
+        public a(a55 a55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a55Var;
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage == null) {
+                    return null;
+                }
+                return new CustomResponsedMessage<>(2001261, this.a.e());
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends cb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a55 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(a55 a55Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a55Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a55Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseGameDetailMessage) || socketResponsedMessage.hasError()) {
+                return;
+            }
+            ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
+            if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
+                this.a.a = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755905776, "Lcom/repackage/a55;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755905776, "Lcom/repackage/a55;");
+                return;
+            }
+        }
+        d = new a55();
+    }
 
     public a55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = new b(this, 303009);
+        MessageManager.getInstance().registerListener(this.c);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new a(this));
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    @Override // com.repackage.w45
-    public String a() {
+    public static a55 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d : (a55) invokeV.objValue;
     }
 
-    @Override // com.repackage.w45
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public final GameInfoData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            if (this.a <= 0.0f) {
-                return bitmap;
-            }
-            m45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GameInfoData gameInfoData = new GameInfoData();
+            gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f049a));
+            gameInfoData.setGameLink(this.b);
+            gameInfoData.setGameId("default");
+            gameInfoData.setIconUrl("default");
+            gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0499));
+            return gameInfoData;
         }
-        return (Bitmap) invokeLZ.objValue;
+        return (GameInfoData) invokeV.objValue;
     }
 
-    @Override // com.repackage.w45
-    public void d(String str) {
+    public GameInfoData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            GameInfoData gameInfoData = this.a;
+            return gameInfoData == null ? b() : gameInfoData;
         }
-        this.a = ng.d(str, 0.0f);
+        return (GameInfoData) invokeV.objValue;
+    }
+
+    public ShareFromGameCenterMsgData e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GameInfoData c = c();
+            ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
+            shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? c.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+            shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? c.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+            shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? c.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+            shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? c.getGameName() : GameShareJsBridge.getInstance().getShareName());
+            shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? c.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+            String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? c.getGameId() : GameShareJsBridge.getInstance().getGameId();
+            if ("default".equals(gameId)) {
+                shareFromGameCenterMsgData.setShareSourceUrl(gameId);
+            } else {
+                shareFromGameCenterMsgData.setShareSourceUrl("game:detail:TBCGameID=" + gameId);
+            }
+            String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
+            if (StringUtils.isNull(shareContentUrl)) {
+                shareContentUrl = c.getGameLink();
+            }
+            if (StringUtils.isNull(shareContentUrl, true)) {
+                shareContentUrl = "";
+            } else if (!shareContentUrl.contains("tbgametype")) {
+                shareContentUrl = shareContentUrl + "&tbgametype=1";
+            }
+            shareFromGameCenterMsgData.setShareUrl(shareContentUrl.toString());
+            return shareFromGameCenterMsgData;
+        }
+        return (ShareFromGameCenterMsgData) invokeV.objValue;
     }
 }

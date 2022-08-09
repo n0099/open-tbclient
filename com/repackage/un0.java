@@ -1,40 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class un0 {
+public abstract class un0 implements fo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(JSONObject optStringCheckNonNull, String key) {
-        InterceptResult invokeLL;
+    public un0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, optStringCheckNonNull, key)) == null) {
-            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
-            Intrinsics.checkNotNullParameter(key, "key");
-            return b(optStringCheckNonNull, key, "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final String b(JSONObject optStringCheckNonNull, String key, String fallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, optStringCheckNonNull, key, fallback)) == null) {
-            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(fallback, "fallback");
-            if (optStringCheckNonNull.isNull(key)) {
-                return fallback;
-            }
-            String optString = optStringCheckNonNull.optString(key, fallback);
-            Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
-            return optString;
-        }
-        return (String) invokeLLL.objValue;
-    }
+    public abstract do0 b(String str);
 }

@@ -1,66 +1,133 @@
 package com.repackage;
 
+import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.commonMountCard.TbMountCardLinkLayout;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.UrlRequest;
-import com.baidu.turbonet.net.UrlRequestException;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.ByteBuffer;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class y09 extends HttpURLConnection {
+public class y09 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TurbonetEngine a;
-    public final b19 b;
-    public UrlRequest c;
-    public final List<Pair<String, String>> d;
-    public z09 e;
-    public a19 f;
-    public UrlResponseInfo g;
-    public UrlRequestException h;
-    public boolean i;
-    public boolean j;
-    public List<Map.Entry<String, String>> k;
-    public Map<String, List<String>> l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public String p;
-    public String q;
-    public int r;
-    public boolean s;
-    public boolean t;
+    public TbPageContext a;
+    public LinkedList<kw4> b;
+    public LinkedList<cp4> c;
+    public d d;
 
     /* loaded from: classes7.dex */
-    public class a extends UrlRequest.Callback {
+    public class a implements wv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y09 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ y09 b;
 
-        public a(y09 y09Var) {
+        public a(y09 y09Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y09Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y09Var;
+            this.a = i;
+        }
+
+        @Override // com.repackage.wv4
+        public void a(String str) {
+            kw4 g;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && "4".equals(str) && (g = this.b.g(this.a)) != null) {
+                if (this.b.d != null) {
+                    this.b.d.b(g.e());
+                }
+                if (this.b.d != null) {
+                    this.b.d.a(this.b.c);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ y09 b;
+
+        public b(y09 y09Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y09Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y09Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            kw4 g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.b.g(this.a)) == null) {
+                return;
+            }
+            if (this.b.d != null) {
+                this.b.d.b(g.e());
+            }
+            if (this.b.d != null) {
+                this.b.d.a(this.b.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbMountCardLinkLayout a;
+
+        public c(y09 y09Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,600 +139,351 @@ public class y09 extends HttpURLConnection {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = y09Var;
         }
 
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-                this.a.g = urlResponseInfo;
-                g(new IOException("stream closed"));
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
-                if (urlRequestException != null) {
-                    n09.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.a.getURL().toString(), urlRequestException);
-                    this.a.g = urlResponseInfo;
-                    this.a.h = urlRequestException;
-                    g(this.a.h);
-                    return;
-                }
-                throw new IllegalStateException("Exception cannot be null in onFailed.");
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
-                this.a.g = urlResponseInfo;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, urlRequest, urlResponseInfo, str) == null) {
-                this.a.i = true;
-                try {
-                    URL url = new URL(str);
-                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.a).url.getProtocol());
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects) {
-                        ((HttpURLConnection) this.a).url = url;
-                    }
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects && (equals || this.a.o)) {
-                        this.a.c.d();
-                        return;
-                    }
-                } catch (MalformedURLException unused) {
-                }
-                this.a.g = urlResponseInfo;
-                this.a.c.cancel();
-                g(null);
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-                this.a.g = urlResponseInfo;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, urlRequest, urlResponseInfo) == null) {
-                n09.h("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
-                this.a.g = urlResponseInfo;
-                g(null);
-            }
-        }
-
-        public final void g(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-                if (this.a.e != null) {
-                    this.a.e.d(iOException);
-                }
-                if (this.a.f != null) {
-                    this.a.f.h(iOException);
-                }
-                this.a.j = true;
-                this.a.b.quit();
-            }
+        public /* synthetic */ c(y09 y09Var, a aVar) {
+            this(y09Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y09(URL url, TurbonetEngine turbonetEngine) {
-        super(url);
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a(List<cp4> list);
+
+        void b(int i);
+    }
+
+    /* loaded from: classes7.dex */
+    public class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public View b;
+        public View c;
+        public TbImageView d;
+        public TextView e;
+        public ImageView f;
+        public TextView g;
+        public TextView h;
+        public View i;
+
+        public e(y09 y09Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y09Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ e(y09 y09Var, a aVar) {
+            this(y09Var);
+        }
+    }
+
+    public y09(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {url, turbonetEngine};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((URL) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = false;
-        this.j = false;
-        this.o = false;
-        this.r = 0;
-        this.s = false;
-        this.t = false;
-        this.a = turbonetEngine;
-        this.b = new b19(getURL().toString());
-        this.e = new z09(this);
-        this.d = new ArrayList();
+        this.c = new LinkedList<>();
+        this.a = tbPageContext;
     }
 
-    public final void A(String str, String str2, boolean z) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, str2, z) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                int q = q(str);
-                if (q >= 0) {
-                    if (z) {
-                        this.d.remove(q);
-                    } else {
-                        throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
-                    }
-                }
-                this.d.add(Pair.create(str, str2));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.clear();
+            if (ListUtils.isEmpty(this.b)) {
                 return;
             }
-            throw new IllegalStateException("Cannot modify request property after connection is made.");
-        }
-    }
-
-    public final void B() throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ((HttpURLConnection) this).connected) {
-            return;
-        }
-        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(this), this.b, this.a);
-        if (((HttpURLConnection) this).doOutput) {
-            if (((HttpURLConnection) this).method.equals("GET")) {
-                ((HttpURLConnection) this).method = "POST";
-            }
-            a19 a19Var = this.f;
-            if (a19Var != null) {
-                builder.k(a19Var.f(), this.b);
-                if (getRequestProperty("Content-Length") == null && !z()) {
-                    addRequestProperty("Content-Length", Long.toString(this.f.f().a()));
-                }
-                this.f.g();
-            } else if (getRequestProperty("Content-Length") == null) {
-                addRequestProperty("Content-Length", "0");
-            }
-            if (getRequestProperty("Content-Type") == null) {
-                addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            }
-        }
-        for (Pair<String, String> pair : this.d) {
-            builder.a((String) pair.first, (String) pair.second);
-        }
-        if (!getUseCaches()) {
-            builder.c();
-        }
-        builder.f(((HttpURLConnection) this).method);
-        if (this.m) {
-            builder.d();
-        }
-        if (this.n) {
-            builder.l();
-        }
-        if (!TextUtils.isEmpty(this.p)) {
-            builder.e(this.p);
-        }
-        if (!TextUtils.isEmpty(this.q)) {
-            builder.g(this.q);
-        }
-        builder.i(getConnectTimeout());
-        builder.h(getReadTimeout());
-        builder.j(v());
-        ((HttpURLConnection) this).connected = true;
-        UrlRequest b = builder.b();
-        this.c = b;
-        b.start();
-    }
-
-    @Override // java.net.URLConnection
-    public final void addRequestProperty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            A(str, str2, false);
-        }
-    }
-
-    @Override // java.net.URLConnection
-    public void connect() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            getOutputStream();
-            B();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public void disconnect() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ((HttpURLConnection) this).connected) {
-            this.c.cancel();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public InputStream getErrorStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                w();
-                if (this.g.c() >= 400) {
-                    return this.e;
-                }
-                return null;
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public final String getHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                w();
-                Map<String, List<String>> r = r();
-                if (r.containsKey(str)) {
-                    List<String> list = r.get(str);
-                    return list.get(list.size() - 1);
-                }
-                return null;
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderFieldKey(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            Map.Entry<String, String> t = t(i);
-            if (t == null) {
-                return null;
-            }
-            return t.getKey();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getHeaderFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            try {
-                w();
-                return r();
-            } catch (IOException unused) {
-                return Collections.emptyMap();
-            }
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            w();
-            if (!((HttpURLConnection) this).instanceFollowRedirects && this.i) {
-                throw new IOException("Cannot read response body of a redirect.");
-            }
-            if (this.g.c() < 400) {
-                return this.e;
-            }
-            throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public OutputStream getOutputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f == null && ((HttpURLConnection) this).doOutput) {
-                if (!((HttpURLConnection) this).connected) {
-                    if (z()) {
-                        this.f = new w09(this, ((HttpURLConnection) this).chunkLength, this.b, this.s, this.t);
-                        B();
-                    } else {
-                        long x = x();
-                        if (x != -1) {
-                            this.f = new x09(this, x, this.b);
-                            B();
-                        } else {
-                            n09.a("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
-                            String requestProperty = getRequestProperty("Content-Length");
-                            if (requestProperty == null) {
-                                this.f = new v09(this);
-                            } else {
-                                try {
-                                    this.f = new v09(this, Long.parseLong(requestProperty));
-                                } catch (NumberFormatException unused) {
-                                    n09.c("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                                    this.f = new v09(this);
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    throw new ProtocolException("Cannot write to OutputStream after receiving response.");
-                }
-            }
-            return this.f;
-        }
-        return (OutputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Pair<String, String> pair : this.d) {
-                    if (!treeMap.containsKey(pair.first)) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(pair.second);
-                        treeMap.put(pair.first, Collections.unmodifiableList(arrayList));
-                    } else {
-                        throw new IllegalStateException("Should not have multiple values.");
+            Iterator<kw4> it = this.b.iterator();
+            while (it.hasNext()) {
+                kw4 next = it.next();
+                if (next.h() && (next instanceof TbLinkSpanGroup)) {
+                    TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
+                    if (tbLinkSpanGroup.v() != null) {
+                        cp4 v = tbLinkSpanGroup.v();
+                        v.q = tbLinkSpanGroup.f();
+                        this.c.add(v);
                     }
                 }
-                return Collections.unmodifiableMap(treeMap);
             }
-            throw new IllegalStateException("Cannot access request headers after connection is set.");
+            Collections.sort(this.c);
         }
-        return (Map) invokeV.objValue;
     }
 
-    @Override // java.net.URLConnection
-    public String getRequestProperty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            int q = q(str);
-            if (q >= 0) {
-                return (String) this.d.get(q).second;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public int getResponseCode() throws IOException {
+    public LinkedList<cp4> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            w();
-            return this.g.c();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (LinkedList) invokeV.objValue;
     }
 
-    @Override // java.net.HttpURLConnection
-    public String getResponseMessage() throws IOException {
+    /* JADX WARN: Removed duplicated region for block: B:10:0x001a  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            w();
-            return this.g.d();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void o() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.j) {
-                UrlRequestException urlRequestException = this.h;
-                if (urlRequestException == null) {
-                    if (this.g == null) {
-                        throw new NullPointerException("Response info is null when there is no exception.");
-                    }
-                    return;
-                }
-                throw urlRequestException;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ListUtils.isEmpty(this.c)) {
+                return true;
             }
-            throw new IllegalStateException("No response.");
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.o = true;
-        }
-    }
-
-    public final int q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            for (int i = 0; i < this.d.size(); i++) {
-                if (((String) this.d.get(i).first).equalsIgnoreCase(str)) {
-                    return i;
+            Iterator<cp4> it = this.c.iterator();
+            while (it.hasNext()) {
+                cp4 next = it.next();
+                if (next.b == 2 || !next.i) {
+                    return false;
+                }
+                while (it.hasNext()) {
                 }
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final Map<String, List<String>> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            Map<String, List<String>> map = this.l;
-            if (map != null) {
-                return map;
-            }
-            TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            for (Map.Entry<String, String> entry : s()) {
-                ArrayList arrayList = new ArrayList();
-                if (treeMap.containsKey(entry.getKey())) {
-                    arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                }
-                arrayList.add(entry.getValue());
-                treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-            }
-            Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-            this.l = unmodifiableMap;
-            return unmodifiableMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final List<Map.Entry<String, String>> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            List<Map.Entry<String, String>> list = this.k;
-            if (list != null) {
-                return list;
-            }
-            this.k = new ArrayList();
-            for (Map.Entry<String, String> entry : this.g.b()) {
-                if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
-                    this.k.add(new AbstractMap.SimpleImmutableEntry(entry));
-                }
-            }
-            List<Map.Entry<String, String>> unmodifiableList = Collections.unmodifiableList(this.k);
-            this.k = unmodifiableList;
-            return unmodifiableList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public final void setRequestProperty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
-            A(str, str2, true);
-        }
-    }
-
-    public final Map.Entry<String, String> t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            try {
-                w();
-                List<Map.Entry<String, String>> s = s();
-                if (i >= s.size()) {
-                    return null;
-                }
-                return s.get(i);
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (Map.Entry) invokeI.objValue;
-    }
-
-    public void u(ByteBuffer byteBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
-            this.c.read(byteBuffer);
-            this.b.b(getReadTimeout());
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public boolean usingProxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public int v() {
+    public LinkedList<kw4> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.r : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (LinkedList) invokeV.objValue;
     }
 
-    public final void w() throws IOException {
+    public kw4 g(int i) {
+        InterceptResult invokeI;
+        LinkedList<kw4> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            a19 a19Var = this.f;
-            if (a19Var != null) {
-                a19Var.e();
-                if (z()) {
-                    this.f.close();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            long itemId = getItemId(i);
+            if (itemId != 0 && (linkedList = this.b) != null) {
+                Iterator<kw4> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    kw4 next = it.next();
+                    if (next.e() == itemId) {
+                        return next;
+                    }
                 }
             }
-            if (!this.j) {
-                B();
-                this.b.b(getReadTimeout());
-                this.j = true;
-            }
-            o();
+            return null;
         }
+        return (kw4) invokeI.objValue;
     }
 
-    public final long x() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            long j = ((HttpURLConnection) this).fixedContentLength;
-            try {
-                long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
-                return j2 != -1 ? j2 : j;
-            } catch (Exception unused) {
-                return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            LinkedList<cp4> linkedList = this.c;
+            if (linkedList == null) {
+                return 0;
             }
+            return linkedList.size();
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public UrlResponseInfo y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.g : (UrlResponseInfo) invokeV.objValue;
-    }
-
-    public final boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? ((HttpURLConnection) this).chunkLength > 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderField(int i) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            Map.Entry<String, String> t = t(i);
-            if (t == null) {
+            LinkedList<cp4> linkedList = this.c;
+            if (linkedList == null || linkedList.size() <= i) {
                 return null;
             }
-            return t.getValue();
+            return this.c.get(i);
         }
-        return (String) invokeI.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            LinkedList<cp4> linkedList = this.c;
+            return (linkedList == null || linkedList.size() <= i || this.c.get(i) == null) ? 0 : this.c.get(i).a;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        cp4 cp4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            LinkedList<cp4> linkedList = this.c;
+            return (linkedList == null || linkedList.size() <= i || (cp4Var = this.c.get(i)) == null || cp4Var.o != 4) ? 0 : 1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        e eVar;
+        View view3;
+        c cVar;
+        View view4;
+        TbMountCardLinkLayout tbMountCardLinkLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            cp4 cp4Var = (cp4) getItem(i);
+            if (cp4Var == null) {
+                return null;
+            }
+            if (getItemViewType(i) == 1) {
+                if (view2 == null) {
+                    view4 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0919, (ViewGroup) null);
+                    c cVar2 = new c(this, null);
+                    cVar2.a = (TbMountCardLinkLayout) view4.findViewById(R.id.obfuscated_res_0x7f09264d);
+                    view4.setTag(cVar2);
+                    cVar = cVar2;
+                } else {
+                    cVar = view2.getTag() instanceof c ? (c) view2.getTag() : null;
+                    view4 = view2;
+                }
+                if (cVar != null && (tbMountCardLinkLayout = cVar.a) != null) {
+                    tbMountCardLinkLayout.setData(cp4Var.p);
+                    tbMountCardLinkLayout.setClickListener(new a(this, i));
+                }
+                return view4;
+            }
+            if (view2 == null) {
+                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03e5, (ViewGroup) null);
+                eVar = new e(this, null);
+                eVar.a = view3.findViewById(R.id.obfuscated_res_0x7f090681);
+                eVar.b = view3.findViewById(R.id.obfuscated_res_0x7f09067f);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f09067d);
+                eVar.d = tbImageView;
+                tbImageView.setConrers(15);
+                eVar.d.setRadius(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                eVar.d.setPlaceHolderAutoChangeSkinType(1);
+                eVar.d.setGifIconSupport(false);
+                eVar.d.setLongIconSupport(false);
+                eVar.d.setDrawBorder(true);
+                eVar.d.setBorderWidth(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                eVar.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                eVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09067c);
+                eVar.f = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f09067b);
+                eVar.c = view3.findViewById(R.id.obfuscated_res_0x7f090952);
+                eVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090680);
+                eVar.h = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09067a);
+                eVar.i = view3.findViewById(R.id.obfuscated_res_0x7f090682);
+                view3.setTag(eVar);
+            } else {
+                eVar = (e) view2.getTag();
+                view3 = view2;
+            }
+            eVar.d.K(cp4Var.e, 10, false);
+            if (TextUtils.isEmpty(cp4Var.f)) {
+                eVar.c.setVisibility(8);
+                eVar.e.setMaxLines(2);
+            } else {
+                eVar.c.setVisibility(0);
+                eVar.e.setMaxLines(1);
+            }
+            if (TextUtils.isEmpty(cp4Var.f)) {
+                eVar.g.setVisibility(8);
+            } else {
+                eVar.g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0414), cp4Var.f));
+                eVar.g.setVisibility(0);
+            }
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (!TextUtils.isEmpty(cp4Var.l)) {
+                spannableStringBuilder.append((CharSequence) cp4Var.l);
+                int f = qi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                int f2 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                int f3 = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                int f4 = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                int f5 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                int f6 = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                vu4 vu4Var = new vu4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                vu4Var.b(f2);
+                vu4Var.h(f5);
+                vu4Var.i(f6);
+                spannableStringBuilder.setSpan(vu4Var, 0, cp4Var.l.length(), 17);
+            }
+            if (!cp4Var.n && cp4Var.b != 2 && !cp4Var.i) {
+                String str = cp4Var.g;
+                if (str != null) {
+                    spannableStringBuilder.append((CharSequence) str);
+                }
+                eVar.e.setMaxLines(1);
+            } else {
+                String str2 = cp4Var.c;
+                if (str2 != null) {
+                    spannableStringBuilder.append((CharSequence) str2);
+                }
+            }
+            eVar.e.setText(spannableStringBuilder);
+            eVar.f.setOnClickListener(new b(this, i));
+            qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            SkinManager.setBackgroundShapeDrawable(eVar.a, 0, R.color.CAM_X0205, R.color.CAM_X0205);
+            ms4 d2 = ms4.d(eVar.b);
+            d2.n(R.string.J_X05);
+            d2.f(R.color.CAM_X0206);
+            eVar.f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(eVar.e, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(eVar.g, (int) R.color.CAM_X0305);
+            SkinManager.setViewTextColor(eVar.h, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundColorToTransparent(eVar.i, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
+            return view3;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            c();
+            notifyDataSetChanged();
+        }
+    }
+
+    public void i(LinkedList<kw4> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, linkedList) == null) {
+            this.b = linkedList;
+        }
+    }
+
+    public void j(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
+            this.d = dVar;
+        }
     }
 }

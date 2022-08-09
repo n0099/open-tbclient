@@ -33,20 +33,20 @@ public class dj implements LoggerInterface {
     public static volatile dj a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f220a;
+    public static String f221a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f221a;
+    public static final SimpleDateFormat f222a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f222a;
+    public static List<Pair<String, Throwable>> f223a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f223a;
+    public Context f224a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f224a;
+    public Handler f225a;
     public String b;
     public String c;
 
@@ -63,9 +63,9 @@ public class dj implements LoggerInterface {
                 return;
             }
         }
-        f221a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f220a = "/MiPushLog";
-        f222a = Collections.synchronizedList(new ArrayList());
+        f222a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+        f221a = "/MiPushLog";
+        f223a = Collections.synchronizedList(new ArrayList());
     }
 
     public dj(Context context) {
@@ -84,14 +84,14 @@ public class dj implements LoggerInterface {
             }
         }
         this.c = "";
-        this.f223a = context;
+        this.f224a = context;
         if (context.getApplicationContext() != null) {
-            this.f223a = context.getApplicationContext();
+            this.f224a = context.getApplicationContext();
         }
-        this.b = this.f223a.getPackageName() + "-" + Process.myPid();
+        this.b = this.f224a.getPackageName() + "-" + Process.myPid();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f224a = new Handler(handlerThread.getLooper());
+        this.f225a = new Handler(handlerThread.getLooper());
     }
 
     public static dj a(Context context) {
@@ -124,10 +124,10 @@ public class dj implements LoggerInterface {
             try {
                 try {
                     try {
-                        if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f223a.getExternalFilesDir(null)) != null) {
+                        if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f224a.getExternalFilesDir(null)) != null) {
                             this.c = externalFilesDir.getAbsolutePath() + "";
                         }
-                        file = new File(this.c + f220a);
+                        file = new File(this.c + f221a);
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -156,9 +156,9 @@ public class dj implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f222a.isEmpty()) {
+                    while (!f223a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f222a.remove(0);
+                            Pair<String, Throwable> remove = f223a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -263,7 +263,7 @@ public class dj implements LoggerInterface {
     public final void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            this.f224a.post(new dk(this, str, th));
+            this.f225a.post(new dk(this, str, th));
         }
     }
 

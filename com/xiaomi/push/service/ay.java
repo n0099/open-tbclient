@@ -28,10 +28,10 @@ public class ay {
     public static final a<String, String, String> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f916a;
+    public static String f917a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f917a;
+    public static final String[] f918a;
     public static final a<String, String, String> b;
     public static final a<String, String, String> c;
     public static final a<String, String, String> d;
@@ -85,8 +85,8 @@ public class ay {
                 return;
             }
         }
-        f917a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
-        f916a = null;
+        f918a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
+        f917a = null;
         a = new a<>("setSound", "canSound", "canSound", null);
         b = new a<>("setVibrate", "canVibrate", "canVibrate", null);
         c = new a<>("setLights", "canLights", "canLights", null);
@@ -305,7 +305,7 @@ public class ay {
         if (!TextUtils.isEmpty(str)) {
             arrayList.add(str);
         }
-        arrayList.addAll(Arrays.asList(f917a));
+        arrayList.addAll(Arrays.asList(f918a));
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             String str2 = (String) arrayList.get(i);

@@ -1,234 +1,158 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.database.Cursor;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.share.ImShareDialogView;
+import com.baidu.tbadk.switchs.StrangeCleanSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y77;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class a87 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
+    public static int b = 500;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImShareDialogView a;
-    public y77 b;
-    public z77 c;
-    public ThreadData d;
-    public ForumData e;
-    public MetaData f;
-    public b g;
 
-    /* loaded from: classes5.dex */
-    public class a implements z77 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a87 b;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755902831, "Lcom/repackage/a87;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755902831, "Lcom/repackage/a87;");
+        }
+    }
 
-        public a(a87 a87Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a87Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void a() {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (!StrangeCleanSwitch.isOn()) {
+                gu4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+                return;
+            }
+            try {
+                try {
+                    t77.d().f();
+                    d = d();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(d)) {
                     return;
                 }
-            }
-            this.b = a87Var;
-            this.a = context;
-        }
-
-        @Override // com.repackage.z77
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
-                return;
-            }
-            pi.x(this.a, this.b.a);
-            this.b.b.dismiss();
-            if (this.b.g != null) {
-                this.b.g.onCancel();
-            }
-        }
-
-        @Override // com.repackage.z77
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.b.d == null) {
-                    if (this.b.e != null) {
-                        d97.a(this.b.e, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
-                        a87 a87Var = this.b;
-                        a87Var.q(1, 0, 3, String.valueOf(a87Var.f.getUserIdLong()));
-                    }
-                } else {
-                    d97.b(this.b.d, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
-                    jz4.e(this.b.f.getUserIdLong());
-                    int i = this.b.d.threadType == 40 ? 2 : 1;
-                    a87 a87Var2 = this.b;
-                    a87Var2.q(1, 0, i, String.valueOf(a87Var2.f.getUserIdLong()));
-                }
-                if (this.b.b != null) {
-                    pi.x(this.a, this.b.a);
-                    this.b.b.dismiss();
-                    if (this.b.g != null) {
-                        this.b.g.a();
-                    }
-                }
+                boolean b2 = b(d);
+                gu4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
+            } finally {
+                t77.d().b();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void onCancel();
-    }
-
-    public a87(Context context) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        i(context);
-        j(context);
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.d == null && this.e == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public final void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new a(this, context);
-        }
-    }
-
-    public final void j(final Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            ImShareDialogView imShareDialogView = new ImShareDialogView(context);
-            this.a = imShareDialogView;
-            imShareDialogView.setShareClickCallBack(this.c);
-            y77 y77Var = new y77(context, R.style.obfuscated_res_0x7f100106);
-            this.b = y77Var;
-            y77Var.setContentView(this.a);
-            this.b.a(new y77.a() { // from class: com.repackage.v77
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.repackage.y77.a
-                public final void onClick() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        a87.this.l(context);
-                    }
-                }
-            });
-            Window window = this.b.getWindow();
-            window.addFlags(512);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = pi.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-            window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003f2);
-            window.setGravity(80);
-            window.setLayout(-1, -2);
-        }
-    }
-
-    public final boolean k(Context context, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
-            if (view2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                t77 d = t77.d();
+                return d.c("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
                 return false;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            return iArr[1] < context.getResources().getDisplayMetrics().heightPixels / 2;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public /* synthetic */ void l(Context context) {
-        if (k(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
-            pi.x(context, this.a);
-        } else {
-            this.b.dismiss();
-        }
-    }
-
-    public void m(b bVar) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.g = bVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ru4.k().l("key_max_stranger", a) : invokeV.intValue;
     }
 
-    public void n(ForumData forumData, MetaData metaData) {
+    public static String d() {
+        InterceptResult invokeV;
+        List<String> e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, forumData, metaData) == null) {
-            this.e = forumData;
-            this.f = metaData;
-            this.a.l(forumData, metaData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                e = e();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
+            }
+            if (e != null && e.size() != 0) {
+                int c = c();
+                gu4.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
+                if (e.size() > c) {
+                    int i = 2000;
+                    if (2000 >= e.size() - c) {
+                        i = e.size() - c;
+                    }
+                    boolean z = true;
+                    for (String str : e.subList(0, i)) {
+                        if (z) {
+                            z = false;
+                        } else {
+                            sb.append(",");
+                        }
+                        sb.append(str);
+                    }
+                }
+                return sb.toString();
+            }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void o(ThreadData threadData, MetaData metaData) {
+    public static List<String> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, threadData, metaData) == null) {
-            this.d = threadData;
-            this.f = metaData;
-            this.a.m(threadData, metaData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = t77.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                ri.a(cursor);
+            }
         }
+        return (List) invokeV.objValue;
     }
 
-    public void p() {
+    public static void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.b != null && h()) {
-            this.b.show();
-        }
-    }
-
-    public final void q(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SEND_MSG).addParam("obj_source", i).addParam("obj_param1", i3).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.FRIEND_UID, str));
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            int i2 = b;
+            if (i < i2) {
+                i = i2;
+            }
+            ru4.k().w("key_max_stranger", i);
         }
     }
 }

@@ -22,13 +22,13 @@ public class bl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f142a;
+        public int f143a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f143a;
+        public Object f144a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f144a;
+        public String f145a;
 
         static {
             InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public class bl {
                     return;
                 }
             }
-            this.f142a = i;
-            this.f143a = obj;
+            this.f143a = i;
+            this.f144a = obj;
         }
     }
 

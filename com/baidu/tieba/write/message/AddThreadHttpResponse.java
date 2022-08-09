@@ -89,6 +89,8 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                     jSONObject3.put("current_level", addThreadResIdl.data.exp.current_level);
                     jSONObject3.put("old", addThreadResIdl.data.exp.old);
                     jSONObject3.put("inc", addThreadResIdl.data.exp.inc);
+                    jSONObject3.put("question_exp", addThreadResIdl.data.exp.question_exp);
+                    jSONObject3.put("question_msg", addThreadResIdl.data.exp.question_msg);
                     addThreadHttpResponse.resultJSON.put("exp", jSONObject3);
                 }
                 if (addThreadResIdl.data.contri_info != null) {
@@ -255,6 +257,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                     addThreadHttpResponse.resultJSON.put(SubPbActivityConfig.KEY_ANTI, jSONObject17);
                 }
                 addThreadHttpResponse.resultJSON.put("_ext_msg", addThreadResIdl.data.ext_msg);
+                addThreadHttpResponse.resultJSON.put("invitees_number", addThreadResIdl.data.invitees_number);
             }
             if (addThreadResIdl.error != null) {
                 JSONObject jSONObject19 = new JSONObject();

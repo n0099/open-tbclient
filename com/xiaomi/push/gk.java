@@ -21,14 +21,14 @@ public class gk implements go {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f430a;
+    public List<gk> f431a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String[] f431a;
+    public String[] f432a;
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String[] f432b;
+    public String[] f433b;
     public String c;
 
     public gk(String str, String str2, String[] strArr, String[] strArr2) {
@@ -46,13 +46,13 @@ public class gk implements go {
                 return;
             }
         }
+        this.f432a = null;
+        this.f433b = null;
         this.f431a = null;
-        this.f432b = null;
-        this.f430a = null;
         this.a = str;
         this.b = str2;
-        this.f431a = strArr;
-        this.f432b = strArr2;
+        this.f432a = strArr;
+        this.f433b = strArr2;
     }
 
     public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gk> list) {
@@ -70,15 +70,15 @@ public class gk implements go {
                 return;
             }
         }
+        this.f432a = null;
+        this.f433b = null;
         this.f431a = null;
-        this.f432b = null;
-        this.f430a = null;
         this.a = str;
         this.b = str2;
-        this.f431a = strArr;
-        this.f432b = strArr2;
+        this.f432a = strArr;
+        this.f433b = strArr2;
         this.c = str3;
-        this.f430a = list;
+        this.f431a = list;
     }
 
     public static gk a(Bundle bundle) {
@@ -145,22 +145,22 @@ public class gk implements go {
             bundle.putString("ext_ns", this.b);
             bundle.putString("ext_text", this.c);
             Bundle bundle2 = new Bundle();
-            String[] strArr = this.f431a;
+            String[] strArr = this.f432a;
             if (strArr != null && strArr.length > 0) {
                 int i = 0;
                 while (true) {
-                    String[] strArr2 = this.f431a;
+                    String[] strArr2 = this.f432a;
                     if (i >= strArr2.length) {
                         break;
                     }
-                    bundle2.putString(strArr2[i], this.f432b[i]);
+                    bundle2.putString(strArr2[i], this.f433b[i]);
                     i++;
                 }
             }
             bundle.putBundle("attributes", bundle2);
-            List<gk> list = this.f430a;
+            List<gk> list = this.f431a;
             if (list != null && list.size() > 0) {
-                bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f430a));
+                bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f431a));
             }
             return bundle;
         }
@@ -190,17 +190,17 @@ public class gk implements go {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f431a == null) {
+        if (this.f432a == null) {
             return null;
         }
         int i = 0;
         while (true) {
-            String[] strArr = this.f431a;
+            String[] strArr = this.f432a;
             if (i >= strArr.length) {
                 return null;
             }
             if (str.equals(strArr[i])) {
-                return this.f432b[i];
+                return this.f433b[i];
             }
             i++;
         }
@@ -209,13 +209,13 @@ public class gk implements go {
     public void a(gk gkVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, gkVar) == null) {
-            if (this.f430a == null) {
-                this.f430a = new ArrayList();
+            if (this.f431a == null) {
+                this.f431a = new ArrayList();
             }
-            if (this.f430a.contains(gkVar)) {
+            if (this.f431a.contains(gkVar)) {
                 return;
             }
-            this.f430a.add(gkVar);
+            this.f431a.add(gkVar);
         }
     }
 
@@ -257,26 +257,26 @@ public class gk implements go {
                 sb.append(this.b);
                 sb.append("\"");
             }
-            String[] strArr = this.f431a;
+            String[] strArr = this.f432a;
             if (strArr != null && strArr.length > 0) {
-                for (int i = 0; i < this.f431a.length; i++) {
-                    if (!TextUtils.isEmpty(this.f432b[i])) {
+                for (int i = 0; i < this.f432a.length; i++) {
+                    if (!TextUtils.isEmpty(this.f433b[i])) {
                         sb.append(" ");
-                        sb.append(this.f431a[i]);
+                        sb.append(this.f432a[i]);
                         sb.append("=\"");
-                        sb.append(gy.a(this.f432b[i]));
+                        sb.append(gy.a(this.f433b[i]));
                         sb.append("\"");
                     }
                 }
             }
             if (TextUtils.isEmpty(this.c)) {
-                List<gk> list = this.f430a;
+                List<gk> list = this.f431a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
                     return sb.toString();
                 }
                 sb.append(">");
-                for (gk gkVar : this.f430a) {
+                for (gk gkVar : this.f431a) {
                     sb.append(gkVar.d());
                 }
             } else {

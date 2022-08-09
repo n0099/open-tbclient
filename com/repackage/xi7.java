@@ -1,40 +1,35 @@
 package com.repackage;
 
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class xi7 {
+public class xi7 implements ExtLiveLogService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xi7(VipThemeItem vipThemeItem) {
+    public xi7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String str = vipThemeItem.img_url;
-        String str2 = vipThemeItem.title;
-        vipThemeItem.props_id.intValue();
-        vipThemeItem.props_category.intValue();
-        String str3 = vipThemeItem.props_category_name;
-        String str4 = vipThemeItem.desc;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.tag_img_url;
-        String str7 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
+    public void onLivePluginEvent(String str, Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
+            ng7.b(map);
+        }
     }
 }

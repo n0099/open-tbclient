@@ -1,161 +1,154 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.pageInfo.TbPageTag;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class p37 {
+import tbclient.NewTopicList.NewTopicList;
+import tbclient.NewTopicList.PkModule;
+import tbclient.TopicModule;
+/* loaded from: classes7.dex */
+public class p37 extends f06 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c0;
+    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n37 a;
-    public View b;
-    public BdTypeRecyclerView c;
-    public PbListView d;
+    public int R;
+    public long S;
+    public String T;
+    public String U;
+    public long V;
+    public String W;
+    public q37 X;
+    public PostData Y;
+    public int Z;
+    public String a0;
+    public ThreadData b0;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460771, "Lcom/repackage/p37;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755460771, "Lcom/repackage/p37;");
+                return;
+            }
+        }
+        c0 = BdUniqueId.gen();
+        d0 = BdUniqueId.gen();
     }
 
-    public p37(a aVar, View view2, TbPageContext tbPageContext) {
+    public p37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, view2, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b0a);
-        this.c = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-        this.c.setFadingEdgeLength(0);
-        this.c.setOverScrollMode(2);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.d = pbListView;
-        pbListView.a();
-        this.d.p(R.color.CAM_X0205);
-        this.d.t(pi.f(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.d.x();
-        this.d.G(R.dimen.tbfontsize33);
-        this.d.A(R.color.CAM_X0110);
-        this.c.setNextPage(this.d);
-        this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.d.f();
-        this.d.C(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
-        c();
-        this.a = new n37(tbPageContext, this.c);
+        this.Z = 0;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public static boolean N(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_TOPIC : invokeL.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void O(NewTopicList newTopicList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            PbListView pbListView = this.d;
-            if (pbListView != null) {
-                pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
-                this.d.d(skinType);
-            }
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
-                return;
-            }
-            this.c.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.scrollToPosition(0);
-        }
-    }
-
-    public void e(List<nn> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, newTopicList) == null) || newTopicList == null) {
             return;
         }
-        this.c.setData(list);
-    }
-
-    public void f(TbPageTag tbPageTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
-            this.a.a(tbPageTag);
+        this.S = newTopicList.topic_id.longValue();
+        this.T = newTopicList.topic_name;
+        this.U = newTopicList.topic_desc;
+        this.V = newTopicList.discuss_num.longValue();
+        this.W = newTopicList.topic_image;
+        PkModule pkModule = newTopicList.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            q37 q37Var = new q37();
+            this.X = q37Var;
+            q37Var.a = this.S;
+            q37Var.f = 1;
+            q37Var.b(newTopicList.pk_module);
+        }
+        if (newTopicList.top_agree_post != null) {
+            PostData postData = new PostData();
+            this.Y = postData;
+            postData.u0(newTopicList.top_agree_post);
         }
     }
 
-    public void g(boolean z) {
+    public void P(TopicModule topicModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.c.setVisibility(0);
-            } else {
-                this.c.setVisibility(8);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) == null) || topicModule == null) {
+            return;
+        }
+        this.S = topicModule.topic_id.longValue();
+        this.T = topicModule.topic_name;
+        this.U = topicModule.topic_desc;
+        this.W = topicModule.topic_image;
+        this.a0 = topicModule.topic_avatar;
+        tbclient.PkModule pkModule = topicModule.pk_module;
+        if (pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
+        }
+        q37 q37Var = new q37();
+        this.X = q37Var;
+        q37Var.a = this.S;
+        q37Var.f = 3;
+        q37Var.c(topicModule.pk_module);
+    }
+
+    public void Q(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            this.b0 = threadData;
+        }
+    }
+
+    @Override // com.repackage.f06, com.repackage.fo4
+    public cq4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            cq4 negFeedBackData = super.getNegFeedBackData();
+            if (negFeedBackData != null) {
+                negFeedBackData.q(this.S);
             }
+            return negFeedBackData;
         }
+        return (cq4) invokeV.objValue;
     }
 
-    public void h(boolean z) {
+    @Override // com.repackage.f06, com.repackage.fo4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            ld6 ld6Var = new ld6();
-            ld6Var.a = 401;
-            ld6Var.b = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, ld6Var));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (ThreadData) invokeV.objValue;
     }
 
-    public void i() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new kd6());
-            this.c.setData(arrayList);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.Z == 0 ? c0 : d0 : (BdUniqueId) invokeV.objValue;
     }
 }

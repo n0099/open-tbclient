@@ -1,34 +1,32 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p94;
-import java.util.HashMap;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class s32 extends q03 implements w32 {
+public class s32 extends cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s32(h03 h03Var) {
-        super(h03Var);
+    public s32(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h03Var};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l03) newInitContext.callArgs[0]);
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,49 +34,36 @@ public abstract class s32 extends q03 implements w32 {
         }
     }
 
-    public static final Map<String, String> I(Bundle bundle) {
+    @Override // com.repackage.cp1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cp1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+    }
+
+    public zs1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
-            HashMap hashMap = new HashMap();
-            if (bundle != null && !bundle.isEmpty()) {
-                for (String str : bundle.keySet()) {
-                    hashMap.put(str, bundle.getString(str));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (z03.b0() == null) {
+                return new zs1(1001, "SwanApp is null");
             }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static final Bundle J(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
+            Pair<zs1, JSONObject> s = s(str);
+            zs1 zs1Var = (zs1) s.first;
+            if (zs1Var.isSuccess()) {
+                p32.c().j((JSONObject) s.second);
+                return zs1.f();
             }
-            return bundle;
+            return zs1Var;
         }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // com.repackage.p94
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, p94.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            pj2.r0().b(str, map, map2, jSONObject, aVar);
-        }
-    }
-
-    @Override // com.repackage.p94
-    public void z(String str, Map<String, String> map, Map<String, String> map2, p94.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            pj2.r0().z(str, map, map2, aVar);
-        }
+        return (zs1) invokeL.objValue;
     }
 }

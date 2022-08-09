@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FragmentTabWidget extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -269,8 +269,8 @@ public class FragmentTabWidget extends LinearLayout {
             paint.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-            this.l = pi.d(getContext(), 1.0f);
-            this.m = pi.d(getContext(), 2.0f);
+            this.l = qi.d(getContext(), 1.0f);
+            this.m = qi.d(getContext(), 2.0f);
             this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;

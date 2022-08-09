@@ -1,14 +1,11 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,25 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iy2;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.px2;
+import java.util.ArrayDeque;
+import java.util.Deque;
 /* loaded from: classes7.dex */
-public class vx2 {
+public class vx2 implements px2.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static vx2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public HashMap<String, wx2> b;
-    public List<String> c;
+    public final Deque<Message> a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +35,7 @@ public class vx2 {
                 return;
             }
         }
-        d = sg1.a;
+        boolean z = jh1.a;
     }
 
     public vx2() {
@@ -65,147 +51,77 @@ public class vx2 {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList();
+        this.a = new ArrayDeque();
     }
 
-    public static vx2 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.px2.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (vx2.class) {
-                    if (e == null) {
-                        e = new vx2();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ux2 Q = ux2.Q();
+            while (Q.O() && !this.a.isEmpty()) {
+                Message peek = this.a.peek();
+                if (peek == null || e(peek)) {
+                    this.a.poll();
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.px2.c
+    public void b(@NonNull rx2 rx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rx2Var) == null) {
+            Message h = rx2Var.h();
+            h.arg1 = SwanAppProcessInfo.current().index;
+            if (y03.K().E()) {
+                Object obj = h.obj;
+                if (obj instanceof Bundle) {
+                    Bundle bundle = (Bundle) obj;
+                    if (!bundle.containsKey("ai_apps_id")) {
+                        bundle.putString("ai_apps_id", y03.K().getAppId());
                     }
                 }
             }
-            return e;
+            if (e(h) || !rx2Var.n()) {
+                return;
+            }
+            this.a.offer(h);
+            ux2.Q().c0();
         }
-        return (vx2) invokeV.objValue;
     }
 
-    public Bitmap a(String str) {
+    @Override // com.repackage.px2.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.px2.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final boolean e(Message message) {
         InterceptResult invokeL;
-        wx2 wx2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, wx2> hashMap = this.b;
-            if (hashMap == null || (wx2Var = hashMap.get(str)) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
+            ux2 Q = ux2.Q();
+            if (message == null || !Q.O()) {
+                return false;
             }
-            return wx2Var.a();
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
-            return list != null && list.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "get emoji info from " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String E = kg4.E(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(E)) {
-                    if (d) {
-                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
-                        return;
-                    }
-                    return;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
-                    }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.c.clear();
-                    this.b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            String optString4 = jSONObject.optString("icon");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.c.add(optString3);
-                                this.b.put(optString3, new wx2(optString2, optString3, decodeFile));
-                            }
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (d) {
-                Log.d("EmojiInfoManager", "文件路径错误");
+            try {
+                Q.S().send(message);
+                return true;
+            } catch (RemoteException e) {
+                Q.U();
+                zx1.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
+                return false;
             }
         }
-    }
-
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
-            }
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a = c().a(group);
-                if (a == null) {
-                    break;
-                }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new iy2.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new iy2.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
-            }
-            return spannableString;
-        }
-        return (SpannableString) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 }

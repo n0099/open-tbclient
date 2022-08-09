@@ -1,58 +1,69 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-/* loaded from: classes6.dex */
-public final class om9 implements Runnable {
+/* loaded from: classes7.dex */
+public class om9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final om9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ lm9 c;
 
-    public om9(lm9 lm9Var, Context context, ArCoreApk.a aVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755434762, "Lcom/repackage/om9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755434762, "Lcom/repackage/om9;");
+                return;
+            }
+        }
+        a = pm9.a;
+        b = new om9();
+    }
+
+    public om9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lm9Var, context, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = lm9Var;
-        this.a = context;
-        this.b = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @NonNull
+    public static om9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                lm9 lm9Var = this.c;
-                l = lm9.l();
-                aVar.a(str, l, new com.google.ar.core.u(this));
-            } catch (RemoteException e) {
-                Log.e("ARCore-InstallService", "requestInfo threw", e);
-                this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (om9) invokeV.objValue;
+    }
+
+    public int b(@NonNull Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            int a2 = pm9.a(context, i);
+            if (pm9.b(context, a2)) {
+                return 18;
             }
+            return a2;
         }
+        return invokeLI.intValue;
     }
 }

@@ -1,19 +1,23 @@
 package com.repackage;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
+/* loaded from: classes7.dex */
 public class oa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
     public String b;
-    public String c;
+    public int c;
+    public TbRichText d;
 
     public oa8() {
         Interceptable interceptable = $ic;
@@ -29,20 +33,41 @@ public class oa8 {
         }
     }
 
-    public static oa8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public TbRichText a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            oa8 oa8Var = new oa8();
-            jSONObject.optString("brand_name");
-            oa8Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            oa8Var.b = jSONObject.optString("button_scheme");
-            oa8Var.c = jSONObject.optString("cmd_scheme");
-            return oa8Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (TbRichText) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void e(LockWindowThreadInfo lockWindowThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, lockWindowThreadInfo) == null) || lockWindowThreadInfo == null) {
+            return;
         }
-        return (oa8) invokeL.objValue;
+        this.a = lockWindowThreadInfo.tid.longValue();
+        this.b = lockWindowThreadInfo.title;
+        this.c = lockWindowThreadInfo.post_num.intValue();
+        if (ListUtils.isEmpty(lockWindowThreadInfo.content)) {
+            return;
+        }
+        this.d = TbRichTextView.X(lockWindowThreadInfo.content, true);
     }
 }

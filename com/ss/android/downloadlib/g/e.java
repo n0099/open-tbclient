@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.ss.android.download.api.download.DownloadModel;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     @Nullable
     public static JSONObject a() {

@@ -1,19 +1,23 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.Window;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.JSONUtils;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class id3 {
     public static /* synthetic */ Interceptable $ic;
@@ -33,105 +37,119 @@ public final class id3 {
                 return;
             }
         }
-        a = sg1.a;
+        a = jh1.a;
     }
 
-    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
-        InterceptResult invokeLLL;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            T t = (T) jSONObject.opt(str);
-            if (cls.isInstance(t)) {
-                if (a) {
-                    String obj = t.toString();
-                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
-                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
-                    }
-                    if (a) {
-                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
-                    }
-                }
-                return t;
-            }
-            if (a) {
-                if (t == null) {
-                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
-                } else {
-                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
         }
-        return (T) invokeLLL.objValue;
+        Window window = activity.getWindow();
+        window.clearFlags(1024);
+        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
+        if (vz2.b) {
+            systemUiVisibility |= 5120;
+        }
+        window.getDecorView().setSystemUiVisibility(systemUiVisibility);
     }
 
-    public static float b(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
+    public static void b(Activity activity, Dialog dialog) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
+            return;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
     }
 
-    public static JSONArray c(JSONObject jSONObject, String str) {
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 5894;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        Window window = activity.getWindow();
+        window.setFlags(1024, 1024);
+        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
+    }
+
+    public static void f(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
+            h(activity, intent, true);
+        }
+    }
+
+    public static boolean g(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) ? (JSONArray) a(jSONObject, str, JSONArray.class) : (JSONArray) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) ? h(context, intent, false) : invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static JSONObject d(String str) {
-        InterceptResult invokeL;
+    public static boolean h(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) ? i(context, intent, z, true) : invokeLLZ.booleanValue;
+    }
+
+    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f122a, 0).show();
+                    return false;
                 }
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONArray e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONArray();
-            }
-            try {
-                return new JSONArray(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
+                return false;
+            } catch (SecurityException e) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f122a, 0).show();
                 }
-                return new JSONArray();
+                if (a) {
+                    Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                    return false;
+                }
+                return false;
             }
         }
-        return (JSONArray) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
-        InterceptResult invokeLLL;
+    public static void j(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            if (a) {
+                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
             }
-            try {
-                jSONObject.put(str, obj);
-            } catch (JSONException unused) {
+            if (activity == null || activity.isDestroyed()) {
+                return;
             }
-            return jSONObject;
+            if (Build.VERSION.SDK_INT >= 21) {
+                activity.finishAndRemoveTask();
+            } else {
+                activity.finish();
+            }
         }
-        return (JSONObject) invokeLLL.objValue;
     }
 }

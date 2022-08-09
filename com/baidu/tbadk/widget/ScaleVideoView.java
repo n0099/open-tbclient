@@ -77,10 +77,10 @@ public class ScaleVideoView extends VideoView {
             }
         }
         this.d = new a(this);
-        g();
+        f();
     }
 
-    public final void g() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b = 0;
@@ -169,7 +169,7 @@ public class ScaleVideoView extends VideoView {
             }
         }
         this.d = new a(this);
-        g();
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -192,6 +192,6 @@ public class ScaleVideoView extends VideoView {
             }
         }
         this.d = new a(this);
-        g();
+        f();
     }
 }

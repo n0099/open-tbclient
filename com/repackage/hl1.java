@@ -1,19 +1,12 @@
 package com.repackage;
 
-import java.io.File;
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public interface hl1 extends zt2 {
-    File a();
+public interface hl1 {
+    long a(Context context);
 
-    void e(String str, String str2);
+    void b(Context context, String str, sf3<String> sf3Var);
 
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void c(Context context, JSONArray jSONArray, sf3<String> sf3Var);
 }

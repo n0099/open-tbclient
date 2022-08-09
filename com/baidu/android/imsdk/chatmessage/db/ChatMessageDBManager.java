@@ -87,7 +87,7 @@ public class ChatMessageDBManager extends DBBase {
                 return;
             }
         }
-        UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL), 2001, 36);
+        UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2014, 2001, 36);
     }
 
     public ChatMessageDBManager(Context context) {
@@ -671,7 +671,7 @@ public class ChatMessageDBManager extends DBBase {
                             }
                             for (long j2 : jArr) {
                                 long j3 = j2 + 1;
-                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
+                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
                                 LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + j3);
                             }
                         } catch (Exception e3) {
@@ -4196,7 +4196,7 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 try {
                     long j2 = j + 1;
-                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
+                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
                     String str = TAG;
                     LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
                 } catch (Exception e2) {

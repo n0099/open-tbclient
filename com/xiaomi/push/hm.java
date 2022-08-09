@@ -19,11 +19,11 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public static final jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f473a;
+    public static final jk f474a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hn> f474a;
+    public List<hn> f475a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f473a = new jk("ClientUploadData");
+        f474a = new jk("ClientUploadData");
         a = new jc("", (byte) 15, (short) 1);
     }
 
@@ -60,7 +60,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<hn> list = this.f474a;
+            List<hn> list = this.f475a;
             if (list == null) {
                 return 0;
             }
@@ -82,7 +82,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m397a() || (a2 = iv.a(this.f474a, hmVar.f474a)) == 0) {
+                if (!m397a() || (a2 = iv.a(this.f475a, hmVar.f475a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -95,7 +95,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     /* renamed from: a  reason: collision with other method in class */
     public void m396a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f474a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f475a == null) {
             throw new jg("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
     }
@@ -103,10 +103,10 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public void a(hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hnVar) == null) {
-            if (this.f474a == null) {
-                this.f474a = new ArrayList();
+            if (this.f475a == null) {
+                this.f475a = new ArrayList();
             }
-            this.f474a.add(hnVar);
+            this.f475a.add(hnVar);
         }
     }
 
@@ -125,13 +125,13 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
                 m396a();
                 return;
             }
-            if (m545a.f809a == 1 && b == 15) {
+            if (m545a.f810a == 1 && b == 15) {
                 jd m546a = jfVar.m546a();
-                this.f474a = new ArrayList(m546a.f810a);
-                for (int i = 0; i < m546a.f810a; i++) {
+                this.f475a = new ArrayList(m546a.f811a);
+                for (int i = 0; i < m546a.f811a; i++) {
                     hn hnVar = new hn();
                     hnVar.a(jfVar);
-                    this.f474a.add(hnVar);
+                    this.f475a.add(hnVar);
                 }
                 jfVar.i();
             } else {
@@ -145,7 +145,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public boolean m397a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f474a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f475a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -159,7 +159,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
             boolean m397a = m397a();
             boolean m397a2 = hmVar.m397a();
             if (m397a || m397a2) {
-                return m397a && m397a2 && this.f474a.equals(hmVar.f474a);
+                return m397a && m397a2 && this.f475a.equals(hmVar.f475a);
             }
             return true;
         }
@@ -171,11 +171,11 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jfVar) == null) {
             m396a();
-            jfVar.a(f473a);
-            if (this.f474a != null) {
+            jfVar.a(f474a);
+            if (this.f475a != null) {
                 jfVar.a(a);
-                jfVar.a(new jd((byte) 12, this.f474a.size()));
-                for (hn hnVar : this.f474a) {
+                jfVar.a(new jd((byte) 12, this.f475a.size()));
+                for (hn hnVar : this.f475a) {
                     hnVar.b(jfVar);
                 }
                 jfVar.e();
@@ -213,7 +213,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             StringBuilder sb = new StringBuilder("ClientUploadData(");
             sb.append("uploadDataItems:");
-            List<hn> list = this.f474a;
+            List<hn> list = this.f475a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

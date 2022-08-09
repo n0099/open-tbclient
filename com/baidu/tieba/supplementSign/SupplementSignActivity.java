@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj8;
+import com.repackage.pl8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
@@ -27,7 +27,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public dj8 f;
+    public pl8 f;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -83,7 +83,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new dj8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new pl8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +106,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.dj8
+            @Override // com.repackage.pl8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -150,7 +150,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mView.H();
+            this.mView.M();
         }
     }
 
@@ -164,7 +164,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.a = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
             addJsPromptInterface(this.f);
-            this.mView.v(false);
+            this.mView.A(false);
             registerListener(this.e);
         }
     }

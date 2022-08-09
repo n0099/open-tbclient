@@ -1,223 +1,177 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tbadk.editortools.view.CommonTabContentView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h35;
-import com.repackage.rh8;
-/* loaded from: classes6.dex */
-public class p25 {
+import com.repackage.u45;
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public class p25 extends u45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditorTools a;
-    public Context b;
-    public View c;
-    public q25 d;
-    public s25 e;
+    public LinkedList<o25> m;
 
-    public p25(Context context, View view2, q25 q25Var) {
+    /* loaded from: classes7.dex */
+    public class a implements u45.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p25 a;
+
+        public a(p25 p25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p25Var;
+        }
+
+        @Override // com.repackage.u45.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher D = this.a.D(i);
+                if (D.getLayoutParams() == null) {
+                    D.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                }
+                return D;
+            }
+            return (View) invokeILL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements CommonTabContentView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p25 a;
+
+        public b(p25 p25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p25Var;
+        }
+
+        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
+        public void a(View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
+                this.a.j.x(view2);
+            }
+        }
+    }
+
+    public p25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, q25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (k(context, view2, q25Var)) {
-            this.b = context;
-            this.c = view2;
-            this.d = q25Var;
-            c();
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.c instanceof RelativeLayout)) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            ((RelativeLayout) this.c).addView(this.a, layoutParams);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l();
-            this.a.o();
-            if (this.c == null || this.a.getParent() == null) {
-                return;
-            }
-            View view2 = this.c;
-            if (view2 instanceof RelativeLayout) {
-                ((RelativeLayout) view2).removeView(this.a);
             }
         }
     }
 
-    public final void c() {
+    @Override // com.repackage.i25
+    public void A(h25 h25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d();
-            e();
+        if (interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) {
         }
     }
 
-    public final void d() {
+    public void C(LinkedList<o25> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    public final DLauncher D(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i < 0 || i >= c()) {
+                return null;
+            }
+            return (DLauncher) this.m.get(i);
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    @Override // com.repackage.u45
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            EditorTools a = ((x25) new y25(this.d).a(this.b)).a();
-            this.a = a;
-            a.setId(R.id.obfuscated_res_0x7f091362);
-            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.repackage.n25
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        p25.this.f(view2);
-                    }
-                }
-            });
-            Context context = this.b;
-            if (context instanceof Activity) {
-                h35.b((Activity) context, this.a.b, new h35.b() { // from class: com.repackage.o25
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.repackage.h35.b
-                    public final void a(boolean z) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                            p25.this.g(z);
-                        }
-                    }
-                });
+            LinkedList<o25> linkedList = this.m;
+            if (linkedList != null) {
+                linkedList.clear();
             }
-            ((LocalInputContainer) this.a.n(36).m).setSendBtnClickListener(new LocalInputContainer.c() { // from class: com.repackage.m25
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tbadk.editortools.local.view.LocalInputContainer.c
-                public final void a(q25 q25Var, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, q25Var, str) == null) {
-                        p25.this.h(q25Var, str);
-                    }
-                }
-            });
-            a();
+            this.m = null;
         }
     }
 
-    public final void e() {
+    @Override // com.repackage.u45
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = new s25(this.d);
-        }
-    }
-
-    public /* synthetic */ void f(View view2) {
-        b();
-    }
-
-    public /* synthetic */ void g(boolean z) {
-        if (z) {
-            this.a.b.setVisibility(0);
-            this.a.b.setBackgroundColorId(R.color.CAM_X0207);
-            return;
-        }
-        this.a.b.o();
-    }
-
-    public /* synthetic */ void h(q25 q25Var, String str) {
-        s25 s25Var = this.e;
-        if (s25Var != null) {
-            s25Var.f(q25Var, str);
-            b();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SEND_BTN_CLICK);
-            statisticItem.addParam("obj_id", q25Var.a().a);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public /* synthetic */ void i(String str) {
-        this.a.A(new k15(6, 36, str));
-    }
-
-    public final void j() {
-        s25 s25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (s25Var = this.e) == null) {
-            return;
-        }
-        s25Var.d(new rh8.g() { // from class: com.repackage.l25
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.repackage.rh8.g
-            public final void a(String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                    p25.this.i(str);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<o25> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
             }
-        });
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    public final boolean k(Context context, View view2, q25 q25Var) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.u45
+    public void n(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, view2, q25Var)) == null) ? (!(context instanceof Activity) || view2 == null || q25Var == null) ? false : true : invokeLLL.booleanValue;
-    }
-
-    public final void l() {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (editorTools = this.a) == null || editorTools.n(36) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            o(4);
+            v(2);
+            x(new a(this));
+            h().b(this);
+            s(new b(this));
         }
-        w15 w15Var = this.a.n(36).m;
-        if (w15Var instanceof LocalInputContainer) {
-            String inputContentDraft = ((LocalInputContainer) w15Var).getInputContentDraft();
-            s25 s25Var = this.e;
-            if (s25Var != null) {
-                s25Var.e(inputContentDraft);
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.a == null) {
-            return;
-        }
-        j();
-        this.a.j();
-        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SHOW);
-        statisticItem.addParam("obj_id", this.d.a().a);
-        TiebaStatic.log(statisticItem);
     }
 }

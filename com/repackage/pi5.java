@@ -1,26 +1,47 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
-public interface pi5 extends si5<ui5> {
-    void a(int i);
+/* loaded from: classes7.dex */
+public class pi5<T> implements gj5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<T> a;
 
-    List<Integer> d();
+    public pi5(List<T> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = list;
+    }
 
-    void e(List<oi5> list, String str, String str2, String str3, String str4, boolean z, int i);
+    @Override // com.repackage.gj5
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
 
-    TypeAdapter.ViewHolder f(ViewGroup viewGroup, Object obj);
-
-    void h(List<oi5> list, int i);
-
-    void j(List<Object> list);
-
-    View l(int i, View view2, ViewGroup viewGroup, Object obj);
-
-    void m(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
-
-    void n(List<oi5> list, List<oi5> list2, boolean z, int i);
+    @Override // com.repackage.gj5
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (i < 0 || i >= this.a.size()) ? "" : this.a.get(i) : invokeI.objValue;
+    }
 }

@@ -1,26 +1,23 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: lambda */
 /* loaded from: classes7.dex */
-public interface qy7 {
-    AbsVideoPbFragment B();
+public final /* synthetic */ class qy7 implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ qy7 a = new qy7();
+    public transient /* synthetic */ FieldHolder $fh;
 
-    PbModel.h D0();
+    private /* synthetic */ qy7() {
+    }
 
-    PbModel F();
-
-    AbsPbActivity N();
-
-    void finish();
-
-    TbPageContext getPageContext();
-
-    PbFragment m1();
-
-    void registerListener(MessageListener<?> messageListener);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ry7.c(view2);
+        }
+    }
 }

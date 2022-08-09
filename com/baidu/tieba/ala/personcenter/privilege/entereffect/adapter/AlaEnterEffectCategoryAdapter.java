@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
-import com.repackage.xv5;
+import com.repackage.bn;
+import com.repackage.px5;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends bn<px5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,14 +48,14 @@ public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0908b0);
-            this.b = a().findViewById(R.id.obfuscated_res_0x7f0901c7);
+            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0908e7);
+            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901cf);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, xv5.b);
+        super(context, px5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
         }
     }
 
-    public final void Z(ViewHolder viewHolder) {
+    public final void s(ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || viewHolder == null) {
             return;
@@ -85,31 +85,31 @@ public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public ViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00e8, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00e8, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, xv5 xv5Var, ViewHolder viewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, px5 px5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xv5Var, viewHolder})) == null) {
-            if (xv5Var != null) {
-                viewHolder.a.setText(xv5Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, px5Var, viewHolder})) == null) {
+            if (px5Var != null) {
+                viewHolder.a.setText(px5Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);
             } else {
                 viewHolder.b.setVisibility(0);
             }
-            Z(viewHolder);
-            return viewHolder.a();
+            s(viewHolder);
+            return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

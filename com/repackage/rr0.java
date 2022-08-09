@@ -1,13 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rr0 extends vr0 {
+public class rr0 extends or0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,22 +25,78 @@ public class rr0 extends vr0 {
         }
     }
 
-    public static vr0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public void d(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            vr0 m = vr0.m(str, 6);
-            m.u(1);
-            m.s(1);
-            return m;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
+            ur0 w = qr0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
+            w.n(2, String.valueOf(obj));
+            w.n(4, Integer.valueOf(i2));
+            c(w);
         }
-        return (vr0) invokeL.objValue;
     }
 
-    @Override // com.repackage.vr0
-    public boolean b(@NonNull ws0 ws0Var) {
-        InterceptResult invokeL;
+    public void e(int i, int i2, Object obj) {
+        ur0 w;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ws0Var)) == null) ? 1 != ws0Var.getType() : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            if (i == 701) {
+                w = qr0.w(StatisticsEvent.ACTION_BUFFER_START);
+            } else if (i == 702) {
+                w = qr0.w(StatisticsEvent.ACTION_BUFFER_END);
+            } else if (i == 904 || i == 956) {
+                w = qr0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                w.n(2, String.valueOf(obj));
+            } else if (i == 10009) {
+                w = qr0.w("statistics_player_carlton");
+                w.n(2, String.valueOf(obj));
+            } else if (i != 11004) {
+                w = i != 11005 ? null : qr0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
+            } else {
+                w = qr0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                w.n(4, Integer.valueOf(i2));
+            }
+            if (w != null) {
+                c(w);
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            ur0 w = qr0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(qr0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(qr0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(qr0.w(StatisticsEvent.ACTION_PLAYER_START));
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            ur0 w = qr0.w(StatisticsEvent.ACTION_PLAYER_STOP);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
     }
 }

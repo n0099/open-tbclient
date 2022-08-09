@@ -10,26 +10,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xo0 extends ip0 {
+public class xo0 extends yo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public hu0 P;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo0(@NonNull us0 us0Var, @Nullable Context context) {
-        super(us0Var, context);
+    public xo0(@NonNull ts0 ts0Var, @Nullable Context context) {
+        super(ts0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {us0Var, context};
+            Object[] objArr = {ts0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((us0) objArr2[0], (Context) objArr2[1]);
+                super((ts0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +35,7 @@ public class xo0 extends ip0 {
         }
     }
 
-    @Override // com.repackage.ip0, com.repackage.cp0, com.repackage.bp0
+    @Override // com.repackage.yo0, com.repackage.bp0, com.repackage.ap0
     public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,22 +45,12 @@ public class xo0 extends ip0 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.ip0, com.repackage.op0, com.repackage.bp0
+    @Override // com.repackage.yo0, com.repackage.np0, com.repackage.ap0
     public void G0(@Nullable Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            super.G0(context);
-            b(new zu0());
-            I1("ad_video_tail_frame_layer");
-        }
-    }
-
-    public void I1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            mu0 mu0Var = new mu0(str);
-            this.P = mu0Var;
-            b(mu0Var);
+            b(new yu0());
+            v().setClickable(false);
         }
     }
 }

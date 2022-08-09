@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd3;
-/* loaded from: classes2.dex */
+import com.repackage.ae3;
+/* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context w;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,12 +47,12 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jd3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
+                ae3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jd3.b(this.a.w, false);
+                ae3.b(this.a.w, false);
             }
         }
     }
@@ -127,7 +127,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(R.id.obfuscated_res_0x7f0918a1)).requestFocus();
+            ((EditText) findViewById(R.id.obfuscated_res_0x7f091975)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }

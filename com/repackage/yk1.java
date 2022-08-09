@@ -1,10 +1,11 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
-import java.util.List;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface yk1 {
-    @Nullable
-    List<ContentValues> a();
+    boolean a(Context context, String str);
+
+    boolean b(Context context, String str);
+
+    boolean c(Context context, String str);
 }

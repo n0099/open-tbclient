@@ -1,13 +1,26 @@
 package com.repackage;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
 public interface uu8 {
-    void C(boolean z);
+    String a();
 
-    void d0(tu8 tu8Var);
+    void b(Intent intent);
 
-    void l(boolean z);
+    String c();
 
-    void o(CloudMusicData cloudMusicData);
+    String d();
+
+    void e(BdUniqueId bdUniqueId);
+
+    String f();
+
+    String g();
+
+    String getVideoUrl();
+
+    String h();
+
+    String i();
 }

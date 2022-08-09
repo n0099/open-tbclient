@@ -19,23 +19,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c17;
+import com.repackage.a37;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.g17;
-import com.repackage.ni;
-import com.repackage.nn;
-import com.repackage.za;
+import com.repackage.oi;
+import com.repackage.on;
+import com.repackage.w27;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c17 a;
-    public g17 b;
-    public za c;
+    public w27 a;
+    public a37 b;
+    public ab c;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -62,7 +62,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             long j2;
@@ -93,7 +93,7 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends za {
+    public class b extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -120,7 +120,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
@@ -132,12 +132,12 @@ public class TopicDetailModel extends BdBaseModel {
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
                 this.a.b = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            this.a.a.u(responsedMessage.getError(), this.a.b);
+            this.a.a.t(responsedMessage.getError(), this.a.b);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends za {
+    public class c extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -164,27 +164,27 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
-            List<nn> list = null;
+            List<on> list = null;
             boolean z = false;
             if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
                 ResponseHttpGetTopicThreadMessage responseHttpGetTopicThreadMessage = (ResponseHttpGetTopicThreadMessage) responsedMessage;
-                List<nn> dataList = responseHttpGetTopicThreadMessage.getDataList();
+                List<on> dataList = responseHttpGetTopicThreadMessage.getDataList();
                 z = responseHttpGetTopicThreadMessage.getHasMore();
                 list = dataList;
             }
             if (responsedMessage instanceof ResponseSocketGetTopicThreadMessage) {
                 ResponseSocketGetTopicThreadMessage responseSocketGetTopicThreadMessage = (ResponseSocketGetTopicThreadMessage) responsedMessage;
-                List<nn> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
+                List<on> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            this.a.a.N0(responsedMessage.getError(), z, list);
+            this.a.a.M0(responsedMessage.getError(), z, list);
         }
     }
 
@@ -212,13 +212,13 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void F(long j) {
+    public void E(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            if (!ni.A()) {
-                c17 c17Var = this.a;
-                if (c17Var != null) {
-                    c17Var.u(-1, null);
+            if (!oi.A()) {
+                w27 w27Var = this.a;
+                if (w27Var != null) {
+                    w27Var.t(-1, null);
                     return;
                 }
                 return;
@@ -231,13 +231,13 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void G(long j, long j2, long j3) {
+    public void F(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (!ni.A()) {
-                c17 c17Var = this.a;
-                if (c17Var != null) {
-                    c17Var.N0(-1, false, null);
+            if (!oi.A()) {
+                w27 w27Var = this.a;
+                if (w27Var != null) {
+                    w27Var.M0(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void H(c17 c17Var) {
+    public void G(w27 w27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c17Var) == null) {
-            this.a = c17Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w27Var) == null) {
+            this.a = w27Var;
         }
     }
 

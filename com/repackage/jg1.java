@@ -1,60 +1,78 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jg1 implements ServiceConnection {
-    public static /* synthetic */ Interceptable $ic;
+public class jg1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 60000;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hg1 a;
 
-    public jg1(hg1 hg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hg1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755589731, "Lcom/repackage/jg1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755589731, "Lcom/repackage/jg1;");
                 return;
             }
         }
-        this.a = hg1Var;
+        b = a * 60;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @SuppressLint({"WrongConstant"})
+    public static void a(Context context, long j) {
+        PendingIntent broadcast;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0171a.a(iBinder);
-            eg1 eg1Var = this.a.e;
-            if (eg1Var != null) {
-                eg1Var.a();
+        if (!(interceptable == null || interceptable.invokeLJ(65537, null, context, j) == null) || j <= 0) {
+            return;
+        }
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent();
+            intent.setPackage(context.getPackageName());
+            intent.setAction("sso_action_t_m");
+            if (b(context)) {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
+            } else {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
             }
+            alarmManager.cancel(broadcast);
+            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
+        } catch (Throwable th) {
+            kg1.d(th);
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            hg1 hg1Var = this.a;
-            hg1Var.a = null;
-            eg1 eg1Var = hg1Var.e;
-            if (eg1Var != null) {
-                eg1Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    return Build.VERSION.SDK_INT >= 31;
+                }
+                return false;
+            } catch (Throwable th) {
+                kg1.d(th);
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 }

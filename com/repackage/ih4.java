@@ -1,18 +1,19 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ih4 implements dl1 {
+public class ih4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<lh4<T>> a;
 
     public ih4() {
         Interceptable interceptable = $ic;
@@ -24,42 +25,81 @@ public class ih4 implements dl1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList(6);
     }
 
-    @Override // com.repackage.dl1
-    public tg2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public void a(lh4<T> lh4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) ? new kh4() : (tg2) invokeLL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lh4Var) == null) || lh4Var == null || this.a.contains(lh4Var)) {
+            return;
+        }
+        this.a.add(lh4Var);
     }
 
-    @Override // com.repackage.dl1
-    public ti2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public T b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) ? new nh4(invoker, str) : (ti2) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<lh4> arrayList = new ArrayList();
+            Iterator<lh4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                lh4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (lh4 lh4Var : arrayList) {
+                    lh4Var.put(t);
+                }
+            }
+            return t;
+        }
+        return (T) invokeV.objValue;
     }
 
-    @Override // com.repackage.dl1
-    public ti2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) ? new mh4(invoker, str) : (ti2) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null && (t instanceof String)) {
+                String str = (String) t;
+                if (str.length() != 32) {
+                    return false;
+                }
+                for (char c : str.toCharArray()) {
+                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.dl1
-    public sg2 d(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public void d(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) ? new jh4() : (sg2) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.dl1
-    public qe2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) ? new xh4(invoker, str) : (qe2) invokeLL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+            return;
+        }
+        for (lh4<T> lh4Var : this.a) {
+            if (lh4Var.a()) {
+                lh4Var.put(t);
+            }
+        }
     }
 }

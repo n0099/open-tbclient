@@ -18,21 +18,21 @@ public class jb extends jf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f802a;
+    public int f803a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f803a;
+    public boolean f804a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f804a;
+    public byte[] f805a;
     public boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    public byte[] f805b;
+    public byte[] f806b;
     public boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    public byte[] f806c;
+    public byte[] f807c;
     public byte[] d;
     public byte[] e;
     public byte[] f;
@@ -46,7 +46,7 @@ public class jb extends jf {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f807a;
+        public boolean f808a;
         public boolean b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -104,9 +104,9 @@ public class jb extends jf {
                     return;
                 }
             }
-            this.f807a = false;
+            this.f808a = false;
             this.b = true;
-            this.f807a = z;
+            this.f808a = z;
             this.b = z2;
             this.a = i;
         }
@@ -116,7 +116,7 @@ public class jb extends jf {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jpVar)) == null) {
-                jb jbVar = new jb(jpVar, this.f807a, this.b);
+                jb jbVar = new jb(jpVar, this.f808a, this.b);
                 int i = this.a;
                 if (i != 0) {
                     jbVar.b(i);
@@ -161,18 +161,18 @@ public class jb extends jf {
                 return;
             }
         }
-        this.f803a = false;
+        this.f804a = false;
         this.b = true;
         this.c = false;
-        this.f804a = new byte[1];
-        this.f805b = new byte[2];
-        this.f806c = new byte[4];
+        this.f805a = new byte[1];
+        this.f806b = new byte[2];
+        this.f807c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f803a = z;
+        this.f804a = z;
         this.b = z2;
     }
 
@@ -372,7 +372,7 @@ public class jb extends jf {
     public void a(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(1048590, this, b) == null) {
-            byte[] bArr = this.f804a;
+            byte[] bArr = this.f805a;
             bArr[0] = b;
             ((jf) this).a.m555a(bArr, 0, 1);
         }
@@ -382,7 +382,7 @@ public class jb extends jf {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            byte[] bArr = this.f806c;
+            byte[] bArr = this.f807c;
             bArr[0] = (byte) ((i >> 24) & 255);
             bArr[1] = (byte) ((i >> 16) & 255);
             bArr[2] = (byte) ((i >> 8) & 255);
@@ -413,7 +413,7 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, jcVar) == null) {
             a(jcVar.a);
-            a(jcVar.f809a);
+            a(jcVar.f810a);
         }
     }
 
@@ -422,7 +422,7 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jdVar) == null) {
             a(jdVar.a);
-            a(jdVar.f810a);
+            a(jdVar.f811a);
         }
     }
 
@@ -432,7 +432,7 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeL(1048595, this, jeVar) == null) {
             a(jeVar.a);
             a(jeVar.b);
-            a(jeVar.f811a);
+            a(jeVar.f812a);
         }
     }
 
@@ -471,7 +471,7 @@ public class jb extends jf {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Short.valueOf(s)}) == null) {
-            byte[] bArr = this.f805b;
+            byte[] bArr = this.f806b;
             bArr[0] = (byte) ((s >> 8) & 255);
             bArr[1] = (byte) (s & 255);
             ((jf) this).a.m555a(bArr, 0, 2);
@@ -503,7 +503,7 @@ public class jb extends jf {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.f802a = i;
+            this.f803a = i;
             this.c = true;
         }
     }
@@ -522,8 +522,8 @@ public class jb extends jf {
             if (i < 0) {
                 throw new iz("Negative length: " + i);
             } else if (this.c) {
-                int i2 = this.f802a - i;
-                this.f802a = i2;
+                int i2 = this.f803a - i;
+                this.f803a = i2;
                 if (i2 >= 0) {
                     return;
                 }

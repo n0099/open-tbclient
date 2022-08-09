@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.lz9;
+import com.repackage.f2a;
+import com.repackage.q2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes9.dex */
 public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
@@ -44,29 +44,29 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
             int i = 0;
             if (itemCount == 1) {
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c0f);
                 relativeLayout.measure(0, 0);
-                int measuredWidth = relativeLayout.getMeasuredWidth() + bz9.a(this.a);
-                int b = ((lz9.b(view2.getContext()) - measuredWidth) / 2) - bz9.a(this.b);
+                int measuredWidth = relativeLayout.getMeasuredWidth() + f2a.a(this.a);
+                int b = ((q2a.b(view2.getContext()) - measuredWidth) / 2) - f2a.a(this.b);
                 rect.left = b;
                 RLog.debug("PayCampaignListItemDecoration", "getItemOffsets itemCount == 1 width:" + measuredWidth + " marginLeft:" + b + " position:" + childAdapterPosition);
             } else if (itemCount == 2) {
-                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
+                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c0f);
                 relativeLayout2.measure(0, 0);
-                int measuredWidth2 = relativeLayout2.getMeasuredWidth() + bz9.a(this.a);
-                int b2 = lz9.b(view2.getContext()) / 2;
+                int measuredWidth2 = relativeLayout2.getMeasuredWidth() + f2a.a(this.a);
+                int b2 = q2a.b(view2.getContext()) / 2;
                 if (childAdapterPosition == 0) {
-                    i = ((b2 - (bz9.a(this.a) / 2)) - measuredWidth2) - bz9.a(this.b);
+                    i = ((b2 - (f2a.a(this.a) / 2)) - measuredWidth2) - f2a.a(this.b);
                     rect.left = i;
                 } else if (childAdapterPosition == 1) {
-                    i = bz9.a(this.a) / 2;
+                    i = f2a.a(this.a) / 2;
                     rect.left = i;
                 }
                 RLog.debug("PayCampaignListItemDecoration", "getItemOffsets itemCount == 2 width:" + measuredWidth2 + " marginLeft:" + i + " position:" + childAdapterPosition);
             } else {
                 boolean z = childAdapterPosition == itemCount - 1;
                 if (z) {
-                    rect.right = bz9.a(15.0f);
+                    rect.right = f2a.a(15.0f);
                 }
                 RLog.debug("PayCampaignListItemDecoration", "getItemOffsets itemCount > 2 default position:" + childAdapterPosition + " isLastItem：" + z);
             }

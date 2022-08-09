@@ -1,7 +1,5 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cg1 implements dg1 {
+public class cg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static cg1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public dg1 a;
-    public boolean b;
+    public int a;
+    public String b;
+    public int c;
+    public int d;
 
     public cg1() {
         Interceptable interceptable = $ic;
@@ -26,86 +25,59 @@ public class cg1 implements dg1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = false;
     }
 
-    public static cg1 b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (cg1.class) {
-                    if (c == null) {
-                        c = new cg1();
-                    }
-                }
-            }
-            return c;
-        }
-        return (cg1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.dg1
-    public String a() {
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            dg1 dg1Var = this.a;
-            if (dg1Var == null) {
-                return null;
-            }
-            try {
-                return dg1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // com.repackage.dg1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, eg1 eg1Var) {
-        dg1 dg1Var;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eg1Var) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
-        try {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                dg1Var = null;
-            } else if (ordinal == 1) {
-                dg1Var = new gg1();
-            } else if (ordinal == 2) {
-                dg1Var = new og1();
-            } else if (ordinal == 3) {
-                dg1Var = new mg1();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, eg1Var);
-                    return;
-                }
-                return;
-            } else {
-                dg1Var = new ig1();
-            }
-            this.a = dg1Var;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
         }
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
     }
 }

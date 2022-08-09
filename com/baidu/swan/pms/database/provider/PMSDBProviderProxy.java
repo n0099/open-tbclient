@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id4;
-import com.repackage.x84;
+import com.repackage.o94;
+import com.repackage.zd4;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final id4 b;
+    public static final zd4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile x84 a;
+    public volatile o94 a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        b = id4.c();
+        b = zd4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -57,20 +57,20 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    public x84 a() {
+    public o94 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                synchronized (x84.class) {
+                synchronized (o94.class) {
                     if (this.a == null) {
-                        this.a = new x84(getContext());
+                        this.a = new o94(getContext());
                     }
                 }
             }
             return this.a;
         }
-        return (x84) invokeV.objValue;
+        return (o94) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:

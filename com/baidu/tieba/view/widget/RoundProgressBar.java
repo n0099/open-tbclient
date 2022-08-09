@@ -221,7 +221,7 @@ public class RoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040551, R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040553, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f040555, R.attr.obfuscated_res_0x7f0405da, R.attr.obfuscated_res_0x7f040664});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405cc, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405d1, R.attr.obfuscated_res_0x7f0405d2, R.attr.obfuscated_res_0x7f0405d3, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f040660, R.attr.obfuscated_res_0x7f0406ee});
         this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.CAM_X0607));
         this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.CAM_X0302));
         this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.CAM_X0201));

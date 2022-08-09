@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
-import com.repackage.mg;
-import com.repackage.se5;
+import com.repackage.ng;
+import com.repackage.rf5;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -87,12 +87,12 @@ public class ThirdStatisticHelper {
                         } catch (Exception e) {
                             e = e;
                             BdLog.e(e);
-                            mg.e(httpURLConnection);
+                            ng.f(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        mg.e(httpURLConnection);
+                        ng.f(httpURLConnection);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -101,10 +101,10 @@ public class ThirdStatisticHelper {
                 } catch (Throwable th3) {
                     th = th3;
                     httpURLConnection = null;
-                    mg.e(httpURLConnection);
+                    ng.f(httpURLConnection);
                     throw th;
                 }
-                mg.e(httpURLConnection);
+                ng.f(httpURLConnection);
                 return null;
             }
             return (Integer) invokeL.objValue;
@@ -173,7 +173,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", se5.b());
+                httpURLConnection.setRequestProperty("User-Agent", rf5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -264,7 +264,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            mg.e(httpURLConnection);
+                            ng.f(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -281,7 +281,7 @@ public class ThirdStatisticHelper {
                                     httpURLConnection.connect();
                                     i = httpURLConnection.getResponseCode();
                                     requestStatistic(i2 + 1, String.valueOf(i));
-                                    mg.e(httpURLConnection);
+                                    ng.f(httpURLConnection);
                                 }
                             }
                         } else if (url != null) {
@@ -298,7 +298,7 @@ public class ThirdStatisticHelper {
                             }
                             i = httpURLConnection.getResponseCode();
                             requestStatistic(i2 + 1, String.valueOf(i));
-                            mg.e(httpURLConnection);
+                            ng.f(httpURLConnection);
                         }
                     }
                 }

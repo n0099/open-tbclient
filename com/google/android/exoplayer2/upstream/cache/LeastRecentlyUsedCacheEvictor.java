@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.cache.Cache;
 import java.util.Comparator;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator<CacheSpan> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

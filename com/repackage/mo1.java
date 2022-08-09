@@ -1,316 +1,98 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mo1 extends lo1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class mo1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean a = null;
+    public static String b = "8893";
+    public static String c = "80";
+    public static String d = "81";
+    public static String e = "82";
+    public static String f = "show";
+    public static String g = "fail";
+    public static String h = "success";
+    public static String i = "login";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ mo1 b;
-
-        public a(mo1 mo1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mo1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mo1Var;
-            this.a = str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755492670, "Lcom/repackage/mo1;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                mo1 mo1Var = this.b;
-                String str = this.a;
-                mo1Var.d(str, new is1(1001, "operation fail, msg = " + exc.getMessage()));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject == null) {
-                    this.b.d(this.a, new is1(1001, "server response fail"));
-                    return;
-                }
-                int optInt = jSONObject.optInt("errno", 10002);
-                String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
-                if (optInt != 0) {
-                    this.b.d(this.a, new is1(optInt, optString));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    this.b.d(this.a, new is1(optInt, optString));
-                    return;
-                }
-                this.b.d(this.a, new is1(0, optString, optJSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            ResponseBody body;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response == null || (body = response.body()) == null) {
-                    return null;
-                }
-                return id3.d(body.string());
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mo1(@NonNull jo1 jo1Var) {
-        super(jo1Var);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755492670, "Lcom/repackage/mo1;");
         }
     }
 
-    public final void A(String str, i03 i03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, i03Var) == null) {
-            k73 k73Var = new k73();
-            k73Var.a = "swan";
-            k73Var.b = str;
-            k73Var.f = i03Var.O();
-            k73Var.a("host_app", pj2.n().a());
-            p63.i("2267", "83", k73Var.f());
-        }
-    }
-
-    public final is1 B(String str, FormBody.Builder builder, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, builder, str2)) == null) {
-            nr2 a2 = nr2.a(builder.build(), pr2.b);
-            String y = y(str);
-            if (TextUtils.isEmpty(y)) {
-                return new is1(202);
-            }
-            j74 j74Var = new j74(y, a2, new a(this, str2));
-            if (k74.g().c()) {
-                j74Var.f = true;
-            }
-            j74Var.g = true;
-            k74.g().e(j74Var);
-            return is1.f();
-        }
-        return (is1) invokeLLL.objValue;
-    }
-
-    public is1 C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#takeCoupons", false);
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                return new is1(1001, "SwanApp is null");
-            }
-            A("coupons_take", b0);
-            if (!oo1.y(getContext())) {
-                return new is1(10007, "is not baidu account");
-            }
-            if (!b0.N().e(getContext())) {
-                return new is1(10004, "user not logged in");
-            }
-            Pair<is1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((is1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("promotionId");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", i03.g0());
-                builder.add("promotionId", optString);
-                return B("takeCoupons", builder, optString2);
-            }
-            return new is1(202);
-        }
-        return (is1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.lo1
-    public String h() {
+    public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "Coupon" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.lo1
-    public String j() {
+    public static final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanAppCouponApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (String) invokeV.objValue;
     }
 
-    public is1 x(String str) {
-        InterceptResult invokeL;
+    public static final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#getPlatformCoupons", false);
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                return new is1(202, "SwanApp is null");
-            }
-            A("coupons_appkey", b0);
-            if (!oo1.y(getContext())) {
-                return new is1(10007, "is not baidu account");
-            }
-            Pair<is1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((is1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "couponAppKey is invalid");
-                }
-                boolean optBoolean = jSONObject.optBoolean("withUserCoupons", false);
-                if (optBoolean) {
-                    A("coupons_appkey_user", b0);
-                    if (!b0.N().e(getContext())) {
-                        return new is1(10004, "user not logged in");
-                    }
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", i03.g0());
-                builder.add("couponAppKey", optString);
-                builder.add("withUserCoupons", String.valueOf(optBoolean));
-                return B("getPlatformCoupons", builder, optString2);
-            }
-            return new is1(202);
-        }
-        return (is1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d : (String) invokeV.objValue;
     }
 
-    public final String y(String str) {
-        InterceptResult invokeL;
-        char c;
+    public static final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -1741243770) {
-                if (str.equals("takeCoupons")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode != 15750540) {
-                if (hashCode == 1991726820 && str.equals("getPlatformCoupons")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("getUserCoupons")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return null;
-                    }
-                    return pj2.o().j();
-                }
-                return pj2.o().f();
-            }
-            return pj2.o().K();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? g : (String) invokeV.objValue;
     }
 
-    public is1 z(String str) {
-        InterceptResult invokeL;
+    public static final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            q("#getUserCoupons", false);
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                return new is1(1001, "SwanApp is null");
-            }
-            A("coupons_user", b0);
-            if (!oo1.y(getContext())) {
-                return new is1(10007, "is not baidu account");
-            }
-            if (!b0.N().e(getContext())) {
-                return new is1(10004, "user not logged in");
-            }
-            Pair<is1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((is1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", i03.g0());
-                builder.add("couponAppKey", optString);
-                return B("getUserCoupons", builder, optString2);
-            }
-            return new is1(202);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? h : (String) invokeV.objValue;
+    }
+
+    public static final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b : (String) invokeV.objValue;
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? i : (String) invokeV.objValue;
+    }
+
+    public static final Boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a : (Boolean) invokeV.objValue;
+    }
+
+    public static final void j(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, bool) == null) {
+            a = bool;
         }
-        return (is1) invokeL.objValue;
     }
 }

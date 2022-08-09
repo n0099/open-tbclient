@@ -1,183 +1,121 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ty4 {
     public static /* synthetic */ Interceptable $ic;
-    public static ty4 c;
+    public static final ty4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny4 a;
-    public String b;
+    public final boolean a;
+    public Map<String, uy4> b;
+    public int c;
 
-    public ty4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755274430, "Lcom/repackage/ty4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755274430, "Lcom/repackage/ty4;");
+                return;
+            }
+        }
+        d = new ty4(false);
+    }
+
+    public ty4(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = b();
+        this.a = z;
     }
 
-    public static ty4 c() {
-        InterceptResult invokeV;
+    public static ty4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ty4.class) {
-                    if (c == null) {
-                        c = new ty4();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
+            ty4 ty4Var = new ty4(true);
+            ty4Var.a(optJSONObject);
+            return ty4Var;
+        }
+        return (ty4) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        this.b = new ArrayMap(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                uy4 d2 = uy4.d(optJSONObject);
+                if (!TextUtils.isEmpty(d2.a())) {
+                    this.b.put(d2.a(), d2);
                 }
             }
-            return c;
         }
-        return (ty4) invokeV.objValue;
+        try {
+            this.c = Integer.parseInt(jSONObject.optString("freq"));
+        } catch (Exception unused) {
+            this.c = 0;
+        }
     }
 
-    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup) {
-        ny4 ny4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048576, this, i, tbPageContext, viewGroup) == null) || (ny4Var = this.a) == null) {
-            return;
-        }
-        ny4Var.c(i, tbPageContext, viewGroup);
-    }
-
-    public final ny4 b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, ny4.class);
-            if (runTask != null) {
-                return (ny4) runTask.getData();
-            }
-            return null;
-        }
-        return (ny4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public int d() {
+    public uy4 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.b == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.b.get(str);
+        }
+        return (uy4) invokeL.objValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                return ny4Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                return ny4Var.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                return ny4Var.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(boolean z) {
-        ny4 ny4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (ny4Var = this.a) == null) {
-            return;
-        }
-        ny4Var.h(z);
-    }
-
-    public void i(int i, int i2) {
-        ny4 ny4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) || (ny4Var = this.a) == null) {
-            return;
-        }
-        ny4Var.f(i, i2);
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public NavigationBarCoverTip k(Activity activity, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, viewGroup)) == null) {
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                return ny4Var.e(activity, viewGroup);
-            }
-            return null;
-        }
-        return (NavigationBarCoverTip) invokeLL.objValue;
-    }
-
-    public Dialog l(int i, TbPageContext tbPageContext, kh5 kh5Var) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, tbPageContext, kh5Var)) == null) {
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                return ny4Var.i(i, tbPageContext, kh5Var);
-            }
-            return null;
-        }
-        return (Dialog) invokeILL.objValue;
-    }
-
-    public void m() {
-        ny4 ny4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ny4Var = this.a) == null) {
-            return;
-        }
-        ny4Var.d();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

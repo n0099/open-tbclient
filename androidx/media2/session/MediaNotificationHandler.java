@@ -60,11 +60,11 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         MediaSessionService mediaSessionService2 = this.mServiceInstance;
         this.mStartSelfIntent = new Intent(mediaSessionService2, mediaSessionService2.getClass());
         this.mNotificationManager = (NotificationManager) this.mServiceInstance.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(R.string.obfuscated_res_0x7f0f0488);
-        this.mPlayAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce4, R.string.obfuscated_res_0x7f0f0e59, 4L);
-        this.mPauseAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce3, R.string.obfuscated_res_0x7f0f0d40, 2L);
-        this.mSkipToPrevAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce6, R.string.obfuscated_res_0x7f0f1169, 16L);
-        this.mSkipToNextAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce5, R.string.obfuscated_res_0x7f0f1168, 32L);
+        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(R.string.obfuscated_res_0x7f0f0495);
+        this.mPlayAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3d, R.string.obfuscated_res_0x7f0f0e86, 4L);
+        this.mPauseAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3c, R.string.obfuscated_res_0x7f0f0d66, 2L);
+        this.mSkipToPrevAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3f, R.string.obfuscated_res_0x7f0f11a3, 16L);
+        this.mSkipToNextAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3e, R.string.obfuscated_res_0x7f0f11a2, 32L);
     }
 
     private NotificationCompat.Action createNotificationAction(int i, int i2, long j) {
@@ -102,7 +102,7 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i = this.mServiceInstance.getApplicationInfo().icon;
-            return i != 0 ? i : R.drawable.obfuscated_res_0x7f080ce2;
+            return i != 0 ? i : R.drawable.obfuscated_res_0x7f080d3b;
         }
         return invokeV.intValue;
     }

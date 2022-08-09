@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ib extends kb {
+public class ib extends lb {
     public static /* synthetic */ Interceptable $ic;
-    public static ib d;
+    public static ib c;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,34 +38,23 @@ public class ib extends kb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        this.a = new lb(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new lb(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
     }
 
-    public static ib d() {
+    public static ib c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
+            if (c == null) {
                 synchronized (ib.class) {
-                    if (d == null) {
-                        d = new ib();
+                    if (c == null) {
+                        c = new ib();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (ib) invokeV.objValue;
-    }
-
-    public lb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (lb) invokeV.objValue;
     }
 }

@@ -14,7 +14,7 @@ public final class ct {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f185a;
+    public String f186a;
 
     public ct(String str, int i) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class ct {
                 return;
             }
         }
-        this.f185a = str;
+        this.f186a = str;
         this.a = i;
     }
 
@@ -77,7 +77,7 @@ public final class ct {
     public String m250a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f185a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f186a : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -85,9 +85,9 @@ public final class ct {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.a > 0) {
-                return this.f185a + ":" + this.a;
+                return this.f186a + ":" + this.a;
             }
-            return this.f185a;
+            return this.f186a;
         }
         return (String) invokeV.objValue;
     }

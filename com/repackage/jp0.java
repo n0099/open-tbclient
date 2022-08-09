@@ -1,28 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface jp0 extends fp0, hp0 {
-    public static final a a = o31.a;
+public class jp0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final jp0 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        jp0 a(Context context, int i);
-
-        jp0 b(Context context, int i, @Nullable kp0 kp0Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755581113, "Lcom/repackage/jp0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755581113, "Lcom/repackage/jp0;");
+                return;
+            }
+        }
+        b = new jp0();
     }
 
-    void a(gp0 gp0Var);
-
-    void attachToContainer(@NonNull ViewGroup viewGroup);
-
-    void c(@NonNull mn0 mn0Var);
-
-    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
-
-    void release();
+    public jp0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
 }

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
@@ -54,7 +55,7 @@ public class a extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, marker)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, "alpha", this.g);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, Key.ALPHA, this.g);
             if (ofFloat != null) {
                 ofFloat.setRepeatCount(this.f);
                 ofFloat.setRepeatMode(c());

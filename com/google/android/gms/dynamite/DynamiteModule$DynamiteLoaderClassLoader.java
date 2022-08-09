@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.util.DynamiteApi;
 import javax.annotation.concurrent.GuardedBy;
 @DynamiteApi
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DynamiteModule$DynamiteLoaderClassLoader {
     public static /* synthetic */ Interceptable $ic;
     @Nullable

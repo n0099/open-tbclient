@@ -1,63 +1,42 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class t71<K, V> {
+public class t71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<K, V> a;
 
-    public t71() {
+    public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
                 return;
             }
-        }
-        this.a = j91.c();
-    }
-
-    public V a(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.a.get(k) : (V) invokeL.objValue;
-    }
-
-    public Map<K, V> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Map) invokeV.objValue;
-    }
-
-    public Map<K, V> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Map) invokeV.objValue;
-    }
-
-    public void d(K k, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
-            this.a.put(k, v);
+            String string = bundle.getString("statusCode");
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
+            }
         }
     }
 
-    public void e(Map<K, V> map) {
+    public static void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            r71.a().g(bundle);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            r71.a().h("");
         }
     }
 }

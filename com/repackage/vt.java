@@ -1,119 +1,80 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.Application;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class vt implements yr {
+public final class vt implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public final zo b;
 
-    public vt(zo zoVar) {
+    public vt() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = zoVar;
     }
 
-    @Override // com.repackage.yr
-    public Activity a() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference == null) {
-                return null;
-            }
-            Activity activity = weakReference != null ? weakReference.get() : null;
-            if (xs.a(activity)) {
-                return null;
-            }
-            return activity;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            br.c.h().b(activity);
         }
-        return (Activity) invokeV.objValue;
     }
 
-    @Override // com.repackage.yr
-    public void b(Activity activity) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || xs.a(activity)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
         }
-        this.a = new WeakReference<>(activity);
     }
 
-    @Override // com.repackage.yr
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.t() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.yr
-    public Context getAppContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Context context = this.b.getContext();
-            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
-            return context;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
         }
-        return (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.yr
-    public String getAppVersion() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String k = this.b.k();
-            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
-            return k;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            br.c.h().b(activity);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.yr
-    public zr getEnv() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            zr r = this.b.r();
-            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
-            return r;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
-        return (zr) invokeV.objValue;
     }
 
-    @Override // com.repackage.yr
-    public String getSdkVersion() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String q = this.b.q();
-            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
-            return q;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
     }
 }

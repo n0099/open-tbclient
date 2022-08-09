@@ -1,17 +1,18 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.InterviewLiveLayout;
+import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,41 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jx extends xw {
+public class jx extends ly {
     public static /* synthetic */ Interceptable $ic;
-    public static final int i;
+    public static final int B;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemCardView h;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jx jxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
-            }
-        }
-    }
+    public TextView A;
+    public InterviewLiveLayout y;
+    public int z;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +43,7 @@ public class jx extends xw {
                 return;
             }
         }
-        i = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+        B = qi.k(TbadkCoreApplication.getInst()) - ((qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,124 +55,104 @@ public class jx extends xw {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().l instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().l.getParent() == null) {
-            this.h = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().l;
-        } else {
-            this.h = new ItemCardView(context);
-        }
-        z();
-        s(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        this.z = 3;
+        A();
     }
 
-    public void A(int i2) {
-        ItemCardView itemCardView;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (itemCardView = this.h) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019c, (ViewGroup) null, true);
+            this.f = inflate;
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092501);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092500);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
+            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab5);
+            e98 q = q();
+            this.j = q;
+            q.getMainView().setBackgroundResource(R.color.transparent);
         }
-        itemCardView.setPosition(i2);
     }
 
-    @Override // com.repackage.qw
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.y.setFromCDN(z);
+        }
+    }
+
+    @Override // com.repackage.ly, com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    @Override // com.repackage.rw
+    public void m(b06<fo4> b06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.h.G();
+        if (interceptable == null || interceptable.invokeL(1048580, this, b06Var) == null) {
+            this.y.setSubClickListener(b06Var);
         }
     }
 
-    public void t() {
+    @Override // com.repackage.ly, com.repackage.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            s(i);
-            r(0);
-            y(this.h, i, 0);
-        }
-    }
-
-    public int u(ItemData itemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, itemData)) == null) {
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null) {
-                return itemCardView.z(itemData);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
+            if (this.z != i) {
+                SkinManager.setBackgroundResource(this.y, R.drawable.addresslist_item_bg);
+                this.y.l(this.z);
             }
-            return -1;
+            this.z = i;
         }
-        return invokeL.intValue;
     }
 
-    public int v() {
+    @Override // com.repackage.ly
+    public e98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null) {
-                return itemCardView.getPosition();
-            }
-            return 0;
+            f98 f98Var = new f98(this.b, this.i);
+            f98Var.setStageType("2003");
+            return f98Var;
         }
-        return invokeV.intValue;
+        return (e98) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
-    /* renamed from: w */
-    public void a(on4 on4Var) {
+    @Override // com.repackage.ly, com.repackage.hx
+    /* renamed from: r */
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, on4Var) == null) {
-            if (on4Var != null && on4Var.getThreadData() != null && on4Var.getThreadData().getItem() != null) {
-                this.h.setVisibility(0);
-                this.h.setData(on4Var.getThreadData().itemData, 13, on4Var.getThreadData().tid);
+        if (interceptable == null || interceptable.invokeL(1048583, this, fo4Var) == null) {
+            this.h = fo4Var;
+            if (fo4Var == null || fo4Var.getThreadData() == null) {
                 return;
             }
-            this.h.setVisibility(8);
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h.setIsShowRightBtn(z);
-        }
-    }
-
-    public final void y(View view2, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048585, this, view2, i2, i3) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
+            ThreadData threadData = fo4Var.getThreadData();
+            if (threadData.getThreadVideoInfo() != null) {
+                this.y.setVisibility(8);
+                this.i.setVisibility(0);
+                this.A.setVisibility(8);
+                super.a(fo4Var);
                 return;
             }
-            marginLayoutParams.topMargin = i2;
-            marginLayoutParams.bottomMargin = i3;
-            view2.setLayoutParams(marginLayoutParams);
+            this.i.setVisibility(8);
+            this.y.setVisibility(0);
+            this.A.setVisibility(0);
+            this.y.a(fo4Var);
+            ThreadCardUtils.setTitle(this.g, threadData);
+            ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
         }
-    }
-
-    public final void z() {
-        ItemCardView itemCardView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (itemCardView = this.h) == null) {
-            return;
-        }
-        itemCardView.setOnClickListenerOfRightBtn(new a(this));
     }
 }

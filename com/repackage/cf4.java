@@ -1,6 +1,7 @@
 package com.repackage;
 
-import android.view.View;
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,9 +10,15 @@ public class cf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2) {
-        InterceptResult invokeL;
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? view2.hasOverlappingRendering() : invokeL.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) ? context.getColor(i) : invokeLI.intValue;
+    }
+
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? context.getColorStateList(i) : (ColorStateList) invokeLI.objValue;
     }
 }

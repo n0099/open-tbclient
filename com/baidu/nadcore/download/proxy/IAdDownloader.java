@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nj0;
-import com.repackage.si0;
+import com.repackage.kj0;
+import com.repackage.oi0;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
 
@@ -79,11 +79,11 @@ public interface IAdDownloader {
         }
     }
 
-    int a(@NonNull si0 si0Var, @NonNull nj0 nj0Var);
+    int a(@NonNull oi0 oi0Var, @NonNull kj0 kj0Var);
 
-    void b(@NonNull si0 si0Var);
+    void b(@NonNull oi0 oi0Var);
 
-    void c(@NonNull si0 si0Var);
+    void c(@NonNull oi0 oi0Var);
 
-    void d(@NonNull si0 si0Var, @NonNull nj0 nj0Var);
+    void d(@NonNull oi0 oi0Var, @NonNull kj0 kj0Var);
 }

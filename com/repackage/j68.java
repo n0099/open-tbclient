@@ -1,219 +1,95 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.Settings;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g68;
-import com.repackage.k68;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class j68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public SensorManager b;
-    public g68 c;
-    public Sensor d;
-    public boolean e;
-    public boolean f;
-    public k68 g;
-    public boolean h;
-    public boolean i;
-    public g68.a j;
-    public k68.a k;
 
-    /* loaded from: classes6.dex */
-    public class a implements g68.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j68 a;
-
-        public a(j68 j68Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j68Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j68Var;
-        }
-
-        @Override // com.repackage.g68.a
-        public void a(int i) {
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
-                return;
-            }
-            int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.h) {
-                if (i > 225 && i < 315) {
-                    if (requestedOrientation == 8) {
-                        activity.setRequestedOrientation(0);
-                    }
-                } else if (i <= 45 || i >= 135 || requestedOrientation != 0) {
-                } else {
-                    activity.setRequestedOrientation(8);
-                }
-            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                if (!this.a.f) {
-                    if (i <= 55 || i >= 125) {
-                        if (requestedOrientation != 0) {
-                            activity.setRequestedOrientation(0);
-                        }
-                    } else if (requestedOrientation != 8) {
-                        activity.setRequestedOrientation(8);
-                    }
-                }
-                this.a.e = false;
-            } else if ((i <= 325 || i >= 360) && (i < 0 || i >= 35)) {
-            } else {
-                if (!this.a.e && requestedOrientation != 1) {
-                    activity.setRequestedOrientation(1);
-                }
-                this.a.f = false;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements k68.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j68 a;
-
-        public b(j68 j68Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j68Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j68Var;
-        }
-
-        @Override // com.repackage.k68.a
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.h = z;
-            }
-        }
-    }
-
-    public j68(Activity activity) {
+    public static void a(String str, List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.f = false;
-        this.h = false;
-        this.i = false;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (activity == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.a = new WeakReference<>(activity);
-        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.c = new g68(this.j);
-        if (activity.getClass().getName().contains("SwanAppActivity")) {
-            activity.setRequestedOrientation(1);
+        if (list == null) {
+            list = new ArrayList<>();
         }
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            on onVar = list.get(i);
+            if (onVar instanceof u15) {
+                u15 u15Var = (u15) onVar;
+                if (!u15Var.c()) {
+                    jSONArray.put(u15Var.a());
+                }
+            }
+        }
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void i(boolean z) {
+    public static void b(u15 u15Var, List<on> list) {
+        u15 u15Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void j() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.registerListener(this.c, this.d, 2);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference == null || (activity = weakReference.get()) == null) {
-                return;
-            }
-            k68 k68Var = new k68(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-            this.g = k68Var;
-            k68Var.b(this.k);
-            activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
-        }
-    }
-
-    public void k() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.unregisterListener(this.c);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference == null || this.g == null || (activity = weakReference.get()) == null) {
-                return;
-            }
-            activity.getContentResolver().unregisterContentObserver(this.g);
-        }
-    }
-
-    public void l() {
-        WeakReference<Activity> weakReference;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, u15Var, list) == null) || u15Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(u15Var.a())) {
             return;
         }
-        if (activity.getRequestedOrientation() == 1) {
-            activity.setRequestedOrientation(0);
-            this.e = true;
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            on onVar = list.get(i);
+            if ((onVar instanceof u15) && (u15Var2 = (u15) onVar) != u15Var && !u15Var2.c()) {
+                jSONArray.put(u15Var2.a());
+            }
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        if (jSONArray.length() <= 0) {
+            httpMessage.addParam("truncat", 1);
+        } else {
+            httpMessage.addParam("truncat", 0);
+        }
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext == null || StringUtils.isNull(str)) {
+                return null;
+            }
+            if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+            }
+            return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(u15 u15Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, u15Var, bdUniqueId) == null) || u15Var == null || StringUtils.isNull(u15Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             return;
         }
-        activity.setRequestedOrientation(1);
-        this.f = true;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", u15Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

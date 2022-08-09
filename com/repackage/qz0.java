@@ -1,20 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class qz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ElasticTask> a;
+    public final pz0[] a;
 
     public qz0() {
         Interceptable interceptable = $ic;
@@ -29,58 +28,77 @@ public class qz0 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = new pz0[4];
+        if (ez0.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new pz0();
+        }
     }
 
-    public long a() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<ElasticTask> it = this.a.iterator();
-            long j = 0;
-            while (it.hasNext()) {
-                j += it.next().d();
+            if (c(0).d()) {
+                double d = 0.0d;
+                for (int i = 0; i < 4; i++) {
+                    d += this.a[i].a() * ez0.s[i];
+                }
+                return d / 1000.0d;
             }
-            return j;
+            return 9999999.0d;
         }
-        return invokeV.longValue;
+        return invokeV.doubleValue;
     }
 
     public ElasticTask b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.isEmpty()) {
-                return null;
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
+                }
             }
-            return this.a.get(0);
+            return null;
         }
         return (ElasticTask) invokeV.objValue;
     }
 
-    public void c(Runnable runnable, String str, int i) {
+    public pz0 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask a = wz0.b().a(runnable, str, i);
-                this.a.add(a);
-                a.f();
-                return;
+        if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) != null) {
+            return (pz0) invokeI.objValue;
+        }
+        int i2 = 0;
+        while (true) {
+            int[] iArr = ez0.a;
+            if (i2 < iArr.length) {
+                if (iArr[i2] == i) {
+                    return this.a[i2];
+                }
+                i2++;
+            } else {
+                pz0[] pz0VarArr = this.a;
+                return pz0VarArr[pz0VarArr.length - 1];
             }
-            throw new IllegalArgumentException("illegal params");
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void d(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
     }
 
     public void e(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            this.a.remove(elasticTask);
+            c(elasticTask.b()).e(elasticTask);
         }
     }
 }

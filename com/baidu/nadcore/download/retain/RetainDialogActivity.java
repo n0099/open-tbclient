@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qj0;
-import com.repackage.ri0;
+import com.repackage.ni0;
+import com.repackage.nj0;
 /* loaded from: classes2.dex */
 public class RetainDialogActivity extends NadDialogActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -32,94 +32,94 @@ public class RetainDialogActivity extends NadDialogActivity {
         }
     }
 
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void E0() {
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public boolean A1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.E0();
-            if (qj0.c().a()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public String B1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b9d) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public String C1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0ba1) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void S0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.S0();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void U0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.U0();
+            if (nj0.c().a()) {
                 finish();
             }
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void i1() {
+    public void t1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qj0.c().f();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            nj0.c().f();
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void j1() {
+    public void u1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qj0.c().g();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            nj0.c().g();
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public int k1() {
+    public int v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ri0.a().b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ni0.a().b() : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void m1() {
+    public void x1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Intent intent = this.B;
             if (intent != null) {
                 this.C = intent.getIntExtra("percent", 50);
             }
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0b7d);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091533)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ba2);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f0915ef)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean n1() {
+    public boolean z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean o1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String p1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b78) : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String q1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b7c) : (String) invokeV.objValue;
     }
 }

@@ -38,7 +38,7 @@ public class bb {
                 int a = huVar.a();
                 hq a2 = hq.a(huVar.b());
                 if (a2 != null) {
-                    if (z && huVar.f511a) {
+                    if (z && huVar.f512a) {
                         arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
                         int i = bc.b[a2.ordinal()];
@@ -66,7 +66,7 @@ public class bb {
             ArrayList arrayList2 = new ArrayList();
             for (hs hsVar : ihVar.a()) {
                 arrayList.add(new Pair<>(hsVar.m412a(), Integer.valueOf(hsVar.a())));
-                List<Pair<Integer, Object>> a = a(hsVar.f503a, false);
+                List<Pair<Integer, Object>> a = a(hsVar.f504a, false);
                 if (!com.xiaomi.push.ag.a(a)) {
                     arrayList2.addAll(a);
                 }

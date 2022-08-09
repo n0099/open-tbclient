@@ -1,94 +1,30 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.repackage.hp1;
 /* loaded from: classes7.dex */
 public interface sk1 {
-    @Nullable
-    String A();
+    @NonNull
+    d63 a(Activity activity, boolean z, String str, String str2);
 
-    String B();
+    @NonNull
+    i63 b(Activity activity, hp1.d dVar, Bundle bundle);
 
-    String C();
+    @NonNull
+    j63 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-    String D();
+    @NonNull
+    e63 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
-    long E();
+    @NonNull
+    h63 e(Context context);
 
-    HttpRequest F(Context context, Map<String, String> map);
+    @NonNull
+    g63 f(Context context);
 
-    String G();
-
-    String H();
-
-    String I();
-
-    boolean J();
-
-    String K();
-
-    String L();
-
-    HttpRequest M(Context context, Map<String, String> map);
-
-    boolean N();
-
-    String O();
-
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, in2 in2Var);
-
-    String y();
-
-    String z(Context context);
+    @NonNull
+    f63 g(Context context, String str);
 }

@@ -36,13 +36,13 @@ public class j {
     public static String a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Set<String> f797a;
+    public static final Set<String> f798a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f798a = false;
+    public static boolean f799a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f799a;
+    public static final String[] f800a;
     public static String b = null;
     public static String c = "";
     public static String d;
@@ -64,13 +64,13 @@ public class j {
             }
         }
         f = String.valueOf((char) 2);
-        f799a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
+        f800a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
         HashSet hashSet = new HashSet();
-        f797a = hashSet;
+        f798a = hashSet;
         hashSet.add("com.xiaomi.xmsf");
-        f797a.add("com.xiaomi.finddevice");
-        f797a.add("com.miui.securitycenter");
-        f798a = true;
+        f798a.add("com.xiaomi.finddevice");
+        f798a.add("com.miui.securitycenter");
+        f799a = true;
     }
 
     public static double a(double d2) {
@@ -140,12 +140,12 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
             if (i > 0) {
-                String[] strArr = f799a;
+                String[] strArr = f800a;
                 if (i < strArr.length) {
                     return strArr[i];
                 }
             }
-            return f799a[0];
+            return f800a[0];
         }
         return (String) invokeI.objValue;
     }
@@ -245,7 +245,7 @@ public class j {
         }
         int i = 0;
         while (true) {
-            String[] strArr = f799a;
+            String[] strArr = f800a;
             if (i >= strArr.length) {
                 return false;
             }
@@ -367,9 +367,9 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
-            if (b == null && f798a) {
+            if (b == null && f799a) {
                 boolean m541d = m541d(context);
-                f798a = m541d;
+                f799a = m541d;
                 if (m541d) {
                     try {
                         b = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
@@ -391,7 +391,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
             String packageName = context.getPackageName();
-            if (m.m560a() && f797a.contains(packageName)) {
+            if (m.m560a() && f798a.contains(packageName)) {
                 return context.getPackageManager().checkPermission(com.kuaishou.weapon.p0.h.c, packageName) == 0 || context.getPackageManager().checkPermission("android.permission.READ_PRIVILEGED_PHONE_STATE", packageName) == 0;
             }
             return false;

@@ -17,20 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
-import com.google.protobuf.CodedInputStream;
-import com.repackage.oy8;
-import com.repackage.py8;
-import com.repackage.wy8;
+import com.repackage.e19;
+import com.repackage.f19;
+import com.repackage.m19;
 /* loaded from: classes4.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oy8 a;
-    public py8 b;
+    public e19 a;
+    public f19 b;
 
     /* loaded from: classes4.dex */
-    public class a implements wy8 {
+    public class a implements m19 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -53,7 +51,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // com.repackage.wy8
+        @Override // com.repackage.m19
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -62,7 +60,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.repackage.wy8
+        @Override // com.repackage.m19
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -70,14 +68,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.repackage.wy8
+        @Override // com.repackage.m19
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.a.b.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // com.repackage.wy8
+        @Override // com.repackage.m19
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -101,21 +99,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
         }
     }
 
-    public void B1() {
-        py8 py8Var;
+    public void A1() {
+        f19 f19Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (py8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f19Var = this.b) == null) {
             return;
         }
-        py8Var.n();
+        f19Var.n();
     }
 
-    public void C1(boolean z, WriteImagesInfo writeImagesInfo) {
+    public void B1(boolean z, WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, writeImagesInfo) == null) {
-            py8 py8Var = this.b;
-            if (py8Var != null) {
-                if (1 == py8Var.u()) {
+            f19 f19Var = this.b;
+            if (f19Var != null) {
+                if (1 == f19Var.u()) {
                     ForumWriteData v = this.b.v();
                     if (v != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {
@@ -125,8 +123,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     }
                 } else if (2 == this.b.u()) {
                     WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this);
-                    newInstance.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
-                    newInstance.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    newInstance.getIntent().setFlags(603979776);
                     newInstance.getIntent().putExtras(getIntent());
                     newInstance.setType(9).setWriteImagesInfo(writeImagesInfo).setNeedClosePrePage(true);
                     newInstance.getIntent().putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, writeImagesInfo.toJsonString());
@@ -166,9 +163,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            oy8 oy8Var = this.a;
-            if (oy8Var != null) {
-                oy8Var.h(i);
+            e19 e19Var = this.a;
+            if (e19Var != null) {
+                e19Var.h(i);
             }
             this.b.c.notifyDataSetChanged();
         }
@@ -180,12 +177,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            oy8 oy8Var = new oy8(getPageContext(), new a(this));
-            this.a = oy8Var;
-            setContentView(oy8Var.k);
-            py8 py8Var = new py8(getPageContext(), this.a, bundle);
-            this.b = py8Var;
-            if (py8Var.j != TbadkCoreApplication.getInst().getSkinType()) {
+            e19 e19Var = new e19(getPageContext(), new a(this));
+            this.a = e19Var;
+            setContentView(e19Var.k);
+            f19 f19Var = new f19(getPageContext(), this.a, bundle);
+            this.b = f19Var;
+            if (f19Var.j != TbadkCoreApplication.getInst().getSkinType()) {
                 TbadkCoreApplication.getInst().setSkinType(this.b.j);
             }
         }
@@ -195,14 +192,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            py8 py8Var = this.b;
-            if (py8Var != null) {
-                py8Var.t();
+            f19 f19Var = this.b;
+            if (f19Var != null) {
+                f19Var.t();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            oy8 oy8Var = this.a;
-            if (oy8Var != null) {
-                oy8Var.o();
+            e19 e19Var = this.a;
+            if (e19Var != null) {
+                e19Var.o();
             }
             super.onDestroy();
         }
@@ -213,12 +210,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            py8 py8Var = this.b;
-            if (py8Var != null && (multiImagePagerAdapter = py8Var.c) != null) {
-                bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.k());
+            f19 f19Var = this.b;
+            if (f19Var != null && (multiImagePagerAdapter = f19Var.c) != null) {
+                bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.j());
                 bundle.putInt("OutState_Write_Entrance", this.b.u());
                 bundle.putSerializable("OutState_Write_Info_Data", this.b.v());
-                this.b.c.h(true);
+                this.b.c.g(true);
                 if (this.b.w() != null) {
                     bundle.putString("OutState_Write_Img_Info", this.b.w().toJsonString());
                 }

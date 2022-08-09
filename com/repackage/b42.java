@@ -1,17 +1,19 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ej2;
-import com.repackage.hj2;
-import java.io.File;
-import java.util.List;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b42 {
     public static /* synthetic */ Interceptable $ic;
@@ -31,119 +33,116 @@ public class b42 {
                 return;
             }
         }
-        a = sg1.a;
+        a = jh1.a;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(Message message) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(ej2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = qj2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, message) == null) || message == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
-                }
-                if (file.mkdirs()) {
-                    return file.getPath();
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(List<g94> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
-            }
-            return list.get(0).r;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(g94 g94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, g94Var)) == null) {
-            if (g94Var == null || TextUtils.isEmpty(g94Var.o)) {
-                return false;
-            }
-            return h(new File(g94Var.a), new File(ej2.e.i(g94Var.o, String.valueOf(g94Var.i)).getPath(), g94Var.p));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
+        Object obj = message.obj;
+        if (obj instanceof Bundle) {
+            Bundle bundle = (Bundle) obj;
+            String string = bundle.getString("eventType");
+            HashMap hashMap = new HashMap();
+            hashMap.put("eventType", string);
+            JSONObject jSONObject = new JSONObject();
+            if (TextUtils.equals(string, "checkForUpdate")) {
+                try {
+                    jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
+                } catch (JSONException e) {
                     if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
-                    }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
-                    }
-                    return false;
-                } else {
-                    hj2.c j = hj2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = hj2.d(j.a, file2, i).a;
-                    } else {
-                        U = kg4.U(file.getAbsolutePath(), file2.getAbsolutePath());
-                    }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
-                        }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
+                        e.printStackTrace();
                     }
                 }
             }
-            return false;
+            hashMap.put("data", jSONObject.toString());
+            ab2 ab2Var = new ab2("updateStatusChange", hashMap);
+            SwanAppActivity activity = mm2.U().getActivity();
+            if (activity != null && activity.R() == 1) {
+                hk2.i().v(string, bundle.getBoolean("hasUpdate"));
+            } else {
+                mm2.U().u(ab2Var);
+            }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static void b(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            zx1.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("hasUpdate", z);
+            d("checkForUpdate", str, bundle);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            zx1.k("SwanAppPkgUpdateManager", "send update failed msg");
+            d("updateFailed", str, null);
+        }
+    }
+
+    public static void d(String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                if (bundle == null) {
+                    bundle = new Bundle();
+                }
+                bundle.putString("eventType", str);
+                px2 e = px2.e();
+                rx2 rx2Var = new rx2(107, bundle);
+                rx2Var.c(str2);
+                e.h(rx2Var);
+                return;
+            }
+            zx1.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
+            }
+            d("updateReady", str, null);
+        }
+    }
+
+    public static void f(String str, String str2, boolean z) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode == -1330233754) {
+                if (str.equals("updateFailed")) {
+                    c = 1;
+                }
+                c = 65535;
+            } else if (hashCode != -1317168438) {
+                if (hashCode == -585906598 && str.equals("updateReady")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("checkForUpdate")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c == 0) {
+                e(str2);
+            } else if (c == 1) {
+                c(str2);
+            } else if (c != 2) {
+            } else {
+                b(str2, z);
+            }
+        }
     }
 }

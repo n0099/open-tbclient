@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q11;
+import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdVideoSeekbarImageView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -74,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = q11.a(12.0f);
-        q = q11.d(30.0f);
-        r = q11.a(17.0f);
-        s = q11.a(13.0f);
-        t = q11.a(2.0f);
-        q11.a(9.0f);
-        u = q11.b(90.0f);
-        v = q11.b(90.0f);
-        w = q11.a(77.0f);
-        x = q11.a(7.0f);
-        y = q11.a(1.0f);
-        z = q11.a(23.0f);
-        A = q11.a(21.0f);
-        B = q11.a(64.0f);
-        C = q11.a(34.0f);
-        D = q11.a(27.0f);
-        E = q11.a(25.0f);
-        F = q11.a(11.0f);
-        G = q11.a(9.0f);
-        H = q11.a(60.0f);
+        p = w11.a(12.0f);
+        q = w11.d(30.0f);
+        r = w11.a(17.0f);
+        s = w11.a(13.0f);
+        t = w11.a(2.0f);
+        w11.a(9.0f);
+        u = w11.b(90.0f);
+        v = w11.b(90.0f);
+        w = w11.a(77.0f);
+        x = w11.a(7.0f);
+        y = w11.a(1.0f);
+        z = w11.a(23.0f);
+        A = w11.a(21.0f);
+        B = w11.a(64.0f);
+        C = w11.a(34.0f);
+        D = w11.a(27.0f);
+        E = w11.a(25.0f);
+        F = w11.a(11.0f);
+        G = w11.a(9.0f);
+        H = w11.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080daa);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e08);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

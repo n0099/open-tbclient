@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uu9;
+import com.repackage.px9;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
@@ -25,7 +25,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpscExactAtomicArrayQueue(int i) {
-        super(uu9.b(i));
+        super(px9.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

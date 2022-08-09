@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u75;
-import com.repackage.vm6;
-import com.repackage.wm6;
+import com.repackage.oo6;
+import com.repackage.po6;
+import com.repackage.s85;
 /* loaded from: classes3.dex */
-public class FrsProfessionPermissionModel<T> extends NetAutoModel<vm6, wm6, T> {
+public class FrsProfessionPermissionModel<T> extends NetAutoModel<oo6, po6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, vm6 vm6Var) {
-        super(tbPageContext, vm6Var);
+    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, oo6 oo6Var) {
+        super(tbPageContext, oo6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vm6Var};
+            Object[] objArr = {tbPageContext, oo6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (u75) objArr2[1]);
+                super((TbPageContext) objArr2[0], (s85) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,28 +42,28 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<vm6, wm6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int N() {
+    public int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.CMD_PROFESSION_PERMISSION : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> P() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ProPermissionHttpResponseMessage.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String Q() {
+    public String P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbConfig.URL_PROFESSION_PERMISSION : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int R() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -73,16 +73,16 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<vm6, wm6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> S() {
+    public Class<? extends MvcSocketResponsedMessage> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ProPermissionSocketResponseMessage.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<wm6> getResponseDataClass() {
+    public Class<po6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wm6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? po6.class : (Class) invokeV.objValue;
     }
 }

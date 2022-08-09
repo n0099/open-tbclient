@@ -18,10 +18,10 @@ public class bn {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f943a;
+    public int f944a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f944a;
+    public Context f945a;
 
     public bn(Context context) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class bn {
                 return;
             }
         }
-        this.f943a = 0;
-        this.f944a = context.getApplicationContext();
+        this.f944a = 0;
+        this.f945a = context.getApplicationContext();
     }
 
     public static bn a(Context context) {
@@ -59,15 +59,15 @@ public class bn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.f943a;
+            int i = this.f944a;
             if (i != 0) {
                 return i;
             }
             try {
-                this.f943a = Settings.Global.getInt(this.f944a.getContentResolver(), "device_provisioned", 0);
+                this.f944a = Settings.Global.getInt(this.f945a.getContentResolver(), "device_provisioned", 0);
             } catch (Exception unused) {
             }
-            return this.f943a;
+            return this.f944a;
         }
         return invokeV.intValue;
     }
@@ -84,6 +84,6 @@ public class bn {
     public boolean m645a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f92a.contains("xmsf") || com.xiaomi.push.ae.f92a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f92a.contains("miui") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f93a.contains("xmsf") || com.xiaomi.push.ae.f93a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f93a.contains("miui") : invokeV.booleanValue;
     }
 }

@@ -1,77 +1,108 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes5.dex */
-public class cj7 {
+public class cj7 implements YYPayService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public pi7 b;
-    public LinkedHashMap<String, si7> c;
 
-    public cj7(DataRes dataRes) {
+    /* loaded from: classes5.dex */
+    public class a implements ca5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ YYPayService.YYPayResultCallback a;
+
+        public a(cj7 cj7Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cj7Var, yYPayResultCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yYPayResultCallback;
+        }
+
+        @Override // com.repackage.ca5
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.repackage.ca5
+        public void onSuccess(ga5 ga5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga5Var) == null) {
+                if (ga5Var != null) {
+                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
+                    yYPayResultMessage.setStatus(ga5Var.g);
+                    yYPayResultMessage.setAppid(ga5Var.b);
+                    yYPayResultMessage.setUid(ga5Var.h.longValue());
+                    yYPayResultMessage.setUsedChannel(ga5Var.i);
+                    yYPayResultMessage.setCurrencyType(ga5Var.d);
+                    yYPayResultMessage.setAmount(ga5Var.a.longValue());
+                    yYPayResultMessage.setCurrencyAmount(ga5Var.c.longValue());
+                    yYPayResultMessage.setOrderId(ga5Var.f);
+                    yYPayResultMessage.setExpand(ga5Var.e);
+                    this.a.onSuccess(yYPayResultMessage);
+                    return;
+                }
+                this.a.onSuccess(null);
+            }
+        }
+    }
+
+    public cj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (dataRes == null) {
-            return;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
+            startPayment(context, null, yYPayResultCallback);
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new bj7(dataRes);
-        new dj7(dataRes.special_list);
-        new ui7(dataRes.cooperate_list);
-        new yi7(dataRes.theme_list);
-        new qi7(dataRes.banner_list);
-        new gj7(dataRes.task_list);
-        new fj7(dataRes.rank, dataRes.user);
-        new wi7(dataRes.daily_list);
-        pi7 pi7Var = new pi7();
-        this.b = pi7Var;
-        pi7Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    si7 si7Var = new si7(vipBasicList);
-                    if (si7Var.c != 3 || si7Var.a().size() >= 2) {
-                        this.c.put(si7Var.d, si7Var);
-                    }
-                }
-            }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
+            startPayment(context, str, 0L, yYPayResultCallback);
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 == null || list3.size() <= 0) {
-            return;
-        }
-        this.a = new ArrayList<>();
-        for (String str3 : dataRes.card_order) {
-            if (!StringUtils.isNull(str3)) {
-                this.a.add(str3);
-            }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new fa5(context, 1, str, l, new a(this, yYPayResultCallback)));
         }
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jx5;
+import com.repackage.bz5;
 /* loaded from: classes3.dex */
-public class CardViewHolder<T extends jx5> extends TypeAdapter.ViewHolder {
+public class CardViewHolder<T extends bz5> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;
@@ -35,7 +35,7 @@ public class CardViewHolder<T extends jx5> extends TypeAdapter.ViewHolder {
         this.a = t;
     }
 
-    public T b() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;

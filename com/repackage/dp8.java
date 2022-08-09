@@ -1,95 +1,78 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class dp8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import protobuf.ConfigVersion;
+/* loaded from: classes6.dex */
+public class dp8 extends cb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    public static void a(qr4 qr4Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dp8(MainTabActivity mainTabActivity, mn8 mn8Var) {
+        super(1001);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, qr4Var, i) == null) || qr4Var == null || i < 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, mn8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        int i2 = i + 1;
-        boolean d = qr4Var.d();
-        TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
+        this.a = mainTabActivity;
     }
 
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (-1 == this.a.k) {
                 return true;
             }
-            return false;
+            long currentTimeMillis = System.currentTimeMillis() - this.a.k;
+            return currentTimeMillis <= 0 || currentTimeMillis >= 300000;
         }
-        return invokeLIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static String c(View view2) {
-        InterceptResult invokeL;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null || TbadkCoreApplication.getInst().getConfigVersion() == null || !a()) {
+            return;
+        }
+        this.a.k = System.currentTimeMillis();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
             }
-            Object tag = view2.getTag();
-            if (tag instanceof PostData) {
-                PostData postData = (PostData) tag;
-                if (postData.s() != null) {
-                    return postData.s().getUserId();
-                }
-            }
-            return null;
+            b(configVersion.sync);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
-    }
-
-    public static void e(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) || activity == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        g((ViewGroup) activity.findViewById(16908290), str, false);
-    }
-
-    public static void f(View view2, PostData postData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, view2, postData) == null) || view2 == null) {
-            return;
-        }
-        view2.setTag(postData);
-    }
-
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) || viewGroup == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-        bdTopToast.i(z);
-        bdTopToast.h(str);
-        bdTopToast.j(viewGroup);
     }
 }

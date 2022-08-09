@@ -54,7 +54,7 @@ public abstract class c extends a implements View.OnClickListener {
     public RatioFrameLayout dn;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f3do;
+    public ImageView f4do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.components.core.video.c dq;
     public d dr;
@@ -377,11 +377,11 @@ public abstract class c extends a implements View.OnClickListener {
     private void bh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090fd6).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f090fd5).setVisibility(8);
-            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f091043);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091045);
-            this.dj = findViewById(R.id.obfuscated_res_0x7f091046);
+            findViewById(R.id.obfuscated_res_0x7f09102c).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f09102b).setVisibility(8);
+            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09109b);
+            this.dj = findViewById(R.id.obfuscated_res_0x7f09109c);
             this.di.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             this.cE.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.dj.setOnClickListener(this);
@@ -393,15 +393,15 @@ public abstract class c extends a implements View.OnClickListener {
     private void bi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090fd5).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f090fd6).setVisibility(8);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fec);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090fe8);
+            findViewById(R.id.obfuscated_res_0x7f09102b).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f09102c).setVisibility(8);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091042);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091046);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09103e);
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080bc0);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080be6);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();
@@ -463,12 +463,12 @@ public abstract class c extends a implements View.OnClickListener {
             this.ds = (!(ksAdVideoPlayConfig instanceof KSAdVideoPlayConfigImpl) || ((KSAdVideoPlayConfigImpl) ksAdVideoPlayConfig).getVideoSoundValue() == 0) ? com.kwad.sdk.core.response.a.a.bh(this.mAdInfo) : ksAdVideoPlayConfig.isVideoSoundEnable();
             String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
             if (TextUtils.isEmpty(url)) {
-                imageView = this.f3do;
+                imageView = this.f4do;
                 i = 8;
             } else {
-                this.f3do.setImageDrawable(null);
-                KSImageLoader.loadImage(this.f3do, url, this.mAdTemplate);
-                imageView = this.f3do;
+                this.f4do.setImageDrawable(null);
+                KSImageLoader.loadImage(this.f4do, url, this.mAdTemplate);
+                imageView = this.f4do;
                 i = 0;
             }
             imageView.setVisibility(i);
@@ -574,14 +574,14 @@ public abstract class c extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f090fd1);
-            RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091027);
+            RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f5);
             this.dn = ratioFrameLayout;
             ratioFrameLayout.setRatio(0.56f);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
-            this.f3do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fd4);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090fea);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091029);
+            this.f4do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091205);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09102a);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091040);
         }
     }
 

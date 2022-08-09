@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -104,10 +105,10 @@ public final class d extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0443, this);
-            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f09104a);
-            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
-            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f091047);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0446, this);
+            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a0);
+            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ee);
+            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f09109d);
         }
     }
 
@@ -257,9 +258,9 @@ public final class d extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, -10.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "translationX", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "translationY", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ROTATION, 0.0f, -10.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.setDuration(250L);
             animatorSet.playTogether(ofFloat, ofFloat2, ofFloat3);
@@ -272,9 +273,9 @@ public final class d extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", -10.0f, 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "translationX", -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "translationY", -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ROTATION, -10.0f, 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.setDuration(250L);
             animatorSet.playTogether(ofFloat, ofFloat2, ofFloat3);

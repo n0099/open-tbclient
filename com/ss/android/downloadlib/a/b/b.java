@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.downloadlib.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */

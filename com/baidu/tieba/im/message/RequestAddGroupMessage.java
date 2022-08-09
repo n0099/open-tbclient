@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.og;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
 /* loaded from: classes3.dex */
@@ -56,10 +56,10 @@ public class RequestAddGroupMessage extends TbSocketMessage {
             builder.intro = getIntro();
             builder.portrait = getPortrait();
             builder.position = getPosition();
-            builder.lng = Double.valueOf(ng.c(getLng(), 0.0d));
+            builder.lng = Double.valueOf(og.c(getLng(), 0.0d));
             builder.groupType = Integer.valueOf(getGroupType());
             builder.flag = Integer.valueOf(getFlag());
-            builder.lat = Double.valueOf(ng.c(getLat(), 0.0d));
+            builder.lat = Double.valueOf(og.c(getLat(), 0.0d));
             builder.forumId = Integer.valueOf(getForumId());
             AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
             builder2.data = builder.build(false);

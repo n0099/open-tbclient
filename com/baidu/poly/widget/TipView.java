@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d81;
+import com.repackage.u81;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ab, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920b4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b8);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d6, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921b0);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b4);
         }
     }
 
@@ -69,7 +69,7 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
             if (this.c == null) {
-                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
+                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010098);
             }
             this.b.setText(str);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
@@ -89,11 +89,11 @@ public class TipView extends LinearLayout {
             this.a.clearAnimation();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705ef);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f0);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            d81.b().a(this.a, str);
+            u81.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

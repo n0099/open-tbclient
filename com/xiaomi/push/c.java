@@ -18,10 +18,10 @@ public final class c {
     public final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final OutputStream f156a;
+    public final OutputStream f157a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final byte[] f157a;
+    public final byte[] f158a;
     public int b;
 
     /* loaded from: classes8.dex */
@@ -63,8 +63,8 @@ public final class c {
                 return;
             }
         }
-        this.f156a = outputStream;
-        this.f157a = bArr;
+        this.f157a = outputStream;
+        this.f158a = bArr;
         this.b = 0;
         this.a = bArr.length;
     }
@@ -84,8 +84,8 @@ public final class c {
                 return;
             }
         }
-        this.f156a = null;
-        this.f157a = bArr;
+        this.f157a = null;
+        this.f158a = bArr;
         this.b = i;
         this.a = i + i2;
     }
@@ -267,11 +267,11 @@ public final class c {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            OutputStream outputStream = this.f156a;
+            OutputStream outputStream = this.f157a;
             if (outputStream == null) {
                 throw new a();
             }
-            outputStream.write(this.f157a, 0, this.b);
+            outputStream.write(this.f158a, 0, this.b);
             this.b = 0;
         }
     }
@@ -298,7 +298,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f156a == null) {
+            if (this.f157a == null) {
                 return this.a - this.b;
             }
             throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -309,7 +309,7 @@ public final class c {
     /* renamed from: a  reason: collision with other method in class */
     public void m216a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f156a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f157a == null) {
             return;
         }
         c();
@@ -321,7 +321,7 @@ public final class c {
             if (this.b == this.a) {
                 c();
             }
-            byte[] bArr = this.f157a;
+            byte[] bArr = this.f158a;
             int i = this.b;
             this.b = i + 1;
             bArr[i] = b;
@@ -453,21 +453,21 @@ public final class c {
             int i3 = this.a;
             int i4 = this.b;
             if (i3 - i4 >= i2) {
-                System.arraycopy(bArr, i, this.f157a, i4, i2);
+                System.arraycopy(bArr, i, this.f158a, i4, i2);
                 this.b += i2;
                 return;
             }
             int i5 = i3 - i4;
-            System.arraycopy(bArr, i, this.f157a, i4, i5);
+            System.arraycopy(bArr, i, this.f158a, i4, i5);
             int i6 = i + i5;
             int i7 = i2 - i5;
             this.b = this.a;
             c();
             if (i7 > this.a) {
-                this.f156a.write(bArr, i6, i7);
+                this.f157a.write(bArr, i6, i7);
                 return;
             }
-            System.arraycopy(bArr, i6, this.f157a, 0, i7);
+            System.arraycopy(bArr, i6, this.f158a, 0, i7);
             this.b = i7;
         }
     }

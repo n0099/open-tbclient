@@ -1,21 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.repackage.a02;
 /* loaded from: classes5.dex */
 public interface cl1 {
-    void a(Context context, JSONObject jSONObject);
+    int a();
 
-    void b(Context context, JSONObject jSONObject);
+    VideoPlayerFactory b();
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    int c();
 
-    void d(Context context, String[] strArr, int i);
+    void d(boolean z);
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+    boolean e();
 
-    void f(Context context, JSONObject jSONObject);
+    boolean f();
+
+    void g(int i);
+
+    void h(a02.c cVar);
 }

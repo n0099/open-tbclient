@@ -43,16 +43,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.repackage.a67;
-import com.repackage.f97;
-import com.repackage.g45;
-import com.repackage.hs4;
-import com.repackage.mj8;
-import com.repackage.nm4;
-import com.repackage.sr4;
-import com.repackage.wh8;
-import com.repackage.x37;
-import com.repackage.xl4;
+import com.repackage.c55;
+import com.repackage.en4;
+import com.repackage.js4;
+import com.repackage.kk8;
+import com.repackage.om4;
+import com.repackage.r57;
+import com.repackage.u77;
+import com.repackage.yl8;
+import com.repackage.ys4;
+import com.repackage.za7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class LaunchStatic {
@@ -187,17 +187,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        mj8.a();
-        f97.a();
-        x37.a();
+        yl8.a();
+        za7.a();
+        r57.a();
         ImMemoryCacheRegister.l();
-        a67.i();
-        xl4.f();
+        u77.i();
+        om4.f();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        sr4.d();
-        hs4.a();
-        nm4.d();
+        js4.d();
+        ys4.a();
+        en4.d();
         a();
     }
 
@@ -251,9 +251,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            g45.d().f();
-            wh8.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, wh8.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c55.d().f();
+            kk8.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, kk8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

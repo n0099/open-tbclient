@@ -1,12 +1,13 @@
 package com.repackage;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class ft2 extends ts2 {
+public class ft2 implements kg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public Boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,158 +43,253 @@ public class ft2 extends ts2 {
                 return;
             }
         }
-        f = sg1.a;
+        c = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft2(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public ft2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.a = AppRuntime.getAppContext();
     }
 
-    @Override // com.repackage.lo1
-    public String j() {
+    @Override // com.repackage.kg4
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? gk2.n().a() : (String) invokeV.objValue;
     }
 
-    public is1 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.kg4
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new is1(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new is1(1001, "swan activity is null");
-            }
-            Pair<is1, JSONObject> s = s(str);
-            is1 is1Var = (is1) s.first;
-            if (is1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new is1(202, "empty appKey");
-                }
-                String optString4 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new is1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
-                return is1.f();
-            }
-            return is1Var;
-        }
-        return (is1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? kh1.a() : (String) invokeV.objValue;
     }
 
-    public is1 y(String str) {
+    @Override // com.repackage.kg4
+    public boolean c(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (i03.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new is1(1001, "swan app is null");
+            vk1 g0 = gk2.g0();
+            if (g0 != null) {
+                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
             }
-            Pair<is1, JSONObject> s = s(str);
-            is1 is1Var = (is1) s.first;
-            if (is1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("dealId");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new is1(202, "empty dealId");
-                }
-                String optString4 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new is1(202, "empty appKey");
-                }
-                String optString5 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString5)) {
-                    return new is1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-                return is1.f();
+            if (TextUtils.isEmpty("")) {
+                return false;
             }
-            return is1Var;
+            try {
+                i = new JSONObject("").getInt("probability");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                i = 0;
+            }
+            return new Random().nextInt(100) < i;
         }
-        return (is1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public is1 z(String str) {
+    @Override // com.repackage.kg4
+    public ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? gk2.z0().d() : (ExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public void e(String str, int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
+            gk2.z0().e(str, i, jSONArray);
+        }
+    }
+
+    @Override // com.repackage.kg4
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            gk2.z0().f(str, i);
+        }
+    }
+
+    @Override // com.repackage.kg4
+    public void g(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+            gk2.z0().g(str, str2, i, str3, i2);
+        }
+    }
+
+    @Override // com.repackage.kg4
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            z03 D = mm2.U().D();
+            return D != null ? D.b : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            z03 D = mm2.U().D();
+            return D != null ? D.Y().v1() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String getDeviceId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (i03.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new is1(1001, "swan app is null");
-            }
-            Pair<is1, JSONObject> s = s(str);
-            is1 is1Var = (is1) s.first;
-            if (is1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new is1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("chosenChannel");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new is1(202, "empty chosenChannel");
-                }
-                PaymentPanelManager.z().J(this, optString2, optString3, optString);
-                return is1.f();
-            }
-            return is1Var;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? gk2.h0().i(gk2.c()) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String getScene() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            z03 D = mm2.U().D();
+            return D != null ? D.W().T() : "";
         }
-        return (is1) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            vk1 g0 = gk2.g0();
+            return g0 != null ? g0.p() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public void i(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i, str2) == null) {
+            gk2.z0().i(str, i, str2);
+        }
+    }
+
+    @Override // com.repackage.kg4
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? gk2.g0().j() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kg4
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? y03.K().k() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.kg4
+    public lg4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? gk2.O().l() : (lg4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? ea3.h(k()) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public void n(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            gk2.z0().n(str, str2, i, str3, j, i2);
+        }
+    }
+
+    @Override // com.repackage.kg4
+    public String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? jh4.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.b == null) {
+                gk2.g0().getSwitch("swan_ceres_add_counter", false);
+                this.b = false;
+            }
+            return this.b.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kg4
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? yw2.X() && (r() || jh1.b) : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kg4
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return c && PreferenceManager.getDefaultSharedPreferences(gk2.c()).getBoolean("KEY_UBC_DEBUG", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String b = gk2.n().b();
+            if (te3.G() || TextUtils.isEmpty(b)) {
+                return null;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? tx1.b() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kg4
+    public String u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? gk2.h0().h(gk2.c()) : (String) invokeL.objValue;
     }
 }

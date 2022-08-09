@@ -9,14 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eb0;
+import com.repackage.wa0;
 /* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,27 +46,40 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0524, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0532, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091346);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091347);
+            c();
         }
     }
 
-    public void b(String str) {
-        TextView textView;
+    public void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) || this.b == null) {
             return;
         }
-        textView.setTextColor(eb0.e().a(getContext(), false, "color_search_guide"));
-        if (Config.TRACE_VISIT_RECENT_DAY.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cb2);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cb0);
-        } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cb3);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cb1);
+        if (z) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdd);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdb);
+            this.b.setTextColor(-1);
+        } else if ("day".equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdc);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cda);
+            this.b.setTextColor(-1);
+        } else if ("night".equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdd);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdb);
             this.b.setTextColor(-1);
         }
+    }
+
+    public void c() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (textView = this.b) == null) {
+            return;
+        }
+        wa0.h(textView, 1, 12.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -140,7 +139,7 @@ public class LaunchedTaskSpeedStats {
                 jSONObject.put("duration", speedStatisticsNode.getDuration());
                 JSONObject speedNodeParts = getSpeedNodeParts(ruleNode.getChildParts());
                 if (speedNodeParts != null) {
-                    jSONObject.put(SpeedStatsMainTable.PART, speedNodeParts);
+                    jSONObject.put("part", speedNodeParts);
                 }
                 return jSONObject;
             } catch (JSONException e) {

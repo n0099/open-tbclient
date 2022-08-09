@@ -37,7 +37,7 @@ public class au {
         public final /* synthetic */ au a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List<b> f907a;
+        public List<b> f908a;
         public List<b> b;
 
         public a(au auVar) {
@@ -56,7 +56,7 @@ public class au {
                 }
             }
             this.a = auVar;
-            this.f907a = new ArrayList();
+            this.f908a = new ArrayList();
             this.b = new ArrayList();
         }
 
@@ -72,10 +72,10 @@ public class au {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Notification f908a;
+        public Notification f909a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ au f909a;
+        public final /* synthetic */ au f910a;
 
         public b(au auVar, int i, Notification notification) {
             Interceptable interceptable = $ic;
@@ -92,9 +92,9 @@ public class au {
                     return;
                 }
             }
-            this.f909a = auVar;
+            this.f910a = auVar;
             this.a = i;
-            this.f908a = notification;
+            this.f909a = notification;
         }
 
         public String toString() {
@@ -200,12 +200,12 @@ public class au {
                         if (!TextUtils.isEmpty(key)) {
                             a value = entry.getValue();
                             if (z && key.equals(b2) && !m620b(notification)) {
-                                (m619a(notification) ? value.b : value.f907a).add(new b(this, i, notification));
+                                (m619a(notification) ? value.b : value.f908a).add(new b(this, i, notification));
                             }
-                            int size = value.f907a.size();
+                            int size = value.f908a.size();
                             if (value.b.size() <= 0) {
                                 if (z && size >= 2) {
-                                    a(context, c, key, value.f907a.get(0).f908a);
+                                    a(context, c, key, value.f908a.get(0).f909a);
                                 }
                             } else if (size <= 0) {
                                 a(context, c, key);
@@ -276,7 +276,7 @@ public class au {
                 aVar = new a(this, null);
                 map.put(b2, aVar);
             }
-            (m619a(statusBarNotification.getNotification()) ? aVar.b : aVar.f907a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
+            (m619a(statusBarNotification.getNotification()) ? aVar.b : aVar.f908a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
         }
     }
 

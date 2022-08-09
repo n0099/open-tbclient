@@ -2,157 +2,175 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class if1 {
+public class if1 extends hf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public if1() {
+    /* loaded from: classes6.dex */
+    public class a extends fg1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ if1 c;
+
+        public a(if1 if1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {if1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = if1Var;
+            this.b = i;
+        }
+
+        @Override // com.repackage.fg1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    kg1.d(th);
+                    if1 if1Var = this.c;
+                    if1Var.d(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, if1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends fg1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ if1 c;
+
+        public b(if1 if1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {if1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = if1Var;
+            this.b = i;
+        }
+
+        @Override // com.repackage.fg1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    kg1.d(th);
+                    if1 if1Var = this.c;
+                    if1Var.n(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, if1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public if1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hf1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(a)) {
-                    a = tf1.e(context);
-                }
-                return TextUtils.isEmpty(a) ? "" : a;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            hg1.c().b(new a(this, i));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.hf1
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("1", b(context));
-                jSONObject.put("3", d(context));
-                jSONObject.put("2", e(context));
-                jSONObject.put("4", f(context));
-                jSONObject.put("5", str);
-                jSONObject.put("6", System.currentTimeMillis());
-                jSONObject.put("7", "0");
-                jSONObject.put("8", ge1.b);
-                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                jSONObject.put("10", "1.1.4");
-                jSONObject.put("14", tf1.i(context));
-                jSONObject.put("23", ff1.a(context));
-                jSONObject.put("26", "");
-                jSONObject.put("31", he1.f(context).J());
-                return jSONObject;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else if (this.f - System.currentTimeMillis() < jg1.a) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else {
+                return false;
             }
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hf1
+    public void p(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(b)) {
-                    b = tf1.g(context);
-                }
-                return TextUtils.isEmpty(b) ? "" : b;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            hg1.c().b(new b(this, i));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hf1
+    public boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(c)) {
-                    c = context.getPackageName();
-                }
-                return TextUtils.isEmpty(c) ? "" : c;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < jg1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(d)) {
-                    return d;
-                }
-                String b2 = uf1.b(context);
-                d = b2;
-                return b2;
-            } catch (Throwable unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public lf1 a(Context context, String str, String str2, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                JSONArray jSONArray = new JSONArray(str);
-                JSONObject c2 = c(context, str2);
-                c2.put("module_section", jSONArray);
-                lf1 lf1Var = new lf1();
-                lf1Var.e(i);
-                lf1Var.c(c2.toString());
-                lf1Var.g(i2);
-                return lf1Var;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return null;
-            }
-        }
-        return (lf1) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewOffsetHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class ViewOffsetHelper {
     public boolean verticalOffsetEnabled;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1065view;
+    public final View f1068view;
 
     public ViewOffsetHelper(View view2) {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class ViewOffsetHelper {
         }
         this.verticalOffsetEnabled = true;
         this.horizontalOffsetEnabled = true;
-        this.f1065view = view2;
+        this.f1068view = view2;
     }
 
     public void applyOffsets() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view2 = this.f1065view;
+            View view2 = this.f1068view;
             ViewCompat.offsetTopAndBottom(view2, this.offsetTop - (view2.getTop() - this.layoutTop));
-            View view3 = this.f1065view;
+            View view3 = this.f1068view;
             ViewCompat.offsetLeftAndRight(view3, this.offsetLeft - (view3.getLeft() - this.layoutLeft));
         }
     }
@@ -92,8 +92,8 @@ public class ViewOffsetHelper {
     public void onViewLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.layoutTop = this.f1065view.getTop();
-            this.layoutLeft = this.f1065view.getLeft();
+            this.layoutTop = this.f1068view.getTop();
+            this.layoutLeft = this.f1068view.getLeft();
         }
     }
 

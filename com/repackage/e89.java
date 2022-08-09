@@ -1,19 +1,19 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.record.source.IDataSourceView;
-import com.repackage.z79;
 /* loaded from: classes6.dex */
-public class e89 implements IDataSourceView.IPlayerDataSourceView, z79.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e89 {
+    int availableBytes();
 
-    public abstract void c();
+    void close();
 
-    public abstract void d(float f);
+    void flush();
 
-    public abstract void e(int i);
+    byte[] getOutPutBytes();
 
-    public abstract void f();
+    void init(int i, int i2);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    int receiveBytes(byte[] bArr, int i);
+
+    void setSpeed(float f);
 }

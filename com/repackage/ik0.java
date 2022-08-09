@@ -1,24 +1,21 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk0;
 /* loaded from: classes6.dex */
-public abstract class ik0<T extends fk0> {
+public final class ik0 extends ck0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<T> a;
+    public boolean a;
 
-    public ik0(Class<T> cls) {
+    public ik0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,14 +25,6 @@ public abstract class ik0<T extends fk0> {
                 return;
             }
         }
-        this.a = cls;
+        this.a = z;
     }
-
-    public final Class<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
-    }
-
-    public abstract void onEvent(@NonNull T t);
 }

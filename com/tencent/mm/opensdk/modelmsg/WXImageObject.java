@@ -12,7 +12,7 @@ import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXImageObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTENT_LENGTH_LIMIT = 26214400;
@@ -57,7 +57,7 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
             this.imageData = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
         } catch (Exception e) {
-            Log.e("MicroMsg.SDK.WXImageObject", "WXImageObject <init>, exception:" + e.getMessage());
+            Log.e(TAG, "WXImageObject <init>, exception:" + e.getMessage());
         }
     }
 
@@ -112,7 +112,7 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
                     str2 = "checkArgs fail, content is too large";
                 }
             }
-            Log.e("MicroMsg.SDK.WXImageObject", str2);
+            Log.e(TAG, str2);
             return false;
         }
         return invokeV.booleanValue;

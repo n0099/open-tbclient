@@ -1,19 +1,20 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes7.dex */
-public abstract class q55 {
+public class q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r55 a;
-    public TbFragmentTabIndicator b;
+    public List<FutureTask<Boolean>> a;
+    public List<p55> b;
+    public ErrorData c;
 
     public q55() {
         Interceptable interceptable = $ic;
@@ -25,33 +26,34 @@ public abstract class q55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = a();
     }
 
-    public abstract r55 a();
-
-    public r55 b() {
-        InterceptResult invokeV;
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (r55) invokeV.objValue;
-    }
-
-    public abstract TbFragmentTabIndicator c(Context context);
-
-    public abstract boolean d();
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.c == null) {
+            this.c = errorData;
+            for (FutureTask<Boolean> futureTask : this.a) {
+                futureTask.cancel(true);
+            }
+            for (p55 p55Var : this.b) {
+                p55Var.a();
+            }
         }
     }
 
-    public void f() {
+    public void b(List<p55> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

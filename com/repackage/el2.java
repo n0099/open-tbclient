@@ -1,22 +1,19 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.net.Uri;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class el2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface el2 {
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & 1) == 1 : invokeI.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & 2) == 2 : invokeI.booleanValue;
-    }
+    void a(Context context, JSONObject jSONObject, a aVar);
+
+    void b(Context context, String str, Uri uri);
 }

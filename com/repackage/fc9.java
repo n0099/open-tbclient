@@ -1,23 +1,30 @@
 package com.repackage;
 
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ObjectInput;
-/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public final /* synthetic */ class fc9 implements ki9 {
+public class fc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ fc9 a = new fc9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ fc9() {
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ki9
-    public final Object a(ObjectInput objectInput) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? od9.h(objectInput) : invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.MODEL;
+            if (lc9.a(str)) {
+                return false;
+            }
+            return str.equalsIgnoreCase("OPPO R9sk");
+        }
+        return invokeV.booleanValue;
     }
 }

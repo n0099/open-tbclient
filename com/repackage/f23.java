@@ -1,126 +1,172 @@
 package com.repackage;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class f23 extends j13<UnitedSchemeBaseDispatcher> {
+public class f23 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755759766, "Lcom/repackage/f23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755759766, "Lcom/repackage/f23;");
-                return;
-            }
-        }
-        b = sg1.a;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f23(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
-        super(unitedSchemeBaseDispatcher, str);
+    public f23(w13 w13Var) {
+        super(w13Var, "/swanAPI/getImageInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeAbsDispatcher) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Nullable
-    public static JSONObject a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, unitedSchemeEntity, str)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            String param = unitedSchemeEntity.getParam(str);
-            if (TextUtils.isEmpty(param)) {
-                return null;
-            }
-            try {
-                return new JSONObject(param);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public i03 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i03.M() : (i03) invokeV.objValue;
-    }
-
-    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var);
-
-    public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
-            try {
-                if (TextUtils.equals(this.a, str)) {
-                    return d(context, unitedSchemeEntity, callbackHandler, c());
-                }
-                return i(context, unitedSchemeEntity, callbackHandler, str, c());
-            } catch (Throwable th) {
-                if (b) {
-                    Log.e("SwanAppAction", Log.getStackTraceString(th));
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var == null) {
+                zx1.c("getImageInfo", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             }
+            String optString = zd3.d(unitedSchemeEntity.getParam("params")).optString("src");
+            if (TextUtils.isEmpty(optString)) {
+                zx1.c("getImageInfo", "path null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            JSONObject jSONObject = null;
+            if (h83.s(optString) == PathType.BD_FILE) {
+                jSONObject = k(h83.M(optString, z03Var.b), optString);
+            } else if (h83.s(optString) == PathType.RELATIVE) {
+                jSONObject = k(h83.L(optString, z03Var, z03Var.k0()), optString);
+            }
+            if (jSONObject != null) {
+                zx1.i("getImageInfo", "getImgInfo success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    public final ExifInterface j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + unitedSchemeEntity.getUri().getPath());
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new ExifInterface(str);
+            } catch (IOException unused) {
+                return null;
+            }
         }
-        return invokeLLLLL.booleanValue;
+        return (ExifInterface) invokeL.objValue;
+    }
+
+    public final JSONObject k(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            zx1.i("getImageInfo", "getImgInfo start");
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            int i = 1;
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            String str4 = options.outMimeType;
+            if (TextUtils.isEmpty(str4)) {
+                str3 = "";
+            } else {
+                String[] split = str4.split("/");
+                str3 = split[split.length - 1];
+            }
+            if (!TextUtils.equals("png", str3)) {
+                ExifInterface j = j(str);
+                if (j == null) {
+                    return null;
+                }
+                i = j.getAttributeInt("Orientation", 1);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i3);
+                jSONObject.put("path", str2);
+                jSONObject.put("orientation", l(i));
+                jSONObject.put("type", str3);
+            } catch (JSONException e) {
+                zx1.c("getImageInfo", "getImgInfo failed by json exception");
+                if (w23.b) {
+                    e.printStackTrace();
+                }
+            }
+            zx1.i("getImageInfo", "getImgInfo end");
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            switch (i) {
+                case 0:
+                case 1:
+                    return "up";
+                case 2:
+                    return "up-mirrored";
+                case 3:
+                    return "down";
+                case 4:
+                    return "down-mirrored";
+                case 5:
+                    return "left-mirrored";
+                case 6:
+                    return "left";
+                case 7:
+                    return "right-mirrored";
+                case 8:
+                    return "right";
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
     }
 }

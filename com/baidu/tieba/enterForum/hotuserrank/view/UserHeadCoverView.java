@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.t56;
+import com.repackage.l76;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class UserHeadCoverView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -51,60 +51,60 @@ public class UserHeadCoverView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new ImageView(context);
-            int f = pi.f(context, R.dimen.tbds78);
+            int f = qi.f(context, R.dimen.tbds78);
             addView(this.a, new FrameLayout.LayoutParams(f, f));
             this.b = new View(context);
-            int f2 = pi.f(context, R.dimen.tbds158);
+            int f2 = qi.f(context, R.dimen.tbds158);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
-            int f3 = pi.f(context, R.dimen.tbds26);
+            int f3 = qi.f(context, R.dimen.tbds26);
             layoutParams.leftMargin = f3;
             layoutParams.topMargin = f3;
             addView(this.b, layoutParams);
             this.c = new ImageView(context);
-            int f4 = pi.f(context, R.dimen.tbds36);
+            int f4 = qi.f(context, R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f4, f4);
             layoutParams2.gravity = 85;
             addView(this.c, layoutParams2);
         }
     }
 
-    public void setData(t56 t56Var) {
+    public void setData(l76 l76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t56Var) == null) || t56Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l76Var) == null) || l76Var == null) {
             return;
         }
-        String str = t56Var.a;
+        String str = l76Var.a;
         if (str != null) {
-            if (!str.equals("1") && !t56Var.a.equals("2") && !t56Var.a.equals("3")) {
+            if (!str.equals("1") && !l76Var.a.equals("2") && !l76Var.a.equals("3")) {
                 this.a.setVisibility(8);
                 this.b.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
                 this.b.setVisibility(0);
-                if (t56Var.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081089, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081062));
-                } else if (t56Var.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08108a, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081061));
-                } else if (t56Var.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08108b, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081060));
+                if (l76Var.a.equals("1")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ef, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
+                } else if (l76Var.a.equals("2")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f0, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c8));
+                } else if (l76Var.a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f1, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c7));
                 }
             }
         } else {
             this.a.setVisibility(8);
             this.b.setVisibility(8);
         }
-        if (t56Var.g) {
-            int f = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        if (l76Var.g) {
+            int f = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
             layoutParams.gravity = 85;
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805df, null);
-        } else if (t56Var.h) {
-            int f2 = pi.f(TbadkApplication.getInst(), R.dimen.tbds40);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e4, null);
+        } else if (l76Var.h) {
+            int f2 = qi.f(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f2, f2);
             layoutParams2.gravity = 85;
             this.c.setLayoutParams(layoutParams2);

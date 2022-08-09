@@ -1,35 +1,80 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gd4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
+    public gd4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
-            r74.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public static gd4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (gd4.class) {
+                    if (b == null) {
+                        b = new gd4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (gd4) invokeV.objValue;
     }
 
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            return TextUtils.equals(str, "cs_protocol") && (i != 2000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = i84.b().i().getString("extract_js_url", null);
+            }
+            return this.a;
         }
-        return invokeLI.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i84.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
+            return;
+        }
+        String optString2 = optJSONObject.optString("extract_js_url");
+        i84.b().i().putString("tts_node_version", optString);
+        i84.b().i().putString("extract_js_url", optString2);
     }
 }

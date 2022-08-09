@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o09;
-import com.repackage.p09;
+import com.repackage.j39;
+import com.repackage.k39;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,7 +23,7 @@ public class BaseChromiumApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
-    public o09<c> b;
+    public j39<c> b;
 
     /* loaded from: classes4.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
@@ -189,7 +189,7 @@ public class BaseChromiumApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            p09.b(this);
+            k39.b(this);
         }
     }
 
@@ -234,7 +234,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.b = new o09<>();
+        this.b = new j39<>();
         this.a = z;
     }
 }

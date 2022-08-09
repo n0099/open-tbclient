@@ -1,159 +1,177 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.repackage.wl2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface ei4 {
+public class ei4 extends ci4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements ei4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ei4 a;
-
-        public a(ei4 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
-        }
-
-        @Override // com.repackage.ei4
-        public String a(String url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.a(url);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.ei4
-        public WebResourceResponse b(Uri url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.b(url);
-            }
-            return (WebResourceResponse) invokeL.objValue;
-        }
-
-        @Override // com.repackage.ei4
-        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
-                Intrinsics.checkNotNullParameter(transform, "transform");
-                return (Target) this.a.c(webResourceResponse, transform);
-            }
-            return (Target) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Inject
-        public qb1<ei4> a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            b();
-        }
-
-        public final qb1<ei4> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                qb1<ei4> qb1Var = this.a;
-                if (qb1Var == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("impl");
-                }
-                return qb1Var;
-            }
-            return (qb1) invokeV.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ob1 b = ob1.b();
-                this.a = b;
-                b.a(new fi4());
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Illegal instructions before constructor call */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public c(b ioc) {
-            super(r7);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ioc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ei4) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(ioc, "ioc");
-            ei4 ei4Var = ioc.a().get();
-            Intrinsics.checkNotNullExpressionValue(ei4Var, "ioc.impl.get()");
+    @Override // com.repackage.ci4, com.repackage.kj2
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    String a(String str);
+    @Override // com.repackage.ci4
+    public void C0(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
+            try {
+                JSONObject J0 = J0();
+                JSONObject K0 = K0();
+                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
+                K0.put("sub_errorNo", i2);
+                K0.put("errorInfo", str);
+                J0.put("ext", K0.toString());
+                dg4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
+            } catch (Exception e) {
+                if (ci4.x) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
-    WebResourceResponse b(Uri uri);
+    @Override // com.repackage.ci4
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                JSONObject J0 = J0();
+                J0.put("type", "first_frame");
+                J0.put("ext", K0().toString());
+                dg4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
+            } catch (Exception e) {
+                if (ci4.x) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
-    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
+    @Override // com.repackage.ci4, com.repackage.kj2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @NonNull
+    public final JSONObject J0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", "video");
+                jSONObject.put("network", SwanAppNetworkUtils.e());
+            } catch (Exception e) {
+                if (ci4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @NonNull
+    public final JSONObject K0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext_from", "aiapp");
+                jSONObject.put("appid", z03.g0());
+                jSONObject.put("url", this.b);
+                jSONObject.put(TiebaStatic.Params.VID, this.b);
+                jSONObject.put("isInline", true);
+                String str = "";
+                z03 M = z03.M();
+                if (M != null) {
+                    str = M.w0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
+                    wl2.a Y = M.Y();
+                    if (Y != null && Y.u1() > 0) {
+                        jSONObject.put("ext_start", Y.u1());
+                    }
+                }
+                jSONObject.put("ext_page", str);
+            } catch (Exception e) {
+                if (ci4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kj2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
+        }
+    }
+
+    @Override // com.repackage.ci4, com.repackage.kj2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.kj2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ci4, com.repackage.kj2
+    public void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 }

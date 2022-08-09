@@ -1,9 +1,11 @@
 package com.repackage;
+
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface vb3 {
-    void a(String str, int i);
+    boolean b(sf3<zb3<List<yb3>>> sf3Var);
 
-    void b(String str, int i);
+    void c(sf3<zb3<Void>> sf3Var);
 
-    void c(String str);
+    boolean d(sf3<zb3<List<yb3>>> sf3Var);
 }

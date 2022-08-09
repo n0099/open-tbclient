@@ -1,118 +1,45 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sv7 {
+public class sv7 extends rv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public byte[] b;
-        public final /* synthetic */ sv7 c;
-
-        public a(sv7 sv7Var, String str, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sv7Var, str, bArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = sv7Var;
-            this.a = null;
-            this.b = null;
-            this.a = str;
-            this.b = bArr;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.cancel(true);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                super.onCancelled();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.a.getPageActivity());
-                if (saveImageFileByUser != -2) {
-                    if (saveImageFileByUser != 0) {
-                        return this.c.a.getString(R.string.obfuscated_res_0x7f0f104f);
-                    }
-                    return this.c.a.getString(R.string.obfuscated_res_0x7f0f1050);
-                }
-                return FileHelper.getSdErrorString();
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                super.onPostExecute((a) str);
-                this.c.a.showToast(str);
-            }
-        }
-    }
-
-    public sv7(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sv7(bi5 bi5Var) {
+        super(bi5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bi5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((bi5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    public void b(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bArr) == null) {
-            new a(this, str, bArr).execute(new String[0]);
-        }
+        o(TbConfig.getContentLineSpace(), 1.0f);
+        i(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        y(0);
+        l(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        m(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        r(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
+        f(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        s(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
+        u(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
+        j(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+        h(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
     }
 }

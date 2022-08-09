@@ -1,23 +1,24 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ue;
 /* loaded from: classes6.dex */
 public class hd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm6 a;
+    public ue<byte[]> a;
 
-    public hd6(TbPageContext tbPageContext, sm6 sm6Var) {
+    public hd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sm6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +28,38 @@ public class hd6 {
                 return;
             }
         }
-        this.a = sm6Var;
+        b();
     }
 
-    public void a(ri5 ri5Var) {
-        sm6 sm6Var;
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ri5Var) == null) || (sm6Var = this.a) == null || sm6Var.L0() == null || this.a.L0().h0() == null || this.a.l1() == null || ri5Var == null || this.a.l1().d0() == null || this.a.p0() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ue<byte[]> ueVar = this.a;
+            ue.b<byte[]> h = (ueVar == null || str == null) ? null : ueVar.h(str);
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            tr4.f();
+            this.a = tr4.d("tb.tbtiel_level_info");
+        }
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
             return;
         }
-        BdTypeRecyclerView d0 = this.a.l1().d0();
-        int i = ri5Var.a;
-        if (i != 2) {
-            if (i == 3 && ri5Var.a() != null) {
-                d0.removeHeaderView(ri5Var.a());
-                this.a.p0().f0(0);
-            }
-        } else if (ri5Var.a() == null) {
-        } else {
-            d0.removeHeaderView(ri5Var.a());
-            d0.t(ri5Var.a(), d0.getHeaderViewsCount() - 1);
-            this.a.p0().f0(8);
-        }
+        b();
+        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

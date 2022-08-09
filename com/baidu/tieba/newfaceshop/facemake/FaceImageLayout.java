@@ -18,7 +18,7 @@ public class FaceImageLayout extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a();
+        void onIntercept();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class FaceImageLayout extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             a aVar = this.a;
             if (aVar != null) {
-                aVar.a();
+                aVar.onIntercept();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }

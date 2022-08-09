@@ -1,37 +1,29 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ja2 extends ia2 {
+public class ja2 extends ga2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ja2(@NonNull String str) {
-        this(str, null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ja2(@NonNull fa2 fa2Var) {
+        super(fa2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {fa2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1]);
+                super((fa2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,53 +31,18 @@ public class ja2 extends ia2 {
         }
     }
 
-    @Override // com.repackage.ia2
-    public void m(Map<String, Object> map) {
+    @Override // com.repackage.ga2
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f(u84.i().v().keySet());
+            d();
+            ArraySet<String> a = a();
+            oi1 oi1Var = this.b;
+            if (oi1Var != null) {
+                oi1Var.f();
             }
-        }
-    }
-
-    public JSONObject s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (JSONException e) {
-                if (ia2.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public ja2(@NonNull String str, @Nullable Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        this.c = hashMap;
-        this.a = str;
-        if (map != null) {
-            hashMap.putAll(map);
+            c(a);
         }
     }
 }

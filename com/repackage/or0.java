@@ -1,15 +1,16 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class or0 extends vr0 {
+/* loaded from: classes7.dex */
+public abstract class or0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bv0 a;
 
     public or0() {
         Interceptable interceptable = $ic;
@@ -25,22 +26,26 @@ public class or0 extends vr0 {
         }
     }
 
-    public static vr0 w(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            vr0 m = vr0.m(str, 7);
-            m.u(1);
-            m.s(i);
-            return m;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
         }
-        return (vr0) invokeLI.objValue;
     }
 
-    @Override // com.repackage.vr0
-    public boolean b(@NonNull ws0 ws0Var) {
-        InterceptResult invokeL;
+    public void b(@NonNull bv0 bv0Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ws0Var)) == null) ? 1 != ws0Var.getType() : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bv0Var) == null) {
+            this.a = bv0Var;
+        }
+    }
+
+    public void c(@NonNull ur0 ur0Var) {
+        bv0 bv0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ur0Var) == null) || (bv0Var = this.a) == null) {
+            return;
+        }
+        bv0Var.d(ur0Var);
     }
 }

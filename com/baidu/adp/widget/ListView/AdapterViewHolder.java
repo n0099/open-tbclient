@@ -34,7 +34,7 @@ public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
         this.a = t;
     }
 
-    public T b() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;

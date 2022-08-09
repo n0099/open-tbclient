@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o64;
+import com.repackage.f74;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MainMenuView extends BaseMenuView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<o64>> m;
+    public List<List<f74>> m;
     public View n;
     public boolean o;
 
@@ -74,7 +74,7 @@ public class MainMenuView extends BaseMenuView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<List<o64>> list = this.m;
+            List<List<f74>> list = this.m;
             return list != null && list.size() > 1;
         }
         return invokeV.booleanValue;
@@ -141,7 +141,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public final void g(List<List<o64>> list, boolean z, int i) {
+    public final void g(List<List<f74>> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.m = list;
@@ -168,7 +168,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<o64>> list, View view2, boolean z, int i) {
+    public void update(List<List<f74>> list, View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             setMode();

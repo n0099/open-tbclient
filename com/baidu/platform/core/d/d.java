@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.i1;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.platform.base.e {
@@ -42,7 +42,7 @@ public class d extends com.baidu.platform.base.e {
             this.a.a("qt", "cars");
             this.a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
             this.a.a("ie", IMAudioTransRequest.CHARSET);
-            this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
+            this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "6");
             this.a.a("extinfo", "32");
             this.a.a("mrs", "1");

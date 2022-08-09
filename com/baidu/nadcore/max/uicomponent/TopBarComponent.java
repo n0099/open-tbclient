@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg0;
-import com.repackage.gm0;
-import com.repackage.hm0;
-import com.repackage.im0;
+import com.repackage.ag0;
+import com.repackage.dm0;
+import com.repackage.em0;
+import com.repackage.fm0;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\nJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\b\u0010\u0006J\u000f\u0010\t\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\t\u0010\nR\u0018\u0010\f\u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0018\u0010\u000f\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/TopBarComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/view/ViewGroup;", "parent", "", "initCloseIcon", "(Landroid/view/ViewGroup;)V", "initTopBarView", "onCreateView", "onRelease", "()V", "Lcom/baidu/nadcore/widget/AdImageView;", "closeIcon", "Lcom/baidu/nadcore/widget/AdImageView;", "Landroid/widget/FrameLayout;", "topBarView", "Landroid/widget/FrameLayout;", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -56,13 +56,13 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                im0 im0Var = (im0) this.a.l().q(im0.class);
-                if (im0Var != null) {
+                fm0 fm0Var = (fm0) this.a.j().p(fm0.class);
+                if (fm0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    im0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    fm0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
                 }
-                this.a.k().finish();
+                this.a.i().finish();
             }
         }
     }
@@ -97,8 +97,8 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.r(this.b);
-                this.a.q(this.b);
+                this.a.p(this.b);
+                this.a.o(this.b);
             }
         }
     }
@@ -118,7 +118,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void i(ViewGroup parent) {
+    public void h(ViewGroup parent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
@@ -126,34 +126,34 @@ public final class TopBarComponent extends AbsComponentPlugin {
         }
     }
 
+    public final void o(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+        }
+    }
+
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onRelease();
-            eg0.f(this.d);
+            ag0.f(this.d);
             this.d = null;
-            eg0.f(this.e);
+            ag0.f(this.e);
             this.e = null;
         }
     }
 
-    public final void q(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-        }
-    }
-
-    public final void r(ViewGroup viewGroup) {
+    public final void p(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) && this.d == null) {
-            gm0 a2 = hm0.a();
+            dm0 a2 = em0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.b();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c8, viewGroup, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e7, viewGroup, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
-            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091403) : null;
-            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091404) : null;
+            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914aa) : null;
+            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ab) : null;
             this.e = adImageView;
             if (adImageView != null) {
                 adImageView.setOnClickListener(new a(this));

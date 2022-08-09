@@ -1,263 +1,69 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class lu7 extends m15 {
+public class lu7 extends iu7<mu7, CustomDialogData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbEditorData.ThreadData a;
-    public l15 b;
-    public boolean c;
-    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public class a implements l15 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 a;
-        public final /* synthetic */ lu7 b;
-
-        public a(lu7 lu7Var, ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lu7Var, ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lu7Var;
-            this.a = ku7Var;
-        }
-
-        @Override // com.repackage.l15
-        public void C(k15 k15Var) {
-            ku7 ku7Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || (ku7Var = this.a) == null || ku7Var.a() == null || k15Var == null) {
-                return;
-            }
-            if (this.b.b != null) {
-                this.b.b.C(k15Var);
-            }
-            int i = k15Var.a;
-            if (i == 18) {
-                if (k15Var.c != null) {
-                    this.a.l();
-                    return;
-                }
-                int f = this.a.f();
-                if (f == 0) {
-                    this.a.k();
-                } else if (f != 2) {
-                } else {
-                    this.a.h();
-                }
-            } else if (i == 20) {
-                nj8.a().f(true);
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            } else if (i == 32) {
-                this.a.a().A(new k15(1, 11, null));
-            } else if (i == 36) {
-                if (this.b.h(this.a.getContext().getPageContext(), 11040)) {
-                    this.a.m();
-                }
-            } else if (i == 43 && !jd5.c(this.a.getContext().getPageContext(), true, false)) {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (this.b.a != null) {
-                    hotSelectActivityConfig.setForumExtra(ng.g(this.b.a.getForumId(), 0L), this.b.a.getFirstDir(), this.b.a.getSecondDir());
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
-            }
-        }
-    }
-
-    public lu7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lu7(TbPageContext tbPageContext, CustomDialogData customDialogData) {
+        super(tbPageContext, new mu7(tbPageContext), customDialogData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, customDialogData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ou7) objArr2[1], (IBaseDialogData) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-    }
-
-    @Override // com.repackage.m15
-    public o15 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            if (this.c) {
-                editorTools.setBarLauncherType(2);
-            } else if (this.d) {
-                editorTools.setBarLauncherType(5);
-            } else {
-                editorTools.setBarLauncherType(3);
-            }
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.D(true);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.C(true);
-            return new ku7(editorTools);
-        }
-        return (o15) invokeL.objValue;
-    }
-
-    @Override // com.repackage.m15
-    public void c(o15 o15Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o15Var) == null) && (o15Var instanceof ku7)) {
-            EditorTools a2 = o15Var.a();
-            a aVar = new a(this, (ku7) o15Var);
-            a2.setActionListener(16, aVar);
-            a2.setActionListener(14, aVar);
-            a2.setActionListener(15, aVar);
-            a2.setActionListener(24, aVar);
-            a2.setActionListener(3, aVar);
-            a2.setActionListener(18, aVar);
-            a2.setActionListener(20, aVar);
-            a2.setActionListener(10, aVar);
-            a2.setActionListener(11, aVar);
-            a2.setActionListener(36, aVar);
-            a2.setActionListener(32, aVar);
-            a2.setActionListener(43, aVar);
-            a2.setActionListener(45, aVar);
+        V v = this.h;
+        if (v instanceof mu7) {
+            ((mu7) v).f(this);
         }
     }
 
-    @Override // com.repackage.m15
-    public void d(o15 o15Var) {
-        CustomResponsedMessage runTask;
-        v15 v15Var;
+    @Override // com.repackage.nu7
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o15Var) == null) {
-            EditorTools a2 = o15Var.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            if (!this.c) {
-                arrayList.add(10);
-                a2.d(new h25(a2.getContext(), 1));
-            }
-            if (!this.d) {
-                arrayList.add(6);
-                arrayList.add(9);
-                PbEditorData.ThreadData threadData = this.a;
-                String forumName = threadData != null ? threadData.getForumName() : "";
-                if (ik8.a() && mh8.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), v15.class)) != null && (v15Var = (v15) runTask.getData()) != null) {
-                    v15Var.l = 2;
-                    a2.d(v15Var);
-                }
-                a2.d(new x15(a2.getContext(), 4));
-                if (!this.c) {
-                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), v15.class);
-                    if (runTask2 != null && runTask2.getData() != null) {
-                        v15 v15Var2 = (v15) runTask2.getData();
-                        v15Var2.l = 6;
-                        a2.d(v15Var2);
-                    }
-                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), v15.class);
-                    if (runTask3 != null && runTask3.getData() != null) {
-                        v15 v15Var3 = (v15) runTask3.getData();
-                        v15Var3.l = 7;
-                        a2.d(v15Var3);
-                    }
-                }
-                if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.c) {
-                    a2.d(new d25(a2.getContext(), 5));
-                }
-            }
-            if (!this.c && !this.d) {
-                arrayList.add(8);
-            }
-            a2.h(arrayList);
-            v15 n = a2.n(5);
-            if (n != null) {
-                n.l = 3;
-                if (this.c || this.d) {
-                    n.e(false);
-                }
-            }
-            a2.f();
-            if (this.c || this.d) {
-                a2.A(new k15(35, 5, Boolean.FALSE));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? qi.f(this.c, R.dimen.obfuscated_res_0x7f070308) : invokeV.intValue;
     }
 
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.nu7
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return true;
         }
-        return invokeLI.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void i(boolean z) {
+    @Override // com.repackage.nu7
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void k(l15 l15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, l15Var) == null) {
-            this.b = l15Var;
-        }
-    }
-
-    public void l(PbEditorData.ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            this.a = threadData;
-        }
+        return invokeV.booleanValue;
     }
 }

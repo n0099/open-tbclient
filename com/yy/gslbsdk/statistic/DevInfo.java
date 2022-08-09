@@ -40,7 +40,7 @@ public class DevInfo {
         this.appId = StringTools.optString(GlobalTools.ACCOUNT_ID);
         this.gslbId = StringTools.optString(DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT));
         this.countryCode = StringTools.optString(GlobalTools.APP_LOCALIZE_CODE);
-        this.sdkVersion = StringTools.optString("2.2.18-lianyun");
+        this.sdkVersion = StringTools.optString("2.2.28-live");
         this.platform = "andr";
         this.devId = StringTools.optString(GlobalTools.APP_DEV_ID);
     }

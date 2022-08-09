@@ -16,7 +16,7 @@ public class bp {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f945a;
+    public byte[] f946a;
     public int b;
     public int c;
     public int d;
@@ -50,7 +50,7 @@ public class bp {
             }
         }
         this.d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
-        this.f945a = new byte[256];
+        this.f946a = new byte[256];
         this.c = 0;
         this.b = 0;
     }
@@ -74,7 +74,7 @@ public class bp {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), bArr, Boolean.valueOf(z)}) == null) {
             int length = bArr.length;
             for (int i2 = 0; i2 < 256; i2++) {
-                this.f945a[i2] = (byte) i2;
+                this.f946a[i2] = (byte) i2;
             }
             this.c = 0;
             this.b = 0;
@@ -83,13 +83,13 @@ public class bp {
                 if (i3 >= i) {
                     break;
                 }
-                int a2 = ((this.c + a(this.f945a[i3])) + a(bArr[this.b % length])) % 256;
+                int a2 = ((this.c + a(this.f946a[i3])) + a(bArr[this.b % length])) % 256;
                 this.c = a2;
-                a(this.f945a, this.b, a2);
+                a(this.f946a, this.b, a2);
                 this.b++;
             }
             if (i != 256) {
-                this.d = ((this.c + a(this.f945a[i])) + a(bArr[i % length])) % 256;
+                this.d = ((this.c + a(this.f946a[i])) + a(bArr[i % length])) % 256;
             }
             if (z) {
                 StringBuilder sb = new StringBuilder();
@@ -99,7 +99,7 @@ public class bp {
                 sb.append(":");
                 for (int i5 = 0; i5 <= i; i5++) {
                     sb.append(" ");
-                    sb.append(a(this.f945a[i5]));
+                    sb.append(a(this.f946a[i5]));
                 }
                 sb.append("   j_");
                 sb.append(i4);
@@ -114,14 +114,14 @@ public class bp {
                 sb.append("[j_");
                 sb.append(i4);
                 sb.append("]=");
-                sb.append(a(this.f945a[this.c]));
+                sb.append(a(this.f946a[this.c]));
                 sb.append("   S_");
                 sb.append(i4);
                 sb.append("[j_");
                 sb.append(i);
                 sb.append("]=");
-                sb.append(a(this.f945a[this.d]));
-                if (this.f945a[1] != 0) {
+                sb.append(a(this.f946a[this.d]));
+                if (this.f946a[1] != 0) {
                     sb.append("   S[1]!=0");
                 }
                 com.xiaomi.channel.commonutils.logger.b.m89a(sb.toString());
@@ -220,11 +220,11 @@ public class bp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = (this.b + 1) % 256;
             this.b = i;
-            int a2 = (this.c + a(this.f945a[i])) % 256;
+            int a2 = (this.c + a(this.f946a[i])) % 256;
             this.c = a2;
-            a(this.f945a, this.b, a2);
-            byte[] bArr = this.f945a;
-            return bArr[(a(bArr[this.b]) + a(this.f945a[this.c])) % 256];
+            a(this.f946a, this.b, a2);
+            byte[] bArr = this.f946a;
+            return bArr[(a(bArr[this.b]) + a(this.f946a[this.c])) % 256];
         }
         return invokeV.byteValue;
     }

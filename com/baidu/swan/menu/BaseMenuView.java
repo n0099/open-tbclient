@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseMenuView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +83,9 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Resources resources = getResources();
-            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0810bc));
-            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06036e));
-            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f06036f));
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081122));
+            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06037d));
+            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f06037e));
             this.c.setAlpha(1.0f);
         }
     }
@@ -132,8 +132,8 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         this.a = context;
         View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0089, this);
-        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f0902f9);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09046d);
+        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090310);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090488);
         this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dc);
     }
 }

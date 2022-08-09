@@ -1,76 +1,67 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes7.dex */
-public class rh7 implements ILivePlayerService {
+public class rh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rh7() {
+    public static List<on> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-        }
-    }
-
-    public final LivePlayer a(BuildParams buildParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, buildParams)) == null) ? new th7(buildParams) : (LivePlayer) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createBackPlayer(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new nh7(str) : (LivePlayer) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new oh7(str) : (LivePlayer) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, installListener, i) == null) {
-            ph7.e().h(installListener, i);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(BuildParams buildParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, buildParams)) == null) {
-            int playerType = buildParams.getPlayerType();
-            if (playerType != 1) {
-                if (playerType != 2) {
-                    return createPlayer(buildParams.getRoomId());
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                nh7 nh7Var = new nh7();
+                nh7Var.j(recommendForumInfo);
+                arrayList.add(nh7Var);
+            }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                oh7 oh7Var = new oh7();
+                oh7Var.j(item);
+                arrayList.add(oh7Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                ph7 ph7Var = new ph7();
+                ph7Var.o(str);
+                ph7Var.n(sugLiveInfo);
+                arrayList.add(ph7Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                qh7 qh7Var = new qh7();
+                qh7Var.h(str);
+                qh7Var.g(sugRankingInfo);
+                arrayList.add(qh7Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                mh7 mh7Var = new mh7();
+                mh7Var.c(str);
+                mh7Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, mh7Var);
+                } else {
+                    arrayList.add(mh7Var);
                 }
-                return a(buildParams);
             }
-            return createBackPlayer(buildParams.getRoomId());
+            return arrayList;
         }
-        return (LivePlayer) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

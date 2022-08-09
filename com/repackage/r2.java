@@ -153,7 +153,7 @@ public final class r2 extends q2 {
                         this.d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.d.getInput().S0();
+                this.d.getInput().R0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

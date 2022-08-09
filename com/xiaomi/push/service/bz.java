@@ -26,10 +26,10 @@ public class bz {
     public static String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static SimpleDateFormat f961a;
+    public static SimpleDateFormat f962a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static AtomicLong f962a;
+    public static AtomicLong f963a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,16 +45,16 @@ public class bz {
                 return;
             }
         }
-        f962a = new AtomicLong(0L);
+        f963a = new AtomicLong(0L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        f961a = simpleDateFormat;
+        f962a = simpleDateFormat;
         a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ii a(String str, String str2, hm hmVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, hmVar)) == null) ? new ii("-1", false).d(str).b(str2).a(com.xiaomi.push.ab.a(it.a(hmVar))).c(ht.B.f505a) : (ii) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, hmVar)) == null) ? new ii("-1", false).d(str).b(str2).a(com.xiaomi.push.ab.a(it.a(hmVar))).c(ht.B.f506a) : (ii) invokeLLL.objValue;
     }
 
     public static synchronized String a() {
@@ -63,12 +63,12 @@ public class bz {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (bz.class) {
-                String format = f961a.format(Long.valueOf(System.currentTimeMillis()));
+                String format = f962a.format(Long.valueOf(System.currentTimeMillis()));
                 if (!TextUtils.equals(a, format)) {
-                    f962a.set(0L);
+                    f963a.set(0L);
                     a = format;
                 }
-                str = format + "-" + f962a.incrementAndGet();
+                str = format + "-" + f963a.incrementAndGet();
             }
             return str;
         }
@@ -173,10 +173,10 @@ public class bz {
         hnVar.e(str3);
         HashMap hashMap = new HashMap();
         hashMap.put("chid", String.valueOf(aoVar.a));
-        hashMap.put("screen_on", String.valueOf(aoVar.f901a));
-        hashMap.put("wifi", String.valueOf(aoVar.f903b));
-        hashMap.put("rx_msg", String.valueOf(aoVar.f900a));
-        hashMap.put("enqueue", String.valueOf(aoVar.f902b));
+        hashMap.put("screen_on", String.valueOf(aoVar.f902a));
+        hashMap.put("wifi", String.valueOf(aoVar.f904b));
+        hashMap.put("rx_msg", String.valueOf(aoVar.f901a));
+        hashMap.put("enqueue", String.valueOf(aoVar.f903b));
         hashMap.put("num", String.valueOf(aoVar.b));
         hashMap.put("run", String.valueOf(aoVar.c));
         hashMap.put("send", String.valueOf(System.currentTimeMillis()));
@@ -191,20 +191,20 @@ public class bz {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, hnVar, z)) == null) {
             if (hnVar == null) {
                 str = "item is null, verfiy ClientUploadDataItem failed.";
-            } else if (!z && TextUtils.isEmpty(hnVar.f477a)) {
+            } else if (!z && TextUtils.isEmpty(hnVar.f478a)) {
                 str = "item.channel is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (TextUtils.isEmpty(hnVar.f484d)) {
+            } else if (TextUtils.isEmpty(hnVar.f485d)) {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (TextUtils.isEmpty(hnVar.f483c)) {
+            } else if (TextUtils.isEmpty(hnVar.f484c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bp.m204a(hnVar.f484d)) {
+            } else if (!com.xiaomi.push.bp.m204a(hnVar.f485d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bp.m204a(hnVar.f483c)) {
-                String str2 = hnVar.f482b;
+            } else if (com.xiaomi.push.bp.m204a(hnVar.f484c)) {
+                String str2 = hnVar.f483b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
                 }
-                str = "item.data is too large(" + hnVar.f482b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.";
+                str = "item.data is too large(" + hnVar.f483b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.";
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }

@@ -1,136 +1,119 @@
 package com.repackage;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class pi4 extends Dialog implements View.OnClickListener {
+/* loaded from: classes7.dex */
+public final class pi4 implements MediaGestureLayout.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public d9 b;
-    public float c;
-    public ViewGroup d;
-    public RoundRelativeLayout e;
-    public View f;
-    public ImageView g;
-    public ImageView h;
-    public Drawable i;
+    public MediaGestureLayout b;
+    public MediaGestureLayout.c c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pi4(d9 d9Var) {
-        super(d9Var.getPageActivity(), 16973835);
+    public pi4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0.33f;
-        this.b = d9Var;
-        this.a = d9Var.getPageActivity();
+        this.a = context;
+        g(context);
     }
 
-    public void a() {
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void a(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sg.b(this, this.b);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.a(motionEvent);
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.b(motionEvent, mediaGestureMode);
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void c(int i) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.c(i);
+    }
+
+    public void d(SwanVideoView swanVideoView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
+            this.b.h(swanVideoView);
         }
     }
 
-    public void b(Drawable drawable) {
+    public void e(mi4 mi4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
-            this.i = drawable;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mi4Var) == null) {
+            this.b.g(mi4Var);
         }
     }
 
-    public void c(ViewGroup viewGroup) {
+    public ViewGroup f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            this.f = viewGroup;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.a = context;
+            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
+            this.b = mediaGestureLayout;
+            mediaGestureLayout.setMediaGestureListener(this);
         }
     }
 
-    public void d() {
+    public void h(MediaGestureLayout.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (isShowing()) {
-                sg.b(this, this.b);
-            }
-            sg.j(this, this.b);
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void onDoubleTap(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e68) {
-            a();
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) || (cVar = this.c) == null) {
+            return;
         }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d0221);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            attributes.height = defaultDisplay.getHeight();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.c);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(0);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090552);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b56);
-            this.e = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(ng.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.height = -1;
-                layoutParams.width = -1;
-            } else {
-                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            }
-            this.e.addView(this.f, layoutParams);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e65);
-            this.g = imageView;
-            imageView.setImageDrawable(this.i);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
-            this.h = imageView2;
-            imageView2.setOnClickListener(this);
-        }
+        cVar.onDoubleTap(motionEvent);
     }
 }

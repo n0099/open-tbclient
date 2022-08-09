@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface db3 {
-    void a(gb3 gb3Var, bf3<ib3<hb3>> bf3Var);
+    void a(int i);
 }

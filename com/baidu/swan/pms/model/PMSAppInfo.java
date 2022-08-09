@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f94;
-import com.repackage.g94;
-/* loaded from: classes2.dex */
+import com.repackage.w94;
+import com.repackage.x94;
+/* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PMSAppInfo> CREATOR;
@@ -70,7 +70,7 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(f94 f94Var) {
+    public void copyMainPkgInfo(w94 w94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f94Var) == null) || f94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w94Var) == null) || w94Var == null) {
             return;
         }
-        this.appId = f94Var.g;
-        this.versionCode = f94Var.i;
-        this.versionName = f94Var.j;
-        this.type = f94Var.o;
-        this.pkgSize = f94Var.k;
+        this.appId = w94Var.g;
+        this.versionCode = w94Var.i;
+        this.versionName = w94Var.j;
+        this.type = w94Var.o;
+        this.pkgSize = w94Var.k;
     }
 
-    public void copySubPkgInfo(g94 g94Var) {
+    public void copySubPkgInfo(x94 x94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, g94Var) == null) || g94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, x94Var) == null) || x94Var == null) {
             return;
         }
-        this.appId = g94Var.o;
-        this.versionCode = g94Var.i;
-        this.versionName = g94Var.j;
-        this.type = g94Var.q;
-        this.pkgSize = g94Var.k;
+        this.appId = x94Var.o;
+        this.versionCode = x94Var.i;
+        this.versionName = x94Var.j;
+        this.type = x94Var.q;
+        this.pkgSize = x94Var.k;
     }
 
     public void countLaunch(long j) {

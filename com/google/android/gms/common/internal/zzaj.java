@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.fk9;
-import com.repackage.kk9;
+import com.repackage.an9;
+import com.repackage.fn9;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class zzaj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzaj> CREATOR;
@@ -33,7 +33,7 @@ public final class zzaj extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new kk9();
+        CREATOR = new fn9();
     }
 
     public zzaj(int i) {
@@ -58,9 +58,9 @@ public final class zzaj extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, this.zza);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.g(parcel, 1, this.zza);
+            an9.b(parcel, a);
         }
     }
 }

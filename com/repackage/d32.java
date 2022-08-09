@@ -1,7 +1,19 @@
 package com.repackage;
-/* loaded from: classes5.dex */
-public interface d32 {
-    void a();
 
-    void b(int i, bc3 bc3Var);
+import com.baidu.swan.pms.model.PMSAppInfo;
+/* loaded from: classes6.dex */
+public interface d32<T> {
+    T a();
+
+    void c(e32<T> e32Var);
+
+    T e(PMSAppInfo pMSAppInfo);
+
+    boolean f();
+
+    boolean g();
+
+    boolean h();
+
+    void reset();
 }

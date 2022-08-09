@@ -13,7 +13,7 @@ public class ag {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f886a;
+    public static b f887a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -66,7 +66,7 @@ public class ag {
     public static void a(Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cif) == null) {
-            b bVar = f886a;
+            b bVar = f887a;
             if (bVar == null || cif == null) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("pepa clearMessage is null");
             } else {
@@ -78,7 +78,7 @@ public class ag {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            b bVar = f886a;
+            b bVar = f887a;
             if (bVar == null || str == null) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("pepa clearMessage is null");
             } else {
@@ -106,7 +106,7 @@ public class ag {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
-            b bVar = f886a;
+            b bVar = f887a;
             if (bVar == null || cif == null) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("pepa handleReceiveMessage is null");
                 return false;

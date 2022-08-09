@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -81,7 +82,7 @@ public class a {
                             if (j2 - j > i) {
                                 return new a(this.x, null, 1003, null);
                             }
-                            if (j2 - j >= 180000) {
+                            if (j2 - j >= LiveFeedPageSdk.REFRESH_TIME) {
                                 com.baidu.searchbox.dns.d.a aVar = this.x;
                                 if (aVar != null) {
                                     return new a(aVar, this.z, 1001, null);

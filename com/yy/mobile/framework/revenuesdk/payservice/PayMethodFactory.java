@@ -78,7 +78,7 @@ public final class PayMethodFactory {
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.PAYTM_PAY.ordinal()] = 8;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.DXM_PAY_H5.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }

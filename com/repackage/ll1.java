@@ -1,5 +1,14 @@
 package com.repackage;
+
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.repackage.l23;
 /* loaded from: classes6.dex */
 public interface ll1 {
-    uf4 l();
+    boolean a(Activity activity, String str, l23.b bVar);
+
+    boolean b(Context context, String str);
+
+    boolean c(Activity activity, Uri uri, String str);
 }

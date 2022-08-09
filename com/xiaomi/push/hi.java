@@ -13,7 +13,7 @@ public class hi {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? !com.xiaomi.push.service.ca.f964a.isEmpty() && bj.e(context) && j.m538b(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? !com.xiaomi.push.service.ca.f965a.isEmpty() && bj.e(context) && j.m538b(context) : invokeL.booleanValue;
     }
 
     public static boolean a(Context context, int i) {

@@ -19,7 +19,7 @@ public class bw extends ao.b {
     public final /* synthetic */ bv a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f954a;
+    public boolean f955a;
 
     public bw(bv bvVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class bw extends ao.b {
             }
         }
         this.a = bvVar;
-        this.f954a = false;
+        this.f955a = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x003d A[Catch: Exception -> 0x004b, TRY_LEAVE, TryCatch #0 {Exception -> 0x004b, blocks: (B:4:0x0004, B:6:0x0016, B:11:0x0028, B:13:0x003d), top: B:21:0x0004 }] */
@@ -59,8 +59,8 @@ public class bw extends ao.b {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
                 a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m687a(), str, (List<com.xiaomi.push.bi>) null), 10));
                 if (a == null) {
-                    this.a.f952a = a;
-                    this.f954a = true;
+                    this.a.f953a = a;
+                    this.f955a = true;
                     this.a.e();
                     return;
                 }
@@ -84,15 +84,15 @@ public class bw extends ao.b {
         dw.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.f951a = null;
-            if (this.f954a) {
+            this.a.f952a = null;
+            if (this.f955a) {
                 synchronized (this.a) {
-                    list = this.a.f953a;
-                    list2 = this.a.f953a;
+                    list = this.a.f954a;
+                    list2 = this.a.f954a;
                     aVarArr = (bv.a[]) list.toArray(new bv.a[list2.size()]);
                 }
                 for (bv.a aVar2 : aVarArr) {
-                    aVar = this.a.f952a;
+                    aVar = this.a.f953a;
                     aVar2.a(aVar);
                 }
             }

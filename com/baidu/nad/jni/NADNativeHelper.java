@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hh0;
-import com.repackage.k11;
+import com.repackage.dh0;
+import com.repackage.q11;
 /* loaded from: classes2.dex */
 public class NADNativeHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class NADNativeHelper {
             }
         }
         try {
-            k11.l(hh0.b(), "nad-lib");
+            q11.l(dh0.b(), "nad-lib");
         } catch (Throwable th) {
             th.printStackTrace();
         }

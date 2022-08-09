@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CalendarStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class CalendarStyle {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04045b, MaterialCalendar.class.getCanonicalName()), new int[]{16843277, R.attr.obfuscated_res_0x7f0401e0, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f0406e7, R.attr.obfuscated_res_0x7f0406e8, R.attr.obfuscated_res_0x7f0406e9});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b4, MaterialCalendar.class.getCanonicalName()), new int[]{16843277, R.attr.obfuscated_res_0x7f0401fd, R.attr.obfuscated_res_0x7f0401fe, R.attr.obfuscated_res_0x7f0401ff, R.attr.obfuscated_res_0x7f040200, R.attr.obfuscated_res_0x7f0405a5, R.attr.obfuscated_res_0x7f040782, R.attr.obfuscated_res_0x7f040783, R.attr.obfuscated_res_0x7f040784});
         this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(3, 0));
         this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(1, 0));
         this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(2, 0));

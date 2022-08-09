@@ -8,15 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n10;
-import com.repackage.x30;
-import com.repackage.yt4;
+import com.repackage.p10;
+import com.repackage.ru4;
+import com.repackage.z30;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
@@ -47,7 +46,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new z30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -63,21 +62,19 @@ public class MainTabLoadFinishTask extends LaunchTask {
     private void initMainTab() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (AdToMainTabActivitySwitch.getIsOn()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             Loki.startTrack();
             try {
-                yt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                ru4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                String f = n10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = yt4.k().q("key_last_cached_oid", "");
+                String f = p10.e(TbadkCoreApplication.getInst().getContext()).f();
+                String q = ru4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(f)) {
-                    yt4.k().y("key_last_cached_oid", f);
-                    yt4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                    ru4.k().y("key_last_cached_oid", f);
+                    ru4.k().y("key_last_cached_real_oid", getRealOaid(f));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

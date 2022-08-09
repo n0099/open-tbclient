@@ -1,16 +1,16 @@
 package com.repackage;
 
-import android.view.View;
-import com.repackage.pm1;
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes7.dex */
-public interface sm1<T extends pm1> extends qm1<T> {
-    void J();
+public interface sm1 {
+    void a(NgWebView ngWebView);
 
-    boolean d();
+    void b(NgWebView ngWebView, String str);
 
-    void h(boolean z);
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    void j(View.OnClickListener onClickListener);
+    void d(String str, Context context);
 
-    void removeFromParent();
+    void e(String str, Context context);
 }

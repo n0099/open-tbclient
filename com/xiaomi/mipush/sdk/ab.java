@@ -36,15 +36,15 @@ public class ab implements Runnable {
         ScheduledFuture scheduledFuture2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.f42a.size() != 0) {
+            if (this.a.f43a.size() != 0) {
                 this.a.b();
                 return;
             }
-            scheduledFuture = this.a.f43a;
+            scheduledFuture = this.a.f44a;
             if (scheduledFuture != null) {
-                scheduledFuture2 = this.a.f43a;
+                scheduledFuture2 = this.a.f44a;
                 scheduledFuture2.cancel(false);
-                this.a.f43a = null;
+                this.a.f44a = null;
             }
         }
     }

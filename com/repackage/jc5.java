@@ -1,16 +1,17 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qb5;
-import com.repackage.rb5;
+import tbclient.Page;
 /* loaded from: classes6.dex */
-public abstract class jc5<Q extends qb5, P extends rb5> extends ic5 implements mc5<P> {
+public class jc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public Object c;
 
     public jc5() {
         Interceptable interceptable = $ic;
@@ -22,19 +23,24 @@ public abstract class jc5<Q extends qb5, P extends rb5> extends ic5 implements m
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = true;
     }
 
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h();
-
-    public abstract void i(BdUniqueId bdUniqueId);
-
-    public abstract void j(qa5 qa5Var);
+    public void a(Page page) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, page) == null) || page == null) {
+            return;
+        }
+        this.b = page.has_more.intValue() == 1;
+        page.has_prev.intValue();
+        this.a = page.current_page.intValue();
+        page.page_size.intValue();
+        page.total_page.intValue();
+        page.offset.intValue();
+        page.total_count.intValue();
+        ed5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
+    }
 }

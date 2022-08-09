@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pj2;
-import com.repackage.zd3;
+import com.repackage.gk2;
+import com.repackage.qe3;
 /* loaded from: classes2.dex */
 public class RefreshingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -374,9 +374,9 @@ public class RefreshingAnimView extends View {
         }
         bitmap.eraseColor(0);
         this.j.setStyle(Paint.Style.FILL);
-        if (this.A != pj2.M().a()) {
-            this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603d6));
-            this.A = pj2.M().a();
+        if (this.A != gk2.M().a()) {
+            this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e5));
+            this.A = gk2.M().a();
         }
         this.j.setAlpha(76);
         RectF rectF = this.m;
@@ -394,7 +394,7 @@ public class RefreshingAnimView extends View {
             PointF pointF3 = this.o;
             canvas3.drawCircle(pointF3.x, pointF3.y, 0.75f, this.j);
             this.j.setStyle(Paint.Style.STROKE);
-            this.j.setStrokeWidth(zd3.f(getContext(), 1.5f));
+            this.j.setStrokeWidth(qe3.f(getContext(), 1.5f));
             Canvas canvas4 = this.x;
             PointF pointF4 = this.n;
             float f4 = pointF4.x;
@@ -423,7 +423,7 @@ public class RefreshingAnimView extends View {
         canvas3.drawCircle(pointF2.x, pointF2.y, this.f, this.k);
         this.x.drawCircle(f, f, 0.75f, this.j);
         this.j.setStyle(Paint.Style.STROKE);
-        this.j.setStrokeWidth(zd3.f(getContext(), 1.5f));
+        this.j.setStrokeWidth(qe3.f(getContext(), 1.5f));
         Canvas canvas4 = this.x;
         PointF pointF3 = this.n;
         canvas4.drawLine(pointF3.x, pointF3.y, f, f, this.j);
@@ -445,11 +445,11 @@ public class RefreshingAnimView extends View {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.A = pj2.M().a();
+            this.A = gk2.M().a();
             Paint paint = new Paint();
             this.j = paint;
             paint.setAntiAlias(true);
-            this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603d6));
+            this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e5));
             Paint paint2 = new Paint();
             this.k = paint2;
             paint2.setAntiAlias(true);
@@ -517,10 +517,10 @@ public class RefreshingAnimView extends View {
             } else {
                 this.h = getMeasuredWidth();
             }
-            this.d = zd3.f(getContext(), 8.0f);
-            this.f = zd3.f(getContext(), 6.5f);
-            this.p = zd3.f(getContext(), 5.0f);
-            this.g = zd3.f(getContext(), 7.5f);
+            this.d = qe3.f(getContext(), 8.0f);
+            this.f = qe3.f(getContext(), 6.5f);
+            this.p = qe3.f(getContext(), 5.0f);
+            this.g = qe3.f(getContext(), 7.5f);
             float f = this.h / 2.0f;
             this.i.set(f, f);
             float f2 = f + ((float) (this.d / C));

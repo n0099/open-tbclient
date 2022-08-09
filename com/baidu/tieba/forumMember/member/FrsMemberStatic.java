@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb6;
-import com.repackage.db6;
-import com.repackage.eb6;
-import com.repackage.fb6;
-import com.repackage.fd6;
-import com.repackage.gb6;
-import com.repackage.hb6;
-import com.repackage.ib6;
-import com.repackage.jb6;
-import com.repackage.ua6;
-import com.repackage.va6;
-import com.repackage.wa6;
-import com.repackage.xa6;
-import com.repackage.xd6;
-import com.repackage.yd6;
+import com.repackage.ad6;
+import com.repackage.bd6;
+import com.repackage.mc6;
+import com.repackage.nc6;
+import com.repackage.oc6;
+import com.repackage.pc6;
+import com.repackage.pf6;
+import com.repackage.qf6;
+import com.repackage.tc6;
+import com.repackage.vc6;
+import com.repackage.wc6;
+import com.repackage.xc6;
+import com.repackage.xe6;
+import com.repackage.yc6;
+import com.repackage.zc6;
 /* loaded from: classes3.dex */
 public class FrsMemberStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -64,12 +64,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new eb6(null, fb6.d));
-                absDelegateAdapterList.add(new gb6(null, hb6.c));
-                absDelegateAdapterList.add(new db6(null, fd6.c));
-                absDelegateAdapterList.add(new ua6(null, va6.b));
-                absDelegateAdapterList.add(new wa6(null, xa6.g));
-                absDelegateAdapterList.add(new ib6(null, jb6.e));
+                absDelegateAdapterList.add(new wc6(null, xc6.d));
+                absDelegateAdapterList.add(new yc6(null, zc6.c));
+                absDelegateAdapterList.add(new vc6(null, xe6.c));
+                absDelegateAdapterList.add(new mc6(null, nc6.b));
+                absDelegateAdapterList.add(new oc6(null, pc6.g));
+                absDelegateAdapterList.add(new ad6(null, bd6.e));
             }
         }
     }
@@ -103,11 +103,11 @@ public class FrsMemberStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof xd6)) {
-                xd6 xd6Var = (xd6) customResponsedMessage.getData();
-                bb6 bb6Var = new bb6();
-                bb6Var.E(xd6Var.a);
-                xd6Var.a(3, bb6Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof pf6)) {
+                pf6 pf6Var = (pf6) customResponsedMessage.getData();
+                tc6 tc6Var = new tc6();
+                tc6Var.E(pf6Var.a);
+                pf6Var.a(3, tc6Var);
             }
         }
     }
@@ -126,7 +126,7 @@ public class FrsMemberStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        yd6.a().c(3);
+        qf6.a().c(3);
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerListener(new b(2003011));
     }

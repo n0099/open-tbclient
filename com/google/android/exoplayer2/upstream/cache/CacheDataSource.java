@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CacheDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_MAX_CACHE_FILE_SIZE = 2097152;
@@ -49,13 +49,13 @@ public final class CacheDataSource implements DataSource {
     public final DataSource upstreamDataSource;
     public Uri uri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface EventListener {
         void onCachedBytesRead(long j, long j2);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface Flags {
     }
 

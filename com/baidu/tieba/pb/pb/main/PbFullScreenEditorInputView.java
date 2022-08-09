@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l86;
-import com.repackage.m86;
-import com.repackage.mx4;
+import com.repackage.da6;
+import com.repackage.ea6;
+import com.repackage.gy4;
 /* loaded from: classes3.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements m86.h {
+    public class a implements ea6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -47,7 +47,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.m86.h
+        @Override // com.repackage.ea6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -59,7 +59,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements m86.h {
+    public class b implements ea6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -82,7 +82,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.m86.h
+        @Override // com.repackage.ea6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -92,7 +92,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements m86.h {
+    public class c implements ea6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -115,7 +115,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.m86.h
+        @Override // com.repackage.ea6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -144,10 +144,10 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                 return;
             }
         }
-        j();
+        k();
     }
 
-    public void i(String str) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
             return;
@@ -155,41 +155,41 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
         }
     }
 
-    public void k(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        m86.f(getContext(), str, new a(this));
+        ea6.f(getContext(), str, new a(this));
     }
 
-    public void l(String str, String str2) {
+    public void m(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                m86.f(getContext(), str, new b(this));
+                ea6.f(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            m86.f(getContext(), str2, new c(this));
+            ea6.f(getContext(), str2, new c(this));
         }
     }
 
-    public void m(mx4 mx4Var) {
+    public void n(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mx4Var) == null) {
-            if (l86.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
+        if (interceptable == null || interceptable.invokeL(1048580, this, gy4Var) == null) {
+            if (da6.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
             } else {
-                m86.b(getContext(), mx4Var, this);
+                ea6.b(getContext(), gy4Var, this);
             }
         }
     }
@@ -213,7 +213,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                 return;
             }
         }
-        j();
+        k();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -235,6 +235,6 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                 return;
             }
         }
-        j();
+        k();
     }
 }

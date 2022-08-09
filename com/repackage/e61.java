@@ -1,298 +1,137 @@
 package com.repackage;
 
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.utils.Constant;
+import com.baidu.nps.interfa.ISharePrefsWrapper;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class e61 {
+public class e61 implements ISharePrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static e61 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785775, "Lcom/repackage/e61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755785775, "Lcom/repackage/e61;");
-                return;
-            }
-        }
-        a = new e61();
-    }
 
     public e61() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static e61 j() {
+    public final SharedPreferences a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (e61) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0) : (SharedPreferences) invokeV.objValue;
     }
 
-    public final Bundle a(Uri uri, String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, str2, bundle)) == null) {
-            try {
-                return ContextHolder.getApplicationContext().getContentResolver().call(uri, str, str2, bundle);
-            } catch (IllegalArgumentException e) {
-                if (q61.a()) {
-                    e.printStackTrace();
-                }
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt(Constant.TAG.RET_CODE, 56);
-                return bundle2;
-            }
-        }
-        return (Bundle) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? a().getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
-    public void b(Bundle bundle) {
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            a(y61.b(), "cleardeprecated", null, bundle);
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) ? a().getFloat(str, f) : invokeLF.floatValue;
     }
 
-    public Bundle c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(y61.b(), "download_all", null, null) : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? a().getInt(str, i) : invokeLI.intValue;
     }
 
-    public Bundle d(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "downloadBackground", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle e(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "download", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a(y61.b(), "fetch", null, null) : (Bundle) invokeV.objValue;
-    }
-
-    public Map<String, BundleInfoGroup> g(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(y61.b(), null, "", null, null);
-            Map<String, BundleInfoGroup> u = u(BundleInfo.toBundleInfoList(query), j);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return u;
-        }
-        return (Map) invokeJ.objValue;
-    }
-
-    public List<BundleInfo> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(y61.b(), null, "pkg_name = ? ", new String[]{str}, null);
-            List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(query);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return bundleInfoList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public BundleInfoGroup i(String str, long j) {
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(y61.b(), null, "pkg_name = ? ", new String[]{str}, null);
-            BundleInfoGroup t = t(BundleInfo.toBundleInfoList(query), j);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return t;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? a().getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? a().getString(str, str2) : (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
+            return null;
         }
-        return (BundleInfoGroup) invokeLJ.objValue;
+        return (Set) invokeLL.objValue;
     }
 
-    public Bundle k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? a(y61.b(), "presetinfo", null, null) : (Bundle) invokeV.objValue;
-    }
-
-    public Bundle l(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "install", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle m(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "installonly", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle n(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "localinstall", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle o(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundleInfo)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "presetinstallsingle", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            Bundle a2 = a(b, "check", null, bundle);
-            return a2 != null && a2.getInt(Constant.TAG.PARAM_PKG_STUS, -1) == 47;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            a(b, "record", null, bundle);
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
+            a().edit().putBoolean(str, z).commit();
         }
     }
 
-    public void r(boolean z, ContentObserver contentObserver) {
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048592, this, z, contentObserver) == null) {
-            ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(y61.b(), z, contentObserver);
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
+            a().edit().putFloat(str, f).commit();
         }
     }
 
-    public void s(BundleInfo bundleInfo) {
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundleInfo) == null) {
-            Uri b = y61.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            ContextHolder.getApplicationContext().getContentResolver().call(b, "resettype", (String) null, bundle);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+            a().edit().putInt(str, i).commit();
         }
     }
 
-    public final BundleInfoGroup t(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048594, this, list, j)) == null) {
-            BundleInfoGroup bundleInfoGroup = new BundleInfoGroup(j);
-            for (BundleInfo bundleInfo : list) {
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return bundleInfoGroup;
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
+            a().edit().putLong(str, j).commit();
         }
-        return (BundleInfoGroup) invokeLJ.objValue;
     }
 
-    public final Map<String, BundleInfoGroup> u(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, list, j)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list == null) {
-                return null;
-            }
-            for (BundleInfo bundleInfo : list) {
-                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
-                if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
-                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
-                }
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            a().edit().putString(str, str2).commit();
         }
-        return (Map) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putStringSet(String str, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        }
     }
 }

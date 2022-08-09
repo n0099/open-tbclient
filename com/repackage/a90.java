@@ -1,39 +1,31 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a90 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a90 {
+    void A(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    public static String a(String str, String... strArr) {
-        InterceptResult invokeLL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, strArr)) == null) {
-            if (strArr == null) {
-                return str;
-            }
-            HashSet hashSet = new HashSet(Uri.parse(str).getQueryParameterNames());
-            for (String str2 : strArr) {
-                hashSet.remove(str2);
-            }
-            StringBuilder sb = new StringBuilder();
-            if (str.contains("?")) {
-                sb.append(str.substring(0, str.indexOf("?")));
-            } else {
-                sb.append(str);
-            }
-            sb.append("?");
-            if (hashSet.size() > 0 && (indexOf = str.indexOf("&")) > 0) {
-                sb.append(str.substring(indexOf));
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
+    void b(int i);
+
+    void b0(List<? extends LiveRoomEntity> list);
+
+    void c();
+
+    void f0();
+
+    void h(b90 b90Var);
+
+    void j(List<String> list);
+
+    void k(SearchResultBean searchResultBean);
+
+    void o0(List<String> list);
+
+    void showToast(String str);
+
+    void z();
 }

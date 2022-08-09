@@ -32,24 +32,9 @@ public class AlaShareInfoData extends OrmObject {
         }
     }
 
-    public void A(AlaShareInfo alaShareInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, alaShareInfo) == null) || alaShareInfo == null) {
-            return;
-        }
-        try {
-            this.content = alaShareInfo.content;
-            this.share_user_count = alaShareInfo.share_user_count.intValue();
-            this.share_count = alaShareInfo.share_count.intValue();
-            this.record_tid = alaShareInfo.record_tid.longValue();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -57,6 +42,21 @@ public class AlaShareInfoData extends OrmObject {
             this.share_user_count = jSONObject.optInt("share_user_count");
             this.share_count = jSONObject.optInt("share_count");
             this.record_tid = jSONObject.optLong("record_tid");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void z(AlaShareInfo alaShareInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaShareInfo) == null) || alaShareInfo == null) {
+            return;
+        }
+        try {
+            this.content = alaShareInfo.content;
+            this.share_user_count = alaShareInfo.share_user_count.intValue();
+            this.share_count = alaShareInfo.share_count.intValue();
+            this.record_tid = alaShareInfo.record_tid.longValue();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

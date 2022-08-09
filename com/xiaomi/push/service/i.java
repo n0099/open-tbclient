@@ -10,7 +10,7 @@ public class i {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f980a;
+    public static b f981a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -25,7 +25,7 @@ public class i {
     public static void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
-            f980a = bVar;
+            f981a = bVar;
         }
     }
 

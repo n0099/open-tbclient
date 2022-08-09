@@ -1,22 +1,15 @@
 package com.repackage;
-
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes6.dex */
-public interface no3<VIEW extends View> {
-    void a(String str);
+public interface no3 {
+    void a(boolean z, String str);
 
-    void b(DownloadState downloadState);
+    void b(boolean z);
 
-    no3 c(Context context, DownloadParams downloadParams, io3 io3Var);
+    void c(int i, int i2);
 
-    void d(int i);
+    void onClick();
 
-    void e(Object obj);
+    void onClose();
 
-    void f();
-
-    VIEW getRealView();
+    void onError(String str);
 }

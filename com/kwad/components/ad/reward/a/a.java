@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -267,7 +268,7 @@ public final class a extends d implements View.OnClickListener {
             }
         }
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d044f, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0452, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -276,7 +277,7 @@ public final class a extends d implements View.OnClickListener {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, imageView, j)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "alpha", imageView.getAlpha(), 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, Key.ALPHA, imageView.getAlpha(), 0.0f);
             ofFloat.setDuration(j);
             return ofFloat;
         }
@@ -309,12 +310,12 @@ public final class a extends d implements View.OnClickListener {
     private void d(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
-            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f091016);
-            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091014);
-            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091019);
-            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091017);
-            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091018);
-            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091015);
+            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f09106c);
+            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106a);
+            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106f);
+            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106d);
+            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106e);
+            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f09106b);
             this.om = button;
             button.setOnClickListener(this);
         }
@@ -370,8 +371,8 @@ public final class a extends d implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "scaleX", 0.0f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "scaleY", 0.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.SCALE_X, 0.0f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.SCALE_Y, 0.0f, 1.0f);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.setDuration(300L);
             animatorSet.playTogether(ofFloat, ofFloat2);
@@ -387,8 +388,8 @@ public final class a extends d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, view2)) == null) {
             Interpolator create = PathInterpolatorCompat.create(0.89f, 0.02f, 0.72f, 1.0f);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "scaleX", 1.0f, 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "scaleY", 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.SCALE_X, 1.0f, 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.SCALE_Y, 1.0f, 0.0f);
             ofFloat.setInterpolator(create);
             ofFloat2.setInterpolator(create);
             int[] iArr = this.oi;
@@ -397,14 +398,14 @@ public final class a extends d implements View.OnClickListener {
                 objectAnimator = null;
             } else {
                 Interpolator create2 = PathInterpolatorCompat.create(0.33f, 0.0f, 0.83f, 1.0f);
-                objectAnimator2 = ObjectAnimator.ofFloat(view2, "translationX", this.oi[0] - z[0]);
-                objectAnimator = ObjectAnimator.ofFloat(view2, "translationY", this.oi[1] - z[1]);
+                objectAnimator2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, this.oi[0] - z[0]);
+                objectAnimator = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, this.oi[1] - z[1]);
                 objectAnimator2.setInterpolator(create2);
                 objectAnimator.setInterpolator(create2);
             }
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f);
             ofFloat3.setDuration(200L);
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 0.0f);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 0.0f);
             ofFloat4.setDuration(200L);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playSequentially(ofFloat3, ofFloat4);

@@ -1,9 +1,7 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface bs {
-    void a(Bitmap bitmap);
-
-    void onError();
+    Map<String, Object> a();
 }

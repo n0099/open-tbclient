@@ -1,203 +1,372 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class uw4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewPager a;
+    public IndicatorView b;
+    public TextView c;
+    public BdBaseViewPagerAdapter d;
+    public ww4 e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public Context i;
+    public List<on> j;
+    public ViewPager.OnPageChangeListener k;
+    public long l;
+    public final Handler.Callback m;
+    public final Handler n;
+    public ViewPager.OnPageChangeListener o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755246561, "Lcom/repackage/uw4;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uw4 a;
+
+        public a(uw4 uw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uw4Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755246561, "Lcom/repackage/uw4;");
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 1) {
+                    return false;
+                }
+                this.a.g();
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public uw4() {
+    /* loaded from: classes7.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uw4 a;
+
+        public b(uw4 uw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uw4Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.k != null) {
+                    this.a.k.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.p();
+                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.o();
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.k == null) {
+                return;
+            }
+            this.a.k.onPageScrolled(i, f, i2);
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.e.c(i));
+                }
+                if (this.a.k != null) {
+                    this.a.k.onPageSelected(this.a.e.c(i));
+                }
+            }
+        }
+    }
+
+    public uw4(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewPager, indicatorView, textView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = false;
+        this.g = true;
+        this.h = 2;
+        this.j = new ArrayList();
+        this.l = 5000L;
+        this.m = new a(this);
+        this.n = new Handler(this.m);
+        this.o = new b(this);
+        h(context, viewPager, indicatorView, textView);
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public final void g() {
+        int count;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int l = yt4.k().l("pref_key_fun_ad_first_floor_min", 2);
-            int l2 = yt4.k().l("pref_key_fun_ad_first_floor_max", 3);
-            if (l < l2) {
-                a = m27.a(l, l2);
-            } else {
-                a = m27.a(l2, l);
-            }
-            if (a < 0) {
-                a = 2;
-            }
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? yt4.k().l("fun_ad_big_image_density", 6) : invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? yt4.k().l("fun_ad_big_image_floor", 5) : invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? yt4.k().l("fun_ad_big_image_size", 1) : invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a < 0) {
-                a = 2;
-            }
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int l = yt4.k().l("pref_key_fun_ad_density", 6);
-            if (l > 0) {
-                return l;
-            }
-            return 6;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? yt4.k().l("pref_key_fun_ad_frs_density", 5) : invokeV.intValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? yt4.k().l("pref_key_fun_ad_frs_first_floor", 2) : invokeV.intValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? yt4.k().l("key_pb_comment_bear_density", 6) : invokeV.intValue;
-    }
-
-    public static int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int l = yt4.k().l("key_pb_comment_bear_first", 4);
-            if (l <= 0) {
-                return 4;
-            }
-            return l;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? yt4.k().l("key_pb_comment_bear_maxsize", 1) : invokeV.intValue;
-    }
-
-    public static int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? yt4.k().l("key_video_middle_density", 4) : invokeV.intValue;
-    }
-
-    public static int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int l = yt4.k().l("key_video_middle_first", 2);
-            if (l <= 0) {
-                return 2;
-            }
-            return l;
-        }
-        return invokeV.intValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.d == null) {
             return;
         }
-        try {
-            int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
-            int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-            yt4.k().w("pref_key_fun_ad_frs_first_floor", optInt);
-            yt4.k().w("pref_key_fun_ad_frs_density", optInt2);
-            int optInt3 = jSONObject.optInt("index_bear_density", 6);
-            int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
-            int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
-            yt4.k().w("pref_key_fun_ad_density", optInt3);
-            yt4.k().w("pref_key_fun_ad_first_floor_max", optInt4);
-            yt4.k().w("pref_key_fun_ad_first_floor_min", optInt5);
-            int optInt6 = jSONObject.optInt("video_bear_density", 4);
-            int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
-            yt4.k().w("key_video_middle_density", optInt6);
-            yt4.k().w("key_video_middle_first", optInt7);
-            int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
-            int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
-            int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
-            yt4.k().w("key_pb_comment_bear_density", optInt8);
-            yt4.k().w("key_pb_comment_bear_first", optInt9);
-            yt4.k().w("key_pb_comment_bear_maxsize", optInt10);
-            int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
-            int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
-            int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
-            int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
-            yt4.k().w("fun_ad_big_image_floor", optInt11);
-            yt4.k().w("fun_ad_big_image_density", optInt12);
-            yt4.k().w("fun_ad_big_image_size", optInt13);
-            yt4.k().w("fun_ad_big_image_switch", optInt14);
-        } catch (Exception e) {
-            e.printStackTrace();
+        g9 c = h9.c(this.i);
+        if ((c == null || !c.isScroll()) && (count = this.d.getCount()) >= 2) {
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
+            }
         }
+    }
+
+    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
+            this.a = viewPager;
+            this.b = indicatorView;
+            this.c = textView;
+            this.i = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.d = bdBaseViewPagerAdapter;
+            ViewPager viewPager2 = this.a;
+            if (viewPager2 != null) {
+                viewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.o);
+            }
+        }
+    }
+
+    public void i(Context context, vw4<?, ?> vw4Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, vw4Var) == null) || (bdBaseViewPagerAdapter = this.d) == null) {
+            return;
+        }
+        bdBaseViewPagerAdapter.g(context, vw4Var);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.l = j;
+        }
+    }
+
+    public void k(List<on> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.j = list;
+        ww4 ww4Var = new ww4(list, this.f, this.h);
+        this.e = ww4Var;
+        ww4Var.i(2);
+        this.e.g(1);
+        this.d.h(this.e.e());
+        this.d.notifyDataSetChanged();
+        this.a.setCurrentItem(this.e.d(), false);
+        if (this.e.b() <= 0) {
+            return;
+        }
+        if (this.e.b() > this.h) {
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.c.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            } else {
+                IndicatorView indicatorView2 = this.b;
+                if (indicatorView2 != null && !this.f) {
+                    indicatorView2.setVisibility(8);
+                }
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
+                int count = this.b.getCount();
+                int i = this.h;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            o();
+        }
+        if (this.e.b() >= 2 && this.e.b() <= this.h) {
+            TextView textView2 = this.c;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView4 = this.b;
+            if (indicatorView4 != null) {
+                indicatorView4.setVisibility(0);
+                if (this.b.getCount() != this.e.b()) {
+                    this.b.setCount(this.e.b());
+                }
+            }
+            o();
+        }
+        if (this.e.b() < 2) {
+            TextView textView3 = this.c;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView5 = this.b;
+            if (indicatorView5 != null) {
+                indicatorView5.setVisibility(8);
+            }
+            p();
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.h = i;
+            ww4 ww4Var = this.e;
+            if (ww4Var != null) {
+                ww4Var.h(i);
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.g) {
+                this.n.removeMessages(1);
+                this.n.sendEmptyMessageDelayed(1, this.l);
+                return;
+            }
+            this.n.removeMessages(1);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.n.removeMessages(1);
+        }
+    }
+
+    public uw4(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView, int i, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewPager, indicatorView, textView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = false;
+        this.g = true;
+        this.h = 2;
+        this.j = new ArrayList();
+        this.l = 5000L;
+        this.m = new a(this);
+        this.n = new Handler(this.m);
+        this.o = new b(this);
+        this.f = z;
+        this.g = z2;
+        n(i);
+        h(context, viewPager, indicatorView, textView);
     }
 }

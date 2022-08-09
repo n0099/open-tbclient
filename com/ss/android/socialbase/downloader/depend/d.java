@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.depend;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d extends AbsDownloadListener implements s {
     private void a(int i, DownloadInfo downloadInfo, BaseException baseException, boolean z) {
         if (downloadInfo == null || !downloadInfo.canShowNotification() || i == 4) {

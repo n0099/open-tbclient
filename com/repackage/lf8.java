@@ -1,37 +1,44 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.pass.biometrics.base.utils.PassBioEnv;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.api.ImageObject;
+import com.sina.weibo.sdk.api.TextObject;
+import com.sina.weibo.sdk.api.WebpageObject;
+import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.share.WbShareCallback;
+import com.sina.weibo.sdk.share.WbShareHandler;
+import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes6.dex */
-public class lf8 extends BaseAdapter {
+public class lf8 extends hf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sf8 a;
-    public int b;
-    public a c;
-    public Context d;
+    public of8 i;
+    public WbShareHandler j;
+    public WbShareCallback k;
+    public final jg<zm> l;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public class a extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public TextView b;
+        public final /* synthetic */ lf8 a;
 
         public a(lf8 lf8Var) {
             Interceptable interceptable = $ic;
@@ -45,144 +52,278 @@ public class lf8 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = lf8Var;
+        }
+
+        @Override // com.repackage.jg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+                if (this.a.i != null) {
+                    this.a.i.d1(6, 3);
+                }
+                this.a.s(3, 6);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zmVar, str, i) == null) {
+                super.onLoaded((a) zmVar, str, i);
+                if (zmVar != null) {
+                    Bitmap p = zmVar.p();
+                    lf8 lf8Var = this.a;
+                    lf8Var.L(lf8Var.e, p);
+                    return;
+                }
+                lf8 lf8Var2 = this.a;
+                lf8Var2.L(lf8Var2.e, null);
             }
         }
     }
 
-    public lf8(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lf8(Activity activity, of8 of8Var, WbShareCallback wbShareCallback) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity, of8Var, wbShareCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.d = context;
-    }
-
-    public final View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) null);
-            a aVar = new a(this);
-            this.c = aVar;
-            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091434);
-            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143b);
-            inflate.setTag(this.c);
-            return inflate;
+        this.l = new a(this);
+        try {
+            WbSdk.install(activity, new AuthInfo(activity, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
+        } catch (Exception e) {
+            BdLog.e(e);
         }
-        return (View) invokeV.objValue;
-    }
-
-    public final void b(a aVar, sf8 sf8Var, View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, sf8Var, view2, i) == null) || aVar == null || sf8Var == null) {
-            return;
-        }
-        aVar.b.setText("");
-        if (i == 0) {
-            TextView textView = aVar.b;
-            textView.setText(this.d.getString(R.string.obfuscated_res_0x7f0f0265) + sf8Var.b);
-        } else {
-            aVar.b.setText(sf8Var.b);
-        }
-        if (i != this.b) {
-            aVar.a.setVisibility(4);
-            SkinManager.setViewTextColor(aVar.b, R.color.common_color_10200, 1);
-            return;
-        }
-        aVar.a.setVisibility(0);
-        SkinManager.setViewTextColor(aVar.b, R.color.common_color_10013, 1);
-    }
-
-    public sf8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (sf8) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-            notifyDataSetChanged();
+        this.b = activity;
+        this.i = of8Var;
+        this.k = wbShareCallback;
+        WbShareHandler wbShareHandler = new WbShareHandler(activity);
+        this.j = wbShareHandler;
+        if (wbShareHandler != null) {
+            wbShareHandler.registerApp();
         }
     }
 
-    public void e(sf8 sf8Var) {
+    public final String C(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sf8Var) == null) {
-            this.a = sf8Var;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        ArrayList<sf8> arrayList;
+    public final ImageObject D(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            sf8 sf8Var = this.a;
-            if (sf8Var == null || (arrayList = sf8Var.e) == null) {
-                return 0;
-            }
-            return arrayList.size();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            ImageObject imageObject = new ImageObject();
+            imageObject.setThumbImage(j(bitmap, 120));
+            imageObject.setImageObject(bitmap);
+            return imageObject;
         }
-        return invokeV.intValue;
+        return (ImageObject) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        ArrayList<sf8> arrayList;
+    public final WebpageObject E(Bitmap bitmap, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            sf8 sf8Var = this.a;
-            if (sf8Var == null || (arrayList = sf8Var.e) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, str, str2, str3)) == null) {
+            if (bitmap == null) {
                 return null;
             }
-            return arrayList.get(i);
+            WebpageObject webpageObject = new WebpageObject();
+            webpageObject.setThumbImage(bitmap);
+            webpageObject.identify = Utility.generateGUID();
+            webpageObject.title = C(str);
+            webpageObject.description = C(str2);
+            webpageObject.actionUrl = C(str3);
+            return webpageObject;
         }
-        return invokeI.objValue;
+        return (WebpageObject) invokeLLLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public final WebpageObject F(byte[] bArr, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            WebpageObject webpageObject = new WebpageObject();
+            webpageObject.thumbData = bArr;
+            webpageObject.identify = Utility.generateGUID();
+            webpageObject.title = "";
+            webpageObject.description = "";
+            webpageObject.actionUrl = C(str);
+            return webpageObject;
+        }
+        return (WebpageObject) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public final TextObject G() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.e == null) {
+                return null;
             }
-            sf8 sf8Var = this.a;
-            if (sf8Var == null) {
-                return view2;
-            }
-            sf8 sf8Var2 = sf8Var.e.get(i);
-            a aVar = (a) view2.getTag();
-            this.c = aVar;
-            if (sf8Var2 != null) {
-                b(aVar, sf8Var2, view2, i);
-            }
-            return view2;
+            TextObject textObject = new TextObject();
+            textObject.title = C(this.e.getTitle());
+            textObject.text = C(this.e.topic) + C(this.e.getContent());
+            return textObject;
         }
-        return (View) invokeILL.objValue;
+        return (TextObject) invokeV.objValue;
+    }
+
+    public final WebpageObject H(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
+        InterceptResult invokeLLL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, weiboMultiMessage, shareEntity, bitmap)) == null) {
+            byte[] bArr2 = null;
+            if (weiboMultiMessage != null && shareEntity != null) {
+                String linkUrl = shareEntity.getLinkUrl();
+                if (TextUtils.isEmpty(linkUrl)) {
+                    return null;
+                }
+                if (weiboMultiMessage.textObject != null) {
+                    ImageObject imageObject = weiboMultiMessage.imageObject;
+                    if (imageObject != null && (bArr = imageObject.thumbData) != null) {
+                        bArr2 = bArr;
+                    } else if (bitmap != null) {
+                        bArr2 = BitmapHelper.Bitmap2Bytes(j(bitmap, 120), 100);
+                    }
+                    return F(bArr2, linkUrl);
+                } else if (bitmap != null) {
+                    return E(j(bitmap, 120), shareEntity.getTitle(), shareEntity.getContent(), linkUrl);
+                }
+            }
+            return null;
+        }
+        return (WebpageObject) invokeLLL.objValue;
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            of8 of8Var = this.i;
+            if (of8Var != null) {
+                of8Var.d1(6, 3);
+            }
+            s(3, 6);
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            of8 of8Var = this.i;
+            if (of8Var != null) {
+                of8Var.d1(6, 2);
+            }
+            s(2, 6);
+        }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            of8 of8Var = this.i;
+            if (of8Var != null) {
+                of8Var.d1(6, 1);
+            }
+            s(1, 6);
+        }
+    }
+
+    public final void L(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, shareEntity, bitmap) == null) {
+            if (this.e != null && this.j != null && (this.b instanceof Activity)) {
+                WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
+                if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
+                    weiboMultiMessage.textObject = G();
+                }
+                if (bitmap != null) {
+                    weiboMultiMessage.imageObject = D(bitmap);
+                }
+                WebpageObject H = H(weiboMultiMessage, shareEntity, bitmap);
+                if (H != null) {
+                    weiboMultiMessage.mediaObject = H;
+                }
+                this.j.shareMessage(weiboMultiMessage, false);
+                return;
+            }
+            of8 of8Var = this.i;
+            if (of8Var != null) {
+                of8Var.d1(6, 2);
+            }
+            s(2, 6);
+        }
+    }
+
+    @Override // com.repackage.nf8
+    public void a(ShareEntity shareEntity, of8 of8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, shareEntity, of8Var) == null) {
+            if (shareEntity != null && this.j != null) {
+                this.e = shareEntity;
+                this.i = of8Var;
+                zm p = p(shareEntity);
+                if (p != null && p.p() != null) {
+                    L(this.e, p.p());
+                    return;
+                }
+                String imgUrl = shareEntity.getImgUrl();
+                if (o(shareEntity.getLocalFile())) {
+                    L(this.e, h(shareEntity.getLocalFile()));
+                    return;
+                } else if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
+                    kg.h().k(imgUrl, 10, this.l, 0, 0, i(), new Object[0]);
+                    return;
+                } else if (n(shareEntity.getImageUri())) {
+                    L(this.e, g(shareEntity.getImageUri()));
+                    return;
+                } else {
+                    L(this.e, e());
+                    return;
+                }
+            }
+            s(2, 6);
+            if (of8Var != null) {
+                of8Var.d1(6, 2);
+            }
+        }
+    }
+
+    @Override // com.repackage.hf8
+    public void m(Intent intent) {
+        WbShareHandler wbShareHandler;
+        WbShareCallback wbShareCallback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, intent) == null) || (wbShareHandler = this.j) == null || (wbShareCallback = this.k) == null) {
+            return;
+        }
+        wbShareHandler.doResultIntent(intent, wbShareCallback);
+        if (intent == null || intent.getExtras() != null) {
+            return;
+        }
+        this.k.onWbShareSuccess();
     }
 }

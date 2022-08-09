@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.og;
 /* loaded from: classes3.dex */
 public class RecommendsStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class RecommendsStatic {
                     if (str.startsWith("https://tieba.baidu.com/mo/q/recommendpb") && str.contains("ftid=")) {
                         String substring = str.substring(str.lastIndexOf("ftid=") + 5);
                         if (tbPageContext != null) {
-                            tbPageContext.sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(tbPageContext.getPageActivity(), ng.g(substring, 0L), null)));
+                            tbPageContext.sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(tbPageContext.getPageActivity(), og.g(substring, 0L), null)));
                             return 0;
                         }
                     }

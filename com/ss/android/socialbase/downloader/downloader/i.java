@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.depend.y;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface i extends IInterface {
     int a(String str, String str2) throws RemoteException;
 
@@ -128,7 +128,7 @@ public interface i extends IInterface {
 
     com.ss.android.socialbase.downloader.depend.g s(int i) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements i {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -142,11 +142,11 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0680a(iBinder);
+            return new C0685a(iBinder);
         }
 
         public static i g() {
-            return C0680a.a;
+            return C0685a.a;
         }
 
         @Override // android.os.IInterface
@@ -160,7 +160,7 @@ public interface i extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        a(a.AbstractBinderC0684a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0689a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     case 2:
@@ -481,12 +481,12 @@ public interface i extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0680a implements i {
+        /* loaded from: classes8.dex */
+        public static class C0685a implements i {
             public static i a;
             public IBinder b;
 
-            public C0680a(IBinder iBinder) {
+            public C0685a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class VideoChannelTitleLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -51,8 +51,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
             return;
         }
-        int f = pi.f(getContext(), R.dimen.tbds8);
-        int f2 = pi.f(getContext(), R.dimen.M_W_X001);
+        int f = qi.f(getContext(), R.dimen.tbds8);
+        int f2 = qi.f(getContext(), R.dimen.M_W_X001);
         ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
         View childAt = getChildAt(1);
         CharSequence text = expandableTextView.getContentView().getText();

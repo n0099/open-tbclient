@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemHeaderView extends RelativeLayout {
@@ -54,13 +54,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a1, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a3, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cbb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cba);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f4);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090cb9);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090cbc);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d00);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cff);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090cfe);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d01);
             this.b.setPlaceHolder(1);
         }
     }
@@ -68,8 +68,8 @@ public class ItemHeaderView extends RelativeLayout {
     public void b(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            forumDetailActivity.getLayoutMode().k(i == 1);
-            forumDetailActivity.getLayoutMode().j(this);
+            forumDetailActivity.getLayoutMode().l(i == 1);
+            forumDetailActivity.getLayoutMode().k(this);
         }
     }
 
@@ -86,7 +86,7 @@ public class ItemHeaderView extends RelativeLayout {
             this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
             TextView textView = this.c;
             Context context = this.a;
-            textView.setCompoundDrawablePadding(pi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            textView.setCompoundDrawablePadding(qi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
             this.d.setText(recommendForumInfo.authen);
             this.d.setVisibility(0);
         } else {
@@ -95,7 +95,7 @@ public class ItemHeaderView extends RelativeLayout {
         }
         this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
         this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d = pi.d(this.a, 80.0f);
+        int d = qi.d(this.a, 80.0f);
         this.b.G(recommendForumInfo.avatar, 10, d, d, false);
         setVisibility(0);
     }

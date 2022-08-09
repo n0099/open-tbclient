@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
+import com.yy.mobile.framework.revenuesdk.baseapi.ServiceFailResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.BaseJsonRequest;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.SeqUtil;
@@ -216,9 +217,9 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
                 case 408:
                 case 504:
                 case 110001:
-                case 110003:
+                case ServiceFailResult.Code.SDK_TIMEOUT /* 110003 */:
                 case 200408:
-                case 200504:
+                case ServiceFailResult.Code.SVR_GATEWAYTIMEOUT /* 200504 */:
                     retry();
                     return;
                 default:

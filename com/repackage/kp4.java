@@ -1,33 +1,52 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.McnAdInfo;
+import tbclient.MultiForumPerm;
 /* loaded from: classes6.dex */
 public class kp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public boolean c;
 
-    public static McnAdInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public kp4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            McnAdInfo.Builder builder = new McnAdInfo.Builder();
-            if (jSONObject != null) {
-                builder.ad_start_time = Long.valueOf(jSONObject.optLong("ad_start_time"));
-                builder.ad_end_time = Long.valueOf(jSONObject.optLong("ad_end_time"));
-                builder.pic_url = jSONObject.optString("pic_url");
-                builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                builder.card_title = jSONObject.optString("card_title");
-                builder.button_title = jSONObject.optString("button_title");
-                builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
-                builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return builder.build(true);
         }
-        return (McnAdInfo) invokeL.objValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("is_bawu") == 1;
+        this.b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
+        this.c = jSONObject.optInt("is_deleted") == 1;
+    }
+
+    public void b(MultiForumPerm multiForumPerm) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) == null) || multiForumPerm == null) {
+            return;
+        }
+        this.a = multiForumPerm.is_bawu.intValue() == 1;
+        this.b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
+        this.c = multiForumPerm.is_deleted.intValue() == 1;
     }
 }

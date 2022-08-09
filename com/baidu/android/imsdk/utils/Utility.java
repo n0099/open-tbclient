@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j60;
+import com.repackage.l60;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -206,7 +206,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
-            Intent intent = new Intent(context, j60.class);
+            Intent intent = new Intent(context, l60.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -219,7 +219,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
-            Intent intent = new Intent(context, j60.class);
+            Intent intent = new Intent(context, l60.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -444,7 +444,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                j60.g(context).f(context, creatMethodIntent);
+                l60.g(context).f(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);
@@ -1214,7 +1214,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65644, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                j60.g(context).f(context, new Intent(context, j60.class));
+                l60.g(context).f(context, new Intent(context, l60.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }

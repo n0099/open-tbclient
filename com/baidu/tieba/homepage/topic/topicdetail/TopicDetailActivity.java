@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c17;
-import com.repackage.fj4;
-import com.repackage.g17;
-import com.repackage.ng;
-import com.repackage.ni;
-import com.repackage.nn;
+import com.repackage.a37;
+import com.repackage.og;
 import com.repackage.oi;
+import com.repackage.on;
+import com.repackage.pi;
+import com.repackage.w27;
+import com.repackage.wj4;
 import com.repackage.z8;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c17 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements w27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -85,7 +85,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.e = ng.g(str, -1L);
+                this.a.e = og.g(str, -1L);
             }
         }
     }
@@ -107,7 +107,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         this.f = false;
     }
 
-    public final void B1(String str) {
+    public final void A1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str.startsWith("//")) {
@@ -116,7 +116,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                fj4.b(statisticItem, paramPair);
+                wj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -126,7 +126,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!oi.isEmpty(paramPair.get("ext_log"))) {
+                if (!pi.isEmpty(paramPair.get("ext_log"))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
@@ -143,25 +143,25 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    public void C1(long j) {
+    public void B1(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             long j2 = this.c + 1;
             this.c = j2;
             this.d = j;
-            this.a.G(this.e, j2, j);
+            this.a.F(this.e, j2, j);
         }
     }
 
-    @Override // com.repackage.c17
-    public void N0(int i, boolean z, List<nn> list) {
+    @Override // com.repackage.w27
+    public void M0(int i, boolean z, List<on> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.b.setNextData(i, z, list);
         }
     }
 
-    @Override // com.repackage.c17
+    @Override // com.repackage.w27
     public void a() {
         int i;
         String substring;
@@ -183,7 +183,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     if (StringUtils.isNull(decode)) {
                         return;
                     }
-                    B1(decode);
+                    A1(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -195,7 +195,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.e = ng.g(substring, -1L);
+                        this.e = og.g(substring, -1L);
                     }
                 }
             } else {
@@ -203,7 +203,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             }
             if (this.e < 0) {
                 finish();
-            } else if (!ni.A()) {
+            } else if (!oi.A()) {
                 this.b.r();
                 this.b.B(true);
             } else {
@@ -213,7 +213,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.b.getEditor().I(this.e);
                 }
-                this.a.F(this.e);
+                this.a.E(this.e);
             }
         }
     }
@@ -241,7 +241,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -281,7 +281,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             setContentView(topicDetailView);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.a.H(this);
+            this.a.G(this);
             a();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !z8.g().i("MainTabActivity")) {
                 this.f = true;
@@ -315,14 +315,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.c17
-    public void u(int i, g17 g17Var) {
+    @Override // com.repackage.w27
+    public void t(int i, a37 a37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, g17Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, a37Var) == null) {
             this.b.r();
-            if (i == 0 && g17Var != null && !ListUtils.isEmpty(g17Var.f)) {
+            if (i == 0 && a37Var != null && !ListUtils.isEmpty(a37Var.f)) {
                 this.b.s();
-                this.b.setData(g17Var);
+                this.b.setData(a37Var);
                 return;
             }
             this.b.B(true);

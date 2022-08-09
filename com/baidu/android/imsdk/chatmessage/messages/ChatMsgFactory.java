@@ -204,7 +204,7 @@ public class ChatMsgFactory {
                                                                                 return new RedNotifyMsg();
                                                                             case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
                                                                                 return new ShieldMsg();
-                                                                            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
+                                                                            case 2014:
                                                                                 return new UnSubscribeMsg();
                                                                             default:
                                                                                 switch (i) {

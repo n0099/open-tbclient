@@ -1,177 +1,128 @@
 package com.repackage;
 
-import android.content.Context;
-import android.location.Address;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Rect;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.permissionhelper.ApiUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jf;
-import java.util.Locale;
+import com.tencent.open.SocialConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ue7 implements kf {
+public class ue7 {
     public static /* synthetic */ Interceptable $ic;
-    public static ue7 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public boolean b;
+    public String a;
+    public Rect b;
     public String c;
-    public jf.d d;
-    public b e;
-    public LocationClient f;
-    public LocationClientOption g;
-    public Address h;
-    public long i;
-    public boolean j;
-
-    /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
-                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
-                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        jf.n().r(ue7.j());
-                    } else {
-                        jf.n().v(ue7.j());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements BDLocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ue7 a;
-
-        public b(ue7 ue7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ue7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ue7Var;
-        }
-
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
-                    return;
-                }
-                this.a.c();
-                this.a.h = new Address(Locale.getDefault());
-                this.a.h.setLatitude(bDLocation.getLatitude());
-                this.a.h.setLongitude(bDLocation.getLongitude());
-                yt4 k = yt4.k();
-                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-                this.a.h.setLocality(bDLocation.getCity());
-                Bundle bundle = new Bundle();
-                bundle.putFloat("radius", bDLocation.getRadius());
-                bundle.putDouble("altitude", bDLocation.getAltitude());
-                bundle.putFloat("speed", bDLocation.getSpeed());
-                bundle.putString("cityCode", bDLocation.getCityCode());
-                bundle.putString("street", bDLocation.getStreet());
-                bundle.putString("streetNumber", bDLocation.getStreetNumber());
-                bundle.putString("province", bDLocation.getProvince());
-                this.a.h.setExtras(bundle);
-                this.a.i = System.currentTimeMillis();
-                StringBuffer stringBuffer = new StringBuffer();
-                if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
-                    stringBuffer.append(bDLocation.getCity());
-                }
-                stringBuffer.append(bDLocation.getDistrict());
-                stringBuffer.append(bDLocation.getStreet());
-                if (bDLocation.getAddrStr() != null) {
-                    this.a.h.setAddressLine(0, stringBuffer.toString());
-                }
-                if (this.a.d != null) {
-                    this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
-                    ab8.e().i(String.valueOf(this.a.h.getLatitude()));
-                    ab8.e().j(String.valueOf(this.a.h.getLongitude()));
-                    ab8.e().k(System.currentTimeMillis());
-                }
-            }
-        }
-
-        public /* synthetic */ b(ue7 ue7Var, a aVar) {
-            this(ue7Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755263766, "Lcom/repackage/ue7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755263766, "Lcom/repackage/ue7;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerListener(new a(2001330));
-    }
+    public Rect d;
 
     public ue7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = new Rect(0, 0, 0, 0);
+        this.c = "";
+        this.d = new Rect(0, 0, 0, 0);
+    }
+
+    public static ue7 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ue7();
+            }
+            try {
+                return new ue7(new JSONObject(str));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return new ue7();
+            }
+        }
+        return (ue7) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.c) || this.d.isEmpty()) ? false : true : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.a) || this.b.isEmpty()) ? false : true : invokeV.booleanValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
+            if (optJSONArray == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
+                if (jSONObject == null) {
+                    return;
+                }
+                this.c = jSONObject.optString("pic_url");
+                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("pic_url", this.a);
+                    jSONObject.put("rect_left", this.b.left);
+                    jSONObject.put("rect_top", this.b.top);
+                    jSONObject.put("rect_right", this.b.right);
+                    jSONObject.put("rect_bottom", this.b.bottom);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jSONObject.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ue7(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,102 +132,7 @@ public class ue7 implements kf {
                 return;
             }
         }
-        this.b = true;
-        this.c = "";
-        this.d = null;
-        this.i = 0L;
-        this.j = false;
-    }
-
-    public static ue7 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (k == null) {
-                synchronized (ue7.class) {
-                    if (k == null) {
-                        k = new ue7();
-                    }
-                }
-            }
-            return k;
-        }
-        return (ue7) invokeV.objValue;
-    }
-
-    @Override // com.repackage.kf
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
-                try {
-                    this.j = z;
-                    if (z) {
-                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-                    }
-                    this.f.setLocOption(this.g);
-                    if (!this.f.isStarted()) {
-                        this.f.start();
-                    }
-                    this.f.requestLocation();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    c();
-                    jf.d dVar = this.d;
-                    if (dVar != null) {
-                        dVar.a(5, "", this.h, this.i, this.j);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.kf
-    public void b(jf.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            this.a = context;
-            this.d = dVar;
-            this.c = "baidu";
-            if (this.b) {
-                try {
-                    this.f = new LocationClient(context);
-                    LocationClientOption locationClientOption = new LocationClientOption();
-                    this.g = locationClientOption;
-                    locationClientOption.setOpenGps(true);
-                    this.g.setIgnoreKillProcess(true);
-                    this.g.setProdName(this.c);
-                    this.g.setAddrType("all");
-                    this.g.setCoorType("bd09ll");
-                    b bVar = new b(this, null);
-                    this.e = bVar;
-                    this.f.registerLocationListener(bVar);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.kf
-    public void c() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
-            try {
-                this.f.stop();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.repackage.kf
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c();
-        }
+        this.a = jSONObject.optString("pic_url");
+        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 }

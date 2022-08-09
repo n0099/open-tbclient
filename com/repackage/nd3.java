@@ -1,19 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public final class nd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,38 +33,131 @@ public final class nd3 {
                 return;
             }
         }
-        boolean z = sg1.a;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public static Date a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) || context == null || drawable == null) {
-            return;
-        }
-        int d = d(context);
-        if (i >= 0 && i < 255) {
-            d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
-        }
-        drawable.setColorFilter(d, mode);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Date() : (Date) invokeV.objValue;
     }
 
-    public static void b(Context context, Drawable drawable) {
+    public static String b(Date date, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            c(context, drawable, 255);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void c(Context context, Drawable drawable, int i) {
+    public static Date c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
         }
+        return (Date) invokeLL.objValue;
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
+    public static Date d(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context.getResources().getColor(R.color.obfuscated_res_0x7f0603ea) : invokeL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            Date date = null;
+            if (!TextUtils.isEmpty(str) && strArr != null) {
+                for (String str2 : strArr) {
+                    try {
+                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (date != null) {
+                        break;
+                    }
+                }
+            }
+            return date;
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static String e(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
+    }
+
+    public static String g(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
+            try {
+                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
+            } catch (NumberFormatException e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeJL.objValue;
     }
 }

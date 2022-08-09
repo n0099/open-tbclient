@@ -37,13 +37,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ig;
+import com.repackage.g15;
+import com.repackage.gj8;
 import com.repackage.jg;
-import com.repackage.l05;
-import com.repackage.pi;
-import com.repackage.sg8;
-import com.repackage.sz6;
-import com.repackage.ym;
+import com.repackage.kg;
+import com.repackage.m17;
+import com.repackage.qi;
+import com.repackage.zm;
 /* loaded from: classes3.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -57,10 +57,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public int g;
     public int h;
     public float i;
-    public NestedScrollHeader.e j;
+    public NestedScrollHeader.f j;
 
     /* loaded from: classes3.dex */
-    public class a extends ig<ym> {
+    public class a extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -85,7 +85,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.a = str;
         }
 
-        @Override // com.repackage.ig
+        @Override // com.repackage.jg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -93,7 +93,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             }
         }
 
-        @Override // com.repackage.ig
+        @Override // com.repackage.jg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -102,18 +102,18 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ymVar, str, i) == null) {
-                super.onLoaded((a) ymVar, str, i);
-                if (ymVar == null || ymVar.p() == null || ymVar.p().isRecycled()) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zmVar, str, i) == null) {
+                super.onLoaded((a) zmVar, str, i);
+                if (zmVar == null || zmVar.p() == null || zmVar.p().isRecycled()) {
                     this.b.b.setImageResource(R.drawable.icon_use_gold_n);
-                    this.b.b.setTag(R.id.obfuscated_res_0x7f090d58, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    this.b.b.setTag(R.id.obfuscated_res_0x7f090d9e, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
-                this.b.b.setImageBitmap(ymVar.p());
-                this.b.b.setTag(R.id.obfuscated_res_0x7f090d58, this.a);
+                this.b.b.setImageBitmap(zmVar.p());
+                this.b.b.setTag(R.id.obfuscated_res_0x7f090d9e, this.a);
             }
         }
     }
@@ -196,21 +196,21 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.f = getContext().getResources().getDimensionPixelSize(R.dimen.tbds150);
             this.g = getContext().getResources().getDimensionPixelSize(R.dimen.tbds264);
             this.e = this.f;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0392, (ViewGroup) this, true);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d35);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d7b);
             this.a = imageView;
             imageView.setClickable(false);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090d37);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090d7d);
             this.c = pagerSlidingTabStrip;
-            pagerSlidingTabStrip.A(pi.f(context, R.dimen.T_X06), pi.f(context, R.dimen.T_X04), pi.f(context, R.dimen.tbds10), true);
+            pagerSlidingTabStrip.A(qi.f(context, R.dimen.T_X06), qi.f(context, R.dimen.T_X04), qi.f(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
             layoutParams.gravity = 1;
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
             this.c.setExpandedTabLayoutParams(layoutParams);
             this.c.setHorizontalFadingEdgeEnabled(true);
             this.c.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.tbds70));
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d36);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d34);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d7c);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d7a);
             this.b = tbImageView;
             tbImageView.setClickable(false);
             this.a.setOnClickListener(this);
@@ -287,9 +287,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public final void k(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            l05 f2 = sz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            g15 f2 = m17.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
-                setBackgroundColor(sg8.a(sg8.f(sz6.d(f2)), f));
+                setBackgroundColor(gj8.a(gj8.f(m17.d(f2)), f));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, f, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -304,10 +304,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 return;
             }
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
                 k(this.i);
             } else {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, this.i, TbadkCoreApplication.getInst().getSkinType());
             }
             this.c.E();
@@ -318,9 +318,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
         }
     }
@@ -356,10 +356,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
             String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
             if (!TextUtils.isEmpty(missionEntranceUrl) && !TextUtils.isEmpty(missionEntranceIcon)) {
-                jg.h().m(missionEntranceIcon, 10, new a(this, missionEntranceUrl), null);
+                kg.h().m(missionEntranceIcon, 10, new a(this, missionEntranceUrl), null);
                 return;
             }
-            this.b.setTag(R.id.obfuscated_res_0x7f090d58, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.b.setTag(R.id.obfuscated_res_0x7f090d9e, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
             this.b.setImageResource(R.drawable.icon_use_gold_n);
         }
     }
@@ -375,16 +375,16 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             }
             TbImageView tbImageView = this.b;
             if (view2 == tbImageView) {
-                Object tag = tbImageView.getTag(R.id.obfuscated_res_0x7f090d58);
+                Object tag = tbImageView.getTag(R.id.obfuscated_res_0x7f090d9e);
                 if (tag instanceof String) {
                     String str = (String) tag;
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
                     h();
-                    NestedScrollHeader.e eVar = this.j;
-                    if (eVar != null) {
-                        eVar.a(str);
+                    NestedScrollHeader.f fVar = this.j;
+                    if (fVar != null) {
+                        fVar.a(str);
                     }
                 }
             }
@@ -452,10 +452,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public void setEntranceJumpListener(NestedScrollHeader.e eVar) {
+    public void setEntranceJumpListener(NestedScrollHeader.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, eVar) == null) {
-            this.j = eVar;
+        if (interceptable == null || interceptable.invokeL(1048596, this, fVar) == null) {
+            this.j = fVar;
         }
     }
 

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,9 +27,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void F0();
+        void E0();
 
-        void u1();
+        void t1();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,7 +58,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
+            this.d = qi.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
         }
     }
 
@@ -78,17 +78,17 @@ public class RecordLayout extends RelativeLayout {
                     float xVelocity = this.a.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) <= this.b || Math.abs(rawX) <= this.d) {
-                        if (Math.abs(rawX) > pi.k(getContext()) * 0.5d) {
+                        if (Math.abs(rawX) > qi.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
-                                this.f.u1();
+                                this.f.t1();
                             } else {
-                                this.f.u1();
+                                this.f.t1();
                             }
                         }
                     } else if (rawX > 0) {
-                        this.f.u1();
+                        this.f.t1();
                     } else {
-                        this.f.F0();
+                        this.f.E0();
                     }
                     this.a.clear();
                     this.a.recycle();

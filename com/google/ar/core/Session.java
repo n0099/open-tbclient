@@ -31,8 +31,8 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
-import com.repackage.bm9;
-import com.repackage.gm9;
+import com.repackage.bp9;
+import com.repackage.wo9;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes5.dex */
@@ -41,7 +41,7 @@ public class Session {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final gm9 c;
+    public final bp9 c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -305,7 +305,7 @@ public class Session {
             }
         }
         this.b = new Object();
-        this.c = new gm9();
+        this.c = new bp9();
         this.a = 0L;
     }
 
@@ -417,7 +417,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, bm9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, wo9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -449,7 +449,7 @@ public class Session {
             this.h = cls;
         }
 
-        public static c a(Class<? extends bm9> cls) {
+        public static c a(Class<? extends wo9> cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
@@ -471,7 +471,7 @@ public class Session {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) i.clone() : (c[]) invokeV.objValue;
         }
 
-        public abstract bm9 a(long j, Session session);
+        public abstract wo9 a(long j, Session session);
 
         public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
             this(str, i2, i3, cls);

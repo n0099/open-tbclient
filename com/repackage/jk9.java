@@ -1,65 +1,86 @@
 package com.repackage;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.RootTelemetryConfiguration;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsFeedAd;
+import com.repackage.ik9;
 /* loaded from: classes6.dex */
-public final class jk9 implements Parcelable.Creator<RootTelemetryConfiguration> {
+public class jk9 extends FunNativeAd2Bridger<KsFeedAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public ik9.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ ik9 e;
 
-    public jk9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jk9(ik9 ik9Var, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ik9Var, reporterPidLoader, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = ik9Var;
+        this.d = context;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(KsFeedAd ksFeedAd) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) ? this.e.e(this.d, ksFeedAd) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsFeedAd ksFeedAd, BaseNativeAd2<KsFeedAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ RootTelemetryConfiguration createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        int i = 0;
-        boolean z = false;
-        boolean z2 = false;
-        int i2 = 0;
-        int i3 = 0;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            int h = SafeParcelReader.h(k);
-            if (h == 1) {
-                i = SafeParcelReader.m(parcel, k);
-            } else if (h == 2) {
-                z = SafeParcelReader.i(parcel, k);
-            } else if (h == 3) {
-                z2 = SafeParcelReader.i(parcel, k);
-            } else if (h == 4) {
-                i2 = SafeParcelReader.m(parcel, k);
-            } else if (h != 5) {
-                SafeParcelReader.p(parcel, k);
-            } else {
-                i3 = SafeParcelReader.m(parcel, k);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsFeedAd ksFeedAd, BaseNativeAd2<KsFeedAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            KsFeedAd ksFeedAd2 = ksFeedAd;
+            this.e.onShowStart(ksFeedAd2, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                ik9 ik9Var = this.e;
+                ik9.b bVar = new ik9.b(ik9Var, ksFeedAd2, expressView, str);
+                this.c = bVar;
+                ik9Var.k(ksFeedAd2, bVar);
             }
+            this.c.d = funAdInteractionListener;
+            expressInflater.inflate();
         }
-        SafeParcelReader.g(parcel, q);
-        return new RootTelemetryConfiguration(i, z, z2, i2, i3);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ RootTelemetryConfiguration[] newArray(int i) {
-        return new RootTelemetryConfiguration[i];
     }
 }

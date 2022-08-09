@@ -1,23 +1,41 @@
 package com.repackage;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class x24 {
+public final class x24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    @JvmField
+    public final byte[] message;
+    @V8JavascriptField
+    @JvmField
+    public final Object remoteInfo;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public x24(byte[] message, Object remoteInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
-    }
-
-    public static float b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density : invokeF.floatValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {message, remoteInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(message, "message");
+        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
+        this.message = message;
+        this.remoteInfo = remoteInfo;
     }
 }

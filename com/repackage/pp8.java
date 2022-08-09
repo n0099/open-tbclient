@@ -1,275 +1,169 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.Layout;
-import android.text.StaticLayout;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater;
-import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class pp8 {
+/* loaded from: classes7.dex */
+public class pp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static pp8 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Context c;
-    public TextWordsEntity.TextStyleEntity d;
-    public TextWordsEntity.TextFontEntity e;
-    public final TextPaint f;
-    public final TextPaint g;
-    public final TextPaint h;
-    public int i;
-    public List<String> j;
+    public final MainTabActivity a;
+    public final zn8 b;
+    public final mn8 c;
 
-    public pp8() {
+    /* loaded from: classes7.dex */
+    public class a extends cf5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(pp8 pp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.cf5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(jd7.w()) : (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements je5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pp8 a;
+
+        public b(pp8 pp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pp8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.je5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                if (bool != null && !bool.booleanValue()) {
+                    jd7 m = jd7.m(this.a.a);
+                    m.o(true);
+                    m.C("1", this.a.a.D.intValue(), 0, this.a.a.M, new rn8(this.a.a, this.a.c), false);
+                    m.o(false);
+                    return;
+                }
+                jd7.A(1);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp8(MainTabActivity mainTabActivity, mn8 mn8Var) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, mn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 5;
-        this.j = new ArrayList();
-        this.f = new TextPaint(1);
-        this.g = new TextPaint(1);
-        this.h = new TextPaint(1);
-        this.a = n99.j(R.dimen.tbds72);
-    }
-
-    public static pp8 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (k == null) {
-                synchronized (pp8.class) {
-                    if (k == null) {
-                        k = new pp8();
-                    }
-                }
-            }
-            return k;
-        }
-        return (pp8) invokeV.objValue;
-    }
-
-    public final void a(String str, Canvas canvas, int i, int i2, int i3, TextPaint textPaint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textPaint}) == null) {
-            i(textPaint);
-            canvas.drawText(str, i, i2, textPaint);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.setTypeface(Typeface.DEFAULT);
-            this.g.setTypeface(Typeface.DEFAULT);
-            this.h.setTypeface(Typeface.DEFAULT);
-        }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.f;
+        this.c = mn8Var;
     }
 
     public final void c() {
+        zn8 zn8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f.setShader(null);
-            this.f.setColor(-1);
-            this.f.clearShadowLayer();
-            this.g.clearShadowLayer();
-            this.h.clearShadowLayer();
-            this.j.clear();
-        }
-    }
-
-    public final String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str.contains("\n")) {
-                String[] split = str.split("\n");
-                if (split.length > 1) {
-                    int i = 0;
-                    int i2 = 0;
-                    for (int i3 = 0; i3 < split.length; i3++) {
-                        int length = split[i3].length();
-                        if (length > i2) {
-                            i = i3;
-                            i2 = length;
-                        }
-                    }
-                    return split[i];
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) (p99.e() * 0.85d) : invokeV.intValue;
-    }
-
-    public final int[] g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new int[]{0, 0};
-            }
-            String e = e(str);
-            int[] iArr = new int[2];
-            TextPaint textPaint = new TextPaint(1);
-            i(textPaint);
-            textPaint.setStyle(Paint.Style.FILL);
-            textPaint.setTextSize(this.a);
-            float measureText = textPaint.measureText(e) + 2.0f + 40.0f;
-            if (measureText > f()) {
-                measureText = f() + 2.0f;
-            }
-            float f = 0.0f;
-            if (measureText > 0.0f) {
-                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.b, Layout.Alignment.ALIGN_CENTER, 0);
-                this.i = measuredStaticLayout.getLineCount();
-                int i = 0;
-                for (int i2 = 0; i2 < this.i; i2++) {
-                    int lineEnd = measuredStaticLayout.getLineEnd(i2);
-                    if (lineEnd != 0) {
-                        this.j.add(str.substring(i, lineEnd));
-                        i = lineEnd;
-                    }
-                }
-                f = measuredStaticLayout.getHeight() + 2.0f + 40.0f;
-            }
-            iArr[0] = (int) measureText;
-            iArr[1] = (int) f;
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public Bitmap h(Context context, String str, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
-        InterceptResult invokeLLLL;
-        int i;
-        int i2;
-        int i3;
-        Canvas canvas;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
-            c();
-            this.c = context;
-            this.d = textStyleEntity;
-            this.e = textFontEntity;
-            this.f.setTextSize(this.a);
-            int[] g = g(str);
-            if (g[0] >= 1 && g[1] >= 1) {
-                Bitmap a = z89.a(this.d);
-                NinePatchChunk f = z89.f(a, this.d);
-                if (f != null) {
-                    Rect rect = f.padding;
-                    i = rect.left;
-                    int i4 = rect.top;
-                    g[0] = g[0] + i;
-                    g[1] = g[1] + i4;
-                    g[0] = g[0] + rect.right;
-                    g[1] = g[1] + rect.bottom;
-                    if (a != null && g[0] < a.getWidth()) {
-                        g[0] = a.getWidth();
-                    }
-                    i2 = i4;
-                } else {
-                    i = 0;
-                    i2 = 0;
-                }
-                Bitmap createBitmap = Bitmap.createBitmap(g[0], g[1], Bitmap.Config.ARGB_8888);
-                Canvas canvas2 = new Canvas(createBitmap);
-                canvas2.save();
-                int i5 = 20;
-                z89.b(a, f, canvas2, 20);
-                int g2 = z89.g(this.f);
-                int i6 = i + 20;
-                int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
-                int i7 = 0;
-                while (i7 < this.i) {
-                    int i8 = i7 + 1;
-                    z89.c(this.f, this.d, null);
-                    int[] d = z89.d(this.f, this.g, this.h, this.d, null);
-                    z89.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
-                    if (d[0] != 0) {
-                        i3 = i7;
-                        canvas = canvas2;
-                        a(this.j.get(i7), canvas2, i6, abs, i3, this.g);
-                    } else {
-                        i3 = i7;
-                        canvas = canvas2;
-                    }
-                    if (d[1] != 0) {
-                        a(this.j.get(i3), canvas, i6, abs, i3, this.h);
-                    }
-                    a(this.j.get(i3), canvas, i6, abs, i3, this.f);
-                    abs += g2;
-                    canvas2 = canvas;
-                    i7 = i8;
-                    i5 = 20;
-                }
-                canvas2.restore();
-                return createBitmap;
-            }
-            return Bitmap.createBitmap(10, this.a, Bitmap.Config.ARGB_8888);
-        }
-        return (Bitmap) invokeLLLL.objValue;
-    }
-
-    public final void i(TextPaint textPaint) {
-        TextWordsEntity.TextFontEntity textFontEntity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || MainTabActivity.X) {
             return;
         }
-        try {
-            if (textFontEntity.isDefault()) {
-                b();
-                return;
+        if (this.b != null) {
+            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                gf5.b(new a(this), new b(this));
+            } else {
+                jd7 m = jd7.m(this.a);
+                int intValue = this.a.D.intValue();
+                MainTabActivity mainTabActivity = this.a;
+                m.C("1", intValue, 0, mainTabActivity.M, new rn8(mainTabActivity, this.c), false);
             }
-            this.e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
-            textPaint.setTypeface(Typeface.createFromFile(this.e.getSourceFile()));
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !TbSingleton.getInstance().mIsSplashClick && (zn8Var = this.b) != null && zn8Var.b() != null) {
+            this.b.b().b();
+        }
+        pf5.a(1);
     }
 
-    public void j(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zn8 zn8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            c();
+            MainTabActivity.X = true;
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                return;
+            }
+            if (!TbSingleton.getInstance().mIsSplashClick && (zn8Var = this.b) != null && zn8Var.c() != null) {
+                if (UbsABTestHelper.isNewInterestShowTestA()) {
+                    this.b.c().d();
+                } else {
+                    this.b.c().a();
+                }
+            }
+            zn8 zn8Var2 = this.b;
+            if (zn8Var2 == null || zn8Var2.i() == null) {
+                return;
+            }
+            this.b.i().a();
         }
     }
 }

@@ -17,7 +17,7 @@ public class COSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f32a;
+    public static volatile boolean f33a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,7 +73,7 @@ public class COSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f32a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f33a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -108,7 +108,7 @@ public class COSPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             synchronized (COSPushHelper.class) {
-                f32a = z;
+                f33a = z;
             }
         }
     }

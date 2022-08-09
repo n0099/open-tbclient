@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -102,7 +102,7 @@ public class SchemeActionHelper {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (oi.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
+            if (pi.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
                 return null;
             }
             return str2;
@@ -123,18 +123,18 @@ public class SchemeActionHelper {
     public static boolean isPushPbUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? !oi.isEmpty(str) && Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? !pi.isEmpty(str) && Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() : invokeL.booleanValue;
     }
 
     public static boolean isSchemeAction(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            if (oi.isEmpty(str)) {
+            if (pi.isEmpty(str)) {
                 return false;
             }
             String parserSchemeAction = parserSchemeAction(str);
-            if (oi.isEmpty(parserSchemeAction)) {
+            if (pi.isEmpty(parserSchemeAction)) {
                 return false;
             }
             return str2.equalsIgnoreCase(parserSchemeAction);
@@ -145,7 +145,7 @@ public class SchemeActionHelper {
     public static boolean isTieBaAppSchemeHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? !oi.isEmpty(str) && str.startsWith("tiebaapp") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? !pi.isEmpty(str) && str.startsWith("tiebaapp") : invokeL.booleanValue;
     }
 
     public static boolean isToMaintab(Intent intent) {
@@ -156,10 +156,10 @@ public class SchemeActionHelper {
                 String action = intent.getAction();
                 Set<String> categories = intent.getCategories();
                 String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME_BAK);
-                if (oi.isEmpty(stringExtra)) {
+                if (pi.isEmpty(stringExtra)) {
                     stringExtra = intent.getStringExtra("target_scheme");
                 }
-                if ((TextUtils.equals(action, "android.intent.action.MAIN") && categories != null && categories.contains("android.intent.category.LAUNCHER")) || oi.isEmpty(stringExtra)) {
+                if ((TextUtils.equals(action, "android.intent.action.MAIN") && categories != null && categories.contains("android.intent.category.LAUNCHER")) || pi.isEmpty(stringExtra)) {
                     return true;
                 }
                 return (isPushPbUrl(stringExtra) || needMainTabActivity(stringExtra)) ? false : true;
@@ -187,7 +187,7 @@ public class SchemeActionHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (oi.isEmpty(str)) {
+            if (pi.isEmpty(str)) {
                 return null;
             }
             String[] split = str.split("\\?");
@@ -249,7 +249,7 @@ public class SchemeActionHelper {
                 return new JSONObject();
             }
             String queryParameter = uri.getQueryParameter(str);
-            if (oi.isEmpty(queryParameter)) {
+            if (pi.isEmpty(queryParameter)) {
                 return new JSONObject();
             }
             try {

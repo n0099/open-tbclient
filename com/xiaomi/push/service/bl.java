@@ -30,7 +30,7 @@ public class bl extends bv.a implements cv.a {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f942a;
+    public XMPushService f943a;
 
     /* loaded from: classes8.dex */
     public static class a implements cv.b {
@@ -140,7 +140,7 @@ public class bl extends bv.a implements cv.a {
                 return;
             }
         }
-        this.f942a = xMPushService;
+        this.f943a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -179,7 +179,7 @@ public class bl extends bv.a implements cv.a {
             cv a2 = cv.a();
             a2.m254a();
             a2.m257b();
-            fw m589a = this.f942a.m589a();
+            fw m589a = this.f943a.m589a();
             if (m589a == null || (b2 = a2.b(m589a.m353a().c())) == null) {
                 return;
             }
@@ -198,8 +198,8 @@ public class bl extends bv.a implements cv.a {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m89a("bucket changed, force reconnect");
-            this.f942a.a(0, (Exception) null);
-            this.f942a.a(false);
+            this.f943a.a(0, (Exception) null);
+            this.f943a.a(false);
         }
     }
 }

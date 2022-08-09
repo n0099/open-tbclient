@@ -10,33 +10,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d;
 import com.repackage.e;
-import com.repackage.p00;
+import com.repackage.q00;
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class m implements p00, d.a, e.a {
+public class m implements q00, d.a, e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l00 a;
+    public m00 a;
     public g b;
     public Executor c;
     public String d;
     public p e;
-    public p00.a f;
+    public q00.a f;
     public int g;
     public i h;
     public d i;
     public List<e> j;
 
-    public m(l00 l00Var, g gVar, Executor executor, String str, p pVar, p00.a aVar) {
+    public m(m00 m00Var, g gVar, Executor executor, String str, p pVar, q00.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l00Var, gVar, executor, str, pVar, aVar};
+            Object[] objArr = {m00Var, gVar, executor, str, pVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,13 +46,13 @@ public class m implements p00, d.a, e.a {
                 return;
             }
         }
-        this.a = l00Var;
+        this.a = m00Var;
         this.b = gVar;
         this.c = executor;
         this.d = str;
         this.e = pVar;
         this.f = aVar;
-        this.h = new i(l00Var.b().toString(), this.a.c(), this.a.a());
+        this.h = new i(m00Var.b().toString(), this.a.c(), this.a.a());
         this.j = new LinkedList();
     }
 
@@ -99,7 +99,7 @@ public class m implements p00, d.a, e.a {
         }
     }
 
-    @Override // com.repackage.p00
+    @Override // com.repackage.q00
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -241,7 +241,7 @@ public class m implements p00, d.a, e.a {
         }
     }
 
-    @Override // com.repackage.p00
+    @Override // com.repackage.q00
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -252,7 +252,7 @@ public class m implements p00, d.a, e.a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p00
+    @Override // com.repackage.q00
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -270,7 +270,7 @@ public class m implements p00, d.a, e.a {
         }
     }
 
-    @Override // com.repackage.p00
+    @Override // com.repackage.q00
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

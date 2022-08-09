@@ -42,7 +42,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     public KSFrameLayout dN;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f6do;
+    public ImageView f7do;
     public com.kwad.sdk.core.video.videoview.a dp;
     @Nullable
     public boolean ds;
@@ -226,12 +226,12 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             this.ds = this.cN.isVideoSoundEnable();
             String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
             if (TextUtils.isEmpty(url)) {
-                imageView = this.f6do;
+                imageView = this.f7do;
                 i = 8;
             } else {
-                this.f6do.setImageDrawable(null);
-                KSImageLoader.loadImage(this.f6do, url, this.mAdTemplate);
-                imageView = this.f6do;
+                this.f7do.setImageDrawable(null);
+                KSImageLoader.loadImage(this.f7do, url, this.mAdTemplate);
+                imageView = this.f7do;
                 i = 0;
             }
             imageView.setVisibility(i);
@@ -442,9 +442,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091012);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09119f);
-            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091068);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0911f5);
+            this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091205);
             this.dN.setVisibility(4);
             this.mContext = getContext();
         }

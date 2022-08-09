@@ -1,5 +1,6 @@
 package com.baidu.adp.newwidget.ImageView;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,22 +24,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok;
-import com.repackage.pi;
-import com.repackage.rk;
+import com.repackage.pk;
+import com.repackage.qi;
 import com.repackage.sk;
-import com.repackage.vk;
-import com.repackage.ym;
+import com.repackage.tk;
+import com.repackage.wk;
+import com.repackage.zm;
 import java.util.Arrays;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes.dex */
-public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, vk {
+public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, wk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public ImageView.ScaleType b;
     public ImageView.ScaleType c;
     public DrawerArgs d;
-    public ok e;
+    public pk e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -46,7 +48,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public int j;
     public int k;
     public int l;
-    public rk m;
+    public sk m;
     public boolean n;
     public Drawable o;
     public Drawable p;
@@ -78,7 +80,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new rk();
+        this.m = new sk();
         i(null);
     }
 
@@ -104,7 +106,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             ImageView.ScaleType scaleType = getScaleType();
-            this.m.a = (BitmapDrawable) getDrawable();
+            if (getDrawable() instanceof BitmapDrawable) {
+                this.m.a = (BitmapDrawable) getDrawable();
+            }
             this.m.b = getBdImage();
             if (this.m.e()) {
                 this.m.b = null;
@@ -117,9 +121,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.m.c = false;
                 this.q = this.p;
             } else {
-                rk rkVar = this.m;
-                rkVar.a = null;
-                rkVar.b = getDefaultBdImage();
+                sk skVar = this.m;
+                skVar.a = null;
+                skVar.b = getDefaultBdImage();
                 this.m.c = true;
                 if (this.m.d()) {
                     scaleType = this.b;
@@ -208,9 +212,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         }
     }
 
-    public abstract ym getBdImage();
+    public abstract zm getBdImage();
 
-    public abstract ym getDefaultBdImage();
+    public abstract zm getDefaultBdImage();
 
     public boolean getDrawBorder() {
         InterceptResult invokeV;
@@ -259,11 +263,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007b, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040209, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f0402a9, R.attr.obfuscated_res_0x7f0402b8, R.attr.obfuscated_res_0x7f04030c, R.attr.obfuscated_res_0x7f040464, R.attr.obfuscated_res_0x7f04046b, R.attr.obfuscated_res_0x7f040525, R.attr.obfuscated_res_0x7f040526, R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040528, R.attr.obfuscated_res_0x7f040529, R.attr.obfuscated_res_0x7f04059b});
-                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, pi.d(getContext(), 4.0f)));
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007e, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ec, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f040261, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402f8, R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f0404be, R.attr.obfuscated_res_0x7f0404c6, R.attr.obfuscated_res_0x7f04059f, R.attr.obfuscated_res_0x7f0405a0, R.attr.obfuscated_res_0x7f0405a1, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f0405a4, R.attr.obfuscated_res_0x7f04061d});
+                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, qi.d(getContext(), 4.0f)));
                 this.d.b = obtainStyledAttributes.getBoolean(8, false);
                 this.d.c = obtainStyledAttributes.getBoolean(7, false);
-                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, pi.d(getContext(), 1.0f));
+                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, qi.d(getContext(), 1.0f));
                 this.d.e = obtainStyledAttributes.getColor(1, 201326592);
                 this.d.g = obtainStyledAttributes.getBoolean(2, false);
                 this.d.i = obtainStyledAttributes.getBoolean(16, true);
@@ -274,11 +278,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.n = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             } else {
-                this.d.a = j(pi.d(getContext(), 4.0f));
-                this.d.d = pi.d(getContext(), 1.0f);
+                this.d.a = j(qi.d(getContext(), 4.0f));
+                this.d.d = qi.d(getContext(), 1.0f);
                 this.d.e = 201326592;
             }
-            ok a = sk.b().a(this.a);
+            pk a = tk.b().a(this.a);
             this.e = a;
             a.r(this.d);
         }
@@ -376,25 +380,16 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         requestLayout();
     }
 
-    public void setAlphaValue(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || Math.abs(this.d.k - f) <= 1.0E-4f) {
-            return;
-        }
-        this.d.k = f;
-        invalidate();
-    }
-
     public void setBg(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, drawable) == null) {
             this.p = drawable;
         }
     }
 
     public void setBorderColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.e != i) {
                 drawerArgs.e = i;
@@ -405,7 +400,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setBorderSurroundContent(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.g != z) {
                 drawerArgs.g = z;
@@ -417,7 +412,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setBorderWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.d != i) {
                 drawerArgs.d = i;
@@ -428,14 +423,14 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setDefaultBg(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, drawable) == null) {
             this.o = drawable;
         }
     }
 
     public void setDefaultScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, scaleType) == null) || this.b == scaleType) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, scaleType) == null) || this.b == scaleType) {
             return;
         }
         this.b = scaleType;
@@ -445,7 +440,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setDrawBorder(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.c != z) {
                 drawerArgs.c = z;
@@ -457,11 +452,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setDrawerType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048601, this, i) == null) || this.a == i) {
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.a == i) {
             return;
         }
         this.a = i;
-        ok a = sk.b().a(this.a);
+        pk a = tk.b().a(this.a);
         this.e = a;
         a.r(this.d);
         this.h = true;
@@ -470,7 +465,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setExtraMatrix(Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, matrix) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, matrix) == null) {
             this.d.l = matrix;
             invalidate();
         }
@@ -478,7 +473,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setForegroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.m != i) {
                 drawerArgs.m = i;
@@ -491,7 +486,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public boolean setFrame(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048604, this, i, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048603, this, i, i2, i3, i4)) == null) {
             boolean frame = super.setFrame(i, i2, i3, i4);
             this.g = true;
             return frame;
@@ -501,7 +496,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setGifIconSupport(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.i != z) {
                 drawerArgs.i = z;
@@ -513,7 +508,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, drawable) == null) {
             super.setImageDrawable(drawable);
             l();
         }
@@ -522,7 +517,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     @Override // android.widget.ImageView
     public void setImageMatrix(Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, matrix) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, matrix) == null) {
             if (!this.f) {
                 super.setImageMatrix(matrix);
             } else if (matrix == null || this.c != ImageView.ScaleType.MATRIX) {
@@ -537,7 +532,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             super.setImageResource(i);
             l();
         }
@@ -545,7 +540,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setIsPreDrawBorder(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.o != z) {
                 drawerArgs.o = z;
@@ -556,7 +551,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setIsRound(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.b != z) {
                 drawerArgs.b = z;
@@ -567,7 +562,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setLongIconSupport(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.h != z) {
                 drawerArgs.h = z;
@@ -578,7 +573,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             float[] j = j(i);
             if (Arrays.equals(this.d.a, j)) {
                 return;
@@ -590,7 +585,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setRadiusById(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             float[] h = h(i);
             if (Arrays.equals(this.d.a, h)) {
                 return;
@@ -602,7 +597,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             DrawerArgs drawerArgs = this.d;
             DrawerArgs.SkinType skinType = drawerArgs.f;
             if (i == 1) {
@@ -620,7 +615,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public void setTLIconType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             DrawerArgs drawerArgs = this.d;
             if (drawerArgs.j != i) {
                 drawerArgs.j = i;
@@ -677,7 +672,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new rk();
+        this.m = new sk();
         i(attributeSet);
     }
 }

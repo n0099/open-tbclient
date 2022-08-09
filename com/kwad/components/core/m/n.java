@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,17 +28,17 @@ public final class n {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{view2, interpolator, Long.valueOf(j), Float.valueOf(f)})) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
             Interpolator create = interpolator == null ? PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f) : interpolator;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, f).setDuration(j);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.ROTATION, 0.0f, f).setDuration(j);
             float f2 = -f;
             long j2 = j * 2;
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
             duration2.setInterpolator(create);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "rotation", f2, f).setDuration(j2);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, f).setDuration(j2);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
             duration4.setInterpolator(create);
-            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, "rotation", f2, 0.0f).setDuration(j));
+            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, 0.0f).setDuration(j));
             return animatorSet;
         }
         return (Animator) invokeCommon.objValue;

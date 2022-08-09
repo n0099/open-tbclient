@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends Dialog {
     public TextView a;
     public TextView b;
@@ -22,7 +22,7 @@ public class d extends Dialog {
     public String h;
     public String i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public Activity a;
         public String b;
@@ -66,7 +66,7 @@ public class d extends Dialog {
     }
 
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f100419);
+        super(activity, R.style.obfuscated_res_0x7f10041d);
         this.f = activity;
         this.d = cVar;
         this.g = str;
@@ -80,7 +80,7 @@ public class d extends Dialog {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09145b);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091505);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }
@@ -116,15 +116,15 @@ public class d extends Dialog {
     }
 
     public int a() {
-        return R.layout.obfuscated_res_0x7f0d085e;
+        return R.layout.obfuscated_res_0x7f0d0888;
     }
 
     public int b() {
-        return R.id.obfuscated_res_0x7f090698;
+        return R.id.obfuscated_res_0x7f0906b6;
     }
 
     public int c() {
-        return R.id.obfuscated_res_0x7f090479;
+        return R.id.obfuscated_res_0x7f090494;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface

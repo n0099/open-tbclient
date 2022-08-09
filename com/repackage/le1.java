@@ -1,39 +1,67 @@
 package com.repackage;
 
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Locale;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
-public final class le1 {
+public class le1 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && a) {
-            Log.d("SsoOneKey", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return (c(str).booleanValue() || d(str).booleanValue()) ? str.split("\\?")[0] : str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(boolean z) {
+    public static HttpURLConnection b(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
+            if (url.getProtocol().toLowerCase().equals("https")) {
+                ke1.a();
+                return (HttpsURLConnection) url.openConnection();
+            }
+            return (HttpURLConnection) url.openConnection();
         }
+        return (HttpURLConnection) invokeL.objValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static Boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP) : (Boolean) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    public static Boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a) {
-            Log.e("SsoOneKey", str);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS) : (Boolean) invokeL.objValue;
+    }
+
+    public static Boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            boolean z = false;
+            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
+                z = true;
+            }
+            return Boolean.valueOf(z);
         }
+        return (Boolean) invokeLL.objValue;
     }
 }

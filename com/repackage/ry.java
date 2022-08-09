@@ -1,18 +1,17 @@
 package com.repackage;
 
-import android.content.pm.ApplicationInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hz;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ry {
+public class ry implements hz.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ApplicationInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
 
     public ry() {
         Interceptable interceptable = $ic;
@@ -24,11 +23,20 @@ public class ry {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
+    }
+
+    @Override // com.repackage.hz.a
+    public List<gz> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new jz());
+            arrayList.add(new iz());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

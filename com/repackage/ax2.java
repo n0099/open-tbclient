@@ -1,270 +1,129 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
-public final class ax2 {
+public class ax2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Message a;
-    public final Set<SwanAppProcessInfo> b;
-    public final Set<String> c;
-    public boolean d;
-    public boolean e;
-    public long f;
 
-    public ax2(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841482, "Lcom/repackage/ax2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755841482, "Lcom/repackage/ax2;");
                 return;
             }
         }
-        this.b = new HashSet();
-        this.c = new HashSet();
-        this.d = false;
-        this.e = false;
-        this.f = 0L;
-        this.a = message == null ? Message.obtain() : message;
+        a = jh1.a;
     }
 
-    public ax2 a(int... iArr) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            zw2 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static zw2 b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iArr)) == null) {
-            if (iArr != null) {
-                for (int i : iArr) {
-                    if (SwanAppProcessInfo.checkProcessId(i)) {
-                        b(SwanAppProcessInfo.indexOf(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
+                }
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (a) {
+                        throw new RuntimeException("Messenger代理类不存在：" + str);
                     }
+                    return null;
                 }
-            }
-            return this;
-        }
-        return (ax2) invokeL.objValue;
-    }
-
-    public ax2 b(SwanAppProcessInfo... swanAppProcessInfoArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
-            if (swanAppProcessInfoArr != null) {
-                this.b.addAll(Arrays.asList(swanAppProcessInfoArr));
-            }
-            return this;
-        }
-        return (ax2) invokeL.objValue;
-    }
-
-    public ax2 c(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            if (strArr != null) {
-                this.c.addAll(Arrays.asList(strArr));
-            }
-            return this;
-        }
-        return (ax2) invokeL.objValue;
-    }
-
-    public ax2 d() {
-        InterceptResult invokeV;
-        SwanAppProcessInfo[] indices;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
-                if (swanAppProcessInfo.isSwanAppProcess()) {
-                    b(swanAppProcessInfo);
-                }
-            }
-            return this;
-        }
-        return (ax2) invokeV.objValue;
-    }
-
-    public ax2 e(int... iArr) {
-        InterceptResult invokeL;
-        SwanAppProcessInfo[] indices;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
-            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
-                if (swanAppProcessInfo.isSwanAppProcess() && !g(iArr, swanAppProcessInfo.index)) {
-                    b(swanAppProcessInfo);
-                }
-            }
-            return this;
-        }
-        return (ax2) invokeL.objValue;
-    }
-
-    public ax2 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (ax2) invokeZ.objValue;
-    }
-
-    public final boolean g(int[] iArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iArr, i)) == null) {
-            if (iArr != null) {
-                for (int i2 : iArr) {
-                    if (i2 == i) {
-                        return true;
+                int modifiers = cls.getModifiers();
+                if (zw2.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof zw2)) {
+                        if (a) {
+                            throw new RuntimeException("Messenger代理类不是:" + zw2.class.getName());
+                        }
+                        return null;
                     }
+                    return (zw2) newInstance;
                 }
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @NonNull
-    public Message h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a.obj == null) {
-                o(new Bundle());
-            }
-            return this.a;
-        }
-        return (Message) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j = this.f;
-            if (j < 0) {
-                return 0L;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public ax2 j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            this.f = j;
-            return this;
-        }
-        return (ax2) invokeJ.objValue;
-    }
-
-    public Set<String> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new HashSet(this.c) : (Set) invokeV.objValue;
-    }
-
-    public Set<SwanAppProcessInfo> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new HashSet(this.b) : (Set) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public ax2 o(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            this.a.obj = obj;
-            return this;
-        }
-        return (ax2) invokeL.objValue;
-    }
-
-    public ax2 p(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (ax2) invokeZ.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ax2(int i, Object obj) {
-        this(Message.obtain(null, i, obj));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Message) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                if (a) {
+                    throw new RuntimeException("Messenger代理类不合法：" + str);
+                }
+                return null;
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (a) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
+                return null;
             }
         }
+        return (zw2) invokeL.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ax2(int i) {
-        this(Message.obtain((Handler) null, i));
+    public static void c(int i, String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Message) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeILL(65539, null, i, str, bundle) == null) || hx2.a(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            sx2.f(bundle2);
+        } else {
+            sx2.e(i, bundle2);
         }
     }
 }

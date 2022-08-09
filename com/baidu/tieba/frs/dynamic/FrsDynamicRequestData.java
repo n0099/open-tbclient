@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r75;
-import com.repackage.u75;
-import com.repackage.ud5;
+import com.repackage.p85;
+import com.repackage.s85;
+import com.repackage.te5;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes3.dex */
-public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
+public class FrsDynamicRequestData extends OrmObject implements s85, p85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1042common;
+    public CommonReq f1045common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -42,21 +42,11 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         }
     }
 
-    @Override // com.repackage.q75
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.w75
-    public Object h(boolean z) {
+    @Override // com.repackage.u85
+    public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
             builder.scr_w = Integer.valueOf(this.scrW);
@@ -65,7 +55,7 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            ud5.c(builder, true, false, true);
+            te5.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -73,7 +63,17 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.r75
+    @Override // com.repackage.o85
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p85
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,8 +83,8 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.r75
-    public boolean p() {
+    @Override // com.repackage.p85
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -93,8 +93,8 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.t75
-    public HashMap<String, Object> w() {
+    @Override // com.repackage.r85
+    public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -103,8 +103,8 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.t75
-    public HashMap<String, String> y() {
+    @Override // com.repackage.r85
+    public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -113,8 +113,8 @@ public class FrsDynamicRequestData extends OrmObject implements u75, r75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.r75
-    public String z() {
+    @Override // com.repackage.p85
+    public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

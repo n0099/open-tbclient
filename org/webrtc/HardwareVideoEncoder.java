@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ssa.SsaDecoder;
-import com.repackage.qr9;
+import com.repackage.lu9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -395,7 +396,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                             c = 1;
                         }
                         createVideoFormat.setInteger("profile", 8);
-                        createVideoFormat.setInteger("level", 256);
+                        createVideoFormat.setInteger(PollingModel.LEVEL, 256);
                     }
                     Logging.d(TAG, SsaDecoder.FORMAT_LINE_PREFIX + createVideoFormat);
                     this.codec.configure(createVideoFormat, null, null, 1);
@@ -513,7 +514,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoEncoder() {
-        return qr9.$default$createNativeVideoEncoder(this);
+        return lu9.$default$createNativeVideoEncoder(this);
     }
 
     public void deliverEncodedImage() {
@@ -676,7 +677,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ boolean isHardwareEncoder() {
-        return qr9.$default$isHardwareEncoder(this);
+        return lu9.$default$isHardwareEncoder(this);
     }
 
     @Override // org.webrtc.VideoEncoder

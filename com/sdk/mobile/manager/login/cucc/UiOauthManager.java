@@ -17,7 +17,7 @@ import com.sdk.base.framework.bean.OauthResultMode;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.f.g;
 import com.sdk.w.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UiOauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean isDebug;

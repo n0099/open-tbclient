@@ -1,113 +1,169 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import com.baidu.searchbox.fluency.utils.FpsConstants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sa5 extends ua5<uy5, CardViewHolder<sx5>> {
+public class sa5 extends qa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView.b o;
-    public jy5<uy5> p;
 
-    /* loaded from: classes7.dex */
-    public class a extends jy5<uy5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sa5 b;
-
-        public a(sa5 sa5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sa5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sa5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jy5
-        /* renamed from: d */
-        public void a(View view2, uy5 uy5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, uy5Var) == null) {
-                this.b.b0(view2, uy5Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sa5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public sa5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = null;
-        this.p = new a(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: s0 */
-    public CardViewHolder<sx5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b(oa5 oa5Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            sx5 sx5Var = new sx5(this.k, this.e);
-            sx5Var.C(h0());
-            sx5Var.Y(this.e);
-            return new CardViewHolder<>(sx5Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, oa5Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            wg a = qa5.a();
+            a.b("action", "time");
+            a.b("ishttp", oa5Var.s ? "1" : "0");
+            a.b("issuccess", oa5Var.b ? "1" : "0");
+            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+            a.b("wt", String.valueOf(oa5Var.p));
+            a.b("qt", String.valueOf(oa5Var.f));
+            a.b("connt", String.valueOf(oa5Var.g));
+            a.b("rwt", String.valueOf(oa5Var.h));
+            a.b("fbt", String.valueOf(oa5Var.i));
+            a.b("abt", String.valueOf(oa5Var.j));
+            a.b("dect", String.valueOf(oa5Var.k));
+            a.b("parset", String.valueOf(oa5Var.l));
+            a.b("tqt", String.valueOf(oa5Var.n));
+            a.b("rendert", String.valueOf(oa5Var.o));
+            a.b("ss", String.valueOf(oa5Var.q));
+            a.b("hs", String.valueOf(oa5Var.r));
+            if (oa5Var.s && (i = oa5Var.t) != 0) {
+                a.b("salno", String.valueOf(i));
+                long j = oa5Var.u;
+                if (j != 0) {
+                    a.b("scosttime", String.valueOf(j));
+                }
+            }
+            if (oa5Var.s) {
+                a.b("hrtn", String.valueOf(oa5Var.w));
+                a.b("hrtt", String.valueOf(oa5Var.x));
+            }
+            int i2 = oa5Var.v;
+            if (i2 != 0) {
+                a.c("errcode", Integer.valueOf(i2));
+            }
+            if (oa5Var.y) {
+                a.b(Config.PLATFORM_TYPE, "1");
+            } else {
+                a.b("sysct", String.valueOf(oa5Var.c));
+                a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(oa5Var.e));
+                a.b(WebvttCueParser.ENTITY_LESS_THAN, String.valueOf(oa5Var.d));
+                a.b("df", String.valueOf(oa5Var.m));
+            }
+            if (oa5Var.s) {
+                a.b("c_logid", String.valueOf(oa5Var.A));
+                long j2 = oa5Var.z;
+                if (j2 != 0) {
+                    a.b("seq_id", String.valueOf(j2 & 4294967295L));
+                }
+            } else {
+                a.b("seq_id", String.valueOf(oa5Var.z & 4294967295L));
+            }
+            HashMap<String, String> hashMap = oa5Var.E;
+            if (hashMap != null && !hashMap.isEmpty()) {
+                for (Map.Entry<String, String> entry : oa5Var.E.entrySet()) {
+                    a.b(entry.getKey(), entry.getValue());
+                }
+            }
+            BdStatisticsManager.getInstance().performance(this.a, a);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: t0 */
-    public View S(int i, View view2, ViewGroup viewGroup, uy5 uy5Var, CardViewHolder<sx5> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void c(oa5 oa5Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uy5Var, cardViewHolder})) == null) {
-            uy5Var.I(uy5Var.position + 1);
-            sx5 b = cardViewHolder.b();
-            b.b0(i + 1);
-            b.i(uy5Var);
-            b.n(this.p);
-            b.B(this.o);
-            r0(cardViewHolder.a(), uy5Var, i, i);
-            return cardViewHolder.a();
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oa5Var, i) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && oa5Var.D > 0) {
+            wg a = qa5.a();
+            a.b("action", "time");
+            a.b("pct", String.valueOf(oa5Var.D));
+            if (i == 0) {
+                a.b("pct_type", String.valueOf(100));
+            } else if (i != 40) {
+                return;
+            } else {
+                a.b("pct_type", String.valueOf(101));
+            }
+            BdStatisticsManager.getInstance().performance(this.a, a);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void d(oa5 oa5Var, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, oa5Var, z) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            if (!z || oa5Var.B > 0) {
+                if (z || oa5Var.C > 0) {
+                    wg a = qa5.a();
+                    a.b("action", "time");
+                    if (z) {
+                        a.b("put", String.valueOf(oa5Var.B));
+                    } else {
+                        a.b("pdt", String.valueOf(oa5Var.C));
+                    }
+                    a.b("ishttp", oa5Var.s ? "1" : "0");
+                    a.b("issuccess", oa5Var.b ? "1" : "0");
+                    a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+                    a.b("qt", String.valueOf(oa5Var.f));
+                    a.b("connt", String.valueOf(oa5Var.g));
+                    a.b("rwt", String.valueOf(oa5Var.h));
+                    a.b("dect", String.valueOf(oa5Var.k));
+                    a.b("parset", String.valueOf(oa5Var.l));
+                    a.b("rendert", String.valueOf(oa5Var.o));
+                    a.b("ss", String.valueOf(oa5Var.q));
+                    a.b("hs", String.valueOf(oa5Var.r));
+                    if (oa5Var.s && (i = oa5Var.t) != 0) {
+                        a.b("salno", String.valueOf(i));
+                        long j = oa5Var.u;
+                        if (j != 0) {
+                            a.b("scosttime", String.valueOf(j));
+                        }
+                    }
+                    int i2 = oa5Var.v;
+                    if (i2 != 0) {
+                        a.c("errcode", Integer.valueOf(i2));
+                    }
+                    BdStatisticsManager.getInstance().performance(this.a, a);
+                }
+            }
+        }
+    }
+
+    public void e(ia5 ia5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ia5Var) == null) && ia5Var != null && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            wg a = qa5.a();
+            a.b("action", FpsTracer.UBC_KEY_FLUENCY);
+            a.b(FpsConstants.REPORT_FPS, String.valueOf(ia5Var.b()));
+            BdStatisticsManager.getInstance().performance(this.a, a);
+            wg a2 = qa5.a();
+            a2.b("action", "mem");
+            a2.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
+            BdStatisticsManager.getInstance().performance(this.a, a2);
+        }
     }
 }

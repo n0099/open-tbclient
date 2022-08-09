@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.Cue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Cea708Cue extends Cue implements Comparable<Cea708Cue> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIORITY_UNSET = -1;

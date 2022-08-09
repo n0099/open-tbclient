@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public int a;
     public final Map<String, c> b;
     public final Map<String, d> c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0686a {
+    /* loaded from: classes8.dex */
+    public static final class C0691a {
         public static final a a = new a();
     }
 
@@ -97,6 +97,6 @@ public class a {
     }
 
     public static a a() {
-        return C0686a.a;
+        return C0691a.a;
     }
 }

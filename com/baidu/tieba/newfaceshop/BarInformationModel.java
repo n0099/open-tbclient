@@ -64,14 +64,14 @@ public class BarInformationModel extends BdBaseModel {
                 if (bVar == null || (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.D(bazhuInfoResponseMessage.data);
+                bVar.B(bazhuInfoResponseMessage.data);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void D(BazhuInfoData bazhuInfoData);
+        void B(BazhuInfoData bazhuInfoData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,20 +99,11 @@ public class BarInformationModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void A(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
-            httpMessage.setExtra(bVar);
-            sendMessage(httpMessage);
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
             return true;
         }
@@ -123,7 +114,7 @@ public class BarInformationModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -131,10 +122,19 @@ public class BarInformationModel extends BdBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION, TbConfig.SERVER_ADDRESS + "c/e/meme/getBazhuInfo");
             tbHttpMessageTask.setResponsedClass(BazhuInfoResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void z(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+            httpMessage.setExtra(bVar);
+            sendMessage(httpMessage);
         }
     }
 }

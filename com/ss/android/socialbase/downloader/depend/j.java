@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface j extends IInterface {
     String a() throws RemoteException;
 
@@ -13,7 +13,7 @@ public interface j extends IInterface {
 
     int[] b() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements j {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
@@ -27,11 +27,11 @@ public interface j extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof j)) {
                 return (j) queryLocalInterface;
             }
-            return new C0672a(iBinder);
+            return new C0677a(iBinder);
         }
 
         public static j c() {
-            return C0672a.a;
+            return C0677a.a;
         }
 
         @Override // android.os.IInterface
@@ -68,12 +68,12 @@ public interface j extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.j$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0672a implements j {
+        /* loaded from: classes8.dex */
+        public static class C0677a implements j {
             public static j a;
             public IBinder b;
 
-            public C0672a(IBinder iBinder) {
+            public C0677a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

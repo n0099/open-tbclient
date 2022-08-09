@@ -25,22 +25,22 @@ public class hb {
     public static volatile int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f452a;
+    public static long f453a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ao f453a;
+    public static ao f454a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static com.xiaomi.push.providers.a f454a;
+    public static com.xiaomi.push.providers.a f455a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f455a;
+    public static final Object f456a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f456a;
+    public static String f457a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<a> f457a;
+    public static List<a> f458a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -50,17 +50,17 @@ public class hb {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f458a;
+        public long f459a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f459a;
+        public String f460a;
         public int b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f460b;
+        public long f461b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f461b;
+        public String f462b;
 
         public a(String str, long j, int i, int i2, String str2, long j2) {
             Interceptable interceptable = $ic;
@@ -77,24 +77,24 @@ public class hb {
                     return;
                 }
             }
-            this.f459a = "";
-            this.f458a = 0L;
+            this.f460a = "";
+            this.f459a = 0L;
             this.a = -1;
             this.b = -1;
-            this.f461b = "";
-            this.f460b = 0L;
-            this.f459a = str;
-            this.f458a = j;
+            this.f462b = "";
+            this.f461b = 0L;
+            this.f460a = str;
+            this.f459a = j;
             this.a = i;
             this.b = i2;
-            this.f461b = str2;
-            this.f460b = j2;
+            this.f462b = str2;
+            this.f461b = j2;
         }
 
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f459a, this.f459a) && TextUtils.equals(aVar.f461b, this.f461b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f458a - this.f458a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f460a, this.f460a) && TextUtils.equals(aVar.f462b, this.f462b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f459a - this.f459a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -111,13 +111,13 @@ public class hb {
                 return;
             }
         }
-        f453a = new ao(true);
+        f454a = new ao(true);
         a = -1;
-        f452a = System.currentTimeMillis();
-        f455a = new Object();
-        f457a = Collections.synchronizedList(new ArrayList());
-        f456a = "";
-        f454a = null;
+        f453a = System.currentTimeMillis();
+        f456a = new Object();
+        f458a = Collections.synchronizedList(new ArrayList());
+        f457a = "";
+        f455a = null;
     }
 
     public static int a(Context context) {
@@ -150,8 +150,8 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)})) == null) {
             if (z && z2) {
-                long j3 = f452a;
-                f452a = j2;
+                long j3 = f453a;
+                f453a = j2;
                 if (j2 - j3 > 30000 && j > 1024) {
                     return j * 2;
                 }
@@ -166,12 +166,12 @@ public class hb {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            com.xiaomi.push.providers.a aVar = f454a;
+            com.xiaomi.push.providers.a aVar = f455a;
             if (aVar != null) {
                 return aVar;
             }
             com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
-            f454a = aVar2;
+            f455a = aVar2;
             return aVar2;
         }
         return (com.xiaomi.push.providers.a) invokeL.objValue;
@@ -183,7 +183,7 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             synchronized (hb.class) {
-                return !TextUtils.isEmpty(f456a) ? f456a : "";
+                return !TextUtils.isEmpty(f457a) ? f457a : "";
             }
         }
         return (String) invokeL.objValue;
@@ -204,12 +204,12 @@ public class hb {
         if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f455a) {
-            isEmpty = f457a.isEmpty();
+        synchronized (f456a) {
+            isEmpty = f458a.isEmpty();
             a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m390a(context) : "", j));
         }
         if (isEmpty) {
-            f453a.a(new hc(context), 5000L);
+            f454a.a(new hc(context), 5000L);
         }
     }
 
@@ -223,13 +223,13 @@ public class hb {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
-            for (a aVar2 : f457a) {
+            for (a aVar2 : f458a) {
                 if (aVar2.a(aVar)) {
-                    aVar2.f460b += aVar.f460b;
+                    aVar2.f461b += aVar.f461b;
                     return;
                 }
             }
-            f457a.add(aVar);
+            f458a.add(aVar);
         }
     }
 
@@ -239,7 +239,7 @@ public class hb {
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (hb.class) {
                 if (!m.m566d() && !TextUtils.isEmpty(str)) {
-                    f456a = str;
+                    f457a = str;
                 }
             }
         }
@@ -270,17 +270,17 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
-                synchronized (com.xiaomi.push.providers.a.f823a) {
+                synchronized (com.xiaomi.push.providers.a.f824a) {
                     SQLiteDatabase writableDatabase = m389a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     for (a aVar : list) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("package_name", aVar.f459a);
-                        contentValues.put("message_ts", Long.valueOf(aVar.f458a));
+                        contentValues.put("package_name", aVar.f460a);
+                        contentValues.put("message_ts", Long.valueOf(aVar.f459a));
                         contentValues.put("network_type", Integer.valueOf(aVar.a));
-                        contentValues.put("bytes", Long.valueOf(aVar.f460b));
+                        contentValues.put("bytes", Long.valueOf(aVar.f461b));
                         contentValues.put("rcv", Integer.valueOf(aVar.b));
-                        contentValues.put(BaseStatisContent.IMSI, aVar.f461b);
+                        contentValues.put(BaseStatisContent.IMSI, aVar.f462b);
                         writableDatabase.insert("traffic", null, contentValues);
                     }
                     writableDatabase.setTransactionSuccessful();

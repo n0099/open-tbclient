@@ -39,7 +39,6 @@ public class ThreadInfo implements Runnable {
                 return;
             }
         }
-        this.threadName = null;
         this.threadMainOper = null;
         this.threadEndOper = null;
         this.threadName = str;
@@ -97,5 +96,14 @@ public class ThreadInfo implements Runnable {
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.threadName = str;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "GslbThreadInfo{" + this.threadName + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

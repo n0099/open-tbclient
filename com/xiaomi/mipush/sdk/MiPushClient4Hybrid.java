@@ -143,15 +143,15 @@ public class MiPushClient4Hybrid {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, ikVar) == null) {
             String c = ikVar.c();
             if (ikVar.a() == 0 && (aVar = dataMap.get(c)) != null) {
-                aVar.a(ikVar.f700e, ikVar.f701f);
+                aVar.a(ikVar.f701e, ikVar.f702f);
                 b.m131a(context).a(c, aVar);
             }
             ArrayList arrayList = null;
-            if (!TextUtils.isEmpty(ikVar.f700e)) {
+            if (!TextUtils.isEmpty(ikVar.f701e)) {
                 arrayList = new ArrayList();
-                arrayList.add(ikVar.f700e);
+                arrayList.add(ikVar.f701e);
             }
-            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.a.f333a, arrayList, ikVar.f688a, ikVar.f699d, null, null);
+            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.a.f334a, arrayList, ikVar.f689a, ikVar.f700d, null, null);
             MiPushCallback miPushCallback = sCallback;
             if (miPushCallback != null) {
                 miPushCallback.onReceiveRegisterResult(c, generateCommandMessage);
@@ -162,7 +162,7 @@ public class MiPushClient4Hybrid {
     public static void onReceiveUnregisterResult(Context context, iq iqVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, context, iqVar) == null) {
-            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.b.f333a, null, iqVar.f766a, iqVar.f774d, null, null);
+            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.b.f334a, null, iqVar.f767a, iqVar.f775d, null, null);
             String a = iqVar.a();
             MiPushCallback miPushCallback = sCallback;
             if (miPushCallback != null) {
@@ -179,7 +179,7 @@ public class MiPushClient4Hybrid {
                 b.a a = b.m131a(context).a(str);
                 if (a != null) {
                     arrayList.add(a.c);
-                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.a.f333a, arrayList, 0L, null, null, null);
+                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ey.a.f334a, arrayList, 0L, null, null, null);
                     MiPushCallback miPushCallback = sCallback;
                     if (miPushCallback != null) {
                         miPushCallback.onReceiveRegisterResult(str, generateCommandMessage);
@@ -188,7 +188,7 @@ public class MiPushClient4Hybrid {
                 if (shouldPullNotification(context, str)) {
                     ii iiVar = new ii();
                     iiVar.b(str2);
-                    iiVar.c(ht.j.f505a);
+                    iiVar.c(ht.j.f506a);
                     iiVar.a(bd.a());
                     iiVar.a(false);
                     ao.a(context).a(iiVar, hj.i, false, true, null, false, str, str2);
@@ -230,7 +230,7 @@ public class MiPushClient4Hybrid {
                 ijVar.c(a3);
             }
             ii iiVar2 = new ii();
-            iiVar2.c(ht.J.f505a);
+            iiVar2.c(ht.J.f506a);
             iiVar2.b(b.m131a(context).m132a());
             iiVar2.d(context.getPackageName());
             iiVar2.a(it.a(ijVar));
@@ -315,11 +315,11 @@ public class MiPushClient4Hybrid {
             ip ipVar = new ip();
             ipVar.a(bd.a());
             ipVar.d(str);
-            ipVar.b(a.f73a);
+            ipVar.b(a.f74a);
             ipVar.c(a.c);
             ipVar.e(a.b);
             ii iiVar = new ii();
-            iiVar.c(ht.L.f505a);
+            iiVar.c(ht.L.f506a);
             iiVar.b(b.m131a(context).m132a());
             iiVar.d(context.getPackageName());
             iiVar.a(it.a(ipVar));

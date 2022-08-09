@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXEmojiObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTENT_LENGTH_LIMIT = 10485760;
@@ -100,7 +100,7 @@ public class WXEmojiObject implements WXMediaMessage.IMediaObject {
                     str2 = "checkArgs fail, emojiData is too large";
                 }
             }
-            Log.e("MicroMsg.SDK.WXEmojiObject", str2);
+            Log.e(TAG, str2);
             return false;
         }
         return invokeV.booleanValue;

@@ -1,71 +1,94 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
-import com.baidu.tieba.R;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public class rf3 implements i64 {
+public final class rf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
-    public rf3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sf3 a;
+        public final /* synthetic */ Object b;
+
+        public a(sf3 sf3Var, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sf3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sf3Var;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
         }
-        this.a = null;
     }
 
-    @Override // com.repackage.i64
-    public void a(BaseMenuView baseMenuView) {
+    public static <T> void a(Handler handler, sf3<T> sf3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, handler, sf3Var, collection) == null) || sf3Var == null || collection == null || collection.isEmpty()) {
             return;
         }
-        if (pj2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
+        for (T t : collection) {
+            e(handler, sf3Var, t);
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
+    public static <T> void b(Handler handler, sf3<T> sf3Var, T... tArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.a == null) {
-                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.a = frameLayout;
-                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, handler, sf3Var, tArr) == null) || sf3Var == null || tArr == null || tArr.length < 1) {
+            return;
+        }
+        for (T t : tArr) {
+            e(handler, sf3Var, t);
+        }
+    }
+
+    public static <T> void c(sf3<T> sf3Var, Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, sf3Var, collection) == null) {
+            a(null, sf3Var, collection);
+        }
+    }
+
+    public static <T> void d(sf3<T> sf3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, sf3Var, tArr) == null) {
+            b(null, sf3Var, tArr);
+        }
+    }
+
+    public static <T> void e(Handler handler, sf3<T> sf3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, sf3Var, t) == null) {
+            if (handler == null) {
+                sf3Var.a(t);
+            } else {
+                handler.post(new a(sf3Var, t));
             }
-            viewGroup.removeView(this.a);
-            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
         }
-    }
-
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
-            return;
-        }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
     }
 }

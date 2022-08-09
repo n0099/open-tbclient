@@ -1,81 +1,158 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zf1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
+    public zf1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = new byte[256];
-            for (int i = 0; i < 256; i++) {
-                bArr2[i] = (byte) i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(a)) {
+                    a = kg1.e(context);
+                }
+                return TextUtils.isEmpty(a) ? "" : a;
+            } catch (Throwable th) {
+                kg1.d(th);
+                return "";
             }
-            if (bArr == null || bArr.length == 0) {
-                return null;
-            }
-            int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
-                i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
-                byte b = bArr2[i4];
-                bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b;
-                i2 = (i2 + 1) % bArr.length;
-            }
-            return bArr2;
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
+    public static JSONObject c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("1", b(context));
+                jSONObject.put("3", d(context));
+                jSONObject.put("2", e(context));
+                jSONObject.put("4", f(context));
+                jSONObject.put("5", str);
+                jSONObject.put("6", System.currentTimeMillis());
+                jSONObject.put("7", "0");
+                jSONObject.put("8", xe1.b);
+                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+                jSONObject.put("10", "1.1.4");
+                jSONObject.put("14", kg1.i(context));
+                jSONObject.put("23", wf1.a(context));
+                jSONObject.put("26", "");
+                jSONObject.put("31", ye1.f(context).J());
+                return jSONObject;
+            } catch (Throwable th) {
+                kg1.d(th);
                 return null;
             }
-            return d(bArr, bArr2);
         }
-        return (byte[]) invokeLL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static String d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    b = kg1.g(context);
+                }
+                return TextUtils.isEmpty(b) ? "" : b;
+            } catch (Throwable th) {
+                kg1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(c)) {
+                    c = context.getPackageName();
+                }
+                return TextUtils.isEmpty(c) ? "" : c;
+            } catch (Throwable th) {
+                kg1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(d)) {
+                    return d;
+                }
+                String b2 = lg1.b(context);
+                d = b2;
+                return b2;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public cg1 a(Context context, String str, String str2, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                JSONArray jSONArray = new JSONArray(str);
+                JSONObject c2 = c(context, str2);
+                c2.put("module_section", jSONArray);
+                cg1 cg1Var = new cg1();
+                cg1Var.e(i);
+                cg1Var.c(c2.toString());
+                cg1Var.g(i2);
+                return cg1Var;
+            } catch (Throwable th) {
+                kg1.d(th);
                 return null;
             }
-            return d(bArr, bArr2);
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            byte[] a = a(bArr2);
-            byte[] bArr3 = new byte[bArr.length];
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                i = (i + 1) & 255;
-                i2 = ((a[i] & 255) + i2) & 255;
-                byte b = a[i];
-                a[i] = a[i2];
-                a[i2] = b;
-                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
-                bArr3[i3] = (byte) (bArr3[i3] ^ 42);
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
+        return (cg1) invokeCommon.objValue;
     }
 }

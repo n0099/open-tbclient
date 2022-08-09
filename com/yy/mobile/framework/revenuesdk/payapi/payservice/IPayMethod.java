@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payservice;
 
 import android.app.Activity;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -12,13 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SkuDetailInfo;
-import java.util.List;
 /* loaded from: classes8.dex */
 public interface IPayMethod {
 
@@ -124,35 +120,13 @@ public interface IPayMethod {
         }
     }
 
-    void appHasReturnToForegroud();
-
-    void clearHangPayJob(Activity activity, int i, IResult<PurchaseInfo> iResult);
-
-    boolean doHangJob(@NonNull PurchaseInfo purchaseInfo, IResult<String> iResult);
-
-    boolean hasHangPayJobs(Activity activity, IResult<List<PurchaseInfo>> iResult);
-
-    boolean hasHangSubscribeJobs(Activity activity, IResult<List<PurchaseInfo>> iResult);
-
-    boolean isPayingStatus();
-
     boolean isSupported(Activity activity);
 
     void onQQPayResult(int i, String str);
 
     void onWxPayResult(int i, String str);
 
-    boolean queryHistoryPurchaseByProductId(String str, IResult<PurchaseInfo> iResult);
+    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, IPayCallback<PurchaseInfo> iPayCallback);
 
-    boolean queryHistoryPurchaseBySkuType(@NonNull Activity activity, String str, IResult<List<PurchaseInfo>> iResult);
-
-    boolean querySkuDetails(Activity activity, List<String> list, String str, IResult<List<SkuDetailInfo>> iResult);
-
-    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
-
-    void requestPay(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
-
-    void requestSubscription(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
-
-    void updateSubscription(Activity activity, long j, String str, String str2, int i, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestPay(Activity activity, long j, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback);
 }

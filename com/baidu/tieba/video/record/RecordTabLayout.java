@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class RecordTabLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -63,7 +64,7 @@ public class RecordTabLayout extends LinearLayout {
                 }
                 this.b.setCurrentTab(i2, true);
                 if (this.b.e != null) {
-                    this.b.e.y(this.a, true);
+                    this.b.e.w(this.a, true);
                 }
             }
         }
@@ -103,7 +104,7 @@ public class RecordTabLayout extends LinearLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 float x = (this.a.getX() + ((this.a.getWidth() - this.c.b.getWidth()) / 2)) - this.c.b.getLeft();
                 if (this.b) {
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c.b, "translationX", this.c.b.getTranslationX(), x);
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c.b, Key.TRANSLATION_X, this.c.b.getTranslationX(), x);
                     ofFloat.setDuration(500L);
                     ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                     ofFloat.start();
@@ -116,7 +117,7 @@ public class RecordTabLayout extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void y(int i, boolean z);
+        void w(int i, boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,14 +146,14 @@ public class RecordTabLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             TextView textView = new TextView(getContext());
-            textView.setTextSize(0, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextSize(0, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
             textView.setText(str);
             textView.setTag(Integer.valueOf(i));
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
+                layoutParams.leftMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -170,8 +171,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), pi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), qi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
             addView(this.b, layoutParams);
         }
     }

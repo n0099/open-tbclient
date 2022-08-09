@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.DeleteTail.DeleteTailReqIdl;
 import tbclient.DeleteTail.ReqData;
 /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class DeleteTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DeleteTailReqIdl.Builder builder = new DeleteTailReqIdl.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(this.data, true);
+                te5.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

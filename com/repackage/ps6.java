@@ -1,82 +1,41 @@
 package com.repackage;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
-/* loaded from: classes6.dex */
-public class ps6 implements qb5<ActivityPageReqIdl> {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
+/* loaded from: classes7.dex */
+public class ps6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final kb5 b;
 
-    public ps6(String str, String str2) {
+    public static List<ls6> a(List<VoiceRoom> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new kb5(false);
-        this.a = str2;
-    }
-
-    @Override // com.repackage.qb5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
-    }
-
-    @Override // com.repackage.qb5
-    public kb5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (kb5) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qb5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(an4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ud5.a(builder, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (VoiceRoom voiceRoom : list) {
+                if (voiceRoom != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    ls6 ls6Var = new ls6();
+                    ls6Var.a = voiceRoom.room_name;
+                    ls6Var.c = String.valueOf(voiceRoom.talker_num);
+                    ls6Var.d = String.valueOf(voiceRoom.joined_num);
+                    ls6Var.e = voiceRoom.room_id.longValue();
+                    for (User user : voiceRoom.talker) {
+                        if (user != null) {
+                            arrayList2.add(user.portrait);
+                        }
+                    }
+                    ls6Var.b = arrayList2;
+                    arrayList.add(ls6Var);
                 }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
             }
+            return arrayList;
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
+        return (List) invokeL.objValue;
     }
 }

@@ -1,110 +1,84 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes6.dex */
-public class ph2 implements ZeusPluginFactory {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ph2 extends qh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ ci2 b;
 
-        public a() {
+        public a(ph2 ph2Var, List list, ci2 ci2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph2Var, list, ci2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = list;
+            this.b = ci2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                ti2 b = pj2.D().b(null, null);
-                b.n0();
-                b.U();
-                b.C();
-                zq1.e().t(b);
-                ix1.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
+                for (String str : this.a) {
+                    this.b.c(str);
+                }
             }
         }
     }
 
-    public ph2(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ph2(w13 w13Var) {
+        super(w13Var, "/swanAPI/addComponentToFullScreenSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((w13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
     }
 
-    public static void a() {
+    @Override // com.repackage.qh2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ci2 ci2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || pj2.D() == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, ci2Var, list)) == null) {
+            te3.a0(new a(this, list, ci2Var));
+            return true;
         }
-        zq1.e().c();
-        cd3.k(new a(), "PreCreateVideo");
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
-        ti2 b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            if (pj2.D() == null) {
-                return null;
-            }
-            if (zq1.e().f()) {
-                ix1.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
-                b = zq1.e().d();
-                zq1.e().s();
-                b.N(invoker);
-            } else {
-                ix1.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b = pj2.D().b(invoker, this.a);
-                b.H();
-            }
-            ix1.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
-            return new nh2(b);
-        }
-        return (ZeusPlugin) invokeL.objValue;
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

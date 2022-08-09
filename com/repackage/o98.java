@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface o98 {
-    void j(boolean z);
+    void G0();
 }

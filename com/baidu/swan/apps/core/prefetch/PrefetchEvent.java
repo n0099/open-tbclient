@@ -19,20 +19,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a43;
-import com.repackage.c72;
-import com.repackage.ej2;
-import com.repackage.fl2;
-import com.repackage.gw2;
-import com.repackage.h03;
-import com.repackage.i03;
-import com.repackage.i42;
-import com.repackage.ja2;
-import com.repackage.nt2;
-import com.repackage.sg1;
-import com.repackage.t33;
-import com.repackage.vl2;
-import com.repackage.w62;
+import com.repackage.ab2;
+import com.repackage.eu2;
+import com.repackage.jh1;
+import com.repackage.k43;
+import com.repackage.mm2;
+import com.repackage.n72;
+import com.repackage.r43;
+import com.repackage.t72;
+import com.repackage.vj2;
+import com.repackage.wl2;
+import com.repackage.xw2;
+import com.repackage.y03;
+import com.repackage.z03;
+import com.repackage.z42;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -187,7 +187,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     /* loaded from: classes2.dex */
-    public static class c extends ja2 {
+    public static class c extends ab2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,8 +279,8 @@ public class PrefetchEvent extends SwanAppIPCData {
             if (map == null) {
                 return null;
             }
-            fl2.a W = h03.K().q().W();
-            if (i42.a(W.f0())) {
+            wl2.a W = y03.K().q().W();
+            if (z42.a(W.f0())) {
                 recordClickPrefetchEvent();
                 HashMap hashMap = new HashMap(map);
                 hashMap.put("appKey", W.H());
@@ -301,24 +301,24 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     public static c createFromReLaunch(String str) {
         InterceptResult invokeL;
-        i03 b0;
+        z03 b0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.equals(str, "relaunch") && (b0 = i03.b0()) != null) {
+            if (TextUtils.equals(str, "relaunch") && (b0 = z03.b0()) != null) {
                 PMSAppInfo f0 = b0.W().f0();
-                if (i42.a(f0)) {
+                if (z42.a(f0)) {
                     recordClickPrefetchEvent();
                     PrefetchEvent prefetchEvent = new PrefetchEvent();
                     prefetchEvent.appId = b0.getAppId();
                     prefetchEvent.state = "click";
                     prefetchEvent.scene = str;
                     prefetchEvent.schema = b0.W().W();
-                    prefetchEvent.pageUrl = t33.d(vl2.U(), b0.W(), b0.Q());
+                    prefetchEvent.pageUrl = k43.d(mm2.U(), b0.W(), b0.Q());
                     prefetchEvent.appConfig = b0.Q().n;
-                    prefetchEvent.appPath = ej2.e.i(b0.getAppId(), b0.k0()).getPath() + File.separator;
+                    prefetchEvent.appPath = vj2.e.i(b0.getAppId(), b0.k0()).getPath() + File.separator;
                     prefetchEvent.pageType = b0.Q().h(prefetchEvent.pageUrl);
-                    prefetchEvent.rootPath = w62.c(b0, prefetchEvent.pageUrl);
-                    prefetchEvent.isT7Available = c72.U().p0();
+                    prefetchEvent.rootPath = n72.c(b0, prefetchEvent.pageUrl);
+                    prefetchEvent.isT7Available = t72.U().p0();
                     prefetchEvent.sConsole = String.valueOf(b0.W().m0());
                     prefetchEvent.version = b0.k0();
                     if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
@@ -337,7 +337,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, prefetchEvent, pMSAppInfo)) == null) {
-            return createMessage(prefetchEvent, i42.n(pMSAppInfo) ? MODULE : "preload");
+            return createMessage(prefetchEvent, z42.n(pMSAppInfo) ? MODULE : "preload");
         }
         return (c) invokeLL.objValue;
     }
@@ -351,7 +351,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static void recordClickPrefetchEvent() {
         HybridUbcFlow p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (p = nt2.p("startup")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (p = eu2.p("startup")) == null) {
             return;
         }
         p.F(new UbcFlowEvent(KEY_CLICK_PREFETCH));
@@ -456,11 +456,11 @@ public class PrefetchEvent extends SwanAppIPCData {
                 hashMap.put(EVENT_DATA_DEBUG_SCONSOLE, prefetchEvent.sConsole);
             }
             hashMap.put(EVENT_DATA_T7_AVAILABLE, String.valueOf(prefetchEvent.isT7Available));
-            gw2.a(hashMap, "prefetch event");
+            xw2.a(hashMap, "prefetch event");
             if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
                 hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-                a43.a(prefetchEvent.pageUrl, hashMap);
-            } else if (sg1.a) {
+                r43.a(prefetchEvent.pageUrl, hashMap);
+            } else if (jh1.a) {
                 Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
             }
             if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {

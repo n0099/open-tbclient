@@ -3,7 +3,6 @@ package tv.athena.revenue.http;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -13,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.repackage.vw9;
-import com.repackage.ww9;
-import com.repackage.xw9;
+import com.repackage.pz9;
+import com.repackage.qz9;
+import com.repackage.rz9;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
@@ -25,6 +24,8 @@ import com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageRequest;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.MD5Utils;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import java.util.ArrayList;
@@ -39,16 +40,58 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public final String TAG;
     public int authType;
     public DataSenderConfig config;
+    public volatile Runnable delayDnsInitReportRunnable;
     public String hostId;
     public String httpUrl;
     public boolean isInit;
+    public IPayNetStateStatistics mPayNetReporter;
     public String pakageName;
     public ProtocolType protoType;
+    public Object runnableLock;
     public boolean sEnableBackupDomain;
     public String version;
 
     /* loaded from: classes9.dex */
-    public class a extends ww9 {
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ HttpDataSenderAdapter c;
+
+        public a(HttpDataSenderAdapter httpDataSenderAdapter, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {httpDataSenderAdapter, Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = httpDataSenderAdapter;
+            this.a = i;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info("HttpDataSenderAdapter", "delayDnsInitReportRunnable run");
+                HttpDataSenderAdapter httpDataSenderAdapter = this.c;
+                httpDataSenderAdapter.handleReportPayNetEvent(EventType.PayNetStateID.EVENT_INIT_GSLB, this.a + "", this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends qz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -60,7 +103,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public final /* synthetic */ ArrayList g;
         public final /* synthetic */ HttpDataSenderAdapter h;
 
-        public a(HttpDataSenderAdapter httpDataSenderAdapter, int i, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
+        public b(HttpDataSenderAdapter httpDataSenderAdapter, int i, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,31 +128,29 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.repackage.ww9
+        @Override // com.repackage.qz9
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.c + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.c + " exception: " + exc.getMessage() + " isCanceled:" + z + " cmd:" + this.e.getCmd(), new Object[0]);
                 String retryDomain = this.h.getRetryDomain(this.f);
                 if (!z && !TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
                         this.h.sendByHttpPost(retryDomain, this.a, this.b, this.c, this.g, this.d);
+                        this.h.handleReportPayNetEvent(EventType.PayNetStateID.EVENT_RETRY_DOMAIN, "1", retryDomain);
                         return;
                     } catch (Exception e) {
                         RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e), new Object[0]);
                     }
                 }
-                RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                int i = this.a;
-                int i2 = this.b;
-                String str = this.c;
-                int cmd = this.e.getCmd();
-                revenueDataParser.onRequestError(i, i2, str, cmd, ErrorCode.SERVER_ERROR, "服务请求失败message:" + exc.getMessage());
+                String str = "服务请求失败message:" + exc.getMessage();
+                this.h.handleReportPayNetEvent(EventType.PayNetStateID.EVENT_HTTP_ERROR, "-1", str);
+                RevenueDataParser.INSTANCE.onRequestError(this.a, this.b, this.c, this.e.getCmd(), ErrorCode.SERVER_ERROR, str);
             }
         }
 
-        @Override // com.repackage.ww9
+        @Override // com.repackage.qz9
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -138,6 +179,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         this.version = "";
         this.isInit = false;
         this.sEnableBackupDomain = false;
+        this.delayDnsInitReportRunnable = null;
+        this.runnableLock = new Object();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -145,7 +188,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         InterceptResult invokeL;
         Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (this.sEnableBackupDomain && (objArr = Env.instance().BACKUP_DOMAIN_POOL) != null && objArr.length > 0 && str != null) {
                 int i = -1;
                 int i2 = 0;
@@ -161,7 +204,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 }
                 int i3 = i + 1;
                 r1 = i3 < objArr.length ? objArr[i3] : null;
-                RLog.warn("HttpDataSenderAdapter", "getRetryDomain: backupDomain=" + r1 + ", cur=" + str);
+                RLog.warn("HttpDataSenderAdapter", "getRetryDomain backupDomain=" + r1 + ", cur=" + str);
             }
             return r1;
         }
@@ -169,26 +212,36 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void handleReportPayNetEvent(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, this, str, str2, str3) == null) {
+            if (this.mPayNetReporter == null) {
+                RLog.error("HttpDataSenderAdapter", "reportPayNetEvent error mPayNetReporter null", new Object[0]);
+            }
+            this.mPayNetReporter.reportPayNetEvent(str, str2, str3);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void onSuccess(int i, int i2, String str, byte[] bArr, Object obj, PSCIMessageRequest pSCIMessageRequest) {
         int i3;
         PSCIMessageResponse pSCIMessageResponse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, bArr, obj, pSCIMessageRequest}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, bArr, obj, pSCIMessageRequest}) == null) {
             if (bArr == null) {
                 RLog.error("HttpDataSenderAdapter", "sendByHttpPost----onRequestError-----data == null", new Object[0]);
                 return;
             }
             try {
-                JSONObject jSONObject = new JSONObject(obj.toString());
-                i3 = jSONObject.getInt("code");
-                RLog.debug("HttpDataSenderAdapter", "sendByHttpPost----onSuccess-----:responeObject:" + jSONObject.toString());
+                i3 = new JSONObject(obj.toString()).getInt("code");
                 pSCIMessageResponse = new PSCIMessageResponse(obj.toString().getBytes());
                 if (pSCIMessageResponse.appId == 0) {
                     pSCIMessageResponse.appId = i;
+                    RLog.warn("HttpDataSenderAdapter", "response.appId:" + pSCIMessageResponse.appId);
                 }
                 if (pSCIMessageResponse.cmd == 0) {
                     pSCIMessageResponse.cmd = pSCIMessageRequest.getCmd();
-                    RLog.error("HttpDataSenderAdapter", "response.cmd:" + pSCIMessageResponse.cmd, new Object[0]);
+                    RLog.warn("HttpDataSenderAdapter", "response.cmd:" + pSCIMessageResponse.cmd);
                 }
             } catch (Exception e) {
                 e = e;
@@ -198,23 +251,23 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     if (pSCIMessageResponse.jsonMsg != null && !StringUtil.NULL_STRING.equals(pSCIMessageResponse.jsonMsg)) {
                         RevenueDataParser.INSTANCE.parserRevenueResponseData(i, i2, pSCIMessageResponse.marshall());
                     } else {
-                        RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                        int cmd = pSCIMessageRequest.getCmd();
-                        int i4 = pSCIMessageResponse.result;
-                        revenueDataParser.onRequestError(i, i2, str, cmd, i4, "服务请求失败result:" + pSCIMessageResponse.result);
+                        String str2 = "服务请求失败result:" + pSCIMessageResponse.result;
+                        RevenueDataParser.INSTANCE.onRequestError(i, i2, str, pSCIMessageRequest.getCmd(), pSCIMessageResponse.result, str2);
+                        handleReportPayNetEvent(EventType.PayNetStateID.EVENT_HTTP_ERROR, "-2", str2);
+                        RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError " + str2, new Object[0]);
                     }
                 } else {
-                    RevenueDataParser revenueDataParser2 = RevenueDataParser.INSTANCE;
-                    int cmd2 = pSCIMessageRequest.getCmd();
-                    revenueDataParser2.onRequestError(i, i2, str, cmd2, ErrorCode.SERVER_ERROR, "服务请求失败code:" + i3);
-                    RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError code:" + i3, new Object[0]);
+                    String str3 = "服务请求失败code:" + i3;
+                    RevenueDataParser.INSTANCE.onRequestError(i, i2, str, pSCIMessageRequest.getCmd(), ErrorCode.SERVER_ERROR, str3);
+                    handleReportPayNetEvent(EventType.PayNetStateID.EVENT_HTTP_ERROR, "-3", str3);
+                    RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError " + str3, new Object[0]);
                 }
             } catch (Exception e2) {
                 e = e2;
-                RevenueDataParser revenueDataParser3 = RevenueDataParser.INSTANCE;
-                int cmd3 = pSCIMessageRequest.getCmd();
-                revenueDataParser3.onRequestError(i, i2, str, cmd3, ErrorCode.SERVER_ERROR, "服务请求失败error:" + e.getLocalizedMessage());
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError error exception:" + e.getLocalizedMessage(), new Object[0]);
+                String str4 = "服务请求失败error:" + e.getLocalizedMessage();
+                RevenueDataParser.INSTANCE.onRequestError(i, i2, str, pSCIMessageRequest.getCmd(), ErrorCode.SERVER_ERROR, str4);
+                handleReportPayNetEvent(EventType.PayNetStateID.EVENT_HTTP_ERROR, EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL, str4);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError " + str4, new Object[0]);
             }
         }
     }
@@ -222,7 +275,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void sendByHttpPost(String str, int i, int i2, String str2, ArrayList<Integer> arrayList, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, arrayList, bArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, arrayList, bArr}) == null) {
             PSCIMessageRequest pSCIMessageRequest = new PSCIMessageRequest(bArr, ProtocolType.HTTP);
             JSONObject jSONObject = new JSONObject(pSCIMessageRequest.getJsonMsg());
             jSONObject.put(CommandMessage.SDK_VERSION, BuildConfig.VERSION_NAME);
@@ -244,7 +297,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            vw9.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            pz9.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -253,7 +306,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            vw9.f().d(i, i2);
+            pz9.f().d(i, i2);
+            rz9.g(this.mPayNetReporter);
         }
     }
 
@@ -269,7 +323,14 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.authType = dataSenderConfig.authType;
             this.config = dataSenderConfig;
             this.isInit = true;
+            this.mPayNetReporter = dataSenderConfig.payNetReporter;
             this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
+            if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
+                int h = rz9.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+                String str = "initHttpDns result " + h;
+                RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
+                this.delayDnsInitReportRunnable = new a(this, h, str);
+            }
             RLog.info("HttpDataSenderAdapter", "init httpUrl:" + this.httpUrl + " versionName:" + BuildConfig.VERSION_NAME + " config:" + dataSenderConfig.toString());
         }
     }
@@ -282,14 +343,15 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
                 return;
             }
-            DataSenderConfig dataSenderConfig = this.config;
-            if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-                RLog.warn("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + this.config.gslbAppId);
-                xw9 b = xw9.b();
-                DataSenderConfig dataSenderConfig2 = this.config;
-                b.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
+            rz9.a(this.mPayNetReporter);
+            synchronized (this.runnableLock) {
+                if (this.delayDnsInitReportRunnable != null) {
+                    this.delayDnsInitReportRunnable.run();
+                    this.delayDnsInitReportRunnable = null;
+                }
             }
             try {
+                RLog.debug("HttpDataSenderAdapter", "sendData->sendByHttpPost");
                 sendByHttpPost(this.httpUrl, i, i2, str, arrayList, bArr);
             } catch (Exception e) {
                 RLog.error("HttpDataSenderAdapter", "sendData exeception:" + e.getLocalizedMessage(), new Object[0]);

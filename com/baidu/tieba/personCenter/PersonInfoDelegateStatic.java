@@ -32,24 +32,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p55;
-import com.repackage.pi;
-import com.repackage.q55;
-import com.repackage.r55;
-import com.repackage.s55;
-import com.repackage.t55;
-import com.repackage.w55;
-import com.repackage.wh8;
-import com.repackage.yt4;
-/* loaded from: classes3.dex */
-public class PersonInfoDelegateStatic extends q55 {
+import com.repackage.kk8;
+import com.repackage.l65;
+import com.repackage.m65;
+import com.repackage.n65;
+import com.repackage.o65;
+import com.repackage.p65;
+import com.repackage.qi;
+import com.repackage.ru4;
+import com.repackage.s65;
+/* loaded from: classes4.dex */
+public class PersonInfoDelegateStatic extends m65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
     public Boolean d;
     public CustomMessageListener e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,22 +77,22 @@ public class PersonInfoDelegateStatic extends q55 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            r55 b;
+            n65 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
-            ((s55) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-            if (((s55) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
+            ((o65) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((o65) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements t55.a {
+    /* loaded from: classes4.dex */
+    public class b implements p65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -115,7 +115,7 @@ public class PersonInfoDelegateStatic extends q55 {
             this.a = context;
         }
 
-        @Override // com.repackage.t55.a
+        @Override // com.repackage.p65.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class PersonInfoDelegateStatic extends q55 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,8 +154,8 @@ public class PersonInfoDelegateStatic extends q55 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof p55)) {
-                this.a.d = Boolean.valueOf(((p55) customResponsedMessage.getData()).a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof l65)) {
+                this.a.d = Boolean.valueOf(((l65) customResponsedMessage.getData()).a);
                 if (this.a.d.booleanValue()) {
                     this.a.c.f(0);
                     this.a.c.setVisibility(0);
@@ -164,7 +164,7 @@ public class PersonInfoDelegateStatic extends q55 {
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (!this.a.d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    yt4.k().u("member_close_ad_mine_clicked", true);
+                    ru4.k().u("member_close_ad_mine_clicked", true);
                 }
             }
         }
@@ -211,8 +211,8 @@ public class PersonInfoDelegateStatic extends q55 {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            wh8.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, wh8.a("c/u/user/profile", 303012));
+            kk8.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, kk8.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -222,36 +222,36 @@ public class PersonInfoDelegateStatic extends q55 {
         }
     }
 
-    @Override // com.repackage.q55
-    public r55 a() {
+    @Override // com.repackage.m65
+    public n65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r55 r55Var = new r55();
-            r55Var.a = new PersonCenterFragment();
-            r55Var.e = 8;
-            r55Var.b = R.string.mine;
-            r55Var.f = R.raw.lottie_tab_my;
-            r55Var.i = r55.m;
-            r55Var.h = w55.d().c("person");
-            return r55Var;
+            n65 n65Var = new n65();
+            n65Var.a = new PersonCenterFragment();
+            n65Var.e = 8;
+            n65Var.b = R.string.mine;
+            n65Var.f = R.raw.lottie_tab_my;
+            n65Var.i = n65.m;
+            n65Var.h = s65.d().c("person");
+            return n65Var;
         }
-        return (r55) invokeV.objValue;
+        return (n65) invokeV.objValue;
     }
 
-    @Override // com.repackage.q55
+    @Override // com.repackage.m65
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) t55.e().d(1005, new b(this, context));
+            this.b = (MaintabBottomIndicator) p65.e().d(1005, new b(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = pi.d(context, 10.0f);
+            aVar.c = qi.d(context, 10.0f);
             aVar.a = this.c;
             this.b.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h = yt4.k().h("key_feedback_tip_tab_show", false);
+            boolean h = ru4.k().h("key_feedback_tip_tab_show", false);
             if (!this.d.booleanValue() && !h) {
                 this.c.setVisibility(8);
             } else {
@@ -263,14 +263,14 @@ public class PersonInfoDelegateStatic extends q55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.q55
+    @Override // com.repackage.m65
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.q55
+    @Override // com.repackage.m65
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -281,7 +281,7 @@ public class PersonInfoDelegateStatic extends q55 {
         }
     }
 
-    @Override // com.repackage.q55
+    @Override // com.repackage.m65
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

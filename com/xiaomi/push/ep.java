@@ -123,8 +123,8 @@ public class ep extends es {
                 a(a3);
             }
             int a4 = a(resources, "title", "id", packageName);
-            a().setTextViewText(a4, ((es) this).f318a);
-            Map<String, String> map = ((es) this).f321a;
+            a().setTextViewText(a4, ((es) this).f319a);
+            Map<String, String> map = ((es) this).f322a;
             if (map != null && this.a == 16777216) {
                 a(map.get("notification_image_text_color"));
             }

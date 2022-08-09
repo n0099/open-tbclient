@@ -1,15 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
-import java.io.File;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.repackage.aa4;
+import okhttp3.Callback;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface mk1 {
-    void a(String str, String str2);
+    void d(byte[] bArr);
 
-    File b(Context context, String str);
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    JSONObject c(Context context, String str);
+    void f(String str, String str2, aa4.c cVar);
 
-    void d();
+    boolean g(String str);
+
+    boolean h();
+
+    boolean i(@NonNull z03 z03Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, sf3<String> sf3Var);
 }

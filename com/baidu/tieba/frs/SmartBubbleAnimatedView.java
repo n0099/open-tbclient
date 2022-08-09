@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qg;
-import com.repackage.sg8;
+import com.repackage.gj8;
+import com.repackage.qi;
+import com.repackage.rg;
 /* loaded from: classes3.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -68,7 +68,7 @@ public class SmartBubbleAnimatedView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = pi.f(this.a.getContext(), R.dimen.tbds83);
+                layoutParams.height = qi.f(this.a.getContext(), R.dimen.tbds83);
                 this.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 this.a.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (this.a.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -250,19 +250,19 @@ public class SmartBubbleAnimatedView extends View {
     public final void d(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) {
-            this.f.setColor(sg8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.g.setTextSize(pi.f(getContext(), R.dimen.tbds32));
-            this.k = pi.f(getContext(), R.dimen.tbds83);
+            this.g.setTextSize(qi.f(getContext(), R.dimen.tbds32));
+            this.k = qi.f(getContext(), R.dimen.tbds83);
         }
     }
 
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f.setColor(sg8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.g.setTextSize(pi.f(getContext(), R.dimen.tbds32));
+            this.g.setTextSize(qi.f(getContext(), R.dimen.tbds32));
             invalidate();
         }
     }
@@ -301,7 +301,7 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            qg.a().postDelayed(new b(this), this.b);
+            rg.a().postDelayed(new b(this), this.b);
         }
     }
 

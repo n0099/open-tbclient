@@ -1,37 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class jx5<T extends BaseCardInfo> implements View.OnClickListener {
+public class jx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext<?> b;
-    public Context c;
-    public View d;
-    public jy5<T> e;
-    public BdUniqueId f;
-    public String g;
-    public int h;
+    public String a;
+    public int b;
+    public List<ix5> c;
 
-    public jx5(TbPageContext<?> tbPageContext) {
+    public jx5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,104 +31,42 @@ public abstract class jx5<T extends BaseCardInfo> implements View.OnClickListene
                 return;
             }
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), (ViewGroup) null, false);
+        this.c = new ArrayList();
     }
 
-    public String c() {
+    public List<ix5> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public abstract int d();
-
-    public jy5<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (jy5) invokeV.objValue;
-    }
-
-    public BdUniqueId f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (BdUniqueId) invokeV.objValue;
-    }
-
-    public TbPageContext<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (TbPageContext) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (Context) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public abstract void i(T t);
-
-    public abstract void j(TbPageContext<?> tbPageContext, int i);
-
-    public void n(jy5<T> jy5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jy5Var) == null) {
-            this.e = jy5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
+            }
+            return this.c;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void o(BdUniqueId bdUniqueId) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f = bdUniqueId;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void p(int i) {
-        View view2;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (view2 = this.d) == null) {
-            return;
-        }
-        view2.setVisibility(i);
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public jx5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a = jSONObject.optString("mark_type_name");
+            this.b = jSONObject.optInt("mark_type_wear");
+            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ix5 ix5Var = new ix5();
+                    ix5Var.n(optJSONArray.optJSONObject(i));
+                    ix5Var.o(this.a);
+                    ix5Var.p(this.b);
+                    this.c.add(ix5Var);
+                }
             }
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), viewGroup, false);
     }
 }

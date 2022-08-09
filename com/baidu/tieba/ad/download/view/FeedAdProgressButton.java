@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.vk5;
+import com.repackage.nm5;
+import com.repackage.qi;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes3.dex */
-public class FeedAdProgressButton extends View implements vk5 {
+public class FeedAdProgressButton extends View implements nm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -85,12 +85,12 @@ public class FeedAdProgressButton extends View implements vk5 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0900);
         this.t = 0;
         e(context, attributeSet);
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -101,7 +101,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         }
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -150,7 +150,7 @@ public class FeedAdProgressButton extends View implements vk5 {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040107, R.attr.obfuscated_res_0x7f040108, R.attr.obfuscated_res_0x7f040109, R.attr.obfuscated_res_0x7f04010a, R.attr.obfuscated_res_0x7f04010b, R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f04010d, R.attr.obfuscated_res_0x7f04010e});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040112, R.attr.obfuscated_res_0x7f040113, R.attr.obfuscated_res_0x7f040114, R.attr.obfuscated_res_0x7f040115, R.attr.obfuscated_res_0x7f040116, R.attr.obfuscated_res_0x7f040117, R.attr.obfuscated_res_0x7f040118, R.attr.obfuscated_res_0x7f040119});
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -248,7 +248,7 @@ public class FeedAdProgressButton extends View implements vk5 {
             if (TextUtils.isEmpty(this.q)) {
                 f = 0.0f;
             } else {
-                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
+                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f0900);
                 this.v.getTextBounds(string, 0, string.length(), this.u);
                 float height = this.u.height() + (this.s * 2);
                 f2 = this.u.width() + (this.r * 2);
@@ -273,7 +273,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         }
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -289,11 +289,11 @@ public class FeedAdProgressButton extends View implements vk5 {
         }
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            float f = pi.f(getContext(), i);
+            float f = qi.f(getContext(), i);
             this.j = f;
             TextPaint textPaint = this.i;
             if (textPaint != null) {
@@ -312,7 +312,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         }
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -358,7 +358,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         }
     }
 
-    @Override // com.repackage.vk5
+    @Override // com.repackage.nm5
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
@@ -398,7 +398,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0900);
         this.t = 0;
         e(context, attributeSet);
     }

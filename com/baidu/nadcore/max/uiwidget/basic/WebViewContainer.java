@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q01;
+import com.repackage.p01;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes2.dex */
 public class WebViewContainer extends FrameLayout {
@@ -342,7 +342,7 @@ public class WebViewContainer extends FrameLayout {
     public void setMinFlingVelocity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = q01.c.a(getContext(), i);
+            this.m = p01.c.a(getContext(), i);
         }
     }
 

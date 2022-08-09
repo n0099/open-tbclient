@@ -7,6 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.um4;
-import com.repackage.z95;
+import com.repackage.ln4;
+import com.repackage.xa5;
 /* loaded from: classes3.dex */
 public class FlutterPluginStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +35,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (um4.c().contains("-Flutter")) {
+        if (ln4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +69,10 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof z95) {
-                        FlutterPluginManager.getInstance().init((z95) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof xa5) {
+                        FlutterPluginManager.getInstance().init((xa5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
+                        FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {
                         FlutterPluginManager.getInstance().init();
                     }

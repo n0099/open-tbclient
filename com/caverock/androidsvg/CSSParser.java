@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.services.vod.VodClient;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -170,7 +169,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f1062tv;
+        public static final MediaType f1065tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -196,7 +195,7 @@ public class CSSParser {
             screen = new MediaType("screen", 7);
             tty = new MediaType("tty", 8);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 9);
-            f1062tv = mediaType;
+            f1065tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, tty, mediaType};
         }
 
@@ -1163,7 +1162,7 @@ public class CSSParser {
             String y = cVar.y();
             cVar.w();
             if (y != null) {
-                if (!this.b && y.equals(VodClient.PATH_MEDIA)) {
+                if (!this.b && y.equals("media")) {
                     List<MediaType> h = h(cVar);
                     if (cVar.e('{')) {
                         cVar.w();

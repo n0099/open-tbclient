@@ -29,15 +29,15 @@ public class er extends es {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public PendingIntent f313a;
+    public PendingIntent f314a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Bitmap f314b;
+    public Bitmap f315b;
     public int c;
 
     /* renamed from: c  reason: collision with other field name */
-    public CharSequence f315c;
+    public CharSequence f316c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public er(Context context, int i, String str) {
@@ -98,7 +98,7 @@ public class er extends es {
                 if (bitmap.getWidth() != 984 || bitmap.getHeight() < 177 || bitmap.getHeight() > 207) {
                     com.xiaomi.channel.commonutils.logger.b.m89a("colorful notification bg image resolution error, must [984*177, 984*207]");
                 } else {
-                    this.f314b = bitmap;
+                    this.f315b = bitmap;
                 }
             }
             return this;
@@ -112,8 +112,8 @@ public class er extends es {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, pendingIntent)) == null) {
             if (m319b()) {
                 super.addAction(0, charSequence, pendingIntent);
-                this.f315c = charSequence;
-                this.f313a = pendingIntent;
+                this.f316c = charSequence;
+                this.f314a = pendingIntent;
             }
             return this;
         }
@@ -162,22 +162,22 @@ public class er extends es {
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
             int a5 = a(resources, "icon", "id", packageName);
-            if (((es) this).f316a == null) {
+            if (((es) this).f317a == null) {
                 a(a5);
             } else {
-                a().setImageViewBitmap(a5, ((es) this).f316a);
+                a().setImageViewBitmap(a5, ((es) this).f317a);
             }
             int a6 = a(resources, "title", "id", packageName);
             int a7 = a(resources, "content", "id", packageName);
-            a().setTextViewText(a6, ((es) this).f318a);
-            a().setTextViewText(a7, ((es) this).f323b);
-            if (!TextUtils.isEmpty(this.f315c)) {
+            a().setTextViewText(a6, ((es) this).f319a);
+            a().setTextViewText(a7, ((es) this).f324b);
+            if (!TextUtils.isEmpty(this.f316c)) {
                 int a8 = a(resources, "buttonContainer", "id", packageName);
                 int a9 = a(resources, NativeConstants.ID_BUTTON, "id", packageName);
                 int a10 = a(resources, "buttonBg", "id", packageName);
                 a().setViewVisibility(a8, 0);
-                a().setTextViewText(a9, this.f315c);
-                a().setOnClickPendingIntent(a8, this.f313a);
+                a().setTextViewText(a9, this.f316c);
+                a().setOnClickPendingIntent(a8, this.f314a);
                 if (this.b != 16777216) {
                     int a11 = a(70.0f);
                     int a12 = a(29.0f);
@@ -198,7 +198,7 @@ public class er extends es {
                 a3.setImageViewBitmap(a13, com.xiaomi.push.service.al.a(a4));
                 a2 = a();
                 z = m317a(this.a);
-            } else if (this.f314b == null) {
+            } else if (this.f315b == null) {
                 if (Build.VERSION.SDK_INT >= 24) {
                     a().setViewVisibility(a5, 8);
                     a().setViewVisibility(a13, 8);
@@ -215,13 +215,13 @@ public class er extends es {
             } else {
                 if (m.a(a()) >= 10) {
                     a = a();
-                    bitmap = a(this.f314b, 30.0f);
+                    bitmap = a(this.f315b, 30.0f);
                 } else {
                     a = a();
-                    bitmap = this.f314b;
+                    bitmap = this.f315b;
                 }
                 a.setImageViewBitmap(a13, bitmap);
-                Map<String, String> map = ((es) this).f321a;
+                Map<String, String> map = ((es) this).f322a;
                 if (map != null && this.c == 16777216) {
                     c(map.get("notification_image_text_color"));
                 }

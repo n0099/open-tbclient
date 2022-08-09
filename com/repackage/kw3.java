@@ -1,121 +1,99 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej2;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kw3 extends f23 {
+public class kw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements ej2.c {
+    public static class a implements sf3<z53> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gt1 a;
 
-        public a(kw3 kw3Var) {
+        public a(gt1 gt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kw3Var};
+                Object[] objArr = {gt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.ej2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.repackage.ej2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012b, 1).show();
-            }
-        }
-
-        @Override // com.repackage.ej2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File c = lw3.c();
-                File b = lw3.b();
-                if (c.exists() && kg4.U(c.getPath(), b.getPath())) {
-                    hw2.L(true);
-                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012c, 1).show();
                     return;
                 }
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012b, 1).show();
+            }
+            this.a = gt1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(z53 z53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z53Var) == null) {
+                if (z53Var == null || z53Var.d || z53Var.j != 1) {
+                    kw3.c(this.a, false, "system deny");
+                } else {
+                    kw3.c(this.a, true, "authorize:ok");
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kw3(f13 f13Var) {
-        super(f13Var, "/swanAPI/debugGameCore");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755544502, "Lcom/repackage/kw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755544502, "Lcom/repackage/kw3;");
                 return;
             }
         }
+        a = jh1.a;
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public static void b(JsObject jsObject) {
+        gt1 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (f23.b) {
-                JSONObject a2 = f23.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012e, 1).show();
-                    return false;
-                }
-                String optString = a2.optString("downloadurl");
-                if (TextUtils.isEmpty(optString)) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012f, 1).show();
-                    return false;
-                }
-                xw3.g(optString, new a(this));
-                return true;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, jsObject) == null) || (F = gt1.F(jsObject)) == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        z03 b0 = z03.b0();
+        if (b0 == null) {
+            c(F, false, "authorize:fail internal error");
+        } else {
+            b0.e0().e("mapp_enable_eval", new a(F));
+        }
+    }
+
+    public static void c(gt1 gt1Var, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{gt1Var, Boolean.valueOf(z), str}) == null) {
+            if (a) {
+                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
+            }
+            hv3 hv3Var = new hv3();
+            hv3Var.errMsg = str;
+            k34.call(gt1Var, z, hv3Var);
+        }
     }
 }

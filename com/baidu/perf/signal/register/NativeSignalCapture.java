@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l71;
-import com.repackage.m71;
+import com.repackage.c81;
+import com.repackage.d81;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class NativeSignalCapture {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<l71> sANRListeners;
+    public static final LinkedList<c81> sANRListeners;
     public static final Object sANRMutex;
-    public static final LinkedList<m71> sExceptionListeners;
+    public static final LinkedList<d81> sExceptionListeners;
     public static final Object sExceptionMutex;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,23 +54,23 @@ public class NativeSignalCapture {
         }
     }
 
-    public static void addANRListener(l71 l71Var) {
+    public static void addANRListener(c81 c81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, l71Var) == null) || l71Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, c81Var) == null) || c81Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.add(l71Var);
+            sANRListeners.add(c81Var);
         }
     }
 
-    public static void addExceptionListener(m71 m71Var) {
+    public static void addExceptionListener(d81 d81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, m71Var) == null) || m71Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, d81Var) == null) || d81Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.add(m71Var);
+            sExceptionListeners.add(d81Var);
         }
     }
 
@@ -100,7 +100,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sANRMutex) {
-            Iterator<l71> it = sANRListeners.iterator();
+            Iterator<c81> it = sANRListeners.iterator();
             while (it.hasNext()) {
                 it.next().onNativeANR(i);
             }
@@ -113,7 +113,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sExceptionMutex) {
-            Iterator<m71> it = sExceptionListeners.iterator();
+            Iterator<d81> it = sExceptionListeners.iterator();
             while (it.hasNext()) {
                 it.next().a(i, i2, i3);
             }
@@ -124,23 +124,23 @@ public class NativeSignalCapture {
 
     public static native int registerException(int i);
 
-    public static void removeANRListener(l71 l71Var) {
+    public static void removeANRListener(c81 c81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, l71Var) == null) || l71Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, c81Var) == null) || c81Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.remove(l71Var);
+            sANRListeners.remove(c81Var);
         }
     }
 
-    public static void removeExceptionListener(m71 m71Var) {
+    public static void removeExceptionListener(d81 d81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, m71Var) == null) || m71Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, d81Var) == null) || d81Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.remove(m71Var);
+            sExceptionListeners.remove(d81Var);
         }
     }
 

@@ -1,361 +1,150 @@
 package com.repackage;
 
+import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoNewCacheView;
+import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.collections.ArraysKt___ArraysKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
 public class wu0 extends pu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
+    public FrameLayout e;
+    public BdThumbSeekBar f;
+    public BdVideoNewCacheView g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wu0(String kernelType) {
-        super(kernelType);
+    public wu0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kernelType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(kernelType, "kernelType");
-        this.h = "";
     }
 
-    public final void A0(BdVideoSeries bdVideoSeries, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bdVideoSeries, i) == null) {
-            l0(CyberPlayerManager.OPT_FEED_VIDEO, ArraysKt___ArraysKt.contains(new Integer[]{1, 22, 6}, Integer.valueOf(i)) ? "1" : "0");
-            l0(CyberPlayerManager.OPT_ENABLE_SEI_DATA_NOTIFICATION, "1");
-            l0(CyberPlayerManager.OPT_VIDEO_BPS, String.valueOf(bdVideoSeries.getVideoBps()));
-            l0(CyberPlayerManager.OPT_VIDEO_MOOV_SIZE, String.valueOf(bdVideoSeries.getMoovSize()));
-        }
-    }
-
-    @Override // com.repackage.pu0, com.repackage.iu0
+    @Override // com.repackage.hu0
     public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.B();
-            this.e.M(hh0.e());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = new FrameLayout(this.c);
+            L();
+            M();
         }
     }
 
-    public void B0() {
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.gravity = 80;
+        layoutParams.bottomMargin = w11.b(-4.0f);
+        BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.c, 2);
+        this.f = bdThumbSeekBar;
+        bdThumbSeekBar.setThumbScaleVisible(false);
+        this.f.setDragable(false);
+        this.f.setProgressColor(this.c.getResources().getColor(R.color.obfuscated_res_0x7f06086e));
+        this.e.addView(this.f, layoutParams);
+    }
+
+    public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hs0 a = hs0.a();
-            Intrinsics.checkNotNullExpressionValue(a, "PlayerExperimentManager.get()");
-            float b = a.b();
-            hs0 a2 = hs0.a();
-            Intrinsics.checkNotNullExpressionValue(a2, "PlayerExperimentManager.get()");
-            float c = a2.c();
-            float f = 0;
-            if (b >= f) {
-                l0("device_dynamic_score", String.valueOf(b));
+            BdVideoNewCacheView bdVideoNewCacheView = new BdVideoNewCacheView(this.c);
+            this.g = bdVideoNewCacheView;
+            bdVideoNewCacheView.setVisibility(4);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 17;
+            this.e.addView(this.g, layoutParams);
+        }
+    }
+
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.c(4);
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.c(0);
+        }
+    }
+
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void d(@NonNull ur0 ur0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ur0Var) == null) {
+            if (PlayerEvent.ACTION_ON_INFO.equals(ur0Var.c())) {
+                if (701 == ur0Var.g(1)) {
+                    O();
+                    return;
+                } else {
+                    N();
+                    return;
+                }
             }
-            if (c >= f) {
-                l0("device_static_score", String.valueOf(c));
-            }
+            N();
         }
     }
 
-    public final void C0(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            ex0.a("pcdn is close");
-            l0(CyberPlayerManager.OPT_ENABLE_PCDN, "0");
-            l0(CyberPlayerManager.OPT_ENABLE_P2P, "0");
-        }
-    }
-
-    public final void D0(BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdVideoSeries) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_STAGE_INFO));
-            String from = bdVideoSeries.getFrom();
-            Intrinsics.checkNotNullExpressionValue(from, "series.from");
-            hashMap.put("video_from", from);
-            String page = bdVideoSeries.getPage();
-            Intrinsics.checkNotNullExpressionValue(page, "series.page");
-            hashMap.put("video_page", page);
-            String pd = bdVideoSeries.getPd();
-            Intrinsics.checkNotNullExpressionValue(pd, "series.pd");
-            hashMap.put("video_source", pd);
-            if (Intrinsics.areEqual(bdVideoSeries.getFormat(), BdVideoSeries.FORMAT_FLV)) {
-                hashMap.put("bd_live", "1");
-            } else if (Intrinsics.areEqual(bdVideoSeries.getFormat(), "yy")) {
-                hashMap.put("yy_live", "1");
-            }
-            h0(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
-        }
-    }
-
-    public void E0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l0(CyberPlayerManager.OPT_SR_OPTION, String.valueOf(sp0.c()));
-        }
-    }
-
-    public final void F0(BdVideo bdVideo, int i) {
-        String title;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, bdVideo, i) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, String.valueOf(i));
-            String str = "";
-            hashMap.put(CyberPlayerManager.STAGE_INFO_SOURCE, (bdVideo == null || (r1 = bdVideo.getSourceUrl()) == null) ? "" : "");
-            if (bdVideo != null && (title = bdVideo.getTitle()) != null) {
-                str = title;
-            }
-            hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, str);
-            h0(CyberPlayerManager.STR_STAGE_INFO, hashMap);
-        }
-    }
-
-    public final void G0(BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdVideoSeries) == null) {
-            l0(CyberPlayerManager.OPT_VIDEO_BPS, String.valueOf(bdVideoSeries.getVideoBps()));
-            l0(CyberPlayerManager.OPT_VIDEO_MOOV_SIZE, String.valueOf(bdVideoSeries.getMoovSize()));
-        }
-    }
-
-    public final void H0(@NonNull BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideoSeries) == null) {
-            ClarityUrlList clarityList = bdVideoSeries.getClarityList();
-            String format = bdVideoSeries.getFormat();
-            p0(format, z0(format, clarityList));
-        }
-    }
-
-    public void I0(BdVideoSeries series, qv0 qv0Var) {
-        ClarityUrlList.c currentClarityUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, series, qv0Var) == null) {
-            Intrinsics.checkNotNullParameter(series, "series");
-            int i = qv0Var != null ? qv0Var.d : -1;
-            ClarityUrlList clarityList = series.getClarityList();
-            if (clarityList != null && (currentClarityUrl = clarityList.getCurrentClarityUrl()) != null) {
-                currentClarityUrl.b();
-            }
-            String str = (qv0Var == null || (str = qv0Var.a) == null) ? "" : "";
-            n0(series.getProxy());
-            i0(x0(series.getHttpHeader()));
-            F0(series.getSelectedVideo(), i);
-            D0(series);
-            H0(series);
-            A0(series, i);
-            C0(i, str);
-            E0();
-            B0();
-            G0(series);
-        }
-    }
-
-    @Override // com.repackage.pu0
-    public ts0 O() {
+    @Override // com.repackage.uu0
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            vt0 vt0Var = this.e;
-            if (vt0Var instanceof xt0) {
-                if (vt0Var != null) {
-                    return ((xt0) vt0Var).X();
-                }
-                throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.kernel.CyberVideoKernel");
-            }
-            return null;
-        }
-        return (ts0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.pu0, com.repackage.iu0, com.repackage.ws0
-    public void d(vr0 event) {
-        BdVideoSeries o1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            String c = event.c();
-            int hashCode = c.hashCode();
-            if (hashCode != -882902390) {
-                if (hashCode == 1370689931 && c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                    event.g(1);
-                }
-            } else if (c.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                Object f = event.f(3);
-                if (!(f instanceof qv0)) {
-                    f = null;
-                }
-                qv0 qv0Var = (qv0) f;
-                cp0 u = u();
-                if (u != null && (o1 = u.o1()) != null) {
-                    String vid = o1.getVid();
-                    Intrinsics.checkNotNullExpressionValue(vid, "vid");
-                    this.h = vid;
-                    Intrinsics.checkNotNullExpressionValue(o1, "this");
-                    I0(o1, qv0Var);
-                }
-            }
-            super.d(event);
-        }
-    }
-
-    @Override // com.repackage.pu0, com.repackage.iu0, com.repackage.ws0
-    public void k(vr0 event) {
-        BdVideoSeries o1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(LayerEvent.ACTION_CHANGE_CLARITY, event.c())) {
-                Object f = event.f(31);
-                if (!(f instanceof qv0)) {
-                    f = null;
-                }
-                qv0 qv0Var = (qv0) f;
-                cp0 u = u();
-                if (u != null && (o1 = u.o1()) != null) {
-                    Intrinsics.checkNotNullExpressionValue(o1, "this");
-                    I0(o1, qv0Var);
-                }
-            }
-            super.k(event);
-        }
-    }
-
-    @Override // com.repackage.iu0, com.repackage.vu0
-    public void onLayerRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onLayerRelease();
-        }
-    }
-
-    @Override // com.repackage.pu0
-    public void r0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) {
-            super.r0(str, z);
-        }
-    }
-
-    @Override // com.repackage.pu0
-    public void t0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.t0();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.iu0
-    /* renamed from: w0 */
-    public cp0 u() {
+    @Override // com.repackage.vs0
+    @Nullable
+    public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            bp0 u = super.u();
-            if (!(u instanceof cp0)) {
-                u = null;
-            }
-            return (cp0) u;
-        }
-        return (cp0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new int[]{2, 4, 5} : (int[]) invokeV.objValue;
     }
 
-    public final HashMap<String, String> x0(String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (str != null) {
-                if (str.length() > 0) {
-                    HashMap<String, String> hashMap = new HashMap<>();
-                    Object[] array = new Regex("\r\n").split(str, 0).toArray(new String[0]);
-                    if (array != null) {
-                        for (String str2 : (String[]) array) {
-                            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str2, ":", 0, false, 6, (Object) null);
-                            if (indexOf$default > 0 && indexOf$default < str2.length()) {
-                                if (str2 != null) {
-                                    String substring = str2.substring(0, indexOf$default);
-                                    Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                    int i = indexOf$default + 1;
-                                    if (str2 != null) {
-                                        String substring2 = str2.substring(i);
-                                        Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.String).substring(startIndex)");
-                                        hashMap.put(substring, substring2);
-                                    } else {
-                                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                                    }
-                                } else {
-                                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                                }
-                            }
-                        }
-                        return hashMap;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, playerStatus, playerStatus2) == null) {
+            super.h(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PAUSE || playerStatus == PlayerStatus.STOP) {
+                N();
             }
-            return null;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public final String y0() {
-        InterceptResult invokeV;
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void q(@NonNull ur0 ur0Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public final HashMap<String, String> z0(String str, ClarityUrlList clarityUrlList) {
-        InterceptResult invokeLL;
-        ClarityUrlList.c currentClarityUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, clarityUrlList)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (((clarityUrlList == null || (currentClarityUrl = clarityUrlList.getCurrentClarityUrl()) == null) ? null : currentClarityUrl.j()) != null) {
-                ClarityUrlList.c currentClarityUrl2 = clarityUrlList.getCurrentClarityUrl();
-                Intrinsics.checkNotNullExpressionValue(currentClarityUrl2, "clarityUrlList.currentClarityUrl");
-                hashMap.putAll(currentClarityUrl2.j());
+        if (interceptable == null || interceptable.invokeL(1048585, this, ur0Var) == null) {
+            if (ControlEvent.ACTION_SYNC_PROGRESS.equals(ur0Var.c())) {
+                this.f.h(ur0Var.g(1), ur0Var.g(2), ur0Var.g(3));
+            } else if (ControlEvent.ACTION_START.equals(ur0Var.c())) {
+                O();
+            } else if (ControlEvent.ACTION_STOP.equals(ur0Var.c())) {
+                N();
             }
-            if (!Intrinsics.areEqual(str, BdVideoSeries.FORMAT_FLV) && !Intrinsics.areEqual(str, "yy")) {
-                hashMap.put(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "false");
-            } else {
-                hashMap.put(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
-            }
-            return hashMap;
         }
-        return (HashMap) invokeLL.objValue;
     }
 }

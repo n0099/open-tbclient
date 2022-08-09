@@ -1,60 +1,72 @@
 package com.repackage;
 
-import android.animation.Animator;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public abstract class as8 implements Animator.AnimatorListener {
+public class as8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public as8() {
+    public static String a(d9 d9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, d9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return d9Var.getString(R.string.obfuscated_res_0x7f0f0e79);
             }
         }
-        this.a = false;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    public static String b(d9 d9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, d9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType == 2) {
+                    content = a(d9Var, chatMessage.getContent());
+                } else if (msgType == 3) {
+                    content = d9Var.getString(R.string.obfuscated_res_0x7f0f1577);
+                } else if (msgType != 30) {
+                    if (msgType != 32) {
+                        content = msgType != 33 ? "" : d9Var.getString(R.string.obfuscated_res_0x7f0f09c5);
+                    } else {
+                        content = d9Var.getString(R.string.obfuscated_res_0x7f0f09ca);
+                    }
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0f11);
+                    } else {
+                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0f0e);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + d9Var.getString(R.string.obfuscated_res_0x7f0f0f0f) + content;
+                }
+                return d9Var.getString(R.string.obfuscated_res_0x7f0f0f0e);
+            }
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
+            }
+            return d9Var.getString(R.string.obfuscated_res_0x7f0f0f0e);
         }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            this.a = false;
-        }
+        return (String) invokeLL.objValue;
     }
 }

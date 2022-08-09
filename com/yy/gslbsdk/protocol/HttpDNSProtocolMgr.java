@@ -213,7 +213,7 @@ public class HttpDNSProtocolMgr {
             hashMap.put("devid", GlobalTools.APP_DEV_ID);
             hashMap.put("gslbid", identity);
             hashMap.put("appid", GlobalTools.ACCOUNT_ID);
-            hashMap.put("version", "2.2.18-lianyun");
+            hashMap.put("version", "2.2.28-live");
             String str3 = GlobalTools.APP_LOCALIZE_CODE;
             str3 = (str3 == null || str3.trim().length() < 1) ? "" : "";
             if (IpVersionController.tellIpVer(str) == 6) {

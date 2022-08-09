@@ -1,23 +1,128 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class qn5 implements xl3 {
+public class qn5 extends uc1<ug0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements ug0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.repackage.qn5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0563a implements xg0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ boolean[] a;
+            public final /* synthetic */ vg0 b;
+
+            public C0563a(a aVar, boolean[] zArr, vg0 vg0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, zArr, vg0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = zArr;
+                this.b = vg0Var;
+            }
+
+            @Override // com.repackage.xg0
+            public void onResult(boolean z) {
+                vg0 vg0Var;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                    this.a[0] = z;
+                    if (!z || (vg0Var = this.b) == null) {
+                        return;
+                    }
+                    vg0Var.a(true, null);
+                }
+            }
+        }
+
+        public a(qn5 qn5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.ug0
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable vg0 vg0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, vg0Var)) == null) {
+                Log.e("CMDConfig", "host invoke command = " + str);
+                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
+                    return true;
+                }
+                zg0.a(context, str, null, new C0563a(this, new boolean[1], vg0Var), false);
+                return true;
+            }
+            return invokeLLLL.booleanValue;
+        }
+
+        @Override // com.repackage.ug0
+        public void b(String str, String str2, xg0 xg0Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, xg0Var) == null) || xg0Var == null) {
+                return;
+            }
+            xg0Var.onResult(true);
+        }
+
+        @Override // com.repackage.ug0
+        public String[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Override // com.repackage.ug0
+        public boolean d(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
 
     public qn5() {
         Interceptable interceptable = $ic;
@@ -33,38 +138,12 @@ public class qn5 implements xl3 {
         }
     }
 
-    @Override // com.repackage.zl3
-    public void a(f13 f13Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uc1
+    /* renamed from: a */
+    public ug0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, f13Var) == null) || f13Var == null) {
-            return;
-        }
-        f13Var.b(new sn5(f13Var));
-        f13Var.b(new ln5(f13Var));
-        f13Var.b(new xh3(f13Var));
-        f13Var.b(new zh3(f13Var));
-        f13Var.b(new bi3(f13Var));
-        f13Var.b(new w23(f13Var));
-        f13Var.b(new x23(f13Var));
-        f13Var.b(new x43(f13Var));
-        f13Var.b(new ci3(f13Var));
-        f13Var.b(new an1(f13Var));
-        f13Var.b(new pn5(f13Var));
-    }
-
-    @Override // com.repackage.zl3
-    @Nullable
-    public Map<String, Object> b(@NonNull jo1 jo1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(jo1Var) : (Map) invokeL.objValue;
-    }
-
-    @Override // com.repackage.zl3
-    @Nullable
-    public Map<String, Object> c(@NonNull jo1 jo1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(jo1Var) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (ug0) invokeV.objValue;
     }
 }

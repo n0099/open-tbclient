@@ -60,7 +60,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
                 try {
                     String string = bundle.getString("code");
                     if (this.a.sapiWebView == null) {
-                        this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f101c));
+                        this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f1053));
                         return;
                     }
                     this.a.a(ParamsUtil.addExtras(ParamsUtil.getUrlCFOLogin(this.a.configuration, string), new HashMap()), "春风授权登录中");
@@ -75,7 +75,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cFWebError) == null) {
                 Log.e(CFOSSOLoginActivity.n, String.format("onError: [%s] %s", cFWebError.getErrorCode(), cFWebError.getMessage()));
                 CFOSSOLoginActivity cFOSSOLoginActivity = this.a;
-                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f101c));
+                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1053));
             }
         }
     }
@@ -123,7 +123,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f103b);
+            setTitleText(R.string.obfuscated_res_0x7f0f1072);
             try {
                 d();
             } catch (Exception e) {

@@ -1,75 +1,85 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.MoreDeskView;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.UserGrowth;
+import tbclient.UserTaskInfo;
 /* loaded from: classes7.dex */
-public class t15 extends v15 {
+public class t15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public long c;
+    public double d;
+    public List<v15> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t15(Context context, int i) {
-        super(context, null, 2, 0);
+    public t15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ac4);
-        this.d = i == -1 ? R.drawable.obfuscated_res_0x7f080983 : i;
-        this.e = R.drawable.obfuscated_res_0x7f0807ef;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.e = new ArrayList();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t15(Context context, boolean z) {
-        super(context, null, 2, 0);
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public List<v15> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (List) invokeV.objValue;
+    }
+
+    public double e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.doubleValue;
+    }
+
+    public void f(UserGrowth userGrowth) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, userGrowth) == null) || userGrowth == null) {
+            return;
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ac4);
-        this.d = R.drawable.obfuscated_res_0x7f080983;
-        this.e = R.drawable.obfuscated_res_0x7f0807ef;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context, !z);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.a = userGrowth.level_id.intValue();
+        this.b = userGrowth.score.longValue();
+        this.c = userGrowth.target_score.longValue();
+        this.d = userGrowth.tmoney.doubleValue();
+        this.e.clear();
+        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
+            v15 v15Var = new v15();
+            v15Var.g(userTaskInfo);
+            this.e.add(v15Var);
+        }
     }
 }

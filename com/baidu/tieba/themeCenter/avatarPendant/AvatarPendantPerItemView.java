@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.pn8;
+import com.repackage.gq8;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public ImageView e;
     public TextView f;
     public DressItemData g;
-    public pn8.a h;
+    public gq8.a h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
             if (this.a.g != null && this.a.g.getInUse() && TbadkCoreApplication.isLogin()) {
                 return;
             }
-            this.a.h.T0(this.a.g);
+            this.a.h.S0(this.a.g);
         }
     }
 
@@ -103,13 +103,13 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080efd), 24, false);
+                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f60), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080efc), 24, false);
+            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f5f), 24, false);
         }
-        if (oi.byteLength(dressItemData.getTitle()) > 8) {
-            this.f.setText(oi.cutString(dressItemData.getTitle(), 8));
+        if (pi.byteLength(dressItemData.getTitle()) > 8) {
+            this.f.setText(pi.cutString(dressItemData.getTitle(), 8));
         } else {
             this.f.setText(dressItemData.getTitle());
         }
@@ -119,7 +119,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         } else {
             this.e.setVisibility(8);
         }
-        this.d.J(dressItemData.getPermissionImgUrl(), 10, false);
+        this.d.K(dressItemData.getPermissionImgUrl(), 10, false);
         this.c.m(dressItemData.getExampleImgUrl());
         this.c.setOnClickListener(new a(this));
         SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
@@ -128,15 +128,15 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0126, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0127, this);
             this.b = inflate;
-            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f0902eb);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917c9);
+            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090302);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091897);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905f1);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fda);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d5);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);
@@ -149,7 +149,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         }
     }
 
-    public void setAvatarPendantItemClickListener(pn8.a aVar) {
+    public void setAvatarPendantItemClickListener(gq8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.h = aVar;

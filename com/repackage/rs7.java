@@ -1,16 +1,23 @@
 package com.repackage;
 
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.repackage.ss7;
+import java.util.List;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public interface rs7<V extends ss7, D extends IBaseDialogData> {
-    int a();
+public interface rs7 {
+    int getErroCode();
 
-    boolean b();
+    String getErrorText();
 
-    boolean c();
+    List<Post> getPostList();
 
-    void dismiss();
+    ExcellentPbThreadInfo getThreadInfo();
 
-    void show();
+    UserInfo getUserInfo();
+
+    List<User> getUserList();
+
+    boolean isEmpty();
 }

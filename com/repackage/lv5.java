@@ -1,43 +1,58 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lv5 {
+public class lv5 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public b b;
-    public HttpMessageListener c;
+    public View a;
+    public RelativeLayout b;
+    public ThreadUserInfoLayout c;
+    public TextView d;
+    public ThreadCommentAndPraiseInfoLayout e;
+    public View f;
+    public AlaVideoContainer g;
+    public View h;
+    public ThreadData i;
+    public String j;
+    public pv5 k;
+    public final View.OnClickListener l;
 
     /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lv5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(lv5 lv5Var, int i) {
-            super(i);
+        public a(lv5 lv5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lv5Var, Integer.valueOf(i)};
+                Object[] objArr = {lv5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -46,32 +61,22 @@ public class lv5 {
             this.a = lv5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
-                AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
-                boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
-                String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (this.a.b != null) {
-                    this.a.b.a(z, errorString);
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null) {
+                return;
             }
+            this.a.k.b(view2, this.a.i);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    public lv5(TbPageContext tbPageContext, b bVar) {
+    public lv5(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,32 +86,126 @@ public class lv5 {
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.c = aVar;
-        this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
+        this.l = new a(this);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f2, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091287);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0904f8);
+        this.c = threadUserInfoLayout;
+        threadUserInfoLayout.setFrom(3);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920e0);
+        this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09022d);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0907ea);
+        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920b8);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f0907f6);
+        this.b.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.e.getCommentContainer().setOnClickListener(this);
+        this.g.setOnVideoClickListener(this);
     }
 
-    public void b(String str, int i) {
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i);
-            httpMessage.addParam("effect_id", str);
-            httpMessage.addParam("buy_action", 0);
-            this.a.sendMessage(httpMessage);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
+    }
+
+    public final void d(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+            this.e.onChangeSkinType();
+            this.c.h();
+            this.g.o(TbadkCoreApplication.getInst().getSkinType());
+            this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+            if (threadData != null && mz5.k(threadData.getId())) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+            } else {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            }
         }
     }
 
-    public void c(int i, int i2, boolean z) {
+    public void e() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i2);
-            httpMessage.addParam("mark_id", i);
-            httpMessage.addParam("buy_action", z ? 1 : 0);
-            this.a.sendMessage(httpMessage);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (threadData = this.i) == null || threadData.getAuthor() == null) {
+            return;
+        }
+        f(this.i, this.j);
+    }
+
+    public void f(ThreadData threadData, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, threadData, str) == null) || threadData == null || threadData.getAuthor() == null) {
+            return;
+        }
+        this.i = threadData;
+        this.j = str;
+        this.b.setVisibility(0);
+        this.c.j(threadData);
+        if (this.c.getHeaderImg() != null) {
+            this.c.getHeaderImg().setData(threadData);
+        }
+        this.c.setUserAfterClickListener(this.l);
+        threadData.parserSpecTitleForFrsAndPb(false, true);
+        this.d.setText(threadData.getSpan_str());
+        this.g.getController().d(threadData, str, "", false);
+        this.g.getController().c();
+        this.e.setReplyTimeVisible(false);
+        this.e.setNeedAddReplyIcon(true);
+        this.e.setIsBarViewVisible(false);
+        this.e.setCommentNumEnable(false);
+        this.e.setOnClickListener(this);
+        this.e.setLiveShareEnable(false);
+        this.e.setShareVisible(true);
+        this.e.setShowPraiseNum(true);
+        this.e.setNeedAddPraiseIcon(true);
+        this.e.setFrom(2);
+        if (this.e.setData(threadData)) {
+            this.f.setVisibility(8);
+        } else {
+            this.f.setVisibility(0);
+        }
+        d(threadData);
+    }
+
+    public void g(BdUniqueId bdUniqueId) {
+        ThreadUserInfoLayout threadUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null || this.e == null || (threadUserInfoLayout = this.c) == null) {
+            return;
+        }
+        threadUserInfoLayout.setPageUniqueId(bdUniqueId);
+    }
+
+    public void h(pv5 pv5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pv5Var) == null) {
+            this.k = pv5Var;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        pv5 pv5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (view2 != this.b && view2 != this.e.getCommentContainer()) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f0924ad || (pv5Var = this.k) == null) {
+                    return;
+                }
+                pv5Var.a(view2, this.i);
+                return;
+            }
+            ThreadData threadData = this.i;
+            if (threadData != null) {
+                mz5.a(threadData.getId());
+            }
+            pv5 pv5Var2 = this.k;
+            if (pv5Var2 != null) {
+                pv5Var2.a(view2, this.i);
+            }
         }
     }
 }

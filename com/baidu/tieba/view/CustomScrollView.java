@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class CustomScrollView extends ScrollView {
@@ -94,7 +94,7 @@ public class CustomScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 if (this.d == null) {
-                    this.d = pi.e(this, "mScroller");
+                    this.d = qi.e(this, "mScroller");
                 }
                 Object obj = this.d.get(this);
                 if (obj == null) {
@@ -155,7 +155,7 @@ public class CustomScrollView extends ScrollView {
             if (i2 == 0 || z) {
                 try {
                     if (this.d == null) {
-                        this.d = pi.e(this, "mScroller");
+                        this.d = qi.e(this, "mScroller");
                     }
                     Object obj = this.d.get(this);
                     if (obj != null && (obj instanceof Scroller)) {

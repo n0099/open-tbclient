@@ -142,8 +142,8 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09119e);
-            this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091044);
+            this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f09109a);
         }
     }
 }

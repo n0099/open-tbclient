@@ -20,18 +20,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a01;
 import com.repackage.b01;
-import com.repackage.c01;
-import com.repackage.e01;
-import com.repackage.nh0;
+import com.repackage.d01;
+import com.repackage.jh0;
+import com.repackage.my0;
 import com.repackage.ny0;
-import com.repackage.oy0;
-import com.repackage.yx0;
+import com.repackage.xx0;
+import com.repackage.yz0;
 import com.repackage.zz0;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends ny0 {
+public class ClogBuilder extends my0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -48,6 +48,7 @@ public class ClogBuilder extends ny0 {
         public static final Area AD_NOTIFICATION_NOTIFY;
         public static final Area AD_NOTIFICATION_REMOVE;
         public static final Area AD_NOTIFICATION_SHOW;
+        public static final Area APP;
         public static final Area APP_NOTIFICATION;
         public static final Area APP_PERMISSION;
         public static final Area APP_PRIVACY;
@@ -71,6 +72,7 @@ public class ClogBuilder extends ny0 {
         public static final Area NAME;
         public static final Area OPEN_BUTTON;
         public static final Area SLIDING_TAG;
+        public static final Area URL;
         public transient /* synthetic */ FieldHolder $fh;
         public final String type;
 
@@ -116,9 +118,11 @@ public class ClogBuilder extends ny0 {
             BTN_NAGITIVE = new Area("BTN_NAGITIVE", 26, "btn_nagitive");
             APP_NOTIFICATION = new Area("APP_NOTIFICATION", 27, "APP_NOTIFICATION");
             SLIDING_TAG = new Area("SLIDING_TAG", 28, "sliding_tag");
-            Area area = new Area("INVALID", 29, "INVALID");
+            APP = new Area("APP", 29, "APP");
+            URL = new Area("URL", 30, "URL");
+            Area area = new Area("INVALID", 31, "INVALID");
             INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, area};
+            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, APP, URL, area};
         }
 
         public Area(String str, int i, String str2) {
@@ -204,6 +208,7 @@ public class ClogBuilder extends ny0 {
         public static final LogType LOTTIE_LONG_PRESS;
         public static final LogType LOTTIE_RES_PREFETCH_FAIL;
         public static final LogType LOTTIE_SHOW;
+        public static final LogType MINI_PROGRAM;
         public static final LogType NAVIDEO_POP_CLOSE;
         public static final LogType NON_AD_CLICK;
         public static final LogType OPEN_APP;
@@ -267,53 +272,54 @@ public class ClogBuilder extends ny0 {
             DOWNLOAD_RETRY = new LogType("DOWNLOAD_RETRY", 20, "708");
             DOWNLOAD_FAILED = new LogType("DOWNLOAD_FAILED", 21, "709");
             INSTALL_COMPLETE = new LogType("INSTALL_COMPLETE", 22, "710");
-            OPEN_APP = new LogType("OPEN_APP", 23, "713");
-            AD_CALL = new LogType("AD_CALL", 24, "777");
-            VISIBLE_TWO_SEC = new LogType("VISIBLE_TWO_SEC", 25, "213");
-            TAIL_FRAME_SHOW_TIME = new LogType("TAIL_FRAME_SHOW_TIME", 26, "52");
-            DURATION = new LogType("DURATION", 27, "331");
-            TRUE_VIEW = new LogType("TRUE_VIEW", 28, "332");
-            DAZZLE_IN = new LogType("DAZZLE_IN", 29, "51");
-            DAZZLE_OUT = new LogType("DAZZLE_OUT", 30, "52");
-            DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 31, "54");
-            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 32, "102");
-            DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 33, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-            PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 34, "30");
-            VIDEO_START = new LogType("VIDEO_START", 35, "31");
-            VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 36, "32");
-            VIDEO_RESUME = new LogType("VIDEO_RESUME", 37, "33");
-            VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 38, "34");
-            EXCEPTION = new LogType("EXCEPTION", 39, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT);
-            CHECK = new LogType("CHECK", 40, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
-            TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 41, "801");
-            NAVIDEO_POP_CLOSE = new LogType("NAVIDEO_POP_CLOSE", 42, "8");
-            INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 43, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
-            INTERACTION_SHARE = new LogType("INTERACTION_SHARE", 44, "108");
-            INTERACTION_COMMENT = new LogType("INTERACTION_COMMENT", 45, TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP);
-            SKIP = new LogType("SKIP", 46, "11");
-            STOCK = new LogType("STOCK", 47, "13");
-            GESTURE_MATCH_SUCCESS = new LogType("GESTURE_MATCH_SUCCESS", 48, "9");
-            GESTURE_MATCH_FAILURE = new LogType("GESTURE_MATCH_FAILURE", 49, TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE);
-            INTERACTION_FOLLOW = new LogType("INTERACTION_FOLLOW", 50, TbEnum.SystemMessage.EVENT_ID_COMMON);
-            AD_NOTIFICATION_NOTIFY_FAILED = new LogType("AD_NOTIFICATION_NOTIFY_FAILED", 51, "111");
-            LOTTIE_LONG_PRESS = new LogType("LOTTIE_LONG_PRESS", 52, "112");
-            LOTTIE_SHOW = new LogType("LOTTIE_SHOW", 53, "113");
-            LOTTIE_DISMISS = new LogType("LOTTIE_DISMISS", 54, "114");
-            LOTTIE_CLICK = new LogType("LOTTIE_CLICK", 55, "115");
-            LOTTIE_RES_PREFETCH_FAIL = new LogType("LOTTIE_RES_PREFETCH_FAIL", 56, ApsConstants.TYPE_ANDROID_PLUGIN);
-            LOTTIE_LOAD_FAIL = new LogType("LOTTIE_LOAD_FAIL", 57, "117");
-            HOME_PAGE_FIRST_SCREEN_AD_SHOW = new LogType("HOME_PAGE_FIRST_SCREEN_AD_SHOW", 58, "118");
-            HW_API_REQUEST = new LogType("HW_API_REQUEST", 59, "119");
-            DEEPLINK_STAY_TRANS = new LogType("DEEPLINK_STAY_TRANS", 60, "751");
-            DEEPLINK_STAY_TIME = new LogType("DEEPLINK_STAY_TIME", 61, "752");
-            INTERACTION_COLLECT = new LogType("INTERACTION_COLLECT", 62, "805");
-            PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 63, "807");
-            REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 64, "781");
-            REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 65, "782");
-            NON_AD_CLICK = new LogType("NON_AD_CLICK", 66, "8");
-            LogType logType = new LogType("PLACEHOLDER", 67, "-1");
+            MINI_PROGRAM = new LogType("MINI_PROGRAM", 23, "711");
+            OPEN_APP = new LogType("OPEN_APP", 24, "713");
+            AD_CALL = new LogType("AD_CALL", 25, "777");
+            VISIBLE_TWO_SEC = new LogType("VISIBLE_TWO_SEC", 26, "213");
+            TAIL_FRAME_SHOW_TIME = new LogType("TAIL_FRAME_SHOW_TIME", 27, "52");
+            DURATION = new LogType("DURATION", 28, "331");
+            TRUE_VIEW = new LogType("TRUE_VIEW", 29, "332");
+            DAZZLE_IN = new LogType("DAZZLE_IN", 30, "51");
+            DAZZLE_OUT = new LogType("DAZZLE_OUT", 31, "52");
+            DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 32, "54");
+            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 33, "102");
+            DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 34, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 35, "30");
+            VIDEO_START = new LogType("VIDEO_START", 36, "31");
+            VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 37, "32");
+            VIDEO_RESUME = new LogType("VIDEO_RESUME", 38, "33");
+            VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 39, "34");
+            EXCEPTION = new LogType("EXCEPTION", 40, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT);
+            CHECK = new LogType("CHECK", 41, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
+            TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 42, "801");
+            NAVIDEO_POP_CLOSE = new LogType("NAVIDEO_POP_CLOSE", 43, "8");
+            INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 44, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
+            INTERACTION_SHARE = new LogType("INTERACTION_SHARE", 45, "108");
+            INTERACTION_COMMENT = new LogType("INTERACTION_COMMENT", 46, TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP);
+            SKIP = new LogType("SKIP", 47, "11");
+            STOCK = new LogType("STOCK", 48, "13");
+            GESTURE_MATCH_SUCCESS = new LogType("GESTURE_MATCH_SUCCESS", 49, "9");
+            GESTURE_MATCH_FAILURE = new LogType("GESTURE_MATCH_FAILURE", 50, TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE);
+            INTERACTION_FOLLOW = new LogType("INTERACTION_FOLLOW", 51, TbEnum.SystemMessage.EVENT_ID_COMMON);
+            AD_NOTIFICATION_NOTIFY_FAILED = new LogType("AD_NOTIFICATION_NOTIFY_FAILED", 52, "111");
+            LOTTIE_LONG_PRESS = new LogType("LOTTIE_LONG_PRESS", 53, "112");
+            LOTTIE_SHOW = new LogType("LOTTIE_SHOW", 54, "113");
+            LOTTIE_DISMISS = new LogType("LOTTIE_DISMISS", 55, "114");
+            LOTTIE_CLICK = new LogType("LOTTIE_CLICK", 56, "115");
+            LOTTIE_RES_PREFETCH_FAIL = new LogType("LOTTIE_RES_PREFETCH_FAIL", 57, ApsConstants.TYPE_ANDROID_PLUGIN);
+            LOTTIE_LOAD_FAIL = new LogType("LOTTIE_LOAD_FAIL", 58, "117");
+            HOME_PAGE_FIRST_SCREEN_AD_SHOW = new LogType("HOME_PAGE_FIRST_SCREEN_AD_SHOW", 59, "118");
+            HW_API_REQUEST = new LogType("HW_API_REQUEST", 60, "119");
+            DEEPLINK_STAY_TRANS = new LogType("DEEPLINK_STAY_TRANS", 61, "751");
+            DEEPLINK_STAY_TIME = new LogType("DEEPLINK_STAY_TIME", 62, "752");
+            INTERACTION_COLLECT = new LogType("INTERACTION_COLLECT", 63, "805");
+            PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 64, "807");
+            REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 65, "781");
+            REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 66, "782");
+            NON_AD_CLICK = new LogType("NON_AD_CLICK", 67, "8");
+            LogType logType = new LogType("PLACEHOLDER", 68, "-1");
             PLACEHOLDER = logType;
-            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, NON_AD_CLICK, logType};
+            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, NON_AD_CLICK, logType};
         }
 
         public LogType(String str, int i, String str2) {
@@ -363,6 +369,7 @@ public class ClogBuilder extends ny0 {
         public static final Page AD_TAIL;
         public static final Page DOWNLOAD_RECTIFY;
         public static final Page INVALID;
+        public static final Page MINI_PROGRAM;
         public static final Page NAVIDEO_POP;
         public static final Page NA_SPLASH;
         public static final Page PAGE_NA;
@@ -414,9 +421,10 @@ public class ClogBuilder extends ny0 {
             PAGE_VIDEO_IMMERSIVE_LP = new Page("PAGE_VIDEO_IMMERSIVE_LP", 18, "IMMERSIVE_VIDEOADDETAIL");
             NAVIDEO_POP = new Page("NAVIDEO_POP", 19, "NAVIDEO_POP");
             AD_DIALOG = new Page("AD_DIALOG", 20, "AD_DIALOG");
-            Page page = new Page("INVALID", 21, "INVALID");
+            MINI_PROGRAM = new Page("MINI_PROGRAM", 21, "WXMnProgram");
+            Page page = new Page("INVALID", 22, "INVALID");
             INVALID = page;
-            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, page};
+            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, MINI_PROGRAM, page};
         }
 
         public Page(String str, int i, String str2) {
@@ -466,7 +474,7 @@ public class ClogBuilder extends ny0 {
                 return;
             }
         }
-        this.c = yx0.c(null);
+        this.c = xx0.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -480,20 +488,20 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.ly0, com.repackage.oy0
+    @Override // com.repackage.ky0, com.repackage.ny0
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            nh0 nh0Var = (nh0) ServiceManager.getService(nh0.a);
-            if (nh0Var != null) {
-                A(nh0Var.a(this.c.optString("extra_param")));
+            jh0 jh0Var = (jh0) ServiceManager.getService(jh0.a);
+            if (jh0Var != null) {
+                A(jh0Var.a(this.c.optString("extra_param")));
             }
         }
     }
 
-    @Override // com.repackage.ly0, com.repackage.oy0
-    public <T extends oy0> T b(String str, String str2) {
+    @Override // com.repackage.ky0, com.repackage.ny0
+    public <T extends ny0> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -503,15 +511,15 @@ public class ClogBuilder extends ny0 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.repackage.ly0
-    public <T extends oy0> T d(String str, Object obj) {
+    @Override // com.repackage.ky0
+    public <T extends ny0> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            yx0.f(this.c, str, obj);
+            xx0.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -519,18 +527,18 @@ public class ClogBuilder extends ny0 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a01.a) {
-            b01 b01Var = (b01) zz0.a().a(b01.class);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && zz0.a) {
+            a01 a01Var = (a01) yz0.a().a(a01.class);
+            if (a01Var != null) {
+                a01Var.a(h());
+            }
+            b01 b01Var = (b01) yz0.a().a(b01.class);
             if (b01Var != null) {
                 b01Var.a(h());
             }
-            c01 c01Var = (c01) zz0.a().a(c01.class);
-            if (c01Var != null) {
-                c01Var.a(h());
-            }
-            e01 e01Var = (e01) zz0.a().a(e01.class);
-            if (e01Var != null) {
-                e01Var.a(h());
+            d01 d01Var = (d01) yz0.a().a(d01.class);
+            if (d01Var != null) {
+                d01Var.a(h());
             }
         }
     }
@@ -552,7 +560,7 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.ny0, com.repackage.oy0
+    @Override // com.repackage.my0, com.repackage.ny0
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -675,7 +683,7 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.ny0, com.repackage.ly0, com.repackage.oy0
+    @Override // com.repackage.my0, com.repackage.ky0, com.repackage.ny0
     @NonNull
     public String toString() {
         InterceptResult invokeV;

@@ -2,7 +2,6 @@ package com.baidu.tieba.play;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
@@ -13,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e68;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbVideoViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e68 a;
+    public TbVideoView a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onSurfaceDestroyed();
     }
@@ -49,9 +47,9 @@ public class TbVideoViewContainer extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e68 e68Var = this.a;
-            if (e68Var != null) {
-                e68Var.j();
+            TbVideoView tbVideoView = this.a;
+            if (tbVideoView != null) {
+                tbVideoView.z();
             }
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -63,14 +61,14 @@ public class TbVideoViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = new TbVideoView(context);
-            addView((View) this.a, new FrameLayout.LayoutParams(-1, -1));
+            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    public e68 getControl() {
+    public TbVideoView getControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (e68) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TbVideoView) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

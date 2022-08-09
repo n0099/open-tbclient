@@ -10,7 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HOSTID_BAIDUAPP = "3";
-    public static final String HOSTID_BAIJIAHAO = "6";
+    public static final String HOSTID_BAIDUAPP_LITE = "7";
+    public static final String HOSTID_BAIJIAHAO = "8";
+    public static final String HOSTID_BDGAME_ASSIST = "6";
     public static final String HOSTID_HAOKAN = "2";
     public static final String HOSTID_QUANMIN = "4";
     public static final String HOSTID_TIEBA = "5";

@@ -37,13 +37,13 @@ public class bh implements bg.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i) == null) {
             if (cVar2 == bg.c.b) {
-                XMPushService xMPushService = this.a.f929a;
-                cVar4 = this.a.f928a;
+                XMPushService xMPushService = this.a.f930a;
+                cVar4 = this.a.f929a;
                 xMPushService.a(cVar4, 60000L);
                 return;
             }
-            XMPushService xMPushService2 = this.a.f929a;
-            cVar3 = this.a.f928a;
+            XMPushService xMPushService2 = this.a.f930a;
+            cVar3 = this.a.f929a;
             xMPushService2.b(cVar3);
         }
     }

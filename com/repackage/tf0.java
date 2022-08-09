@@ -1,15 +1,16 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tf0 extends ml0 {
+public class tf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public ic1<jl0> a;
 
     public tf0() {
         Interceptable interceptable = $ic;
@@ -21,15 +22,18 @@ public class tf0 extends ml0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a();
     }
 
-    @Override // com.repackage.ml0, com.repackage.pl0
-    public void onForegroundToBackground(@NonNull Activity activity) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            jl0.a().request();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gc1 b = gc1.b();
+            this.a = b;
+            b.a(new kl0());
         }
     }
 }

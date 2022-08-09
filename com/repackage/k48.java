@@ -1,108 +1,150 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.personCenter.view.AutoBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GiftInfo;
-import tbclient.User;
 /* loaded from: classes6.dex */
-public class k48 extends BaseCardInfo {
+public class k48 extends bz5<d48> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public List<nn> g;
+    public int i;
+    public LinearLayout j;
+    public AutoBannerView k;
+    public View l;
+    public us4<o38> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608734, "Lcom/repackage/k48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements us4<o38> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k48 a;
+
+        public a(k48 k48Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755608734, "Lcom/repackage/k48;");
+            this.a = k48Var;
+        }
+
+        @Override // com.repackage.us4
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.k == null || str == null) {
                 return;
             }
+            if (this.a.k.a(i)) {
+                TiebaStatic.log(new StatisticItem("c13247").param("obj_locate", i).param("obj_param1", str));
+            }
+            this.a.k.f();
+            this.a.k.b(str);
         }
-        h = BdUniqueId.gen();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.us4
+        /* renamed from: c */
+        public void a(int i, o38 o38Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, o38Var) == null) || this.a.k == null || o38Var == null || o38Var.c() == null || !this.a.k.a(i)) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c13246").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_param1", o38Var.c()));
+        }
     }
 
-    public k48() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k48(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = 3;
+        this.m = new a(this);
+        View h = h();
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092570);
+        AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0918a6);
+        this.k = autoBannerView;
+        autoBannerView.setMarqueenTime(3000L);
+        this.k.getCoverFlowView().setCallback(this.m);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f09039b);
     }
 
-    public void c(User user) {
+    @Override // com.repackage.bz5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06eb : invokeV.intValue;
+    }
+
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.i == i) {
             return;
         }
-        this.c = String.valueOf(user.id);
-        this.d = user.name;
-        this.e = user.name_show;
-        this.f = user.sex.intValue();
-        String str = this.c;
-        if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.a = true;
-        } else {
-            this.a = false;
+        AutoBannerView autoBannerView = this.k;
+        if (autoBannerView != null) {
+            autoBannerView.e(i);
         }
-        if (user.sex.intValue() == 2) {
-            this.b = false;
-        } else {
-            this.b = true;
+        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+        this.i = i;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        Integer num = user.gift_num;
-        if (num != null) {
-            num.intValue();
-        }
-        this.g = new ArrayList();
-        for (GiftInfo giftInfo : user.gift_list) {
-            if (giftInfo != null) {
-                s48 s48Var = new s48();
-                s48Var.c(giftInfo);
-                this.g.add(s48Var);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: s */
+    public void i(d48 d48Var) {
+        List<o38> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d48Var) == null) {
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
+            if (this.j == null || d48Var == null || (list = d48Var.a) == null || this.k == null || list.size() == 0) {
+                return;
             }
+            this.k.d(d48Var.a);
         }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !ListUtils.isEmpty(this.g) : invokeV.booleanValue;
     }
 }

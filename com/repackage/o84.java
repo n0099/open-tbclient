@@ -1,9 +1,26 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes6.dex */
-public interface o84<T> {
-    void a(SQLiteDatabase sQLiteDatabase);
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public interface o84<T> extends q84 {
+    void a(T t);
 
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+    void c(T t);
+
+    String d(T t);
+
+    void e(T t, r94 r94Var);
+
+    void f(T t);
+
+    r94 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
+
+    void i(T t);
+
+    void j(T t);
+
+    Map<String, Object> k();
 }

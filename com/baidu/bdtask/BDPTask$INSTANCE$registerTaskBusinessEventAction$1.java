@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pq;
+import com.repackage.qq;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -15,19 +15,19 @@ import kotlin.jvm.internal.Lambda;
 /* loaded from: classes.dex */
 public final class BDPTask$INSTANCE$registerTaskBusinessEventAction$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ pq $action;
+    public final /* synthetic */ qq $action;
     public final /* synthetic */ String $actionId;
     public final /* synthetic */ Class $eventType;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskBusinessEventAction$1(String str, Class cls, pq pqVar) {
+    public BDPTask$INSTANCE$registerTaskBusinessEventAction$1(String str, Class cls, qq qqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, cls, pqVar};
+            Object[] objArr = {str, cls, qqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,7 +40,7 @@ public final class BDPTask$INSTANCE$registerTaskBusinessEventAction$1 extends La
         }
         this.$actionId = str;
         this.$eventType = cls;
-        this.$action = pqVar;
+        this.$action = qqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

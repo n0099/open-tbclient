@@ -1,98 +1,64 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Typeface;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class cu1 extends ot1 {
+/* loaded from: classes6.dex */
+public class cu1 extends wt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public float b;
-    public boolean c;
-    public boolean d;
 
-    public cu1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cu1(w13 w13Var) {
+        super(w13Var, "/swanAPI/canvas/remove");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((w13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "sans-serif";
-        this.b = zd3.g(10.0f);
-        this.c = false;
-        this.d = false;
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        int i;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
-            if (this.c && this.d) {
-                i = 3;
-            } else if (this.c) {
-                i = 1;
-            } else {
-                i = this.d ? 2 : 0;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            wv1 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                zx1.c("SwanAppCanvas", "remove action parse model is null");
+                return false;
             }
-            pt1Var.e.setTypeface(Typeface.create(this.a, i));
-            pt1Var.e.setTextSize(this.b);
-        }
-    }
-
-    @Override // com.repackage.ot1
-    public void b(JSONArray jSONArray) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    for (String str : jSONArray.optString(0).split(" ")) {
-                        if (str.contains("italic")) {
-                            this.d = true;
-                        } else if (str.contains("oblique")) {
-                            this.d = true;
-                        } else if (str.contains("bold")) {
-                            this.c = true;
-                        } else if (!str.contains("normal")) {
-                            if (Character.isDigit(str.charAt(0))) {
-                                int length = str.length();
-                                int i = 0;
-                                while (true) {
-                                    if (i >= str.length()) {
-                                        break;
-                                    } else if (!Character.isDigit(str.charAt(i))) {
-                                        length = i;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                this.b = zd3.g(Float.parseFloat(str.substring(0, length)));
-                            } else {
-                                this.a = str;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (sg1.a) {
-                    e.printStackTrace();
-                }
+            zw1 zw1Var = (zw1) mx1.a(k);
+            if (zw1Var == null) {
+                zx1.c("SwanAppCanvas", "remove canvas fail: fina a null component");
+                unitedSchemeEntity.result = l(1001);
+                return false;
             }
+            qw1 B = zw1Var.B();
+            boolean a = B.a();
+            if (!a) {
+                zx1.c("SwanAppCanvas", "remove canvas fail: " + B.b);
+            }
+            j(unitedSchemeEntity, callbackHandler, a);
+            return a;
         }
+        return invokeLLLL.booleanValue;
     }
 }

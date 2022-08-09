@@ -1,25 +1,19 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class w67 {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -29,17 +23,13 @@ public class w67 {
         public String a;
         public String b;
         public String c;
-        public String d;
+        public long d;
         public String e;
-        public String f;
-        public int g;
+        public long f;
+        public String g;
         public long h;
-        public String i;
+        public int i;
         public int j;
-        public long k;
-        public long l;
-        public long m;
-        public String n;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,89 +41,50 @@ public class w67 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.f = 0L;
+            this.g = null;
+            this.h = 0L;
+            this.i = 0;
+            this.j = 0;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755249351, "Lcom/repackage/w67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755249351, "Lcom/repackage/w67;");
-                return;
-            }
-        }
-        a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-    }
-
-    public static List<a> a(String str, String str2, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) ? b(str, str2, null, 0L, j, j2) : (List) invokeCommon.objValue;
-    }
-
-    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            int i = -1;
-            int userType = userData != null ? userData.getUserType() : -1;
-            LinkedList linkedList = new LinkedList();
+            a aVar = new a();
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i2 = 0;
-                while (i2 < length) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    String optString = optJSONObject.optString("title");
-                    String optString2 = optJSONObject.optString("url");
-                    String optString3 = optJSONObject.optString("src");
-                    String optString4 = optJSONObject.optString("text");
-                    optJSONObject.optLong("picId");
-                    String optString5 = optJSONObject.optString("msg_src");
-                    a aVar = new a();
-                    if (!TextUtils.isEmpty(optString2)) {
-                        optString2 = optString2.trim();
-                        Matcher matcher = a.matcher(optString2);
-                        if (matcher.find()) {
-                            aVar.n = matcher.group(1);
-                        }
-                    }
-                    aVar.d = optString2;
-                    aVar.a = optString;
-                    aVar.b = optString4;
-                    aVar.c = optString3;
-                    aVar.e = str2;
-                    aVar.k = j2;
-                    aVar.l = j3;
-                    aVar.f = optString5;
-                    if (userType > i) {
-                        aVar.g = userType;
-                    }
-                    if (userData != null) {
-                        aVar.h = j;
-                        aVar.i = userData.getUserId();
-                        aVar.j = userData.getUserType();
-                    }
-                    linkedList.add(aVar);
-                    i2++;
-                    i = -1;
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                    aVar.b = optJSONObject.optString("user_id");
+                    aVar.c = optJSONObject.optString("nick_name");
+                    aVar.d = optJSONObject.optLong("caller_time");
+                    aVar.e = optJSONObject.optString("caller_content");
+                    aVar.f = optJSONObject.optLong("thread_id");
+                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                    optJSONObject.optString("forum_name");
+                    aVar.h = optJSONObject.optLong("post_id");
+                    aVar.i = optJSONObject.optInt("msg_type");
+                    aVar.j = optJSONObject.optInt("remind_count");
                 }
-                return linkedList;
+                return aVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (List) invokeCommon.objValue;
+        return (a) invokeL.objValue;
     }
 }

@@ -116,7 +116,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         cVar.a(Config.FEED_LIST_PART, this.e);
         cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f);
         cVar.a("pv", this.g);
-        cVar.a(Config.PACKAGE_NAME, this.h);
+        cVar.a("pn", this.h);
         cVar.a("si", this.i);
         cVar.a("ms", this.j);
         cVar.a("ect", this.k);

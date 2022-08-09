@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q61;
+import com.repackage.h71;
 @TargetApi(28)
 /* loaded from: classes2.dex */
 public class NPSComponentFactory extends AppComponentFactory {
@@ -42,7 +42,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, classLoader, str, intent)) == null) {
-            if (q61.a()) {
+            if (h71.a()) {
                 Log.e("NPS", "instantiateActivity,classLoader=" + classLoader + " className=" + str);
                 StringBuilder sb = new StringBuilder();
                 sb.append("NPSComponentFactory.instantiateActivity|process=");
@@ -63,7 +63,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader, str)) == null) {
-            if (q61.a()) {
+            if (h71.a()) {
                 Log.e("NPS", "instantiateApplication,classLoader=" + classLoader + " className=" + str);
             }
             return super.instantiateApplication(classLoader, str);
@@ -76,7 +76,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, classLoader, str, intent)) == null) {
-            if (q61.a()) {
+            if (h71.a()) {
                 Log.e("NPS", "instantiateReceiver,classLoader=" + classLoader + " className=" + str);
             }
             try {
@@ -93,7 +93,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, classLoader, str, intent)) == null) {
-            if (q61.a()) {
+            if (h71.a()) {
                 Log.e("NPS", "instantiateService,classLoader=" + classLoader + " className=" + str);
             }
             try {

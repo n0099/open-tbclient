@@ -1,107 +1,147 @@
 package com.repackage;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y04 {
+public class y04 extends EventTargetImpl implements yb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile y04 c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public volatile ArrayList<x04> b;
+    public v04 b;
+    public String c;
 
-    public y04() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755195628, "Lcom/repackage/y04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755195628, "Lcom/repackage/y04;");
                 return;
             }
         }
-        this.b = new ArrayList<>(20);
+        d = jh1.a;
     }
 
-    public static y04 c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y04(JSRuntime jSRuntime) {
+        super(jSRuntime);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (y04.class) {
-                    if (c == null) {
-                        c = new y04();
-                    }
-                }
-            }
-            return c;
-        }
-        return (y04) invokeV.objValue;
-    }
-
-    public synchronized void a(x04 x04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x04Var) == null) {
-            synchronized (this) {
-                if (x04Var == null) {
-                    return;
-                }
-                if (this.b.size() < 20) {
-                    this.b.add(x04Var);
-                } else {
-                    this.a++;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSRuntime};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = new v04();
+        z04.a().b().s(this);
     }
 
-    public synchronized void b() {
+    @Override // com.repackage.yb0
+    public void onError(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "onError:" + i);
+            }
+            x("error", new u04("internal error"));
+        }
+    }
+
+    @Override // com.repackage.yb0
+    public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b.clear();
-                this.a = 0;
-            }
+            x("pause", this.b);
+            b83 b83Var = new b83();
+            b83Var.b = "pause";
+            s73.h(b83Var);
         }
     }
 
-    public synchronized JSONObject d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yb0
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                int size = this.b.size();
-                if (size == 0) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("dropcnt", this.a);
-                    jSONObject.put("errorcnt", size);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject.put("errors", jSONArray);
-                    Iterator<x04> it = this.b.iterator();
-                    while (it.hasNext()) {
-                        jSONArray.put(it.next().a());
-                    }
-                } catch (JSONException unused) {
-                }
-                this.b.clear();
-                return jSONObject;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x("resume", this.b);
+            b83 b83Var = new b83();
+            b83Var.b = "resume";
+            s73.h(b83Var);
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.yb0
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a;
+            x("start", i == -1 ? this.b : new w04(i));
+            b83 b83Var = new b83();
+            b83Var.b = "start";
+            s73.h(b83Var);
+        }
+    }
+
+    @Override // com.repackage.yb0
+    public void w(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+            }
+            x(IntentConfig.STOP, new x04(this.c));
+            b83 b83Var = new b83();
+            b83Var.b = IntentConfig.STOP;
+            b83Var.a("dura", String.valueOf(i / 1000.0f));
+            s73.h(b83Var);
+        }
+    }
+
+    public final void x(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            if (d) {
+                Log.i("GameRecorderApi", "dispatchEvent:" + str);
+            }
+            dispatchEvent(new JSEvent(str, obj));
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
     }
 }

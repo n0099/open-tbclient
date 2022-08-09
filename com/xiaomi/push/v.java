@@ -15,7 +15,7 @@ public class v {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f1012a;
+    public static String f1013a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -87,8 +87,8 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (v.class) {
-                if (f1012a != null) {
-                    return f1012a;
+                if (f1013a != null) {
+                    return f1013a;
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -104,7 +104,7 @@ public class v {
                     }
                     str = b;
                 }
-                f1012a = str;
+                f1013a = str;
                 return str;
             }
         }
@@ -145,7 +145,7 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String a2 = u.a("ro.build.version.emui", "");
-            f1012a = a2;
+            f1013a = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -175,9 +175,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String a2 = u.a("ro.build.version.opporom", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-                f1012a = "ColorOS_" + a2;
+                f1013a = "ColorOS_" + a2;
             }
-            return f1012a;
+            return f1013a;
         }
         return (String) invokeV.objValue;
     }
@@ -188,9 +188,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String a2 = u.a("ro.vivo.os.version", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-                f1012a = "FuntouchOS_" + a2;
+                f1013a = "FuntouchOS_" + a2;
             }
-            return f1012a;
+            return f1013a;
         }
         return (String) invokeV.objValue;
     }

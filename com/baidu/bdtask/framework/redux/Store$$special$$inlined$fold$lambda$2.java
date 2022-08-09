@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yq;
+import com.repackage.zq;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -40,9 +40,9 @@ public final class Store$$special$$inlined$fold$lambda$2 extends Lambda implemen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Incorrect return type in method signature: ()TState; */
     @Override // kotlin.jvm.functions.Function0
-    public final yq invoke() {
+    public final zq invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.a() : (yq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.a() : (zq) invokeV.objValue;
     }
 }

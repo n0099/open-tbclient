@@ -1,145 +1,134 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ox5 extends jx5<c36> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ox5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public View n;
-    public View o;
-    public String p;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<bn> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<on> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public ox5(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        r(h());
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    @Override // com.repackage.jx5
-    public int d() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0186 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.jx5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.a(this.c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
-                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (bn bnVar : this.c) {
+                bnVar.notifyDataSetChanged();
             }
         }
     }
 
-    public final void r(View view2) {
+    public void c(List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e0);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e1);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e2);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e3);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e4);
-            this.j.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: s */
-    public void i(c36 c36Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, c36Var) == null) || c36Var == null || c36Var.c() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (!TextUtils.isEmpty(c36Var.c().title)) {
-            this.i.setText(c36Var.c().title);
+        this.b.setData(list);
+        this.f = this.b.getData();
+    }
+
+    public void d(String str, int i) {
+        List<on> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) || StringUtils.isNull(str) || (list = this.f) == null) {
+            return;
         }
-        this.j.setVisibility(8);
-        this.k.setVisibility(8);
-        this.l.setVisibility(8);
-        this.m.setVisibility(8);
-        if (c36Var.c().sub_nodes.size() >= 1) {
-            this.j.setVisibility(0);
-            this.j.setTag(c36Var.c().sub_nodes.get(0).url);
-            this.j.setText(c36Var.c().sub_nodes.get(0).title);
-        }
-        if (c36Var.c().sub_nodes.size() >= 2) {
-            this.k.setVisibility(0);
-            this.k.setTag(c36Var.c().sub_nodes.get(1).url);
-            this.k.setText(c36Var.c().sub_nodes.get(1).title);
-        }
-        if (c36Var.c().sub_nodes.size() >= 3) {
-            this.l.setVisibility(0);
-            this.l.setTag(c36Var.c().sub_nodes.get(2).url);
-            this.l.setText(c36Var.c().sub_nodes.get(2).title);
-        }
-        if (c36Var.c().sub_nodes.size() >= 4) {
-            this.m.setVisibility(0);
-            this.m.setTag(c36Var.c().sub_nodes.get(3).url);
-            this.m.setText(c36Var.c().sub_nodes.get(3).title);
+        for (on onVar : list) {
+            if (onVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) onVar;
+                if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                    alaEnterEffectData.downLoadStatus = i;
+                    b();
+                }
+            }
         }
     }
 
-    public void t(String str) {
+    public void e(String str, boolean z) {
+        List<on> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
+            return;
+        }
+        for (on onVar : list) {
+            if (onVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) onVar;
+                if (str.equals(alaEnterEffectData.id)) {
+                    alaEnterEffectData.isOwn = z;
+                    b();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void f(String str, boolean z) {
+        List<on> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
+            return;
+        }
+        for (on onVar : list) {
+            if (onVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) onVar;
+                if (str.equals(alaEnterEffectData.id)) {
+                    alaEnterEffectData.use_status = z ? 1 : 0;
+                } else {
+                    alaEnterEffectData.use_status = 0;
+                }
+                b();
+            }
         }
     }
 }

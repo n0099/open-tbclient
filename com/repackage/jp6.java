@@ -1,27 +1,19 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.UtilHelper;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: NavBarLogic.java */
 /* loaded from: classes6.dex */
-public class jp6 {
+public final /* synthetic */ class jp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
+    @NonNull
+    public static kp6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
-        }
-    }
-
-    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) || UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) || str2 == null) {
-            return;
-        }
-        hp8.a(tbPageContext, str2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new lp6() : (kp6) invokeV.objValue;
     }
 }

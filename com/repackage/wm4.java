@@ -1,7 +1,5 @@
 package com.repackage;
-
-import android.content.Intent;
 /* loaded from: classes7.dex */
-public interface wm4 {
-    void e1(Intent intent);
+public interface wm4<T> {
+    void a(T t);
 }

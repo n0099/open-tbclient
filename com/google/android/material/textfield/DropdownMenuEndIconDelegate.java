@@ -38,7 +38,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_IN_DURATION = 67;
@@ -356,7 +356,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         if ((interceptable == null || interceptable.invokeL(65554, this, autoCompleteTextView) == null) && autoCompleteTextView.getKeyListener() == null) {
             int boxBackgroundMode = this.textInputLayout.getBoxBackgroundMode();
             MaterialShapeDrawable boxBackground = this.textInputLayout.getBoxBackground();
-            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.colorControlHighlight);
+            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f04016f);
             int[][] iArr = {new int[]{16842919}, new int[0]};
             if (boxBackgroundMode == 2) {
                 addRippleEffectOnOutlinedLayout(autoCompleteTextView, color, iArr, boxBackground);
@@ -391,7 +391,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         LayerDrawable layerDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65556, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
-            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f040171);
+            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f04017e);
             MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable(materialShapeDrawable.getShapeAppearanceModel());
             int layer = MaterialColors.layer(i, color, 0.1f);
             materialShapeDrawable2.setFillColor(new ColorStateList(iArr, new int[]{layer, 0}));
@@ -671,9 +671,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c2);
-            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070486);
-            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070488);
+            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c3);
+            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070487);
+            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070489);
             MaterialShapeDrawable popUpMaterialShapeDrawable = getPopUpMaterialShapeDrawable(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             MaterialShapeDrawable popUpMaterialShapeDrawable2 = getPopUpMaterialShapeDrawable(0.0f, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             this.outlinedPopupBackground = popUpMaterialShapeDrawable;
@@ -681,9 +681,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             this.filledPopupBackground = stateListDrawable;
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d03 : R.drawable.obfuscated_res_0x7f080d04));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d5e : R.drawable.obfuscated_res_0x7f080d5f));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05d2));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05e0));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

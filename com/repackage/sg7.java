@@ -1,37 +1,72 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.R;
+import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sg7 extends dc1<FollowStatusService> {
+public class sg7 extends s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sg7(Context context) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        this.p = new int[]{20, 19};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.dc1
-    /* renamed from: a */
-    public FollowStatusService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sg7(Context context, boolean z) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new tg7() : (FollowStatusService) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb));
+        ((LinearLayout.LayoutParams) layoutParams).leftMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).rightMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{20, 19};
     }
 }

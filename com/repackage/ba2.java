@@ -1,30 +1,24 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ca2;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.vj2;
 /* loaded from: classes5.dex */
-public class ba2 implements ca2.a {
+public class ba2 implements y92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public JSONObject b;
+    public final String[] a;
 
-    public ba2(String str, boolean z) {
+    public ba2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,59 +28,41 @@ public class ba2 implements ca2.a {
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        this.b = jSONObject;
-        this.a = str;
-        try {
-            jSONObject.put(IntentConfig.PKG_ID, str);
-            if (z) {
-                update();
+        this.a = new String[]{h83.w(), h83.y(), e52.c()};
+    }
+
+    @Override // com.repackage.y92
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = bh4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
             }
-        } catch (JSONException e) {
-            if (ca2.m0) {
-                e.printStackTrace();
+            if (jh1.a) {
+                b(arraySet);
+            }
+            zx1.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final void b(ArraySet<String> arraySet) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) || arraySet == null) {
+            return;
+        }
+        String[] strArr = {qb2.b().getAbsolutePath(), ga3.c().getAbsolutePath(), vj2.b.d(), od3.b(), yj2.k(), wu2.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = bh4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
             }
         }
-    }
-
-    public static ba2 query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ba2(str, true) : (ba2) invokeL.objValue;
-    }
-
-    private void update() throws JSONException {
-        PMSAppInfo u;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = d84.i().u(this.a)) != null) {
-            this.b.put("app_name", u.appName);
-            this.b.put("pkg_vername", u.versionName);
-            this.b.put("pkg_vercode", u.versionCode);
-            this.b.put("create_time", u.createTime);
-            this.b.put("last_launch_time", u.getLastLaunchTime());
-            this.b.put("launch_count", u.getLaunchCount());
-            this.b.put("install_src", u.getInstallSrc());
-        }
-    }
-
-    @Override // com.repackage.ca2.a
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ca2.a
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ca2.a
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
     }
 }

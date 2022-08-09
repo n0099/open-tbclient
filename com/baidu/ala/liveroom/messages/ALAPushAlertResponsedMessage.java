@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ig;
+import com.repackage.i55;
 import com.repackage.jg;
-import com.repackage.m45;
-import com.repackage.ym;
+import com.repackage.kg;
+import com.repackage.zm;
 import com.squareup.wire.Wire;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -104,8 +104,8 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    m45 k = m45.k();
-                    ym m = k.m(optString4 + 10);
+                    i55 k = i55.k();
+                    zm m = k.m(optString4 + 10);
                     if (m != null && m.p() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);
                     } else if (!StringUtils.isNull(optString4)) {
@@ -146,7 +146,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    jg.h().m(this.val$fImage, 10, new ig<ym>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                    kg.h().m(this.val$fImage, 10, new jg<zm>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass1 this$1;
@@ -170,18 +170,18 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         }
 
                                         /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.repackage.ig
-                                        public void onLoaded(ym ymVar, String str3, int i2) {
+                                        @Override // com.repackage.jg
+                                        public void onLoaded(zm zmVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, ymVar, str3, i2) == null) {
-                                                super.onLoaded((C00071) ymVar, str3, i2);
-                                                if (ymVar != null && ymVar.p() != null) {
+                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, zmVar, str3, i2) == null) {
+                                                super.onLoaded((C00071) zmVar, str3, i2);
+                                                if (zmVar != null && zmVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();
                                                     AnonymousClass1 anonymousClass1 = this.this$1;
                                                     String str4 = anonymousClass1.val$fTitle;
                                                     String str5 = anonymousClass1.val$fContent;
-                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, ymVar.p(), false);
+                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, zmVar.p(), false);
                                                     return;
                                                 }
                                                 Context applicationContext2 = TbadkCoreApplication.getInst().getApplicationContext();

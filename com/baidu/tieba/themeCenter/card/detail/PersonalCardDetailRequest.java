@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.GetCard.DataReq;
 import tbclient.GetCard.GetCardReqIdl;
 /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class PersonalCardDetailRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Long.valueOf(this.cardId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             GetCardReqIdl.Builder builder2 = new GetCardReqIdl.Builder();
             builder2.data = builder.build(false);

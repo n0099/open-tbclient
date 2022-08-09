@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax8;
+import com.repackage.qz8;
 /* loaded from: classes4.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ax8 a;
+    public qz8 a;
     public View b;
     public boolean c;
 
@@ -43,42 +43,26 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         this.b = null;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 4);
-        }
-    }
-
-    public final void n0() {
+    public final void D0() {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b) == null) {
             return;
         }
         if (this.c && view2.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             this.b.setLayoutParams(layoutParams);
-            o0(true);
+            E0(true);
             return;
         }
-        o0(false);
+        E0(false);
     }
 
-    public final void o0(boolean z) {
+    public final void E0(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (view2 = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view2 = this.b) == null) {
             return;
         }
         if (this.c && z && view2.getVisibility() != 0) {
@@ -89,13 +73,29 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 4);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
-                this.a.J(intent);
+                this.a.K(intent);
             }
         }
     }
@@ -105,21 +105,21 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.n(i);
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.n(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        ax8 ax8Var;
+        qz8 qz8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || (ax8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || (qz8Var = this.a) == null) {
             return;
         }
-        ax8Var.onClick(view2);
+        qz8Var.onClick(view2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -128,11 +128,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d010f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091e38);
+            setContentView(R.layout.obfuscated_res_0x7f0d0110);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091f2b);
             this.c = UtilHelper.canUseStyleImmersiveSticky();
-            n0();
-            this.a = new ax8(this, bundle, R.id.obfuscated_res_0x7f090a75, R.id.obfuscated_res_0x7f090a75);
+            D0();
+            this.a = new qz8(this, bundle, R.id.obfuscated_res_0x7f090ab0, R.id.obfuscated_res_0x7f090ab0);
         }
     }
 
@@ -145,9 +145,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (view2 != null) {
                 view2.setBackgroundDrawable(null);
             }
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.onDestroy();
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.onDestroy();
             }
         }
     }
@@ -170,9 +170,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.C();
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.C();
             }
             super.onPause();
         }
@@ -183,9 +183,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.onResume();
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.onResume();
             }
         }
     }
@@ -195,9 +195,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.F(bundle);
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.E(bundle);
             }
         }
     }
@@ -207,9 +207,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStart();
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.G();
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.F();
             }
         }
     }
@@ -219,9 +219,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            ax8 ax8Var = this.a;
-            if (ax8Var != null) {
-                ax8Var.H();
+            qz8 qz8Var = this.a;
+            if (qz8Var != null) {
+                qz8Var.G();
             }
         }
     }

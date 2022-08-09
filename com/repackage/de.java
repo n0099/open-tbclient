@@ -6,40 +6,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class de {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(yc ycVar, dc dcVar) {
+    public static final boolean a(ec ecVar, zc zcVar) {
         InterceptResult invokeLL;
-        Object b;
+        mc a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ycVar, dcVar)) == null) {
-            if (dcVar == null || ycVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ecVar, zcVar)) == null) {
+            if (ecVar == null || zcVar == null) {
                 return false;
             }
-            List<Field> b2 = bc.b(dcVar.getClass());
-            Set<String> keys = ycVar.getKeys();
-            for (Field field : b2) {
+            for (Field field : cc.b(ecVar.getClass())) {
                 if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                     String name = field.getName();
-                    if (!TextUtils.isEmpty(name)) {
-                        if (keys.contains(name)) {
-                            Object b3 = ycVar.b(name, field.getGenericType());
-                            if (b3 != null) {
-                                bc.h(dcVar, name, b3);
-                            }
-                        } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
-                            Object b4 = ycVar.b(name.toLowerCase(Locale.getDefault()), field.getGenericType());
-                            if (b4 != null) {
-                                bc.h(dcVar, name, b4);
-                            }
-                        } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (b = ycVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
-                            bc.h(dcVar, name, b);
+                    if (!TextUtils.isEmpty(name) && (a = fe.a(cc.d(ecVar, name))) != null) {
+                        Object obj = null;
+                        if (zcVar instanceof bd) {
+                            obj = a.f(new ce(field.getGenericType()));
+                        } else if (zcVar instanceof xc) {
+                            obj = a.d(new ce(field.getGenericType()));
+                        } else if (zcVar instanceof ad) {
+                            obj = a.e(new ce(field.getGenericType()));
+                        } else if (zcVar instanceof cd) {
+                            obj = a.b(new ce(field.getGenericType()));
+                        } else if (zcVar instanceof yc) {
+                            obj = a.a(new ce(field.getGenericType()));
+                        } else if (zcVar instanceof dd) {
+                            obj = a.c(new ce(field.getGenericType()));
+                        }
+                        if (obj != null) {
+                            zcVar.a(name, obj);
                         }
                     }
                 }

@@ -3,30 +3,30 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b18 extends an<r18, CardViewHolder<g28>> {
+public class b18 extends bn<au7, VideoPbEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public jy5<r18> j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b18(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public b18(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,40 +38,45 @@ public class b18 extends an<r18, CardViewHolder<g28>> {
                 return;
             }
         }
-        this.i = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, au7 au7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        t(i, view2, viewGroup, au7Var, videoPbEnterForumViewHolder);
+        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public CardViewHolder<g28> M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public VideoPbEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            g28 g28Var = new g28(this.i);
-            g28Var.n(this.j);
-            return new CardViewHolder<>(g28Var);
+            FrameLayout frameLayout = new FrameLayout(this.mContext);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
+            cardForumHeadLayout.setPadding(qi.f(this.mContext, R.dimen.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, qi.f(this.mContext, R.dimen.tbds156));
+            layoutParams.leftMargin = qi.f(this.mContext, R.dimen.tbds44);
+            layoutParams.rightMargin = qi.f(this.mContext, R.dimen.tbds44);
+            layoutParams.bottomMargin = qi.f(this.mContext, R.dimen.tbds76);
+            frameLayout.addView(cardForumHeadLayout, layoutParams);
+            return new VideoPbEnterForumViewHolder(frameLayout);
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (VideoPbEnterForumViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, r18 r18Var, CardViewHolder<g28> cardViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, au7 au7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r18Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(r18Var);
-            return cardViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, au7Var, videoPbEnterForumViewHolder})) == null) {
+            if (au7Var != null) {
+                videoPbEnterForumViewHolder.setData(au7Var.a);
+            }
+            videoPbEnterForumViewHolder.a();
+            return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void b0(jy5<r18> jy5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jy5Var) == null) {
-            this.j = jy5Var;
-        }
     }
 }

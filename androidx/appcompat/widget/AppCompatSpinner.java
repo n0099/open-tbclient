@@ -1307,7 +1307,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, int i) {
-        this(context, null, R$attr.obfuscated, i);
+        this(context, null, R$attr.spinnerStyle, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1348,7 +1348,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.obfuscated);
+        this(context, attributeSet, R$attr.spinnerStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

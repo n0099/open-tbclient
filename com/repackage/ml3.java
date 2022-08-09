@@ -1,56 +1,67 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl3;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ml3 extends kl3.a {
+public class ml3 implements jl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ml3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public nl3 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755495491, "Lcom/repackage/ml3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755495491, "Lcom/repackage/ml3;");
-                return;
-            }
-        }
-        b = new ml3();
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ml3() {
-        super(r0);
+    public ml3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((kl3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        kl3 a = ll3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.repackage.jl3
+    public void a() {
+        nl3 nl3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (nl3Var = this.a) != null && nl3Var.c()) {
+            this.b = false;
+            nl3 nl3Var2 = this.a;
+            nl3Var2.d(nl3Var2.a(), "", -1);
+        }
+    }
+
+    @Override // com.repackage.jl3
+    public void b(int i) {
+        nl3 nl3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.b || (nl3Var = this.a) == null || !nl3Var.c()) {
+            return;
+        }
+        nl3 nl3Var2 = this.a;
+        if (nl3Var2.d(nl3Var2.a(), "", 0) != 0) {
+            return;
+        }
+        this.b = true;
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = nl3.b(context);
+        }
     }
 }

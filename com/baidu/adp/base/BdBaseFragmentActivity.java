@@ -23,16 +23,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.e9;
 import com.repackage.f9;
 import com.repackage.g9;
-import com.repackage.jg;
-import com.repackage.pi;
-import com.repackage.rn;
-import com.repackage.vk;
+import com.repackage.kg;
+import com.repackage.qi;
+import com.repackage.sn;
+import com.repackage.wk;
 import com.repackage.y8;
 import com.repackage.z8;
-import com.repackage.za;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, e9<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, g9 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -101,8 +101,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if (!(interceptable == null || interceptable.invokeL(65537, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2 instanceof vk) {
-            ((vk) view2).refresh();
+        if (view2 instanceof wk) {
+            ((wk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -186,19 +186,19 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            jg.h().b(this.mId);
+            kg.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
             z8.g().m(getPageContext().getPageActivity());
         }
     }
 
-    public rn onGetPreLoadListView() {
+    public sn onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (rn) invokeV.objValue;
+        return (sn) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -233,15 +233,15 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            jg.h().e(this.mId);
+            kg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
     @Override // com.repackage.g9
-    public void onPreLoad(rn rnVar) {
+    public void onPreLoad(sn snVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, snVar) == null) {
         }
     }
 
@@ -272,7 +272,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
-            rn onGetPreLoadListView = onGetPreLoadListView();
+            sn onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -360,7 +360,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            pi.O(getApplicationContext(), str);
+            qi.O(getApplicationContext(), str);
         }
     }
 
@@ -385,23 +385,23 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(za zaVar) {
+    public void registerListener(ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, zaVar) == null) {
-            if (zaVar != null && zaVar.getTag() == null) {
-                zaVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeL(1048597, this, abVar) == null) {
+            if (abVar != null && abVar.getTag() == null) {
+                abVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(zaVar);
+            MessageManager.getInstance().registerListener(abVar);
         }
     }
 
-    public void registerListener(int i, za zaVar) {
+    public void registerListener(int i, ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i, zaVar) == null) {
-            if (zaVar != null && zaVar.getTag() == null) {
-                zaVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeIL(1048595, this, i, abVar) == null) {
+            if (abVar != null && abVar.getTag() == null) {
+                abVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i, zaVar);
+            MessageManager.getInstance().registerListener(i, abVar);
         }
     }
 }

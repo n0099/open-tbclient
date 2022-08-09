@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.repackage.bt1;
-import com.repackage.cd3;
-import com.repackage.ct1;
-import com.repackage.kg4;
-import com.repackage.rs1;
-import com.repackage.sg1;
-import com.repackage.zs1;
+import com.repackage.bh4;
+import com.repackage.it1;
+import com.repackage.jh1;
+import com.repackage.qt1;
+import com.repackage.st1;
+import com.repackage.td3;
+import com.repackage.tt1;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
@@ -46,7 +46,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public String d;
     public String e;
     public String f;
-    public ct1 g;
+    public tt1 g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -148,7 +148,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ zs1 b;
+        public final /* synthetic */ qt1 b;
         public final /* synthetic */ CameraPreview c;
 
         /* renamed from: com.baidu.swan.apps.camera.view.CameraPreview$a$a  reason: collision with other inner class name */
@@ -191,26 +191,26 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     } else {
                         i = 0;
                     }
-                    boolean h = rs1.b().h(this.a, this.b.a, quality, i, !z2);
+                    boolean h = it1.b().h(this.a, this.b.a, quality, i, !z2);
                     a aVar = this.b;
-                    zs1 zs1Var = aVar.b;
-                    if (zs1Var != null) {
+                    qt1 qt1Var = aVar.b;
+                    if (qt1Var != null) {
                         if (h) {
-                            zs1Var.onSuccess(aVar.a);
+                            qt1Var.onSuccess(aVar.a);
                         } else {
-                            zs1Var.onFailure();
+                            qt1Var.onFailure();
                         }
                     }
                 }
             }
         }
 
-        public a(CameraPreview cameraPreview, String str, zs1 zs1Var) {
+        public a(CameraPreview cameraPreview, String str, qt1 qt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cameraPreview, str, zs1Var};
+                Object[] objArr = {cameraPreview, str, qt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -222,7 +222,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             }
             this.c = cameraPreview;
             this.a = str;
-            this.b = zs1Var;
+            this.b = qt1Var;
         }
 
         @Override // android.hardware.Camera.PictureCallback
@@ -234,14 +234,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     this.c.setCameraDisplayOrientation();
                 } catch (RuntimeException e) {
                     if (this.c.g != null) {
-                        rs1.b().e(this.c.g.c, this.c.g.b, false);
+                        it1.b().e(this.c.g.c, this.c.g.b, false);
                     }
                     this.c.h();
                     if (CameraPreview.h) {
                         e.printStackTrace();
                     }
                 }
-                cd3.k(new RunnableC0175a(this, bArr), CommonTbJsBridge.SAVE_IMAGE);
+                td3.k(new RunnableC0175a(this, bArr), CommonTbJsBridge.SAVE_IMAGE);
             }
         }
     }
@@ -292,7 +292,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 return;
             }
         }
-        h = sg1.a;
+        h = jh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -365,8 +365,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            ct1 ct1Var = this.g;
-            return (ct1Var == null || !ct1Var.k()) ? 0 : 1;
+            tt1 tt1Var = this.g;
+            return (tt1Var == null || !tt1Var.k()) ? 0 : 1;
         }
         return invokeV.intValue;
     }
@@ -388,7 +388,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
             this.e = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
             this.f = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
-            kg4.h(new File(this.e));
+            bh4.h(new File(this.e));
         }
     }
 
@@ -526,8 +526,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ct1 ct1Var = this.g;
-            return ct1Var == null ? "" : ct1Var.c;
+            tt1 tt1Var = this.g;
+            return tt1Var == null ? "" : tt1Var.c;
         }
         return (String) invokeV.objValue;
     }
@@ -657,10 +657,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return invokeV.booleanValue;
     }
 
-    public void o(String str, zs1 zs1Var) {
+    public void o(String str, qt1 qt1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, zs1Var) == null) {
-            i.takePicture(null, null, new a(this, str, zs1Var));
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, qt1Var) == null) {
+            i.takePicture(null, null, new a(this, str, qt1Var));
         }
     }
 
@@ -671,7 +671,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
             if (motionEvent.getPointerCount() == 1) {
                 try {
-                    bt1.d(motionEvent, i, getWidth(), getHeight());
+                    st1.d(motionEvent, i, getWidth(), getHeight());
                 } catch (Exception e) {
                     if (h) {
                         Log.d("SwanAppCameraManager", Log.getStackTraceString(e));
@@ -683,11 +683,11 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return invokeL.booleanValue;
     }
 
-    public void p(ct1 ct1Var) {
+    public void p(tt1 tt1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ct1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, tt1Var) == null) {
             try {
-                this.g = ct1Var;
+                this.g = tt1Var;
                 j();
                 getCameraInstance();
                 if (i != null) {
@@ -697,7 +697,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     i.autoFocus(new b(this));
                 }
             } catch (IOException | RuntimeException e) {
-                rs1.b().e(ct1Var.c, ct1Var.b, false);
+                it1.b().e(tt1Var.c, tt1Var.b, false);
                 if (h) {
                     e.printStackTrace();
                 }
@@ -763,13 +763,13 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CameraPreview(Context context, ct1 ct1Var) {
+    public CameraPreview(Context context, tt1 tt1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ct1Var};
+            Object[] objArr = {context, tt1Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -784,7 +784,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         this.e = "";
         this.f = "";
         this.a = context;
-        this.g = ct1Var;
+        this.g = tt1Var;
         SurfaceHolder holder = getHolder();
         this.c = holder;
         holder.addCallback(this);

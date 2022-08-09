@@ -14,7 +14,7 @@ public class it {
     public static short a(Context context, Cif cif) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) ? a(context, cif.f632b) : invokeLL.shortValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) ? a(context, cif.f633b) : invokeLL.shortValue;
     }
 
     public static short a(Context context, String str) {

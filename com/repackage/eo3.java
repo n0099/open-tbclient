@@ -1,92 +1,27 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo3;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class eo3 implements fo3.a {
+public class eo3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile do3 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final mo3 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
-    }
-
-    public eo3(ExecutorService executorService, mo3 mo3Var, DownloadInfo downloadInfo, a aVar) {
+    public static synchronized do3 a() {
+        InterceptResult invokeV;
+        do3 do3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, mo3Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = mo3Var;
-        this.c = downloadInfo;
-        this.d = aVar;
-    }
-
-    @Override // com.repackage.fo3.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(zp3.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
-            }
-        }
-    }
-
-    @Override // com.repackage.fo3.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f.get()) {
-            return;
-        }
-        synchronized (this) {
-            if (!this.f.get()) {
-                this.f.set(true);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.e > 1000) {
-                    this.b.b(this.c);
-                    this.e = currentTimeMillis;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (eo3.class) {
+                if (a == null) {
+                    a = new do3();
                 }
-                this.f.set(false);
+                do3Var = a;
             }
+            return do3Var;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new fo3(this.b, this.c, this));
-        }
+        return (do3) invokeV.objValue;
     }
 }

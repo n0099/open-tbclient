@@ -1,9 +1,62 @@
 package com.repackage;
 
-import java.io.IOException;
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes7.dex */
-public interface z59 {
-    void close() throws IOException;
+public class z59 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755160877, "Lcom/repackage/z59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755160877, "Lcom/repackage/z59;");
+                return;
+            }
+        }
+        a = y49.m();
+    }
+
+    public static void a(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
+            return;
+        }
+        try {
+            if (cursor.isClosed()) {
+                return;
+            }
+            cursor.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl6;
+import com.repackage.vm6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes3.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<cl6, ItemPageResIdl> {
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<vm6, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,9 +42,9 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<c
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            cl6 cl6Var = new cl6();
+            vm6 vm6Var = new vm6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            cl6Var.a(itemPageResIdl.data);
+            vm6Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,7 +52,7 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<c
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(cl6Var);
+            setData(vm6Var);
             return itemPageResIdl;
         }
         return invokeIL.objValue;

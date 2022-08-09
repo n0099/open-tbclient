@@ -48,10 +48,10 @@ public class SVProgressDefaultView extends LinearLayout {
                 return;
             }
         }
-        this.resBigLoading = R.drawable.obfuscated_res_0x7f080648;
-        this.resInfo = R.drawable.obfuscated_res_0x7f080647;
-        this.resSuccess = R.drawable.obfuscated_res_0x7f080649;
-        this.resError = R.drawable.obfuscated_res_0x7f080646;
+        this.resBigLoading = R.drawable.obfuscated_res_0x7f08064e;
+        this.resInfo = R.drawable.obfuscated_res_0x7f08064d;
+        this.resSuccess = R.drawable.obfuscated_res_0x7f08064f;
+        this.resError = R.drawable.obfuscated_res_0x7f08064c;
         initViews();
         init();
     }
@@ -79,11 +79,11 @@ public class SVProgressDefaultView extends LinearLayout {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08aa, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f80);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f81);
-            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f090610);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f1);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd2);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
+            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f09062c);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f5);
         }
     }
 

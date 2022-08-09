@@ -2,8 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.R;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class x46 extends mo4 {
+public class x46 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public List<w46> e;
+    public FeatureCardTopic a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +30,7 @@ public class x46 extends mo4 {
                 return;
             }
         }
-        BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public x46() {
@@ -46,49 +43,31 @@ public class x46 extends mo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        d(13);
-        this.e = new ArrayList();
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f090a), R.drawable.obfuscated_res_0x7f0807b7));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0900), R.drawable.obfuscated_res_0x7f0807b3));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091a), R.drawable.obfuscated_res_0x7f0807bf));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0902), R.drawable.obfuscated_res_0x7f0807b4));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0904), R.drawable.obfuscated_res_0x7f0807c0));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0914), R.drawable.obfuscated_res_0x7f0807ba));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08fe), R.drawable.obfuscated_res_0x7f0807b5));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0912), R.drawable.obfuscated_res_0x7f0807b6));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0910), R.drawable.obfuscated_res_0x7f0807bc));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0917), R.drawable.obfuscated_res_0x7f0807bb));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f090b), R.drawable.obfuscated_res_0x7f0807b8));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0916), R.drawable.obfuscated_res_0x7f0807b9));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f090c), R.drawable.obfuscated_res_0x7f0807be));
-            this.e.add(new w46(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0915), R.drawable.obfuscated_res_0x7f0807bd));
-        }
-    }
-
-    public String getTitle() {
+    public FeatureCardTopic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardTopic) invokeV.objValue;
     }
 
-    public List<w46> i() {
+    public void b(FeatureCardTopic featureCardTopic) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) == null) || featureCardTopic == null) {
+            return;
+        }
+        this.a = featureCardTopic;
+        String str = featureCardTopic.title;
+        Integer num = featureCardTopic.floor;
+        Integer num2 = featureCardTopic.type;
+    }
+
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

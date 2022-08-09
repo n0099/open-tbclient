@@ -13,7 +13,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class HeadPendantView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -98,7 +97,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -155,7 +154,7 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = pi.f(getContext(), R.dimen.tbds42);
+            this.i = qi.f(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
@@ -291,13 +290,12 @@ public class HeadPendantView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(str);
         this.e.setImageBitmap(null);
-        this.e.setUrl(headPortraitFilter);
-        if (headPortraitFilter.startsWith("http")) {
-            k(headPortraitFilter, 10, false);
+        this.e.setUrl(str);
+        if (str.startsWith("http")) {
+            k(str, 10, false);
         } else {
-            k(headPortraitFilter, 25, false);
+            k(str, 25, false);
         }
     }
 
@@ -309,7 +307,7 @@ public class HeadPendantView extends RelativeLayout {
         if (this.f && !StringUtils.isNull(str)) {
             this.c.setVisibility(0);
             this.c.setImageDrawable(null);
-            this.c.J(str, 10, false);
+            this.c.K(str, 10, false);
             if (this.l) {
                 e(this.c);
                 return;
@@ -324,12 +322,12 @@ public class HeadPendantView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048593, this, metaData) == null) || metaData == null || TextUtils.isEmpty(metaData.getPortrait())) {
             return;
         }
-        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(metaData.getAvater());
-        setUrl(headPortraitFilter);
-        if (headPortraitFilter.startsWith("http")) {
-            k(headPortraitFilter, 10, false);
+        String avater = metaData.getAvater();
+        setUrl(avater);
+        if (avater.startsWith("http")) {
+            k(avater, 10, false);
         } else {
-            k(headPortraitFilter, 25, false);
+            k(avater, 25, false);
         }
         i(metaData);
     }
@@ -377,7 +375,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.i = pi.f(getContext(), i);
+                this.i = qi.f(getContext(), i);
             }
             f();
         }
@@ -512,7 +510,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -540,7 +538,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;

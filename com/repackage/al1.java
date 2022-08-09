@@ -1,14 +1,10 @@
 package com.repackage;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.repackage.d03;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface al1 {
-    void a();
-
-    void b(String str, yo1 yo1Var);
-
-    void c(SwanAppActivity swanAppActivity, String str, yo1 yo1Var);
-
-    void d(String str, String str2, JSONObject jSONObject, yo1 yo1Var);
+    d03.a a(Context context, z03 z03Var, z53 z53Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

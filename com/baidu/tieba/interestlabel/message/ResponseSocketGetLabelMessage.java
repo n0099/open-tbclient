@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ub7;
+import com.repackage.pd7;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
 /* loaded from: classes3.dex */
@@ -49,7 +49,7 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
                 return getTagListResIdl;
             }
             RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-            ub7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
+            pd7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
             if (labelDataSet != null) {
                 labelDataSet.c(getTagListResIdl.data);
             }

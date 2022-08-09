@@ -1,20 +1,27 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
+import com.baidu.searchbox.download.center.clearcache.DiskManager;
+import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
+import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class y46 {
+public class y46 implements IClearCacheContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
 
     public y46() {
         Interceptable interceptable = $ic;
@@ -30,22 +37,84 @@ public class y46 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void addClearCache(List<BaseClearCache> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+        }
     }
 
-    public void b(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void cleanCacheMonitorUBC(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            DiskUtilKt.cleanCacheMonitorUBC(str);
         }
-        jSONObject.optString("pic");
-        this.a = jSONObject.optString("url");
-        jSONObject.optInt("server_time");
-        this.b = jSONObject.optInt("adid");
-        this.c = jSONObject.optString("big_pic");
-        jSONObject.optString("small_pic");
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void clearHistoryFile() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getAppFileList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? DiskUtilKt.getAppFileList() : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public BaseClearCache getDownloadClearCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (BaseClearCache) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getUserAssetFileList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DiskUtilKt.getUserAssetFileList() : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyPersonalClearCacheTipsChange() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerBackForegroundEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerDiskUsageLevelChangedObserver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void startDownloadActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        }
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ha5;
-import com.repackage.pi;
+import com.repackage.fb5;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -99,38 +99,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         context.startActivity(intent);
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b4c);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(R.string.obfuscated_res_0x7f0f045e);
-            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
-            int f = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090861), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
-            this.e = a2;
-            a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe3);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c69) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0c6a));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb9);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c65);
-            if (!StringUtils.isNull(string) && this.g != null) {
-                this.g.setText(string.replace("%s", this.a));
-            }
-            findViewById(R.id.obfuscated_res_0x7f091fc6).setOnClickListener(new a(this));
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
             super.changeSkinType(i);
-            getLayoutMode().j(this.b);
-            ha5.a(getPageContext(), this.b);
+            getLayoutMode().k(this.b);
+            fb5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -148,7 +124,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String stringExtra = getIntent().getStringExtra("forumname");
             this.a = stringExtra;
             if (stringExtra == null) {
@@ -160,11 +136,35 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01fe);
+            setContentView(R.layout.obfuscated_res_0x7f0d01ff);
             initData();
-            A1();
+            z1();
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c31);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(R.string.obfuscated_res_0x7f0f0469);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+            int f = qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090898), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
+            this.e = a2;
+            a2.setVisibility(0);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0920de);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c8e) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0c8f));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b4);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c8a);
+            if (!StringUtils.isNull(string) && this.g != null) {
+                this.g.setText(string.replace("%s", this.a));
+            }
+            findViewById(R.id.obfuscated_res_0x7f0920c1).setOnClickListener(new a(this));
         }
     }
 }

@@ -18,7 +18,7 @@ public class fj {
     public static final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f368a;
+    public static long f369a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -58,14 +58,14 @@ public class fj {
             }
         }
         a = ez.c.a();
-        f368a = 0L;
+        f369a = 0L;
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (f368a == 0 || SystemClock.elapsedRealtime() - f368a > IMUserListModel.REQUEST_SPACE) {
-                f368a = SystemClock.elapsedRealtime();
+            if (f369a == 0 || SystemClock.elapsedRealtime() - f369a > IMUserListModel.REQUEST_SPACE) {
+                f369a = SystemClock.elapsedRealtime();
                 a(0, a);
             }
         }
@@ -141,8 +141,8 @@ public class fj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i, exc) == null) {
             fa m330a = fh.m328a().m330a();
-            if (fh.a() != null && fh.a().f360a != null) {
-                m330a.c(bj.c(fh.a().f360a) ? 1 : 0);
+            if (fh.a() != null && fh.a().f361a != null) {
+                m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
             }
             if (i > 0) {
                 m330a.a(ez.l.a());
@@ -154,7 +154,7 @@ public class fj {
             try {
                 ff.a a2 = ff.a(exc);
                 m330a.a(a2.a.a());
-                m330a.c(a2.f357a);
+                m330a.c(a2.f358a);
                 m330a.b(str);
                 fh.m328a().a(m330a);
             } catch (NullPointerException unused) {
@@ -169,10 +169,10 @@ public class fj {
                 ff.a b = ff.b(exc);
                 fa m330a = fh.m328a().m330a();
                 m330a.a(b.a.a());
-                m330a.c(b.f357a);
+                m330a.c(b.f358a);
                 m330a.b(str);
-                if (fh.a() != null && fh.a().f360a != null) {
-                    m330a.c(bj.c(fh.a().f360a) ? 1 : 0);
+                if (fh.a() != null && fh.a().f361a != null) {
+                    m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
                 }
                 fh.m328a().a(m330a);
             } catch (NullPointerException unused) {
@@ -208,10 +208,10 @@ public class fj {
                 ff.a d = ff.d(exc);
                 fa m330a = fh.m328a().m330a();
                 m330a.a(d.a.a());
-                m330a.c(d.f357a);
+                m330a.c(d.f358a);
                 m330a.b(str);
-                if (fh.a() != null && fh.a().f360a != null) {
-                    m330a.c(bj.c(fh.a().f360a) ? 1 : 0);
+                if (fh.a() != null && fh.a().f361a != null) {
+                    m330a.c(bj.c(fh.a().f361a) ? 1 : 0);
                 }
                 fh.m328a().a(m330a);
             } catch (NullPointerException unused) {

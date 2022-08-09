@@ -12,26 +12,26 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.dk9;
-import com.repackage.xj9;
-import com.repackage.yj9;
+import com.repackage.sm9;
+import com.repackage.tm9;
+import com.repackage.ym9;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LifecycleCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final yj9 a;
+    public final tm9 a;
 
     @Keep
-    public static yj9 getChimeraLifecycleFragmentImpl(xj9 xj9Var) {
+    public static tm9 getChimeraLifecycleFragmentImpl(sm9 sm9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, xj9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sm9Var)) == null) {
             throw new IllegalStateException("Method not available in SDK.");
         }
-        return (yj9) invokeL.objValue;
+        return (tm9) invokeL.objValue;
     }
 
     @MainThread
@@ -88,9 +88,9 @@ public class LifecycleCallback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Activity h0 = this.a.h0();
-            dk9.d(h0);
-            return h0;
+            Activity g0 = this.a.g0();
+            ym9.d(g0);
+            return g0;
         }
         return (Activity) invokeV.objValue;
     }

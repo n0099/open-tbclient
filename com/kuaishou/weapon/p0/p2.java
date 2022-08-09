@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.jni.Engine;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import org.json.JSONObject;
@@ -76,7 +77,7 @@ public class p2 {
                 jSONObject.put("11", d0Var.b(this.a));
                 f0 f0Var = new f0();
                 jSONObject.put("26", f0Var.a("cpuinfo") ? 1 : 0);
-                jSONObject.put("27", f0Var.a("meminfo") ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, f0Var.a("meminfo") ? 1 : 0);
                 o0 o0Var = new o0();
                 jSONObject.put("65", o0Var.f() ? 1 : 0);
                 boolean e = o0Var.e();

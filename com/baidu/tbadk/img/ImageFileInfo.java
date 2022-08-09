@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
-import com.repackage.jg;
-import com.repackage.oi;
+import com.repackage.kg;
+import com.repackage.pi;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -308,7 +308,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean isAlreadyUploadedToServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !oi.isEmpty(this.serverImageCode) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !pi.isEmpty(this.serverImageCode) : invokeV.booleanValue;
     }
 
     public boolean isFromCamera() {
@@ -507,7 +507,7 @@ public class ImageFileInfo extends MediaFileInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             if (getImageType() == 1) {
-                return jg.h().g(this.filePath, 20);
+                return kg.h().g(this.filePath, 20);
             }
             if (z) {
                 if (this._cacheKey_all == null) {

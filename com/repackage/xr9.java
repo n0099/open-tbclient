@@ -1,91 +1,40 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.internal.schedulers.SchedulerWhen;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public abstract class xr9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xr9 {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 
-    /* loaded from: classes7.dex */
-    public static abstract class a implements bs9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
 
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
-        }
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
 
-        public abstract bs9 b(hs9 hs9Var);
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
 
-        public abstract bs9 c(hs9 hs9Var, long j, TimeUnit timeUnit);
-    }
+    void onWebsocketError(WebSocket webSocket, Exception exc);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755161838, "Lcom/repackage/xr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755161838, "Lcom/repackage/xr9;");
-                return;
-            }
-        }
-        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
-    }
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, ls9 ls9Var, ss9 ss9Var) throws InvalidDataException;
 
-    public xr9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    ts9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, ls9 ls9Var) throws InvalidDataException;
 
-    public abstract a createWorker();
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, ls9 ls9Var) throws InvalidDataException;
 
-    public long now() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
-    }
+    void onWebsocketMessage(WebSocket webSocket, String str);
 
-    public <S extends xr9 & bs9> S when(ms9<ur9<ur9<sr9>>, sr9> ms9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ms9Var)) == null) ? new SchedulerWhen(ms9Var, this) : (S) ((xr9) invokeL.objValue);
-    }
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, qs9 qs9Var);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

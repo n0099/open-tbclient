@@ -1,205 +1,107 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class p36 extends l36 implements NetModel.k {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class p36 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final DownloadManagerNetModel b;
-    public r36 c;
-    public s36 d;
-    public List<String> e;
-    public o36 f;
-    public final List<j36> g;
-    public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p36(BaseFragment baseFragment, int i) {
-        super(baseFragment, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460802, "Lcom/repackage/p36;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755460802, "Lcom/repackage/p36;");
                 return;
             }
         }
-        this.d = new s36();
-        this.e = new ArrayList();
-        this.g = new ArrayList();
-        this.h = 0;
-        this.c = new r36(1, i);
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
-        this.b = downloadManagerNetModel;
-        downloadManagerNetModel.c0(this);
-        this.b.setUniqueId(baseFragment.getUniqueId());
+        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
+        a = createBitmap;
     }
 
-    @Override // com.repackage.l36
-    public void a() {
+    public static final boolean a(h26 h26Var, h26 h26Var2, h46 h46Var, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
-            this.c.c();
-            this.b.loadData();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{h26Var, h26Var2, h46Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int width = h46Var.getWidth();
+            float q = h26Var.f().q();
+            float q2 = h26Var2.f().q();
+            long j3 = j - h26Var.j();
+            float f = width;
+            float f2 = (float) j2;
+            return f - ((q2 + f) * (((float) (j - h26Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q;
         }
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.l36
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e();
-            this.d.a.clear();
-            this.e.clear();
-            this.c.b();
-            this.b.loadData();
-        }
-    }
-
-    @Override // com.repackage.l36
-    public void d(o36 o36Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o36Var) == null) {
-            this.f = o36Var;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.clear();
-            this.h = 0;
-        }
-    }
-
-    public final void f(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || i == 0) {
-            return;
-        }
-        this.f.a(i, str);
-    }
-
-    public void g(List<j36> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            for (j36 j36Var : list) {
-                PackageInfo a = ap6.a(j36Var.a.pkgName);
-                if (a != null) {
-                    if (a.versionCode < j36Var.a.apkDetail.version_code.intValue()) {
-                        List<j36> list2 = this.g;
-                        int i = this.h;
-                        this.h = i + 1;
-                        list2.add(i, j36Var);
-                    } else {
-                        this.g.add(j36Var);
-                    }
-                    this.e.add(j36Var.a.pkgName);
-                }
-            }
-            if (ListUtils.getCount(this.g) < 15 && this.d.c.intValue() != 0) {
-                this.c.c();
-                this.b.loadData();
-                return;
-            }
-            this.d.a.addAll(this.g);
-            if (ListUtils.getCount(this.d.a) <= 4) {
-                this.f.b(this.d.a, h(), this.d.c.intValue());
-                return;
-            }
-            o36 o36Var = this.f;
-            s36 s36Var = this.d;
-            o36Var.b(s36Var.a, null, s36Var.c.intValue());
-        }
-    }
-
-    public List<j36> h() {
+    public static final Bitmap b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (j36 j36Var : this.d.b) {
-                if (!this.e.contains(j36Var.a.pkgName)) {
-                    arrayList.add(j36Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Bitmap) invokeV.objValue;
     }
 
-    public final boolean i(s36 s36Var) {
-        InterceptResult invokeL;
+    public static final boolean c(h26 h26Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, s36Var)) == null) {
-            if (s36Var == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, h26Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h26Var, "<this>");
+            return j - h26Var.j() < 0;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean d(h26 h26Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, h26Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h26Var, "<this>");
+            return e(h26Var, j) || c(h26Var, j);
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean e(h26 h26Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, h26Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h26Var, "<this>");
+            return j - h26Var.j() > h26Var.g();
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean f(h26 h26Var, h26 danmaku, h46 displayer, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{h26Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Intrinsics.checkNotNullParameter(h26Var, "<this>");
+            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            if (d(h26Var, j)) {
                 return false;
             }
-            s36 s36Var2 = this.d;
-            s36Var2.c = s36Var.c;
-            s36Var2.b = s36Var.b;
-            g(s36Var.a);
-            return true;
+            long j3 = danmaku.j() - h26Var.j();
+            if (j3 <= 0) {
+                return true;
+            }
+            if (Math.abs(j3) >= j2 || e(h26Var, j) || e(danmaku, j)) {
+                return false;
+            }
+            return h26Var.e().j() == 5 || h26Var.e().j() == 4 || a(h26Var, danmaku, displayer, j, j2) || a(h26Var, danmaku, displayer, j + j2, j2);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void o(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        s36 s36Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
-            s36Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (s36Var == null || !i(s36Var)) {
-            f(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void t(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048585, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        s36 s36Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
-            s36Var = (s36) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (s36Var == null || !i(s36Var)) {
-            f(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
-        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -181,9 +181,9 @@ public class ViewUtility implements NoProguard {
                 z = false;
                 if (z && -1 == i) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609aa);
+                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609c5);
                     } else {
-                        i = activity.getColor(R.color.obfuscated_res_0x7f0609aa);
+                        i = activity.getColor(R.color.obfuscated_res_0x7f0609c5);
                     }
                 }
                 if (!b(activity, true)) {

@@ -99,7 +99,7 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
                         return invokeLL.booleanValue;
                     }
                 });
-                return new CloudControlRequestInfo(CLOUD_UPDATE_ACTION_NAME, jSONObject3, null, null);
+                return new CloudControlRequestInfo("config", jSONObject3, null, null);
             } catch (Exception e) {
                 if (AppConfig.isDebug()) {
                     e.printStackTrace();
@@ -117,7 +117,7 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
             String serviceName = cloudControlResponseInfo.getServiceName();
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
             JSONObject option = cloudControlResponseInfo.getOption();
-            if (!CLOUD_UPDATE_ACTION_NAME.equals(serviceName) || serviceData == null) {
+            if (!"config".equals(serviceName) || serviceData == null) {
                 return;
             }
             try {

@@ -1,38 +1,28 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class uw8 {
+public class uw8 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vw8 a;
-    public final NewWriteModel b;
-    public boolean c;
-    public final NewWriteModel.e d;
+    public String a;
+    public String b;
+    public b c;
 
     /* loaded from: classes7.dex */
-    public class a implements NewWriteModel.e {
+    public class a implements wf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uw8 a;
@@ -55,160 +45,134 @@ public class uw8 {
             this.a = uw8Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
+        @Override // com.repackage.wf
+        public void onProgress(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.a == null || this.a.b == null || this.a.b.V() == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || this.a.c == null) {
                 return;
             }
-            this.a.a.o(false);
-            if (writeData == null) {
-                writeData = this.a.b.V();
-            }
-            WriteData writeData2 = writeData;
-            if (z) {
-                this.a.c = true;
-                if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
-                    if (postWriteCallBackData == null) {
-                        rk8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10d5), null, null);
-                    } else {
-                        rk8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    }
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.a.getContext();
-                this.a.a.getContext();
-                context.setResult(-1, intent);
-                this.a.a.getContext().finish();
-            } else if (writeData2 != null && gy4Var != null && !TextUtils.isEmpty(gy4Var.d())) {
-                writeData2.setVcodeMD5(gy4Var.b());
-                writeData2.setVcodeUrl(gy4Var.c());
-                writeData2.setVcodeExtra(gy4Var.a());
-                this.a.a.getContext().setVisible(false);
-                if (ve5.b(gy4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, gy4Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getContext().getActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
-                if (postWriteCallBackData != null) {
-                    rk8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    BaseActivity context2 = this.a.a.getContext();
-                    this.a.a.getContext();
-                    context2.setResult(0, null);
-                }
-                this.a.a.getContext().finish();
-            } else {
-                Intent intent2 = new Intent();
-                Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent2.putExtras(bundle2);
-                BaseActivity context3 = this.a.a.getContext();
-                this.a.a.getContext();
-                context3.setResult(0, intent2);
-                this.a.a.getContext().finish();
-            }
+            this.a.c.b(i, i2);
         }
     }
 
-    public uw8(vw8 vw8Var, NewWriteModel newWriteModel) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(boolean z, String str, String str2);
+
+        void b(int i, int i2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755246437, "Lcom/repackage/uw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755246437, "Lcom/repackage/uw8;");
+                return;
+            }
+        }
+        d = File.separator;
+    }
+
+    public uw8(String str, String str2, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vw8Var, newWriteModel};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.d = aVar;
-        this.a = vw8Var;
-        this.b = newWriteModel;
-        newWriteModel.e0(aVar);
+        this.a = str;
+        this.b = str2;
+        this.c = bVar;
     }
 
-    public void d() {
-        vw8 vw8Var;
+    public final void c(File file) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (vw8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || pi.isEmpty(this.a)) {
             return;
         }
-        vw8Var.r(500);
-    }
-
-    public void e() {
-        vw8 vw8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (vw8Var = this.a) == null) {
+        File file2 = new File(this.a);
+        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
             return;
         }
-        vw8Var.o(false);
+        for (File file3 : listFiles) {
+            if (file3 != null && !file3.equals(file)) {
+                FileHelper.deleteFileOrDir(file3);
+            }
+        }
     }
 
-    public boolean f(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || str == null) {
-                return false;
-            }
-            if (str.equals("https://tieba.baidu.com/account/access/cancel")) {
-                this.a.getContext().finish();
-                return true;
-            } else if (str.equals("https://tieba.baidu.com/account/access/input_focus")) {
-                this.a.n(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-                if (this.a.g() != this.a.h()) {
-                    vw8 vw8Var = this.a;
-                    vw8Var.m(vw8Var.g());
-                    this.a.s();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (!pi.isEmpty(this.a) && !pi.isEmpty(this.b)) {
+                new File(this.a).mkdirs();
+                String str = this.a + d + "annivervideo.temp";
+                File file = new File(str);
+                if (file.exists()) {
+                    file.delete();
                 }
-                this.a.i().setVisibility(0);
-                return true;
-            } else if (str.equals("https://tieba.baidu.com/account/access/valid_success")) {
-                g();
-                return true;
-            } else if (str.equals("https://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-                this.a.getContext().finish();
-                UrlManager.getInstance().dealOneLink(this.a.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
-                return true;
-            } else {
-                return true;
+                sf sfVar = new sf();
+                sfVar.b().s(this.b);
+                if (new pf(sfVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
+                    return e();
+                }
             }
+            return "";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void g() {
+    public final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.b == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a + d + "annivervideo.temp");
+            StringBuilder sb = new StringBuilder();
+            sb.append(wi.c(this.b));
+            sb.append(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
+            String sb2 = sb.toString();
+            File file2 = new File(this.a + d + sb2);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            if (file.renameTo(file2)) {
+                c(file2);
+                return file2.getAbsolutePath();
+            }
+            return "";
         }
-        if (!pi.D()) {
-            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
-            this.a.getContext().finish();
-            return;
-        }
-        this.a.o(true);
-        this.b.h0();
+        return (String) invokeV.objValue;
     }
 
-    public void h(String str) {
-        vw8 vw8Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (vw8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.c == null) {
             return;
         }
-        vw8Var.p(true);
-        this.a.q(false);
-        this.a.i().loadUrl(str);
+        if (!pi.isEmpty(str)) {
+            this.c.a(true, str, this.b);
+        } else {
+            this.c.a(false, null, null);
+        }
     }
 }

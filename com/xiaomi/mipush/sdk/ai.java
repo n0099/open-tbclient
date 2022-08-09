@@ -61,8 +61,8 @@ public class ai {
                     }
                 }
                 hy hyVar = new hy();
-                hyVar.f553a = 5L;
-                hyVar.f554a = "fakeid";
+                hyVar.f554a = 5L;
+                hyVar.f555a = "fakeid";
                 cif.a(hyVar);
                 cif.a(ByteBuffer.wrap(a));
                 cif.a(hjVar);
@@ -97,7 +97,7 @@ public class ai {
             } else {
                 m471a = cif.m471a();
             }
-            iu a2 = a(cif.a(), cif.f633b);
+            iu a2 = a(cif.a(), cif.f634b);
             if (a2 != null) {
                 it.a(a2, m471a);
             }

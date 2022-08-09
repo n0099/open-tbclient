@@ -1,17 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m12 extends j12<JSONObject, is1> {
+public class m12 extends j12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap d;
 
     public m12() {
         Interceptable interceptable = $ic;
@@ -27,13 +26,30 @@ public class m12 extends j12<JSONObject, is1> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n12
-    @NonNull
-    /* renamed from: c */
-    public is1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static m12 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? new is1(101, "error type is not support") : (is1) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            m12 m12Var = new m12();
+            m12Var.a = 1;
+            m12Var.b = str;
+            m12Var.c = 0L;
+            m12Var.d = bitmap;
+            return m12Var;
+        }
+        return (m12) invokeLL.objValue;
+    }
+
+    public static m12 b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            m12 m12Var = new m12();
+            m12Var.a = 1;
+            m12Var.b = str;
+            m12Var.c = j;
+            return m12Var;
+        }
+        return (m12) invokeLJ.objValue;
     }
 }

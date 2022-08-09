@@ -128,7 +128,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             int i = this.slideDistance;
-            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
         }
         return invokeL.intValue;
     }

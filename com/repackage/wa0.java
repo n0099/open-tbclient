@@ -1,80 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.LiveFontSizeService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public class wa0 {
+public final class wa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final gb0 a;
-    public static final y70 b;
+    public static final LiveFontSizeService a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public xa0<T> m;
-        public ya0<T> n;
-
-        public a(xa0<T> xa0Var, ya0<T> ya0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xa0Var, ya0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.m = null;
-            this.n = null;
-            this.m = xa0Var;
-            this.n = ya0Var;
-        }
-
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        public void q(T t) {
-            ya0<T> ya0Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (ya0Var = this.n) == null) {
-                return;
-            }
-            ya0Var.onReturnDataInUI(t);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        /* renamed from: z */
-        public T f(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                try {
-                    if (this.m != null) {
-                        return this.m.a();
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    fb0.c(th);
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,30 +33,162 @@ public class wa0 {
                 return;
             }
         }
-        a = gb0.a();
-        b = new y70(BdAsyncTaskParallelType.SERIAL, a);
+        a = (LiveFontSizeService) ServiceManager.getService(LiveFontSizeService.Companion.getSERVICE_REFERENCE());
     }
 
-    public static <T> BdAsyncTask a(xa0<T> xa0Var, ya0<T> ya0Var) {
-        InterceptResult invokeLL;
+    @JvmStatic
+    @JvmOverloads
+    public static final Drawable a(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Drawable scaledDrawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, xa0Var, ya0Var)) == null) ? b(xa0Var, ya0Var, 2) : (BdAsyncTask) invokeLL.objValue;
-    }
-
-    public static <T> BdAsyncTask b(xa0<T> xa0Var, ya0<T> ya0Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, xa0Var, ya0Var, i)) == null) {
-            if (xa0Var != null) {
-                a aVar = new a(xa0Var, ya0Var);
-                aVar.v(b);
-                aVar.x(a);
-                aVar.w(i);
-                aVar.g(new String[0]);
-                return aVar;
-            }
-            return null;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, drawable, i, i2)) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            return (liveFontSizeService == null || (scaledDrawable = liveFontSizeService.getScaledDrawable(drawable, i, i2)) == null) ? drawable : scaledDrawable;
         }
-        return (BdAsyncTask) invokeLLI.objValue;
+        return (Drawable) invokeLII.objValue;
+    }
+
+    public static /* synthetic */ Drawable b(Drawable drawable, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return a(drawable, i, i2);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int c(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? e(f, 0, 0, 6, null) : invokeF.intValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int d(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            return liveFontSizeService != null ? liveFontSizeService.getScaledSize(f, i, i2) : (int) f;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static /* synthetic */ int e(float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return d(f, i, i2);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void f(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            j(view2, f, f2, 0, 0, 12, null);
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void g(View view2, float f, float f2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, (int) f2));
+                    return;
+                }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                layoutParams.height = (int) f2;
+                view2.setLayoutParams(layoutParams);
+                return;
+            }
+            liveFontSizeService.setScaledSize(view2, f, f2, i, i2);
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void h(TextView textView, int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            k(textView, i, f, 0, 0, 12, null);
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void i(TextView textView, int i, float f, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                textView.setTextSize(i, f);
+            } else {
+                liveFontSizeService.setScaledSize(textView, i, f, i2, i3);
+            }
+        }
+    }
+
+    public static /* synthetic */ void j(View view2, float f, float f2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 4) != 0) {
+            i = 0;
+        }
+        if ((i3 & 8) != 0) {
+            i2 = 2;
+        }
+        g(view2, f, f2, i, i2);
+    }
+
+    public static /* synthetic */ void k(TextView textView, int i, float f, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 4) != 0) {
+            i2 = 0;
+        }
+        if ((i4 & 8) != 0) {
+            i3 = 2;
+        }
+        i(textView, i, f, i2, i3);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void l(View view2, float f, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, -2));
+                    return;
+                }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                view2.setLayoutParams(layoutParams);
+                return;
+            }
+            liveFontSizeService.setScaledWidth(view2, f, i, i2);
+        }
+    }
+
+    public static /* synthetic */ void m(View view2, float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        l(view2, f, i, i2);
     }
 }

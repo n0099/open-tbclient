@@ -35,7 +35,7 @@ public class aw {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public byte[] f910a;
+        public byte[] f911a;
 
         public a(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class aw {
                     return;
                 }
             }
-            this.f910a = bArr;
+            this.f911a = bArr;
             this.a = i;
         }
     }
@@ -64,7 +64,7 @@ public class aw {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f911a;
+        public Bitmap f912a;
 
         public b(Bitmap bitmap, long j) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class aw {
                     return;
                 }
             }
-            this.f911a = bitmap;
+            this.f912a = bitmap;
             this.a = j;
         }
     }
@@ -305,7 +305,7 @@ public class aw {
         b bVar = new b(null, 0L);
         Bitmap b2 = b(context, str);
         if (b2 != null) {
-            bVar.f911a = b2;
+            bVar.f912a = b2;
             return bVar;
         }
         try {
@@ -319,7 +319,7 @@ public class aw {
                 return bVar;
             }
             bVar.a = a2.a;
-            byte[] bArr = a2.f910a;
+            byte[] bArr = a2.f911a;
             if (bArr != null) {
                 if (z) {
                     ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
@@ -327,7 +327,7 @@ public class aw {
                         int a3 = a(context, byteArrayInputStream2);
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inSampleSize = a3;
-                        bVar.f911a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        bVar.f912a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         byteArrayInputStream = byteArrayInputStream2;
                     } catch (Exception e2) {
                         e = e2;
@@ -342,10 +342,10 @@ public class aw {
                         throw th;
                     }
                 } else {
-                    bVar.f911a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    bVar.f912a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 }
             }
-            a(context, a2.f910a, str);
+            a(context, a2.f911a, str);
             com.xiaomi.push.ab.a(byteArrayInputStream);
             return bVar;
         } catch (Throwable th2) {

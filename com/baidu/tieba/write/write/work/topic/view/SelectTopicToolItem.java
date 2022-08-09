@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v37;
-import com.repackage.vr4;
+import com.repackage.ms4;
+import com.repackage.p57;
 /* loaded from: classes4.dex */
 public class SelectTopicToolItem extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public v37 e;
+    public p57 e;
     public b f;
     public boolean g;
     public boolean h;
@@ -77,7 +77,7 @@ public class SelectTopicToolItem extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(@NonNull v37 v37Var);
+        void a(@NonNull p57 p57Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,13 +101,13 @@ public class SelectTopicToolItem extends RelativeLayout {
         e();
     }
 
-    public void c(v37 v37Var) {
+    public void c(p57 p57Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v37Var) == null) || v37Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, p57Var) == null) || p57Var == null) {
             return;
         }
-        this.e = v37Var;
-        if (v37Var.j()) {
+        this.e = p57Var;
+        if (p57Var.j()) {
             this.b.setText("#");
             this.a.setText(this.e.e() + "#");
         } else {
@@ -117,12 +117,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        v37 v37Var;
-        v37 v37Var2;
+        p57 p57Var;
+        p57 p57Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (v37Var2 = this.e) != null) {
-                if (v37Var2.j()) {
+            if (!this.g && (p57Var2 = this.e) != null) {
+                if (p57Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -130,36 +130,36 @@ public class SelectTopicToolItem extends RelativeLayout {
                     this.b.setVisibility(8);
                 }
                 if (this.e.h()) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a04, SkinManager.getColor(R.color.CAM_X0304), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a27, SkinManager.getColor(R.color.CAM_X0304), null));
                 } else {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a04, SkinManager.getColor(R.color.CAM_X0105), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a27, SkinManager.getColor(R.color.CAM_X0105), null));
                 }
             } else {
                 this.b.setVisibility(8);
                 this.c.setVisibility(0);
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d5));
-                this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0805fc, SkinManager.getColor(R.color.CAM_X0109), null));
+                this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080601, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (v37Var = this.e) != null && v37Var.h()) {
-                vr4.d(this.a).v(R.color.CAM_X0304);
-                vr4.d(this.b).v(R.color.CAM_X0304);
-                vr4 d = vr4.d(this.d);
+            if (!this.g && (p57Var = this.e) != null && p57Var.h()) {
+                ms4.d(this.a).v(R.color.CAM_X0304);
+                ms4.d(this.b).v(R.color.CAM_X0304);
+                ms4 d = ms4.d(this.d);
                 d.n(R.string.J_X01);
                 d.l(R.dimen.L_X02);
                 d.k(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                vr4.d(this.a).v(R.color.CAM_X0105);
-                vr4.d(this.b).v(R.color.CAM_X0105);
-                vr4 d2 = vr4.d(this.d);
+                ms4.d(this.a).v(R.color.CAM_X0105);
+                ms4.d(this.b).v(R.color.CAM_X0105);
+                ms4 d2 = ms4.d(this.d);
                 d2.n(R.string.J_X01);
                 d2.l(R.dimen.L_X02);
                 d2.k(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                vr4.d(this.a).v(R.color.CAM_X0105);
-                vr4.d(this.b).v(R.color.CAM_X0105);
-                vr4 d3 = vr4.d(this.d);
+                ms4.d(this.a).v(R.color.CAM_X0105);
+                ms4.d(this.b).v(R.color.CAM_X0105);
+                ms4 d3 = ms4.d(this.d);
                 d3.n(R.string.J_X01);
                 d3.l(R.dimen.L_X02);
                 d3.k(R.color.CAM_X0209);
@@ -171,11 +171,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0770, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b9);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921b8);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091334);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0797, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0922b8);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0922ba);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922b9);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d8);
             setOnClickListener(new a(this));
             d();
         }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<e> CREATOR;

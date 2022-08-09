@@ -15,9 +15,9 @@ import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
-import com.repackage.b99;
-import com.repackage.q99;
-import com.repackage.w89;
+import com.repackage.lc9;
+import com.repackage.rb9;
+import com.repackage.wb9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -80,7 +80,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public void createPlayer(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            if (q99.a(this.mPath) && b99.e(this.mPathList)) {
+            if (lc9.a(this.mPath) && wb9.e(this.mPathList)) {
                 return;
             }
             pause();
@@ -99,7 +99,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
                 this.mCurrentState = 1;
             } catch (Exception e) {
-                w89.g(e);
+                rb9.g(e);
                 this.mMediaPlayer = null;
                 this.mPath = null;
                 this.mPathList = null;
@@ -116,7 +116,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (b99.e(this.mPathList)) {
+            if (wb9.e(this.mPathList)) {
                 return null;
             }
             long currentPosition = getCurrentPosition();

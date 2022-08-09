@@ -99,7 +99,11 @@ public class BdDownload {
                     this.downloadStore = Util.createDefaultDatabase(this.context);
                 }
                 if (this.connectionFactory == null) {
-                    this.connectionFactory = Util.createDefaultConnectionFactory();
+                    if (BdDownloadRuntime.getIBdDownloadIoc() != null && BdDownloadRuntime.getIBdDownloadIoc().enableHttpManagerConnection()) {
+                        this.connectionFactory = Util.createHttpManagerConnectionFactory();
+                    } else {
+                        this.connectionFactory = Util.createDefaultConnectionFactory();
+                    }
                 }
                 if (this.outputStreamFactory == null) {
                     this.outputStreamFactory = new DownloadUriOutputStream.Factory();

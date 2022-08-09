@@ -1,76 +1,84 @@
 package com.repackage;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.ConnectionTelemetryConfiguration;
-import com.google.android.gms.common.internal.RootTelemetryConfiguration;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes7.dex */
-public final class qk9 implements Parcelable.Creator<ConnectionTelemetryConfiguration> {
+public class qk9 extends uk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsSplashScreenAd c;
+    public final /* synthetic */ pk9 d;
 
-    public qk9() {
+    public qk9(pk9 pk9Var, KsSplashScreenAd ksSplashScreenAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pk9Var, ksSplashScreenAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = pk9Var;
+        this.c = ksSplashScreenAd;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ ConnectionTelemetryConfiguration createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        RootTelemetryConfiguration rootTelemetryConfiguration = null;
-        int[] iArr = null;
-        int[] iArr2 = null;
-        boolean z = false;
-        boolean z2 = false;
-        int i = 0;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            switch (SafeParcelReader.h(k)) {
-                case 1:
-                    rootTelemetryConfiguration = (RootTelemetryConfiguration) SafeParcelReader.c(parcel, k, RootTelemetryConfiguration.CREATOR);
-                    break;
-                case 2:
-                    z = SafeParcelReader.i(parcel, k);
-                    break;
-                case 3:
-                    z2 = SafeParcelReader.i(parcel, k);
-                    break;
-                case 4:
-                    iArr = SafeParcelReader.b(parcel, k);
-                    break;
-                case 5:
-                    i = SafeParcelReader.m(parcel, k);
-                    break;
-                case 6:
-                    iArr2 = SafeParcelReader.b(parcel, k);
-                    break;
-                default:
-                    SafeParcelReader.p(parcel, k);
-                    break;
-            }
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        SafeParcelReader.g(parcel, q);
-        return new ConnectionTelemetryConfiguration(rootTelemetryConfiguration, z, z2, iArr, i, iArr2);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ ConnectionTelemetryConfiguration[] newArray(int i) {
-        return new ConnectionTelemetryConfiguration[i];
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
+            this.d.onAdError(this.c, i, str);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
     }
 }

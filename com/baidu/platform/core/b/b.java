@@ -11,6 +11,7 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -94,7 +95,7 @@ public class b extends com.baidu.platform.base.d {
                 geoCodeResult.setAddress(this.c);
                 geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
                 geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-                geoCodeResult.setLevel(optJSONObject.optString("level"));
+                geoCodeResult.setLevel(optJSONObject.optString(PollingModel.LEVEL));
                 geoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
                 return true;
             } catch (JSONException e) {

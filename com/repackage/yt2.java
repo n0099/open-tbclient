@@ -1,35 +1,27 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class yt2 implements ml2 {
+public class yt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> c;
-    public CopyOnWriteArrayList<xt2> d;
-    public boolean e;
-    public ev2 f;
+    public final Map<String, Map<String, HybridUbcFlow>> a;
+    public final Map<String, sf3<HybridUbcFlow>> b;
+    public final sf3<HybridUbcFlow> c;
 
     /* loaded from: classes7.dex */
-    public class a implements ev2 {
+    public class a implements sf3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yt2 c;
+        public final /* synthetic */ yt2 a;
 
         public a(yt2 yt2Var) {
             Interceptable interceptable = $ic;
@@ -46,124 +38,18 @@ public class yt2 implements ml2 {
                     return;
                 }
             }
-            this.c = yt2Var;
+            this.a = yt2Var;
         }
 
-        @Override // com.repackage.ev2
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                this.a.g(hybridUbcFlow.p);
             }
         }
-
-        @Override // com.repackage.ev2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.e = false;
-            }
-        }
-
-        @Override // com.repackage.ev2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.ev2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c.e = false;
-                if (this.c.d.isEmpty()) {
-                    return;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                Iterator<xt2> it = this.c.d.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                if (ml2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + this.c.d.size());
-                }
-            }
-        }
-
-        @Override // com.repackage.ev2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.e = true;
-            }
-        }
-
-        @Override // com.repackage.ev2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "GlobalJsBridge" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final yt2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(169195356, "Lcom/repackage/yt2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(169195356, "Lcom/repackage/yt2$b;");
-                    return;
-                }
-            }
-            a = new yt2(null);
-        }
-    }
-
-    public /* synthetic */ yt2(a aVar) {
-        this();
-    }
-
-    public static yt2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (yt2) invokeV.objValue;
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.e) {
-                for (String str2 : this.c) {
-                    if (str.startsWith(str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d(xt2 xt2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xt2Var) == null) || xt2Var == null) {
-            return;
-        }
-        this.d.add(xt2Var);
-        cv2.g().i(this.f, 4000);
     }
 
     public yt2() {
@@ -179,12 +65,122 @@ public class yt2 implements ml2 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new CopyOnWriteArrayList<>();
-        this.e = false;
-        this.f = new a(this);
-        this.c.clear();
-        List<String> list = this.c;
-        list.add(UnitedSchemeEntity.UNITED_SCHEME + "swanAPI/openStatisticEvent?");
+        this.a = new HashMap();
+        this.b = new HashMap();
+        this.c = new a(this);
+    }
+
+    public final HybridUbcFlow a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
+            hybridUbcFlow.H("callback_on_submit", this.c);
+            sf3<HybridUbcFlow> sf3Var = this.b.get(str);
+            if (sf3Var != null) {
+                sf3Var.a(hybridUbcFlow);
+            }
+            return hybridUbcFlow;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public HybridUbcFlow b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c(str, "default") : (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public HybridUbcFlow c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map == null) {
+                    return null;
+                }
+                return map.get(str2);
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public yt2 d(String str, sf3<HybridUbcFlow> sf3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, sf3Var)) == null) {
+            synchronized (this.b) {
+                this.b.put(str, sf3Var);
+            }
+            return this;
+        }
+        return (yt2) invokeLL.objValue;
+    }
+
+    public synchronized HybridUbcFlow e(String str) {
+        InterceptResult invokeL;
+        HybridUbcFlow f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                f = f(str, "default");
+            }
+            return f;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public synchronized HybridUbcFlow f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            synchronized (this) {
+                synchronized (this.a) {
+                    Map<String, HybridUbcFlow> map = this.a.get(str);
+                    if (map == null) {
+                        HashMap hashMap = new HashMap();
+                        HybridUbcFlow a2 = a(str);
+                        hashMap.put(str2, a2);
+                        this.a.put(str, hashMap);
+                        return a2;
+                    }
+                    HybridUbcFlow hybridUbcFlow = map.get(str2);
+                    if (hybridUbcFlow == null) {
+                        hybridUbcFlow = a(str);
+                        map.put(str2, hybridUbcFlow);
+                    }
+                    return hybridUbcFlow;
+                }
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public yt2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            synchronized (this.a) {
+                this.a.remove(str);
+            }
+            return this;
+        }
+        return (yt2) invokeL.objValue;
+    }
+
+    public yt2 h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map != null) {
+                    map.remove(str2);
+                }
+            }
+            return this;
+        }
+        return (yt2) invokeLL.objValue;
     }
 }

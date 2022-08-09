@@ -1,19 +1,18 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class vi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public int a;
+    public nn0 b;
     public String c;
 
     public vi0() {
@@ -26,27 +25,30 @@ public class vi0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
     }
 
-    public static String a(@NonNull vi0 vi0Var) {
+    public static vi0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vi0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext1", vi0Var.a);
-                jSONObject.put("ext2", vi0Var.b);
-                jSONObject.put("ext3", vi0Var.c);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return jSONObject.toString();
+            vi0 vi0Var = new vi0();
+            vi0Var.a = jSONObject.optInt("download_state");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                try {
+                    vi0Var.b = nn0.c(optJSONObject);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
+            }
+            vi0Var.c = jSONObject.optString("download_hint");
+            return vi0Var;
         }
-        return (String) invokeL.objValue;
+        return (vi0) invokeL.objValue;
     }
 }

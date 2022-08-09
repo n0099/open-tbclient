@@ -67,7 +67,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f04058d, R.attr.obfuscated_res_0x7f04058e});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610});
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             float dimension = obtainStyledAttributes.getDimension(3, -1.0f);
@@ -99,13 +99,13 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0776, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f090457);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079d, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f090471);
             this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09209a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092196);
             this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);
@@ -133,7 +133,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.e.h();
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f132f) + this.a.getString(R.string.obfuscated_res_0x7f0f132d));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f136b) + this.a.getString(R.string.obfuscated_res_0x7f0f1369));
         }
     }
 
@@ -142,7 +142,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.e.i(z);
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f132f) + this.a.getString(R.string.obfuscated_res_0x7f0f132d));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f136b) + this.a.getString(R.string.obfuscated_res_0x7f0f1369));
         }
     }
 
@@ -151,7 +151,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.k();
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f132f) + this.a.getString(R.string.obfuscated_res_0x7f0f1330));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f136b) + this.a.getString(R.string.obfuscated_res_0x7f0f136c));
         }
     }
 
@@ -172,7 +172,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.e.l(z);
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f132f) + this.a.getString(R.string.obfuscated_res_0x7f0f1330));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f136b) + this.a.getString(R.string.obfuscated_res_0x7f0f136c));
         }
     }
 

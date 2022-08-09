@@ -1,9 +1,4 @@
 package com.repackage;
-
-import android.content.Context;
-/* loaded from: classes5.dex */
-public interface dg1 {
-    String a();
-
-    void a(Context context, eg1 eg1Var);
+/* loaded from: classes6.dex */
+public interface dg1<T> extends Runnable, Comparable<T> {
 }

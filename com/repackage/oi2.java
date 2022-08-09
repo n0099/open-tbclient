@@ -1,56 +1,48 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class oi2 extends si2 {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes7.dex */
+public class oi2 extends te2<kj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mi2 a;
 
-    public oi2(String str) {
+    public oi2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new mi2();
-    }
-
-    @Override // com.repackage.si2, com.repackage.ri2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
-            if (this.a.f()) {
-                this.a.k();
-                ni2.e();
-                return;
-            }
-            this.a.g("fmpArrived", z ? "1" : "0");
         }
     }
 
-    public void d() {
+    @Override // com.repackage.te2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.c();
-            if (this.a.e("fmpArrived")) {
-                this.a.k();
-                ni2.e();
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goForeground" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.te2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull kj2 kj2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, kj2Var) == null) {
+            kj2Var.c0();
+            d(kj2Var, command.what, null, false);
         }
     }
 }

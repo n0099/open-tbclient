@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k88;
-/* loaded from: classes3.dex */
+import com.repackage.ra8;
+/* loaded from: classes4.dex */
 public class ScanBoxView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,29 +114,29 @@ public class ScanBoxView extends View {
         this.j = paint;
         paint.setAntiAlias(true);
         this.l = Color.parseColor("#33FFFFFF");
-        this.m = k88.b(context, 20.0f);
-        this.n = k88.b(context, 3.0f);
-        this.s = k88.b(context, 1.0f);
+        this.m = ra8.b(context, 20.0f);
+        this.n = ra8.b(context, 3.0f);
+        this.s = ra8.b(context, 1.0f);
         this.t = -1;
-        this.r = k88.b(context, 90.0f);
-        this.o = k88.b(context, 200.0f);
-        this.q = k88.b(context, 140.0f);
+        this.r = ra8.b(context, 90.0f);
+        this.o = ra8.b(context, 200.0f);
+        this.q = ra8.b(context, 140.0f);
         this.u = 0;
         this.v = false;
         this.w = null;
         this.x = null;
-        this.y = k88.b(context, 1.0f);
+        this.y = ra8.b(context, 1.0f);
         this.z = -1;
         this.A = 1000;
         this.B = false;
         this.C = 0;
         this.D = false;
-        this.e = k88.b(context, 2.0f);
+        this.e = ra8.b(context, 2.0f);
         this.G = null;
-        this.H = k88.f(context, 14.0f);
+        this.H = ra8.f(context, 14.0f);
         this.I = -1;
         this.J = false;
-        this.K = k88.b(context, 20.0f);
+        this.K = ra8.b(context, 20.0f);
         this.L = false;
         this.M = Color.parseColor("#22000000");
         this.N = false;
@@ -145,7 +145,7 @@ public class ScanBoxView extends View {
         TextPaint textPaint = new TextPaint();
         this.k = textPaint;
         textPaint.setAntiAlias(true);
-        this.d0 = k88.b(context, 4.0f);
+        this.d0 = ra8.b(context, 4.0f);
         this.e0 = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
@@ -192,25 +192,25 @@ public class ScanBoxView extends View {
                 this.W = ((BitmapDrawable) drawable).getBitmap();
             }
             if (this.W == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080e65);
+                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ec6);
                 this.W = decodeResource;
-                this.W = k88.e(decodeResource, this.t);
+                this.W = ra8.e(decodeResource, this.t);
             }
-            Bitmap a = k88.a(this.W, 90);
+            Bitmap a = ra8.a(this.W, 90);
             this.a0 = a;
-            Bitmap a2 = k88.a(a, 90);
+            Bitmap a2 = ra8.a(a, 90);
             this.a0 = a2;
-            this.a0 = k88.a(a2, 90);
+            this.a0 = ra8.a(a2, 90);
             Drawable drawable2 = this.w;
             if (drawable2 != null) {
                 this.U = ((BitmapDrawable) drawable2).getBitmap();
             }
             if (this.U == null) {
-                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080e65);
+                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ec6);
                 this.U = decodeResource2;
-                this.U = k88.e(decodeResource2, this.t);
+                this.U = ra8.e(decodeResource2, this.t);
             }
-            this.V = k88.a(this.U, 90);
+            this.V = ra8.a(this.U, 90);
             this.b0 = (this.n * 1.0f) / 2.0f;
             this.k.setTextSize(this.H);
             this.k.setColor(this.I);
@@ -602,7 +602,7 @@ public class ScanBoxView extends View {
             int i = this.m;
             options.outWidth = i;
             options.outHeight = i;
-            this.a = BitmapHelper.getResBitmap(this.f0, R.drawable.obfuscated_res_0x7f080a1e, options);
+            this.a = BitmapHelper.getResBitmap(this.f0, R.drawable.obfuscated_res_0x7f080a43, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
             Bitmap bitmap = this.a;
@@ -686,7 +686,7 @@ public class ScanBoxView extends View {
     public void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040503, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f040505, R.attr.obfuscated_res_0x7f040506, R.attr.obfuscated_res_0x7f040507, R.attr.obfuscated_res_0x7f040508, R.attr.obfuscated_res_0x7f040509, R.attr.obfuscated_res_0x7f04050a, R.attr.obfuscated_res_0x7f04050b, R.attr.obfuscated_res_0x7f04050c, R.attr.obfuscated_res_0x7f04050d, R.attr.obfuscated_res_0x7f04050e, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f040511, R.attr.obfuscated_res_0x7f040512, R.attr.obfuscated_res_0x7f040513, R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f040515, R.attr.obfuscated_res_0x7f040516, R.attr.obfuscated_res_0x7f040517, R.attr.obfuscated_res_0x7f040518, R.attr.obfuscated_res_0x7f040519, R.attr.obfuscated_res_0x7f04051a, R.attr.obfuscated_res_0x7f04051b, R.attr.obfuscated_res_0x7f04051c, R.attr.obfuscated_res_0x7f04051d, R.attr.obfuscated_res_0x7f04051e, R.attr.obfuscated_res_0x7f04051f, R.attr.obfuscated_res_0x7f040520});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04057d, R.attr.obfuscated_res_0x7f04057e, R.attr.obfuscated_res_0x7f04057f, R.attr.obfuscated_res_0x7f040580, R.attr.obfuscated_res_0x7f040581, R.attr.obfuscated_res_0x7f040582, R.attr.obfuscated_res_0x7f040583, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f04058d, R.attr.obfuscated_res_0x7f04058e, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f040594, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f040596, R.attr.obfuscated_res_0x7f040597, R.attr.obfuscated_res_0x7f040598, R.attr.obfuscated_res_0x7f040599, R.attr.obfuscated_res_0x7f04059a});
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 j(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
@@ -900,13 +900,13 @@ public class ScanBoxView extends View {
             }
             if (!TextUtils.isEmpty(this.G)) {
                 if (this.L) {
-                    this.c0 = new StaticLayout(this.G, this.k, k88.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                    this.c0 = new StaticLayout(this.G, this.k, ra8.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 } else {
                     this.c0 = new StaticLayout(this.G, this.k, this.o - (this.d0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 }
             }
             if (this.B) {
-                int i2 = k88.d(getContext()).y;
+                int i2 = ra8.d(getContext()).y;
                 int i3 = this.C;
                 if (i3 == 0) {
                     this.r = (i2 - this.p) / 2;

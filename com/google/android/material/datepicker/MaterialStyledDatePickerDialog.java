@@ -26,7 +26,7 @@ import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
@@ -34,7 +34,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @StyleRes
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100125 = 2131755301;
+    public static final int obfuscated_res_0x7f100128 = 2131755304;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Drawable background;
@@ -149,14 +149,14 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
             }
         }
         Context context2 = getContext();
-        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f040171, MaterialStyledDatePickerDialog.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f04017e, MaterialStyledDatePickerDialog.class.getCanonicalName());
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100128);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));
         } else {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(0));
         }
-        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100128);
         this.backgroundInsets = dialogBackgroundInsets;
         this.background = MaterialDialogs.insetDrawable(materialShapeDrawable, dialogBackgroundInsets);
     }

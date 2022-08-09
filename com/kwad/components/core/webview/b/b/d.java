@@ -186,7 +186,7 @@ public class d extends e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
             getDialog().requestWindowFeature(1);
             if (this.Om == null) {
-                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d047e, viewGroup, false);
+                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0481, viewGroup, false);
             }
             return this.Om;
         }

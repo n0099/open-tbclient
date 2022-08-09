@@ -1,16 +1,31 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
 /* loaded from: classes7.dex */
-public class up9 extends wp9 implements yp9 {
+public final class up9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public HashMap<String, Boolean> a;
+    public HashMap<String, Bitmap> b;
+    public HashMap<String, String> c;
+    public HashMap<String, TextPaint> d;
+    public HashMap<String, StaticLayout> e;
+    public HashMap<String, Function2<Canvas, Integer, Boolean>> f;
+    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> g;
+    public boolean h;
 
     public up9() {
         Interceptable interceptable = $ic;
@@ -22,29 +37,70 @@ public class up9 extends wp9 implements yp9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
     }
 
-    @Override // com.repackage.xp9
-    public String a() {
+    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.yp9
-    public void c(String str) {
+    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.yp9
-    public void h(short s) {
+    public final HashMap<String, Boolean> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Bitmap> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, StaticLayout> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, TextPaint> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (HashMap) invokeV.objValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h = z;
         }
     }
 }

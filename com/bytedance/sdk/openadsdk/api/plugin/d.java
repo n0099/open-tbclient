@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.searchbox.common.security.DeviceInfoIPCServiceManager;
 import com.bytedance.sdk.openadsdk.AdConfig;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
@@ -76,7 +77,7 @@ public final class d {
             jSONObject3.put("vendor", Build.MANUFACTURER);
             jSONObject3.put("imei", a.get("imei"));
             jSONObject3.put("oaid", a.get("oaid"));
-            jSONObject2.put("device_info", jSONObject3);
+            jSONObject2.put(DeviceInfoIPCServiceManager.IPC_SERVICE_NAME, jSONObject3);
         } catch (JSONException unused) {
         }
         return jSONObject2;

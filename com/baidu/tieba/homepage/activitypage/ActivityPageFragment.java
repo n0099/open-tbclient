@@ -12,33 +12,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc5;
-import com.repackage.ge6;
-import com.repackage.iq4;
-import com.repackage.j07;
-import com.repackage.km4;
-import com.repackage.mo4;
-import com.repackage.n07;
-import com.repackage.on4;
-import com.repackage.ps6;
-import com.repackage.qa5;
-import com.repackage.qs6;
-import com.repackage.uz6;
-import com.repackage.yz6;
-import com.repackage.z85;
-import com.repackage.zz6;
+import com.repackage.bn4;
+import com.repackage.d27;
+import com.repackage.dp4;
+import com.repackage.ed5;
+import com.repackage.fo4;
+import com.repackage.h27;
+import com.repackage.iu6;
+import com.repackage.ju6;
+import com.repackage.o17;
+import com.repackage.ob5;
+import com.repackage.s17;
+import com.repackage.t17;
+import com.repackage.x95;
+import com.repackage.yf6;
+import com.repackage.zq4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
+public class ActivityPageFragment extends BaseTemplateFragment implements yf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int d;
     public String e;
     public String f;
-    public km4<on4> g;
+    public bn4<fo4> g;
 
     /* loaded from: classes3.dex */
-    public class a implements km4<on4> {
+    public class a implements bn4<fo4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageFragment a;
@@ -62,24 +62,24 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.bn4
         /* renamed from: a */
-        public void d(View view2, on4 on4Var, int i, long j) {
+        public void d(View view2, fo4 fo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, on4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                uz6.t(on4Var, this.a.e);
-                gc5.b("----曝光统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, fo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                o17.t(fo4Var, this.a.e);
+                ed5.b("----曝光统计----position = " + i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.bn4
         /* renamed from: b */
-        public void c(View view2, on4 on4Var, int i, long j) {
+        public void c(View view2, fo4 fo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, on4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                uz6.m(view2, on4Var, this.a.e);
-                gc5.b("----点击统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, fo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                o17.m(view2, fo4Var, this.a.e);
+                ed5.b("----点击统计----position = " + i);
             }
         }
     }
@@ -103,14 +103,14 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
         this.g = new a(this);
     }
 
-    @Override // com.repackage.ge6
+    @Override // com.repackage.yf6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.ge6
+    @Override // com.repackage.yf6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -118,7 +118,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,53 +132,53 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public z85 getPageStayDurationItem() {
+    public x95 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            z85 pageStayDurationItem = super.getPageStayDurationItem();
+            x95 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.s = this.e;
             }
             return pageStayDurationItem;
         }
-        return (z85) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ge6
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            w1();
-        }
+        return (x95) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.template.base.BaseTemplateFragment
-    public qa5 t1(ViewGroup viewGroup) {
+    public ob5 s1(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new zz6(getPageContext(), iq4.e));
-            arrayList.add(new yz6(getPageContext(), mo4.b));
-            arrayList.add(new j07(getPageContext()));
-            arrayList.add(new n07(getPageContext()));
-            qa5.c cVar = new qa5.c();
+            arrayList.add(new t17(getPageContext(), zq4.e));
+            arrayList.add(new s17(getPageContext(), dp4.b));
+            arrayList.add(new d27(getPageContext()));
+            arrayList.add(new h27(getPageContext()));
+            ob5.c cVar = new ob5.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new ps6(this.e, this.f));
-            cVar.l(new qs6());
+            cVar.k(new iu6(this.e, this.f));
+            cVar.l(new ju6());
             cVar.d(this.g);
             cVar.c(new ActivityPageHeaderView(getActivity(), this.e, this.f));
             cVar.b(arrayList);
             return cVar.e(viewGroup);
         }
-        return (qa5) invokeL.objValue;
+        return (ob5) invokeL.objValue;
     }
 
-    @Override // com.repackage.ge6
-    public void y() {
+    @Override // com.repackage.yf6
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            v1();
+        }
+    }
+
+    @Override // com.repackage.yf6
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }

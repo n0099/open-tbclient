@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pb1;
-import com.repackage.rb1;
+import com.repackage.gc1;
+import com.repackage.ic1;
 /* loaded from: classes2.dex */
 public class BlockRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static volatile BlockRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public rb1<IBlockRegister> mIBlockMonitorList;
+    public ic1<IBlockRegister> mIBlockMonitorList;
 
     public BlockRuntime() {
         Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class BlockRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rb1<IBlockRegister> rb1Var = this.mIBlockMonitorList;
-            if (rb1Var == null || rb1Var.getList() == null) {
+            ic1<IBlockRegister> ic1Var = this.mIBlockMonitorList;
+            if (ic1Var == null || ic1Var.getList() == null) {
                 return false;
             }
             for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
@@ -75,16 +75,16 @@ public class BlockRuntime {
         return invokeV.booleanValue;
     }
 
-    public rb1<IBlockRegister> getIBlockUploadList() {
+    public ic1<IBlockRegister> getIBlockUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIBlockMonitorList : (rb1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIBlockMonitorList : (ic1) invokeV.objValue;
     }
 
     public void initmIBlockMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pb1 b = pb1.b();
+            gc1 b = gc1.b();
             this.mIBlockMonitorList = b;
             b.a(new IBlockRegister_BlockRuntime_ListProvider());
         }

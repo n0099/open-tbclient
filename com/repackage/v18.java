@@ -1,22 +1,25 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class v18 extends BaseCardInfo implements nn {
+public class v18 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m18> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,40 +34,61 @@ public class v18 extends BaseCardInfo implements nn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new SparseIntArray();
     }
 
-    public v18() {
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int b = b(R.dimen.obfuscated_res_0x7f070207);
+        if (z2 && z3) {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f07025f));
+        } else if (z) {
+            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070302), 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f070302), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+        } else {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f0701b2));
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) "icon");
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
+        drawable.setBounds(0, 0, b, b);
+        yf5 yf5Var = new yf5(drawable);
+        yf5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
+        spannableStringBuilder.setSpan(yf5Var, 0, 4, 33);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        textView.setVisibility(0);
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 == -1) {
+                int f = qi.f(TbadkCoreApplication.getInst().getContext(), i);
+                a.put(i, f);
+                return f;
             }
+            return i2;
         }
+        return invokeI.intValue;
     }
 
-    public List<m18> c() {
-        InterceptResult invokeV;
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void d(List<m18> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, z, z2, z3);
     }
 }

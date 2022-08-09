@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.repackage.s40;
-import com.repackage.y30;
+import com.repackage.a40;
+import com.repackage.u40;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -535,9 +535,9 @@ public class b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
-            long j2 = s40.j(byteBuffer);
+            long j2 = u40.j(byteBuffer);
             if (j2 < j) {
-                if (s40.k(byteBuffer) + j2 == j) {
+                if (u40.k(byteBuffer) + j2 == j) {
                     return j2;
                 }
                 throw new f("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -590,7 +590,7 @@ public class b {
             Pair<ByteBuffer, Long> q = q(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) q.first;
             long longValue = ((Long) q.second).longValue();
-            if (s40.g(randomAccessFile, longValue)) {
+            if (u40.g(randomAccessFile, longValue)) {
                 throw new f("ZIP64 APK not supported");
             }
             long c2 = c(byteBuffer, longValue);
@@ -723,7 +723,7 @@ public class b {
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            s40.f(duplicate, j);
+            u40.f(duplicate, j);
             C0100b c0100b3 = new C0100b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
@@ -1013,7 +1013,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> b = s40.b(randomAccessFile);
+            Pair<ByteBuffer, Long> b = u40.b(randomAccessFile);
             if (b != null) {
                 return b;
             }
@@ -1061,7 +1061,7 @@ public class b {
             try {
                 return v(randomAccessFile);
             } finally {
-                y30.c(randomAccessFile);
+                a40.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;

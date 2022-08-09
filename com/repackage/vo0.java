@@ -1,42 +1,65 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class vo0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Request.Builder a(@NonNull uo0 uo0Var) throws RequestError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uo0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(uo0Var.a);
-                Object obj = uo0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Headers.a aVar = uo0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.addHeader(c.f(i), c.h(i));
-                    }
-                }
-                String str = uo0Var.b;
-                builder.method(str, ro0.g(str, uo0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + uo0Var.a, th);
+            }
+            new ArrayList();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755224582, "Lcom/repackage/vo0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755224582, "Lcom/repackage/vo0;");
+                return;
             }
         }
-        return (Request.Builder) invokeL.objValue;
+        new ArrayList(2);
+        new a();
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = a;
+            return i == 2 || i == 3;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.og;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +53,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
                 return null;
             }
             ShareForumMsgData shareForumMsgData = new ShareForumMsgData();
-            shareForumMsgData.forum_id = ng.g(forumData.getId(), 0L);
+            shareForumMsgData.forum_id = og.g(forumData.getId(), 0L);
             shareForumMsgData.forum_name = forumData.getName();
             shareForumMsgData.avatar = forumData.getImage_url();
             shareForumMsgData.thread_count = forumData.getThread_num();
@@ -76,7 +76,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
             shareForumMsgData.forum_id = forumInfo.forumId.longValue();
             shareForumMsgData.forum_name = forumInfo.forumName;
             shareForumMsgData.avatar = forumInfo.avatar;
-            shareForumMsgData.thread_count = ng.e(forumInfo.threadNum, 0);
+            shareForumMsgData.thread_count = og.e(forumInfo.threadNum, 0);
             shareForumMsgData.member_count = forumInfo.memberCount.intValue();
             shareForumMsgData.slogan = forumInfo.slogan;
             return shareForumMsgData;

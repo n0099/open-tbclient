@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import com.repackage.ur4;
 /* loaded from: classes3.dex */
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public TextView a;
     public ImageView b;
     public boolean c;
-    public dr4.f d;
+    public ur4.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -50,9 +50,9 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a2, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915ec);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905e2);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08cd, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916af);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905fe);
             b();
             this.b.setOnClickListener(this);
         }
@@ -74,9 +74,9 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
             return;
         }
         if (this.c) {
-            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805dd, R.color.CAM_X0304, null);
+            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805e2, R.color.CAM_X0304, null);
         } else {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805dc, null);
+            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805e1, null);
         }
         imageView.setImageDrawable(maskDrawable);
     }
@@ -87,14 +87,14 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
             this.c = !this.c;
             c();
-            dr4.f fVar = this.d;
+            ur4.f fVar = this.d;
             if (fVar != null) {
                 fVar.a();
             }
         }
     }
 
-    public void setOnNoTipAgainCheckListener(dr4.f fVar) {
+    public void setOnNoTipAgainCheckListener(ur4.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;

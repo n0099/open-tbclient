@@ -1,23 +1,39 @@
 package com.repackage;
 
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ev2 {
-    @UiThread
-    void a(String str);
+public class ev2 implements sf3<HybridUbcFlow> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @UiThread
-    void b();
+    public ev2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(@NonNull Runnable runnable, @NonNull String str);
-
-    @UiThread
-    void d(boolean z);
-
-    @AnyThread
-    void e(String str);
-
-    String getName();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.sf3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("967");
+            hybridUbcFlow.H("component_reporter", new bu2());
+            hybridUbcFlow.H("component_reporter", new xt2());
+        }
+    }
 }

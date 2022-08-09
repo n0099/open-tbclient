@@ -4,7 +4,6 @@ import android.util.Log;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1082,7 +1081,7 @@ public final class MatroskaExtractor implements Extractor {
         SUBRIP_PREFIX = new byte[]{49, 10, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 48, 48, 48, 32, 45, 45, 62, 32, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 48, 48, 48, 10};
         SUBRIP_TIMECODE_EMPTY = new byte[]{32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
         SSA_DIALOGUE_FORMAT = Util.getUtf8Bytes("Format: Start, End, ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect, Text");
-        SSA_PREFIX = new byte[]{68, 105, 97, 108, 111, 103, ContentUtil.GZIP_HEAD_1, Constants.SHORT_PING_CMD_TYPE, 58, 32, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY};
+        SSA_PREFIX = new byte[]{68, 105, 97, 108, 111, 103, 117, Constants.SHORT_PING_CMD_TYPE, 58, 32, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY};
         SSA_TIMECODE_EMPTY = new byte[]{32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
         WAVE_SUBFORMAT_PCM = new UUID(72057594037932032L, -9223371306706625679L);
     }

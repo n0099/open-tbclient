@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
-import com.repackage.oi;
-import com.repackage.vr4;
-import com.repackage.yl6;
+import com.repackage.ms4;
+import com.repackage.pi;
+import com.repackage.rn6;
 /* loaded from: classes3.dex */
 public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !oi.isEmpty(this.a.d) && (h9.a(this.a.getContext()) instanceof TbPageContext)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !pi.isEmpty(this.a.d) && (h9.a(this.a.getContext()) instanceof TbPageContext)) {
                 UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
@@ -176,12 +176,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09cc);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e5);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e4, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091539);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092361);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0907b5);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e7, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915f5);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092481);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0907e3);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vr4.d(this.a).v(R.color.CAM_X0108);
-            if (oi.isEmpty(this.d)) {
-                vr4 d = vr4.d(this.b);
+            ms4.d(this.a).v(R.color.CAM_X0108);
+            if (pi.isEmpty(this.d)) {
+                ms4 d = ms4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                vr4 d2 = vr4.d(this.b);
+                ms4 d2 = ms4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(yl6 yl6Var) {
+    public void setData(rn6 rn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl6Var) == null) {
-            this.a.setText(yl6Var.a);
-            this.b.setText(yl6Var.b);
-            this.d = yl6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rn6Var) == null) {
+            this.a.setText(rn6Var.a);
+            this.b.setText(rn6Var.b);
+            this.d = rn6Var.c;
         }
     }
 

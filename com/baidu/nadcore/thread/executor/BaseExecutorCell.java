@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hz0;
+import com.repackage.gz0;
+import com.repackage.iz0;
 import com.repackage.jz0;
 import com.repackage.kz0;
-import com.repackage.lz0;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes2.dex */
@@ -198,15 +198,15 @@ public abstract class BaseExecutorCell {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return new kz0(i);
+                            return new jz0(i);
                         }
-                        return new lz0(i);
+                        return new kz0(i);
                     }
-                    return new jz0(i);
+                    return new iz0(i);
                 }
-                return new kz0(i);
+                return new jz0(i);
             }
-            return new hz0(i);
+            return new gz0(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }

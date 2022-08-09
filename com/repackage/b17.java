@@ -1,61 +1,59 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z07 a;
-    public ArrayList<a17> b;
 
-    public b17() {
+    public static void a(String str, YyExtData yyExtData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, yyExtData) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            c(statisticItem, yyExtData);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static b17 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void b(String str, YyExtData yyExtData, int i, long j, int i2, long j2, long j3, int i3, String str2, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, yyExtData, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), str2, Integer.valueOf(i4)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", i);
+            statisticItem.param("tid", j);
+            statisticItem.param("obj_type", i2);
+            statisticItem.param(TiebaStatic.Params.STAR_ID, j2);
+            statisticItem.param("liveid", j3);
+            if (yyExtData != null) {
+                c(statisticItem, yyExtData);
+                i3 = yyExtData.isYyGame ? 3 : 2;
+                str2 = TiebaStatic.YYValues.YY_LIVE;
             }
-            b17 b17Var = new b17();
-            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
-            b17Var.a = z07.a(optJSONObject);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                b17Var.b = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    try {
-                        a17 a = a17.a(optJSONArray.getJSONObject(i));
-                        if (a != null) {
-                            b17Var.b.add(a);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return b17Var;
+            statisticItem.param("obj_param1", i3);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            statisticItem.param("obj_locate", i4);
+            TiebaStatic.log(statisticItem);
         }
-        return (b17) invokeL.objValue;
+    }
+
+    public static void c(StatisticItem statisticItem, YyExtData yyExtData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, statisticItem, yyExtData) == null) || yyExtData == null) {
+            return;
+        }
+        statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+        statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+        statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+        statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
+        statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
+        statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+        statisticItem.param("template_id", yyExtData.mTemplateId);
     }
 }

@@ -1,27 +1,46 @@
 package com.repackage;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class gn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fn5 a;
+    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized fn5 a() {
-        InterceptResult invokeV;
-        fn5 fn5Var;
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             synchronized (gn5.class) {
-                if (a == null) {
-                    a = new fn5();
-                }
-                fn5Var = a;
+                ri.b(a);
             }
-            return fn5Var;
         }
-        return (fn5) invokeV.objValue;
+    }
+
+    public static synchronized SQLiteDatabase b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (gn5.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                if (a != null && a.isOpen()) {
+                    return a;
+                }
+                a = new fn5(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                return a;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

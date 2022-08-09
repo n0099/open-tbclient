@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.constants;
 
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
     public static final String[] a = {"_id", "url", "savePath", "tempPath", "name", "chunkCount", "status", "curBytes", "totalBytes", "eTag", "onlyWifi", TTDownloadField.TT_FORCE, "retryCount", "extra", "mimeType", "title", "notificationEnable", "notificationVisibility", "isFirstDownload", "isFirstSuccess", "needHttpsToHttpRetry", "downloadTime", "packageName", PackageTable.MD5, "retryDelay", "curRetryTime", "retryDelayStatus", "defaultHttpServiceBackUp", "chunkRunnableReuse", "retryDelayTimeArray", "chunkDowngradeRetry", "backUpUrlsStr", "backUpUrlRetryCount", "realDownloadTime", "retryScheduleMinutes", "independentProcess", "auxiliaryJsonobjectString", "iconUrl", "appVersionCode", "taskId"};
     public static final String[] b = {"_id"};

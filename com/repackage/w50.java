@@ -1,31 +1,99 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.CallFactory;
+import com.baidu.searchbox.network.outback.core.CallFactoryParams;
+import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x50;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.repackage.l50;
 /* loaded from: classes7.dex */
-public class w50 {
+public abstract class w50 implements CallFactory.CallFactoryProducer {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w50 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Context c;
-    public boolean d;
+    public l50 a;
 
-    public w50() {
+    /* loaded from: classes7.dex */
+    public class a implements CallFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l50 a;
+        public final /* synthetic */ w50 b;
+
+        public a(w50 w50Var, l50 l50Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w50Var, l50Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = w50Var;
+            this.a = l50Var;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.core.CallFactory
+        public Call newCall(Request request, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, request, z)) == null) {
+                if (this.b.isAvailable() || !z) {
+                    return new k50(request, this.a, false);
+                }
+                return null;
+            }
+            return (Call) invokeLZ.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class b<T extends b, R extends w50> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public l50.a a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new l50.a();
+        }
+
+        public final R a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b(this.a.b()) : (R) invokeV.objValue;
+        }
+
+        public abstract R b(l50 l50Var);
+    }
+
+    public w50(l50 l50Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l50Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,104 +103,25 @@ public class w50 {
                 return;
             }
         }
-        this.b = "";
+        this.a = l50Var;
     }
 
-    public static w50 d() {
-        InterceptResult invokeV;
+    public final void a(l50.a aVar, CallFactoryParams callFactoryParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (w50.class) {
-                    if (e == null) {
-                        e = new w50();
-                    }
-                }
-            }
-            return e;
-        }
-        return (w50) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void e(Context context, String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b = str;
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            this.a = i;
-            this.d = z;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, callFactoryParams) == null) {
+            aVar.c(new g50(this.a.p().c()));
         }
     }
 
-    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        byte[] a;
+    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
+    public CallFactory produceCallFactory(CallFactoryParams callFactoryParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (TextUtils.isEmpty(this.b) || this.c == null || jSONArray == null || jSONArray.length() == 0) {
-                f60.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
-                return;
-            }
-            Context context = this.c;
-            if (jSONArray == null || jSONArray.length() == 0) {
-                f60.a("UBCUploader", "upload json is null");
-                return;
-            }
-            f60.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
-            if (z2) {
-                f60.a("UBCUploader", "save ubcdata");
-                return;
-            }
-            JSONObject a2 = new c60(z, jSONArray).a();
-            if (a2 == null) {
-                f60.a("UBCUploader", "uploadJsonData is null");
-                return;
-            }
-            String jSONObject = a2.toString();
-            if (TextUtils.isEmpty(jSONObject)) {
-                a = null;
-            } else {
-                a = e60.a(jSONObject.getBytes());
-                if (a != null && a.length > 2) {
-                    a[0] = ContentUtil.GZIP_HEAD_1;
-                    a[1] = ContentUtil.GZIP_HEAD_2;
-                }
-            }
-            byte[] bArr = a;
-            if (bArr == null || bArr.length < 3) {
-                f60.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
-                return;
-            }
-            f60.a("UBCUploader", "gzip success, length:" + bArr.length);
-            f60.a("UBCUploader", "start execute http upload data");
-            a60 a60Var = new a60(context);
-            x50 a3 = x50.a(context);
-            if (context == null || TextUtils.isEmpty(a60Var.a())) {
-                a60Var.b(x50.d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
-            } else if (z3) {
-                b60.a().b(new x50.a(a3, a60Var, bArr, a60Var));
-            } else {
-                a3.e(a60Var.b(), a60Var.a(), bArr, a60Var.d(), a60Var.c(), a60Var);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callFactoryParams)) == null) {
+            l50.a u = this.a.u();
+            a(u, callFactoryParams);
+            return new a(this, u.b());
         }
+        return (CallFactory) invokeL.objValue;
     }
 }

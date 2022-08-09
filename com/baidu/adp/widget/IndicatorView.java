@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cdo;
+import com.repackage.eo;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
@@ -30,7 +30,7 @@ public class IndicatorView extends View {
     public float d;
     public Drawable e;
     public Drawable f;
-    public final Cdo g;
+    public final eo g;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -39,7 +39,7 @@ public class IndicatorView extends View {
     }
 
     /* loaded from: classes.dex */
-    public class b implements Cdo {
+    public class b implements eo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -107,7 +107,7 @@ public class IndicatorView extends View {
             this.a = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public boolean a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -131,7 +131,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -152,7 +152,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
@@ -189,7 +189,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.repackage.Cdo
+        @Override // com.repackage.eo
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -444,7 +444,7 @@ public class IndicatorView extends View {
             }
         }
         this.g = new b(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04009e, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0401fd, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f0405b7});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0401ae, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04063c});
         this.a = obtainStyledAttributes.getDimensionPixelSize(4, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.b = obtainStyledAttributes.getInteger(1, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(2);

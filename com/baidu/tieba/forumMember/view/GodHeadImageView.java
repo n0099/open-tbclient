@@ -125,7 +125,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f040597, R.attr.obfuscated_res_0x7f0405a2});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04029c, R.attr.obfuscated_res_0x7f04029d, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f040625});
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);
@@ -171,7 +171,7 @@ public class GodHeadImageView extends FrameLayout {
                 SkinManager.setImageResource(this.b, R.drawable.pic_shen_avatar_square);
             } else {
                 this.a.setIsRound(true);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080329);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08032b);
             }
         }
     }
@@ -179,7 +179,7 @@ public class GodHeadImageView extends FrameLayout {
     public void e(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.a.J(str, i2, z);
+            this.a.K(str, i2, z);
         }
     }
 

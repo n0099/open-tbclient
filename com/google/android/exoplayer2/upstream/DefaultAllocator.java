@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DefaultAllocator implements Allocator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AVAILABLE_EXTRA_CAPACITY = 100;

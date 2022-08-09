@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a98;
-import com.repackage.c98;
-import com.repackage.e98;
-import com.repackage.g98;
-import com.repackage.ik5;
-import com.repackage.s98;
-import com.repackage.u98;
-import com.repackage.wi5;
+import com.repackage.am5;
+import com.repackage.bc8;
+import com.repackage.hb8;
+import com.repackage.jb8;
+import com.repackage.jk5;
+import com.repackage.lb8;
+import com.repackage.nb8;
+import com.repackage.zb8;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecAppStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements g98.a {
+    /* loaded from: classes4.dex */
+    public static class a implements nb8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.repackage.g98.a
+        @Override // com.repackage.nb8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,19 +142,19 @@ public class RecAppStatic {
                 return;
             }
         }
-        s98.a.set(new u98());
+        zb8.a.set(new bc8());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        ik5.l().e(new a());
-        wi5.b().c(1, new e98());
-        wi5.b().c(2, new c98());
+        am5.l().e(new a());
+        jk5.b().c(1, new lb8());
+        jk5.b().c(2, new jb8());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        a98.t().b();
-        a98.t().f();
+        hb8.t().b();
+        hb8.t().f();
     }
 
     public RecAppStatic() {

@@ -1,50 +1,66 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ga4;
+import java.util.Map;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class km3 {
+public class km3 implements hb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public km3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (!SwanAppInitHelper.entranceOK()) {
-                Log.w("SwanAppLaunchHelper", "entrance not open");
-                a03.g(AppRuntime.getAppContext(), "not support for this android version").G();
-            } else if (TextUtils.isEmpty(str)) {
-                a03.g(AppRuntime.getAppContext(), "url is empty").G();
-            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-                b(str);
-            } else if (str.startsWith("bdswan")) {
-                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
-            } else if (!str.startsWith("https") && !str.startsWith("http")) {
-                a03.g(AppRuntime.getAppContext(), "not support this uri").G();
-            } else {
-                c(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(String str) {
+    @Override // com.repackage.ga4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ga4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(i84.b())) {
+                aa4.b(str, map, map2, jSONObject, new bk3(aVar));
+            } else {
+                aa4.b(str, map, map2, jSONObject, new ha4(aVar));
+            }
         }
     }
 
-    public static void c(String str) {
+    @Override // com.repackage.hb4
+    public ta4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            jm3.e(str);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? ra4.a(str, i) : (ta4) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.ga4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, ga4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(i84.b())) {
+                aa4.a(str, map, map2, new bk3(aVar));
+            } else {
+                aa4.a(str, map, map2, new ha4(aVar));
+            }
         }
     }
 }

@@ -1,93 +1,61 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.JavascriptInterface;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.games.view.webview.GameWebViewManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+@UiThread
 /* loaded from: classes6.dex */
-public class f44 extends EventTargetImpl {
+public class f44 implements g44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm1 a;
-    public volatile String b;
-    public e c;
+    public Context a;
+    public n44 b;
+    public b c;
+    public Handler d;
+    public ViewGroup e;
+    public int f;
+    public boolean g;
+    public ObjectAnimator h;
+    public i44 i;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ f44 b;
-
-        public a(f44 f44Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f44Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.G();
-                }
-                if (!this.b.a.d()) {
-                    this.b.a.J();
-                }
-                this.b.a.loadUrl(this.a);
-                this.b.E("open", new g44(this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f44 a;
 
-        public b(f44 f44Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(f44 f44Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var};
+                Object[] objArr = {f44Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,345 +64,206 @@ public class f44 extends EventTargetImpl {
             this.a = f44Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.d()) {
-                this.a.a.removeFromParent();
-                this.a.a.destroy();
-                this.a.a = null;
-                f44 f44Var = this.a;
-                f44Var.E("close", new g44(f44Var.b));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                int f = this.a.f();
+                if (f > 0 && this.a.g) {
+                    this.a.d.sendEmptyMessageDelayed(1, f);
+                }
+                this.a.k();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ f44 b;
+    public interface b {
+        void b();
 
-        public c(f44 f44Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f44Var;
-            this.a = str;
-        }
+        void o();
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
-                return;
-            }
-            if (TextUtils.equals("1", this.a)) {
-                this.b.a.h(true);
-            } else {
-                this.b.a.h(false);
-            }
-        }
+        void u(int i);
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f44 a;
-
-        public d(f44 f44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f44Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.close();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public long d;
-
-        public /* synthetic */ e(String str, String str2, long j, a aVar) {
-            this(str, str2, j);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "H5GameInfo{mGameId='" + this.a + "', mGameName='" + this.b + "', mStartLoadingTimestamp=" + this.c + ", mFinishLoadingTimestamp=" + this.d + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public e(String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = j;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757813, "Lcom/repackage/f44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755757813, "Lcom/repackage/f44;");
-                return;
-            }
-        }
-        d = sg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f44(s72 s72Var) {
-        super(s72Var);
+    public f44(@NonNull Context context, @NonNull i44 i44Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s72Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, i44Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.i = i44Var;
+        j(i());
+        h();
+        b();
     }
 
-    public static f44 F() {
+    @NonNull
+    public static f44 c(int i, @NonNull Context context, @NonNull i44 i44Var) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, i44Var)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return new k44(context, i44Var);
+                }
+                return new m44(context, i44Var);
+            }
+            return new k44(context, i44Var);
+        }
+        return (f44) invokeILL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.setVisibility(8);
+            s34.a(this.e, g());
+        }
+    }
+
+    public final ObjectAnimator d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            q72 n = hw3.m().n();
-            if (n == null) {
-                return null;
-            }
-            EventTarget o = n.o();
-            if (o instanceof ou3) {
-                return ((ou3) o).getWebViewManager();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
+            ofPropertyValuesHolder.setDuration(600L);
+            return ofPropertyValuesHolder;
         }
-        return (f44) invokeV.objValue;
+        return (ObjectAnimator) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final h44 D(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c2;
+    @Override // com.repackage.e44
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            switch (str2.hashCode()) {
-                case 1507424:
-                    if (str2.equals("1001")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1507425:
-                    if (str2.equals("1002")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return null;
-                }
-                return new h44(str, str2, "open:host not in white list");
-            }
-            return new h44(str, str2, "open:url is invalid");
-        }
-        return (h44) invokeLL.objValue;
-    }
-
-    public final void E(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameWebViewApi", "dispatchEvent:" + str + "," + obj);
-            }
-            dispatchEvent(new JSEvent(str, obj));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = false;
+            this.d.removeCallbacksAndMessages(null);
+            s34.d(this.e);
         }
     }
 
-    public final void G() {
+    @Override // com.repackage.g44
+    public void e(n44 n44Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
-            GameWebViewManager gameWebViewManager = new GameWebViewManager(pj2.c());
-            this.a = gameWebViewManager;
-            gameWebViewManager.j(new d(this));
+        if (interceptable == null || interceptable.invokeL(1048579, this, n44Var) == null) {
+            this.b = n44Var;
         }
     }
 
-    public final boolean H(String str) {
-        InterceptResult invokeL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            String lowerCase = str.toLowerCase(Locale.US);
-            return lowerCase.startsWith("http://") || lowerCase.startsWith("https://");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 5000;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void I() {
+    public final fr2 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.c == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
-                    return;
-                }
-                return;
-            }
-            i03 b0 = i03.b0();
-            if (b0 == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
-                    return;
-                }
-                return;
-            }
-            this.c.d = System.currentTimeMillis();
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.c);
-            }
-            i44.a(b0, this.c);
-            this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            fr2 fr2Var = new fr2();
+            fr2Var.l(o34.a(this.i.left) - this.f);
+            fr2Var.m(o34.a(this.i.top) - this.f);
+            fr2Var.n(-2);
+            fr2Var.j(-2);
+            return fr2Var;
+        }
+        return (fr2) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = d();
+            this.d = new a(this, Looper.getMainLooper());
         }
     }
 
-    @JavascriptInterface
-    public void close() {
+    @Override // com.repackage.e44
+    public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ce3.e0(new b(this));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g = false;
+            this.d.removeMessages(1);
+            this.e.setVisibility(8);
         }
     }
 
-    @JavascriptInterface
-    public void onGameLoadingStart(JsObject jsObject) {
-        ps1 F;
+    @SuppressLint({"InflateParams"})
+    public View i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) || (F = ps1.F(jsObject)) == null) {
-            return;
-        }
-        String B = F.B("gameId");
-        String B2 = F.B("gameName");
-        if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(B2)) {
-            this.c = new e(B, B2, System.currentTimeMillis(), null);
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.c);
-            }
-            t24.call(F, true, null);
-            return;
-        }
-        t24.call(F, false, null);
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0822, (ViewGroup) null) : (View) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public void open(JsObject jsObject) {
+    public final void j(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-            ps1 F = ps1.F(jsObject);
-            if (F == null) {
-                E("error", D(null, "1001"));
-                return;
-            }
-            String C = F.C("url", null);
-            if (!H(C)) {
-                E("error", D(C, "1001"));
-            } else if (!z03.h(C)) {
-                E("error", D(C, "1002"));
-            } else {
-                if (d) {
-                    Log.i("GameWebViewApi", "open:" + C);
-                }
-                this.b = C;
-                ce3.e0(new a(this, C));
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070712);
+            this.e = new FrameLayout(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(o34.a(this.i.width), o34.a(this.i.height));
+            int i = this.f;
+            layoutParams.setMargins(i, i, i, i);
+            this.e.setBackgroundColor(0);
+            this.e.addView(view2, layoutParams);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h.start();
+        }
+    }
+
+    @Override // com.repackage.g44
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
+            this.d.removeMessages(1);
+            if (z) {
+                this.d.sendEmptyMessage(1);
             }
         }
     }
 
-    @JavascriptInterface
-    public void setCloseViewVisibility(JsObject jsObject) {
+    @Override // com.repackage.e44
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-            ps1 F = ps1.F(jsObject);
-            if (F == null) {
-                E("error", D(null, "1001"));
-            } else {
-                ce3.e0(new c(this, F.C("setCloseViewVisibility", null)));
-            }
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.g = true;
+            this.e.setVisibility(0);
+            this.d.removeMessages(1);
+            this.d.sendEmptyMessage(1);
+        }
+    }
+
+    @Override // com.repackage.g44
+    public void t(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    @Override // com.repackage.g44
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            s34.f(this.e, g());
         }
     }
 }

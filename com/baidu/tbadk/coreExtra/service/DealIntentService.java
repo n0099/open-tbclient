@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.tt4;
+import com.repackage.mu4;
+import com.repackage.pi;
 import com.repackage.z8;
 /* loaded from: classes3.dex */
 public class DealIntentService extends BdBaseService {
@@ -161,7 +161,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!oi.isEmpty(stringExtra2) && j == 0) {
+                if (!pi.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -187,6 +187,8 @@ public class DealIntentService extends BdBaseService {
                     i5 = 6;
                 } else if ((!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotInteraction")) || (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw="))) {
                     i5 = 7;
+                } else if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("type=question_answer_invite")) {
+                    i5 = 15;
                 }
                 param.param("obj_source", i5);
                 TiebaStatic.log(param);
@@ -199,7 +201,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (z8.g().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (z8.g().b().getClass().getName().equalsIgnoreCase(tt4.c())) {
+                        if (z8.g().b().getClass().getName().equalsIgnoreCase(mu4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);

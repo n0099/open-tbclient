@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DpStatConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;

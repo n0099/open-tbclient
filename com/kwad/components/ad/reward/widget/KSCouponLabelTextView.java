@@ -136,8 +136,8 @@ public class KSCouponLabelTextView extends TextView implements e {
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04036d, R.attr.obfuscated_res_0x7f04037c, R.attr.obfuscated_res_0x7f040385, R.attr.obfuscated_res_0x7f040386}, i, 0);
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403aa, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403c2, R.attr.obfuscated_res_0x7f0403c3}, i, 0);
+            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06076e);
             this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
             this.wu = obtainStyledAttributes.getDimension(3, 2.0f);
             this.strokeColor = obtainStyledAttributes.getColor(2, color);
@@ -253,7 +253,7 @@ public class KSCouponLabelTextView extends TextView implements e {
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f06075f);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f06076e);
             this.strokeColor = color;
             setTextColor(color);
             jd();

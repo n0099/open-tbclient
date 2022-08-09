@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,22 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public int[] a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,67 +31,125 @@ public class qx1 {
                 return;
             }
         }
-        i = sg1.a;
+        b = jh1.a;
+        c = 5;
     }
 
-    public qx1() {
+    public qx1(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        c(i, false);
     }
 
-    @NonNull
-    public static qx1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            qx1 qx1Var = new qx1();
-            try {
-                qx1Var.c = jSONObject.getJSONArray("host");
-                qx1Var.b = jSONObject.getString("appKey");
-                qx1Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                qx1Var.d = jSONObject.getString("serverPort");
-                qx1Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                qx1Var.g = jSONObject.optString("notInHistory", "1");
-                qx1Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
-            }
-            return qx1Var;
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public String a(int i2) {
+    public final int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            return jSONArray == null ? "" : jSONArray.optString(i2);
-        }
-        return (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i >> c : invokeI.intValue;
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                zx1.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return false;
             }
-            return "http://" + str + ":" + this.d + "/app.zip";
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i <= length) {
+                return ((1 << i) & iArr[a(i)]) != 0;
+            }
+            String str = "diff > " + length + ": " + i;
+            zx1.c("Component-DiffBitMap", str);
+            if (b) {
+                throw new IndexOutOfBoundsException(str);
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeI.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                zx1.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new NegativeArraySizeException(str);
+                }
+                i = 500;
+            }
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                zx1.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return;
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                zx1.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new IndexOutOfBoundsException(str);
+                }
+                return;
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
+        }
+    }
+
+    public qx1(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        c(i, z);
     }
 }

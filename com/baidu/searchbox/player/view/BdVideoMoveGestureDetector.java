@@ -28,7 +28,7 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
     public final OnMoveGestureListener listener;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1036view;
+    public final View f1039view;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$OnMoveGestureListener;", "Lkotlin/Any;", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;", "detector", "", "onMoveBegin", "(Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;)V", "onMoveEnd", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -91,7 +91,7 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1036view = view2;
+        this.f1039view = view2;
         this.listener = onMoveGestureListener;
     }
 
@@ -117,7 +117,7 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
     public final View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1036view : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1039view : (View) invokeV.objValue;
     }
 
     public final boolean isMoveDetected() {
@@ -174,13 +174,13 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
                     float f7 = f5 - this.lastY;
                     BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "BdVideoMoveGestureDetector->dx=" + f6 + ", y=" + f7);
                     if (!this.isMoveDetected) {
-                        boolean z = Math.abs(event.getX(1) - event.getX(0)) > ((float) BdGestureHelper.touchSlop(this.f1036view)) || Math.abs(event.getY(1) - event.getY(0)) > ((float) BdGestureHelper.touchSlop(this.f1036view));
+                        boolean z = Math.abs(event.getX(1) - event.getX(0)) > ((float) BdGestureHelper.touchSlop(this.f1039view)) || Math.abs(event.getY(1) - event.getY(0)) > ((float) BdGestureHelper.touchSlop(this.f1039view));
                         this.isMoveDetected = z;
                         if (z) {
                             return false;
                         }
                     }
-                    boolean actionMoveEnabled = BdGestureHelper.actionMoveEnabled(this.f1036view, f6, f7);
+                    boolean actionMoveEnabled = BdGestureHelper.actionMoveEnabled(this.f1039view, f6, f7);
                     this.isMoveDetected = actionMoveEnabled;
                     if (actionMoveEnabled && f6 != 0.0f && f7 != 0.0f) {
                         OnMoveGestureListener onMoveGestureListener = this.listener;
@@ -212,20 +212,20 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
     public void setTranslate(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            if (this.f1036view.getScaleX() <= 1) {
-                View view2 = this.f1036view;
+            if (this.f1039view.getScaleX() <= 1) {
+                View view2 = this.f1039view;
                 view2.setTranslationX(view2.getTranslationX() + f);
-                View view3 = this.f1036view;
+                View view3 = this.f1039view;
                 view3.setTranslationY(view3.getTranslationY() + f2);
                 return;
             }
-            PointF scaleMovePointF$default = BdGestureHelper.getScaleMovePointF$default(this.f1036view, f, f2, false, 4, null);
+            PointF scaleMovePointF$default = BdGestureHelper.getScaleMovePointF$default(this.f1039view, f, f2, false, 4, null);
             if (scaleMovePointF$default.x != 0.0f) {
-                View view4 = this.f1036view;
+                View view4 = this.f1039view;
                 view4.setTranslationX(view4.getTranslationX() + scaleMovePointF$default.x);
             }
             if (scaleMovePointF$default.y != 0.0f) {
-                View view5 = this.f1036view;
+                View view5 = this.f1039view;
                 view5.setTranslationY(view5.getTranslationY() + scaleMovePointF$default.y);
             }
         }

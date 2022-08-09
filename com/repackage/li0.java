@@ -1,55 +1,45 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class li0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface li0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "uad");
+    public static final li0 b = new a();
 
-    public static gy0 a(@NonNull si0 si0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, si0Var)) == null) {
-            gy0 gy0Var = new gy0();
-            gy0Var.h(si0Var.d());
-            gy0Var.n(si0Var.b);
-            gy0Var.m(si0Var.c.status);
-            gy0Var.j(si0Var.d);
-            gy0Var.o(si0Var.g);
-            File file = si0Var.h;
-            if (file != null) {
-                gy0Var.f(file.getAbsolutePath());
-            } else {
-                gy0Var.f("");
+    /* loaded from: classes6.dex */
+    public static class a implements li0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            gy0Var.k((int) (si0Var.i * 1000.0f));
-            gy0Var.p((int) (si0Var.j * 1000.0f));
-            gy0Var.l(si0Var.l);
-            gy0Var.g(si0Var.m);
-            wi0 wi0Var = si0Var.p;
-            if (wi0Var != null) {
-                gy0Var.i(wi0.a(wi0Var));
-            } else {
-                gy0Var.i("");
-            }
-            ti0 ti0Var = si0Var.q;
-            if (ti0Var != null) {
-                gy0Var.d(ti0.a(ti0Var));
-            } else {
-                gy0Var.d("");
-            }
-            vi0 vi0Var = si0Var.r;
-            if (vi0Var != null) {
-                gy0Var.e(vi0.a(vi0Var));
-            } else {
-                gy0Var.e("");
-            }
-            return gy0Var;
         }
-        return (gy0) invokeL.objValue;
+
+        @Override // com.repackage.li0
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
     }
+
+    int a();
 }

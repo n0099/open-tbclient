@@ -1,65 +1,81 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveHostInfo;
-import com.baidu.live.business.model.data.LiveStatInfo;
-import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k80 {
+public class k80 extends j80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public LiveHostInfo e;
-    public LiveStatInfo f;
-    public boolean g;
+    public boolean x;
+    public boolean y;
 
-    public k80() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k80(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.g = true;
+        this.y = false;
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.repackage.j80, com.repackage.h80
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.g(z);
         }
-        this.a = false;
-        jSONObject.optString("feed_id");
-        this.b = jSONObject.optString("nid");
-        this.c = jSONObject.optString("room_id");
-        jSONObject.optString("title");
-        jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.d = jSONObject.optString("cmd");
-        JSONObject optJSONObject = jSONObject.optJSONObject("host");
-        if (optJSONObject != null) {
-            LiveHostInfo liveHostInfo = new LiveHostInfo();
-            this.e = liveHostInfo;
-            liveHostInfo.parserJson(optJSONObject);
+    }
+
+    @Override // com.repackage.j80, com.repackage.h80
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.l(z);
+            if (this.x) {
+                return;
+            }
+            u(0);
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("stat");
-        if (optJSONObject2 != null) {
-            LiveStatInfo liveStatInfo = new LiveStatInfo();
-            this.f = liveStatInfo;
-            liveStatInfo.parserJson(optJSONObject2);
+    }
+
+    @Override // com.repackage.j80, com.repackage.h80
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.m();
+        }
+    }
+
+    @Override // com.repackage.j80
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.u(i);
+            LinearLayout linearLayout = this.e;
+            if (linearLayout == null) {
+                return;
+            }
+            this.x = false;
+            if (this.y) {
+                linearLayout.setBackgroundColor(0);
+            }
         }
     }
 }

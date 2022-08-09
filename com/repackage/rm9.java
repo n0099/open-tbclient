@@ -1,46 +1,71 @@
 package com.repackage;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class rm9 implements Runnable {
+public class rm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ qm9 b;
 
-    public rm9(qm9 qm9Var, AtomicBoolean atomicBoolean) {
+    @NonNull
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qm9Var, atomicBoolean};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            switch (i) {
+                case -1:
+                    return "SUCCESS_CACHE";
+                case 0:
+                    return "SUCCESS";
+                case 1:
+                case 9:
+                case 11:
+                case 12:
+                default:
+                    StringBuilder sb = new StringBuilder(32);
+                    sb.append("unknown status code: ");
+                    sb.append(i);
+                    return sb.toString();
+                case 2:
+                    return "SERVICE_VERSION_UPDATE_REQUIRED";
+                case 3:
+                    return "SERVICE_DISABLED";
+                case 4:
+                    return "SIGN_IN_REQUIRED";
+                case 5:
+                    return "INVALID_ACCOUNT";
+                case 6:
+                    return "RESOLUTION_REQUIRED";
+                case 7:
+                    return "NETWORK_ERROR";
+                case 8:
+                    return "INTERNAL_ERROR";
+                case 10:
+                    return "DEVELOPER_ERROR";
+                case 13:
+                    return "ERROR";
+                case 14:
+                    return "INTERRUPTED";
+                case 15:
+                    return "TIMEOUT";
+                case 16:
+                    return "CANCELED";
+                case 17:
+                    return "API_NOT_CONNECTED";
+                case 18:
+                    return "DEAD_CLIENT";
+                case 19:
+                    return "REMOTE_EXCEPTION";
+                case 20:
+                    return "CONNECTION_SUSPENDED_DURING_CALL";
+                case 21:
+                    return "RECONNECTION_TIMED_OUT_DURING_UPDATE";
+                case 22:
+                    return "RECONNECTION_TIMED_OUT";
             }
         }
-        this.b = qm9Var;
-        this.a = atomicBoolean;
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
-            return;
-        }
-        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        qm9 qm9Var = this.b;
-        lm9 lm9Var = qm9Var.c;
-        lm9.n(qm9Var.a, qm9Var.b);
+        return (String) invokeI.objValue;
     }
 }

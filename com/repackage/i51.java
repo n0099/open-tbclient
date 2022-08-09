@@ -1,21 +1,15 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface i51<View> {
-    void a();
+public interface i51 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius");
 
-    View getRealView();
+    Object a(JSONObject jSONObject);
 
-    void setBtnIconNightModeEnable(boolean z);
-
-    void setBtnPlaceholder(View view2);
-
-    void setData(@NonNull bn0 bn0Var);
-
-    void setEnhanceBtnListener(@NonNull g51 g51Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    w51<View> b(@NonNull Context context);
 }

@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.depend.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements m {
     private boolean c(DownloadInfo downloadInfo) {
         String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();

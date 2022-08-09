@@ -1132,7 +1132,7 @@ public class SwitchCompat extends CompoundButton {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.obfuscated);
+        this(context, attributeSet, R$attr.switchStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

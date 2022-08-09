@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.op;
+import com.repackage.pp;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -17,16 +17,16 @@ public final class TimesBuoyComponent$addOnce$2$onInvoke$1 extends Lambda implem
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ TaskState $taskState;
-    public final /* synthetic */ op this$0;
+    public final /* synthetic */ pp this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TimesBuoyComponent$addOnce$2$onInvoke$1(op opVar, TaskState taskState) {
+    public TimesBuoyComponent$addOnce$2$onInvoke$1(pp ppVar, TaskState taskState) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opVar, taskState};
+            Object[] objArr = {ppVar, taskState};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class TimesBuoyComponent$addOnce$2$onInvoke$1 extends Lambda implem
                 return;
             }
         }
-        this.this$0 = opVar;
+        this.this$0 = ppVar;
         this.$taskState = taskState;
     }
 

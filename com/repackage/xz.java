@@ -1,64 +1,43 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import java.math.BigInteger;
 /* loaded from: classes7.dex */
 public class xz {
     public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public zz a;
 
-    public xz() {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(wz.c).modPow(new BigInteger(wz.d), new BigInteger(wz.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static xz a() throws NoSuchPaddingException {
+    public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            xz xzVar = new xz();
-            zz zzVar = new zz();
-            xzVar.a = zzVar;
-            zzVar.e("PKCS1Padding");
-            return xzVar;
-        }
-        return (xz) invokeV.objValue;
-    }
-
-    public void b(int i, a00 a00Var) throws InvalidKeyException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, a00Var) == null) {
-            this.a.a(i, a00Var, yz.a);
-        }
-    }
-
-    public final byte[] c(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            byte[] bArr = a;
             if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
+                return bArr;
             }
-            throw new IllegalArgumentException("Null input buffer");
+            byte[] byteArray = new BigInteger(wz.a).modPow(new BigInteger(wz.b), new BigInteger(wz.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
         }
-        return (byte[]) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 }

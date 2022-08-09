@@ -1,21 +1,21 @@
 package com.repackage;
-
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes7.dex */
 public interface wu8 {
-    void C();
+    void a();
 
-    void P0(int i);
+    void b();
 
-    void a0(vu8 vu8Var);
+    void c();
 
-    void f0(int i);
+    void d();
 
-    void j0(int i);
+    void e();
 
-    void l(boolean z);
+    void onClose();
 
-    void z(boolean z);
+    void onDestroy();
 
-    void z0(CloudMusicData.MusicTagList musicTagList);
+    void onPause();
+
+    void onResume();
 }

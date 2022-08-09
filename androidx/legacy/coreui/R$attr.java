@@ -7,27 +7,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$attr {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int alpha = 2130968711;
-    public static final int coordinatorLayoutStyle = 2130968971;
-    public static final int font = 2130969239;
-    public static final int fontProviderAuthority = 2130969241;
-    public static final int fontProviderCerts = 2130969242;
-    public static final int fontProviderFetchStrategy = 2130969243;
-    public static final int fontProviderFetchTimeout = 2130969244;
-    public static final int fontProviderPackage = 2130969245;
-    public static final int fontProviderQuery = 2130969246;
-    public static final int fontStyle = 2130969247;
-    public static final int fontVariationSettings = 2130969248;
-    public static final int fontWeight = 2130969249;
-    public static final int keylines = 2130969392;
-    public static final int layout_anchor = 2130969549;
-    public static final int layout_anchorGravity = 2130969550;
-    public static final int layout_behavior = 2130969551;
-    public static final int layout_dodgeInsetEdges = 2130969556;
-    public static final int layout_insetEdge = 2130969560;
-    public static final int layout_keyline = 2130969561;
-    public static final int statusBarBackground = 2130970069;
-    public static final int ttcIndex = 2130970293;
+    public static final int alpha = 2130968714;
+    public static final int coordinatorLayoutStyle = 2130968989;
+    public static final int font = 2130969303;
+    public static final int fontProviderAuthority = 2130969305;
+    public static final int fontProviderCerts = 2130969306;
+    public static final int fontProviderFetchStrategy = 2130969307;
+    public static final int fontProviderFetchTimeout = 2130969308;
+    public static final int fontProviderPackage = 2130969309;
+    public static final int fontProviderQuery = 2130969310;
+    public static final int fontStyle = 2130969311;
+    public static final int fontVariationSettings = 2130969312;
+    public static final int fontWeight = 2130969313;
+    public static final int keylines = 2130969469;
+    public static final int layout_anchor = 2130969612;
+    public static final int layout_anchorGravity = 2130969613;
+    public static final int layout_behavior = 2130969614;
+    public static final int layout_dodgeInsetEdges = 2130969620;
+    public static final int layout_insetEdge = 2130969624;
+    public static final int layout_keyline = 2130969625;
+    public static final int statusBarBackground = 2130970203;
+    public static final int ttcIndex = 2130970441;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

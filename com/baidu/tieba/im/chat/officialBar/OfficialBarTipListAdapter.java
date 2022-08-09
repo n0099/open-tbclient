@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qy4;
-import com.repackage.v47;
+import com.repackage.lz4;
+import com.repackage.p67;
+import com.repackage.qi;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class OfficialBarTipListAdapter extends v47 {
+public class OfficialBarTipListAdapter extends p67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class OfficialBarTipListAdapter extends v47 {
         }
     }
 
-    @Override // com.repackage.v47
+    @Override // com.repackage.p67
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class OfficialBarTipListAdapter extends v47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.v47
+    @Override // com.repackage.p67
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,15 +60,15 @@ public class OfficialBarTipListAdapter extends v47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.v47
-    public void h(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.p67
+    public void h(p67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setVisibility(8);
             aVar.d.setVisibility(0);
             aVar.d.setShowOval(true);
             aVar.d.setAutoChangeStyle(true);
-            aVar.d.setStrokeWith(pi.f(this.a, R.dimen.tbds1));
+            aVar.d.setStrokeWith(qi.f(this.a, R.dimen.tbds1));
             aVar.d.setStrokeColorResId(R.color.CAM_X0401);
             aVar.d.setTag(null);
             aVar.d.setPlaceHolder(1);
@@ -76,20 +76,20 @@ public class OfficialBarTipListAdapter extends v47 {
                 return;
             }
             aVar.d.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.d.J(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.d.K(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
-    @Override // com.repackage.v47
-    public void l(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.p67
+    public void l(p67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c7, imMessageCenterShowItemData.getFriendName()));
+            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03d2, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
-    @Override // com.repackage.v47
-    public void p(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.p67
+    public void p(p67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.h.setVisibility(8);
@@ -99,14 +99,14 @@ public class OfficialBarTipListAdapter extends v47 {
         }
     }
 
-    @Override // com.repackage.v47
+    @Override // com.repackage.p67
     public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!qy4.d().n()) {
+            if (!lz4.d().n()) {
                 str = "";
                 i = 0;
             }

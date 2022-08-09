@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -11,31 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er;
-import com.repackage.fr;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gr {
+public final class gr implements lr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fr a;
+    public final Integer a;
     public final byte[] b;
-    public final int c;
-    public final byte[] d;
-    public final List<er> e;
 
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Integer a;
+        public byte[] b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,58 +44,77 @@ public final class gr {
             }
         }
 
-        @JvmStatic
-        public final gr a(String str) {
+        public final a a(Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str == null || TextUtils.isEmpty(str)) {
-                    return null;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
+                this.a = num;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                this.b = bArr;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final gr c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new gr(this.a, gt.c(this.b)) : (gr) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("get raw data:" + str);
+            }
+        }
+
+        @JvmStatic
+        public final a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (a) invokeV.objValue;
+        }
+
+        public final gr b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    fr.b bVar = fr.c;
-                    String optString = jSONObject.optString("Random");
-                    Intrinsics.checkExpressionValueIsNotNull(optString, "dataObj.optString(\"Random\")");
-                    fr b = bVar.b(optString);
-                    String optString2 = jSONObject.optString("CipherSuite");
-                    int optInt = jSONObject.optInt("LifeTime");
-                    String optString3 = jSONObject.optString("SKR");
-                    LinkedList linkedList = new LinkedList();
-                    JSONArray optJSONArray = jSONObject.optJSONArray("Extensions");
-                    if (optJSONArray != null) {
-                        int length = optJSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            String item = optJSONArray.optString(i);
-                            er.b bVar2 = er.c;
-                            Intrinsics.checkExpressionValueIsNotNull(item, "item");
-                            er b2 = bVar2.b(item);
-                            if (b2 != null) {
-                                linkedList.add(b2);
-                            }
-                        }
-                    }
-                    return new gr(b, ft.b(optString2), optInt, ft.b(optString3), linkedList);
+                    return new gr(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), gt.b(jSONObject.optString("RandomBytes")));
                 } catch (Exception e) {
                     e.printStackTrace();
-                    DebugTrace debugTrace2 = DebugTrace.a;
-                    debugTrace2.a("can not parse server hello:" + e.getMessage());
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("parse random fail:" + e.getMessage());
                     return null;
                 }
             }
             return (gr) invokeL.objValue;
         }
 
-        @JvmStatic
-        public final gr b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? a(ft.a(bArr)) : (gr) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -120,73 +132,56 @@ public final class gr {
                 return;
             }
         }
-        f = new a(null);
+        c = new b(null);
     }
 
-    public gr(fr frVar, byte[] bArr, int i, byte[] bArr2, List<er> list) {
+    public gr(Integer num, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frVar, bArr, Integer.valueOf(i), bArr2, list};
+            Object[] objArr = {num, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = frVar;
+        this.a = num;
         this.b = bArr;
-        this.c = i;
-        this.d = bArr2;
-        this.e = list;
     }
 
     @JvmStatic
-    public static final gr a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f.b(bArr) : (gr) invokeL.objValue;
-    }
-
-    public final List<er> b() {
+    public static final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
     }
 
-    public final int c() {
+    @Override // com.repackage.lr
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ft.d(this.b) : (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ft.d(this.d) : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("GMTUnixTime", this.a);
+            jSONObject.putOpt("RandomBytes", gt.a(this.b));
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof gr) {
                     gr grVar = (gr) obj;
-                    if (Intrinsics.areEqual(this.a, grVar.a) && Intrinsics.areEqual(this.b, grVar.b)) {
-                        if (!(this.c == grVar.c) || !Intrinsics.areEqual(this.d, grVar.d) || !Intrinsics.areEqual(this.e, grVar.e)) {
-                        }
-                    }
+                    return Intrinsics.areEqual(this.a, grVar.a) && Intrinsics.areEqual(this.b, grVar.b);
                 }
                 return false;
             }
@@ -198,15 +193,11 @@ public final class gr {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            fr frVar = this.a;
-            int hashCode = (frVar != null ? frVar.hashCode() : 0) * 31;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Integer num = this.a;
+            int hashCode = (num != null ? num.hashCode() : 0) * 31;
             byte[] bArr = this.b;
-            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.c) * 31;
-            byte[] bArr2 = this.d;
-            int hashCode3 = (hashCode2 + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31;
-            List<er> list = this.e;
-            return hashCode3 + (list != null ? list.hashCode() : 0);
+            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -214,8 +205,8 @@ public final class gr {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.b) + ", lifeTime=" + this.c + ", SKRBytes=" + Arrays.toString(this.d) + ", extensions=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

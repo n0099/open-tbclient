@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.services.vod.VodClient;
 /* loaded from: classes4.dex */
 public final class MediaStoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,7 +37,7 @@ public final class MediaStoreUtil {
     public static boolean isMediaStoreUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) ? uri != null && "content".equals(uri.getScheme()) && VodClient.PATH_MEDIA.equals(uri.getAuthority()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) ? uri != null && "content".equals(uri.getScheme()) && "media".equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isMediaStoreVideoUri(Uri uri) {

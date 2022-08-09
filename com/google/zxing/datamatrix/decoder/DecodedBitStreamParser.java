@@ -3,6 +3,7 @@ package com.google.zxing.datamatrix.decoder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -278,7 +279,7 @@ public final class DecodedBitStreamParser {
                     return Mode.PAD_ENCODE;
                 } else {
                     if (readBits <= 229) {
-                        int i = readBits - 130;
+                        int i = readBits + MultiPluginManagerServiceImpl.INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL;
                         if (i < 10) {
                             sb.append('0');
                         }

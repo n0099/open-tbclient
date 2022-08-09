@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qa5;
+import com.repackage.ob5;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qa5 a;
+    public ob5 a;
     public ViewGroup b;
 
     public BaseTemplatePageActivity() {
@@ -30,18 +30,16 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         }
     }
 
-    public abstract qa5 A1();
-
-    public abstract int B1();
+    public abstract int A1();
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            qa5 qa5Var = this.a;
-            if (qa5Var != null) {
-                qa5Var.h(i);
+            ob5 ob5Var = this.a;
+            if (ob5Var != null) {
+                ob5Var.h(i);
             }
         }
     }
@@ -49,23 +47,23 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(B1(), (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(A1(), (ViewGroup) null);
             this.b = viewGroup;
             setContentView(viewGroup);
-            this.a = A1();
+            this.a = z1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            qa5 qa5Var = this.a;
-            if (qa5Var != null) {
-                qa5Var.i();
+            ob5 ob5Var = this.a;
+            if (ob5Var != null) {
+                ob5Var.i();
             }
         }
     }
@@ -73,11 +71,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
-            qa5 qa5Var = this.a;
-            if (qa5Var != null) {
-                qa5Var.j();
+            ob5 ob5Var = this.a;
+            if (ob5Var != null) {
+                ob5Var.j();
             }
         }
     }
@@ -85,12 +83,14 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            qa5 qa5Var = this.a;
-            if (qa5Var != null) {
-                qa5Var.k();
+            ob5 ob5Var = this.a;
+            if (ob5Var != null) {
+                ob5Var.k();
             }
         }
     }
+
+    public abstract ob5 z1();
 }

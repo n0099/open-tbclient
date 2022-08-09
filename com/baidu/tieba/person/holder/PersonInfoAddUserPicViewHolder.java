@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
-import com.repackage.s08;
-/* loaded from: classes3.dex */
+import com.repackage.on;
+import com.repackage.v28;
+/* loaded from: classes4.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
     public TextView c;
     public int d;
-    public nn e;
+    public on e;
     public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,42 +45,42 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.d = 3;
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090117);
-        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090110);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b3);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f09011c);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090115);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921af);
     }
 
-    public void b(nn nnVar) {
+    public void a(on onVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof s08)) {
-            this.e = nnVar;
-            s08 s08Var = (s08) nnVar;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, onVar) == null) && (onVar instanceof v28)) {
+            this.e = onVar;
+            v28 v28Var = (v28) onVar;
             SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-            if (s08Var.a() > 0) {
-                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0826), Integer.valueOf(s08Var.a())));
+            if (v28Var.a() > 0) {
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0838), Integer.valueOf(v28Var.a())));
             }
-            a().setOnClickListener(this.f);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            getView().setOnClickListener(this.f);
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public nn c() {
+    public on b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (nn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (on) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.d == i) {
             return;
         }
         SkinManager.setViewTextColor(this.c, R.color.CAM_X0110, 1);
-        SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
         this.d = i;
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.f = onClickListener;

@@ -17,10 +17,10 @@ public class hg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f465a;
+    public final Context f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, hh> f466a;
+    public Map<String, hh> f467a;
 
     public hg(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class hg {
                 return;
             }
         }
-        this.f466a = new HashMap();
-        this.f465a = context;
+        this.f467a = new HashMap();
+        this.f466a = context;
     }
 
     public static hg a(Context context) {
@@ -82,11 +82,11 @@ public class hg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hh hhVar = this.f466a.get("UPLOADER_PUSH_CHANNEL");
+            hh hhVar = this.f467a.get("UPLOADER_PUSH_CHANNEL");
             if (hhVar != null) {
                 return hhVar;
             }
-            hh hhVar2 = this.f466a.get("UPLOADER_HTTP");
+            hh hhVar2 = this.f467a.get("UPLOADER_HTTP");
             if (hhVar2 != null) {
                 return hhVar2;
             }
@@ -99,7 +99,7 @@ public class hg {
     public Map<String, hh> m395a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f466a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f467a : (Map) invokeV.objValue;
     }
 
     public void a(hh hhVar, String str) {
@@ -129,7 +129,7 @@ public class hg {
                     hnVar.f(com.xiaomi.push.service.bz.a());
                 }
                 hnVar.g(str);
-                com.xiaomi.push.service.ca.a(this.f465a, hnVar);
+                com.xiaomi.push.service.ca.a(this.f466a, hnVar);
                 return true;
             }
         }
@@ -139,6 +139,6 @@ public class hg {
     public boolean a(String str, String str2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f465a.getPackageName(), this.f465a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f466a.getPackageName(), this.f466a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
     }
 }

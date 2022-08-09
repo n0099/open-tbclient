@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m85;
-import com.repackage.n85;
-import com.repackage.zl4;
-/* loaded from: classes2.dex */
+import com.repackage.k95;
+import com.repackage.l95;
+import com.repackage.qm4;
+/* loaded from: classes3.dex */
 public class NovelWebViewActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static String f = "";
@@ -39,7 +39,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public String d;
     public final CustomMessageListener e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                     if (error == 0) {
                         NovelWebViewActivity novelWebViewActivity = this.a;
                         if (novelWebViewActivity.a) {
-                            novelWebViewActivity.F1();
+                            novelWebViewActivity.E1();
                         }
                     }
                 }
@@ -85,7 +85,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends TbWebViewActivity.t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,11 +117,11 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = m85.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                String unused = NovelWebViewActivity.g = k95.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
                 if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
-                    this.c.F1();
+                    this.c.E1();
                 }
-                n85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
+                l95.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
 
@@ -163,14 +163,14 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         this.e = new a(this, 2921697);
     }
 
-    public final void F1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m85.e(f, new ReadRecordsData(f));
+            k95.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
-            bdTopToast.i(true);
-            bdTopToast.h(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c94));
-            bdTopToast.j((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
+            bdTopToast.h(true);
+            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb9));
+            bdTopToast.i((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }
 
@@ -187,8 +187,8 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 this.d = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_FID);
             }
             this.mWebView.setWebViewClient(new b(this, null));
-            zl4 zl4Var = this.mView;
-            if (zl4Var != null && (imageView = zl4Var.i) != null) {
+            qm4 qm4Var = this.mView;
+            if (qm4Var != null && (imageView = qm4Var.j) != null) {
                 imageView.setVisibility(8);
             }
             registerListener(this.e);

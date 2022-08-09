@@ -22,10 +22,10 @@ public class ew implements eu.a {
     public JobScheduler a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f330a;
+    public Context f331a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f331a;
+    public boolean f332a;
 
     public ew(Context context) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class ew implements eu.a {
                 return;
             }
         }
-        this.f331a = false;
-        this.f330a = context;
+        this.f332a = false;
+        this.f331a = context;
         this.a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
@@ -51,7 +51,7 @@ public class ew implements eu.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f331a = false;
+            this.f332a = false;
             this.a.cancel(1);
         }
     }
@@ -59,7 +59,7 @@ public class ew implements eu.a {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f330a.getPackageName(), XMJobService.class.getName()));
+            JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f331a.getPackageName(), XMJobService.class.getName()));
             builder.setMinimumLatency(j);
             builder.setOverrideDeadline(j);
             builder.setRequiredNetworkType(1);
@@ -74,13 +74,13 @@ public class ew implements eu.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z || this.f331a) {
+            if (z || this.f332a) {
                 long b = gc.b();
                 if (z) {
                     a();
                     b -= SystemClock.elapsedRealtime() % b;
                 }
-                this.f331a = true;
+                this.f332a = true;
                 a(b);
             }
         }
@@ -90,6 +90,6 @@ public class ew implements eu.a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f331a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f332a : invokeV.booleanValue;
     }
 }

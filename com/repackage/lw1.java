@@ -1,233 +1,104 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
+import android.graphics.Color;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lw1 extends h13 {
+public class lw1 extends nw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements mw1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nw1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ lw1 c;
-
-        public a(lw1 lw1Var, nw1 nw1Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw1Var, nw1Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = lw1Var;
-            this.a = nw1Var;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.repackage.mw1
-        public void a(int i, View view2, @Nullable Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, view2, obj) == null) {
-                ow1 ow1Var = (ow1) this.a.n();
-                if (i == 0 || i == 1) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "loadState");
-                        jSONObject.put("parentId", ow1Var.d);
-                        jSONObject.put("viewId", ow1Var.b);
-                        jSONObject.put("loadState", i == 1 ? "finish" : "error");
-                    } catch (JSONException e) {
-                        ix1.d("Component-Action-ImageCover", "loadState callback error", e);
-                    }
-                    this.c.s(this.b, jSONObject, ow1Var.e);
-                }
-            }
-        }
-    }
+    public String A;
+    public String B;
+    public String C;
+    public String t;
+    public int u;
+    public boolean v;
+    public double w;
+    public int x;
+    public int y;
+    public String z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lw1(f13 f13Var) {
-        super(f13Var, "/swanAPI/coverimage");
+    public lw1(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((f13) objArr2[0], (String) objArr2[1]);
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.t = "";
+        this.v = false;
+        this.z = "";
+        this.A = "";
+        this.B = "";
+        this.C = "";
     }
 
-    @Override // com.repackage.h13
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverimage" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h13
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-ImageCover", "insert");
-            }
-            ow1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            nw1 nw1Var = new nw1(context, r);
-            nw1Var.e0(new a(this, nw1Var, callbackHandler));
-            zv1 insert = nw1Var.insert();
-            boolean a2 = insert.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
-            return a2;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.h13
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-ImageCover", "remove");
-            }
-            ow1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            nw1 nw1Var = (nw1) vw1.a(r);
-            if (nw1Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                ix1.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 B = nw1Var.B();
-            boolean a2 = B.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a2;
+        try {
+            this.u = Color.parseColor(jSONObject.optString("color"));
+            this.v = true;
+        } catch (Exception unused) {
+            zx1.o("Component-Model-TextView", "text color occurs exception");
+            this.v = false;
         }
-        return invokeLLLLL.booleanValue;
+        this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
+        this.x = qe3.g((float) this.j.optDouble("lineHeight", 0.0d));
+        this.y = qe3.g((float) this.j.optDouble("lineSpace", 0.0d));
+        this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+        this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+        this.B = this.j.optString("whiteSpace");
+        this.C = this.j.optString("lineBreak");
     }
 
-    @Override // com.repackage.h13
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.repackage.nw1, com.repackage.pw1, com.repackage.yq2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-ImageCover", "update");
-            }
-            ow1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            nw1 nw1Var = (nw1) vw1.a(r);
-            if (nw1Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                ix1.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 update = nw1Var.update((nw1) r);
-            boolean a2 = update.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        super.a(jSONObject);
+        this.t = jSONObject.optString("text");
+        i();
     }
 
-    @Nullable
-    public final ow1 r(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.repackage.nw1, com.repackage.pw1
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-ImageCover", "params is null");
-                return null;
-            }
-            ow1 ow1Var = new ow1();
-            try {
-                ow1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                ix1.d("Component-Action-ImageCover", "model parse exception:", e);
-            }
-            return ow1Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.t = jSONObject.optString("text", this.t);
+            i();
         }
-        return (ow1) invokeL.objValue;
     }
 
-    public final void s(@NonNull CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, callbackHandler, jSONObject, str) == null) {
-            ix1.i("Component-Action-ImageCover", "sendAsyncCallback info: " + jSONObject);
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.t = str;
         }
     }
 }

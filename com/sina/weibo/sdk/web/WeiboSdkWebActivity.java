@@ -42,7 +42,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.DefaultWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 import com.sina.weibo.sdk.web.view.LoadingBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BROWSER_CLOSE_SCHEME = "sinaweibo://browser/close";
@@ -73,7 +73,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     public WebView webView;
     public BaseWebViewClient webViewClient;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class MyChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

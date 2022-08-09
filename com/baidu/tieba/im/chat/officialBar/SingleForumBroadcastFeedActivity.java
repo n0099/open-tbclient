@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b57;
-import com.repackage.l67;
-import com.repackage.t65;
-import com.repackage.x67;
+import com.repackage.f87;
+import com.repackage.p75;
+import com.repackage.r87;
+import com.repackage.v67;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b57 a;
+    public v67 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public t65 e;
-    public b57.d f;
+    public p75 e;
+    public v67.d f;
 
     /* loaded from: classes3.dex */
-    public class a extends t65<TopToastEvent> {
+    public class a extends p75<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,14 +57,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.m65
+        @Override // com.repackage.i75
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
                 if (this.c.b != null) {
-                    this.c.b.s(topToastEvent.isSuccess(), topToastEvent.getContent());
+                    this.c.b.u(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements b57.d {
+    public class b implements v67.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,19 +97,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.repackage.b57.d
-        public void a(List<x67> list) {
+        @Override // com.repackage.v67.d
+        public void a(List<r87> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.p(list, null);
+                this.a.b.r(list, null);
             }
         }
 
-        @Override // com.repackage.b57.d
-        public void onReadCountLoad(LongSparseArray<l67> longSparseArray) {
+        @Override // com.repackage.v67.d
+        public void onReadCountLoad(LongSparseArray<f87> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.a.b.q(longSparseArray);
+                this.a.b.s(longSparseArray);
             }
         }
     }
@@ -145,15 +145,15 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            b57 b57Var = new b57(getPageContext());
-            this.a = b57Var;
-            b57Var.i(this.f);
+            v67 v67Var = new v67(getPageContext());
+            this.a = v67Var;
+            v67Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
                 this.d = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
                 this.a.f(this.c);
-                this.b.t(this.c, System.currentTimeMillis());
+                this.b.v(this.c, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.e);
         }
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            b57 b57Var = this.a;
-            if (b57Var != null) {
-                b57Var.e();
+            v67 v67Var = this.a;
+            if (v67Var != null) {
+                v67Var.e();
             }
             unRegisterResponsedEventListener();
         }

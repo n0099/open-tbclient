@@ -566,7 +566,7 @@ public final class ContentUtil {
                 throw th;
             }
             try {
-                fileOutputStream.write(new byte[]{GZIP_HEAD_1, GZIP_HEAD_2});
+                fileOutputStream.write(new byte[]{117, 123});
                 if (fileInputStream.read(new byte[2]) != -1) {
                     while (true) {
                         int read2 = fileInputStream.read(bArr);

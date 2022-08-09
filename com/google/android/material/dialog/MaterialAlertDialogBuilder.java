@@ -39,17 +39,17 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
-    public static final int DEF_STYLE_ATTR = 2130968708;
+    public static final int DEF_STYLE_ATTR = 2130968711;
     @StyleRes
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100122 = 2131755298;
+    public static final int obfuscated_res_0x7f100125 = 2131755301;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969676;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969765;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Drawable background;
@@ -98,7 +98,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             int materialAlertDialogThemeOverlay = getMaterialAlertDialogThemeOverlay(context);
-            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100122);
+            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
             return materialAlertDialogThemeOverlay == 0 ? wrap : new ContextThemeWrapper(wrap, materialAlertDialogThemeOverlay);
         }
         return (Context) invokeL.objValue;
@@ -234,9 +234,9 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         }
         Context context2 = getContext();
         Resources.Theme theme = context2.getTheme();
-        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100122);
-        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f040171, MaterialAlertDialogBuilder.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100122);
+        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f04017e, MaterialAlertDialogBuilder.class.getCanonicalName());
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
         materialShapeDrawable.initializeElevationOverlay(context2);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
         if (Build.VERSION.SDK_INT >= 28) {

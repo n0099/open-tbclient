@@ -41,10 +41,10 @@ import com.baidu.sofire.rp.receiver.Receiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ie1;
+import com.repackage.ze1;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -781,7 +781,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(ie1.a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(ze1.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -866,7 +866,7 @@ public class a {
                     jSONObject3.put("23", str6);
                 } else {
                     jSONObject3.put("23", "");
-                    jSONObject3.put(UVEventType.PAY_WALLET_BANNER_SHOW, m.i(context));
+                    jSONObject3.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, m.i(context));
                     jSONObject3.put("21", m.g(context));
                     jSONObject3.put("32", h(context));
                 }
@@ -1790,7 +1790,7 @@ public class a {
                 contentValues.put("g", (Integer) 1);
                 contentValues.put("f", (Integer) 0);
                 contentValues.put("i", (Integer) 0);
-                contentValues.put(cn.com.chinatelecom.gateway.lib.c.j.a, (String) null);
+                contentValues.put("j", (String) null);
                 try {
                     jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
                 } catch (Exception unused) {

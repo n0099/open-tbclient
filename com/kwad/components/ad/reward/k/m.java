@@ -69,7 +69,7 @@ public final class m extends d implements View.OnClickListener {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, couponInfo, viewGroup)) == null) {
-            KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0455, viewGroup, false);
+            KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0458, viewGroup, false);
             kSCouponLabelTextView.setText(couponInfo.getDisplayName());
             return kSCouponLabelTextView;
         }
@@ -180,14 +180,14 @@ public final class m extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09113a);
-            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f091137);
-            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09113c);
-            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f091129);
-            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f091139);
-            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091126);
-            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f09113b);
-            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f091138);
+            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091190);
+            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09118d);
+            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091192);
+            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f09117f);
+            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09118f);
+            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09117c);
+            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f091191);
+            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09118e);
             this.vE.setText(com.kwad.components.ad.c.b.ai());
             this.vE.setOnClickListener(this);
             this.nG.setOnClickListener(this);

@@ -1,234 +1,181 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e32;
-import com.repackage.ej2;
-import com.repackage.m32;
-import java.io.File;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class n32<T extends m32> extends u74<h94> {
+public class n32 implements c32<b32> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
+    public volatile Boolean a;
+    public volatile c32<b32> b;
 
-    /* loaded from: classes6.dex */
-    public class a implements e32.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h94 a;
-        public final /* synthetic */ n32 b;
-
-        public a(n32 n32Var, h94 h94Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755520508, "Lcom/repackage/n32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n32Var, h94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = n32Var;
-            this.a = h94Var;
-        }
-
-        @Override // com.repackage.e32.c
-        public void a(PMSDownloadType pMSDownloadType) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.b.r(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755520508, "Lcom/repackage/n32;");
+                return;
             }
         }
-
-        @Override // com.repackage.e32.c
-        public void b(PMSDownloadType pMSDownloadType, bc3 bc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, bc3Var) == null) {
-                this.b.u(this.a, bc3Var);
-            }
-        }
+        c = jh1.a;
     }
 
-    public n32(@NonNull T t) {
+    public n32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = t;
+        this.a = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.x74
-    /* renamed from: l */
-    public String d(h94 h94Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.c32
+    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h94Var)) == null) ? ej2.e.h().getAbsolutePath() : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
+            l().b(str, cVar, pMSAppInfo);
+        }
     }
 
-    @Override // com.repackage.z74
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.e32<com.repackage.b32> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.repackage.d32
+    public void c(e32<b32> e32Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.a.m(bundle, set) : (Bundle) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e32Var) == null) {
+            l().c(e32Var);
+        }
     }
 
-    public PMSDownloadType o() {
+    @Override // com.repackage.c32
+    public void d(za2 za2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, za2Var) == null) {
+            l().d(za2Var);
+        }
+    }
+
+    @Override // com.repackage.d32
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? PMSDownloadType.PLUGIN : (PMSDownloadType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().f() : invokeV.booleanValue;
     }
 
-    public final void p(h94 h94Var, bc3 bc3Var) {
+    @Override // com.repackage.d32
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h94Var, bc3Var) == null) {
-            u(h94Var, bc3Var);
-            e32.c().a(h94Var, o(), bc3Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? l().g() : invokeV.booleanValue;
     }
 
-    public final void q(@NonNull h94 h94Var) {
+    @Override // com.repackage.d32
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, h94Var) == null) {
-            r(h94Var);
-            e32.c().b(h94Var, o());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? l().h() : invokeV.booleanValue;
     }
 
-    public abstract void r(@NonNull h94 h94Var);
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u74, com.repackage.x74
-    /* renamed from: s */
-    public void e(h94 h94Var, a94 a94Var) {
+    @Override // com.repackage.c32
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, h94Var, a94Var) == null) {
-            super.e(h94Var, a94Var);
-            aw2.b("plugin download error: " + a94Var);
-            bc3 bc3Var = new bc3();
-            bc3Var.k(17L);
-            bc3Var.i((long) a94Var.a);
-            bc3Var.d(a94Var.b);
-            bc3Var.f(a94Var.toString());
-            p(h94Var, bc3Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? l().i() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c32
+    public void j(boolean z, k32 k32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, k32Var) == null) {
+            l().j(z, k32Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u74, com.repackage.x74
-    /* renamed from: t */
-    public void i(h94 h94Var) {
+    @Override // com.repackage.d32
+    /* renamed from: k */
+    public b32 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, h94Var) == null) {
-            super.i(h94Var);
-            if (h94Var == null) {
-                aw2.b("download finish, plugin is null");
-                bc3 bc3Var = new bc3();
-                bc3Var.k(17L);
-                bc3Var.i(2201L);
-                bc3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                p(null, bc3Var);
-            } else if (!vd3.a(new File(h94Var.a), h94Var.m)) {
-                kg4.M(h94Var.a);
-                aw2.b("download finish, check zip sign failure");
-                bc3 bc3Var2 = new bc3();
-                bc3Var2.k(17L);
-                bc3Var2.i(2202L);
-                bc3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
-                p(h94Var, bc3Var2);
-            } else {
-                File t = ej2.t(h94Var.g, String.valueOf(h94Var.i));
-                kg4.l(t);
-                if (t != null && t.exists()) {
-                    boolean U = kg4.U(h94Var.a, t.getAbsolutePath());
-                    kg4.M(h94Var.a);
-                    aw2.b("download finish, unZipSuccess = " + U);
-                    if (!U) {
-                        bc3 bc3Var3 = new bc3();
-                        bc3Var3.k(17L);
-                        bc3Var3.i(2320L);
-                        bc3Var3.d("plugin unzip fail.");
-                        p(h94Var, bc3Var3);
-                        return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (b32) l().a() : (b32) invokeV.objValue;
+    }
+
+    public final c32<b32> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = m() ? new r32() : new m32();
+                        if (c) {
+                            Log.d("SwanAppMasterProviderWrapper", "provider - " + this.b.getClass().getSimpleName());
+                        }
                     }
-                    h94Var.c = h94Var.b();
-                    h94Var.d = h94Var.b();
-                    d84.i().m(h94Var);
-                    q(h94Var);
-                    return;
                 }
-                kg4.M(h94Var.a);
-                aw2.b("download finish, create file failure, name = " + h94Var.g + " ; version = " + h94Var.i);
-                bc3 bc3Var4 = new bc3();
-                bc3Var4.k(17L);
-                bc3Var4.i(2203L);
-                bc3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
-                p(h94Var, bc3Var4);
             }
+            return this.b;
         }
+        return (c32) invokeV.objValue;
     }
 
-    public abstract void u(h94 h94Var, bc3 bc3Var);
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u74, com.repackage.x74
-    /* renamed from: v */
-    public void c(h94 h94Var) {
+    public final boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, h94Var) == null) {
-            super.c(h94Var);
-            if (h94Var != null) {
-                aw2.b("plugin download start: bundleId = " + h94Var.g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.valueOf(z42.l() > 0 && z42.i());
             }
+            if (c) {
+                Log.d("SwanAppMasterProviderWrapper", "loaded swan core version - " + t72.U().d0());
+                Log.d("SwanAppMasterProviderWrapper", "use multi preload - " + this.a);
+            }
+            return this.a.booleanValue();
         }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u74, com.repackage.x74
-    /* renamed from: w */
-    public void f(h94 h94Var) {
+    @Override // com.repackage.d32
+    /* renamed from: n */
+    public b32 e(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, h94Var) == null) {
-            super.f(h94Var);
-            if (h94Var != null) {
-                aw2.b("plugin on downloading: bundleId = " + h94Var.g);
-            }
-            x(h94Var);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, pMSAppInfo)) == null) ? (b32) l().e(pMSAppInfo) : (b32) invokeL.objValue;
     }
 
-    public final void x(h94 h94Var) {
+    @Override // com.repackage.d32
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, h94Var) == null) {
-            e32.c().d(h94Var, new a(this, h94Var));
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            l().reset();
+            synchronized (this) {
+                this.a = null;
+                this.b = null;
+            }
         }
     }
 }

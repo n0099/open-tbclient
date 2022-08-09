@@ -71,7 +71,7 @@ public class jl extends jb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jpVar)) == null) {
-                jl jlVar = new jl(jpVar, ((jb.a) this).f807a, this.b);
+                jl jlVar = new jl(jpVar, ((jb.a) this).f808a, this.b);
                 int i = ((jb.a) this).a;
                 if (i != 0) {
                     jlVar.b(i);

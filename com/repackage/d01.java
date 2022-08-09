@@ -1,5 +1,7 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface d01 {
-    void a(String str);
+    void a(JSONObject jSONObject);
 }

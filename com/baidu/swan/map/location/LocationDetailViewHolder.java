@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t54;
-import com.repackage.u54;
-/* loaded from: classes2.dex */
+import com.repackage.k64;
+import com.repackage.l64;
+/* loaded from: classes3.dex */
 public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,17 +22,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public TextView b;
     public View c;
     public LocationDetailAdapter d;
-    public u54 e;
-    public t54 f;
+    public l64 e;
+    public k64 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, t54 t54Var) {
+    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, k64 k64Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, locationDetailAdapter, t54Var};
+            Object[] objArr = {view2, locationDetailAdapter, k64Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,15 +45,15 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         }
         a(view2);
         this.d = locationDetailAdapter;
-        this.f = t54Var;
+        this.f = k64Var;
     }
 
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913c1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e57);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cf6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091468);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f4d);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091de3);
             this.c = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
@@ -82,32 +82,32 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             this.d.f();
             this.e.b = true;
             this.d.notifyDataSetChanged();
-            t54 t54Var = this.f;
-            if (t54Var != null) {
-                t54Var.e(this.e);
+            k64 k64Var = this.f;
+            if (k64Var != null) {
+                k64Var.e(this.e);
             }
         }
     }
 
-    public void update(u54 u54Var) {
+    public void update(l64 l64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, u54Var) == null) {
-            update(u54Var, null, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, l64Var) == null) {
+            update(l64Var, null, false);
         }
     }
 
-    public void update(u54 u54Var, String str, boolean z) {
+    public void update(l64 l64Var, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, u54Var, str, z) == null) || u54Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, l64Var, str, z) == null) || l64Var == null) {
             return;
         }
-        this.e = u54Var;
-        this.a.setText(z ? b(u54Var.a.name, str) : u54Var.a.name);
+        this.e = l64Var;
+        this.a.setText(z ? b(l64Var.a.name, str) : l64Var.a.name);
         this.b.setVisibility(0);
-        this.b.setText(u54Var.a.address);
-        if (u54Var.c || TextUtils.isEmpty(u54Var.a.address)) {
+        this.b.setText(l64Var.a.address);
+        if (l64Var.c || TextUtils.isEmpty(l64Var.a.address)) {
             this.b.setVisibility(8);
         }
-        this.c.setVisibility(u54Var.b ? 0 : 8);
+        this.c.setVisibility(l64Var.b ? 0 : 8);
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.pi;
-import com.repackage.ud5;
+import com.repackage.qi;
+import com.repackage.rn4;
+import com.repackage.te5;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
 /* loaded from: classes3.dex */
@@ -47,13 +47,13 @@ public class AgreeMeRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.id = Long.valueOf(this.id);
-                builder.q_type = Integer.valueOf(an4.c().e());
+                builder.q_type = Integer.valueOf(rn4.c().e());
                 builder.rn = 20;
                 builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ud5.a(builder, true);
+                    te5.a(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAdDownloadButtonView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class SwanAdDownloadButtonView extends View {
     public float m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +98,7 @@ public class SwanAdDownloadButtonView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -156,9 +156,9 @@ public class SwanAdDownloadButtonView extends View {
         this.m = -1.0f;
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
-        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070653);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a4c);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a4d);
+        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070654);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a68);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a69);
     }
 
     public final void a(Canvas canvas, RectF rectF) {

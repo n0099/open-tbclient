@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberCaptureManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CaptureManagerProvider a;
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnCaptureReadyCallback {
         void onVideoCaptureReady(boolean z);
     }

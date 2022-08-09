@@ -63,12 +63,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ce, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091c04);
-            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c06);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091c07);
-            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091c02);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091c03);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d7, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091cec);
+            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cee);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091cef);
+            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091cea);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091ceb);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -117,7 +117,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091c02) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cea) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
@@ -140,9 +140,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060925));
-                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060929));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060923));
+                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060940));
+                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060944));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
             }
         }
     }
@@ -187,7 +187,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04001b, R.attr.obfuscated_res_0x7f04002a, R.attr.obfuscated_res_0x7f04002b, R.attr.obfuscated_res_0x7f04002d, R.attr.obfuscated_res_0x7f04002e, R.attr.obfuscated_res_0x7f040031, R.attr.obfuscated_res_0x7f040033}, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04001e, R.attr.obfuscated_res_0x7f04002d, R.attr.obfuscated_res_0x7f04002e, R.attr.obfuscated_res_0x7f040030, R.attr.obfuscated_res_0x7f040031, R.attr.obfuscated_res_0x7f040034, R.attr.obfuscated_res_0x7f040036}, i, 0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(5, true);
         this.mIconResId = obtainStyledAttributes.getResourceId(1, 0);
         this.mMinLines = obtainStyledAttributes.getInt(4, 1);

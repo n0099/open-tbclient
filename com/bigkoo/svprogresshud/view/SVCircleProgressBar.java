@@ -221,7 +221,7 @@ public class SVCircleProgressBar extends View {
             }
         }
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e8, R.attr.obfuscated_res_0x7f0405e9, R.attr.obfuscated_res_0x7f0405ea, R.attr.obfuscated_res_0x7f0405eb, R.attr.obfuscated_res_0x7f0405ec});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04066e, R.attr.obfuscated_res_0x7f04066f, R.attr.obfuscated_res_0x7f040670, R.attr.obfuscated_res_0x7f040671, R.attr.obfuscated_res_0x7f040672});
         this.roundColor = obtainStyledAttributes.getColor(1, -16776961);
         this.roundProgressColor = obtainStyledAttributes.getColor(2, -7829368);
         this.roundWidth = obtainStyledAttributes.getDimension(3, 5.0f);

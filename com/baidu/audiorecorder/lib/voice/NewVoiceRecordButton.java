@@ -27,18 +27,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.repackage.cj;
 import com.repackage.d9;
-import com.repackage.dr4;
-import com.repackage.ej;
-import com.repackage.fw4;
-import com.repackage.gk8;
+import com.repackage.dj;
+import com.repackage.fj;
+import com.repackage.g75;
+import com.repackage.h25;
 import com.repackage.h9;
-import com.repackage.k15;
-import com.repackage.k65;
-import com.repackage.w15;
+import com.repackage.sm8;
+import com.repackage.t25;
+import com.repackage.ur4;
+import com.repackage.zw4;
 /* loaded from: classes.dex */
-public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
+public class NewVoiceRecordButton extends LinearLayout implements fj, t25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
@@ -50,7 +50,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
     public int g;
     public VoiceData.VoiceModel h;
     public boolean i;
-    public dr4 j;
+    public ur4 j;
     public PermissionJudgePolicy k;
 
     /* loaded from: classes.dex */
@@ -101,7 +101,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
     }
 
     /* loaded from: classes.dex */
-    public class b implements dr4.e {
+    public class b implements ur4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewVoiceRecordButton a;
@@ -124,17 +124,17 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
             this.a = newVoiceRecordButton;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.ur4.e
+        public void onClick(ur4 ur4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+                ur4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class c implements dr4.e {
+    public class c implements ur4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewVoiceRecordButton a;
@@ -157,12 +157,12 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
             this.a = newVoiceRecordButton;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.ur4.e
+        public void onClick(ur4 ur4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
-                this.a.L(new k15(11, -1, null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+                ur4Var.dismiss();
+                this.a.J(new h25(11, -1, null));
             }
         }
     }
@@ -221,131 +221,139 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
             }
         }
         this.g = 0;
-        h();
+        g();
     }
 
-    @Override // com.repackage.l15
-    public void C(k15 k15Var) {
+    @Override // com.repackage.i25
+    public void A(h25 h25Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || k15Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || h25Var == null) {
             return;
         }
-        int i = k15Var.a;
+        int i = h25Var.a;
         if (i == 1) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 6));
         } else if (i == 9) {
             i();
         } else if (i != 52) {
         } else {
-            Object obj = k15Var.c;
+            Object obj = h25Var.c;
             if (obj instanceof VoiceData.VoiceModel) {
                 this.h = (VoiceData.VoiceModel) obj;
-                this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1528));
+                this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f156f));
                 return;
             }
             i();
         }
     }
 
-    @Override // com.repackage.w15
-    public void L(k15 k15Var) {
+    @Override // com.repackage.t25
+    public void J(h25 h25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var) == null) || (editorTools = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h25Var) == null) || (editorTools = this.f) == null) {
             return;
         }
-        editorTools.A(k15Var);
+        editorTools.A(h25Var);
     }
 
-    public gk8 getRecorderManager() {
+    @Override // com.repackage.t25
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0485, this);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091285);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091008);
+            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091b66);
+            this.c = recordingAnimView;
+            recordingAnimView.setCertainColumnCount(8);
+            this.c.setColumnColor(R.color.CAM_X0111);
+            this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.a.setOnTouchListener(new a(this));
+            sm8 recorderManager = getRecorderManager();
+            if (recorderManager != null) {
+                recorderManager.e(this);
+                recorderManager.d(dj.a);
+            }
+        }
+    }
+
+    public sm8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager == null || voiceManager.getRecorderManager() == null) {
                 return null;
             }
             return voiceManager.getRecorderManager();
         }
-        return (gk8) invokeV.objValue;
+        return (sm8) invokeV.objValue;
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.intValue;
     }
 
     public VoiceManager getVoiceManager() {
         InterceptResult invokeV;
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).u0();
+                return ((VoiceManager.j) context).t0();
             }
             if ((h9.a(getContext()) instanceof d9) && (tbPageContext = (TbPageContext) h9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).u0();
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
             }
             return null;
         }
         return (VoiceManager) invokeV.objValue;
     }
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0482, this);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09122b);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb4);
-            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091a87);
-            this.c = recordingAnimView;
-            recordingAnimView.setCertainColumnCount(8);
-            this.c.setColumnColor(R.color.CAM_X0111);
-            this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092227);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
-            this.a.setOnTouchListener(new a(this));
-            gk8 recorderManager = getRecorderManager();
-            if (recorderManager != null) {
-                recorderManager.e(this);
-                recorderManager.d(cj.a);
-            }
-        }
-    }
-
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(8);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.h = null;
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1523));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f156a));
             this.d.setText("");
             this.d.setVisibility(4);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -353,11 +361,11 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (this.j == null) {
-                dr4 dr4Var = new dr4(h9.a(getContext()).getPageActivity());
-                this.j = dr4Var;
-                dr4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f1529)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f1528), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f036a), new b(this)).create(h9.a(getContext()));
+                ur4 ur4Var = new ur4(h9.a(getContext()).getPageActivity());
+                this.j = ur4Var;
+                ur4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f1570)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f156f), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f0370), new b(this)).create(h9.a(getContext()));
             }
             this.j.show();
         }
@@ -365,7 +373,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (getContext() instanceof Activity) {
                 if (this.k == null) {
                     this.k = new PermissionJudgePolicy();
@@ -379,39 +387,39 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
             }
             VoiceData.VoiceModel voiceModel = this.h;
             if (voiceModel != null) {
-                fw4.a(fw4.b(voiceModel.voiceId));
+                zw4.a(zw4.b(voiceModel.voiceId));
             }
-            gk8 recorderManager = getRecorderManager();
+            sm8 recorderManager = getRecorderManager();
             if (recorderManager == null || !recorderManager.f()) {
                 return;
             }
             this.i = recorderManager.c(this, -1);
-            k65.b().l(true);
+            g75.b().l(true);
             this.d.setVisibility(0);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.b.setVisibility(0);
             this.c.g();
             this.c.setVisibility(4);
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1523));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f156a));
             this.d.setVisibility(4);
-            gk8 recorderManager = getRecorderManager();
+            sm8 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             this.i = false;
-            k65.b().l(false);
+            g75.b().l(false);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0106, 1, i);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0302, 1, i);
             SkinManager.setBackgroundResource(this.b, R.drawable.ic_post_record, i);
@@ -419,17 +427,17 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048591, this, str, i) == null) || TextUtils.isEmpty(str) || i <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(1048592, this, str, i) == null) || TextUtils.isEmpty(str) || i <= 0) {
             return;
         }
         VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
@@ -438,62 +446,54 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
         voiceModel.isLocal = true;
         voiceModel.voiceId = str;
         voiceModel.voice_status = 1;
-        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1528));
-        L(new k15(10, -1, this.h));
+        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f156f));
+        J(new h25(10, -1, this.h));
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i, str) == null) {
             this.d.setVisibility(0);
             this.d.setText(str);
             postDelayed(new d(this), 2000L);
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onShowRecordTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.d.setText(VoiceManager.formatVoiceTime(i / 1000));
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onShowRecording(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onStartedRecorder(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048595, this, z) == null) && z) {
+        if ((interceptable == null || interceptable.invokeZ(1048596, this, z) == null) && z) {
             this.b.setVisibility(4);
             this.c.setVisibility(0);
             this.c.h();
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1524));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f156b));
         }
     }
 
-    @Override // com.repackage.ej
+    @Override // com.repackage.fj
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.w15
-    public void r() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            setVisibility(0);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, editorTools) == null) {
@@ -501,7 +501,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, w15 {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {

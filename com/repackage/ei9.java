@@ -1,26 +1,31 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.fi9;
-import com.repackage.id9;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ei9 implements fi9.a<fd9> {
+public class ei9 implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fi9 a;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ vh9 b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ bi9 e;
 
-    public ei9(fi9 fi9Var) {
+    public ei9(bi9 bi9Var, View view2, vh9 vh9Var, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fi9Var};
+            Object[] objArr = {bi9Var, view2, vh9Var, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,32 +35,42 @@ public class ei9 implements fi9.a<fd9> {
                 return;
             }
         }
-        this.a = fi9Var;
+        this.e = bi9Var;
+        this.a = view2;
+        this.b = vh9Var;
+        this.c = funAdInteractionListener;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.fi9.a
-    public void a(fd9 fd9Var) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fd9Var) == null) {
-            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", fd9Var.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.fi9.a
-    public void b(fd9 fd9Var) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fd9Var) == null) {
-            fd9 fd9Var2 = fd9Var;
-            LogPrinter.v("Update SerialSlotId:%s", fd9Var2.a);
-            HashMap<String, kd9> hashMap = this.a.c;
-            String str = fd9Var2.a;
-            hashMap.put(str, new kd9(str, new rd9(this, fd9Var2)));
-            id9 id9Var = this.a.b;
-            synchronized (id9Var.a) {
-                id9Var.a(fd9Var2.a).add(new id9.b(fd9Var2));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            View view2 = this.a;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
+            this.e.onAdClose(this.b);
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.d);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

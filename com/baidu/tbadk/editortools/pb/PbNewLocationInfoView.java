@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -51,17 +51,17 @@ public class PbNewLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a2e);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a52);
                 }
                 setText(str);
             } else if (i == 2) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a2b);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a4f);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a2b);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a4f);
                 }
                 setText(str);
             }
@@ -90,7 +90,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, pi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+        setTextSize(0, qi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
         setState(0, null);
     }
 }

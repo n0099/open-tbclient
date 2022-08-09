@@ -36,7 +36,6 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile GetRequest.GetRequestBuilder requestBuilder;
 
         public Factory() {
             Interceptable interceptable = $ic;
@@ -57,15 +56,8 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.requestBuilder == null) {
-                    synchronized (Factory.class) {
-                        if (this.requestBuilder == null) {
-                            this.requestBuilder = HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str);
-                        }
-                    }
-                }
                 Util.d(DownloadHttpManagerConnection.TAG, " create url = " + str);
-                return new DownloadHttpManagerConnection(this.requestBuilder);
+                return new DownloadHttpManagerConnection(HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str));
             }
             return (DownloadConnection) invokeL.objValue;
         }

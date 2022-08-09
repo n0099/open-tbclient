@@ -10,6 +10,7 @@ public class PaysSettingInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public String customerServiceHotline;
     public String customerServiceMsg;
+    public int feedbackSwitch;
     public int payChargeAmountLimit;
     public String payRemindMsg;
     public String successMsg;

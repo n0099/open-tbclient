@@ -12,8 +12,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.bumptech.glide.load.engine.GlideException;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import com.ss.android.download.api.constant.BaseConstants;
@@ -28,26 +28,26 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static final String a = "b";
     public static c b;
     public static a c;
 
-    /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC0660a {
+    /* loaded from: classes8.dex */
+    public static class a implements a.InterfaceC0665a {
         public final e a;
         public final int b;
         public JSONObject c;
 
-        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0657b interfaceC0657b) {
+        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0662b interfaceC0662b) {
             this.c = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
             this.b = optInt;
-            this.a = new e(context, intent, i, interfaceC0657b, optInt);
+            this.a = new e(context, intent, i, interfaceC0662b, optInt);
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
         public void b() {
             if (!this.a.i) {
                 Message obtain = Message.obtain();
@@ -58,7 +58,7 @@ public class b {
             a unused = b.c = null;
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
         public void c() {
             int optInt = this.c.optInt("time_out_second", 20);
             Message obtain = Message.obtain();
@@ -74,26 +74,26 @@ public class b {
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0657b {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0662b {
         boolean a(@NonNull Context context);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d implements Callable<Boolean> {
         public final Context a;
-        public final InterfaceC0657b b;
+        public final InterfaceC0662b b;
         public final Handler c;
         public final long d;
 
-        public d(Handler handler, Context context, InterfaceC0657b interfaceC0657b, long j) {
+        public d(Handler handler, Context context, InterfaceC0662b interfaceC0662b, long j) {
             this.a = context;
-            this.b = interfaceC0657b;
+            this.b = interfaceC0662b;
             this.c = handler;
             this.d = j;
         }
@@ -119,23 +119,23 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e implements h.a {
         public static int a;
         public static int b;
         public final Context c;
         public final Intent d;
-        public final InterfaceC0657b e;
+        public final InterfaceC0662b e;
         public final Handler f;
         public final long g;
         public Future<Boolean> h;
         public boolean i = false;
 
-        public e(Context context, Intent intent, int i, InterfaceC0657b interfaceC0657b, long j) {
+        public e(Context context, Intent intent, int i, InterfaceC0662b interfaceC0662b, long j) {
             this.c = context;
             this.d = intent;
             b = i;
-            this.e = interfaceC0657b;
+            this.e = interfaceC0662b;
             this.f = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
             this.g = j;
         }
@@ -452,7 +452,7 @@ public class b {
                     downloadInfo.getTempCacheData().put("ah_attempt", aVar.a());
                 }
                 if (b != null) {
-                    downloadInfo.getTempCacheData().put("intent", intent);
+                    downloadInfo.getTempCacheData().put(IntentData.KEY, intent);
                     b.a(downloadInfo, aVar);
                 }
             }
@@ -723,8 +723,8 @@ public class b {
                 if (jSONObject.optInt("show_unknown_source_dialog", 0) == 1) {
                     Intent intent2 = new Intent(context, JumpUnknownSourceActivity.class);
                     intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    intent2.putExtra("intent", intent);
-                    intent2.putExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, jSONObject.toString());
+                    intent2.putExtra(IntentData.KEY, intent);
+                    intent2.putExtra("config", jSONObject.toString());
                     intent2.putExtra("id", i);
                     try {
                         if (a(context, intent2, false)) {
@@ -753,8 +753,8 @@ public class b {
             if (com.ss.android.socialbase.appdownloader.f.d.b() && Build.VERSION.SDK_INT < 26 && !d(context)) {
                 com.ss.android.socialbase.appdownloader.a.f fVar = new com.ss.android.socialbase.appdownloader.a.f(context);
                 if (fVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0657b() { // from class: com.ss.android.socialbase.appdownloader.b.1
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0657b
+                    a(context, intent, i, jSONObject, new InterfaceC0662b() { // from class: com.ss.android.socialbase.appdownloader.b.1
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0662b
                         public boolean a(@NonNull Context context2) {
                             return b.d(context2);
                         }
@@ -764,8 +764,8 @@ public class b {
             } else if (Build.VERSION.SDK_INT >= 26 && context.getApplicationInfo().targetSdkVersion >= 26 && !e(context)) {
                 com.ss.android.socialbase.appdownloader.a.b bVar = new com.ss.android.socialbase.appdownloader.a.b(context);
                 if (bVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0657b() { // from class: com.ss.android.socialbase.appdownloader.b.2
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0657b
+                    a(context, intent, i, jSONObject, new InterfaceC0662b() { // from class: com.ss.android.socialbase.appdownloader.b.2
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0662b
                         public boolean a(@NonNull Context context2) {
                             return b.e(context2);
                         }
@@ -810,12 +810,12 @@ public class b {
         com.ss.android.socialbase.downloader.downloader.c.P().b(i, "guide_auth_dialog_confirm", jSONObject2);
     }
 
-    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0657b interfaceC0657b) {
+    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0662b interfaceC0662b) {
         if (c != null) {
             com.ss.android.socialbase.downloader.a.a.a().b(c);
             c = null;
         }
-        c = new a(context, intent, i, jSONObject, interfaceC0657b);
+        c = new a(context, intent, i, jSONObject, interfaceC0662b);
         com.ss.android.socialbase.downloader.a.a.a().a(c);
     }
 

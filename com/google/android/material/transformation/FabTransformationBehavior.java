@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -48,7 +49,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +107,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0914b3);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09156c);
             if (findViewById != null) {
                 return toViewGroupOrNull(findViewById);
             }
@@ -364,7 +365,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             } else {
                 ofFloat = ObjectAnimator.ofFloat(view3, View.TRANSLATION_Z, -elevation);
             }
-            fabTransformationSpec.timings.getTiming("elevation").apply(ofFloat);
+            fabTransformationSpec.timings.getTiming(Key.ELEVATION).apply(ofFloat);
             list.add(ofFloat);
         }
     }

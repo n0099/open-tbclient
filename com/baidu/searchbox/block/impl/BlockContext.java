@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb1;
+import com.repackage.ic1;
 @Autowired
 /* loaded from: classes2.dex */
 public class BlockContext {
@@ -64,7 +64,7 @@ public class BlockContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppBlock");
                     }
-                    rb1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+                    ic1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
                     if (iBlockUploadList == null || iBlockUploadList.getList() == null || blockInfo == null) {
                         return;
                     }

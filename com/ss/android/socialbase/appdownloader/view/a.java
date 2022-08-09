@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends Fragment {
     public static Intent d() {
         return new Intent("android.settings.APPLICATION_SETTINGS");

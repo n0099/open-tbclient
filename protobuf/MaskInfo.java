@@ -30,6 +30,8 @@ public final class MaskInfo extends Message {
     public final Integer remindMask;
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer shieldStatus;
+    @ProtoField(tag = 7)
+    public final PushSignMask signMask;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long userId;
 
@@ -42,6 +44,7 @@ public final class MaskInfo extends Message {
         public String maskUids;
         public Integer remindMask;
         public Integer shieldStatus;
+        public PushSignMask signMask;
         public Long userId;
 
         public Builder() {
@@ -85,6 +88,7 @@ public final class MaskInfo extends Message {
             this.maskUids = maskInfo.maskUids;
             this.shieldStatus = maskInfo.shieldStatus;
             this.maskFids = maskInfo.maskFids;
+            this.signMask = maskInfo.signMask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -176,11 +180,11 @@ public final class MaskInfo extends Message {
             String str3 = builder.maskFids;
             if (str3 == null) {
                 this.maskFids = "";
-                return;
             } else {
                 this.maskFids = str3;
-                return;
             }
+            this.signMask = builder.signMask;
+            return;
         }
         this.userId = builder.userId;
         this.maskGids = builder.maskGids;
@@ -188,5 +192,6 @@ public final class MaskInfo extends Message {
         this.maskUids = builder.maskUids;
         this.shieldStatus = builder.shieldStatus;
         this.maskFids = builder.maskFids;
+        this.signMask = builder.signMask;
     }
 }

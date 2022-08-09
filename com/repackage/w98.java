@@ -1,85 +1,70 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
+public class w98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public int j;
-    public boolean k;
-    public AdvertAppInfo.ILegoAdvert l;
-    public Runnable m;
-    public CustomMessageListener n;
+    public String a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public List<k98> e;
 
     /* loaded from: classes7.dex */
-    public class a implements tc7 {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
 
-        public a(w98 w98Var, AdvertAppInfo advertAppInfo, int i, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w98Var, advertAppInfo, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
         }
 
-        @Override // com.repackage.tc7
-        public void a(int i, HashMap hashMap) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) || i == 0) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                cn7.a(en7.b);
+                cn7.a(en7.c);
+                cn7.a(en7.d);
+                return null;
             }
-            if (t98.h(i)) {
-                eb8.g(this.a, this.b, hashMap, i);
-            } else {
-                eb8.n(this.a, this.b, this.c, null, hashMap);
-            }
-            bd7.c(this.a);
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b extends BdAsyncTask<x98, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w98 a;
 
         public b(w98 w98Var) {
             Interceptable interceptable = $ic;
@@ -93,251 +78,236 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = w98Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(x98... x98VarArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.g).b((int) TimeUnit.SECONDS.toSeconds(1L));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x98VarArr)) == null) {
+                if (x98VarArr == null || x98VarArr.length != 1 || x98VarArr[0] == null) {
+                    return null;
+                }
+                x98 x98Var = x98VarArr[0];
+                synchronized ("debug") {
+                    File file = new File(en7.e + en7.a + x98Var.b + en7.a + "debug");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(x98Var.a.a().toString());
+                    sb.append("\n");
+                    cn7.g(file, sb.toString(), true);
+                }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends CustomMessageListener {
+    public class c extends BdAsyncTask<q98, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w98 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(w98 w98Var, int i) {
-            super(i);
+        public c(w98 w98Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w98Var, Integer.valueOf(i)};
+                Object[] objArr = {w98Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = w98Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(q98... q98VarArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.g == null) {
-                return;
-            }
-            if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.g).stopPlay();
-            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.g).stopPlay();
-            } else {
-                int d = ((CardAppLegoViewHolder) this.a.g).d();
-                if (!((CardAppLegoViewHolder) this.a.g).c()) {
-                    if (d != -1) {
-                        ((CardAppLegoViewHolder) this.a.g).stopPlay();
-                    }
-                } else if (d == -1) {
-                    qg.a().removeCallbacks(this.a.m);
-                    qg.a().postDelayed(this.a.m, 500L);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q98VarArr)) == null) {
+                if (q98VarArr == null || q98VarArr.length != 1 || q98VarArr[0] == null) {
+                    return null;
                 }
+                q98 q98Var = q98VarArr[0];
+                synchronized ("kpi") {
+                    cn7.g(new File(en7.e + en7.a + q98Var.d + en7.a + "kpi"), w98.e(q98Var.a, q98Var.b, q98Var.c).toString(), false);
+                }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755246437, "Lcom/repackage/w98;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755246437, "Lcom/repackage/w98;");
+                return;
+            }
+        }
+        if (ki.c()) {
+            new a().execute(new Void[0]);
+        }
+    }
+
+    public w98(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = 3;
-        this.k = false;
-        this.l = null;
-        this.m = new b(this);
-        this.n = new c(this, 2921517);
-        this.i = tbPageContext;
-        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
-            if (bdUniqueId == AdvertAppInfo.z || bdUniqueId == AdvertAppInfo.B) {
-                MessageManager.getInstance().registerListener(this.n);
-            }
-        }
+        this.b = true;
+        this.c = 0;
+        this.d = false;
+        this.a = str;
+        this.e = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: g0 */
-    public View D(int i, View view2, ViewGroup viewGroup, py5 py5Var) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var})) == null) {
-            if (py5Var == null || (advertAppInfo = py5Var.a) == null || (iLegoAdvert = advertAppInfo.h) == null) {
-                return null;
-            }
-            this.l = iLegoAdvert;
-            if (h0(view2)) {
-                CardAppLegoViewHolder M = M(viewGroup);
-                this.g = M;
-                if (M != null) {
-                    view2 = M.a();
-                }
-            }
-            View view3 = view2;
-            if (view3 != null) {
-                view3 = S(i, view3, viewGroup, py5Var, (CardAppLegoViewHolder) view3.getTag());
-                if (m98.class.isAssignableFrom(view3.getClass())) {
-                    ((CardAppLegoViewHolder) this.g).e(((m98) view3).getVideoOrVrView());
-                }
-            }
-            return view3;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final boolean h0(View view2) {
-        InterceptResult invokeL;
-        V v;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.g) == 0 || this.l == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.g).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f091efb) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f091efb));
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: i0 */
-    public CardAppLegoViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            if (this.l == null || (view2 = (View) uc7.h().a(this.i, this.l, 2)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.obfuscated_res_0x7f091efb, this.l);
-            return new CardAppLegoViewHolder((pd7) view2);
-        }
-        return (CardAppLegoViewHolder) invokeL.objValue;
-    }
-
-    @Override // com.repackage.o98
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: j0 */
-    public CardAppLegoViewHolder N(ViewGroup viewGroup, py5 py5Var) {
-        InterceptResult invokeLL;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, py5Var)) == null) {
-            if (py5Var == null || (advertAppInfo = py5Var.a) == null || (iLegoAdvert = advertAppInfo.h) == null) {
-                return null;
-            }
-            this.l = iLegoAdvert;
-            return M(viewGroup);
-        }
-        return (CardAppLegoViewHolder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: k0 */
-    public View S(int i, View view2, ViewGroup viewGroup, py5 py5Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
+    public static final JSONObject e(boolean z, int i, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var, cardAppLegoViewHolder})) == null) {
-            TbPageContext<?> tbPageContext = this.i;
-            if (tbPageContext != null && py5Var != null && py5Var.a != null) {
-                if (tbPageContext.getPageActivity() instanceof lg0) {
-                    AdvertAppInfo advertAppInfo = py5Var.a;
-                    advertAppInfo.r = ng0.b(advertAppInfo.r, (lg0) this.i.getPageActivity(), cardAppLegoViewHolder.itemView);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int i2 = 1;
+            try {
+                jSONObject.put("postSuccess", (z2 && z) ? 1 : 0);
+                jSONObject.put("errorTimes", i);
+                if (!z2) {
+                    i2 = 0;
                 }
-                AdvertAppInfo.ILegoAdvert iLegoAdvert = py5Var.a.h;
-                this.l = iLegoAdvert;
-                if (iLegoAdvert != null && view2 != null) {
-                    if (this.g == 0) {
-                        this.g = cardAppLegoViewHolder;
-                    }
-                    tn4.d(py5Var);
-                    this.i.getLayoutMode().k(this.j == 1);
-                    this.i.getLayoutMode().j(view2);
-                    AdvertAppInfo c2 = py5Var.c();
-                    pd7 pd7Var = (pd7) view2;
-                    this.l.setAdvertAppInfo(c2);
-                    pd7Var.setFromCDN(this.k);
-                    pd7Var.update(this.l);
-                    pd7Var.setAfterClickSchemeListener(new a(this, c2, py5Var.c, py5Var.b));
-                    if (m98.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.e(((m98) view2).getVideoOrVrView());
-                    }
-                    return view2;
-                }
+                jSONObject.put("posted", i2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return null;
+            return jSONObject;
         }
-        return (View) invokeCommon.objValue;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.j98
-    public void onDestroy() {
+    public void a(k98 k98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.n);
-        }
-    }
-
-    @Override // com.repackage.j98
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, k98Var) == null) {
+            this.e.add(k98Var);
+            c();
+            m(k98Var);
+            l();
         }
     }
 
-    @Override // com.repackage.j98
-    public void onResume() {
+    public JSONObject b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!ListUtils.isEmpty(this.e)) {
+                    int size = this.e.size();
+                    for (int i = 0; i < size; i++) {
+                        jSONArray.put(this.e.get(i).a());
+                    }
+                }
+                jSONObject.put("running", jSONArray);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ki.c()) {
+            File file = new File(en7.e + en7.a + this.a + en7.a);
+            if (file.exists()) {
+                return;
+            }
+            file.mkdir();
+        }
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e(this.b, this.c, this.d) : (JSONObject) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c++;
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c > 0 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.d = true;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && ki.c()) {
+            new c(this).execute(new q98(this.b, this.c, this.d, this.a));
+        }
+    }
+
+    public final void m(k98 k98Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, k98Var) == null) && ki.c() && k98Var != null) {
+            new b(this).execute(new x98(k98Var, this.a));
         }
     }
 }

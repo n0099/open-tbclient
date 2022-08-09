@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
-import com.baidubce.services.vod.VodClient;
 import com.coremedia.iso.boxes.sampleentry.SubtitleSampleEntry;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
@@ -1221,7 +1220,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
             long parseLong3 = parseLong(xmlPullParser, "duration", segmentTemplate != null ? segmentTemplate.duration : C.TIME_UNSET);
             int parseInt = parseInt(xmlPullParser, "startNumber", segmentTemplate != null ? segmentTemplate.startNumber : 1);
             RangedUri rangedUri = null;
-            UrlTemplate parseUrlTemplate = parseUrlTemplate(xmlPullParser, VodClient.PATH_MEDIA, segmentTemplate != null ? segmentTemplate.mediaTemplate : null);
+            UrlTemplate parseUrlTemplate = parseUrlTemplate(xmlPullParser, "media", segmentTemplate != null ? segmentTemplate.mediaTemplate : null);
             UrlTemplate parseUrlTemplate2 = parseUrlTemplate(xmlPullParser, JoinPoint.INITIALIZATION, segmentTemplate != null ? segmentTemplate.initializationTemplate : null);
             List<SegmentBase.SegmentTimelineElement> list = null;
             do {
@@ -1271,7 +1270,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     public RangedUri parseSegmentUrl(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, xmlPullParser)) == null) ? parseRangedUrl(xmlPullParser, VodClient.PATH_MEDIA, "mediaRange") : (RangedUri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, xmlPullParser)) == null) ? parseRangedUrl(xmlPullParser, "media", "mediaRange") : (RangedUri) invokeL.objValue;
     }
 
     public UrlTemplate parseUrlTemplate(XmlPullParser xmlPullParser, String str, UrlTemplate urlTemplate) {

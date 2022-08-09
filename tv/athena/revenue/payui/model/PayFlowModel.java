@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 @Keep
@@ -14,6 +15,7 @@ public class PayFlowModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppCustomExpand appCustomExpand;
+    public Map<String, String> clientInfoExpand;
     public AbsViewEventHandler viewEventListener;
 
     public PayFlowModel() {
@@ -34,7 +36,7 @@ public class PayFlowModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PayFlowModel{appCustomExpand=" + this.appCustomExpand + ", viewEventListener='" + this.viewEventListener + "'}";
+            return "PayFlowModel{appCustomExpand=" + this.appCustomExpand + ", clientInfoExpand=" + this.clientInfoExpand + ", viewEventListener='" + this.viewEventListener + "'}";
         }
         return (String) invokeV.objValue;
     }

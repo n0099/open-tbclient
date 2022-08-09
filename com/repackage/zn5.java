@@ -1,37 +1,28 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
 /* loaded from: classes7.dex */
-public class zn5 extends sj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zn5 {
+    public static final boolean a;
 
-    public zn5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    static {
+        a = TbadkCoreApplication.getInst().isDebugMode() || ln4.h();
     }
 
-    @Override // com.repackage.sj1
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            yn5.c(z);
-        }
-    }
+    void a();
+
+    boolean b();
+
+    String c();
+
+    AdLoadState d();
+
+    void destroy();
+
+    void e(im4 im4Var);
+
+    String f();
+
+    void show();
 }

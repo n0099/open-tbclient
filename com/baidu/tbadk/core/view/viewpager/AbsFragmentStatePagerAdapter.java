@@ -67,7 +67,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
             while (this.c.size() <= i) {
                 this.c.add(null);
             }
-            this.c.set(i, this.a.saveFragmentInstanceState(fragment));
+            this.c.set(i, (fragment == null || !fragment.isAdded()) ? null : this.a.saveFragmentInstanceState(fragment));
             this.d.set(i, null);
             this.b.remove(fragment);
         }

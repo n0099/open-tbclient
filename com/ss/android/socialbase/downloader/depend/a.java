@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.depend;
 
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends AbsDownloadListener implements s {
     public static final String a = "a";
 

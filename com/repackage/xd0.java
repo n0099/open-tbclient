@@ -1,38 +1,30 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.common.others.IStringUtil;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class xd0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public String k;
-    public String l;
-    public boolean m;
-    public StringBuilder n;
+    public Context a;
 
-    public xd0(String str, String str2) {
+    public xd0(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,103 +34,154 @@ public class xd0 {
                 return;
             }
         }
-        this.f = 1000L;
-        this.m = false;
-        this.n = new StringBuilder();
-        this.k = str;
-        this.l = str2;
-        e();
+        this.a = context;
     }
 
-    public final void a(String str, String str2) {
+    public boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            Log.d(str, str2);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.h;
-            this.i = currentTimeMillis;
-            this.j = this.g;
-            this.h = 0L;
-            this.g = 0L;
-            if (this.m) {
-                a(this.k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.j)));
-            }
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.c), Long.valueOf(this.b), Float.valueOf(((float) this.d) / ((float) this.e)));
-            if (this.m) {
-                a(this.k, format);
-            }
-            return format;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a == 0) {
-                this.a = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            this.d += currentTimeMillis;
-            this.e++;
-            if (currentTimeMillis > this.b) {
-                this.b = currentTimeMillis;
-            } else if (currentTimeMillis < this.c) {
-                this.c = currentTimeMillis;
-            }
-            if (this.m) {
-                if (this.n.length() > 0) {
-                    StringBuilder sb = this.n;
-                    sb.delete(0, sb.length());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
+            boolean b = b(str, file);
+            if (file.isDirectory()) {
+                File file2 = new File(file, ".nomedia");
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                this.n.append(this.l);
-                for (int i = (int) ((currentTimeMillis - 33) / 5); i > 0; i--) {
-                    this.n.append(IStringUtil.EXTENSION_SEPARATOR);
+            }
+            return b;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        InputStream open;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) != null) {
+            return invokeLL.booleanValue;
+        }
+        AssetManager assets = this.a.getAssets();
+        FileOutputStream fileOutputStream = null;
+        try {
+            String[] list = assets.list(str);
+            if (list.length > 0) {
+                if (!file.isDirectory() && file.exists()) {
+                    file.delete();
                 }
-                this.n.append(currentTimeMillis);
-                a(this.k, this.n.toString());
+                if (file.isDirectory() && !file.exists()) {
+                    file.mkdirs();
+                }
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        b(str + File.separator + str2, new File(file, str2));
+                    }
+                }
+                open = null;
+            } else {
+                File parentFile = file.getParentFile();
+                if (parentFile != null && !parentFile.exists()) {
+                    parentFile.mkdirs();
+                }
+                if (file.exists()) {
+                    file.delete();
+                }
+                file.createNewFile();
+                open = assets.open(str);
+                try {
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                    try {
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = open.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            fileOutputStream2.write(bArr, 0, read);
+                        }
+                        fileOutputStream2.flush();
+                        fileOutputStream = fileOutputStream2;
+                    } catch (Exception e) {
+                        e = e;
+                        fileOutputStream = fileOutputStream2;
+                        Exception exc = e;
+                        inputStream = open;
+                        e = exc;
+                        try {
+                            e.printStackTrace();
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                    return false;
+                                }
+                            }
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                    throw th;
+                                }
+                            }
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = fileOutputStream2;
+                        Throwable th3 = th;
+                        inputStream = open;
+                        th = th3;
+                        if (fileOutputStream != null) {
+                        }
+                        if (inputStream != null) {
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                } catch (Throwable th4) {
+                    th = th4;
+                }
             }
-            this.g++;
-            if (this.f > 0 && System.currentTimeMillis() - this.h > this.f) {
-                b();
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                    return true;
+                }
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.a = currentTimeMillis2;
-            if (this.h == 0) {
-                this.h = currentTimeMillis2;
-                this.g = 0L;
+            if (open != null) {
+                open.close();
+                return true;
             }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.b = Long.MIN_VALUE;
-            this.c = Long.MAX_VALUE;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f = j;
+            return true;
+        } catch (Exception e6) {
+            e = e6;
+            inputStream = null;
+        } catch (Throwable th5) {
+            th = th5;
+            inputStream = null;
         }
     }
 }

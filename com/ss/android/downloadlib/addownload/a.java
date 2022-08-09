@@ -7,7 +7,7 @@ import com.ss.android.downloadlib.g.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements m.a {
     public static final String a = "a";
     public static a b;

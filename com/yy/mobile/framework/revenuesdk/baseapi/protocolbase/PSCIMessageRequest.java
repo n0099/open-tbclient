@@ -49,7 +49,7 @@ public class PSCIMessageRequest extends RequestPacket {
         this.traceid = str2;
         this.jsonMsg = str3;
         this.protocolType = protocolType;
-        RLog.debug("PSCIMessageRequest", "request info: cmd = %d, appId = %d, version = %d, traceid = %d,jsonMsg = %s", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3);
+        RLog.debug(TAG, "request info: cmd = " + i + " appId = " + i2 + " traceid =" + str2 + " jsonMsg =" + str3);
         packageRequestJson();
     }
 
@@ -66,7 +66,7 @@ public class PSCIMessageRequest extends RequestPacket {
                 jSONObject.put("jsonMsg", this.jsonMsg);
                 this.requestJson = jSONObject.toString();
             } catch (JSONException e) {
-                RLog.error("PSCIMessageRequest", "packageRequestJson error", e);
+                RLog.error(TAG, "packageRequestJson error", e);
             }
         }
     }
@@ -80,7 +80,7 @@ public class PSCIMessageRequest extends RequestPacket {
             } else if (protocolType == ProtocolType.SERVICE) {
                 this.requestJson = this.jsonMsg;
             } else {
-                RLog.error("PSCIMessageRequest", "packageRequestJson ProtocolType error ", new Object[0]);
+                RLog.error(TAG, "packageRequestJson ProtocolType error ", new Object[0]);
             }
         }
     }
@@ -110,7 +110,7 @@ public class PSCIMessageRequest extends RequestPacket {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.requestJson;
             if (str == null) {
-                RLog.error("PSCIMessageRequest", "getPacketSize requestJson null", new Object[0]);
+                RLog.error(TAG, "getPacketSize requestJson null", new Object[0]);
                 return 0;
             }
             return str.getBytes().length + 4;
@@ -197,7 +197,7 @@ public class PSCIMessageRequest extends RequestPacket {
             } else if (protocolType == ProtocolType.HTTP) {
                 this.jsonMsg = jSONObject.optString("jsonMsg");
             } else {
-                RLog.error("PSCIMessageRequest", "PSCIMessageRequest construct ProtocolType error ", new Object[0]);
+                RLog.error(TAG, "PSCIMessageRequest construct ProtocolType error ", new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();

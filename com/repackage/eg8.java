@@ -1,32 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.NonNull;
+import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.common.config.AppIdentityManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class eg8 {
+public class eg8 implements IDeviceInfoAppHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public fg8 b;
+    public nc9 a;
 
-    public eg8(Context context, fg8 fg8Var) {
+    public eg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, fg8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,40 +35,60 @@ public class eg8 {
                 return;
             }
         }
-        this.a = context;
-        this.b = fg8Var;
+        this.a = null;
     }
 
-    public void a() {
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getAppName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ShareItem shareItem = new ShareItem();
-            Bundle e = shareItem.e();
-            if (e == null) {
-                e = new Bundle();
-            }
-            e.putInt("obj_locate", 20);
-            shareItem.k(e);
-            shareItem.q0 = true;
-            shareItem.g0 = 1;
-            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
-            stampShareDialogConfig.setIsCopyLink(false);
-            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
-            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AppIdentityManager.getInstance().getAppName() : (String) invokeV.objValue;
     }
 
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getEnUid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
-                return null;
-            }
-            return (Bitmap) runTask.getData();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() ? AppCuidRuntime.getAppCuidManager().getEnCuid() : "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    public long getForceMappingCacheInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 86400000L;
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public IDeviceInfoAppHost.OAIDResult getOAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            nc9 nc9Var = this.a;
+            if (nc9Var != null) {
+                return new IDeviceInfoAppHost.OAIDResult(true, nc9Var.b(), this.a.a());
+            }
+            nc9 d = pc9.c(AppRuntime.getAppContext()).d();
+            if (d != null) {
+                this.a = d;
+                return new IDeviceInfoAppHost.OAIDResult(true, d.b(), this.a.a());
+            }
+            return new IDeviceInfoAppHost.OAIDResult(false, null, null);
+        }
+        return (IDeviceInfoAppHost.OAIDResult) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getUA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? rf5.b() : (String) invokeV.objValue;
     }
 }

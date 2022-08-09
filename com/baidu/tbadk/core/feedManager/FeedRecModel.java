@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.na5;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.ab;
+import com.repackage.kk8;
+import com.repackage.lb5;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
@@ -27,10 +27,10 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public int b;
-    public za c;
+    public ab c;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedRecModel a;
@@ -59,7 +59,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:24:0x0052  */
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -121,22 +121,22 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         this.c = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(BdUniqueId.gen());
         registerHttpTask();
-        B();
+        A();
         registerListener(this.c);
     }
 
-    public final void B() {
+    public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            na5 na5Var = new na5(309264);
-            na5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            na5Var.g(true);
-            na5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(na5Var);
+            lb5 lb5Var = new lb5(309264);
+            lb5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            lb5Var.g(true);
+            lb5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(lb5Var);
         }
     }
 
-    public void C(b bVar) {
+    public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;
@@ -174,7 +174,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, wh8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, kk8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);

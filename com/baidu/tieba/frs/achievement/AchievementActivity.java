@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qf6;
-import com.repackage.sf6;
+import com.repackage.ih6;
+import com.repackage.kh6;
 /* loaded from: classes3.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sf6 a;
-    public qf6 b;
+    public kh6 a;
+    public ih6 b;
     public View.OnClickListener c;
 
     /* loaded from: classes3.dex */
@@ -103,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            sf6 sf6Var = new sf6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091232));
-            this.a = sf6Var;
-            sf6Var.h(true);
+            kh6 kh6Var = new kh6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09128c));
+            this.a = kh6Var;
+            kh6Var.h(true);
             this.a.j(this.c);
-            qf6 qf6Var = new qf6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09121c));
-            this.b = qf6Var;
-            qf6Var.h(false);
+            ih6 ih6Var = new ih6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091275));
+            this.b = ih6Var;
+            ih6Var.h(false);
         }
     }
 }

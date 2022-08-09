@@ -1,9 +1,11 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,120 +13,115 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes7.dex */
-public class sv6 {
+public class sv6 extends zq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<an> b;
-    public tn c;
-    public rv6 d;
-    public vv6 e;
-    public mv6 f;
-    public ov6 g;
-    public nv6 h;
-    public pv6 i;
-    public qv6 j;
+    public boolean f;
+    public List<MetaData> g;
 
-    public sv6(TbPageContext tbPageContext, tn tnVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755307042, "Lcom/repackage/sv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755307042, "Lcom/repackage/sv6;");
+                return;
+            }
+        }
+        h = 6;
+    }
+
+    public sv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tnVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = tnVar;
-        b();
+        this.g = new ArrayList();
     }
 
-    public List<nn> a() {
+    public static boolean j(ConcernData concernData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
+            }
+            return concernData.recom_type.equals(h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.zq4
+    public List<MetaData> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.getData() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
     }
 
-    public final void b() {
+    @Override // com.repackage.zq4
+    public void f(List<User> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.b = arrayList;
-            arrayList.add(new uv6(this.a));
-            this.b.add(new tv6(this.a));
-            this.b.add(new LoadingViewAdapter(this.a));
-            rv6 rv6Var = new rv6(this.a);
-            this.d = rv6Var;
-            rv6Var.c0(this.c);
-            this.b.add(this.d);
-            vv6 vv6Var = new vv6(this.a);
-            this.e = vv6Var;
-            vv6Var.c0(this.c);
-            this.b.add(this.e);
-            mv6 mv6Var = new mv6(this.a);
-            this.f = mv6Var;
-            mv6Var.c0(this.c);
-            this.b.add(this.f);
-            ov6 ov6Var = new ov6(this.a);
-            this.g = ov6Var;
-            ov6Var.c0(this.c);
-            this.b.add(this.g);
-            nv6 nv6Var = new nv6(this.a);
-            this.h = nv6Var;
-            nv6Var.c0(this.c);
-            this.b.add(this.h);
-            pv6 pv6Var = new pv6(this.a);
-            this.i = pv6Var;
-            pv6Var.c0(this.c);
-            this.b.add(this.i);
-            qv6 qv6Var = new qv6(this.a);
-            this.j = qv6Var;
-            qv6Var.c0(this.c);
-            this.b.add(this.j);
-            this.c.a(this.b);
-        }
-    }
-
-    public void c() {
-        tn tnVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tnVar = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
             return;
         }
-        tnVar.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void d(List<nn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(list.get(i));
+            this.g.add(metaData);
         }
     }
 
-    public void e(km4 km4Var) {
+    @Override // com.repackage.zq4, com.repackage.fo4
+    public cq4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
-            for (an anVar : this.b) {
-                if (anVar instanceof lv6) {
-                    ((lv6) anVar).b0(km4Var);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new cq4() : (cq4) invokeV.objValue;
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    @Override // com.repackage.zq4, com.repackage.fo4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (an anVar : this.b) {
-                anVar.X(bdUniqueId);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zq4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? zq4.e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
     }
 }

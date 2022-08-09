@@ -1,104 +1,85 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class f46 extends ra {
+public class f46 implements d46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z36 a;
-    public HashMap<String, String> b;
-    public Gson c;
+    public final d46 a;
+    public final Map<Integer, d46> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f46(int i) {
-        super(i);
+    public f46(d46 defaultRenderer, Pair<Integer, ? extends d46>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Gson();
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
-    public String a(String str) {
+    @Override // com.repackage.d46
+    public p46 a(h26 item, h46 displayer, b26 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            d46 d46Var = this.b.get(Integer.valueOf(c(item)));
+            if (d46Var == null) {
+                d46Var = this.a;
+            }
+            return d46Var.a(item, displayer, config);
+        }
+        return (p46) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.d46
+    public void b(h26 item, Canvas canvas, h46 displayer, b26 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            d46 d46Var = this.b.get(Integer.valueOf(c(item)));
+            if (d46Var == null) {
+                d46Var = this.a;
+            }
+            d46Var.b(item, canvas, displayer, config);
+        }
+    }
+
+    public int c(h26 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.contains("?")) {
-                str = str.split("[?]")[0];
-            }
-            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(replace);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void b(z36 z36Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z36Var) == null) {
-            this.a = z36Var;
-        }
-    }
-
-    public void c(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.b = hashMap;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.repackage.ta
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        String json;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
-            String a = a(httpMessageTask.getUrl());
-            if (a != null && this.a != null) {
-                if (httpMessage.getExtra() instanceof NetMessage) {
-                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    json = netMessage.getSocketMessage() != null ? this.c.toJson(netMessage.getSocketMessage().getData()) : "";
-                } else {
-                    json = this.c.toJson(httpMessage.getParams());
-                }
-                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
-            }
-            return httpMessage;
-        }
-        return (HttpMessage) invokeLL.objValue;
+        return invokeL.intValue;
     }
 }

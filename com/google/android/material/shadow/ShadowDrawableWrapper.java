@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double COS_45;
@@ -90,9 +90,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606fd);
-        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606fc);
-        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606fb);
+        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070c);
+        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070b);
+        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070a);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);

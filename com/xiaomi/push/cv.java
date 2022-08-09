@@ -43,41 +43,41 @@ public class cv {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f186a;
+    public static a f187a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static cv f187a;
+    public static cv f188a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f188a;
+    public static boolean f189a;
     public static final Map<String, cr> b;
     public static String c;
     public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f189a;
+    public long f190a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cu f190a;
+    public cu f191a;
 
     /* renamed from: a  reason: collision with other field name */
-    public b f191a;
+    public b f192a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f192a;
+    public String f193a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, cs> f193a;
+    public final Map<String, cs> f194a;
 
     /* renamed from: b  reason: collision with other field name */
-    public final long f194b;
+    public final long f195b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f195b;
+    public String f196b;
 
     /* renamed from: c  reason: collision with other field name */
-    public long f196c;
+    public long f197c;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -103,7 +103,7 @@ public class cv {
             }
         }
         b = new HashMap();
-        f188a = false;
+        f189a = false;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -142,15 +142,15 @@ public class cv {
                 return;
             }
         }
-        this.f193a = new HashMap();
-        this.f192a = "0";
-        this.f189a = 0L;
-        this.f194b = 15L;
-        this.f196c = 0L;
-        this.f195b = "isp_prov_city_country_ip";
-        this.f191a = bVar;
-        this.f190a = cuVar == null ? new cw(this) : cuVar;
-        this.f192a = str;
+        this.f194a = new HashMap();
+        this.f193a = "0";
+        this.f190a = 0L;
+        this.f195b = 15L;
+        this.f197c = 0L;
+        this.f196b = "isp_prov_city_country_ip";
+        this.f192a = bVar;
+        this.f191a = cuVar == null ? new cw(this) : cuVar;
+        this.f193a = str;
         c = str2 == null ? context.getPackageName() : str2;
         d = str3 == null ? f() : str3;
     }
@@ -161,10 +161,10 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (cv.class) {
-                if (f187a == null) {
+                if (f188a == null) {
                     throw new IllegalStateException("the host manager is not initialized yet.");
                 }
-                cvVar = f187a;
+                cvVar = f188a;
             }
             return cvVar;
         }
@@ -226,9 +226,9 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, arrayList)) == null) {
             m260d();
-            synchronized (this.f193a) {
+            synchronized (this.f194a) {
                 m256a();
-                for (String str : this.f193a.keySet()) {
+                for (String str : this.f194a.keySet()) {
                     if (!arrayList.contains(str)) {
                         arrayList.add(str);
                     }
@@ -238,7 +238,7 @@ public class cv {
                 for (Object obj : b.values().toArray()) {
                     cr crVar = (cr) obj;
                     if (!crVar.b()) {
-                        b.remove(crVar.f183b);
+                        b.remove(crVar.f184b);
                     }
                 }
             }
@@ -251,7 +251,7 @@ public class cv {
             }
             try {
                 String str2 = bj.e(a) ? "wifi" : "wap";
-                String a2 = a(arrayList, str2, this.f192a, true);
+                String a2 = a(arrayList, str2, this.f193a, true);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject3 = new JSONObject(a2);
                     com.xiaomi.channel.commonutils.logger.b.b(a2);
@@ -325,7 +325,7 @@ public class cv {
                                         }
                                     }
                                     synchronized (b) {
-                                        if (this.f190a.a(next)) {
+                                        if (this.f191a.a(next)) {
                                             b.put(next, crVar3);
                                         }
                                     }
@@ -358,11 +358,11 @@ public class cv {
                 if (applicationContext == null) {
                     a = context;
                 }
-                if (f187a == null) {
-                    if (f186a == null) {
-                        f187a = new cv(context, cuVar, bVar, str, str2, str3);
+                if (f188a == null) {
+                    if (f187a == null) {
+                        f188a = new cv(context, cuVar, bVar, str, str2, str3);
                     } else {
-                        f187a = f186a.a(context, cuVar, bVar, str);
+                        f188a = f187a.a(context, cuVar, bVar, str);
                     }
                 }
             }
@@ -373,8 +373,8 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
             synchronized (cv.class) {
-                f186a = aVar;
-                f187a = null;
+                f187a = aVar;
+                f188a = null;
             }
         }
     }
@@ -431,7 +431,7 @@ public class cv {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("the host is empty");
             }
-            if (this.f190a.a(str)) {
+            if (this.f191a.a(str)) {
                 cr c2 = c(str);
                 return (c2 == null || !c2.b()) ? (z && bj.b(a) && (e = e(str)) != null) ? e : new cx(this, str, c2) : c2;
             }
@@ -481,7 +481,7 @@ public class cv {
                     buildUpon.appendQueryParameter(biVar.a(), biVar.b());
                 }
                 try {
-                    return this.f191a == null ? bj.a(a, new URL(buildUpon.toString())) : this.f191a.a(buildUpon.toString());
+                    return this.f192a == null ? bj.a(a, new URL(buildUpon.toString())) : this.f192a.a(buildUpon.toString());
                 } catch (IOException e2) {
                     e = e2;
                 }
@@ -501,11 +501,11 @@ public class cv {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f193a) {
+            synchronized (this.f194a) {
                 jSONObject = new JSONObject();
                 jSONObject.put("ver", 2);
                 JSONArray jSONArray = new JSONArray();
-                for (cs csVar : this.f193a.values()) {
+                for (cs csVar : this.f194a.values()) {
                     jSONArray.put(csVar.m248a());
                 }
                 jSONObject.put("data", jSONArray);
@@ -524,8 +524,8 @@ public class cv {
     public void m254a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.f193a) {
-                this.f193a.clear();
+            synchronized (this.f194a) {
+                this.f194a.clear();
             }
         }
     }
@@ -534,7 +534,7 @@ public class cv {
     public void m255a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f195b = str;
+            this.f196b = str;
         }
     }
 
@@ -543,15 +543,15 @@ public class cv {
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, crVar) == null) {
             if (TextUtils.isEmpty(str) || crVar == null) {
                 throw new IllegalArgumentException("the argument is invalid " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + crVar);
-            } else if (this.f190a.a(str)) {
-                synchronized (this.f193a) {
+            } else if (this.f191a.a(str)) {
+                synchronized (this.f194a) {
                     m256a();
-                    if (this.f193a.containsKey(str)) {
-                        this.f193a.get(str).a(crVar);
+                    if (this.f194a.containsKey(str)) {
+                        this.f194a.get(str).a(crVar);
                     } else {
                         cs csVar = new cs(str);
                         csVar.a(crVar);
-                        this.f193a.put(str, csVar);
+                        this.f194a.put(str, csVar);
                     }
                 }
             }
@@ -563,12 +563,12 @@ public class cv {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.f193a) {
-                if (f188a) {
+            synchronized (this.f194a) {
+                if (f189a) {
                     return true;
                 }
-                f188a = true;
-                this.f193a.clear();
+                f189a = true;
+                this.f194a.clear();
                 String d2 = d();
                 if (TextUtils.isEmpty(d2)) {
                     return false;
@@ -602,11 +602,11 @@ public class cv {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f193a) {
+            synchronized (this.f194a) {
                 m256a();
-                arrayList = new ArrayList<>(this.f193a.keySet());
+                arrayList = new ArrayList<>(this.f194a.keySet());
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    cs csVar = this.f193a.get(arrayList.get(size));
+                    cs csVar = this.f194a.get(arrayList.get(size));
                     if (csVar != null && csVar.a() != null) {
                         arrayList.remove(size);
                     }
@@ -625,8 +625,8 @@ public class cv {
     public void m258b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            synchronized (this.f193a) {
-                this.f193a.clear();
+            synchronized (this.f194a) {
+                this.f194a.clear();
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt("ver") != 2) {
                     throw new JSONException("Bad version");
@@ -635,7 +635,7 @@ public class cv {
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         cs a2 = new cs().a(optJSONArray.getJSONObject(i));
-                        this.f193a.put(a2.m246a(), a2);
+                        this.f194a.put(a2.m246a(), a2);
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
@@ -646,8 +646,8 @@ public class cv {
                         if (!TextUtils.isEmpty(optString)) {
                             try {
                                 cr a3 = new cr(optString).a(jSONObject2);
-                                b.put(a3.f183b, a3);
-                                com.xiaomi.channel.commonutils.logger.b.m89a("load local reserved host for " + a3.f183b);
+                                b.put(a3.f184b, a3);
+                                com.xiaomi.channel.commonutils.logger.b.m89a("load local reserved host for " + a3.f184b);
                             } catch (JSONException unused) {
                                 com.xiaomi.channel.commonutils.logger.b.m89a("parse reserved host fail.");
                             }
@@ -664,9 +664,9 @@ public class cv {
         cr a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            synchronized (this.f193a) {
+            synchronized (this.f194a) {
                 m256a();
-                csVar = this.f193a.get(str);
+                csVar = this.f194a.get(str);
             }
             if (csVar == null || (a2 = csVar.a()) == null) {
                 return null;
@@ -681,8 +681,8 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (this.f193a) {
-                for (Map.Entry<String, cs> entry : this.f193a.entrySet()) {
+            synchronized (this.f194a) {
+                for (Map.Entry<String, cs> entry : this.f194a.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":\n");
                     sb.append(entry.getValue().toString());
@@ -698,7 +698,7 @@ public class cv {
     public void m259c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.f193a) {
+            synchronized (this.f194a) {
                 try {
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(a.openFileOutput(e(), 0)));
                     String jSONObject = m253a().toString();
@@ -770,21 +770,21 @@ public class cv {
         String next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this.f193a) {
-                for (cs csVar : this.f193a.values()) {
+            synchronized (this.f194a) {
+                for (cs csVar : this.f194a.values()) {
                     csVar.a(true);
                 }
                 while (true) {
                     for (boolean z = false; !z; z = true) {
-                        Iterator<String> it = this.f193a.keySet().iterator();
+                        Iterator<String> it = this.f194a.keySet().iterator();
                         while (it.hasNext()) {
                             next = it.next();
-                            if (this.f193a.get(next).m247a().isEmpty()) {
+                            if (this.f194a.get(next).m247a().isEmpty()) {
                                 break;
                             }
                         }
                     }
-                    this.f193a.remove(next);
+                    this.f194a.remove(next);
                 }
             }
         }
@@ -794,18 +794,18 @@ public class cv {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (System.currentTimeMillis() - this.f196c > this.f189a * 60 * 1000) {
-                this.f196c = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.f197c > this.f190a * 60 * 1000) {
+                this.f197c = System.currentTimeMillis();
                 ArrayList<String> arrayList = new ArrayList<>();
                 arrayList.add(str);
                 cr crVar = a(arrayList).get(0);
                 if (crVar != null) {
-                    this.f189a = 0L;
+                    this.f190a = 0L;
                     return crVar;
                 }
-                long j = this.f189a;
+                long j = this.f190a;
                 if (j < 15) {
-                    this.f189a = j + 1;
+                    this.f190a = j + 1;
                     return null;
                 }
                 return null;

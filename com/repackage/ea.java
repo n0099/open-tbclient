@@ -1,108 +1,162 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.app.Application;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pass.biometrics.base.result.PassBiometricResult;
+import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.LinkedList;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
 public class ea {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int A;
+    public static String B = null;
+    public static String C = null;
+    public static int[] D = null;
+    public static ArrayList<BasicNameValuePair> E = null;
+    public static int a = -100000000;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
+    public static final int h;
+    public static final int i;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int q;
+    public static final int r;
+    public static final int s;
+    public static final int t;
+    public static final int u;
+    public static final int v;
+    public static final int w;
+    public static final int x;
+    public static final int y;
+    public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964041495, "Lcom/repackage/ea;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964041495, "Lcom/repackage/ea;");
+                return;
+            }
+        }
+        b = (-100000000) - 200;
+        c = (-100000000) + PassBiometricResult.ERROR_CODE_LACK_SO_ERROR;
+        d = (-100000000) - 213;
+        e = (-100000000) - 214;
+        f = (-100000000) - 221;
+        g = (-100000000) - 230;
+        h = (-100000000) - 232;
+        i = (-100000000) - 233;
+        j = (-100000000) - 234;
+        k = (-100000000) - 235;
+        l = (-100000000) - 236;
+        m = (-100000000) - 301;
+        n = (-100000000) - 302;
+        o = (-100000000) + PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL;
+        p = (-100000000) - 306;
+        q = (-100000000) + PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION;
+        r = (-100000000) - 308;
+        s = (-100000000) - 309;
+        t = (-100000000) - 310;
+        u = (-100000000) - 311;
+        v = (-100000000) - 312;
+        w = (-100000000) - 313;
+        x = (-100000000) - 314;
+        y = (-100000000) - 310;
+        z = (-100000000) - 311;
+        A = (-100000000) + ErrorCode.ARGS_ERROR;
+        D = t9.a;
+        E = null;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b(str, i, -1L, i2, str2, i3, str3);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C : (String) invokeV.objValue;
+    }
+
+    public static ArrayList<BasicNameValuePair> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? E : (ArrayList) invokeV.objValue;
+    }
+
+    public static int[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? D : (int[]) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? B : (String) invokeV.objValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            C = str;
         }
     }
 
-    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
+    public static void f(ArrayList<BasicNameValuePair> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            StringBuilder sb = new StringBuilder(50);
-            if (i != 0 && i2 != 0) {
-                sb.append("cmd = ");
-                sb.append(i);
-                sb.append("\t");
-                sb.append("sequence = ");
-                sb.append(i2);
-                sb.append("\t");
-            }
-            sb.append(str3);
-            try {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add("lib");
-                linkedList.add(str);
-                if (i != 0) {
-                    linkedList.add("cmd");
-                    linkedList.add(Integer.valueOf(i));
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    linkedList.add("act");
-                    linkedList.add(str2);
-                }
-                if (i3 != 0) {
-                    linkedList.add(TiebaStatic.LogFields.RESULT);
-                    linkedList.add(Integer.valueOf(i3));
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    linkedList.add("comment");
-                    linkedList.add(str3);
-                }
-                BdStatisticsManager.getInstance().newDebug("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(65542, null, arrayList) == null) {
+            E = arrayList;
         }
     }
 
-    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
-        long j;
-        int i3;
+    public static void g(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            if (message != null) {
-                i3 = message.getCmd();
-                j = message.getClientLogID();
-            } else {
-                j = 0;
-                i3 = 0;
-            }
-            b(str, i3, j, i, str2, i2, str3);
+        if (!(interceptable == null || interceptable.invokeL(65543, null, iArr) == null) || iArr == null) {
+            return;
+        }
+        D = iArr;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            B = str;
         }
     }
 
-    public static void d() {
+    public static String i(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                BdStatisticsManager.getInstance().debug("socket", "url", oj.j().q(), "dns_cost", Long.valueOf(oj.j().h()), TiebaStatic.CON_COST, Long.valueOf(oj.j().g()), "remote_ip", oj.j().o(), ETAG.KEY_LOCAL_DNS, oj.j().m(), "local_dns_bak", oj.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+            int i3 = a - i2;
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i3 > -300 && i3 <= -200) {
+                return app.getString(R.string.obfuscated_res_0x7f0f08b9);
             }
+            return app.getString(R.string.obfuscated_res_0x7f0f08ba);
         }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                vg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(oj.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, zg.a(BdBaseApplication.getInst()));
-                BdStatisticsManager.getInstance().performance("im", statsItem);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return (String) invokeI.objValue;
     }
 }

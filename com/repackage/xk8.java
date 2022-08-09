@@ -1,66 +1,85 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Timgs;
 /* loaded from: classes7.dex */
-public class xk8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = true;
+public class xk8 implements rs4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755168596, "Lcom/repackage/xk8;")) == null) {
+    public xk8(Timgs timgs) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {timgs};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = 1;
+        this.d = 1;
+        if (timgs == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        this.a = timgs.img_url;
+        timgs.flag.intValue();
+        this.b = timgs.url;
+        String str = timgs.big_cdn_url;
+        String str2 = timgs.des_main;
+        String str3 = timgs.des_sub;
+        String str4 = timgs.bsize;
+        if (str4 != null) {
+            try {
+                String[] split = str4.split(",");
+                this.c = og.e(split[0], 1);
+                this.d = og.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755168596, "Lcom/repackage/xk8;");
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        if (this.d <= 0) {
+            this.d = 1;
         }
     }
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rs4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (!PermissionUtil.isAgreePrivacyPolicy() || intent == null) {
-                return false;
-            }
-            String action = intent.getAction();
-            Set<String> categories = intent.getCategories();
-            boolean z = !AdToMainTabActivitySwitch.getIsOn() && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER") && PermissionUtil.isAgreePrivacyPolicy() && a;
-            a = false;
-            return z;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rs4
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            String action = intent.getAction();
-            Set<String> categories = intent.getCategories();
-            boolean z = AdToMainTabActivitySwitch.getIsOn() && b && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER");
-            b = false;
-            return z;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

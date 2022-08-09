@@ -2,14 +2,27 @@ package com.repackage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes7.dex */
 public interface vs0 {
-    void a(@NonNull cp0 cp0Var);
+    void a(@NonNull ur0 ur0Var);
 
-    @NonNull
-    pu0 b(@NonNull cp0 cp0Var, @Nullable pu0 pu0Var);
+    void d(@NonNull ur0 ur0Var);
 
-    void c(@NonNull cp0 cp0Var, boolean z);
+    int getExpectOrder();
 
-    boolean d(@NonNull cp0 cp0Var, pu0 pu0Var);
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull ur0 ur0Var);
+
+    void k(@NonNull ur0 ur0Var);
+
+    void n(@NonNull ur0 ur0Var);
+
+    void q(@NonNull ur0 ur0Var);
 }

@@ -1,74 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class le5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str, on4 on4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, on4Var)) == null) {
-            if (context == null || on4Var == null) {
-                return false;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else {
-                i = "frs".equals(str) ? 3 : -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(on4Var.getThreadData().originalThreadData, context, i, (Rect) null, on4Var.getThreadData().getForum_name());
-            return true;
         }
-        return invokeLLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                le5.b();
+            }
+        }
     }
 
-    public static boolean b(Context context, String str, on4 on4Var) {
-        InterceptResult invokeLLL;
-        int i;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, on4Var)) == null) {
-            if (context == null || on4Var == null) {
-                return false;
-            }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            if (!qi.C()) {
+                rg.a().post(new a());
             } else {
-                i = "frs".equals(str) ? 3 : -1;
+                b();
             }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(on4Var, context, i, false);
-            return true;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
+        }
     }
 }

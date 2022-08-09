@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sg1;
-import com.repackage.zd3;
+import com.repackage.jh1;
+import com.repackage.qe3;
 /* loaded from: classes2.dex */
 public class FullScreenFloatView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -110,7 +110,7 @@ public class FullScreenFloatView extends FrameLayout {
                 return;
             }
         }
-        n = sg1.a;
+        n = jh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -222,9 +222,9 @@ public class FullScreenFloatView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null) {
             return;
         }
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070657);
-        int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070658);
-        this.a.animate().x((zd3.o(getContext()) - dimensionPixelOffset) - this.b).y((zd3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070658);
+        int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070659);
+        this.a.animate().x((qe3.o(getContext()) - dimensionPixelOffset) - this.b).y((qe3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
     }
 
     public c getDragImageListener() {
@@ -259,7 +259,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909a1);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909db);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -381,7 +381,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909a1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909db);
             if (findViewById instanceof Button) {
                 ((Button) findViewById).setText(str);
             }
@@ -391,7 +391,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatImageBackground(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909a1)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909db)) == null) {
             return;
         }
         findViewById.setBackgroundResource(i);

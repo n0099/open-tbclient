@@ -1,24 +1,23 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.net.Uri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class km9 extends AnimatorListenerAdapter {
+public final class km9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public final /* synthetic */ Map a;
 
-    public km9(InstallActivity installActivity) {
+    public km9(jm9 jm9Var, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {jm9Var, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,14 +27,19 @@ public final class km9 extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.a = installActivity;
+        this.a = map;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public final void onAnimationEnd(Animator animator) {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a.m();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Map map = this.a;
+            Uri.Builder buildUpon = Uri.parse("https://pagead2.googlesyndication.com/pagead/gen_204?id=gmob-apps").buildUpon();
+            for (String str : map.keySet()) {
+                buildUpon.appendQueryParameter(str, (String) map.get(str));
+            }
+            mm9.a(buildUpon.build().toString());
         }
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MonthAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAXIMUM_WEEKS;
@@ -171,7 +171,7 @@ public class MonthAdapter extends BaseAdapter {
         initializeStyles(viewGroup.getContext());
         TextView textView = (TextView) view2;
         if (view2 == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0596, viewGroup, false);
         }
         int firstPositionInMonth = i - firstPositionInMonth();
         if (firstPositionInMonth >= 0) {

@@ -1,17 +1,23 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.repackage.wk1;
 /* loaded from: classes7.dex */
-public class zi1 implements hl1 {
+public class zi1 implements wk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Boolean a;
 
     public zi1() {
         Interceptable interceptable = $ic;
@@ -27,69 +33,99 @@ public class zi1 implements hl1 {
         }
     }
 
-    @Override // com.repackage.hl1
-    public File a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wk1
+    public void a(wk1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+            return;
         }
-        return (File) invokeV.objValue;
+        aVar.onFinish();
     }
 
-    @Override // com.repackage.zt2
-    public void b(int i) {
+    @Override // com.repackage.wk1
+    public void b(Activity activity, Bundle bundle, lh1 lh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.zt2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, lh1Var) == null) {
+            SwanAppAllianceLoginHelper.d.i(lh1Var);
         }
     }
 
-    @Override // com.repackage.hl1
-    public void e(String str, String str2) {
+    @Override // com.repackage.wk1
+    public void c(nh1 nh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nh1Var) == null) {
         }
     }
 
-    @Override // com.repackage.hl1
-    public void e(String str, String str2, Throwable th) {
+    @Override // com.repackage.wk1
+    public String d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? ko1.a.a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wk1
+    public boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            boolean g = SwanAppAllianceLoginHelper.d.g();
+            this.a = Boolean.TRUE;
+            return g;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.wk1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? jh4.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wk1
+    public void g(wk1.c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || cVar == null) {
+            return;
+        }
+        cVar.b();
+    }
+
+    @Override // com.repackage.wk1
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? no1.b.a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wk1
+    public String i(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? jh4.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wk1
+    public void j(lh1 lh1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, lh1Var) == null) {
         }
     }
 
-    @Override // com.repackage.hl1
-    public void flush(boolean z) {
+    public boolean k(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            if (this.a == null) {
+                e(context);
+            }
+            Boolean bool = this.a;
+            if (bool == null) {
+                return false;
+            }
+            return bool.booleanValue();
         }
-    }
-
-    @Override // com.repackage.hl1
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.hl1
-    public void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.hl1
-    public void w(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
-        }
+        return invokeL.booleanValue;
     }
 }

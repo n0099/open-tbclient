@@ -136,6 +136,36 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
+    public static abstract class GamePlayOrderMsgStatus {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int LETTER_TYPE_ORDER_ACCEPT = 2;
+        public static final int LETTER_TYPE_ORDER_CANCEL = 3;
+        public static final int LETTER_TYPE_ORDER_CONFIRM = 6;
+        public static final int LETTER_TYPE_ORDER_DOING = 9;
+        public static final int LETTER_TYPE_ORDER_DONE = 10;
+        public static final int LETTER_TYPE_ORDER_FINISH = 5;
+        public static final int LETTER_TYPE_ORDER_NEW = 1;
+        public static final int LETTER_TYPE_ORDER_REFUND_GOD = 8;
+        public static final int LETTER_TYPE_ORDER_REFUND_USER = 7;
+        public static final int LETTER_TYPE_ORDER_REJECT = 4;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GamePlayOrderMsgStatus() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public static class GroupInfoSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
@@ -222,11 +252,13 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
         public static final short MSG_CONTENT_TYPE_BREAK_ICE = 30;
         public static final short MSG_CONTENT_TYPE_EXTRA = 9;
+        public static final short MSG_CONTENT_TYPE_GAMEPLAY_ORDER = 34;
         public static final short MSG_CONTENT_TYPE_INVITE_2_GROUP = 5;
         public static final short MSG_CONTENT_TYPE_NOTIFY = 10;
         public static final short MSG_CONTENT_TYPE_PHOTOLIVE = 25;
         public static final short MSG_CONTENT_TYPE_PIC = 2;
         public static final short MSG_CONTENT_TYPE_PIC_TEXT = 7;
+        public static final short MSG_CONTENT_TYPE_QUESTION_THREAD = 35;
         public static final short MSG_CONTENT_TYPE_REPLY_CARD = 23;
         public static final short MSG_CONTENT_TYPE_SHARE_FORUM = 33;
         public static final short MSG_CONTENT_TYPE_SHARE_THREAD = 32;

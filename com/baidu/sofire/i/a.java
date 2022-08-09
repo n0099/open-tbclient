@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.k.h;
@@ -150,7 +151,7 @@ public class a {
                         case 10:
                             long currentTimeMillis = System.currentTimeMillis();
                             a aVar2 = this.a;
-                            if (currentTimeMillis - aVar2.f < 180000) {
+                            if (currentTimeMillis - aVar2.f < LiveFeedPageSdk.REFRESH_TIME) {
                                 return;
                             }
                             aVar2.f = System.currentTimeMillis();
@@ -277,7 +278,7 @@ public class a {
                                             aVar2.g = cursor2.getInt(cursor2.getColumnIndex("e"));
                                             aVar2.h = cursor2.getInt(cursor2.getColumnIndex("f"));
                                             aVar2.i = cursor2.getInt(cursor2.getColumnIndex("i"));
-                                            aVar2.j = cursor2.getString(cursor2.getColumnIndex(cn.com.chinatelecom.gateway.lib.c.j.a));
+                                            aVar2.j = cursor2.getString(cursor2.getColumnIndex("j"));
                                             String string = cursor2.getString(cursor2.getColumnIndex("h"));
                                             try {
                                                 string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
@@ -589,7 +590,7 @@ public class a {
                 contentValues.put("g", (Integer) 1);
                 contentValues.put("f", (Integer) 0);
                 contentValues.put("i", (Integer) 5);
-                contentValues.put(cn.com.chinatelecom.gateway.lib.c.j.a, (String) null);
+                contentValues.put("j", (String) null);
                 try {
                     jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
                 } catch (Exception unused) {

@@ -1,202 +1,113 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class v52 implements t52 {
+public class v52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final v83 a;
 
     /* loaded from: classes7.dex */
-    public static class a extends ProviderDelegation {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
 
-        public a() {
+        public a(String str, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = prefetchEvent;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (!a && ProcessUtils.isMainProcess()) {
-                    a = true;
-                    new v83("swan_prelink_by_preload_recorder").clear().apply();
-                    if (v52.b) {
-                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
-                    }
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v52.d(this.a);
+                v52.d(v52.e(this.a, this.b.pageUrl));
             }
-            return (Bundle) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755280258, "Lcom/repackage/v52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755280258, "Lcom/repackage/v52;");
-                return;
-            }
-        }
-        b = sg1.a;
-    }
-
-    public v52() {
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, prefetchEvent) == null) && av2.a()) {
+            String str = prefetchEvent.appPath;
+            if (!TextUtils.isEmpty(str) && new File(str).exists()) {
+                td3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
             }
         }
-        this.a = new v83("swan_prelink_by_preload_recorder");
-        d();
     }
 
-    @Override // com.repackage.t52
-    public u52 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
-            }
-            String string = this.a.getString(e(str, str2), "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            u52 g = g(string, str, str2);
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
-            }
-            return g;
-        }
-        return (u52) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.t52
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (b) {
-            Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
-        }
-        String e = e(str, str2);
-        String f = f(str, str2);
-        if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
-            this.a.putString(e, f);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vw2.c(a.class, null);
-        }
-    }
-
-    public final String e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = str + "_##_" + str2.hashCode();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String f(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final u52 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
-            String[] split = str.split("_##_");
-            if (split == null || split.length < 2) {
-                return null;
-            }
-            u52 u52Var = new u52();
-            u52Var.a = split[0];
-            u52Var.b = h(split[1]);
-            return u52Var;
-        }
-        return (u52) invokeLLL.objValue;
-    }
-
-    public final long h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+        File file = new File(str);
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                String[] list = file.list();
+                if (list == null || list.length == 0) {
+                    return;
                 }
-                return 0L;
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
+                }
+            } else if (file.isFile()) {
+                String absolutePath = file.getAbsolutePath();
+                if (TextUtils.isEmpty(absolutePath)) {
+                    return;
+                }
+                if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                    BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+                }
             }
         }
-        return invokeL.longValue;
+    }
+
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = re3.f(str2);
+            if (!TextUtils.isEmpty(f) && (lastIndexOf = f.lastIndexOf(File.separator)) > 0) {
+                String substring = f.substring(0, lastIndexOf);
+                return str + File.separator + substring;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

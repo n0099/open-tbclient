@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e9;
 import com.repackage.h9;
-import com.repackage.q85;
-import com.repackage.rg;
-import com.repackage.s65;
-import com.repackage.t85;
-import com.repackage.u85;
-import com.repackage.w85;
+import com.repackage.o75;
+import com.repackage.o95;
+import com.repackage.r95;
+import com.repackage.s95;
+import com.repackage.sg;
+import com.repackage.u95;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -253,7 +253,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            rg.unbindService(this.a.mContext, this.a.mClientConnection);
+            sg.unbindService(this.a.mContext, this.a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -307,7 +307,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         e9<?> b2 = h9.b(context);
-        u85 tbPageInfo = b2 instanceof t85 ? ((t85) b2).getTbPageInfo() : null;
+        s95 tbPageInfo = b2 instanceof r95 ? ((r95) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -334,14 +334,14 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        q85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        o95 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> c = currentVisiblePageExtra == null ? null : currentVisiblePageExtra.c();
         if (ListUtils.isEmpty(c)) {
             return;
         }
         if (currentVisiblePageExtra != null) {
             TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-            s65.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+            o75.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
         }
         this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c);
     }
@@ -352,7 +352,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         e9<?> b2 = h9.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof w85 ? (ArrayList) ((w85) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof u95 ? (ArrayList) ((u95) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -555,7 +555,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            rg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            sg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -581,7 +581,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            rg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            sg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -636,7 +636,7 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        q85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        o95 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> buildNextPageSourceKeyList = TbPageExtraHelper.buildNextPageSourceKeyList(currentVisiblePageExtra == null ? null : currentVisiblePageExtra.d(), str);
         if (ListUtils.isEmpty(buildNextPageSourceKeyList)) {
             return;

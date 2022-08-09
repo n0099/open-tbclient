@@ -21,7 +21,7 @@ public class en {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, ht> f311a;
+    public static Map<String, ht> f312a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -167,17 +167,17 @@ public class en {
         ht[] values;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (f311a == null) {
+            if (f312a == null) {
                 synchronized (ht.class) {
-                    if (f311a == null) {
-                        f311a = new HashMap();
+                    if (f312a == null) {
+                        f312a = new HashMap();
                         for (ht htVar : ht.values()) {
-                            f311a.put(htVar.f505a.toLowerCase(), htVar);
+                            f312a.put(htVar.f506a.toLowerCase(), htVar);
                         }
                     }
                 }
             }
-            ht htVar2 = f311a.get(str.toLowerCase());
+            ht htVar2 = f312a.get(str.toLowerCase());
             return htVar2 != null ? htVar2 : ht.a;
         }
         return (ht) invokeL.objValue;

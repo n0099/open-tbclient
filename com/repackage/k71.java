@@ -1,30 +1,25 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface k71 {
-    void a(Activity activity, String str, String str2);
+public class k71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, q71<JSONObject> q71Var);
-
-    boolean b(Context context);
-
-    void c(Activity activity, String str, f71 f71Var);
-
-    void d(Context context, JSONObject jSONObject, f71 f71Var);
-
-    void e(Activity activity, String str, f71 f71Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, f71 f71Var);
-
-    String j(Context context);
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (new File(str).exists()) {
+                return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
+            }
+            return null;
+        }
+        return (PackageInfo) invokeLI.objValue;
+    }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.km0;
+import com.repackage.hm0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -17,7 +17,7 @@ public final class PanelComponent$panelService$2 extends Lambda implements Funct
     public final /* synthetic */ PanelComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements km0 {
+    public static final class a implements hm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PanelComponent$panelService$2 a;
@@ -41,11 +41,11 @@ public final class PanelComponent$panelService$2 extends Lambda implements Funct
             this.a = panelComponent$panelService$2;
         }
 
-        @Override // com.repackage.km0
+        @Override // com.repackage.hm0
         public void d(long j, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                this.a.this$0.N(j, z);
+                this.a.this$0.M(j, z);
             }
         }
     }

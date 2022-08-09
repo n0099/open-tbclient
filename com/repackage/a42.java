@@ -3,11 +3,15 @@ package com.repackage;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,86 +20,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej2;
-import com.repackage.hj2;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class a42 {
+public class a42 extends z32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
+    public static final boolean F;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] listFiles;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File filesDir = AppRuntime.getAppContext().getFilesDir();
-                kg4.j(new File(filesDir, "aiapps_zip"));
-                kg4.i(filesDir, "aiapps_zip");
-                File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_zip");
-                if (!file.isDirectory() || (listFiles = file.listFiles()) == null) {
-                    return;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                for (File file2 : listFiles) {
-                    long lastModified = file2.lastModified();
-                    if (file2.isFile() && lastModified > 0 && currentTimeMillis - lastModified > 86400000) {
-                        kg4.L(file2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public boolean b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = false;
-            this.c = "";
-        }
-    }
+    public final z03 D;
+    public final x12 E;
 
     static {
         InterceptResult invokeClinit;
@@ -110,332 +45,400 @@ public final class a42 {
                 return;
             }
         }
-        a = sg1.a;
-        b = false;
+        F = jh1.a;
     }
 
-    public a42() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a42(z03 z03Var) {
+        super(z03Var.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {z03Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static bc3 a(ReadableByteChannel readableByteChannel, String str, y74 y74Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, readableByteChannel, str, y74Var)) == null) {
-            if (readableByteChannel == null) {
-                bc3 bc3Var = new bc3();
-                bc3Var.k(11L);
-                bc3Var.i(2300L);
-                bc3Var.f("empty source");
-                fc3.a().f(bc3Var);
-                if (a) {
-                    Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + bc3Var);
-                }
-                return bc3Var;
-            }
-            y74Var.n("670", "aiapp_aps_check_sign_start_timestamp");
-            y74Var.n("770", "na_pms_start_check_sign");
-            if (vd3.d(readableByteChannel, str, new pe3())) {
-                y74Var.n("670", "aiapp_aps_check_sign_end_timestamp");
-                y74Var.n("770", "na_pms_end_check_sign");
-                return null;
-            }
-            bc3 bc3Var2 = new bc3();
-            bc3Var2.k(11L);
-            bc3Var2.i(2300L);
-            bc3Var2.f("check zip file sign fail.");
-            fc3.a().f(bc3Var2);
-            if (a) {
-                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + bc3Var2);
-            }
-            return bc3Var2;
-        }
-        return (bc3) invokeLLL.objValue;
-    }
-
-    public static boolean b(@Nullable e94 e94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e94Var)) == null) {
-            if (e94Var == null || TextUtils.isEmpty(e94Var.a)) {
-                return false;
-            }
-            File file = new File(e94Var.a);
-            return file.exists() && file.isFile() && file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @AnyThread
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || b) {
-            return;
-        }
-        synchronized (a42.class) {
-            if (b) {
                 return;
             }
-            b = true;
-            cd3.k(new a(), "deleteHistoryZipFile");
         }
+        this.D = z03Var;
+        this.E = new x12();
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static void H0(wl2 wl2Var, sc3 sc3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ej2.e.h().getPath() : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? qj2.g().c() : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? qj2.g().c() : (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? ej2.e.h().getPath() : (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? ej2.e.h().getPath() : (String) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? qj2.g().c() : (String) invokeV.objValue;
-    }
-
-    public static boolean j(a94 a94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, a94Var)) == null) {
-            if (a94Var == null) {
-                return false;
-            }
-            int i = a94Var.a;
-            return i == 1013 || i == 1015;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void k(PMSAppInfo pMSAppInfo, f94 f94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, pMSAppInfo, f94Var) == null) || pMSAppInfo == null || f94Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, wl2Var, sc3Var) == null) || wl2Var == null) {
             return;
         }
-        pMSAppInfo.copyMainPkgInfo(f94Var);
-        if (f94Var.h == 1) {
-            pMSAppInfo.setOrientation(qj2.i().u(f94Var.g, f94Var.i));
-        } else {
-            pMSAppInfo.setOrientation(0);
+        c83 c83Var = new c83();
+        c83Var.a = s73.n(wl2Var.G());
+        c83Var.f = wl2Var.H();
+        c83Var.c = wl2Var.T();
+        c83Var.b = "launch";
+        c83Var.e = "success";
+        c83Var.a("status", "1");
+        if (sc3Var != null) {
+            c83Var.a("errcode", String.valueOf(sc3Var.a()));
+            c83Var.a("msg", sc3Var.g().toString());
+        }
+        c83Var.d(wl2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+        c83Var.j(wl2Var);
+        s73.onEvent(c83Var);
+        HybridUbcFlow d = eu2.d("startup");
+        if (d != null) {
+            d.E("value", "na_success");
         }
     }
 
-    public static void l(PMSAppInfo pMSAppInfo, g94 g94Var) {
+    @Override // com.repackage.z32, com.repackage.s84
+    public void C(r94 r94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, pMSAppInfo, g94Var) == null) || pMSAppInfo == null || g94Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, r94Var) == null) {
+            super.C(r94Var);
+            if (F) {
+                Log.e("PkgSyncDownloadCallback", "onFetchError: " + r94Var.toString());
+            }
+            L0(r94Var);
+            sc3 sc3Var = new sc3();
+            sc3Var.k(10L);
+            sc3Var.c(r94Var);
+            if (r42.j(r94Var) && gk2.T().a(gk2.c(), this.o, sc3Var)) {
+                t0(false, sc3Var);
+                H0(this.D.W(), sc3Var);
+            } else if (r94Var != null && r94Var.a == 1020) {
+                t0(false, sc3Var);
+                H0(this.D.W(), sc3Var);
+            } else {
+                t0(true, sc3Var);
+            }
+        }
+    }
+
+    @Override // com.repackage.z32, com.repackage.s84
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            J0();
+            eu2.p("startup").F(new UbcFlowEvent("aps_start_req"));
+            super.D();
+        }
+    }
+
+    @Override // com.repackage.z32, com.repackage.s84
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.E();
+            eu2.p("startup").F(new UbcFlowEvent("aps_end_req"));
+            K0();
+        }
+    }
+
+    @Override // com.repackage.s84
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.F();
+            if (this.n != null) {
+                u0();
+            }
+            sc3 sc3Var = new sc3();
+            sc3Var.k(10L);
+            sc3Var.i(2901L);
+            sc3Var.d("同步获取-> Server无包");
+            t0(true, sc3Var);
+        }
+    }
+
+    @Override // com.repackage.z32, com.repackage.s84
+    public void G(fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fe4Var) == null) {
+            eu2.p("startup").F(new UbcFlowEvent("aps_start_download"));
+            super.G(fe4Var);
+        }
+    }
+
+    @Override // com.repackage.s84
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            super.H(str, i);
+            ca4 a = ca4.a(str);
+            if (a == null) {
+                return;
+            }
+            boolean b = ee4.b(a.c());
+            zx1.i("PkgSyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
+            if (b) {
+                px2 e = px2.e();
+                rx2 rx2Var = new rx2(129);
+                rx2Var.f(true);
+                e.h(rx2Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0017 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r6v2 */
+    /* JADX WARN: Type inference failed for: r6v5, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r6v7 */
+    /* JADX WARN: Type inference failed for: r6v8 */
+    /* JADX WARN: Type inference failed for: r6v9 */
+    @Override // com.repackage.s84
+    public void I(String str, String str2, JSONObject jSONObject) {
+        String jSONObject2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        pMSAppInfo.copySubPkgInfo(g94Var);
-        if (g94Var.h == 0) {
-            pMSAppInfo.setOrientation(0);
+        if (F) {
+            String str3 = 0;
+            str3 = 0;
+            try {
+                try {
+                    jSONObject2 = jSONObject.toString(4);
+                    str3 = new StringBuilder();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    jSONObject2 = jSONObject.toString();
+                    str3 = new StringBuilder();
+                }
+                str3.append("onStatRecord: url:");
+                str3.append(str);
+                str3.append(" networkStatRecord:\n");
+                str3.append(jSONObject2);
+                Log.i("PkgSyncDownloadCallback", str3.toString());
+            } catch (Throwable th) {
+                Log.i("PkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + str3);
+                throw th;
+            }
         }
+        long optLong = jSONObject.optLong("stat_recode_start_time", System.currentTimeMillis());
+        long optLong2 = jSONObject.optLong("dnsEndTime", optLong);
+        long optLong3 = jSONObject.optLong("dnsStartTime", optLong);
+        long optLong4 = jSONObject.optLong("connectedTime", optLong);
+        long optLong5 = jSONObject.optLong(FetchLog.START_TIME, optLong);
+        HybridUbcFlow p = eu2.p("startup");
+        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("pms_network_start");
+        ubcFlowEvent.h(optLong5);
+        p.F(ubcFlowEvent);
+        UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("pms_network_conn");
+        ubcFlowEvent2.h(optLong4);
+        p.F(ubcFlowEvent2);
+        UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("pms_dns_start");
+        ubcFlowEvent3.h(optLong3);
+        p.F(ubcFlowEvent3);
+        UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("pms_dns_end");
+        ubcFlowEvent4.h(optLong2);
+        p.F(ubcFlowEvent4);
+        UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("pms_network_response");
+        ubcFlowEvent5.h(jSONObject.optLong("responseTime", optLong));
+        p.F(ubcFlowEvent5);
+        UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("pms_send_header");
+        ubcFlowEvent6.h(jSONObject.optLong("sendHeaderTime", optLong));
+        p.F(ubcFlowEvent6);
+        UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("pms_receive_header");
+        ubcFlowEvent7.h(jSONObject.optLong("receiveHeaderTime", optLong));
+        p.F(ubcFlowEvent7);
+        zx1.i("PkgSyncDownloadCallback", "pms dns time : " + (optLong2 - optLong3));
+        zx1.i("PkgSyncDownloadCallback", "pms connect time : " + (optLong4 - optLong5));
     }
 
-    public static bc3 m(e94 e94Var, y74 y74Var) {
-        InterceptResult invokeLL;
-        File i;
+    public wl2 I0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, e94Var, y74Var)) == null) {
-            if (e94Var == null) {
-                bc3 bc3Var = new bc3();
-                bc3Var.k(11L);
-                bc3Var.i(2320L);
-                bc3Var.f("pkg info is empty");
-                fc3.a().f(bc3Var);
-                return bc3Var;
-            }
-            File file = new File(e94Var.a);
-            int i2 = e94Var.h;
-            if (i2 == 1) {
-                i = qj2.g().a(e94Var.g, String.valueOf(e94Var.i));
-                if (i == null) {
-                    bc3 bc3Var2 = new bc3();
-                    bc3Var2.k(11L);
-                    bc3Var2.i(2320L);
-                    bc3Var2.f("获取解压目录失败");
-                    fc3.a().f(bc3Var2);
-                    return bc3Var2;
-                } else if (a) {
-                    Log.e("PkgDownloadUtil", "bundleZipFile:" + file);
-                }
-            } else if (i2 == 0) {
-                i = ej2.e.i(e94Var.g, String.valueOf(e94Var.i));
-            } else {
-                bc3 bc3Var3 = new bc3();
-                bc3Var3.k(11L);
-                bc3Var3.i(2320L);
-                bc3Var3.f("pkh category illegal");
-                fc3.a().f(bc3Var3);
-                return bc3Var3;
-            }
-            if (!file.exists()) {
-                bc3 bc3Var4 = new bc3();
-                bc3Var4.k(11L);
-                bc3Var4.i(2320L);
-                bc3Var4.f("解压失败：包不存在");
-                fc3.a().f(bc3Var4);
-                return bc3Var4;
-            } else if (i.isFile() && !i.delete()) {
-                ix1.k("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除 path=" + i.getAbsolutePath());
-                bc3 bc3Var5 = new bc3();
-                bc3Var5.k(11L);
-                bc3Var5.i(2320L);
-                bc3Var5.f("解压失败：解压目录被文件占用，且无法删除");
-                fc3.a().f(bc3Var5);
-                return bc3Var5;
-            } else if (!i.exists() && !i.mkdirs()) {
-                if (a) {
-                    Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + i.getAbsolutePath());
-                }
-                bc3 bc3Var6 = new bc3();
-                bc3Var6.k(11L);
-                bc3Var6.i(2320L);
-                bc3Var6.f("解压失败：解压文件夹创建失败");
-                fc3.a().f(bc3Var6);
-                return bc3Var6;
-            } else {
-                if (a) {
-                    Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i.getPath());
-                }
-                if (n(file, i, y74Var).b) {
-                    return null;
-                }
-                b n = n(file, i, y74Var);
-                if (n.b) {
-                    x63.a(y74Var, e94Var.h, true);
-                    return null;
-                }
-                x63.a(y74Var, e94Var.h, false);
-                ix1.k("PkgDownloadUtil", "解压失败后删除解压目录: " + i.getAbsolutePath());
-                kg4.L(i);
-                bc3 bc3Var7 = new bc3();
-                int i3 = n.a;
-                if (i3 == 0) {
-                    bc3Var7.k(11L);
-                    bc3Var7.i(2320L);
-                    bc3Var7.f("unzip failed");
-                } else if (i3 != 1 && i3 != 2) {
-                    bc3Var7.k(4L);
-                    bc3Var7.i(7L);
-                    bc3Var7.f("Unkown bundle type");
-                } else {
-                    bc3Var7.k(11L);
-                    bc3Var7.i(2330L);
-                    bc3Var7.f("decryt failed:" + n.c + ", PkgType=" + n.a);
-                }
-                fc3.a().f(bc3Var7);
-                return bc3Var7;
-            }
-        }
-        return (bc3) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.D.W() : (wl2) invokeV.objValue;
     }
 
+    public final void J0() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.D.k() == 1) {
+            return;
+        }
+        this.E.f();
+    }
+
+    @Override // com.repackage.d42
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void K0() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.D.k() == 1) {
+            return;
+        }
+        this.E.g();
+        if (F) {
+            Log.d("PkgSyncDownloadCallback", "PMS CS协议信息获取成功");
+        }
+    }
+
+    public final void L0(r94 r94Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, r94Var) == null) || r94Var == null) {
+            return;
+        }
+        try {
+            PMSAppInfo a = ee4.a(new JSONObject(r94Var.c));
+            a.appId = a.appKey;
+            y03.K().q().N0(a);
+            zx1.i("PkgSyncDownloadCallback", "onFetchError: pms info:" + a.toString());
+        } catch (Exception e) {
+            if (F) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.repackage.z32
+    public int j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.z32
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? PMSDownloadType.SYNC : (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.repackage.s84, com.repackage.q84
     @NonNull
-    public static b n(@NonNull File file, @NonNull File file2, @NonNull y74 y74Var) {
-        InterceptResult invokeLLL;
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, file, file2, y74Var)) == null) {
-            b bVar = new b();
-            long currentTimeMillis = System.currentTimeMillis();
-            hj2.c j = hj2.j(file);
-            int i = 0;
-            if (j.b != -1) {
-                y74Var.n("670", "package_start_decrypt");
-                y74Var.n("770", "na_package_start_decrypt");
-                hj2.b d = hj2.d(j.a, file2, j.b);
-                y74Var.n("670", "package_end_decrypt");
-                y74Var.n("770", "na_package_end_decrypt");
-                bVar.b = d.a;
-                bVar.c = d.b;
-                i = j.b;
-                bVar.a = i;
-            } else {
-                bVar.a = 0;
-                y74Var.n("670", "package_start_unzip");
-                y74Var.n("770", "na_package_start_unzip");
-                boolean U = kg4.U(file.getPath(), file2.getPath());
-                bVar.b = U;
-                if (U) {
-                    boolean B = kg4.B(file.getAbsolutePath(), file2.getAbsolutePath());
-                    bVar.b = B;
-                    if (!B) {
-                        j73 j73Var = new j73();
-                        bc3 bc3Var = new bc3();
-                        bc3Var.k(4L);
-                        bc3Var.i(52L);
-                        j73Var.p(bc3Var);
-                        j73Var.l("path", file2.getAbsolutePath());
-                        j73Var.l("eMsg", "unzip files not match zip content");
-                        j73Var.l("decryptType", String.valueOf(j.b));
-                        j73Var.l("stack", ce3.z(30));
-                        b73.R(j73Var);
-                    }
-                }
-                y74Var.n("670", "package_end_unzip");
-                y74Var.n("770", "na_package_end_unzip");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bundle, set)) == null) {
+            Bundle m = super.m(bundle, set);
+            if (set.contains("get_launch_id")) {
+                m.putString("launch_id", this.D.W().V());
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (a) {
-                hj2.h((int) (currentTimeMillis2 - currentTimeMillis));
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("download_package_type_id", i);
-            c84.a(y74Var, bundle, "event_download_package_type");
-            return bVar;
+            return m;
         }
-        return (b) invokeLLL.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 
-    public static void o(@Nullable PMSAppInfo pMSAppInfo) {
+    @Override // com.repackage.s84, com.repackage.p84
+    public void n(String str, String str2) {
+        List<UbcFlowEvent> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, null, pMSAppInfo) == null) || pMSAppInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            super.n(str, str2);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 53647) {
+                if (hashCode == 54608 && str.equals("770")) {
+                    c = 1;
+                }
+            } else if (str.equals("670")) {
+                c = 0;
+            }
+            if (c == 0) {
+                eu2.p("startup").F(new UbcFlowEvent(str2));
+            } else if (c == 1 && (list = this.p) != null) {
+                list.add(new UbcFlowEvent(str2));
+            }
         }
-        if (!TextUtils.isEmpty(pMSAppInfo.webViewDomains)) {
-            a13.u(pMSAppInfo.appId, "", id3.e(pMSAppInfo.webViewDomains));
+    }
+
+    @Override // com.repackage.z32
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.v0();
+            if (F) {
+                Log.i("PkgSyncDownloadCallback", "onDownloadProcessComplete: ");
+            }
+            HybridUbcFlow p = eu2.p("startup");
+            p.F(new UbcFlowEvent("aps_end_download"));
+            p.E("type", "0");
+            ej2.d("0");
+            this.p.add(new UbcFlowEvent("na_start_update_db"));
+            sc3 F0 = F0();
+            this.p.add(new UbcFlowEvent("na_end_update_db"));
+            if (F0 == null) {
+                if (F) {
+                    Log.d("PkgSyncDownloadCallback", "同步获取-> DB 存储成功");
+                }
+                wl2 I0 = I0();
+                u94 u94Var = this.l;
+                if (u94Var != null && u94Var.h == 0) {
+                    I0.Z0(ea3.e(0));
+                    I0.E(1);
+                }
+                u94 u94Var2 = this.l;
+                if (u94Var2 != null && u94Var2.h == 1) {
+                    I0.Z0(ea3.e(1));
+                    I0.E(1);
+                }
+                s94 s94Var = this.m;
+                if (s94Var != null && s94Var.h == 0) {
+                    I0.C0(ib2.c(0));
+                    I0.E(2);
+                }
+                s94 s94Var2 = this.m;
+                if (s94Var2 != null && s94Var2.h == 1) {
+                    I0.C0(ib2.c(1));
+                    I0.E(2);
+                }
+                x94 x94Var = this.q;
+                if (x94Var != null) {
+                    I0.F0(x94Var.r);
+                    I0.V0(this.q.p);
+                }
+                s0(this.n);
+                A0("main_download", "0");
+                return;
+            }
+            if (F) {
+                Log.e("PkgSyncDownloadCallback", "同步获取-> DB 存储失败");
+            }
+            t0(true, F0);
         }
-        if (!TextUtils.isEmpty(pMSAppInfo.webAction)) {
-            a13.t("", id3.e(pMSAppInfo.webAction));
+    }
+
+    @Override // com.repackage.z32
+    public void w0(Throwable th) {
+        sc3 sc3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, th) == null) {
+            if (th instanceof PkgDownloadError) {
+                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
+                if (F) {
+                    Log.e("PkgSyncDownloadCallback", "PkgDownloadError:  pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage() + ", ErrCode: " + pkgDownloadError.getErrCode());
+                }
+                sc3Var = pkgDownloadError.getErrCode();
+            } else {
+                if (F) {
+                    Log.e("PkgSyncDownloadCallback", "未知错误");
+                }
+                sc3Var = new sc3();
+                sc3Var.k(10L);
+                sc3Var.i(2900L);
+                sc3Var.d("包下载过程未知错误");
+            }
+            t0(true, sc3Var);
         }
-        if (!TextUtils.isEmpty(pMSAppInfo.domains)) {
-            a13.s(pMSAppInfo.appId, id3.d(pMSAppInfo.domains));
-        }
-        if (TextUtils.isEmpty(pMSAppInfo.domainConfig)) {
-            return;
-        }
-        a13.r(pMSAppInfo.appId, pMSAppInfo.domainConfig);
     }
 }

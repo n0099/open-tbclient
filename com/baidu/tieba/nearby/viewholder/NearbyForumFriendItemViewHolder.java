@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
+import com.repackage.ms4;
 /* loaded from: classes3.dex */
 public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -52,55 +52,55 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
-        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e7a);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092238);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223a);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f091216);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f97);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092233);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092239);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092234);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092237);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091215);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092236);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092235);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092232);
-        b();
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091c32);
+        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec6);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233e);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092340);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09126f);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090feb);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092339);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233f);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233a);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09126e);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fea);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233c);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233b);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092338);
+        a();
     }
 
-    public final void b() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c.setConrers(15);
             this.c.setIsRound(true);
             this.c.setPlaceHolder(3);
-            vr4 d = vr4.d(this.d);
+            ms4 d = ms4.d(this.d);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
-            vr4 d2 = vr4.d(this.g);
+            ms4 d2 = ms4.d(this.g);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X10);
-            vr4 d3 = vr4.d(this.h);
+            ms4 d3 = ms4.d(this.h);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X10);
-            vr4 d4 = vr4.d(this.i);
+            ms4 d4 = ms4.d(this.i);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X10);
-            vr4 d5 = vr4.d(this.o);
+            ms4 d5 = ms4.d(this.o);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X10);
-            vr4 d6 = vr4.d(this.p);
+            ms4 d6 = ms4.d(this.p);
             d6.z(R.string.F_X01);
             d6.z(R.dimen.T_X10);
-            vr4 d7 = vr4.d(this.m);
+            ms4 d7 = ms4.d(this.m);
             d7.A(R.string.F_X01);
             d7.z(R.dimen.T_X08);
-            vr4 d8 = vr4.d(this.j);
+            ms4 d8 = ms4.d(this.j);
             d8.A(R.string.F_X01);
             d8.z(R.dimen.T_X10);
-            vr4 d9 = vr4.d(this.n);
+            ms4 d9 = ms4.d(this.n);
             d9.A(R.string.F_X01);
             d9.z(R.dimen.T_X08);
         }

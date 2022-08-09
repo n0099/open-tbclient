@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-import com.repackage.cj7;
-import com.repackage.cr4;
-import com.repackage.te;
+import com.repackage.tr4;
+import com.repackage.ue;
+import com.repackage.xk7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cj7 mMembercenter;
+    public xk7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterHttpResponseMessage() {
@@ -41,10 +41,10 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public cj7 getMembercenterData() {
+    public xk7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMembercenter : (cj7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMembercenter : (xk7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,12 +62,12 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         DataRes dataRes = getVipInfoResIdl.data;
         if (dataRes != null) {
-            this.mMembercenter = new cj7(dataRes);
+            this.mMembercenter = new xk7(dataRes);
         }
         if (getError() == 0) {
             String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-            cr4.f();
-            te<byte[]> e = cr4.e("tb_member_center", currentAccount);
+            tr4.f();
+            ue<byte[]> e = tr4.e("tb_member_center", currentAccount);
             if (e == null || bArr == null) {
                 return;
             }

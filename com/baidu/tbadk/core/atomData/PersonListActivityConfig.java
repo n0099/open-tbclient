@@ -33,7 +33,7 @@ public class PersonListActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(FOLLOW, z);
+        getIntent().putExtra("follow", z);
         getIntent().putExtra("user_id", str);
         getIntent().putExtra(IntentConfig.USER_SEX, i);
     }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class SearchView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -63,12 +63,12 @@ public class SearchView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091cda);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd8);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091cab);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ca4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd5);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091dc6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc4);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091d95);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc1);
         }
     }
 
@@ -77,9 +77,9 @@ public class SearchView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = getContext();
             setOrientation(1);
-            setMinimumHeight(pi.f(getContext(), R.dimen.tbds90));
+            setMinimumHeight(qi.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08bf, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08eb, (ViewGroup) this, true);
             b();
         }
     }
@@ -87,7 +87,7 @@ public class SearchView extends LinearLayout {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.e, pi.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
+            SkinManager.setBackgroundShapeDrawable(this.e, qi.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0105, 1, i);
@@ -100,7 +100,7 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.setVisibility(0);
-            this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e3), Integer.valueOf(i)));
+            this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e7), Integer.valueOf(i)));
         }
     }
 

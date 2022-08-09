@@ -11,12 +11,12 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GetMessageFromWX {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class GetMessageFromWX {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.GetMessageFromWX.Resp";
@@ -143,7 +143,7 @@ public final class GetMessageFromWX {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 WXMediaMessage wXMediaMessage = this.message;
                 if (wXMediaMessage == null) {
-                    Log.e("MicroMsg.SDK.GetMessageFromWX.Resp", "checkArgs fail, message is null");
+                    Log.e(TAG, "checkArgs fail, message is null");
                     return false;
                 }
                 return wXMediaMessage.checkArgs();

@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -145,7 +145,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class AccessibilityEventSender implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AccessibilityHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,9 +222,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a7e);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa2);
                 }
-                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a7f) : "";
+                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa3) : "";
             }
             return (String) invokeI.objValue;
         }
@@ -327,7 +327,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SliderState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SliderState> CREATOR;
@@ -452,7 +452,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface TooltipDrawableFactory {
         TooltipDrawable createTooltipDrawable();
     }
@@ -471,7 +471,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             }
         }
         TAG = BaseSlider.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f10037d;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100381;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -836,10 +836,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void loadResources(@NonNull Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65571, this, resources) == null) {
-            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704cc);
-            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ca);
-            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704cb);
-            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c4);
+            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ce);
+            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704cb);
+            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704cc);
+            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c5);
         }
     }
 
@@ -963,7 +963,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f100395)) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f100399)) : (TooltipDrawable) invokeLL.objValue;
     }
 
     public static int pivotIndex(float[] fArr, float f) {
@@ -975,7 +975,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void processAttributes(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65581, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402b5, R.attr.obfuscated_res_0x7f0402b6, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403bb, R.attr.obfuscated_res_0x7f040675, R.attr.obfuscated_res_0x7f040678, R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040680, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f0406a6, R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8, R.attr.obfuscated_res_0x7f0406a9}, i, DEF_STYLE_RES, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, i, DEF_STYLE_RES, new int[0]);
             this.valueFrom = obtainStyledAttributes.getFloat(3, 0.0f);
             this.valueTo = obtainStyledAttributes.getFloat(4, 1.0f);
             setValues(Float.valueOf(this.valueFrom));
@@ -985,18 +985,18 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i3 = hasValue ? 15 : 16;
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, i2);
             if (colorStateList == null) {
-                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079e);
+                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b6);
             }
             setTrackInactiveTintList(colorStateList);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i3);
             if (colorStateList2 == null) {
-                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079b);
+                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b3);
             }
             setTrackActiveTintList(colorStateList2);
             this.thumbDrawable.setFillColor(MaterialResources.getColorStateList(context, obtainStyledAttributes, 9));
             ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
             if (colorStateList3 == null) {
-                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079c);
+                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b4);
             }
             setHaloTintList(colorStateList3);
             boolean hasValue2 = obtainStyledAttributes.hasValue(12);
@@ -1004,12 +1004,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i5 = hasValue2 ? 12 : 13;
             ColorStateList colorStateList4 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i4);
             if (colorStateList4 == null) {
-                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079d);
+                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b5);
             }
             setTickInactiveTintList(colorStateList4);
             ColorStateList colorStateList5 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i5);
             if (colorStateList5 == null) {
-                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079a);
+                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b2);
             }
             setTickActiveTintList(colorStateList5);
             setThumbRadius(obtainStyledAttributes.getDimensionPixelSize(11, 0));
@@ -2018,7 +2018,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405ae);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040632);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2136,7 +2136,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402b5, R.attr.obfuscated_res_0x7f0402b6, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403bb, R.attr.obfuscated_res_0x7f040675, R.attr.obfuscated_res_0x7f040678, R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040680, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f0406a6, R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8, R.attr.obfuscated_res_0x7f0406a9}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
+                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
                     TooltipDrawable parseLabelDrawable = BaseSlider.parseLabelDrawable(this.this$0.getContext(), obtainStyledAttributes);
                     obtainStyledAttributes.recycle();
                     return parseLabelDrawable;

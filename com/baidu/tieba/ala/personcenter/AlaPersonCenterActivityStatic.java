@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be6;
-import com.repackage.du5;
+import com.repackage.tf6;
+import com.repackage.vv5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -60,14 +60,14 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof be6) {
-                be6 be6Var = (be6) data;
-                du5 du5Var = new du5();
-                du5Var.i(be6Var.c());
-                du5Var.j(be6Var.d());
-                du5Var.h(be6Var.b());
-                du5Var.k(be6Var.e());
-                du5Var.g(be6Var);
+            if (data instanceof tf6) {
+                tf6 tf6Var = (tf6) data;
+                vv5 vv5Var = new vv5();
+                vv5Var.i(tf6Var.c());
+                vv5Var.j(tf6Var.d());
+                vv5Var.h(tf6Var.b());
+                vv5Var.k(tf6Var.e());
+                vv5Var.g(tf6Var);
             }
         }
     }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.Session;
-import com.repackage.bm9;
+import com.repackage.wo9;
 /* loaded from: classes5.dex */
 public enum ah extends Session.c {
     public static /* synthetic */ Interceptable $ic;
@@ -34,9 +34,9 @@ public enum ah extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final bm9 a(long j, Session session) {
+    public final wo9 a(long j, Session session) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? new AugmentedImage(j, session) : (bm9) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? new AugmentedImage(j, session) : (wo9) invokeJL.objValue;
     }
 }

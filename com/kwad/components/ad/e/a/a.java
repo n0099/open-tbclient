@@ -160,9 +160,9 @@ public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09101a);
-            this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101b);
-            this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f09101c);
+            this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091070);
+            this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f091071);
+            this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f091072);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes6.dex */
-public interface o85 {
-    p85 getTbFragmentExtra();
+/* loaded from: classes7.dex */
+public interface o85 extends m85 {
+    String getCacheKey();
 }

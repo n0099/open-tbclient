@@ -1,38 +1,37 @@
 package com.repackage;
 
-import android.widget.ListView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.repackage.ue;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class j97 {
+public abstract class j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<i97> a;
+    public HashMap<String, ChatSetting> a;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends cf5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ListView a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ i97 c;
-        public final /* synthetic */ ChatMessage d;
-        public final /* synthetic */ ChatMessage e;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ j97 c;
 
-        public a(j97 j97Var, ListView listView, List list, i97 i97Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+        public a(j97 j97Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j97Var, listView, list, i97Var, chatMessage, chatMessage2};
+                Object[] objArr = {j97Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,19 +41,25 @@ public class j97 {
                     return;
                 }
             }
-            this.a = listView;
-            this.b = list;
-            this.c = i97Var;
-            this.d = chatMessage;
-            this.e = chatMessage2;
+            this.c = j97Var;
+            this.a = str;
+            this.b = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.cf5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.getLastVisiblePosition() == this.b.size() - 1) {
-                this.c.b(this.a, this.d, this.e);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ChatSetting a = this.c.a(this.a, this.b);
+                if (a == null) {
+                    return Boolean.FALSE;
+                }
+                return Boolean.valueOf(a.isAcceptNotify());
             }
+            return (Boolean) invokeV.objValue;
         }
     }
 
@@ -71,30 +76,81 @@ public class j97 {
                 return;
             }
         }
-        ArrayList<i97> arrayList = new ArrayList<>(2);
-        this.a = arrayList;
-        arrayList.add(new h97());
-        this.a.add(new k97());
+        this.a = new HashMap<>();
     }
 
-    public void a(MsglistModel msglistModel, ListView listView) {
+    public abstract ChatSetting a(String str, String str2);
+
+    public abstract ue<String> b();
+
+    public boolean c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) || msglistModel == null || msglistModel.getData() == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            ChatSetting a2 = a(str, str2);
+            if (a2 == null) {
+                return false;
+            }
+            return a2.isAcceptNotify();
         }
-        List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
-        if (ListUtils.isEmpty(chatMessages)) {
-            return;
+        return invokeLL.booleanValue;
+    }
+
+    public void d(String str, String str2, je5<Boolean> je5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, je5Var) == null) {
+            gf5.c(new a(this, str, str2), je5Var);
         }
-        ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
-        ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
-        Iterator<i97> it = this.a.iterator();
-        while (it.hasNext()) {
-            i97 next = it.next();
-            if (next.a(chatMessage, chatMessage2)) {
-                listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+    }
+
+    public void e(Class<? extends ChatSetting> cls) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+            synchronized (this.a) {
+                this.a.clear();
+            }
+            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
+            if (id == null || id.length() == 0) {
                 return;
+            }
+            String str2 = id + "@";
+            synchronized (this.a) {
+                ue<String> b = b();
+                List<ue.b<String>> b2 = vi.b(b);
+                if (b2 != null) {
+                    for (ue.b<String> bVar : b2) {
+                        String str3 = bVar.a;
+                        if (str3 != null && str3.startsWith(str2) && (str = b.get(str3)) != null) {
+                            this.a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        }
+                    }
+                }
             }
         }
     }
+
+    public void f(String str, String str2, boolean z) {
+        ChatSetting a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, str, str2, z) == null) || (a2 = a(str, str2)) == null) {
+            return;
+        }
+        a2.setAcceptNotify(z);
+        h(a2);
+    }
+
+    public void g(String str, String str2, boolean z, je5<Void> je5Var) {
+        ChatSetting a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), je5Var}) == null) || (a2 = a(str, str2)) == null) {
+            return;
+        }
+        a2.setAcceptNotify(z);
+        i(a2, je5Var);
+    }
+
+    public abstract void h(ChatSetting chatSetting);
+
+    public abstract void i(ChatSetting chatSetting, je5<Void> je5Var);
 }

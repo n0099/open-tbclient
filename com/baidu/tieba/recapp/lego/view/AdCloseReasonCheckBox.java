@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.sg8;
-/* loaded from: classes3.dex */
+import com.repackage.gj8;
+import com.repackage.qi;
+/* loaded from: classes4.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,30 +50,42 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(R.string.J_X07, pi.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
+            b(R.string.J_X07, qi.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-            int f = pi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+            int f = qi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(f, 0, f, 0);
             setGravity(17);
             setButtonDrawable((Drawable) null);
         }
     }
 
-    public final void b(int i, int i2, int i3, int i4) {
+    public void b(int i, int i2, int i3, int i4, boolean z) {
+        int a;
+        int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
             this.b = gradientDrawable;
             gradientDrawable.setShape(0);
             float f = parseInt;
             this.b.setCornerRadius(f);
-            this.b.setStroke(i2, SkinManager.getColor(i3));
+            if (z) {
+                a = SkinManager.getColor(i3);
+            } else {
+                a = gj8.a(SkinManager.getColor(i3), 0.5f);
+            }
+            this.b.setStroke(i2, a);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             this.c = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
-            this.c.setStroke(i2, sg8.a(SkinManager.getColor(i4), 0.5f));
+            if (z) {
+                color = gj8.a(SkinManager.getColor(i4), 0.5f);
+            } else {
+                color = SkinManager.getColor(i4);
+            }
+            this.c.setStroke(i2, color);
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.d = stateListDrawable;
             stateListDrawable.addState(new int[]{-16842912}, this.b);

@@ -2,6 +2,7 @@ package com.baidu.searchbox.live.interfaces;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import com.baidu.searchbox.live.interfaces.callback.LiveStatusDataCallback;
@@ -43,8 +44,12 @@ public interface ILiveNPSPlugin {
     @Deprecated
     ILiveYuYinEntry getLiveYuYinEntry();
 
+    @Nullable
+    Map<String, Object> getPlayConfig(@Nullable String str, @Nullable Map<String, Object> map);
+
     ILiveYYCashierEntry getYYCashierEntry();
 
+    @Deprecated
     IYYLiveNPSPlugin getYYLiveEntry();
 
     void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback);

@@ -4,14 +4,14 @@ import android.graphics.SurfaceTexture;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
-import com.repackage.oe0;
+import com.repackage.ke0;
 /* loaded from: classes4.dex */
 public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvailableListener, EffectChangeObserver, MediaTrackChangeObserver {
     FullFrameRect getFullFrameRect2D();
 
     FullFrameRect getFullFrameRectEXT();
 
-    oe0 getVlogCore();
+    ke0 getVlogCore();
 
     void onDrawFrame(int i, long j);
 
@@ -21,5 +21,5 @@ public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvail
 
     void setVideoRatio(float f);
 
-    void setVlogCore(oe0 oe0Var);
+    void setVlogCore(ke0 ke0Var);
 }

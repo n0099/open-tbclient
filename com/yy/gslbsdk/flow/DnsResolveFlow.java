@@ -3,6 +3,7 @@ package com.yy.gslbsdk.flow;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -99,7 +100,7 @@ public class DnsResolveFlow {
         this.mPendingReqs = new ConcurrentHashMap<>();
         this.mPendingHttpCode = new ConcurrentHashMap<>();
         this.mNetStatusReceiver = null;
-        this.mRunnable = new Runnable(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.5
+        this.mRunnable = new Runnable(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DnsResolveFlow this$0;
@@ -142,7 +143,7 @@ public class DnsResolveFlow {
 
     private void collectStat0(long j, DnsResultInfo dnsResultInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65543, this, j, dnsResultInfo) == null) {
+        if (interceptable == null || interceptable.invokeJL(65542, this, j, dnsResultInfo) == null) {
             DataCacheMgr.INSTANCE.addDnsCost(SystemClock.uptimeMillis() - j);
             if (dnsResultInfo.mErrorCode != 0) {
                 DataCacheMgr.INSTANCE.addFailedDnsCount();
@@ -152,17 +153,10 @@ public class DnsResolveFlow {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String createRequestId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? String.format(Locale.US, "%s_%d_%d", DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(this.mIncreaseId.getAndIncrement())) : (String) invokeV.objValue;
-    }
-
     private int deleteHost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             Context context = GlobalTools.APP_CONTEXT;
             if (context != null) {
                 DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(context);
@@ -179,7 +173,7 @@ public class DnsResolveFlow {
     public static DnsResolveFlow getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             if (mDnsResolveFlow == null) {
                 mDnsResolveFlow = new DnsResolveFlow();
             }
@@ -191,13 +185,13 @@ public class DnsResolveFlow {
     private int handleDegradation(String str, DnsResultInfo dnsResultInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, dnsResultInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, str, dnsResultInfo)) == null) {
             LogTools.printDebug(TAG, String.format(Locale.US, "handleDegradation, start, host: %s", str));
             AtomicInteger atomicInteger = new AtomicInteger(-1);
             synchronized (atomicInteger) {
                 String str2 = "LocalDNS-" + str;
                 ThreadInfo threadInfo = new ThreadInfo(str2);
-                threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str, dnsResultInfo, atomicInteger, str2) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.2
+                threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str, dnsResultInfo, atomicInteger, str2) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DnsResolveFlow this$0;
@@ -273,9 +267,9 @@ public class DnsResolveFlow {
 
     private void handleDnsAsync(String str, String str2, NetStatusInfo netStatusInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, this, str, str2, netStatusInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65546, this, str, str2, netStatusInfo) == null) {
             ThreadInfo threadInfo = new ThreadInfo("HttpDNS-" + netStatusInfo.getNetStatusID() + "-" + str);
-            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str, str2, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.9
+            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str, str2, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DnsResolveFlow this$0;
@@ -318,18 +312,19 @@ public class DnsResolveFlow {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v4, types: [int[]] */
-    /* JADX WARN: Type inference failed for: r12v0 */
-    /* JADX WARN: Type inference failed for: r12v1 */
-    /* JADX WARN: Type inference failed for: r12v4 */
-    /* JADX WARN: Type inference failed for: r12v5 */
-    /* JADX WARN: Type inference failed for: r12v6 */
+    /* JADX WARN: Type inference failed for: r14v0 */
+    /* JADX WARN: Type inference failed for: r14v1 */
+    /* JADX WARN: Type inference failed for: r14v4 */
+    /* JADX WARN: Type inference failed for: r14v5 */
+    /* JADX WARN: Type inference failed for: r14v6 */
     private int[] handleDnsCache(String str, DnsResultInfo dnsResultInfo, NetStatusInfo netStatusInfo, String str2, int i, boolean z) {
         InterceptResult invokeCommon;
-        ?? r12;
+        ?? r14;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{str, dnsResultInfo, netStatusInfo, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{str, dnsResultInfo, netStatusInfo, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             DnsInfo dnsInfo = new DnsInfo();
             int httpDNSFromCache = IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, netStatusInfo, str2, dnsInfo);
+            LogTools.printDebug(TAG, String.format(Locale.US, "===== handleDnsCache host: %s, ips: %s, ttl: %d, net: %s", str2, dnsInfo.getIPStr(), Integer.valueOf(dnsInfo.getTtl()), netStatusInfo.getNetStatusID()));
             StatisticInfo statisticInfo = StatisticMgr.getInstance().getStatisticInfo(str);
             if (httpDNSFromCache == 0) {
                 boolean isExpired = isExpired(dnsInfo.getEndTime());
@@ -337,10 +332,10 @@ public class DnsResolveFlow {
                     dnsResultInfo.mErrorCode = 6;
                     dnsResultInfo.mDataSource = 0;
                     dnsResultInfo.mIps = new String[0];
-                    r12 = isExpired;
+                    r14 = isExpired;
                 } else if (!z && isExpired) {
                     dnsResultInfo.mErrorCode = 2;
-                    r12 = isExpired;
+                    r14 = isExpired;
                 } else {
                     dnsResultInfo.mErrorCode = 0;
                     if (i == 0) {
@@ -359,22 +354,29 @@ public class DnsResolveFlow {
                     if (list2 != null && !list2.isEmpty()) {
                         strArr = (String[]) list2.toArray(new String[0]);
                     }
-                    if (netStatusInfo.getNetworkStatus().canV6() && strArr2 != null && strArr2.length > 0) {
+                    dnsResultInfo.mIpsV4 = strArr;
+                    dnsResultInfo.mIpsV6 = strArr2;
+                    if (netStatusInfo.getNetworkStatus().getStatus() == 3) {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.addAll(Arrays.asList(strArr2));
+                        arrayList.addAll(Arrays.asList(strArr));
+                        dnsResultInfo.mIps = (String[]) arrayList.toArray(new String[0]);
+                    } else if (netStatusInfo.getNetworkStatus().canV6() && strArr2 != null && strArr2.length > 0) {
                         dnsResultInfo.mIps = strArr2;
                     } else {
                         dnsResultInfo.mIps = strArr;
                     }
-                    dnsResultInfo.mIpsV4 = strArr;
-                    dnsResultInfo.mIpsV6 = strArr2;
                     statisticInfo.cacheType = isExpired ? 2 : 1;
                     statisticInfo.uip = dnsInfo.getUip();
-                    r12 = isExpired;
+                    r14 = isExpired;
                 }
             } else {
-                r12 = 1;
+                r14 = 1;
             }
             if (dnsResultInfo.mErrorCode != 0) {
-                if (IpVersionController.getInstance().getLocalDNSFromCache(str2, dnsInfo) == 0) {
+                int localDNSFromCache = IpVersionController.getInstance().getLocalDNSFromCache(str2, dnsInfo);
+                LogTools.printDebug(TAG, String.format("===== handleDnsCache codeCacheLocal: %d", Integer.valueOf(localDNSFromCache)));
+                if (localDNSFromCache == 0) {
                     dnsResultInfo.mErrorCode = 0;
                     dnsResultInfo.mDataSource = 4;
                     dnsResultInfo.mIps = (String[]) dnsInfo.getIps().toArray(new String[0]);
@@ -385,7 +387,7 @@ public class DnsResolveFlow {
                     dnsResultInfo.mIps = new String[0];
                 }
             }
-            return new int[]{httpDNSFromCache, r12};
+            return new int[]{httpDNSFromCache, r14};
         }
         return (int[]) invokeCommon.objValue;
     }
@@ -413,7 +415,7 @@ public class DnsResolveFlow {
         StatisticInfo statisticInfo;
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, this, netStatusInfo, strArr, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, this, netStatusInfo, strArr, str)) == null) {
             NetworkStatus networkStatus = netStatusInfo.getNetworkStatus();
             int i3 = 3;
             int i4 = 2;
@@ -478,7 +480,7 @@ public class DnsResolveFlow {
                         obj2 = atomicInteger3;
                     }
                     try {
-                        threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(dnsResolveFlow, str3, str2, z, i5, str, strArr, statisticInfo2, atomicInteger4, atomicInteger, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.4
+                        threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(dnsResolveFlow, str3, str2, z, i5, str, strArr, statisticInfo2, atomicInteger4, atomicInteger, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ DnsResolveFlow this$0;
@@ -528,10 +530,11 @@ public class DnsResolveFlow {
                                     LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "handleHttpDNS.handleOper, HttpDns thread[%s], serverIp: %s, is_https: %b, httpsLevel: %d, requestId: %s", this.val$taskId, this.val$ip, Boolean.valueOf(this.val$https), Integer.valueOf(this.val$httpsLevel), this.val$requestId));
                                     long uptimeMillis = SystemClock.uptimeMillis();
                                     String[] requestHttpDnsV2 = HttpDNSProtocolMgr.requestHttpDnsV2(this.val$host, this.val$ip, false, this.val$https, this.val$requestId);
+                                    LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "handleHttpDNS.handleOper, cost HttpDns thread[%s], requestId: %s , cost : %d", this.val$taskId, this.val$requestId, Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis)));
                                     if (requestHttpDnsV2 != null && BasicPushStatus.SUCCESS_CODE.equals(requestHttpDnsV2[0])) {
+                                        LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "HttpDns succeed response serverIp: %s, requestId: %s, res: %s", this.val$ip, this.val$requestId, requestHttpDnsV2[1]));
                                         synchronized (this.val$mRequestLock) {
                                             long uptimeMillis2 = SystemClock.uptimeMillis();
-                                            LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "HttpDns succeed response serverIp: %s, requestId: %s", this.val$ip, this.val$requestId));
                                             ResInfo resInfo = new ResInfo();
                                             resInfo.setNetInfo(this.val$network);
                                             HttpDNSProtocolMgr.responseProtocolV2(requestHttpDnsV2[1], resInfo, IpVersionController.tellIpVer(this.val$ip));
@@ -644,9 +647,9 @@ public class DnsResolveFlow {
     private int handleLocalDNS(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
             ThreadInfo threadInfo = new ThreadInfo("LocalDNS-" + str);
-            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.3
+            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, str) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DnsResolveFlow this$0;
@@ -699,9 +702,8 @@ public class DnsResolveFlow {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleTTL() {
-        List<ResultTB> resultByNetworkHost;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && !GlobalTools.IS_BACKGOUND_MODEL && SwitchController.getInstance().switchGslb()) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && !GlobalTools.IS_BACKGOUND_MODEL && SwitchController.getInstance().switchGslb()) {
             DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
             NetStatusInfo netStatusInfo = new NetStatusInfo();
             netStatusInfo.resetVal(DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT));
@@ -712,25 +714,40 @@ public class DnsResolveFlow {
             HashSet hashSet = new HashSet();
             List<HostTB> allHost = dBAccessMgr.getAllHost();
             String netStatusID = netStatusInfo.getNetStatusID();
+            String ssid = netStatusInfo.getSsid();
             for (HostTB hostTB : allHost) {
                 if (isHostDead(hostTB.getInsertTime())) {
                     dBAccessMgr.delHost(hostTB);
                     IpVersionController.getInstance().delResultByHost(hostTB.getHost());
                 } else {
-                    if ((netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV4()) && (resultByNetworkHost = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 1)) != null && !resultByNetworkHost.isEmpty()) {
-                        ResultTB resultTB = resultByNetworkHost.get(0);
-                        if (isNearlyExpired(resultTB.getEndTime())) {
-                            hashSet.add(resultTB.getHost());
-                            LogTools.printDebug(TAG, String.format(Locale.US, "result %s ttl Nearly Expired, ipv4", resultTB.getHost()));
+                    if (!ssid.equals(IpVersionController.IPV6_ONLY) && (netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV4())) {
+                        List<ResultTB> resultByNetworkHost = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 1);
+                        if (resultByNetworkHost != null && !resultByNetworkHost.isEmpty()) {
+                            ResultTB resultTB = resultByNetworkHost.get(0);
+                            if (isDead(resultTB.getUpdateTime())) {
+                                IpVersionController.getInstance().delResult(resultTB);
+                            }
+                            if (isNearlyExpired(resultTB.getEndTime())) {
+                                hashSet.add(resultTB.getHost());
+                                LogTools.printDebug(TAG, String.format(Locale.US, "result %s ttl Nearly Expired, ipv4", resultTB.getHost()));
+                                if (hashSet.size() >= 10) {
+                                    break;
+                                }
+                            }
+                        } else {
+                            hashSet.add(hostTB.getHost());
                             if (hashSet.size() >= 10) {
                                 break;
                             }
                         }
                     }
-                    if (netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV6()) {
+                    if (!ssid.equals(IpVersionController.IPV4_ONLY) && (netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV6())) {
                         List<ResultTB> resultByNetworkHost2 = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 2);
                         if (resultByNetworkHost2 != null && !resultByNetworkHost2.isEmpty()) {
                             ResultTB resultTB2 = resultByNetworkHost2.get(0);
+                            if (isDead(resultTB2.getUpdateTime())) {
+                                IpVersionController.getInstance().delResult(resultTB2);
+                            }
                             if (isNearlyExpired(resultTB2.getEndTime())) {
                                 hashSet.add(resultTB2.getHost());
                                 LogTools.printDebug(TAG, String.format(Locale.US, "result %s ttl Nearly Expired, ipv6", resultTB2.getHost()));
@@ -740,6 +757,11 @@ public class DnsResolveFlow {
                             } else {
                                 continue;
                             }
+                        } else {
+                            hashSet.add(hostTB.getHost());
+                            if (hashSet.size() >= 10) {
+                                break;
+                            }
                         }
                     }
                 }
@@ -747,8 +769,206 @@ public class DnsResolveFlow {
             if (hashSet.isEmpty()) {
                 return;
             }
-            ThreadInfo threadInfo = new ThreadInfo("HttpDNS-TTL-Update-" + String.valueOf(System.currentTimeMillis()));
-            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, hashSet, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.1
+            updateIps(netStatusInfo, hashSet);
+        }
+    }
+
+    private boolean isDead(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
+    }
+
+    private boolean isExpired(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, this, j)) == null) ? System.currentTimeMillis() >= j : invokeJ.booleanValue;
+    }
+
+    private boolean isHostDead(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
+    }
+
+    private boolean isNearlyExpired(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j)) == null) ? j - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void judgeUpdateHost(String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65555, this, str, i, i2) == null) && i == 0 && i2 == 0) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(str);
+            updateHostList(arrayList, false);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r8v0 */
+    /* JADX WARN: Type inference failed for: r8v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r8v7 */
+    private int preHandleHttpDNS(NetStatusInfo netStatusInfo, String[] strArr, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, this, netStatusInfo, strArr, str)) == null) {
+            NetworkStatus networkStatus = netStatusInfo.getNetworkStatus();
+            ?? r8 = 0;
+            int i = 1;
+            int i2 = 2;
+            LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS, start, network: %s, host: %s, requestId: %s", networkStatus.toString(), Arrays.toString(strArr), str));
+            ArrayList<String> bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(networkStatus);
+            int i3 = (networkStatus.canV6() && networkStatus.canV4()) ? 3 : 2;
+            LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS, minSrvIp: %d, best: %s", Integer.valueOf(i3), bestServerIPCache.toString()));
+            if (bestServerIPCache.size() < i3) {
+                if (netStatusInfo.isKnowIsp()) {
+                    bestServerIPCache = IpVersionController.getInstance().getServerIPByKnownISP(GlobalTools.APP_CONTEXT, netStatusInfo.getIsp(), networkStatus);
+                } else {
+                    bestServerIPCache = IpVersionController.getInstance().getServerIPByUnKnownISP(GlobalTools.APP_CONTEXT, networkStatus);
+                }
+                LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS, cache: %s", bestServerIPCache.toString()));
+            }
+            if (bestServerIPCache.size() == 0) {
+                LogTools.printError(TAG, "request HttpDns no ServerIp");
+                return 8;
+            }
+            LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, list: %s", bestServerIPCache.toString()));
+            StatisticInfo statisticInfo = StatisticMgr.getInstance().getStatisticInfo(str);
+            statisticInfo.setSrvIp(bestServerIPCache);
+            statisticInfo.network = PreferencesUtil.LEFT_MOUNT + netStatusInfo.getNetStatusID() + "] " + networkStatus.toString() + "";
+            AtomicInteger atomicInteger = new AtomicInteger(-1);
+            int i4 = GlobalTools.HTTPS_LEVEL;
+            synchronized (atomicInteger) {
+                int i5 = 0;
+                while (i5 < bestServerIPCache.size()) {
+                    String str2 = bestServerIPCache.get(i5);
+                    boolean z = i4 == i2 || (i4 == i && i5 >= bestServerIPCache.size() / i2);
+                    String str3 = "HttpDNS-" + netStatusInfo.getNetStatusID() + "-" + str2 + "-" + IPTools.hosts2String(strArr);
+                    Locale locale = Locale.US;
+                    Object[] objArr = new Object[5];
+                    objArr[r8] = str3;
+                    objArr[i] = str2;
+                    objArr[i2] = Boolean.valueOf(z);
+                    objArr[3] = Integer.valueOf(i4);
+                    objArr[4] = str;
+                    LogTools.printDebug(TAG, String.format(locale, "preHandleHttpDNS.handleOper, HttpDns thread[%s], serverIp: %s, is_https: %b, httpsLevel: %d, requestId: %s", objArr));
+                    long uptimeMillis = SystemClock.uptimeMillis();
+                    String[] requestHttpDnsV2 = HttpDNSProtocolMgr.requestHttpDnsV2(strArr, str2, r8, z, str);
+                    ArrayList<String> arrayList = bestServerIPCache;
+                    LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS.handleOper, cost HttpDns thread[%s], requestId: %s , cost : %d", str3, str, Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis)));
+                    if (requestHttpDnsV2 != null && BasicPushStatus.SUCCESS_CODE.equals(requestHttpDnsV2[0])) {
+                        LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS succeed response serverIp: %s, requestId: %s, res: %s", str2, str, requestHttpDnsV2[1]));
+                        long uptimeMillis2 = SystemClock.uptimeMillis();
+                        ResInfo resInfo = new ResInfo();
+                        resInfo.setNetInfo(netStatusInfo);
+                        HttpDNSProtocolMgr.responseProtocolV2(requestHttpDnsV2[1], resInfo, IpVersionController.tellIpVer(str2));
+                        if (resInfo.getStatus() != 0 && resInfo.getStatus() != 6) {
+                            i5++;
+                            bestServerIPCache = arrayList;
+                            i2 = 2;
+                            r8 = 0;
+                            i = 1;
+                        }
+                        statisticInfo.httpErrCode = 0;
+                        statisticInfo.httpErrMsg = "success";
+                        long j = uptimeMillis2 - uptimeMillis;
+                        atomicInteger.compareAndSet(-1, resInfo.getStatus());
+                        if (resInfo.getStatus() == 6 && resInfo.getDns() != null) {
+                            for (DnsInfo dnsInfo : resInfo.getDns().values()) {
+                                if (dnsInfo.getIps().isEmpty()) {
+                                    dnsInfo.setTtl(31536000);
+                                    dnsInfo.setStatus(6);
+                                }
+                            }
+                        }
+                        IpVersionController.getInstance().putHttpDNSIntoCache(GlobalTools.APP_CONTEXT, resInfo);
+                        ServerIPInfo serverIPInfo = new ServerIPInfo();
+                        serverIPInfo.setIp(str2);
+                        serverIPInfo.setScore(j);
+                        IpVersionController.getInstance().resetBestServerIPCache(serverIPInfo);
+                        if (resInfo.getHttpdns().isRe()) {
+                            QualityDetectFlow.getInstance().addReportData(GlobalTools.HTTPDNS_REPORT_HOST, str2, j);
+                        }
+                        if (ServerIPMgr.getInstance().canUpdate(GlobalTools.APP_CONTEXT, resInfo.getHttpdns().getVer())) {
+                            ServerIPMgr.getInstance().updateServerIP(GlobalTools.APP_CONTEXT, str2);
+                        }
+                        ActiveRefreshController.getInstance();
+                        ActiveRefreshController.refreshHostCache(resInfo);
+                        return 0;
+                    }
+                    LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS.handleOper, httpdns parse error, HttpDns thread[%s], serverIp: %s, requestId: %s", str3, str2, str));
+                    if (requestHttpDnsV2 != null) {
+                        try {
+                            statisticInfo.httpErrCode = Integer.parseInt(requestHttpDnsV2[0]);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
+                        }
+                        statisticInfo.httpErrMsg = requestHttpDnsV2[1];
+                    } else {
+                        statisticInfo.httpErrCode = -999;
+                        statisticInfo.httpErrMsg = "result is null";
+                    }
+                    i5++;
+                    bestServerIPCache = arrayList;
+                    i2 = 2;
+                    r8 = 0;
+                    i = 1;
+                }
+                return 4;
+            }
+        }
+        return invokeLLL.intValue;
+    }
+
+    private int synUpdateHostList(ArrayList<String> arrayList, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65557, this, arrayList, z)) != null) {
+            return invokeLZ.intValue;
+        }
+        if (GlobalTools.APP_CONTEXT == null) {
+            return 5;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
+        Iterator<String> it = arrayList.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            List<HostTB> hostByHost = dBAccessMgr.getHostByHost(next);
+            if (hostByHost.isEmpty()) {
+                HostTB hostTB = new HostTB();
+                hostTB.setHost(next);
+                hostTB.setInsertTime(currentTimeMillis);
+                hostTB.setIsPre(z ? 1 : 0);
+                dBAccessMgr.addHost(hostTB);
+            } else {
+                HostTB hostTB2 = hostByHost.get(0);
+                hostTB2.setInsertTime(currentTimeMillis);
+                hostTB2.setIsPre(z ? 1 : 0);
+                dBAccessMgr.updateHost(hostTB2);
+            }
+        }
+        List<HostTB> allHost = dBAccessMgr.getAllHost();
+        int size = allHost.size();
+        while (true) {
+            size--;
+            if (size >= GlobalTools.KEEP_HOST_NUM) {
+                dBAccessMgr.delHost(allHost.get(size));
+            } else {
+                allHost.clear();
+                return 0;
+            }
+        }
+    }
+
+    private void updateIps(NetStatusInfo netStatusInfo, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, this, netStatusInfo, set) == null) {
+            ThreadInfo threadInfo = new ThreadInfo("HttpDNS-TTL-Update-" + System.currentTimeMillis());
+            LogTools.printDebug(TAG, String.format(Locale.US, "===== handleTTL host2Update: %s", set.toString()));
+            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, set, netStatusInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DnsResolveFlow this$0;
@@ -760,7 +980,7 @@ public class DnsResolveFlow {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, hashSet, netStatusInfo};
+                        Object[] objArr = {this, set, netStatusInfo};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -771,7 +991,7 @@ public class DnsResolveFlow {
                         }
                     }
                     this.this$0 = this;
-                    this.val$host2Update = hashSet;
+                    this.val$host2Update = set;
                     this.val$network = netStatusInfo;
                 }
 
@@ -780,27 +1000,27 @@ public class DnsResolveFlow {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         long uptimeMillis = SystemClock.uptimeMillis();
-                        Set set = this.val$host2Update;
+                        Set set2 = this.val$host2Update;
                         String createRequestId = this.this$0.createRequestId();
                         StatisticInfo statisticInfo = new StatisticInfo();
                         StatisticMgr.getInstance().setStatisticInfo(createRequestId, statisticInfo);
                         statisticInfo.requestId = createRequestId;
-                        statisticInfo.host = TextUtils.join("|", (String[]) set.toArray(new String[set.size()]));
+                        statisticInfo.host = TextUtils.join("|", (String[]) set2.toArray(new String[set2.size()]));
                         statisticInfo.async = 0;
                         statisticInfo.netType = this.val$network.getNetType();
                         statisticInfo.http = 1;
                         statisticInfo.cacheType = 4;
                         DnsResolveFlow dnsResolveFlow = this.this$0;
                         NetStatusInfo netStatusInfo2 = this.val$network;
-                        Set set2 = this.val$host2Update;
-                        dnsResolveFlow.handleHttpDNS(netStatusInfo2, (String[]) set2.toArray(new String[set2.size()]), createRequestId);
+                        Set set3 = this.val$host2Update;
+                        dnsResolveFlow.handleHttpDNS(netStatusInfo2, (String[]) set3.toArray(new String[set3.size()]), createRequestId);
                         statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                         if (StatisticMgr.getInstance().getStatistic() != null) {
                             ThreadInfo threadInfo2 = new ThreadInfo("Statistic");
-                            threadInfo2.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.1.1
+                            threadInfo2.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.9.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 this$1;
+                                public final /* synthetic */ AnonymousClass9 this$1;
                                 public final /* synthetic */ StatisticInfo val$rsInfo;
 
                                 {
@@ -840,81 +1060,6 @@ public class DnsResolveFlow {
         }
     }
 
-    private boolean isDead(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
-    }
-
-    private boolean isExpired(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j)) == null) ? System.currentTimeMillis() >= j : invokeJ.booleanValue;
-    }
-
-    private boolean isHostDead(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
-    }
-
-    private boolean isNearlyExpired(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, this, j)) == null) ? j - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void judgeUpdateHost(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65557, this, str, i, i2) == null) && i == 0 && i2 == 0) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(str);
-            updateHostList(arrayList, false);
-        }
-    }
-
-    private int synUpdateHostList(ArrayList<String> arrayList, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65558, this, arrayList, z)) != null) {
-            return invokeLZ.intValue;
-        }
-        if (GlobalTools.APP_CONTEXT == null) {
-            return 5;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
-        Iterator<String> it = arrayList.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            List<HostTB> hostByHost = dBAccessMgr.getHostByHost(next);
-            if (hostByHost.isEmpty()) {
-                HostTB hostTB = new HostTB();
-                hostTB.setHost(next);
-                hostTB.setInsertTime(currentTimeMillis);
-                hostTB.setIsPre(z ? 1 : 0);
-                dBAccessMgr.addHost(hostTB);
-            } else {
-                HostTB hostTB2 = hostByHost.get(0);
-                hostTB2.setInsertTime(currentTimeMillis);
-                hostTB2.setIsPre(z ? 1 : 0);
-                dBAccessMgr.updateHost(hostTB2);
-            }
-        }
-        List<HostTB> allHost = dBAccessMgr.getAllHost();
-        int size = allHost.size();
-        while (true) {
-            size--;
-            if (size >= GlobalTools.KEEP_HOST_NUM) {
-                dBAccessMgr.delHost(allHost.get(size));
-            } else {
-                allHost.clear();
-                return 0;
-            }
-        }
-    }
-
     public synchronized int beginNetworkMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -922,7 +1067,7 @@ public class DnsResolveFlow {
             synchronized (this) {
                 if (GlobalTools.APP_CONTEXT != null) {
                     if (this.mNetStatusReceiver == null) {
-                        this.mNetStatusReceiver = new NetStatusReceiver(new NetStatusReceiver.ChangeNetworkInter(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.6
+                        this.mNetStatusReceiver = new NetStatusReceiver(new NetStatusReceiver.ChangeNetworkInter(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ DnsResolveFlow this$0;
@@ -972,7 +1117,7 @@ public class DnsResolveFlow {
                 if (GlobalTools.APP_CONTEXT != null) {
                     TimerTaskInfo timerTaskInfo = new TimerTaskInfo();
                     timerTaskInfo.setTaskName(GlobalTools.TTL_MONITOR_NAME);
-                    timerTaskInfo.setWorker(new TimerTask(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
+                    timerTaskInfo.setWorker(new TimerTask(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DnsResolveFlow this$0;
@@ -1013,29 +1158,54 @@ public class DnsResolveFlow {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:130:0x0380  */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x03ab  */
+    public String createRequestId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String identity = DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT);
+            return identity + "_" + System.currentTimeMillis() + "_" + this.mIncreaseId.getAndIncrement();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:129:0x03c2 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v14, resolved type: com.yy.gslbsdk.statistic.StatisticInfo */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v23, resolved type: int[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v13, resolved type: char */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x03de  */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x0409  */
+    /* JADX WARN: Type inference failed for: r1v13 */
+    /* JADX WARN: Type inference failed for: r1v20 */
+    /* JADX WARN: Type inference failed for: r1v22 */
+    /* JADX WARN: Type inference failed for: r1v24 */
+    /* JADX WARN: Type inference failed for: r1v49 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public DnsResultInfo handleDNS(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+    public DnsResultInfo handleDNS(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
         InterceptResult invokeCommon;
         String str2;
+        StatisticInfo statisticInfo;
         String str3;
         String str4;
+        StatisticInfo statisticInfo2;
         long j;
         int i;
+        StatisticInfo statisticInfo3;
+        String str5;
+        boolean z7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)})) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
             DataCacheMgr.INSTANCE.addInvokeApiNum(str);
             String trim = str.trim();
             String createRequestId = createRequestId();
-            StatisticInfo statisticInfo = new StatisticInfo();
-            StatisticMgr.getInstance().setStatisticInfo(createRequestId, statisticInfo);
-            statisticInfo.requestId = createRequestId;
-            statisticInfo.host = trim;
-            statisticInfo.async = z2 ? 1 : 0;
+            StatisticInfo statisticInfo4 = new StatisticInfo();
+            StatisticMgr.getInstance().setStatisticInfo(createRequestId, statisticInfo4);
+            statisticInfo4.requestId = createRequestId;
+            statisticInfo4.host = trim;
+            statisticInfo4.async = z2 ? 1 : 0;
             NetStatusInfo cachedNetStatusInfo = DataCacheMgr.INSTANCE.getCachedNetStatusInfo();
             DnsResultInfo dnsResultInfo = new DnsResultInfo();
             if (trim != null) {
@@ -1043,15 +1213,15 @@ public class DnsResolveFlow {
                     if (!"".equals(trim.trim())) {
                         if (GlobalTools.APP_CONTEXT == null) {
                             collectStat0(uptimeMillis, dnsResultInfo);
-                            statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                            statisticInfo4.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                             if (dnsResultInfo.mErrorCode == 0) {
-                                statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                statisticInfo4.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                statisticInfo4.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                statisticInfo4.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
                             }
                             if (StatisticMgr.getInstance().getStatistic() != null) {
                                 ThreadInfo threadInfo = new ThreadInfo("Statistic");
-                                threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                                threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo4) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ DnsResolveFlow this$0;
@@ -1062,7 +1232,7 @@ public class DnsResolveFlow {
                                         if (interceptable2 != null) {
                                             InitContext newInitContext = TitanRuntime.newInitContext();
                                             newInitContext.initArgs = r2;
-                                            Object[] objArr = {this, statisticInfo};
+                                            Object[] objArr = {this, statisticInfo4};
                                             interceptable2.invokeUnInit(65536, newInitContext);
                                             int i2 = newInitContext.flag;
                                             if ((i2 & 1) != 0) {
@@ -1073,13 +1243,13 @@ public class DnsResolveFlow {
                                             }
                                         }
                                         this.this$0 = this;
-                                        this.val$rsInfo = statisticInfo;
+                                        this.val$rsInfo = statisticInfo4;
                                     }
 
                                     @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                    public void handleOper(String str5) {
+                                    public void handleOper(String str6) {
                                         Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str5) == null) {
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str6) == null) {
                                             StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                                             StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                                         }
@@ -1092,15 +1262,15 @@ public class DnsResolveFlow {
                             deleteHost(trim);
                             handleDegradation(trim, dnsResultInfo);
                             collectStat0(uptimeMillis, dnsResultInfo);
-                            statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                            statisticInfo4.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                             if (dnsResultInfo.mErrorCode == 0) {
-                                statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                statisticInfo4.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                statisticInfo4.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                statisticInfo4.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
                             }
                             if (StatisticMgr.getInstance().getStatistic() != null) {
                                 ThreadInfo threadInfo2 = new ThreadInfo("Statistic");
-                                threadInfo2.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                                threadInfo2.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo4) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ DnsResolveFlow this$0;
@@ -1111,7 +1281,7 @@ public class DnsResolveFlow {
                                         if (interceptable2 != null) {
                                             InitContext newInitContext = TitanRuntime.newInitContext();
                                             newInitContext.initArgs = objArr;
-                                            Object[] objArr = {this, statisticInfo};
+                                            Object[] objArr = {this, statisticInfo4};
                                             interceptable2.invokeUnInit(65536, newInitContext);
                                             int i2 = newInitContext.flag;
                                             if ((i2 & 1) != 0) {
@@ -1122,13 +1292,13 @@ public class DnsResolveFlow {
                                             }
                                         }
                                         this.this$0 = this;
-                                        this.val$rsInfo = statisticInfo;
+                                        this.val$rsInfo = statisticInfo4;
                                     }
 
                                     @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                    public void handleOper(String str5) {
+                                    public void handleOper(String str6) {
                                         Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str5) == null) {
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str6) == null) {
                                             StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                                             StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                                         }
@@ -1139,38 +1309,52 @@ public class DnsResolveFlow {
                             return dnsResultInfo;
                         } else {
                             if (z4) {
-                                str3 = createRequestId;
+                                str3 = TAG;
                                 str4 = "Statistic";
+                                statisticInfo2 = statisticInfo4;
                                 j = 5000;
-                                i = 0;
+                                i = 3;
                             } else {
                                 boolean enableExpired = TtlController.getInstance().enableExpired();
-                                str3 = createRequestId;
-                                str4 = "Statistic";
+                                if (enableExpired || (z2 && z3)) {
+                                    str5 = TAG;
+                                    z7 = true;
+                                } else {
+                                    str5 = TAG;
+                                    z7 = false;
+                                }
                                 try {
-                                    int[] handleDnsCache = handleDnsCache(createRequestId, dnsResultInfo, cachedNetStatusInfo, trim, 2, enableExpired || (z2 && z3));
-                                    i = 0;
+                                    int[] handleDnsCache = handleDnsCache(createRequestId, dnsResultInfo, cachedNetStatusInfo, trim, 2, z7);
                                     int i2 = handleDnsCache[0];
-                                    boolean z6 = handleDnsCache[1] == 1;
+                                    boolean z8 = handleDnsCache[1] == 1;
                                     if (z2) {
                                         if (i2 == 0 && dnsResultInfo.mIps != null && dnsResultInfo.mIps.length >= 1) {
-                                            if (z6) {
+                                            if (z8) {
                                                 ExternalCache.getInstance().getResult(trim, 8, dnsResultInfo);
                                             }
                                         }
                                         ExternalCache.getInstance().getResult(trim, 4, dnsResultInfo);
                                     }
-                                    if (i2 == 0 && (enableExpired || !z6)) {
+                                    i = 3;
+                                    str3 = str5;
+                                    LogTools.printDebug(str3, String.format(Locale.US, "===== handleDNS handleDnsCache host: %s, codeCacheHttp: %d, expiredCacheHttp: %b, forceEnableExpired: %b ,isUpdateIp: %b", trim, Integer.valueOf(i2), Boolean.valueOf(z8), Boolean.valueOf(enableExpired), Boolean.valueOf(z6)));
+                                    if (i2 == 0 && (z6 || !z8)) {
+                                        if (z8 || dnsResultInfo.mIps.length == 0) {
+                                            if (z5) {
+                                                handleLocalDNS(trim);
+                                            }
+                                            handleDnsAsync(trim, createRequestId, cachedNetStatusInfo);
+                                        }
                                         collectStat0(uptimeMillis, dnsResultInfo);
-                                        statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                                        statisticInfo4.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                                         if (dnsResultInfo.mErrorCode == 0) {
-                                            statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                            statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                            statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                            statisticInfo4.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                            statisticInfo4.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                            statisticInfo4.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
                                         }
                                         if (StatisticMgr.getInstance().getStatistic() != null) {
-                                            ThreadInfo threadInfo3 = new ThreadInfo(str4);
-                                            threadInfo3.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                                            ThreadInfo threadInfo3 = new ThreadInfo("Statistic");
+                                            threadInfo3.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo4) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public transient /* synthetic */ FieldHolder $fh;
                                                 public final /* synthetic */ DnsResolveFlow this$0;
@@ -1181,7 +1365,7 @@ public class DnsResolveFlow {
                                                     if (interceptable2 != null) {
                                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                                         newInitContext.initArgs = objArr;
-                                                        Object[] objArr = {this, statisticInfo};
+                                                        Object[] objArr = {this, statisticInfo4};
                                                         interceptable2.invokeUnInit(65536, newInitContext);
                                                         int i22 = newInitContext.flag;
                                                         if ((i22 & 1) != 0) {
@@ -1192,13 +1376,13 @@ public class DnsResolveFlow {
                                                         }
                                                     }
                                                     this.this$0 = this;
-                                                    this.val$rsInfo = statisticInfo;
+                                                    this.val$rsInfo = statisticInfo4;
                                                 }
 
                                                 @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                                public void handleOper(String str5) {
+                                                public void handleOper(String str6) {
                                                     Interceptable interceptable2 = $ic;
-                                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str5) == null) {
+                                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str6) == null) {
                                                         StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                                                         StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                                                     }
@@ -1208,10 +1392,13 @@ public class DnsResolveFlow {
                                         }
                                         return dnsResultInfo;
                                     }
+                                    statisticInfo2 = statisticInfo4;
+                                    str4 = "Statistic";
                                     j = 5000;
                                 } catch (Throwable th) {
                                     th = th;
-                                    str2 = str4;
+                                    statisticInfo = statisticInfo4;
+                                    str2 = "Statistic";
                                     collectStat0(uptimeMillis, dnsResultInfo);
                                     statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                                     if (dnsResultInfo.mErrorCode == 0) {
@@ -1221,76 +1408,91 @@ public class DnsResolveFlow {
                                     throw th;
                                 }
                             }
-                            if (!z2) {
-                                String str5 = str3;
-                                if (z3) {
-                                    LogTools.printError(TAG, String.format(Locale.US, "enableExpiredIp is valid only in asynchronous function! ", new Object[i]));
-                                }
-                                int handleDnsSync = handleDnsSync(trim, str5, cachedNetStatusInfo);
-                                String str6 = str4;
-                                try {
-                                    int[] handleDnsCache2 = handleDnsCache(str5, dnsResultInfo, cachedNetStatusInfo, trim, handleDnsSync, false);
-                                    int i3 = handleDnsCache2[0];
-                                    int i4 = handleDnsCache2[1];
-                                    if (z4 && (handleDnsSync != 0 || dnsResultInfo.mDataSource != 3)) {
-                                        LogTools.printError(TAG, String.format(Locale.US, "force fresh failed! host: %s, codeHttp: %d, dataSource: %d", trim, Integer.valueOf(handleDnsSync), Integer.valueOf(dnsResultInfo.mDataSource)));
-                                        dnsResultInfo.mErrorCode = handleDnsSync;
-                                        dnsResultInfo.mDataSource = 0;
-                                        dnsResultInfo.mIps = new String[0];
-                                        dnsResultInfo.mIpsV6 = new String[0];
-                                        dnsResultInfo.mIpsV4 = new String[0];
-                                        statisticInfo.cacheType = 0;
-                                        collectStat0(uptimeMillis, dnsResultInfo);
-                                        statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
-                                        if (dnsResultInfo.mErrorCode == 0) {
-                                            statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                            statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                            statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
-                                        }
-                                        if (StatisticMgr.getInstance().getStatistic() != null) {
-                                            ThreadInfo threadInfo4 = new ThreadInfo(str6);
-                                            threadInfo4.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
-                                                public static /* synthetic */ Interceptable $ic;
-                                                public transient /* synthetic */ FieldHolder $fh;
-                                                public final /* synthetic */ DnsResolveFlow this$0;
-                                                public final /* synthetic */ StatisticInfo val$rsInfo;
-
-                                                {
-                                                    Interceptable interceptable2 = $ic;
-                                                    if (interceptable2 != null) {
-                                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                                        newInitContext.initArgs = objArr;
-                                                        Object[] objArr = {this, statisticInfo};
-                                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                                        int i22 = newInitContext.flag;
-                                                        if ((i22 & 1) != 0) {
-                                                            int i32 = i22 & 2;
-                                                            newInitContext.thisArg = this;
-                                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                                            return;
-                                                        }
-                                                    }
-                                                    this.this$0 = this;
-                                                    this.val$rsInfo = statisticInfo;
-                                                }
-
-                                                @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                                public void handleOper(String str52) {
-                                                    Interceptable interceptable2 = $ic;
-                                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str52) == null) {
-                                                        StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
-                                                        StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
-                                                    }
-                                                }
-                                            });
-                                            StatisticMgr.getInstance().addTask(threadInfo4, 5000L);
-                                        }
-                                        return dnsResultInfo;
+                            try {
+                                if (!z2) {
+                                    if (z3) {
+                                        LogTools.printError(str3, String.format(Locale.US, "enableExpiredIp is valid only in asynchronous function! ", new Object[0]));
                                     }
-                                    str2 = str6;
-                                    if (handleDnsSync == 0 && i3 != 0) {
+                                    int handleDnsSync = handleDnsSync(trim, createRequestId, cachedNetStatusInfo);
+                                    str2 = str4;
+                                    StatisticInfo statisticInfo5 = statisticInfo2;
+                                    String str6 = str3;
+                                    try {
+                                        int[] handleDnsCache2 = handleDnsCache(createRequestId, dnsResultInfo, cachedNetStatusInfo, trim, handleDnsSync, false);
+                                        int i3 = handleDnsCache2[0];
+                                        statisticInfo = handleDnsCache2[1];
                                         try {
-                                            LogTools.printDebug(TAG, String.format(Locale.US, "%s not support by gslb", trim));
+                                            if (z4 && (handleDnsSync != 0 || dnsResultInfo.mDataSource != i)) {
+                                                Locale locale = Locale.US;
+                                                Object[] objArr = new Object[i];
+                                                objArr[0] = trim;
+                                                objArr[1] = Integer.valueOf(handleDnsSync);
+                                                objArr[2] = Integer.valueOf(dnsResultInfo.mDataSource);
+                                                LogTools.printError(str6, String.format(locale, "force fresh failed! host: %s, codeHttp: %d, dataSource: %d", objArr));
+                                                dnsResultInfo.mErrorCode = handleDnsSync;
+                                                dnsResultInfo.mDataSource = 0;
+                                                dnsResultInfo.mIps = new String[0];
+                                                dnsResultInfo.mIpsV6 = new String[0];
+                                                dnsResultInfo.mIpsV4 = new String[0];
+                                                statisticInfo5.cacheType = 0;
+                                                collectStat0(uptimeMillis, dnsResultInfo);
+                                                statisticInfo5.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                                                if (dnsResultInfo.mErrorCode == 0) {
+                                                    statisticInfo5.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                                    statisticInfo5.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                                    statisticInfo5.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                                }
+                                                if (StatisticMgr.getInstance().getStatistic() != null) {
+                                                    ThreadInfo threadInfo4 = new ThreadInfo(str2);
+                                                    threadInfo4.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo5) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
+                                                        public static /* synthetic */ Interceptable $ic;
+                                                        public transient /* synthetic */ FieldHolder $fh;
+                                                        public final /* synthetic */ DnsResolveFlow this$0;
+                                                        public final /* synthetic */ StatisticInfo val$rsInfo;
+
+                                                        {
+                                                            Interceptable interceptable2 = $ic;
+                                                            if (interceptable2 != null) {
+                                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                                newInitContext.initArgs = objArr;
+                                                                Object[] objArr2 = {this, statisticInfo5};
+                                                                interceptable2.invokeUnInit(65536, newInitContext);
+                                                                int i22 = newInitContext.flag;
+                                                                if ((i22 & 1) != 0) {
+                                                                    int i32 = i22 & 2;
+                                                                    newInitContext.thisArg = this;
+                                                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                                                    return;
+                                                                }
+                                                            }
+                                                            this.this$0 = this;
+                                                            this.val$rsInfo = statisticInfo5;
+                                                        }
+
+                                                        @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
+                                                        public void handleOper(String str62) {
+                                                            Interceptable interceptable2 = $ic;
+                                                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str62) == null) {
+                                                                StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
+                                                                StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
+                                                            }
+                                                        }
+                                                    });
+                                                    StatisticMgr.getInstance().addTask(threadInfo4, 5000L);
+                                                }
+                                                return dnsResultInfo;
+                                            }
+                                            statisticInfo3 = statisticInfo5;
+                                            if (handleDnsSync == 0 && i3 != 0) {
+                                                LogTools.printDebug(str6, String.format(Locale.US, "%s not support by gslb", trim));
+                                            }
+                                            if (dnsResultInfo.mDataSource == 0 && z5) {
+                                                handleLocalDNS(trim);
+                                            }
+                                            if (i3 != 0 || dnsResultInfo.mIps == null || dnsResultInfo.mIps.length < 1) {
+                                                ExternalCache.getInstance().getResult(trim, 2, dnsResultInfo);
+                                            }
+                                            judgeUpdateHost(trim, handleDnsSync, i3);
                                         } catch (Throwable th2) {
                                             th = th2;
                                             collectStat0(uptimeMillis, dnsResultInfo);
@@ -1302,7 +1504,7 @@ public class DnsResolveFlow {
                                             }
                                             if (StatisticMgr.getInstance().getStatistic() != null) {
                                                 ThreadInfo threadInfo5 = new ThreadInfo(str2);
-                                                threadInfo5.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                                                threadInfo5.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                                                     public static /* synthetic */ Interceptable $ic;
                                                     public transient /* synthetic */ FieldHolder $fh;
                                                     public final /* synthetic */ DnsResolveFlow this$0;
@@ -1312,8 +1514,8 @@ public class DnsResolveFlow {
                                                         Interceptable interceptable2 = $ic;
                                                         if (interceptable2 != null) {
                                                             InitContext newInitContext = TitanRuntime.newInitContext();
-                                                            newInitContext.initArgs = objArr;
-                                                            Object[] objArr = {this, statisticInfo};
+                                                            newInitContext.initArgs = objArr2;
+                                                            Object[] objArr2 = {this, statisticInfo};
                                                             interceptable2.invokeUnInit(65536, newInitContext);
                                                             int i22 = newInitContext.flag;
                                                             if ((i22 & 1) != 0) {
@@ -1328,9 +1530,9 @@ public class DnsResolveFlow {
                                                     }
 
                                                     @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                                    public void handleOper(String str52) {
+                                                    public void handleOper(String str62) {
                                                         Interceptable interceptable2 = $ic;
-                                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str52) == null) {
+                                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str62) == null) {
                                                             StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                                                             StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                                                         }
@@ -1340,31 +1542,77 @@ public class DnsResolveFlow {
                                             }
                                             throw th;
                                         }
+                                    } catch (Throwable th3) {
+                                        th = th3;
+                                        statisticInfo = statisticInfo5;
                                     }
-                                    if (dnsResultInfo.mDataSource == 0 && z5) {
+                                } else if (z4) {
+                                    LogTools.printError(str3, String.format(Locale.US, "force refresh is valid only in asynchronous function! ", new Object[0]));
+                                    dnsResultInfo.mErrorCode = 5;
+                                    collectStat0(uptimeMillis, dnsResultInfo);
+                                    statisticInfo2.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                                    if (dnsResultInfo.mErrorCode == 0) {
+                                        statisticInfo2.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                        statisticInfo2.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                        statisticInfo2.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                    }
+                                    if (StatisticMgr.getInstance().getStatistic() != null) {
+                                        ThreadInfo threadInfo6 = new ThreadInfo(str4);
+                                        threadInfo6.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo2) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ DnsResolveFlow this$0;
+                                            public final /* synthetic */ StatisticInfo val$rsInfo;
+
+                                            {
+                                                Interceptable interceptable2 = $ic;
+                                                if (interceptable2 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = objArr2;
+                                                    Object[] objArr2 = {this, statisticInfo2};
+                                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                                    int i22 = newInitContext.flag;
+                                                    if ((i22 & 1) != 0) {
+                                                        int i32 = i22 & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
+                                                this.val$rsInfo = statisticInfo2;
+                                            }
+
+                                            @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
+                                            public void handleOper(String str62) {
+                                                Interceptable interceptable2 = $ic;
+                                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str62) == null) {
+                                                    StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
+                                                    StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
+                                                }
+                                            }
+                                        });
+                                        StatisticMgr.getInstance().addTask(threadInfo6, j);
+                                    }
+                                    return dnsResultInfo;
+                                } else {
+                                    if (z5) {
                                         handleLocalDNS(trim);
                                     }
-                                    if (i3 != 0 || dnsResultInfo.mIps == null || dnsResultInfo.mIps.length < 1) {
-                                        ExternalCache.getInstance().getResult(trim, 2, dnsResultInfo);
-                                    }
-                                    judgeUpdateHost(trim, handleDnsSync, i3);
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    str2 = str6;
+                                    handleDnsAsync(trim, createRequestId, cachedNetStatusInfo);
+                                    str2 = str4;
+                                    statisticInfo3 = statisticInfo2;
                                 }
-                            } else if (z4) {
-                                LogTools.printError(TAG, String.format(Locale.US, "force refresh is valid only in synchronous function! ", new Object[i]));
-                                dnsResultInfo.mErrorCode = 5;
                                 collectStat0(uptimeMillis, dnsResultInfo);
-                                statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                                statisticInfo3.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
                                 if (dnsResultInfo.mErrorCode == 0) {
-                                    statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                    statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                    statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                                    statisticInfo3.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                                    statisticInfo3.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                                    statisticInfo3.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
                                 }
                                 if (StatisticMgr.getInstance().getStatistic() != null) {
-                                    ThreadInfo threadInfo6 = new ThreadInfo(str4);
-                                    threadInfo6.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                                    ThreadInfo threadInfo7 = new ThreadInfo(str2);
+                                    threadInfo7.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo3) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ DnsResolveFlow this$0;
@@ -1374,8 +1622,8 @@ public class DnsResolveFlow {
                                             Interceptable interceptable2 = $ic;
                                             if (interceptable2 != null) {
                                                 InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = objArr;
-                                                Object[] objArr = {this, statisticInfo};
+                                                newInitContext.initArgs = objArr2;
+                                                Object[] objArr2 = {this, statisticInfo3};
                                                 interceptable2.invokeUnInit(65536, newInitContext);
                                                 int i22 = newInitContext.flag;
                                                 if ((i22 & 1) != 0) {
@@ -1386,91 +1634,44 @@ public class DnsResolveFlow {
                                                 }
                                             }
                                             this.this$0 = this;
-                                            this.val$rsInfo = statisticInfo;
+                                            this.val$rsInfo = statisticInfo3;
                                         }
 
                                         @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                        public void handleOper(String str52) {
+                                        public void handleOper(String str62) {
                                             Interceptable interceptable2 = $ic;
-                                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str52) == null) {
+                                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str62) == null) {
                                                 StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                                                 StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                                             }
                                         }
                                     });
-                                    StatisticMgr.getInstance().addTask(threadInfo6, j);
+                                    StatisticMgr.getInstance().addTask(threadInfo7, 5000L);
                                 }
                                 return dnsResultInfo;
-                            } else {
-                                if (z5) {
-                                    handleLocalDNS(trim);
-                                }
-                                handleDnsAsync(trim, str3, cachedNetStatusInfo);
+                            } catch (Throwable th4) {
+                                th = th4;
                                 str2 = str4;
+                                statisticInfo = statisticInfo2;
                             }
-                            collectStat0(uptimeMillis, dnsResultInfo);
-                            statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
-                            if (dnsResultInfo.mErrorCode == 0) {
-                                statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                                statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                                statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
-                            }
-                            if (StatisticMgr.getInstance().getStatistic() != null) {
-                                ThreadInfo threadInfo7 = new ThreadInfo(str2);
-                                threadInfo7.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ DnsResolveFlow this$0;
-                                    public final /* synthetic */ StatisticInfo val$rsInfo;
-
-                                    {
-                                        Interceptable interceptable2 = $ic;
-                                        if (interceptable2 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = objArr;
-                                            Object[] objArr = {this, statisticInfo};
-                                            interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i22 = newInitContext.flag;
-                                            if ((i22 & 1) != 0) {
-                                                int i32 = i22 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable2.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.this$0 = this;
-                                        this.val$rsInfo = statisticInfo;
-                                    }
-
-                                    @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                                    public void handleOper(String str52) {
-                                        Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str52) == null) {
-                                            StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
-                                            StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
-                                        }
-                                    }
-                                });
-                                StatisticMgr.getInstance().addTask(threadInfo7, 5000L);
-                            }
-                            return dnsResultInfo;
                         }
                     }
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th5) {
+                    th = th5;
                     str2 = "Statistic";
+                    statisticInfo = statisticInfo4;
                 }
             }
             collectStat0(uptimeMillis, dnsResultInfo);
-            statisticInfo.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+            statisticInfo4.ts = (int) (SystemClock.uptimeMillis() - uptimeMillis);
             if (dnsResultInfo.mErrorCode == 0) {
-                statisticInfo.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
-                statisticInfo.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
-                statisticInfo.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
+                statisticInfo4.rsIp.addAll(Arrays.asList(dnsResultInfo.mIps));
+                statisticInfo4.rsIpV4.addAll(Arrays.asList(dnsResultInfo.mIpsV4));
+                statisticInfo4.rsIpV6.addAll(Arrays.asList(dnsResultInfo.mIpsV6));
             }
             if (StatisticMgr.getInstance().getStatistic() != null) {
                 ThreadInfo threadInfo8 = new ThreadInfo("Statistic");
-                threadInfo8.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.8
+                threadInfo8.setThreadMainOper(new ThreadInfo.ThreadMainOper(this, statisticInfo4) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DnsResolveFlow this$0;
@@ -1480,8 +1681,8 @@ public class DnsResolveFlow {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = objArr;
-                            Object[] objArr = {this, statisticInfo};
+                            newInitContext.initArgs = objArr2;
+                            Object[] objArr2 = {this, statisticInfo4};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i22 = newInitContext.flag;
                             if ((i22 & 1) != 0) {
@@ -1492,13 +1693,13 @@ public class DnsResolveFlow {
                             }
                         }
                         this.this$0 = this;
-                        this.val$rsInfo = statisticInfo;
+                        this.val$rsInfo = statisticInfo4;
                     }
 
                     @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-                    public void handleOper(String str52) {
+                    public void handleOper(String str62) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str52) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str62) == null) {
                             StatisticMgr.getInstance().removeStatisticInfo(this.val$rsInfo.requestId);
                             StatisticMgr.getInstance().onStatistic(this.val$rsInfo.toMap());
                         }
@@ -1514,14 +1715,14 @@ public class DnsResolveFlow {
     public int handleDnsSync(String str, String str2, NetStatusInfo netStatusInfo) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, netStatusInfo)) == null) ? handleDnsSync(new String[]{str}, str2, netStatusInfo) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, netStatusInfo)) == null) ? handleDnsSync(new String[]{str}, str2, netStatusInfo) : invokeLLL.intValue;
     }
 
     public int handleHttpDNSIgnoreCache(NetStatusInfo netStatusInfo, String[] strArr, ResInfo resInfo, boolean z) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{netStatusInfo, strArr, resInfo, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{netStatusInfo, strArr, resInfo, Boolean.valueOf(z)})) == null) {
             ArrayList<String> bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(netStatusInfo.getNetworkStatus());
             if (bestServerIPCache.isEmpty()) {
                 str = IpVersionController.getInstance().getOneServerIPByUnKnownISP(GlobalTools.APP_CONTEXT, netStatusInfo.getNetworkStatus());
@@ -1541,10 +1742,41 @@ public class DnsResolveFlow {
         return invokeCommon.intValue;
     }
 
+    public synchronized void preHost(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            synchronized (this) {
+                if (GlobalTools.IS_BACKGOUND_MODEL) {
+                    return;
+                }
+                if (SwitchController.getInstance().switchGslb()) {
+                    NetStatusInfo netStatusInfo = new NetStatusInfo();
+                    netStatusInfo.resetVal(DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT));
+                    DataCacheMgr.INSTANCE.setCachedNetStateInfo(netStatusInfo);
+                    if (netStatusInfo.getNetType() == 0) {
+                        return;
+                    }
+                    HashSet hashSet = new HashSet();
+                    Iterator<String> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        String next = it.next();
+                        if (hashSet.size() >= 10) {
+                            break;
+                        }
+                        hashSet.add(next);
+                    }
+                    if (!hashSet.isEmpty()) {
+                        updateIps(netStatusInfo, hashSet);
+                    }
+                }
+            }
+        }
+    }
+
     public synchronized int stopNetworkMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
                 if (GlobalTools.APP_CONTEXT != null) {
                     if (this.mNetStatusReceiver != null) {
@@ -1560,7 +1792,7 @@ public class DnsResolveFlow {
 
     public void updateHostList(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, arrayList, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, arrayList, z) == null) {
             AsynTaskMgr.INSTANCE.updateHost(arrayList, z);
         }
     }
@@ -1569,9 +1801,10 @@ public class DnsResolveFlow {
         InterceptResult invokeLLL;
         AtomicBoolean atomicBoolean;
         AtomicInteger atomicInteger;
+        char c;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, strArr, str, netStatusInfo)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, strArr, str, netStatusInfo)) == null) {
             String str2 = TextUtils.join(",", strArr) + netStatusInfo.getNetStatusID();
             StatisticInfo statisticInfo = StatisticMgr.getInstance().getStatisticInfo(str);
             LogTools.printDebug(TAG, String.format(Locale.US, "handleDnsSync, start, key: %s, requestId: %s", str2, str));
@@ -1588,16 +1821,20 @@ public class DnsResolveFlow {
                 }
             }
             if (atomicBoolean.compareAndSet(false, true)) {
+                long currentTimeMillis = System.currentTimeMillis();
                 i = handleHttpDNS(netStatusInfo, strArr, str);
+                LogTools.printDebug(TAG, String.format(Locale.US, "handleDnsSync , request end cost, requestId: %s ,domain : %s, cost: %d", str, (strArr == null || strArr.length == 0) ? "" : strArr[0], Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));
                 statisticInfo.http = 1;
                 atomicInteger.set(i);
                 atomicBoolean.set(false);
+                str2 = str2;
                 this.mPendingHttpCode.remove(str2);
                 this.mPendingReqs.remove(str2);
                 synchronized (atomicBoolean) {
                     LogTools.printDebug(TAG, String.format(Locale.US, "handleDnsSync, req notifyAll, key: %s, requestId: %s", str2, str));
                     atomicBoolean.notifyAll();
                 }
+                c = 2;
             } else {
                 if (atomicBoolean.get()) {
                     synchronized (atomicBoolean) {
@@ -1608,12 +1845,50 @@ public class DnsResolveFlow {
                         }
                     }
                 }
+                c = 2;
                 statisticInfo.http = 2;
                 i = atomicInteger.get();
             }
-            LogTools.printDebug(TAG, String.format(Locale.US, "handleDnsSync, end, key: %s, requestId: %s, codeHttp: %d", str2, str, Integer.valueOf(i)));
+            Locale locale = Locale.US;
+            Object[] objArr = new Object[3];
+            objArr[0] = str2;
+            objArr[1] = str;
+            objArr[c] = Integer.valueOf(i);
+            LogTools.printDebug(TAG, String.format(locale, "handleDnsSync, end, key: %s, requestId: %s, codeHttp: %d", objArr));
             return i;
         }
         return invokeLLL.intValue;
+    }
+
+    public synchronized void preHost() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                if (GlobalTools.IS_BACKGOUND_MODEL) {
+                    return;
+                }
+                if (SwitchController.getInstance().switchGslb()) {
+                    DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
+                    NetStatusInfo netStatusInfo = new NetStatusInfo();
+                    netStatusInfo.resetVal(DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT));
+                    DataCacheMgr.INSTANCE.setCachedNetStateInfo(netStatusInfo);
+                    if (netStatusInfo.getNetType() == 0) {
+                        return;
+                    }
+                    HashSet hashSet = new HashSet();
+                    for (HostTB hostTB : dBAccessMgr.getAllHost()) {
+                        if (1 == hostTB.getIsPre()) {
+                            if (hashSet.size() >= 10) {
+                                break;
+                            }
+                            hashSet.add(hostTB.getHost());
+                        }
+                    }
+                    if (!hashSet.isEmpty()) {
+                        updateIps(netStatusInfo, hashSet);
+                    }
+                }
+            }
+        }
     }
 }

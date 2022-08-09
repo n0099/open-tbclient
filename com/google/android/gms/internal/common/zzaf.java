@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xl9;
+import com.repackage.so9;
 import javax.annotation.CheckForNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class zzaf extends zzag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class zzaf extends zzag {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            xl9.a(i, this.zzb, "index");
+            so9.a(i, this.zzb, "index");
             return this.zzc.get(i + this.zza);
         }
         return invokeI.objValue;
@@ -93,7 +93,7 @@ public final class zzaf extends zzag {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) {
-            xl9.c(i, i2, this.zzb);
+            so9.c(i, i2, this.zzb);
             zzag zzagVar = this.zzc;
             int i3 = this.zza;
             return zzagVar.subList(i + i3, i2 + i3);

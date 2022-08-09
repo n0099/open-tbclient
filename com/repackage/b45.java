@@ -1,39 +1,34 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b45 implements c45 {
+public class b45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public int a;
+    public final View b;
+    public final int c;
+    public final boolean d;
+    public x35 e;
 
-    public b45(Context context) {
+    public b45(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,43 +38,81 @@ public class b45 implements c45 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0290, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b2);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b4);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b0);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909b3);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06d4);
-        b();
+        this.a = -1;
+        this.b = view2;
+        this.c = e45.a(view2.getContext());
+        this.d = f45.c((Activity) view2.getContext());
     }
 
-    @Override // com.repackage.c45
-    public void b() {
+    public final x35 a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
+            return (x35) invokeL.objValue;
         }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807dc, WebPManager.ResourceStateType.NORMAL));
-    }
-
-    @Override // com.repackage.c45
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) null);
+        x35 x35Var = this.e;
+        if (x35Var != null) {
+            return x35Var;
         }
-        return (View) invokeV.objValue;
+        if (view2 instanceof x35) {
+            x35 x35Var2 = (x35) view2;
+            this.e = x35Var2;
+            return x35Var2;
+        } else if (!(view2 instanceof ViewGroup)) {
+            return null;
+        } else {
+            int i = 0;
+            while (true) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (i >= viewGroup.getChildCount()) {
+                    return null;
+                }
+                x35 a = a(viewGroup.getChildAt(i));
+                if (a != null) {
+                    this.e = a;
+                    return a;
+                }
+                i++;
+            }
+        }
     }
 
-    @Override // com.repackage.c45
-    public void onClick() {
+    @TargetApi(16)
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                i2 = rect.bottom - rect.top;
+            }
+            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
+            } else if (Math.abs(i4) == this.c) {
+                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
+            } else {
+                this.a = i2;
+                x35 a = a(this.b);
+                if (a == null) {
+                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
+                } else if (Math.abs(i4) < d45.f(this.b.getContext())) {
+                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
+                } else if (i4 > 0) {
+                    a.handleHide();
+                } else if (a.b() && a.isVisible()) {
+                    a.handleShow();
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -149,7 +150,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 }
                 this.isOriginal = jSONObject.optBoolean("isOriginal");
                 this.insertIndex = jSONObject.optInt("insertIndex");
-                this.rotation = jSONObject.optInt("rotation");
+                this.rotation = jSONObject.optInt(Key.ROTATION);
                 this.width = jSONObject.optInt("width");
                 this.height = jSONObject.optInt("height");
                 this.mMaterialId = jSONObject.optString("mMaterialId");
@@ -189,7 +190,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_NEXT, this.next.toJson().toString());
                 jSONObject.put("isOriginal", this.isOriginal);
                 jSONObject.put("insertIndex", this.insertIndex);
-                jSONObject.put("rotation", this.rotation);
+                jSONObject.put(Key.ROTATION, this.rotation);
                 jSONObject.put("width", this.width);
                 jSONObject.put("height", this.height);
                 jSONObject.put("mMaterialId", this.mMaterialId);

@@ -1,5 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface zk1 {
-    String a();
+    lk1 a();
+
+    sk1 b();
 }

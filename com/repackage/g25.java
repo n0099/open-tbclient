@@ -1,102 +1,304 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.dynamicres.data.AgreeMaterial;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g25 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "lottie_feed_new_agree/";
+    public static final String c = "lottie_feed_new_agree/";
+    public static final String d = "lottie_feed_new_agree/";
+    public static final String e = "lottie_feed_new_agree/";
+    public static final String f = "lottie_pb_new_double_tap_agree/";
+    public static final String g = "lottie_pb_new_double_tap_agree_1/";
     public transient /* synthetic */ FieldHolder $fh;
+    public AgreeMaterial a;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w15 a;
+    }
 
-        public a(w15 w15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w15Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g25 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-406992375, "Lcom/repackage/g25$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-406992375, "Lcom/repackage/g25$b;");
                     return;
                 }
             }
-            this.a = w15Var;
+            a = new g25(null);
         }
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            w15 w15Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (w15Var = this.a) == null) {
+    public /* synthetic */ g25(a aVar) {
+        this();
+    }
+
+    public static g25 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (g25) invokeV.objValue;
+    }
+
+    public void a(AgreeMaterial agreeMaterial) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, agreeMaterial) == null) {
+            this.a = agreeMaterial;
+            if (agreeMaterial == null) {
                 return;
             }
-            w15Var.L(new k15(14, -1, Boolean.TRUE));
+            AgreeMaterial.Data data = agreeMaterial.staticData;
+            if (data != null) {
+                data.z();
+            }
+            AgreeMaterial.Data data2 = agreeMaterial.singleTapData;
+            if (data2 != null) {
+                data2.z();
+            }
+            AgreeMaterial.Data data3 = agreeMaterial.doubleTapData;
+            if (data3 != null) {
+                data3.z();
+            }
+            AgreeMaterial.Data data4 = agreeMaterial.longPressData;
+            if (data4 != null) {
+                data4.z();
+            }
         }
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public static w15 a(Context context, int i) {
-        InterceptResult invokeLI;
+    public void b(String str, String str2, f25 f25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            p45 p45Var = new p45();
-            MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0244, (ViewGroup) null);
-            multiImgToolView.l();
-            if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, f25Var) == null) {
+            d("", str, str2, true, 2, f25Var);
+        }
+    }
+
+    public void c(e25 e25Var) {
+        AgreeMaterial.Data data;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e25Var) == null) || e25Var == null) {
+            return;
+        }
+        AgreeMaterial agreeMaterial = this.a;
+        if (agreeMaterial != null && (data = agreeMaterial.longPressData) != null) {
+            String B = data.B("", "", "");
+            if (StringUtils.isNull(B)) {
+                l(e25Var);
+                return;
+            } else {
+                k(B, e25Var);
+                return;
+            }
+        }
+        l(e25Var);
+    }
+
+    public final void d(String str, String str2, String str3, boolean z, int i, f25 f25Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Integer.valueOf(i), f25Var}) == null) || f25Var == null) {
+            return;
+        }
+        if (str == null) {
+            str = "";
+        }
+        AgreeMaterial agreeMaterial = this.a;
+        if (agreeMaterial == null || !z) {
+            m(i, str, f25Var);
+            return;
+        }
+        AgreeMaterial.Data data = null;
+        if (i == 0) {
+            data = agreeMaterial.staticData;
+        } else if (i == 1) {
+            data = agreeMaterial.singleTapData;
+        } else if (i == 2) {
+            data = agreeMaterial.doubleTapData;
+        } else if (i == 3) {
+            data = agreeMaterial.longPressData;
+        }
+        if (data == null) {
+            m(i, str, f25Var);
+            return;
+        }
+        String B = data.B(str, str2, str3);
+        if (StringUtils.isNull(B)) {
+            m(i, str, f25Var);
+        } else {
+            f25Var.b(B);
+        }
+    }
+
+    public void e(String str, String str2, String str3, boolean z, f25 f25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, Boolean.valueOf(z), f25Var}) == null) {
+            d(str, str2, str3, z, 1, f25Var);
+        }
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        AgreeMaterial.Data data;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AgreeMaterial agreeMaterial = this.a;
+            if (agreeMaterial == null || (data = agreeMaterial.doubleTapData) == null) {
                 return null;
             }
-            multiImgToolView.setAsyncLocalImageLoader(p45Var);
-            yi8 yi8Var = new yi8(context);
-            yi8Var.e(multiImgToolView.getDragLayer());
-            yi8Var.g(multiImgToolView.getDragHorizonScrollView());
-            yi8Var.f(multiImgToolView.getDragHorizonScrollView());
-            if (i > 1) {
-                multiImgToolView.getDragHorizonScrollView().setAddView(b(context, multiImgToolView));
-            } else {
-                multiImgToolView.getDragHorizonScrollView().setCenterStart(true);
-            }
-            multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
-            multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-            SkinManager.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.CAM_X0108, 1);
-            return multiImgToolView;
+            return data.activityId;
         }
-        return (w15) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static View b(Context context, w15 w15Var) {
-        InterceptResult invokeLL;
+    public String h() {
+        InterceptResult invokeV;
+        AgreeMaterial.Data data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, w15Var)) == null) {
-            ImageView imageView = new ImageView(context);
-            SkinManager.setImageResource(imageView, R.drawable.btn_add_photo_selector);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setClickable(true);
-            imageView.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f00b8));
-            int d = pi.d(context, 3.0f);
-            imageView.setPadding(d, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201) + d + pi.d(context, 1.0f), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207) + d, d);
-            imageView.setOnClickListener(new a(w15Var));
-            return imageView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AgreeMaterial agreeMaterial = this.a;
+            return (agreeMaterial == null || (data = agreeMaterial.longPressData) == null) ? "1" : data.activityId;
         }
-        return (View) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        AgreeMaterial.Data data;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AgreeMaterial agreeMaterial = this.a;
+            if (agreeMaterial == null || (data = agreeMaterial.singleTapData) == null) {
+                return null;
+            }
+            return data.activityId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void j(@NonNull f25 f25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f25Var) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            boolean z = true;
+            if (skinType != 4 && skinType != 1) {
+                z = false;
+            }
+            f25Var.a(z ? R.raw.obfuscated_res_0x7f110045 : R.raw.obfuscated_res_0x7f110044, z ? g : f);
+        }
+    }
+
+    public final void k(String str, e25 e25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, e25Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            File file = new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.getTempDirName() + "/animation/" + str);
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (File file2 : listFiles) {
+                        arrayList.add(BitmapFactory.decodeFile(file2.toString()));
+                    }
+                    e25Var.a(arrayList);
+                    return;
+                }
+                l(e25Var);
+                return;
+            }
+            l(e25Var);
+        }
+    }
+
+    public final void l(e25 e25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, e25Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            Bitmap decodeResource = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080862);
+            Bitmap decodeResource2 = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080863);
+            Bitmap decodeResource3 = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080864);
+            Bitmap decodeResource4 = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080865);
+            Bitmap decodeResource5 = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080866);
+            arrayList.add(decodeResource);
+            arrayList.add(decodeResource2);
+            arrayList.add(decodeResource3);
+            arrayList.add(decodeResource4);
+            arrayList.add(decodeResource5);
+            e25Var.a(arrayList);
+        }
+    }
+
+    public final void m(int i, String str, f25 f25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048587, this, i, str, f25Var) == null) {
+            if (i == 1) {
+                n(f25Var, str);
+            } else if (i != 2) {
+                f25Var.a(0, null);
+            } else {
+                j(f25Var);
+            }
+        }
+    }
+
+    public final void n(@NonNull f25 f25Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, f25Var, str) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            boolean z = true;
+            if (skinType != 4 && skinType != 1) {
+                z = false;
+            }
+            if ("/feed".equals(str)) {
+                f25Var.a(z ? R.raw.obfuscated_res_0x7f11003b : R.raw.obfuscated_res_0x7f11003a, z ? d : b);
+            } else if ("/duang1".equals(str)) {
+                f25Var.a(R.raw.obfuscated_res_0x7f110038, "lottie_feed_firework_duang1/");
+            } else if ("/duang2".equals(str)) {
+                f25Var.a(R.raw.obfuscated_res_0x7f110039, "lottie_feed_firework_duang2/");
+            } else {
+                f25Var.a(z ? R.raw.obfuscated_res_0x7f110043 : R.raw.obfuscated_res_0x7f110042, z ? e : c);
+            }
+        }
+    }
+
+    public g25() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

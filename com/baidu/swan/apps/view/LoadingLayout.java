@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadingLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,10 +46,10 @@ public class LoadingLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07de, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0808, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090237);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090238);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090243);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090244);
             addView(inflate);
         }
     }
@@ -59,8 +59,8 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 setVisibility(0);
-                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010134);
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0810f6);
+                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01013e);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08115c);
                 this.a.startAnimation(loadAnimation);
                 return;
             }

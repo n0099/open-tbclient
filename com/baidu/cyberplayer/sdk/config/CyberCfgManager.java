@@ -17,7 +17,6 @@ import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -332,7 +331,7 @@ public class CyberCfgManager {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.k = o.b() + File.separator + UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME;
+            this.k = o.b() + File.separator + "config";
             Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
             if (a2 != null) {
                 this.d.putAll(a2);

@@ -19,10 +19,10 @@ public class w extends XMPushService.j {
     public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1008a;
+    public String f1009a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f1009a;
+    public byte[] f1010a;
     public String b;
     public String c;
 
@@ -45,8 +45,8 @@ public class w extends XMPushService.j {
             }
         }
         this.a = xMPushService;
-        this.f1008a = str;
-        this.f1009a = bArr;
+        this.f1009a = str;
+        this.f1010a = bArr;
         this.b = str2;
         this.c = str3;
     }
@@ -66,7 +66,7 @@ public class w extends XMPushService.j {
             t m680a = u.m680a((Context) this.a);
             if (m680a == null) {
                 try {
-                    m680a = u.a(this.a, this.f1008a, this.b, this.c);
+                    m680a = u.a(this.a, this.f1009a, this.b, this.c);
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
                 }
@@ -86,15 +86,15 @@ public class w extends XMPushService.j {
                 next = m637a.iterator().next();
             }
             if (!this.a.m597c()) {
-                x.a(this.f1008a, this.f1009a);
+                x.a(this.f1009a, this.f1010a);
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f931a == bg.c.c) {
-                    ah.a(this.a, this.f1008a, this.f1009a);
-                } else if (next.f931a == bg.c.a) {
-                    x.a(this.f1008a, this.f1009a);
+                if (next.f932a == bg.c.c) {
+                    ah.a(this.a, this.f1009a, this.f1010a);
+                } else if (next.f932a == bg.c.a) {
+                    x.a(this.f1009a, this.f1010a);
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();

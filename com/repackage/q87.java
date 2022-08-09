@@ -1,57 +1,140 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q87 implements CustomMessageTask.CustomRunnable<Object> {
+public class q87 {
     public static /* synthetic */ Interceptable $ic;
+    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q87() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public int g;
+        public long h;
+        public String i;
+        public int j;
+        public long k;
+        public long l;
+        public long m;
+        public String n;
+        public int o;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426175, "Lcom/repackage/q87;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755426175, "Lcom/repackage/q87;");
+                return;
+            }
+        }
+        a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    }
+
+    public static List<a> a(String str, String str2, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) ? b(str, str2, null, 0L, j, j2) : (List) invokeCommon.objValue;
+    }
+
+    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
-            cr4.f();
-            byte[] bArr = cr4.d("tb.im_entergroup").get(str);
-            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-            if (bArr != null) {
-                try {
-                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            int i = -1;
+            int userType = userData != null ? userData.getUserType() : -1;
+            LinkedList linkedList = new LinkedList();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i2 = 0;
+                while (i2 < length) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                    String optString = optJSONObject.optString("title");
+                    String optString2 = optJSONObject.optString("url");
+                    String optString3 = optJSONObject.optString("src");
+                    String optString4 = optJSONObject.optString("text");
+                    optJSONObject.optLong("picId");
+                    String optString5 = optJSONObject.optString("msg_src");
+                    a aVar = new a();
+                    if (!TextUtils.isEmpty(optString2)) {
+                        optString2 = optString2.trim();
+                        Matcher matcher = a.matcher(optString2);
+                        if (matcher.find()) {
+                            aVar.n = matcher.group(1);
+                        }
+                    }
+                    aVar.d = optString2;
+                    aVar.a = optString;
+                    aVar.b = optString4;
+                    aVar.c = optString3;
+                    aVar.e = str2;
+                    aVar.k = j2;
+                    aVar.l = j3;
+                    aVar.f = optString5;
+                    if (userType > i) {
+                        aVar.g = userType;
+                    }
+                    if (userData != null) {
+                        aVar.h = j;
+                        aVar.i = userData.getUserId();
+                        aVar.j = userData.getUserType();
+                    }
+                    linkedList.add(aVar);
+                    i2++;
+                    i = -1;
                 }
+                return linkedList;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            return responseGroupsByUidLocalMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (List) invokeCommon.objValue;
     }
 }

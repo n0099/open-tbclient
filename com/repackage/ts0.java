@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface ts0 {
-    boolean onTouchEvent(MotionEvent motionEvent);
+    @NonNull
+    us0 a();
 }

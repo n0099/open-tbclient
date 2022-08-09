@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.ElectionInfo.DataReq;
 import tbclient.ElectionInfo.ElectionInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class VoteElectionRequestMessage extends NetMessage {
             builder.fid = Long.valueOf(this.fid);
             builder.rn = Integer.valueOf(this.rn);
             builder.pn = Integer.valueOf(this.pn);
-            ud5.a(builder, false);
+            te5.a(builder, false);
             ElectionInfoReqIdl.Builder builder2 = new ElectionInfoReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

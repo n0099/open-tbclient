@@ -21,10 +21,10 @@ public class ev implements eu.a {
     public volatile long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public PendingIntent f328a;
+    public PendingIntent f329a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f329a;
+    public Context f330a;
 
     public ev(Context context) {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class ev implements eu.a {
                 return;
             }
         }
-        this.f328a = null;
         this.f329a = null;
+        this.f330a = null;
         this.a = 0L;
-        this.f329a = context;
+        this.f330a = context;
     }
 
     private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
@@ -62,17 +62,17 @@ public class ev implements eu.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f328a != null) {
+            if (this.f329a != null) {
                 try {
-                    ((AlarmManager) this.f329a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f328a);
+                    ((AlarmManager) this.f330a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f329a);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
-                    this.f328a = null;
+                    this.f329a = null;
                     com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
                     this.a = 0L;
                     throw th;
                 }
-                this.f328a = null;
+                this.f329a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
                 this.a = 0L;
             }
@@ -83,12 +83,12 @@ public class ev implements eu.a {
     public void a(Intent intent, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, j) == null) {
-            AlarmManager alarmManager = (AlarmManager) this.f329a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            this.f328a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f329a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f329a, 0, intent, 0);
+            AlarmManager alarmManager = (AlarmManager) this.f330a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            this.f329a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f330a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f330a, 0, intent, 0);
             if (Build.VERSION.SDK_INT >= 23) {
-                bk.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f328a);
+                bk.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f329a);
             } else {
-                a(alarmManager, j, this.f328a);
+                a(alarmManager, j, this.f329a);
             }
             com.xiaomi.channel.commonutils.logger.b.c("[Alarm] register timer " + j);
         }
@@ -104,7 +104,7 @@ public class ev implements eu.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            long m663a = com.xiaomi.push.service.o.a(this.f329a).m663a();
+            long m663a = com.xiaomi.push.service.o.a(this.f330a).m663a();
             if (z || this.a != 0) {
                 if (z) {
                     a();
@@ -115,13 +115,13 @@ public class ev implements eu.a {
                         this.a += m663a;
                     }
                     Intent intent = new Intent(com.xiaomi.push.service.bk.p);
-                    intent.setPackage(this.f329a.getPackageName());
+                    intent.setPackage(this.f330a.getPackageName());
                     a(intent, this.a);
                 }
                 m663a -= elapsedRealtime % m663a;
                 this.a = elapsedRealtime + m663a;
                 Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
-                intent2.setPackage(this.f329a.getPackageName());
+                intent2.setPackage(this.f330a.getPackageName());
                 a(intent2, this.a);
             }
         }

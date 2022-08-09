@@ -8,9 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ju1 extends ot1 {
+public class ju1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public ju1() {
         Interceptable interceptable = $ic;
@@ -22,29 +29,32 @@ public class ju1 extends ot1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = false;
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
-            try {
-                pt1Var.f();
-                canvas.save();
-            } catch (CloneNotSupportedException e) {
-                if (sg1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) && this.g) {
+            gu1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
+            return;
         }
+        this.a = qe3.g((float) jSONArray.optDouble(0));
+        this.b = qe3.g((float) jSONArray.optDouble(1));
+        this.c = qe3.g((float) jSONArray.optDouble(2));
+        this.d = qe3.g((float) jSONArray.optDouble(3));
+        this.e = qe3.g((float) jSONArray.optDouble(4));
+        this.f = qe3.g((float) jSONArray.optDouble(5));
+        this.g = true;
     }
 }

@@ -1,36 +1,30 @@
 package com.repackage;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class p96 {
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public class p96 extends o96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public BdTypeListView b;
-    public final List<an> c;
-    public EmotionCategoryAdapter d;
-    public EmotionHorizontalAdapter e;
-    public List<nn> f;
 
-    public p96(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public p96(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,75 +34,139 @@ public class p96 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        b();
+        this.d = z;
     }
 
-    public void a(List<nn> list) {
+    public static int h(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 > i2 || i4 > i) {
+                int round = Math.round(i3 / i2);
+                int round2 = Math.round(i4 / i);
+                if (round >= round2) {
+                    round = round2;
+                }
+                if (round >= 3) {
+                    if (round < 6.5d) {
+                        return 4;
+                    }
+                    if (round < 8) {
+                        return 8;
+                    }
+                }
+                return round;
+            }
+            return 1;
         }
-        if (this.b != null) {
-            this.f.addAll(list);
-            this.b.setData(this.f);
-        }
-        c();
+        return invokeLII.intValue;
     }
 
-    public final void b() {
+    public static Bitmap i(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, q96.a);
-            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, r96.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.b.a(this.c);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            BitmapFactory.decodeFile(str, options);
+            options.inSampleSize = h(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
         }
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public void c() {
-        BdTypeListView bdTypeListView;
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
+    @Override // com.repackage.o96
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
-            return;
-        }
-        this.b.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void d(List<nn> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.f)) {
-            this.f.clear();
-        }
-        BdTypeListView bdTypeListView = this.b;
-        if (bdTypeListView != null) {
-            bdTypeListView.setData(list);
-            this.f.addAll(list);
-        }
-        c();
-    }
-
-    public void e(EmotionPackageData emotionPackageData) {
-        r96 r96Var;
-        EmotionPackageData emotionPackageData2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        for (nn nnVar : this.f) {
-            if ((nnVar instanceof r96) && (r96Var = (r96) nnVar) != null && (emotionPackageData2 = r96Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
-                emotionPackageData2.download = emotionPackageData.download;
-                emotionPackageData2.share = emotionPackageData.share;
-                c();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            u96 u96Var = this.a;
+            if (u96Var.e) {
+                this.b.onError(u96Var.f, "is cartoon style !!");
                 return;
             }
+            MultiMediaData multiMediaData = u96Var.c;
+            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+                String str = multiMediaData.path;
+                if (multiMediaData.type == 1) {
+                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
+                            if (this.a.d != 0.0f) {
+                                g(new t96(), c(frameAtTime, this.a.d, multiMediaData));
+                            } else {
+                                g(new t96(), frameAtTime);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            e.printStackTrace();
+                        } catch (Exception unused) {
+                        }
+                        return;
+                    } finally {
+                        mediaMetadataRetriever.release();
+                    }
+                }
+                Bitmap k = k(str);
+                if (k != null) {
+                    g(new t96(), k);
+                    return;
+                }
+                return;
+            }
+            this.b.onError(this.a.f, "multiMediaData is null !!");
         }
+    }
+
+    public final int j(String str) {
+        ExifInterface exifInterface;
+        int attributeInt;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                exifInterface = new ExifInterface(str);
+            } catch (IOException unused) {
+                exifInterface = null;
+            }
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt("Orientation", -1)) != -1) {
+                if (attributeInt == 3) {
+                    return 180;
+                }
+                if (attributeInt == 6) {
+                    return 90;
+                }
+                if (attributeInt == 8) {
+                    return 270;
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public Bitmap k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            u96 u96Var = this.a;
+            Bitmap i = i(str, u96Var.a, u96Var.b);
+            if (i == null) {
+                return null;
+            }
+            int j = j(str);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(j);
+            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

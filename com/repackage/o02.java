@@ -3,14 +3,12 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class o02 {
+public class o02 implements p02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m02 a;
 
     public o02() {
         Interceptable interceptable = $ic;
@@ -22,41 +20,28 @@ public final class o02 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new m02();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.p02
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
-
-    public void b(l02 l02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l02Var) == null) {
-            this.a.a(l02Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public p02 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.p02
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p02 p02Var = new p02();
-            p02Var.c(this.a.d());
-            p02Var.d(this.a.c());
-            return p02Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (p02) invokeV.objValue;
     }
 
-    public void d() {
+    @Override // com.repackage.p02
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

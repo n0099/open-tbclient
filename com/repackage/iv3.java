@@ -1,144 +1,114 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej2;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iv3 extends f23 {
+public final class iv3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements ej2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iv3 a;
-
-        public a(iv3 iv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iv3Var;
-        }
-
-        @Override // com.repackage.ej2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.repackage.ej2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.l(R.string.obfuscated_res_0x7f0f0162);
-            }
-        }
-
-        @Override // com.repackage.ej2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File c = jv3.c();
-                File b = jv3.b();
-                if (!c.exists() || !kg4.U(c.getPath(), b.getPath())) {
-                    this.a.l(R.string.obfuscated_res_0x7f0f0162);
-                } else {
-                    this.a.l(R.string.obfuscated_res_0x7f0f0163);
-                }
-            }
-        }
-    }
+    public j82 a;
+    public g04 b;
+    @V8JavascriptField
+    public final String domain;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iv3(f13 f13Var) {
-        super(f13Var, "/swanAPI/debug/dashboardConnect");
+    public iv3(j82 j82Var) {
+        super(j82Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {j82Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.domain = "openData";
+        this.a = j82Var;
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    @JavascriptInterface
+    public void getFriendCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (f23.b) {
-                JSONObject a2 = f23.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    l(R.string.obfuscated_res_0x7f0f012e);
-                    return false;
-                }
-                String optString = a2.optString("meterUrl");
-                if (TextUtils.isEmpty(optString)) {
-                    l(R.string.obfuscated_res_0x7f0f012f);
-                    return false;
-                }
-                jv3.a();
-                ej2.d dVar = new ej2.d();
-                dVar.a = k(context, optString);
-                new p72().e(dVar, jv3.c().getPath(), new a(this));
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new g04(this.a);
             }
-            return false;
+            this.b.getFriendCloudStorage(jsObject);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final String k(Context context, String str) {
-        InterceptResult invokeLL;
+    @JavascriptInterface
+    public iv3 getOpenData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            String i = pj2.h0().i(context);
-            String str2 = new String(yw3.g().a("BASE64", (i + "\u0000\u0000").getBytes()));
-            String str3 = str.contains("?") ? "&" : "?";
-            return str + str3 + "cuid=" + str2;
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (iv3) invokeV.objValue;
     }
 
-    public final void l(int i) {
+    @JavascriptInterface
+    public void getUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Toast.makeText(pj2.c(), i, 1).show();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new g04(this.a);
+            }
+            this.b.getUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void getUserInfo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new g04(this.a);
+            }
+            this.b.getUserInfo(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void initSharedCanvas(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.a.m() instanceof fv3)) {
+            ((fv3) this.a.m()).z(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void removeUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new g04(this.a);
+            }
+            this.b.removeUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void setUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new g04(this.a);
+            }
+            this.b.setUserCloudStorage(jsObject);
         }
     }
 }

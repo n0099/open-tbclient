@@ -1,63 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl0;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class tt0 extends bt0 {
+public class tt0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile st0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755279359, "Lcom/repackage/tt0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755279359, "Lcom/repackage/tt0;");
-                return;
-            }
-        }
-        ap0.f();
-    }
-
-    public tt0() {
+    public static synchronized st0 a() {
+        InterceptResult invokeV;
+        st0 st0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tt0.class) {
+                if (a == null) {
+                    a = new st0();
+                }
+                st0Var = a;
             }
+            return st0Var;
         }
-        this.a = ap0.b();
-    }
-
-    @Override // com.repackage.bt0
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && new jo0().a()) {
-            cl0.a.a().b();
-            CyberPlayerManager.prefetch(str, hh0.e(), "", 0, i, (CyberPlayerManager.HttpDNS) null);
-        }
+        return (st0) invokeV.objValue;
     }
 }

@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.c72;
-import com.repackage.ce3;
-import com.repackage.rw2;
-import com.repackage.sg1;
-import com.repackage.vr2;
-import com.repackage.vw2;
+import com.repackage.ix2;
+import com.repackage.jh1;
+import com.repackage.ms2;
+import com.repackage.mx2;
+import com.repackage.t72;
+import com.repackage.te3;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -109,7 +109,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements rw2<Bundle> {
+    public static class a implements ix2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -133,7 +133,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rw2
+        @Override // com.repackage.ix2
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -163,7 +163,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = sg1.a;
+        a = jh1.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -193,7 +193,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            vw2.a(vr2.class, null, new a(bVar));
+            mx2.a(ms2.class, null, new a(bVar));
         }
     }
 
@@ -330,7 +330,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = ce3.f(c72.U().g0());
+            String f = te3.f(t72.U().g0());
             return TextUtils.isEmpty(f) ? "" : f;
         }
         return (String) invokeV.objValue;

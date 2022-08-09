@@ -1,281 +1,95 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class g59 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public i59 a;
-    public Timer b;
-    public TimerTask c;
-    public int d;
-    public Vector<Integer> e;
-    public long f;
-    public boolean g;
-    public boolean h;
-    public h59 i;
-    public int j;
-    public float k;
-    public long l;
-    public Vector<Integer> m;
 
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g59 a;
-
-        public a(g59 g59Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755726906, "Lcom/repackage/g59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = g59Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h) {
-                    this.a.j();
-                } else {
-                    this.a.q();
-                }
-                g59 g59Var = this.a;
-                g59Var.h = g59Var.l(g59Var.j);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g59 a;
-
-        public b(g59 g59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g59Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g = false;
-                if (this.a.c != null) {
-                    this.a.c.cancel();
-                }
-                if (this.a.b != null) {
-                    this.a.b.purge();
-                }
-            }
-        }
-    }
-
-    public g59() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755726906, "Lcom/repackage/g59;");
                 return;
             }
         }
-        this.d = 0;
-        this.e = new Vector<>();
-        this.g = false;
-        this.h = false;
-        this.i = new h59();
-        this.j = 0;
-        this.k = 0.0f;
-        this.l = 0L;
-        this.m = new Vector<>();
-        this.b = new Timer();
+        a = y49.m();
     }
 
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            this.i.a = k(this.m);
-            this.i.b = k(this.e);
-            this.i.c = this.m.size() + "";
-            this.i.f = Float.toString(i99.a());
-            this.i.d = this.k;
-            w89.b("report ar frame data");
-            e59.a(String.valueOf(this.d), this.a, this.i);
-            q();
-        }
-    }
-
-    public final String k(List<Integer> list) {
+    @SuppressLint({"MissingPermission"})
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (b99.e(list)) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
             }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            float f2 = 0.0f;
-            for (int i = 0; i < list.size(); i++) {
-                Integer num = list.get(i);
-                if (num != null) {
-                    f2 += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            float size = f2 / list.size();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                Integer num2 = list.get(i2);
-                if (num2 != null) {
-                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
-                }
-            }
-            float size2 = f / list.size();
+            NetworkInfo networkInfo = null;
             try {
-                jSONObject.put("avg", size);
-                jSONObject.put("vari", size2);
-                jSONObject.put("val", jSONArray.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
+                }
             }
-            return jSONObject.toString();
+            return networkInfo != null && networkInfo.isConnectedOrConnecting();
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
+    public static String b(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return i > 0 && i <= 100 && new Random().nextInt(100) <= i;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = false;
-            Timer timer = this.b;
-            if (timer != null) {
-                timer.cancel();
-                this.b = null;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            TimerTask timerTask = this.c;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.c = null;
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String c(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return b(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && this.g) {
-            if (this.f <= 0) {
-                this.f = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i = (int) (currentTimeMillis - this.f);
-            if (i < 0) {
-                return;
-            }
-            this.e.add(Integer.valueOf(i));
-            this.f = currentTimeMillis;
-        }
-    }
-
-    public void o() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.h && this.g && this.l > 0 && (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) >= 0) {
-            this.m.add(Integer.valueOf(currentTimeMillis));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.l = System.currentTimeMillis();
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f = 0L;
-            this.l = 0L;
-            this.e.clear();
-            this.m.clear();
-            this.i.a();
-            this.k = 0.0f;
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.g || this.b == null) {
-            return;
-        }
-        w89.b("startTimer");
-        this.g = true;
-        this.c = new a(this);
-        this.b.purge();
-        this.b.schedule(this.c, 0L, 1000L);
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            w89.b("stopTimer");
-            o99.a().postDelayed(new b(this), 1000L);
-        }
+        return (String) invokeLZ.objValue;
     }
 }

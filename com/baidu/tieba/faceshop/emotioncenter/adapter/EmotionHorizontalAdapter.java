@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
-import com.repackage.r96;
+import com.repackage.bn;
+import com.repackage.jb6;
 /* loaded from: classes3.dex */
-public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
+public class EmotionHorizontalAdapter extends bn<jb6, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public TbPageContext a;
 
     /* loaded from: classes3.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
@@ -49,13 +49,13 @@ public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
             this.a = (EmotionHorizontalView) view2;
         }
 
-        public void b(r96 r96Var) {
+        public void a(jb6 jb6Var) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, r96Var) == null) || (emotionHorizontalView = this.a) == null || r96Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jb6Var) == null) || (emotionHorizontalView = this.a) == null || jb6Var == null) {
                 return;
             }
-            emotionHorizontalView.setData(r96Var.a);
+            emotionHorizontalView.setData(jb6Var.a);
         }
     }
 
@@ -78,17 +78,17 @@ public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public EmotionGridViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public EmotionGridViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.i);
+            EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.a);
             EmotionGridViewHolder emotionGridViewHolder = new EmotionGridViewHolder(emotionHorizontalView);
             emotionHorizontalView.f(TbadkCoreApplication.getInst().getSkinType());
             return emotionGridViewHolder;
@@ -97,14 +97,14 @@ public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, r96 r96Var, EmotionGridViewHolder emotionGridViewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jb6 jb6Var, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r96Var, emotionGridViewHolder})) == null) {
-            emotionGridViewHolder.b(r96Var);
-            return emotionGridViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jb6Var, emotionGridViewHolder})) == null) {
+            emotionGridViewHolder.a(jb6Var);
+            return emotionGridViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

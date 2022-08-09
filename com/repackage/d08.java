@@ -1,10 +1,7 @@
 package com.repackage;
+/* loaded from: classes6.dex */
+public interface d08 extends e08 {
+    boolean a();
 
-import tbclient.Personal.PersonalResIdl;
-import tbclient.Profile.ProfileResIdl;
-/* loaded from: classes5.dex */
-public interface d08 {
-    void a(PersonalResIdl personalResIdl);
-
-    void b(ProfileResIdl profileResIdl);
+    CharSequence b();
 }

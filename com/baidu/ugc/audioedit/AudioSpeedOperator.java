@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j59;
+import com.repackage.e89;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes4.dex */
-public class AudioSpeedOperator implements j59 {
+public class AudioSpeedOperator implements e89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Sonic mSonic;
@@ -28,7 +28,7 @@ public class AudioSpeedOperator implements j59 {
         }
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements j59 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements j59 {
         sonic.b();
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements j59 {
         sonic.c();
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AudioSpeedOperator implements j59 {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public void init(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
@@ -83,7 +83,7 @@ public class AudioSpeedOperator implements j59 {
         }
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class AudioSpeedOperator implements j59 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public int receiveBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AudioSpeedOperator implements j59 {
         return invokeLI.intValue;
     }
 
-    @Override // com.repackage.j59
+    @Override // com.repackage.e89
     public void setSpeed(float f) {
         Sonic sonic;
         Interceptable interceptable = $ic;

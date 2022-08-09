@@ -48,10 +48,10 @@ public class by extends al.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            cnVar = this.a.f152a;
+            cnVar = this.a.f153a;
             if (cnVar != null) {
-                cnVar2 = this.a.f152a;
-                context = this.a.f149a;
+                cnVar2 = this.a.f153a;
+                context = this.a.f150a;
                 cnVar2.a(context);
                 this.a.b("upload_time");
             }

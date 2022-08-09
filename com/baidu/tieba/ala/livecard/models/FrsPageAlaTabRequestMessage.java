@@ -2,7 +2,6 @@ package com.baidu.tieba.ala.livecard.models;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +38,7 @@ public class FrsPageAlaTabRequestMessage extends HttpMessage {
         this.mForumId = str2;
         addParam("forum_name", str);
         addParam("forum_id", str2);
-        addParam(Config.PACKAGE_NAME, i2);
+        addParam("pn", i2);
     }
 
     public String getForumId() {

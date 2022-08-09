@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -156,10 +157,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, "translationX", getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e8));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e8));
             Drawable background = this.nC.getBackground();
             if (background instanceof ColorDrawable) {
-                valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06075e), getContext().getResources().getColor(R.color.obfuscated_res_0x7f06075f));
+                valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06076d), getContext().getResources().getColor(R.color.obfuscated_res_0x7f06076e));
                 valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (ColorDrawable) background) { // from class: com.kwad.components.ad.reward.presenter.k.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +197,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
             } else {
                 valueAnimator = null;
             }
-            animatorSet.playTogether(ofFloat, valueAnimator, ObjectAnimator.ofFloat(this.pW, "alpha", 0.0f, 1.0f));
+            animatorSet.playTogether(ofFloat, valueAnimator, ObjectAnimator.ofFloat(this.pW, Key.ALPHA, 0.0f, 1.0f));
             animatorSet.setDuration(pU);
             return animatorSet;
         }
@@ -209,10 +210,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910b7);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091110);
         this.nC = imageView;
-        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06075e));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910b8);
+        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06076d));
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091111);
         this.pV.setOnClickListener(this);
     }
 
@@ -280,8 +281,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             if (this.pV == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0910bd);
-                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f0910bc));
+                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091116);
+                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091115));
                 initView();
             }
             if (!this.nM.fy()) {

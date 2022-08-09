@@ -1,8 +1,27 @@
 package com.repackage;
 
-import com.baidu.bdtask.framework.ui.mvvm.IViewData;
-import com.repackage.ps;
-/* loaded from: classes6.dex */
-public interface os<D extends IViewData, VM extends ps<? extends D>> {
-    void a(VM vm);
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ns;
+/* loaded from: classes7.dex */
+public abstract class os<VM extends ns<? extends TaskDialogData>> implements ps<TaskDialogData, VM> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public os() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

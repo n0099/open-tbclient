@@ -1,50 +1,88 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class fh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        ViewGroup viewGroup;
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
-            if (activity == null || view2 == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
-                return false;
-            }
-            b(view2);
-            viewGroup.removeView(view2);
-            viewGroup.addView(view2);
-            return true;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return invokeLL.booleanValue;
+        if (inputStream == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
+                i = inputStream.read(bArr, 0, 1024);
+            } catch (IOException unused) {
+                i = 0;
+            }
+            if (i != -1) {
+                byteArrayOutputStream.write(bArr, 0, i);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                bh4.d(byteArrayOutputStream);
+                return byteArray;
+            }
+        }
     }
 
-    public static boolean b(View view2) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            ViewGroup viewGroup = (ViewGroup) view2.getParent();
-            if (viewGroup.indexOfChild(view2) != -1) {
-                try {
-                    viewGroup.removeView(view2);
-                    return true;
-                } catch (Exception unused) {
-                    return true;
-                }
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    bh4.d(inputStream);
+                    return str;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                bh4.d(inputStream);
+                throw th;
+            }
+            bh4.d(inputStream);
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

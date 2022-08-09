@@ -1,29 +1,91 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class tu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
+    public final TbPageContext<?> a;
     public int b;
-    public int c;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public AgreeView f;
+    public PopupWindow g;
 
-    public tu4() {
+    /* loaded from: classes7.dex */
+    public class a implements eu7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tu4 a;
+
+        public a(tu4 tu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tu4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tu4Var;
+        }
+
+        @Override // com.repackage.eu7
+        public /* synthetic */ void onStart() {
+            du7.a(this);
+        }
+
+        @Override // com.repackage.eu7
+        public void onStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.g != null && this.a.g.isShowing()) {
+                    tg.d(this.a.g, this.a.a.getPageActivity());
+                }
+                if (this.a.f != null) {
+                    this.a.f.P();
+                }
+            }
+        }
+    }
+
+    public tu4(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,98 +96,119 @@ public class tu4 {
             }
         }
         this.b = 0;
-        this.c = 0;
+        this.a = tbPageContext;
+        f();
+        g();
     }
 
-    public final void a(int i, int i2, Rect rect, su4 su4Var) {
-        LinearLayout.LayoutParams layoutParams;
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, su4Var}) == null) {
-            if (su4Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                layoutParams = (LinearLayout.LayoutParams) su4Var.getView().getLayoutParams();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a.getPageActivity()) : invokeV.intValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a.getPageActivity());
+            this.e = new EjectionAnimationView(this.a.getPageActivity());
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.g = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.g.setHeight(e());
+            this.g.setWidth(-1);
+            this.g.setOutsideTouchable(false);
+            this.g.setFocusable(false);
+            this.g.setTouchable(false);
+        }
+    }
+
+    public final void h(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && tg.m(this.g, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void i(AgreeView agreeView) {
+        WaterRippleView waterRippleView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, agreeView) == null) || agreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
+    }
+
+    public void j(boolean z) {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (popupWindow = this.g) == null) {
+            return;
+        }
+        popupWindow.setClippingEnabled(z);
+    }
+
+    public void k(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            h(view2, rect);
+        }
+    }
+
+    public void l(LinearLayout linearLayout, AgreeView agreeView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, agreeView) == null) || linearLayout == null || agreeView == null) {
+            return;
+        }
+        if (agreeView.getWidth() != 0 && agreeView.getHeight() != 0) {
+            this.f = agreeView;
+            WaterRippleView waterRippleView = this.d;
+            if (waterRippleView == null) {
+                this.d = new WaterRippleView(this.a.getPageActivity());
             } else {
-                layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                ViewParent parent = waterRippleView.getParent();
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(this.d);
+                }
             }
-            int f = (i / 2) - pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
-            boolean z = rect.centerX() >= f;
-            boolean z2 = pi.k(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= f;
-            if (z && z2) {
-                layoutParams.gravity = 1;
-            } else if (z) {
-                layoutParams.gravity = 5;
-                this.b = (-(i - i2)) / 2;
-            } else {
-                layoutParams.gravity = 3;
-                this.b = (i - i2) / 2;
-            }
-            this.a.addView(su4Var.getView(), layoutParams);
-        }
-    }
-
-    public final void b(int i, int i2, Rect rect, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
-            if (i > rect.centerY() - (i2 / 2)) {
-                this.a.addView(view2);
-                this.c = ((rect.height() + i2) / 2) + i;
-                return;
-            }
-            this.a.addView(view2, 0);
-            this.c = (rect.height() + i2) / 2;
-        }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 32;
-        }
-        return invokeV.intValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public void h(BreatheTipView breatheTipView, su4 su4Var, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, su4Var, view2) == null) {
-            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
-            this.a = linearLayout;
-            linearLayout.setOrientation(1);
+            linearLayout.getGlobalVisibleRect(new Rect());
             Rect rect = new Rect();
-            if (view2 != null) {
-                view2.getGlobalVisibleRect(rect);
-            }
-            int i = breatheTipView.getLayoutParams() != null ? breatheTipView.getLayoutParams().height : 0;
-            int i2 = breatheTipView.getLayoutParams() != null ? breatheTipView.getLayoutParams().width : 0;
-            int i3 = su4Var.getView().getLayoutParams() != null ? su4Var.getView().getLayoutParams().width : 0;
-            a(i2, i3, rect, su4Var);
-            b(i, i3, rect, breatheTipView);
+            agreeView.getImgAgree().getGlobalVisibleRect(rect);
+            int centerX = rect.centerX();
+            int centerY = rect.centerY();
+            int f = qi.f(this.a.getPageActivity(), R.dimen.tbds166);
+            int i = centerX - f;
+            int i2 = centerY - f;
+            int i3 = f * 2;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+            layoutParams.addRule(13, -1);
+            layoutParams.setMargins(i, i2, 0, 0);
+            this.c.addView(this.d, layoutParams);
+            return;
+        }
+        BdLog.e("AgreeView not measured");
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 }

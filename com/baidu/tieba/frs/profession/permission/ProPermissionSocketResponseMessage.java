@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wm6;
+import com.repackage.po6;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes3.dex */
-public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<wm6, ZoneRightResIdl> {
+public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<po6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,9 +45,9 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             try {
                 ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class);
-                wm6 wm6Var = new wm6();
-                wm6Var.initByProtobuf(zoneRightResIdl);
-                setData(wm6Var);
+                po6 po6Var = new po6();
+                po6Var.initByProtobuf(zoneRightResIdl);
+                setData(po6Var);
                 return zoneRightResIdl;
             } catch (IOException e) {
                 e.printStackTrace();

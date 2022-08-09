@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.nv7;
-import com.repackage.pi;
-import com.repackage.qi8;
-import com.repackage.wr7;
+import com.repackage.el8;
+import com.repackage.nx7;
+import com.repackage.oi;
+import com.repackage.qi;
+import com.repackage.st7;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
@@ -52,15 +52,16 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public List<TextLineView> n;
     public View.OnClickListener o;
     public SortSwitchButton.f p;
-    public wr7 q;
+    public st7 q;
     public BdUniqueId r;
-    public BdUniqueId s;
-    public TbPageContext t;
-    public boolean u;
-    public SortSwitchButton.f v;
-    public View.OnClickListener w;
-    public CustomMessageListener x;
+    public boolean s;
+    public BdUniqueId t;
+    public TbPageContext u;
+    public boolean v;
+    public SortSwitchButton.f w;
+    public View.OnClickListener x;
     public CustomMessageListener y;
+    public CustomMessageListener z;
 
     /* loaded from: classes3.dex */
     public class a implements SortSwitchButton.f {
@@ -190,19 +191,20 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.o != null) {
-                    this.a.o.onClick(view2);
-                }
-                if (ni.z()) {
-                    if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : this.a.n) {
-                            if (textLineView != null) {
-                                if (textLineView != view2) {
-                                    textLineView.setSelected(false);
-                                } else {
-                                    textLineView.setSelected(true);
-                                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.s) {
+                return;
+            }
+            if (this.a.o != null) {
+                this.a.o.onClick(view2);
+            }
+            if (oi.z()) {
+                if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
+                    for (TextLineView textLineView : this.a.n) {
+                        if (textLineView != null) {
+                            if (textLineView != view2) {
+                                textLineView.setSelected(false);
+                            } else {
+                                textLineView.setSelected(true);
                             }
                         }
                     }
@@ -242,8 +244,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.b == wr7.h && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof nv7.w0)) {
-                ((nv7.w0) customResponsedMessage.getData()).c = this.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.b == st7.i && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof nx7.w0)) {
+                ((nx7.w0) customResponsedMessage.getData()).c = this.a;
             }
         }
     }
@@ -279,7 +281,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.b != wr7.i || customResponsedMessage == null || getTag() != this.a.s || !(customResponsedMessage.getData() instanceof nv7.w0)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.b != st7.j || customResponsedMessage == null || getTag() != this.a.t || !(customResponsedMessage.getData() instanceof nx7.w0)) {
             }
         }
     }
@@ -303,64 +305,64 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = 3;
-        this.u = true;
-        this.v = new a(this);
-        this.w = new d(this);
-        this.x = new e(this, 2004013);
-        this.y = new f(this, 2004013);
+        this.v = true;
+        this.w = new a(this);
+        this.x = new d(this);
+        this.y = new e(this, 2004013);
+        this.z = new f(this, 2004013);
         if (view2 == null) {
             return;
         }
         this.b = view2;
-        this.t = tbPageContext;
+        this.u = tbPageContext;
         view2.setOnClickListener(new b(this));
-        TextLineView textLineView = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091ad4);
+        TextLineView textLineView = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091bb4);
         this.c = textLineView;
-        textLineView.setOnClickListener(this.w);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f091ac7);
-        TextLineView textLineView2 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091ac6);
+        textLineView.setOnClickListener(this.x);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f091ba7);
+        TextLineView textLineView2 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091ba6);
         this.j = textLineView2;
         textLineView2.setSelected(false);
-        this.l = view2.findViewById(R.id.obfuscated_res_0x7f091ab9);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091ab8);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad5);
-        TextLineView textLineView3 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f0909b9);
+        this.l = view2.findViewById(R.id.obfuscated_res_0x7f091b99);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091b98);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb5);
+        TextLineView textLineView3 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f0909f4);
         this.d = textLineView3;
-        textLineView3.setOnClickListener(this.w);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f091777);
+        textLineView3.setOnClickListener(this.x);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f091844);
         this.e = sortSwitchButton;
-        sortSwitchButton.setOnSwitchChangeListener(this.v);
+        sortSwitchButton.setOnSwitchChangeListener(this.w);
         this.e.setVisibility(0);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091716);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917e2);
         this.c.setSelected(true);
         this.d.setSelected(false);
         ArrayList arrayList = new ArrayList();
         this.n = arrayList;
         arrayList.add(this.c);
         this.n.add(this.d);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f0907df);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f0907bf);
-        this.e.v(2);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f09080d);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f0907ed);
+        this.e.w(2);
         l(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void h(wr7 wr7Var) {
+    public void h(st7 st7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wr7Var) == null) {
-            this.q = wr7Var;
-            if (wr7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, st7Var) == null) {
+            this.q = st7Var;
+            if (st7Var == null) {
                 return;
             }
-            BdUniqueId bdUniqueId = wr7Var.b;
-            if (bdUniqueId == wr7.i) {
+            BdUniqueId bdUniqueId = st7Var.b;
+            if (bdUniqueId == st7.j) {
                 this.i.getContext();
-                if (TextUtils.isEmpty(wr7Var.a)) {
+                if (TextUtils.isEmpty(st7Var.a)) {
                     this.l.setVisibility(0);
                     this.i.setVisibility(8);
                     this.c.setVisibility(0);
                     this.c.setSelected(false);
                     this.c.setClickable(false);
-                    this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07d6));
+                    this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e8));
                 } else {
                     this.l.setVisibility(8);
                     this.c.setVisibility(8);
@@ -370,38 +372,45 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.e.setVisibility(8);
                 this.d.setVisibility(8);
                 this.h.setVisibility(8);
-            } else if (bdUniqueId == wr7.h) {
+            } else if (bdUniqueId == st7.i) {
                 this.i.setVisibility(8);
                 this.l.setVisibility(0);
-                this.c.setClickable(true);
-                this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f026e));
-                this.d.setVisibility(0);
-                i(wr7Var.d);
-                if (wr7Var.g != null) {
+                if (this.q.h) {
+                    this.d.setVisibility(8);
+                    this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0269));
+                    this.c.setClickable(false);
+                    i(false);
+                } else {
+                    this.d.setVisibility(0);
+                    this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0272));
+                    this.c.setClickable(true);
+                    i(st7Var.d);
+                }
+                if (st7Var.g != null) {
                     this.e.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i >= wr7Var.g.size()) {
+                        if (i >= st7Var.g.size()) {
                             i = 0;
                             break;
-                        } else if (wr7Var.g.get(i) != null && wr7Var.c == wr7Var.g.get(i).sort_type.intValue()) {
+                        } else if (st7Var.g.get(i) != null && st7Var.c == st7Var.g.get(i).sort_type.intValue()) {
                             break;
                         } else {
                             i++;
                         }
                     }
-                    k(wr7Var.g, i);
+                    k(st7Var.g, i);
                 }
                 this.h.setVisibility(0);
             }
-            if (this.u) {
-                this.h.getLayoutParams().height = pi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            if (this.v) {
+                this.h.getLayoutParams().height = qi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0207);
             } else {
                 this.h.getLayoutParams().height = 0;
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0205);
             }
-            if (wr7Var.e) {
+            if (st7Var.e) {
                 this.m.setVisibility(0);
                 this.k.setVisibility(8);
             } else {
@@ -440,10 +449,10 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             }
             ArrayList arrayList = new ArrayList();
             for (PbSortType pbSortType : list) {
-                qi8 qi8Var = new qi8();
-                qi8Var.c(pbSortType.sort_type.intValue());
-                qi8Var.d(pbSortType.sort_name);
-                arrayList.add(qi8Var);
+                el8 el8Var = new el8();
+                el8Var.c(pbSortType.sort_type.intValue());
+                el8Var.d(pbSortType.sort_name);
+                arrayList.add(el8Var);
             }
             this.e.setVisibility(0);
             this.e.setData(arrayList, i);
@@ -459,15 +468,15 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.c.b(i);
                 this.d.b(i);
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-                wr7 wr7Var = this.q;
-                if (wr7Var != null && wr7Var.b == wr7.i) {
+                st7 st7Var = this.q;
+                if (st7Var != null && st7Var.b == st7.j) {
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0107, 1);
                 }
                 SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
                 this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-                this.e.G();
+                this.e.H();
                 SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-                if (this.u) {
+                if (this.v) {
                     SkinManager.setBackgroundColor(this.h, R.color.CAM_X0203);
                     SkinManager.setBackgroundColor(this.l, R.color.CAM_X0207);
                 } else {
@@ -482,10 +491,10 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public void m(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.s = bdUniqueId;
+            this.t = bdUniqueId;
             MessageManager.getInstance().unRegisterListener(bdUniqueId);
-            this.y.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.y);
+            this.z.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.z);
         }
     }
 
@@ -494,51 +503,62 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
             MessageManager.getInstance().unRegisterListener(bdUniqueId);
-            this.x.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.x);
+            this.y.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.y);
         }
     }
 
-    public void o(SortSwitchButton.f fVar) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.s = z;
+            SortSwitchButton sortSwitchButton = this.e;
+            if (sortSwitchButton != null) {
+                sortSwitchButton.setCanChange(!z);
+            }
+        }
+    }
+
+    public void p(SortSwitchButton.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
             this.p = fVar;
         }
     }
 
-    public void p(View.OnClickListener onClickListener) {
+    public void q(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.o = onClickListener;
         }
     }
 
-    public void q(BdUniqueId bdUniqueId) {
+    public void r(BdUniqueId bdUniqueId) {
         SortSwitchButton sortSwitchButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || (sortSwitchButton = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) || (sortSwitchButton = this.e) == null) {
             return;
         }
         sortSwitchButton.setListenerTag(bdUniqueId);
         this.e.setCommenId(bdUniqueId);
     }
 
-    public void r(int i) {
+    public void s(int i) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (view2 = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (view2 = this.b) == null) {
             return;
         }
         view2.setVisibility(i);
     }
 
-    public void s(boolean z) {
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                this.m.setText(R.string.obfuscated_res_0x7f0f085e);
+                this.m.setText(R.string.obfuscated_res_0x7f0f0870);
                 this.m.setTypeface(Typeface.defaultFromStyle(1));
-                this.m.setTextSize(0, pi.f(this.t.getPageActivity(), R.dimen.T_X07));
+                this.m.setTextSize(0, qi.f(this.u.getPageActivity(), R.dimen.T_X07));
                 this.m.setVisibility(0);
                 this.k.setVisibility(8);
                 return;
@@ -546,7 +566,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             this.m.setVisibility(8);
             this.k.setVisibility(0);
             this.m.setTypeface(Typeface.defaultFromStyle(0));
-            this.m.setTextSize(0, pi.f(this.t.getPageActivity(), R.dimen.tbfontsize42));
+            this.m.setTextSize(0, qi.f(this.u.getPageActivity(), R.dimen.tbfontsize42));
         }
     }
 }

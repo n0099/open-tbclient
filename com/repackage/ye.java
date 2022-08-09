@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,137 +11,101 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ye extends ke<String> {
+public class ye {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
+    public final j9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ye(j9 j9Var, String str) {
-        super(j9Var);
+    public ye(Context context, j9 j9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j9Var, str};
+            Object[] objArr = {context, j9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = str;
+        this.a = j9Var;
     }
 
-    @Override // com.repackage.ke
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    public void a(qe qeVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, qeVar) == null) {
             try {
-                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
-                return true;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", qeVar.a);
+                contentValues.put("tableName", qeVar.b);
+                contentValues.put("maxSize", Integer.valueOf(qeVar.c));
+                contentValues.put("cacheVersion", Integer.valueOf(qeVar.e));
+                contentValues.put("cacheType", qeVar.d);
+                contentValues.put("lastActiveTime", Long.valueOf(qeVar.f));
+                SQLiteDatabase f = this.a.f();
+                if (f == null || f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{qeVar.a}) != 0) {
+                    return;
+                }
+                f.insert("cache_meta_info", null, contentValues);
             } catch (Throwable th) {
-                this.a.i(th, "clearData");
-                return false;
+                this.a.i(th, "addOrUpdate");
             }
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ke
-    public int g() {
-        InterceptResult invokeV;
+    public qe b(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, java.lang.String] */
-    @Override // com.repackage.ke
-    public oe<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) != null) {
-            return (oe) invokeLL.objValue;
-        }
-        Cursor cursor = null;
-        try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                if (!rawQuery.moveToNext()) {
-                    mg.a(rawQuery);
-                    return null;
-                }
-                oe<String> oeVar = new oe<>();
-                oeVar.a = rawQuery.getString(0);
-                oeVar.c = rawQuery.getString(1);
-                oeVar.d = rawQuery.getLong(2);
-                oeVar.e = rawQuery.getLong(3);
-                oeVar.f = rawQuery.getLong(4);
-                oeVar.b = rawQuery.getString(5);
-                mg.a(rawQuery);
-                return oeVar;
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
             } catch (Throwable th) {
                 th = th;
-                cursor = rawQuery;
-                mg.a(cursor);
-                throw th;
+                cursor = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
+            try {
+                if (cursor.moveToNext()) {
+                    qe qeVar = new qe();
+                    qeVar.a = cursor.getString(0);
+                    qeVar.b = cursor.getString(1);
+                    qeVar.c = cursor.getInt(2);
+                    qeVar.d = cursor.getString(3);
+                    qeVar.e = cursor.getInt(4);
+                    qeVar.f = cursor.getLong(5);
+                    return qeVar;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    this.a.i(th, "get");
+                    return null;
+                } finally {
+                    ng.a(cursor);
+                }
+            }
+            return null;
         }
+        return (qe) invokeL.objValue;
     }
 
-    @Override // com.repackage.ke
-    public void k(String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
-        }
-    }
-
-    @Override // com.repackage.ke
-    public String l(String str) {
+    public int delete(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                if (b(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "delete");
+                return 0;
+            }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ke
-    public ContentValues p(oe<String> oeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, oeVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", oeVar.a);
-            contentValues.put("m_ns", oeVar.c);
-            contentValues.put("m_value", oeVar.b);
-            contentValues.put("saveTime", Long.valueOf(oeVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(oeVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(oeVar.f));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ke
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
-        }
-        return (Cursor) invokeLL.objValue;
+        return invokeL.intValue;
     }
 }

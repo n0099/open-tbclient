@@ -1,312 +1,215 @@
 package com.repackage;
 
+import android.text.Editable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.data.AudioInfoData;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.kw4;
 /* loaded from: classes6.dex */
-public class kw4 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class kw4<T extends kw4> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public a b;
-    public ix4 c;
-    public String d;
-    public String e;
-    public List<b> f;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
 
     /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public hx4 c;
-        public NetWork d;
-        public boolean e;
-        public String f;
+    public interface a {
+        void a(int i, boolean z);
+    }
 
-        public a(kw4 kw4Var, String str, hx4 hx4Var, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kw4Var, str, hx4Var, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.e = false;
-            this.f = null;
-            this.a = str;
-            this.c = hx4Var;
-            this.b = str2;
-            this.f = str3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755544471, "Lcom/repackage/kw4;")) == null) {
+            return;
         }
-
-        /* JADX WARN: Removed duplicated region for block: B:44:0x00f6 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0111 A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public ix4 a() throws IOException {
-            InterceptResult invokeV;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ix4 ix4Var = new ix4();
-                long c = this.c.c();
-                long j = 30720;
-                long j2 = c / 30720;
-                if (c % 30720 != 0) {
-                    j2++;
-                }
-                int a = this.c.a();
-                if (a < j2) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
-                    int i = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                    if (randomAccessFile.skipBytes(i) >= i) {
-                        while (true) {
-                            long j3 = a;
-                            if (j3 < j2) {
-                                long j4 = j2 - 1;
-                                int i2 = j3 == j4 ? (int) (c - (j4 * j)) : TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                                byte[] bArr = new byte[i2];
-                                int read = randomAccessFile.read(bArr, 0, i2);
-                                if (read != -1) {
-                                    NetWork netWork = new NetWork(this.b);
-                                    this.d = netWork;
-                                    netWork.addPostData("voice_chunk", bArr);
-                                    this.d.addPostData("chunk_md5", this.c.b());
-                                    this.d.addPostData(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(read));
-                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                    this.d.addPostData("total_length", String.valueOf(c));
-                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
-                                    this.d.addPostData("total_num", String.valueOf(j2));
-                                    this.d.addPostData("voice_md5", this.f);
-                                    if (!this.e) {
-                                        if (this.d.postMultiNetData() == null || !this.d.getNetContext().getResponse().isRequestSuccess()) {
-                                            this.c.d(a);
-                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
-                                            randomAccessFile.close();
-                                        } else {
-                                            z = false;
-                                            if (!z) {
-                                                ix4Var.f(this.d.getServerErrorCode());
-                                                ix4Var.g(this.d.getErrorString());
-                                                ix4Var.e(this.c);
-                                                ix4Var.h(false);
-                                                return ix4Var;
-                                            }
-                                        }
-                                    }
-                                    z = true;
-                                    if (!z) {
-                                    }
-                                }
-                                a++;
-                                j = 30720;
-                            } else {
-                                randomAccessFile.close();
-                                break;
-                            }
-                        }
-                    } else {
-                        ix4Var.h(false);
-                        randomAccessFile.close();
-                        return ix4Var;
-                    }
-                }
-                ix4Var.h(true);
-                return ix4Var;
-            }
-            return (ix4) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755544471, "Lcom/repackage/kw4;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(kw4 kw4Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kw4Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-    }
-
-    public kw4(String str, String str2) {
+    public kw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.d = str;
-        this.e = str2;
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
     }
 
-    public void a(String str, int i) {
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            this.f.add(new b(this, str, String.valueOf(i)));
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
         }
     }
 
-    public final long b(long j) {
-        InterceptResult invokeJ;
+    public void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            int i = ((j % 30720) > 0L ? 1 : ((j % 30720) == 0L ? 0 : -1));
-            long j2 = j / 30720;
-            return i == 0 ? j2 : j2 + 1;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
         }
-        return invokeJ.longValue;
     }
 
-    public final String c(String str, hx4 hx4Var) {
-        InterceptResult invokeLL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hx4Var)) == null) {
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
-            this.a = netWork;
-            netWork.addPostData("voice_md5", hx4Var.b());
-            if (ListUtils.getCount(this.f) != 0) {
-                for (b bVar : this.f) {
-                    if (bVar != null) {
-                        this.a.addPostData(bVar.a(), bVar.b());
-                    }
-                }
-            }
-            String postNetData = this.a.postNetData();
-            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                ChunkUploadDatabaseService.delChunkUploadData(str);
-                return postNetData;
-            }
-            hx4Var.d((int) b(hx4Var.c()));
-            ChunkUploadDatabaseService.saveChunkUploadData(hx4Var);
-            this.c.f(this.a.getServerErrorCode());
-            this.c.g(this.a.getErrorString());
-            this.c.h(false);
-            return null;
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public ix4 d(String str) {
-        InterceptResult invokeL;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
-                    return e(str, file);
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (ix4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public final ix4 e(String str, File file) throws IOException {
-        InterceptResult invokeLL;
-        String c;
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            String b2 = vi.b(FileHelper.GetStreamFromFile(file));
-            if (b2 != null && b2.length() > 0) {
-                b2 = b2.toLowerCase();
-            }
-            hx4 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
-            if (chunkUploadDataByMd5 == null) {
-                chunkUploadDataByMd5 = new hx4();
-                chunkUploadDataByMd5.e(b2);
-                chunkUploadDataByMd5.d(0);
-                chunkUploadDataByMd5.f(file.length());
-            }
-            hx4 hx4Var = chunkUploadDataByMd5;
-            a aVar = new a(this, str, hx4Var, TbConfig.SERVER_ADDRESS + this.d, b2);
-            this.b = aVar;
-            ix4 a2 = aVar.a();
-            this.c = a2;
-            if (a2.d() && (c = c(b2, hx4Var)) != null && !c.equals("")) {
-                AudioInfoData audioInfoData = new AudioInfoData();
-                audioInfoData.parserJson(c);
-                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                    hx4Var.e(audioInfoData.getVoiceId());
-                    this.c.e(hx4Var);
-                } else {
-                    this.c.f(audioInfoData.getErrorCode());
-                    this.c.g(audioInfoData.getErrorUserMsg());
-                    this.c.h(false);
-                }
-            }
-            return this.c;
-        }
-        return (ix4) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
     }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void i() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (editable = this.c) == null) {
+            return;
+        }
+        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
+            this.c.removeSpan(spanGroupForegroundColorSpan);
+        }
+    }
+
+    public void j() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (editable = this.c) == null) {
+            return;
+        }
+        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
+            this.c.removeSpan(eMRichTextAnyIconSpan);
+        }
+    }
+
+    public void k(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) || (editable = this.c) == null || charSequence == null) {
+            return;
+        }
+        try {
+            editable.replace(this.d, this.e, charSequence);
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        this.e = this.d + charSequence.length();
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void n(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(1048589, this, obj, i, i2, i3) == null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void q(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 == z || (aVar = this.g) == null) {
+                return;
+            }
+            aVar.a(this.a, z);
+        }
+    }
+
+    public abstract void r(Editable editable);
+
+    public abstract void s(Editable editable, int i);
 }

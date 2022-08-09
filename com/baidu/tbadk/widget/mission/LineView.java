@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class LineView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -52,8 +52,8 @@ public class LineView extends View {
             paint.setAntiAlias(true);
             this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
             this.a.setStyle(Paint.Style.STROKE);
-            this.a.setStrokeWidth(pi.f(getContext(), R.dimen.tbds2));
-            this.a.setPathEffect(new DashPathEffect(new float[]{pi.f(getContext(), R.dimen.tbds8), pi.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.a.setStrokeWidth(qi.f(getContext(), R.dimen.tbds2));
+            this.a.setPathEffect(new DashPathEffect(new float[]{qi.f(getContext(), R.dimen.tbds8), qi.f(getContext(), R.dimen.tbds8)}, 0.0f));
             this.b = new Path();
         }
     }

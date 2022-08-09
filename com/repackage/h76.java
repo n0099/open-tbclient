@@ -1,33 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.or4;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class h76 extends mr4 {
+public class h76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext k;
-    public Context l;
-    public ViewEventCenter m;
-    public final or4 n;
-    public c56 o;
-    public final List<kr4> p;
-    public final or4.e q;
+    public TbPageContext<?> a;
+    public View b;
+    public PopupWindow c;
+    public Handler d;
+    public Runnable e;
 
     /* loaded from: classes6.dex */
-    public class a implements or4.e {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h76 a;
@@ -50,90 +49,176 @@ public class h76 extends mr4 {
             this.a = h76Var;
         }
 
-        @Override // com.repackage.or4.e
-        public void N(or4 or4Var, int i, View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
-                this.a.dismiss();
-                if (!ni.z()) {
-                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c18);
-                } else if (i == 2) {
-                    this.a.m.dispatchMvcEvent(new y75(4, this.a.o, null, null));
-                } else if (i == 1) {
-                    this.a.m.dispatchMvcEvent(new y75(13, this.a.o, null, null));
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
+                return;
+            }
+            tg.c(this.a.c);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ h76 c;
+
+        public b(h76 h76Var, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h76Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.c = h76Var;
+            this.a = i;
+            this.b = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.g(this.a, this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h76(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext);
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h76 a;
+
+        public c(h76 h76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h76Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    public h76(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewEventCenter};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = new a(this);
-        this.k = tbPageContext;
-        this.l = tbPageContext.getPageActivity();
-        this.m = viewEventCenter;
-        this.p = new ArrayList();
-        or4 or4Var = new or4(this.l);
-        this.n = or4Var;
-        or4Var.n(this.q);
-        i(this.n);
+        this.d = new Handler();
+        this.e = new a(this);
+        this.a = tbPageContext;
     }
 
-    public final void q() {
-        List<kr4> list;
+    public void c(LinkedList<VisitedForumData> linkedList, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.o == null || (list = this.p) == null || this.n == null) {
-            return;
-        }
-        list.clear();
-        this.p.add(new kr4(1, r(this.o.k() == 1 ? R.string.obfuscated_res_0x7f0f0376 : R.string.obfuscated_res_0x7f0f13f4, new Object[0]), this.n));
-        this.p.add(new kr4(2, r(R.string.obfuscated_res_0x7f0f049e, new Object[0]), this.n));
-        this.n.j(this.p);
-    }
-
-    public final String r(int i, Object... objArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
-            Context context = this.l;
-            if (context == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, linkedList, i) == null) {
+            if (linkedList != null && linkedList.size() >= 1) {
+                int d = d(linkedList);
+                if (d < 0) {
+                    ru4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+                    return;
+                } else if (ru4.k().h("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+                    return;
+                } else {
+                    this.d.postDelayed(new b(this, i, d), 100L);
+                    return;
+                }
             }
-            return context.getString(i, objArr);
+            ru4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
         }
-        return (String) invokeIL.objValue;
     }
 
-    public void s() {
-        or4 or4Var;
+    public final int d(LinkedList<VisitedForumData> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (or4Var = this.n) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
+            int size = linkedList.size();
+            for (int i = 0; i < 3 && i < size; i++) {
+                VisitedForumData visitedForumData = linkedList.get(i);
+                if (visitedForumData != null && visitedForumData.isAlaForum()) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void e() {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.c) == null) {
             return;
         }
-        or4Var.i();
+        tg.c(popupWindow);
     }
 
-    public void t(c56 c56Var) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c56Var) == null) {
-            this.o = c56Var;
-            q();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            ru4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+            PopupWindow popupWindow = this.c;
+            if (popupWindow == null || !popupWindow.isShowing()) {
+                if (this.b == null) {
+                    View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) null);
+                    this.b = inflate;
+                    inflate.setOnClickListener(new c(this));
+                }
+                if (this.c == null) {
+                    PopupWindow popupWindow2 = new PopupWindow(this.b, -2, -2);
+                    this.c = popupWindow2;
+                    popupWindow2.setOutsideTouchable(true);
+                }
+                tg.m(this.c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i2 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i);
+                this.d.postDelayed(this.e, 5000L);
+            }
         }
     }
 }

@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ce3;
-import com.repackage.id3;
-import com.repackage.rd3;
-import com.repackage.zq3;
+import com.repackage.ie3;
+import com.repackage.qr3;
+import com.repackage.te3;
+import com.repackage.zd3;
 import com.sina.weibo.sdk.share.BaseActivity;
 @SuppressLint({BaseActivity.TAG})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GameNowInstallAntiBlockingActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,43 +79,43 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = ce3.c0(this);
+            int c0 = te3.c0(this);
             super.onCreate(bundle);
-            ce3.g(this, c0);
-            zq3.q();
+            te3.g(this, c0);
+            qr3.q();
             setContentView(R.layout.obfuscated_res_0x7f0d00ae);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("type");
                 intent.getStringExtra("packageName");
-                id3.d(intent.getStringExtra("ubc_params"));
+                zd3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed5);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090ed7);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f21);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f23);
             if (TextUtils.equals(this.a, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014d));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090ed6).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090f22).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                findViewById(R.id.obfuscated_res_0x7f090ed3).setBackgroundResource(R.color.obfuscated_res_0x7f0603b6);
-                zq3.n();
+                findViewById(R.id.obfuscated_res_0x7f090f1f).setBackgroundResource(R.color.obfuscated_res_0x7f0603c5);
+                qr3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090ed6).setVisibility(8);
-                if (rd3.m()) {
+                findViewById(R.id.obfuscated_res_0x7f090f22).setVisibility(8);
+                if (ie3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
-                } else if (rd3.n()) {
+                } else if (ie3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (rd3.r()) {
+                } else if (ie3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017a);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090ed3).setBackgroundResource(R.color.obfuscated_res_0x7f060385);
-                zq3.o();
+                findViewById(R.id.obfuscated_res_0x7f090f1f).setBackgroundResource(R.color.obfuscated_res_0x7f060394);
+                qr3.o();
             }
             findViewById.setOnClickListener(new a(this));
             LogUtil.logActivity(this, "onCreate");

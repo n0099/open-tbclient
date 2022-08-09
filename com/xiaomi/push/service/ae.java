@@ -17,10 +17,10 @@ public final class ae extends XMPushService.j {
     public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f882a;
+    public final /* synthetic */ XMPushService f883a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f883a;
+    public final /* synthetic */ String f884a;
     public final /* synthetic */ String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,9 +41,9 @@ public final class ae extends XMPushService.j {
                 return;
             }
         }
-        this.f882a = xMPushService;
+        this.f883a = xMPushService;
         this.a = cif;
-        this.f883a = str;
+        this.f884a = str;
         this.b = str2;
     }
 
@@ -59,13 +59,13 @@ public final class ae extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                Cif a = y.a((Context) this.f882a, this.a);
-                a.f626a.a("error", this.f883a);
-                a.f626a.a("reason", this.b);
-                ah.a(this.f882a, a);
+                Cif a = y.a((Context) this.f883a, this.a);
+                a.f627a.a("error", this.f884a);
+                a.f627a.a("reason", this.b);
+                ah.a(this.f883a, a);
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                this.f882a.a(10, e);
+                this.f883a.a(10, e);
             }
         }
     }

@@ -1,23 +1,23 @@
 package com.repackage;
 
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class lw2 extends kw2<Bundle> {
+public class lw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public ab2 a;
 
-    public lw2(String str) {
+    public lw2(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,12 +27,16 @@ public class lw2 extends kw2<Bundle> {
                 return;
             }
         }
-        this.b = str;
+        TreeMap treeMap = new TreeMap();
+        treeMap.put("functionPagePath", str);
+        treeMap.put("paymentArgs", str2);
+        treeMap.put("slaveId", str3);
+        this.a = new ab2("beforeRequestPayment", treeMap);
     }
 
-    public String b() {
+    public ab2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ab2) invokeV.objValue;
     }
 }

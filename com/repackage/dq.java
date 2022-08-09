@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes5.dex */
-public final class dq extends iq {
+/* loaded from: classes6.dex */
+public final class dq extends jq {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
-    public int e;
+    public final String e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,10 @@ public final class dq extends iq {
             }
         }
 
-        public final dq a(TaskInfo taskInfo) {
-            InterceptResult invokeL;
+        public final dq a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskInfo)) == null) ? new dq(taskInfo, null, 0, null, null, 30, null) : (dq) invokeL.objValue;
-        }
-
-        public final dq b(TaskInfo taskInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) ? new dq(taskInfo, null, 22, null, null, 26, null) : (dq) invokeL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) ? new dq(taskInfo, str, null, 0, null, null, 60, null) : (dq) invokeLL.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -70,38 +64,38 @@ public final class dq extends iq {
         f = new a(null);
     }
 
-    public /* synthetic */ dq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? 304 : num, (i2 & 16) != 0 ? "task got repeated duplicateId" : str2);
+    public /* synthetic */ dq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2, (i2 & 8) != 0 ? 8 : i, (i2 & 16) != 0 ? null : num, (i2 & 32) != 0 ? null : str3);
     }
 
-    @Override // com.repackage.wq
+    @Override // com.repackage.xq
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq
+    @Override // com.repackage.jq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public int g() {
+    public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
-        super(str, num, str2);
+    public dq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -114,6 +108,6 @@ public final class dq extends iq {
             }
         }
         this.d = str;
-        this.e = i;
+        this.e = str2;
     }
 }

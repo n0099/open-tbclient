@@ -1,7 +1,12 @@
 package com.repackage;
+
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface vm1 {
-    um1 a();
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    tm1 b();
+    boolean c();
+
+    boolean d();
 }

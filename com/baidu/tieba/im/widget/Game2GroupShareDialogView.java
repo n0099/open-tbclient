@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class Game2GroupShareDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -68,20 +68,20 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0370, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0372, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c24);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d71);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c22);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c27);
-            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c26);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c23);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c65);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c63);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c68);
+            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c67);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c64);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0106, 1);
             this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c21);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c62);
             this.g = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             a();
@@ -93,10 +93,10 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f.setText(this.h.getTitle());
             this.c.setTag(this.h.getImageUrl());
-            this.c.J(this.h.getImageUrl(), 17, false);
+            this.c.K(this.h.getImageUrl(), 17, false);
             this.d.setVisibility(0);
             this.d.setTag(this.h.getShareSourceIcon());
-            this.d.J(this.h.getShareSourceIcon(), 17, false);
+            this.d.K(this.h.getShareSourceIcon(), 17, false);
             this.e.setText(this.h.getContent());
             TextView textView = this.g;
             textView.setText("来自" + this.h.getShareSource());
@@ -115,7 +115,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             EditText editText = this.b;
             if (editText != null) {
-                return oi.charSequence2String(editText.getText(), null);
+                return pi.charSequence2String(editText.getText(), null);
             }
             return null;
         }
@@ -138,7 +138,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
                 shareFromPBMsgData.setImageUrl("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
             }
             this.c.setTag(shareFromPBMsgData.getImageUrl());
-            this.c.J(shareFromPBMsgData.getImageUrl(), 17, false);
+            this.c.K(shareFromPBMsgData.getImageUrl(), 17, false);
             this.d.setVisibility(8);
             this.e.setText(shareFromPBMsgData.getContent());
         }

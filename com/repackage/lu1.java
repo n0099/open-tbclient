@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class lu1 extends ot1 {
+public class lu1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wt1 a;
 
     public lu1() {
         Interceptable interceptable = $ic;
@@ -27,27 +27,19 @@ public class lu1 extends ot1 {
         }
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        wt1 wt1Var;
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) && (wt1Var = this.a) != null && wt1Var.d()) {
-            if (this.a.c()) {
-                pt1Var.b.setShader(this.a.b());
-                return;
-            }
-            pt1Var.e.setColor(this.a.a());
-            pt1Var.b.setColor(this.a.a());
-            pt1Var.b.setShader(null);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) {
+            gu1Var.g = true;
+            canvas.clipPath(gu1Var.f, Region.Op.INTERSECT);
         }
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
-        this.a = new wt1(jSONArray);
     }
 }

@@ -32,7 +32,7 @@ public class cm implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f860a = true;
+            this.a.f861a = true;
             try {
                 com.xiaomi.channel.commonutils.logger.b.m89a("try to trigger the wifi digest broadcast.");
                 Object systemService = this.a.getApplicationContext().getSystemService("MiuiWifiService");

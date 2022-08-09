@@ -1,165 +1,161 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class n45 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "add_user_collect_emotoin";
-    public static String b = "image_url";
-    public static String c = "thumbnail_url";
-    public static String d = "pic_id";
-    public static String e = "package_id";
-    public static String f = "#(meme,setting)";
-    public static String g = "#(meme,collect_";
-    public static String h = "meme,collect_";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ TBAlertBuilder b;
 
-        public a() {
+        public a(c cVar, TBAlertBuilder tBAlertBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, tBAlertBuilder};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = cVar;
+            this.b = tBAlertBuilder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    cVar.a();
+                }
+                this.b.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+        public final /* synthetic */ TBAlertBuilder a;
 
-        public b() {
+        public b(TBAlertBuilder tBAlertBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tBAlertBuilder};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = tBAlertBuilder;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755519454, "Lcom/repackage/n45;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755519454, "Lcom/repackage/n45;");
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("collect_");
-            sb.append(TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("diy_");
-            sb.append(TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return Math.abs(b().hashCode()) + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return Math.abs(a().hashCode()) + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
-        int i = 0;
-        int i2 = 0;
-        while (matcher.find()) {
-            String[] split = matcher.group().split(",");
-            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
-                i2++;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                n45.b();
+                this.a.dismiss();
             }
         }
-        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
-        while (matcher2.find()) {
-            String[] split2 = matcher2.group().split(",");
-            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
-                i++;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a();
+    }
+
+    public static void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (skinType == 4) {
+                    str = "&skin=dart";
+                } else if (skinType == 1) {
+                    str = "&skin=night";
+                } else {
+                    str = "";
+                }
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof TbPageContextSupport) {
+                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.VIRTUAL_IMAGE_MAIN_URL + str});
+                }
+            } catch (Exception e) {
+                BdLog.e("openPageByUrl fail:" + e.toString());
             }
         }
-        if (i2 > 0) {
-            StatisticItem statisticItem = new StatisticItem("c12223");
-            statisticItem.param("obj_param1", i2);
-            TiebaStatic.log(statisticItem);
-        }
-        if (i > 0) {
-            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            statisticItem2.param("obj_param1", i);
-            TiebaStatic.log(statisticItem2);
+    }
+
+    public static void c(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d5, (ViewGroup) null);
+            ms4 d = ms4.d(inflate.findViewById(R.id.obfuscated_res_0x7f09259b));
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258d);
+            ms4 d2 = ms4.d(textView);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X07);
+            d2.v(R.color.CAM_X0105);
+            d2.n(R.string.J_X07);
+            d2.l(R.dimen.L_X02);
+            d2.k(R.color.CAM_X0105);
+            d2.j(R.string.A_X07);
+            textView.setOnClickListener(new a(cVar, tBAlertBuilder));
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258c);
+            ms4 d3 = ms4.d(textView2);
+            d3.A(R.string.F_X01);
+            d3.z(R.dimen.T_X07);
+            d3.v(R.color.CAM_X0304);
+            d3.n(R.string.J_X07);
+            d3.l(R.dimen.L_X02);
+            d3.k(R.color.CAM_X0304);
+            d3.j(R.string.A_X07);
+            textView2.setOnClickListener(new b(tBAlertBuilder));
+            tBAlertBuilder.p(true);
+            tBAlertBuilder.i(inflate);
+            tBAlertBuilder.w();
         }
     }
 }

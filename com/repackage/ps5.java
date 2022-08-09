@@ -1,195 +1,192 @@
 package com.repackage;
 
-import android.graphics.Rect;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class ps5 {
+import com.repackage.ss5;
+/* loaded from: classes7.dex */
+public class ps5 extends os5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView.LayoutManager a;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ps5 {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss5 a;
+        public final /* synthetic */ ps5 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(RecyclerView.LayoutManager layoutManager) {
-            super(layoutManager, null);
+        public a(ps5 ps5Var, ss5 ss5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {layoutManager};
+                Object[] objArr = {ps5Var, ss5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = ps5Var;
+            this.a = ss5Var;
         }
 
-        @Override // com.repackage.ps5
-        public int c(View view2) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                return this.a.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c12659");
+                statisticItem.param("tid", this.a.a.getTid());
+                TiebaStatic.log(statisticItem);
+                ps5 ps5Var = this.b;
+                ps5Var.b(ps5Var.a, this.a.a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
             }
-            return invokeL.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.a.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin : invokeL.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getWidth() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getPaddingLeft() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight() : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends ps5 {
+    /* loaded from: classes7.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(RecyclerView.LayoutManager layoutManager) {
-            super(layoutManager, null);
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutManager};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
         }
 
-        @Override // com.repackage.ps5
-        public int c(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                return this.a.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.a.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin : invokeL.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getHeight() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getPaddingTop() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ps5
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.a.getHeight() - this.a.getPaddingTop()) - this.a.getPaddingBottom() : invokeV.intValue;
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public /* synthetic */ ps5(RecyclerView.LayoutManager layoutManager, a aVar) {
-        this(layoutManager);
-    }
-
-    public static ps5 a(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) ? new a(layoutManager) : (ps5) invokeL.objValue;
-    }
-
-    public static ps5 b(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, layoutManager)) == null) ? new b(layoutManager) : (ps5) invokeL.objValue;
-    }
-
-    public abstract int c(View view2);
-
-    public abstract int d(View view2);
-
-    public abstract int e();
-
-    public abstract int f();
-
-    public abstract int g();
-
-    public ps5(RecyclerView.LayoutManager layoutManager) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ps5(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {layoutManager};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new Rect();
-        this.a = layoutManager;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(null);
+                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07da, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091b27);
+                bVar.a = tbImageView;
+                tbImageView.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
+                bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b2a);
+                bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b26);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b2b);
+                bVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b28);
+                bVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b29);
+                SkinManager.setBackgroundColor(view3, R.color.CAM_X0201);
+                SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(bVar.d, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(bVar.f, (int) R.color.CAM_X0301);
+                view3.setTag(bVar);
+            } else {
+                view3 = view2;
+                bVar = (b) view2.getTag();
+            }
+            ss5 item = getItem(i);
+            if (item != null && (threadData = item.a) != null && threadData.getAuthor() != null && item.a.getThreadAlaInfo() != null) {
+                MetaData author = item.a.getAuthor();
+                bVar.a.K(item.a.getThreadAlaInfo().cover, 10, false);
+                bVar.b.setText(item.a.getTitle());
+                this.d = 0;
+                bVar.e.setVisibility(8);
+                bVar.f.setVisibility(8);
+                if (!ListUtils.isEmpty(item.d)) {
+                    for (ss5.a aVar : item.d) {
+                        if (aVar != null) {
+                            int i2 = aVar.a;
+                            if (1 == i2) {
+                                bVar.e.setVisibility(0);
+                                if (!TextUtils.isEmpty(aVar.b)) {
+                                    bVar.e.setText(aVar.b);
+                                }
+                                this.d++;
+                            } else if (2 == i2) {
+                                bVar.f.setVisibility(0);
+                                if (!TextUtils.isEmpty(aVar.b)) {
+                                    bVar.f.setText(aVar.b);
+                                }
+                                this.d++;
+                            }
+                        }
+                    }
+                }
+                String name_show = author.getName_show();
+                int i3 = this.d <= 1 ? 14 : 13;
+                if (pi.byteLength(name_show) > i3) {
+                    name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i3, StringHelper.STRING_MORE);
+                }
+                bVar.d.setText(name_show);
+                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11c3, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
+                view3.setOnClickListener(new a(this, item));
+                StatisticItem statisticItem = new StatisticItem("c12658");
+                statisticItem.param("tid", item.a.getTid());
+                ns5.c().a(statisticItem);
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

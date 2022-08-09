@@ -1,5 +1,17 @@
 package com.repackage;
+
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface l71 {
-    void onNativeANR(int i);
+public class l71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "arm64-v8a".equalsIgnoreCase(Build.CPU_ABI) ? 2 : 1 : invokeV.intValue;
+    }
 }

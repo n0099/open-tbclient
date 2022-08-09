@@ -1,32 +1,37 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.os.IBinder;
+import androidx.annotation.BinderThread;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.opensource.svgaplayer.proto.ShapeEntity;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class hn9 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
+public final class hn9 extends bn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
-        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
-        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @BinderThread
+    public hn9(wm9 wm9Var, @Nullable int i, @Nullable IBinder iBinder, Bundle bundle) {
+        super(wm9Var, i, bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wm9Var, Integer.valueOf(i), iBinder, bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((wm9) objArr2[0], ((Integer) objArr2[1]).intValue(), (Bundle) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 }

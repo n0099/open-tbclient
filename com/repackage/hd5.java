@@ -1,30 +1,40 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oc5;
+import com.repackage.pc5;
 /* loaded from: classes6.dex */
-public class hd5 {
+public abstract class hd5<Q extends oc5, P extends pc5> extends gd5 implements kd5<P> {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public hd5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = a;
-            if (j > currentTimeMillis) {
-                a = currentTimeMillis;
-                return false;
-            } else if (currentTimeMillis - j < 500) {
-                return true;
-            } else {
-                a = currentTimeMillis;
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeV.booleanValue;
     }
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i(BdUniqueId bdUniqueId);
+
+    public abstract void j(ob5 ob5Var);
 }

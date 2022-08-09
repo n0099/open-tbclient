@@ -1,143 +1,92 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ff8 extends an<hf8, CardViewHolder<yf8>> {
+public class ff8 implements c05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public jy5<hf8> j;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public class a extends jy5<hf8> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ff8 b;
-
-        public a(ff8 ff8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ff8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jy5
-        /* renamed from: d */
-        public void a(View view2, hf8 hf8Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, hf8Var) == null) && hf8Var != null && (this.b.i.getPageActivity() instanceof ForumSquareActivity)) {
-                String className = ((ForumSquareActivity) this.b.i.getPageActivity()).A1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13652");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", hf8Var.a);
-                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, className);
-                    TiebaStatic.log(statisticItem);
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13643");
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", hf8Var.a);
-                statisticItem2.param("obj_locate", 3);
-                TiebaStatic.log(statisticItem2);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), hf8.h);
+    public ff8(Context context, b05 b05Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, b05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new a(this);
-        this.i = tbPageContext;
+        this.a = null;
+        this.a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public CardViewHolder<yf8> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.c05
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            yf8 yf8Var = new yf8(this.i);
-            yf8Var.o(this.e);
-            return new CardViewHolder<>(yf8Var);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, hf8 hf8Var, CardViewHolder<yf8> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b(ShareItem shareItem, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hf8Var, cardViewHolder})) == null) {
-            if (hf8Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
-                return null;
-            }
-            cardViewHolder.b().i(hf8Var);
-            cardViewHolder.b().n(this.j);
-            if (this.i.getPageActivity() instanceof ForumSquareActivity) {
-                String className = ((ForumSquareActivity) this.i.getPageActivity()).A1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13651");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", hf8Var.a);
-                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, className);
-                    TiebaStatic.log(statisticItem);
-                } else {
-                    StatisticItem statisticItem2 = new StatisticItem("c13642");
-                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem2.param("fid", hf8Var.d());
-                    statisticItem2.param("obj_locate", 3);
-                    TiebaStatic.log(statisticItem2);
-                }
-            }
-            return cardViewHolder.a();
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) || this.a == null || shareItem == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        IntentConfig intentConfig = new IntentConfig(this.a);
+        ShareEntity shareEntity = new ShareEntity();
+        shareEntity.setTitle(shareItem.u);
+        shareEntity.setContent(shareItem.v);
+        shareEntity.setReadCount(shareItem.U);
+        int i2 = shareItem.P;
+        shareEntity.setIsVideoThread(i2 == 2 || i2 == 6 || i2 == 8);
+        shareEntity.setImageUri(shareItem.y);
+        shareEntity.canShareBySmartApp = shareItem.r0;
+        String str = shareItem.w;
+        if (i == 6 && !StringUtils.isNull(shareItem.x)) {
+            str = shareItem.x;
+        }
+        shareEntity.setLinkUrl(str);
+        shareEntity.setLocalFile(shareItem.A);
+        shareEntity.setLocation(shareItem.E);
+        shareEntity.setShareTo(i);
+        shareEntity.setStats(shareItem.e());
+        shareEntity.setPreferImageToLink(shareItem.g0);
+        shareEntity.setTid(shareItem.N);
+        shareEntity.setfName(shareItem.s);
+        shareEntity.setTypeShareToSmallApp(shareItem.B);
+        shareEntity.topic = shareItem.R;
+        if (i == 6 && !StringUtils.isNull(shareItem.T)) {
+            shareEntity.topic = shareItem.S + shareItem.T;
+            shareEntity.setContent("");
+        }
+        shareEntity.taskCompleteId = shareItem.V;
+        shareEntity.diskPicOperate = shareItem.D;
+        shareEntity.setExtLiveInfo(shareItem.w0);
+        shareEntity.setFromDuXiaoMan(shareItem.m);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("extra_share_data", shareEntity);
+        bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+        intentConfig.getIntent().putExtras(bundle);
+        shareItem.j(true);
+        intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
     }
 }

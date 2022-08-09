@@ -1,48 +1,39 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetTagList.ResponseTagInfo;
+/* loaded from: classes7.dex */
 public class od7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
 
-    public static nd7 a(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public od7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof cc7)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ((cc7) tbPageContext.getPageActivity()).q();
         }
-        return (nd7) invokeL.objValue;
     }
 
-    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void a(ResponseTagInfo responseTagInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof cc7)) {
-                return null;
-            }
-            return ((cc7) tbPageContext.getPageActivity()).v();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, responseTagInfo) == null) || responseTagInfo == null) {
+            return;
         }
-        return (LegoListFragment) invokeL.objValue;
-    }
-
-    public static sd7 c(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof cc7)) {
-                return null;
-            }
-            return ((cc7) tbPageContext.getPageActivity()).g0();
-        }
-        return (sd7) invokeL.objValue;
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        this.c = responseTagInfo.is_followed.intValue() == 1;
     }
 }

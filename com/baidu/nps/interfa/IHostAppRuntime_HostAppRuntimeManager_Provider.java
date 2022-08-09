@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hl;
-import com.repackage.nb1;
+import com.repackage.ec1;
+import com.repackage.il;
 /* loaded from: classes2.dex */
-public class IHostAppRuntime_HostAppRuntimeManager_Provider implements nb1 {
+public class IHostAppRuntime_HostAppRuntimeManager_Provider implements ec1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IHostAppRuntime_HostAppRuntimeManager_Provider implements nb1 {
         }
     }
 
-    @Override // com.repackage.nb1
+    @Override // com.repackage.ec1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hl() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new il() : invokeV.objValue;
     }
 }

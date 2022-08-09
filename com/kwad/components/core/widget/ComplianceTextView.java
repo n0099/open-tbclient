@@ -179,12 +179,12 @@ public class ComplianceTextView extends TextView {
     private void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f0403a1});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403de});
             this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
-            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060753));
+            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060762));
             this.OK = obtainStyledAttributes.getBoolean(1, true);
             if (getBackground() == null) {
-                setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080bbc));
+                setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080be2));
             }
             obtainStyledAttributes.recycle();
         }
@@ -294,7 +294,7 @@ public class ComplianceTextView extends TextView {
             }
             spannableStringBuilder.append((CharSequence) " ");
             setMovementMethod(LinkMovementMethod.getInstance());
-            setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
+            setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060774));
             setText(spannableStringBuilder);
         }
     }

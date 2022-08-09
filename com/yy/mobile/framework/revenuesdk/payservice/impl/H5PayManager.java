@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -22,9 +23,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
+import tv.athena.revenue.RevenueManager;
 /* loaded from: classes8.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -78,10 +81,16 @@ public class H5PayManager {
                         PayType payType = h5PayParams.payType != null ? h5PayParams.payType : PayType.DXM_PAY_KJ;
                         if (PayType.MOCK_TEST_PAY.equals(payType)) {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 3);
+                            intent.putExtra(H5PayConstant.EXTRA_TITLE, "MOCK支付");
                         } else if (PayType.DXM_PAY_KJ.equals(payType)) {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 2);
+                            intent.putExtra(H5PayConstant.EXTRA_TITLE, "银行卡支付");
                         } else if (PayType.UNION_PAY.equals(payType)) {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 4);
+                            intent.putExtra(H5PayConstant.EXTRA_TITLE, "银联支付");
+                        } else if (PayType.DXM_PAY_H5.equals(payType)) {
+                            intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 5);
+                            intent.putExtra(H5PayConstant.EXTRA_TITLE, "度小满支付");
                         }
                         intent.putExtra(H5PayConstant.EXTRA_URL, h5PayParams.payBackBean.getPayLoad());
                         intent.putExtra(H5PayConstant.EXTRA_APP_ID, h5PayParams.appId);
@@ -186,6 +195,7 @@ public class H5PayManager {
                         }
                     });
                 }
+                reportPayOrderStatusEvent(h5PayParams, getChargeOrderStatusResult, currencyChargeMessage);
             }
         }
     }
@@ -235,10 +245,23 @@ public class H5PayManager {
         }
     }
 
+    private void reportPayOrderStatusEvent(H5PayParams h5PayParams, GetChargeOrderStatusResult getChargeOrderStatusResult, CurrencyChargeMessage currencyChargeMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, this, h5PayParams, getChargeOrderStatusResult, currencyChargeMessage) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(h5PayParams.appId, h5PayParams.usedChannel);
+            if (revenue == null) {
+                RLog.error(TAG, "getSDKReporter error revenue null appId:" + h5PayParams.appId + " usedChannel:" + h5PayParams.usedChannel, new Object[0]);
+            } else if (revenue.getPayEventStatistic() != null) {
+                revenue.getPayEventStatistic().reportPayFlowEvent(PayFlowEventType.paychargeorderStatus, getChargeOrderStatusResult.getStatus() + "", "h5 order result", currencyChargeMessage.orderId, "", currencyChargeMessage.cid + "", currencyChargeMessage.payChannel, currencyChargeMessage.traceid);
+                RLog.info(TAG, "notifyPayResult reportPayFlowEvent status:" + getChargeOrderStatusResult.getStatus());
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void verifyOrder(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
             H5PayVerifyTask h5PayVerifyTask = this.mOrderVerifyTaskMap.get(str);
             H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;
             if (h5PayParams == null) {
@@ -427,7 +450,7 @@ public class H5PayManager {
 
     private synchronized void verifyPayOrder(H5PayVerifyTask h5PayVerifyTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, h5PayVerifyTask) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, h5PayVerifyTask) == null) {
             synchronized (this) {
                 if (h5PayVerifyTask == null) {
                     RLog.error(TAG, "verifyPayOrder error orderVerifyTask null", new Object[0]);

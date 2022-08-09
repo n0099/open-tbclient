@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.ActiveConfig.ActiveConfigReqIdl;
 import tbclient.ActiveConfig.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActiveConfigReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LAUNTCH_FROM_HOME_PAGE = 1;
@@ -58,7 +58,7 @@ public class ActiveConfigReqMsg extends NetMessage {
                 } else {
                     builder.is_schema_up = 0;
                 }
-                ud5.c(builder, true, true, false);
+                te5.c(builder, true, true, false);
                 ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

@@ -4,10 +4,9 @@ import android.os.Process;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.f.p;
 import com.ss.android.socialbase.downloader.i.f;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.InputStream;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     public final InputStream a;
     public final int b;
@@ -149,7 +148,7 @@ public class a implements b {
         Throwable th = this.n;
         if (th != null) {
             if (th instanceof p) {
-                throw new BaseException((int) RevenueServerConst.GetUserYbDetailsRequest, "async reader closed!");
+                throw new BaseException(1068, "async reader closed!");
             }
             f.a(th, "async_read");
         }

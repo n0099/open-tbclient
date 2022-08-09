@@ -1,16 +1,9 @@
 package com.repackage;
+/* loaded from: classes7.dex */
+public interface pn<T> {
+    int getCount();
 
-import android.view.View;
-import android.view.ViewGroup;
-/* loaded from: classes6.dex */
-public interface pn<V extends ViewGroup> {
-    int getContentViewsCount();
+    T getItem(int i);
 
-    int getFooterViewsCount();
-
-    int getHeaderViewsCount();
-
-    V getListView();
-
-    boolean removeHeaderView(View view2);
+    void notifyDataSetChanged();
 }

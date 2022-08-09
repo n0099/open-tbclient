@@ -191,17 +191,17 @@ public class at {
     public static void a(hw hwVar) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, hwVar) == null) || hwVar == null || (map = hwVar.f540a) == null || !map.containsKey("REMOVE_CHANNEL_MARK")) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, hwVar) == null) || hwVar == null || (map = hwVar.f541a) == null || !map.containsKey("REMOVE_CHANNEL_MARK")) {
             return;
         }
-        hwVar.f536a = 0;
-        hwVar.f540a.remove("channel_id");
-        hwVar.f540a.remove("channel_importance");
-        hwVar.f540a.remove("channel_name");
-        hwVar.f540a.remove("channel_description");
-        hwVar.f540a.remove("channel_perm");
-        com.xiaomi.channel.commonutils.logger.b.m89a("delete channel info by:" + hwVar.f540a.get("REMOVE_CHANNEL_MARK"));
-        hwVar.f540a.remove("REMOVE_CHANNEL_MARK");
+        hwVar.f537a = 0;
+        hwVar.f541a.remove("channel_id");
+        hwVar.f541a.remove("channel_importance");
+        hwVar.f541a.remove("channel_name");
+        hwVar.f541a.remove("channel_description");
+        hwVar.f541a.remove("channel_perm");
+        com.xiaomi.channel.commonutils.logger.b.m89a("delete channel info by:" + hwVar.f541a.get("REMOVE_CHANNEL_MARK"));
+        hwVar.f541a.remove("REMOVE_CHANNEL_MARK");
     }
 
     @TargetApi(26)

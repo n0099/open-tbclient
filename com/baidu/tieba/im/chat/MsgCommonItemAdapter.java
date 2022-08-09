@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.Cif;
-import com.repackage.an;
-import com.repackage.hf;
+import com.repackage.bn;
+import com.repackage.jf;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends bn<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<MsglistActivity<?>> i;
-    public hf j;
-    public Cif k;
-    public long l;
-    public boolean m;
-    public boolean n;
-    public int o;
-    public boolean p;
-    public ArrayList<ReportPrivateMsgData> q;
-    public AbsMsglistView.j r;
-    public int s;
+    public TbPageContext<MsglistActivity<?>> a;
+    public Cif b;
+    public jf c;
+    public long d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public boolean h;
+    public ArrayList<ReportPrivateMsgData> i;
+    public AbsMsglistView.j j;
+    public int k;
 
     /* loaded from: classes3.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
@@ -64,7 +64,7 @@ public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHol
             this.a = t;
         }
 
-        public T b() {
+        public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
@@ -90,104 +90,104 @@ public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHol
                 return;
             }
         }
-        this.j = null;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = false;
-        this.p = false;
-        this.s = 3;
-        this.i = tbPageContext;
+        this.b = null;
+        this.c = null;
+        this.d = 0L;
+        this.e = false;
+        this.f = false;
+        this.h = false;
+        this.k = 3;
+        this.a = tbPageContext;
     }
 
-    public final void Z() {
+    public void A(jf jfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.l = System.currentTimeMillis() / 1000;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jfVar) == null) {
+            this.c = jfVar;
         }
     }
 
-    public boolean a0() {
-        InterceptResult invokeV;
+    public void B(ArrayList<ReportPrivateMsgData> arrayList) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.i = arrayList;
+        }
     }
 
-    public boolean b0() {
+    public void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void D(AbsMsglistView.j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jVar) == null) {
+            this.j = jVar;
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = System.currentTimeMillis() / 1000;
+        }
+    }
+
+    public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             if (chatMessage != null && chatMessage.getCacheData() == null) {
                 chatMessage.setCacheData(new MsgCacheData());
             }
-            Z();
+            s();
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void d0(boolean z) {
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.p = z;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.h = z;
         }
     }
 
-    public void e0(boolean z) {
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.n = z;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f = z;
         }
     }
 
-    public void f0(boolean z) {
+    public void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.m = z;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public void g0(hf hfVar) {
+    public void z(Cif cif) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hfVar) == null) {
-            this.j = hfVar;
-        }
-    }
-
-    public void h0(Cif cif) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cif) == null) {
-            this.k = cif;
-        }
-    }
-
-    public void i0(ArrayList<ReportPrivateMsgData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
-            this.q = arrayList;
-        }
-    }
-
-    public void j0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.o = i;
-        }
-    }
-
-    public void k0(AbsMsglistView.j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jVar) == null) {
-            this.r = jVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cif) == null) {
+            this.b = cif;
         }
     }
 }

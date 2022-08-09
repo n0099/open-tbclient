@@ -13,7 +13,7 @@ public class aa implements Runnable {
     public final /* synthetic */ MiTinyDataClient.a.C0703a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hn f47a;
+    public final /* synthetic */ hn f48a;
 
     public aa(MiTinyDataClient.a.C0703a c0703a, hn hnVar) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class aa implements Runnable {
             }
         }
         this.a = c0703a;
-        this.f47a = hnVar;
+        this.f48a = hnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f42a.add(this.f47a);
+            this.a.f43a.add(this.f48a);
             this.a.a();
         }
     }

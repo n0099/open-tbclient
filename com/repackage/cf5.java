@@ -1,30 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface cf5 {
-    void a();
+public abstract class cf5<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Canvas canvas);
+    public cf5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(ListView listView, Context context, AttributeSet attributeSet);
-
-    void onDraw(Canvas canvas);
-
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
-
-    void onMeasure(int i, int i2);
-
-    void onSizeChanged(int i, int i2, int i3, int i4);
-
-    boolean onTouchEvent(MotionEvent motionEvent);
-
-    void requestLayout();
-
-    void setAdapter(ListAdapter listAdapter);
+    public abstract T doInBackground();
 }

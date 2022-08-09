@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uw8;
-import com.repackage.vw8;
+import com.repackage.kz8;
+import com.repackage.lz8;
 /* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vw8 a;
-    public uw8 b;
+    public lz8 a;
+    public kz8 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -40,23 +40,10 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
-    public String A1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AccessState accessState = this.d;
-            if (accessState == null || accessState.getUserInfo() == null) {
-                return null;
-            }
-            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "https://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -64,7 +51,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -72,7 +59,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
                 if (i == 12006) {
@@ -88,9 +75,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new vw8(this);
+            this.a = new lz8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -103,12 +90,12 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 this.c = newWriteModel;
                 newWriteModel.setWriteData(this.e);
                 if (this.e.getWriteImagesInfo() != null) {
-                    this.c.c0(this.e.getWriteImagesInfo().size() > 0);
+                    this.c.b0(this.e.getWriteImagesInfo().size() > 0);
                 }
-                uw8 uw8Var = new uw8(this.a, this.c);
-                this.b = uw8Var;
-                this.a.l(uw8Var);
-                this.b.h(A1());
+                kz8 kz8Var = new kz8(this.a, this.c);
+                this.b = kz8Var;
+                this.a.l(kz8Var);
+                this.b.h(z1());
                 return;
             }
             finish();
@@ -118,9 +105,22 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             this.a.k();
         }
+    }
+
+    public String z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AccessState accessState = this.d;
+            if (accessState == null || accessState.getUserInfo() == null) {
+                return null;
+            }
+            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "https://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+        }
+        return (String) invokeV.objValue;
     }
 }

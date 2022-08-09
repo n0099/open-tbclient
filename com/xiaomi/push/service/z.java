@@ -16,7 +16,7 @@ public final class z extends XMPushService.j {
     public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f1011a;
+    public final /* synthetic */ XMPushService f1012a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(int i, XMPushService xMPushService, Cif cif) {
@@ -36,7 +36,7 @@ public final class z extends XMPushService.j {
                 return;
             }
         }
-        this.f1011a = xMPushService;
+        this.f1012a = xMPushService;
         this.a = cif;
     }
 
@@ -52,10 +52,10 @@ public final class z extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ah.a(this.f1011a, ah.a(this.a.b(), this.a.m466a()));
+                ah.a(this.f1012a, ah.a(this.a.b(), this.a.m466a()));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                this.f1011a.a(10, e);
+                this.f1012a.a(10, e);
             }
         }
     }

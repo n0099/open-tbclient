@@ -72,7 +72,7 @@ public class be {
             if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a = bg.a().a(k, l)) == null) {
                 return;
             }
-            hb.a(this.a, a.f933a, hb.a(gnVar.m371a()), true, true, System.currentTimeMillis());
+            hb.a(this.a, a.f934a, hb.a(gnVar.m371a()), true, true, System.currentTimeMillis());
         }
     }
 
@@ -85,7 +85,7 @@ public class be {
             if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a = bg.a().a(num, g)) == null) {
                 return;
             }
-            hb.a(this.a, a.f933a, flVar.c(), true, true, System.currentTimeMillis());
+            hb.a(this.a, a.f934a, flVar.c(), true, true, System.currentTimeMillis());
         }
     }
 

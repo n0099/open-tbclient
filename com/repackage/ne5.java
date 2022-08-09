@@ -1,148 +1,133 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.TbConfig;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebpForceSwitch;
+import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
-import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.io.ByteArrayOutputStream;
-import tbclient.TiebaPlusInfo;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class ne5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WXMediaMessage a;
-        public final /* synthetic */ IWXAPI b;
-        public final /* synthetic */ SendMessageToWX.Req c;
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getInst().getCapabilityOfWebp() : invokeV.booleanValue;
+    }
 
-        public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wXMediaMessage, iwxapi, req};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
+            if (loadInt > 5) {
+                TbadkCoreApplication.getInst().setCapableOfWebp(false);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
+                return;
             }
-            this.a = wXMediaMessage;
-            this.b = iwxapi;
-            this.c = req;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((a) ymVar, str, i);
-                if (ymVar != null) {
-                    Bitmap p = ymVar.p();
-                    this.a.thumbData = ne5.a(p);
-                } else {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f18);
-                    this.a.thumbData = ne5.a(cashBitmap);
-                }
-                this.b.sendReq(this.c);
-            }
+            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
     }
 
-    public static byte[] a(Bitmap bitmap) {
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int i = 0;
+            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
+                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
+                if (assets != null) {
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = assets.open("webp_test/test.webp");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                        z = true;
+                        if (!z) {
+                            TiebaStatic.log("LocalWebpUnSupport");
+                            i = 6;
+                        }
+                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                        return;
+                    }
+                }
+                z = false;
+                if (!z) {
+                }
+                TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                return;
+            }
+            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
+        }
+    }
+
+    @NonNull
+    public static Pair<Boolean, String> d(@Nullable String str) {
         InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
-            if (bitmap == null) {
-                try {
-                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f18);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f()) {
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            if (str != null && str.length() != 0) {
+                int indexOf = str.indexOf("hiphotos.baidu.com");
+                if (indexOf <= 0) {
+                    indexOf = str.indexOf("tiebapic.baidu.com");
                 }
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return String.valueOf(System.currentTimeMillis());
-            }
-            return str + System.currentTimeMillis();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.MAIN");
-                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.setComponent(componentName);
-                context.startActivity(intent);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
-    }
-
-    public static void d(TiebaPlusInfo tiebaPlusInfo, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tiebaPlusInfo, str) == null) {
-            UriBuilder uriBuilder = new UriBuilder(tiebaPlusInfo.h5_jump_param);
-            if (uriBuilder.getParamsObject() != null) {
-                WXWebpageObject wXWebpageObject = new WXWebpageObject();
-                String string = uriBuilder.getParamsObject().getString("url");
-                if (TextUtils.isEmpty(string)) {
-                    return;
+                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
+                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
                 }
-                wXWebpageObject.webpageUrl = string;
-                WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
-                wXMediaMessage.title = str;
-                SendMessageToWX.Req req = new SendMessageToWX.Req();
-                req.transaction = b("webpage");
-                req.message = wXMediaMessage;
-                req.scene = 1;
-                jg.h().k(tiebaPlusInfo.wx_thumbnail, 10, new a(wXMediaMessage, WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID), req), 0, 0, null, new Object[0]);
+                return new Pair<>(Boolean.FALSE, str);
             }
+            return new Pair<>(Boolean.FALSE, str);
         }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? WebpForceSwitch.isOn() || (a() && h()) : invokeV.booleanValue;
+    }
+
+    public static void g(@NonNull String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        }
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1 : invokeV.booleanValue;
     }
 }

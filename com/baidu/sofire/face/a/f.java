@@ -15,6 +15,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.TextureView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -504,7 +505,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         this.a.A.setDisplayOrientation(a2);
                     } catch (Throwable unused) {
                     }
-                    this.a.B.set("rotation", a2);
+                    this.a.B.set(Key.ROTATION, a2);
                     this.a.w.set(a2);
                     f fVar4 = this.a;
                     Point a3 = com.baidu.sofire.face.c.a.a(fVar4.B, fVar4.k, fVar4.l);
@@ -696,7 +697,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         f fVar5 = this.a;
                         int a = f.a(fVar5, fVar5.a);
                         this.a.G.setDisplayOrientation(a);
-                        this.a.H.set("rotation", a);
+                        this.a.H.set(Key.ROTATION, a);
                         this.a.w.set(a);
                         f fVar6 = this.a;
                         Point a2 = com.baidu.sofire.face.c.a.a(fVar6.H, fVar6.k, fVar6.l);

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g17;
+import com.repackage.a37;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
 /* loaded from: classes3.dex */
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g17 mTopicDetailData;
+    public a37 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicDetailMessage() {
@@ -35,10 +35,10 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public g17 getTopicDetailData() {
+    public a37 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDetailData : (g17) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDetailData : (a37) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         if (getError() != 0 || newHottopicResIdl.data == null) {
             return;
         }
-        g17 g17Var = new g17();
-        this.mTopicDetailData = g17Var;
-        g17Var.b(newHottopicResIdl.data);
+        a37 a37Var = new a37();
+        this.mTopicDetailData = a37Var;
+        a37Var.b(newHottopicResIdl.data);
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
-import com.repackage.de9;
+import com.repackage.yg9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0767;
+                i = R.string.obfuscated_res_0x7f0f0776;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0769;
+                i = R.string.obfuscated_res_0x7f0f0778;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0768;
+                i = R.string.obfuscated_res_0x7f0f0777;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public de9 getDownloadListener() {
+    public yg9 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new de9(this.e) : (de9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new yg9(this.e) : (yg9) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -160,11 +160,11 @@ public class g0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d0);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e7);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ec);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);
         }
     }
 }

@@ -1,29 +1,39 @@
 package com.repackage;
 
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class sd9 implements RippedAd.Acceptor {
+public class sd9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ sd9 a = new sd9();
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public ic1<yd9> a;
 
-    private /* synthetic */ sd9() {
+    public sd9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-    public final String accept(Object obj) {
-        InterceptResult invokeL;
-        String optString;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            optString = ((JSONObject) obj).optString("url");
-            return optString;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gc1 b = gc1.b();
+            this.a = b;
+            b.a(new zd9());
         }
-        return (String) invokeL.objValue;
     }
 }

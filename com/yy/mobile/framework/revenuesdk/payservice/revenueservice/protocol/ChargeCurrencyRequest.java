@@ -85,20 +85,20 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChargeCurrencyRequest(int i, int i2, String str, String str2, String str3, double d) {
-        this(0, i, i2, str, str2, str3, d);
+        this(0L, i, i2, str, str2, str3, d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, Double.valueOf(d)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], ((Double) objArr2[6]).doubleValue());
+                this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], ((Double) objArr2[6]).doubleValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -138,21 +138,21 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ChargeCurrencyRequest(int i, int i2, int i3, String str, String str2, String str3, double d) {
-        this(i, 0, i2, 10002, i3, str, str2, str3, d, 0, true, "", "", "1.0.0", "");
+    public ChargeCurrencyRequest(long j, int i, int i2, String str, String str2, String str3, double d) {
+        this(j, 0, i, 10002, i2, str, str2, str3, d, 0, true, "", "", "1.0.0", "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Double.valueOf(d)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, Double.valueOf(d)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], ((Double) objArr2[8]).doubleValue(), ((Integer) objArr2[9]).intValue(), ((Boolean) objArr2[10]).booleanValue(), (String) objArr2[11], (String) objArr2[12], (String) objArr2[13], (String) objArr2[14]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -164,12 +164,12 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, str3, Double.valueOf(d), Integer.valueOf(i5), Boolean.valueOf(z), str4, str5, str6, str7};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
                 int i7 = i6 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }

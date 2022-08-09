@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
-import com.repackage.ud5;
+import com.repackage.og;
+import com.repackage.te5;
 import com.squareup.wire.Message;
 import tbclient.User;
 import tbclient.UserPost.DataReq;
 import tbclient.UserPost.UserPostReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.uid = Long.valueOf(ng.g(this.uid, 0L));
+            builder.uid = Long.valueOf(og.g(this.uid, 0L));
             builder.portrait = this.portrait;
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
@@ -321,7 +321,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXVideoObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_LIMIT = 10240;
@@ -54,7 +54,7 @@ public class WXVideoObject implements WXMediaMessage.IMediaObject {
                     str2 = "checkArgs fail, videoUrl is too long";
                 }
             }
-            Log.e("MicroMsg.SDK.WXVideoObject", str2);
+            Log.e(TAG, str2);
             return false;
         }
         return invokeV.booleanValue;

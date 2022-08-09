@@ -1,103 +1,102 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.RequestBody;
 import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.Cookie;
+import com.baidu.searchbox.network.support.cookie.CookieHandler;
+import com.baidu.searchbox.network.support.cookie.CookieJar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f50;
+import com.repackage.h50;
 import java.io.IOException;
 import java.util.List;
 /* loaded from: classes7.dex */
-public final class s50 implements f50.a {
+public final class s50 implements h50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<f50> a;
-    public k50 b;
-    public final int c;
-    public final Request d;
-    public final Call e;
-    public int f;
+    public final CookieJar a;
+    public l50 b;
 
-    public s50(List<f50> list, k50 k50Var, int i, Request request, Call call) {
+    public s50(CookieJar cookieJar, l50 l50Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, k50Var, Integer.valueOf(i), request, call};
+            Object[] objArr = {cookieJar, l50Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = list;
-        this.b = k50Var;
-        this.c = i;
-        this.d = request;
-        this.e = call;
+        this.a = cookieJar;
+        this.b = l50Var;
     }
 
-    @Override // com.repackage.f50.a
-    public Response a(Request request) throws IOException {
+    @Override // com.repackage.h50
+    public Response a(h50.a aVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? b(request, this.b) : (Response) invokeL.objValue;
-    }
-
-    public Response b(Request request, k50 k50Var) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, k50Var)) == null) {
-            if (this.c < this.a.size()) {
-                this.f++;
-                s50 s50Var = new s50(this.a, k50Var, this.c + 1, request, this.e);
-                f50 f50Var = this.a.get(this.c);
-                Response a = f50Var.a(s50Var);
-                if (a != null) {
-                    if (a.body() != null) {
-                        a.getStatRecord().responseLength = a.body().contentLength();
-                        a.getStatRecord().finishTs = System.currentTimeMillis();
-                        MediaType contentType = a.body().contentType();
-                        if (contentType != null) {
-                            a.getStatRecord().contentType = contentType.toString();
-                        }
-                        return a;
-                    }
-                    throw new IllegalStateException("interceptor " + f50Var + " returned a response with no body");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            Request.Builder newBuilder = request.newBuilder();
+            newBuilder.removeHeader("bdapp-support-brotli");
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
                 }
-                throw new NullPointerException("interceptor " + f50Var + " returned null");
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
+                } else {
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
+                }
             }
-            throw new AssertionError();
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            if (request.header("User-Agent") == null && this.b.y() != null) {
+                newBuilder.header("User-Agent", this.b.y());
+            }
+            Response a = aVar.a(newBuilder.build());
+            CookieHandler.receiveHeaders(this.a, request, a.headers());
+            return a.newBuilder().request(request).build();
         }
-        return (Response) invokeLL.objValue;
+        return (Response) invokeL.objValue;
     }
 
-    public Call call() {
-        InterceptResult invokeV;
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Call) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f50.a
-    public k50 connection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (k50) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f50.a
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Request) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
+                }
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

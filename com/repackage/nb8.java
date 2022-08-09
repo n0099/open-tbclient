@@ -1,17 +1,33 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class nb8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nb8 {
 
-    public abstract void a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
+    }
 
-    public abstract void b();
+    /* loaded from: classes6.dex */
+    public interface b {
+        int a(Context context, Map<String, String> map);
+    }
 
-    public abstract void c();
+    /* loaded from: classes6.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
 
-    public abstract void d();
+    /* loaded from: classes6.dex */
+    public interface d {
+    }
+
+    boolean a(String str);
+
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
+
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

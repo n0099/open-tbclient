@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk9;
-import com.repackage.tk9;
+import com.repackage.an9;
+import com.repackage.on9;
 import java.util.List;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class WakeLockEvent extends StatsEvent {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -54,7 +54,7 @@ public final class WakeLockEvent extends StatsEvent {
                 return;
             }
         }
-        CREATOR = new tk9();
+        CREATOR = new on9();
     }
 
     public WakeLockEvent(int i, long j, int i2, String str, int i3, @Nullable List<String> list, String str2, long j2, int i4, String str3, String str4, float f, long j3, String str5, boolean z) {
@@ -94,23 +94,23 @@ public final class WakeLockEvent extends StatsEvent {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, this.zza);
-            fk9.i(parcel, 2, this.zzb);
-            fk9.k(parcel, 4, this.zzd, false);
-            fk9.g(parcel, 5, this.zzg);
-            fk9.l(parcel, 6, this.zzh, false);
-            fk9.i(parcel, 8, this.zzj);
-            fk9.k(parcel, 10, this.zze, false);
-            fk9.g(parcel, 11, this.zzc);
-            fk9.k(parcel, 12, this.zzi, false);
-            fk9.k(parcel, 13, this.zzl, false);
-            fk9.g(parcel, 14, this.zzk);
-            fk9.e(parcel, 15, this.zzm);
-            fk9.i(parcel, 16, this.zzn);
-            fk9.k(parcel, 17, this.zzf, false);
-            fk9.c(parcel, 18, this.zzo);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.g(parcel, 1, this.zza);
+            an9.i(parcel, 2, this.zzb);
+            an9.k(parcel, 4, this.zzd, false);
+            an9.g(parcel, 5, this.zzg);
+            an9.l(parcel, 6, this.zzh, false);
+            an9.i(parcel, 8, this.zzj);
+            an9.k(parcel, 10, this.zze, false);
+            an9.g(parcel, 11, this.zzc);
+            an9.k(parcel, 12, this.zzi, false);
+            an9.k(parcel, 13, this.zzl, false);
+            an9.g(parcel, 14, this.zzk);
+            an9.e(parcel, 15, this.zzm);
+            an9.i(parcel, 16, this.zzn);
+            an9.k(parcel, 17, this.zzf, false);
+            an9.c(parcel, 18, this.zzo);
+            an9.b(parcel, a);
         }
     }
 

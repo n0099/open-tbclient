@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -45,6 +45,6 @@ public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda impleme
     public final Integer invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(pi.k(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2)) : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(qi.k(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2)) : (Integer) invokeV.objValue;
     }
 }

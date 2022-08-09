@@ -28,7 +28,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CircularRevealHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_SHADER = 0;
@@ -54,9 +54,9 @@ public class CircularRevealHelper {
     @NonNull
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1068view;
+    public final View f1071view;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Delegate {
         void actualDraw(Canvas canvas);
 
@@ -64,7 +64,7 @@ public class CircularRevealHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface Strategy {
     }
 
@@ -108,7 +108,7 @@ public class CircularRevealHelper {
         }
         this.delegate = delegate;
         View view2 = (View) delegate;
-        this.f1068view = view2;
+        this.f1071view = view2;
         view2.setWillNotDraw(false);
         this.revealPath = new Path();
         this.revealPaint = new Paint(7);
@@ -158,7 +158,7 @@ public class CircularRevealHelper {
     private float getDistanceToFurthestCorner(@NonNull CircularRevealWidget.RevealInfo revealInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, revealInfo)) == null) ? MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.f1068view.getWidth(), this.f1068view.getHeight()) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, revealInfo)) == null) ? MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.f1071view.getWidth(), this.f1071view.getHeight()) : invokeL.floatValue;
     }
 
     private void invalidateRevealInfo() {
@@ -171,7 +171,7 @@ public class CircularRevealHelper {
                     this.revealPath.addCircle(revealInfo.centerX, revealInfo.centerY, revealInfo.radius, Path.Direction.CW);
                 }
             }
-            this.f1068view.invalidate();
+            this.f1071view.invalidate();
         }
     }
 
@@ -203,11 +203,11 @@ public class CircularRevealHelper {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && STRATEGY == 0) {
             this.buildingCircularRevealCache = true;
             this.hasCircularRevealCache = false;
-            this.f1068view.buildDrawingCache();
-            Bitmap drawingCache = this.f1068view.getDrawingCache();
-            if (drawingCache == null && this.f1068view.getWidth() != 0 && this.f1068view.getHeight() != 0) {
-                drawingCache = Bitmap.createBitmap(this.f1068view.getWidth(), this.f1068view.getHeight(), Bitmap.Config.ARGB_8888);
-                this.f1068view.draw(new Canvas(drawingCache));
+            this.f1071view.buildDrawingCache();
+            Bitmap drawingCache = this.f1071view.getDrawingCache();
+            if (drawingCache == null && this.f1071view.getWidth() != 0 && this.f1071view.getHeight() != 0) {
+                drawingCache = Bitmap.createBitmap(this.f1071view.getWidth(), this.f1071view.getHeight(), Bitmap.Config.ARGB_8888);
+                this.f1071view.draw(new Canvas(drawingCache));
             }
             if (drawingCache != null) {
                 Paint paint = this.revealPaint;
@@ -223,9 +223,9 @@ public class CircularRevealHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && STRATEGY == 0) {
             this.hasCircularRevealCache = false;
-            this.f1068view.destroyDrawingCache();
+            this.f1071view.destroyDrawingCache();
             this.revealPaint.setShader(null);
-            this.f1068view.invalidate();
+            this.f1071view.invalidate();
         }
     }
 
@@ -246,13 +246,13 @@ public class CircularRevealHelper {
                     canvas.clipPath(this.revealPath);
                     this.delegate.actualDraw(canvas);
                     if (shouldDrawScrim()) {
-                        canvas.drawRect(0.0f, 0.0f, this.f1068view.getWidth(), this.f1068view.getHeight(), this.scrimPaint);
+                        canvas.drawRect(0.0f, 0.0f, this.f1071view.getWidth(), this.f1071view.getHeight(), this.scrimPaint);
                     }
                     canvas.restoreToCount(save);
                 } else if (i == 2) {
                     this.delegate.actualDraw(canvas);
                     if (shouldDrawScrim()) {
-                        canvas.drawRect(0.0f, 0.0f, this.f1068view.getWidth(), this.f1068view.getHeight(), this.scrimPaint);
+                        canvas.drawRect(0.0f, 0.0f, this.f1071view.getWidth(), this.f1071view.getHeight(), this.scrimPaint);
                     }
                 } else {
                     throw new IllegalStateException("Unsupported strategy " + STRATEGY);
@@ -260,7 +260,7 @@ public class CircularRevealHelper {
             } else {
                 this.delegate.actualDraw(canvas);
                 if (shouldDrawScrim()) {
-                    canvas.drawRect(0.0f, 0.0f, this.f1068view.getWidth(), this.f1068view.getHeight(), this.scrimPaint);
+                    canvas.drawRect(0.0f, 0.0f, this.f1071view.getWidth(), this.f1071view.getHeight(), this.scrimPaint);
                 }
             }
             drawOverlayDrawable(canvas);
@@ -309,7 +309,7 @@ public class CircularRevealHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
             this.overlayDrawable = drawable;
-            this.f1068view.invalidate();
+            this.f1071view.invalidate();
         }
     }
 
@@ -317,7 +317,7 @@ public class CircularRevealHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.scrimPaint.setColor(i);
-            this.f1068view.invalidate();
+            this.f1071view.invalidate();
         }
     }
 

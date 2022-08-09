@@ -1,55 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class d24 {
+/* loaded from: classes6.dex */
+public class d24 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile c24 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public DatagramPacket a;
-    public i24 b;
 
-    public d24(DatagramPacket datagramPacket, i24 udpsocket) {
+    public static synchronized c24 a() {
+        InterceptResult invokeV;
+        c24 c24Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {datagramPacket, udpsocket};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
-        this.a = datagramPacket;
-        this.b = udpsocket;
-    }
-
-    public final void a() {
-        DatagramSocket D;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                i24 i24Var = this.b;
-                if (i24Var == null || (D = i24Var.D()) == null) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (d24.class) {
+                if (a == null) {
+                    a = new c24();
                 }
-                D.send(this.a);
-            } catch (Throwable unused) {
-                i24 i24Var2 = this.b;
-                if (i24Var2 != null) {
-                    i24Var2.E("send", "send failed");
-                }
+                c24Var = a;
             }
+            return c24Var;
         }
+        return (c24) invokeV.objValue;
     }
 }
